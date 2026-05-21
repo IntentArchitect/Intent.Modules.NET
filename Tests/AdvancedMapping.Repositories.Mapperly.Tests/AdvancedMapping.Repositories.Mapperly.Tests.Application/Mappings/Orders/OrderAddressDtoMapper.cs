@@ -14,6 +14,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapperIgnoreSource(nameof(Address.CustomerId))]
         public partial OrderAddressDto AddressToOrderAddressDto(Address address);
 
-        public partial List<OrderAddressDto> AddressToOrderAddressDtoList(List<Address> addresses);
+        public partial List<OrderAddressDto> AddressToOrderAddressDtoList(IEnumerable<Address> addresses);
     }
 }

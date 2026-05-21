@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#afa5706d-9dd7-46a9-bce8-67ea212a678f</correlationId>
+      <path>CleanArchitecture.Comprehensive.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:58:40.437165Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>6F2933C58D1FF84E927747E6588D8C938624243F0FD190B51974B1C7352FBEEB</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Blazor.WebAssembly.ProgramTemplate#814d8866-e0b6-45bb-9dbf-21101d866007</correlationId>
       <path>CleanArchitecture.Comprehensive.BlazorClient/Client/Program.cs</path>
       <count>2</count>
@@ -13,6 +23,16 @@
       <approvedAt>2025-09-02T22:40:39.197857Z</approvedAt>
       <deviationsHash>15EF45840CC9DFC30FE037B4322716C6739B4A98B0C9C31943849688E66B5549</deviationsHash>
       <fileHash>276FAC0AD81449635DD3A0E135F03ECD3A2F5590ED108536F83F11B2DF8AE3A3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a495c092-cbe9-4d27-a059-c2d1cbdedbb5</correlationId>
+      <path>CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:58:40.4451427Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>491926B356390185CCB1CA6D1AC42D7EC53BFA66A5672684167D1AF0A3CDB624</fileHash>
     </file>
   </files>
 </deviationsLog>

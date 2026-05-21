@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#793fc879-9106-4e7d-ae8c-3b056aca9e1f</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:07:41.7834102Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>3B07E4536F70B852132939B25F19C58BB0597B3151CDD9030E390089A947DC96</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1d81b261-b13b-4ecb-82b1-6461fdadfdaa</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:07:41.783866Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>FB2D5BB9713CB4ED94C067A6274A4159201748D913012D55797E19EFE7E2F952</fileHash>
+    </file>
+  </files>
 </deviationsLog>

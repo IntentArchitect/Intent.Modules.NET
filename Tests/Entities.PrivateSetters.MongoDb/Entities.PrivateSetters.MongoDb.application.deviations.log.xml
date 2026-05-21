@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#236c358c-ffc0-46b1-8416-24cf2d7f6f71</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:04:40.8948963Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>02DB97A8C2714FDF7E7B8FC95FCEC47D503D155A745A62DE85CCE8799B66964D</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Entities.DomainEntity#1719967b-12e5-469c-b69d-689abe37aa89</correlationId>
       <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Invoice.cs</path>
       <count>1</count>
@@ -13,6 +23,16 @@
       <approvedAt>2025-07-09T18:57:32.330267Z</approvedAt>
       <deviationsHash>F16162E04F95365690177735A45017B40FCD2C0FF1EEDEC0318576E885FBE2D9</deviationsHash>
       <fileHash>34C9E1AD4B5A0EF17D72622251802CE6E49118191AC37F4715C6EAB08219ADDC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#6fe8ca9c-d401-4398-8d14-4c021c344a0f</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:04:40.895069Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>A1B727CA3C8F56B9877DE650878314A2A4419DB0756DD898627A5CFD021DE9A1</fileHash>
     </file>
   </files>
 </deviationsLog>

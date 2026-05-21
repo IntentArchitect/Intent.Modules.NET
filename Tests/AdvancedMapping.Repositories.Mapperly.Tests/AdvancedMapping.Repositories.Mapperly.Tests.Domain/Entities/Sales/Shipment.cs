@@ -9,6 +9,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
         public Shipment()
         {
             Provider = null!;
+            Dispatch = null!;
+            Manifest = null!;
         }
 
         public Guid Id { get; set; }
@@ -20,5 +22,13 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
         public string? TrackingNumber { get; set; }
 
         public DateTime? ShippedOn { get; set; }
+
+        public Guid? ContainerId { get; set; }
+
+        public virtual Dispatch Dispatch { get; set; }
+
+        public virtual Manifest Manifest { get; set; }
+
+        public virtual Container? Container { get; set; }
     }
 }

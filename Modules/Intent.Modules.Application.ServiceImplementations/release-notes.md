@@ -1,3 +1,7 @@
+### Version 4.7.2
+
+- Fixed: Mismatch on skill name and usage `traditional-service-implementation` -> `application-service-implementation` fixed to be `application-service-implementation`.
+
 ### Version 4.7.1
 
 - Improvement: AI Context supplied for supplying context and skills.

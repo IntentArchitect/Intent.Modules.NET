@@ -9,13 +9,14 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
 {
     public class CreateCustomerCommand : IRequest<Guid>, ICommand
     {
-        public CreateCustomerCommand(string name, string email, bool isVip, DateTime? birthDate, string? metadataJson)
+        public CreateCustomerCommand(string name, string email, bool isVip, DateTime? birthDate, string? metadataJson, CreateCustomerCommandPreferencesDto? preferences)
         {
             Name = name;
             Email = email;
             IsVip = isVip;
             BirthDate = birthDate;
             MetadataJson = metadataJson;
+            Preferences = preferences;
         }
 
         public string Name { get; set; }
@@ -23,5 +24,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
         public bool IsVip { get; set; }
         public DateTime? BirthDate { get; set; }
         public string? MetadataJson { get; set; }
+        public CreateCustomerCommandPreferencesDto? Preferences { get; set; }
     }
 }

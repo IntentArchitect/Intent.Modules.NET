@@ -27,5 +27,25 @@
       <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
       <fileHash>672312C1B57BC89D4F60242EF06601AB7E09F2091B8920D4F35EDDE8A28E79CC</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#15054f2d-d868-4953-aeaf-9593e01db717</correlationId>
+      <path>AzureFunctions.NET6.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:00:34.8183439Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>793E1B982C1A7B5F41A71ED48C559378112287C411D8ED5BED1CE7B92801A98E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#bfb4302e-5218-4fb3-81f7-95367b7796d0</correlationId>
+      <path>AzureFunctions.NET6.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:00:34.8186059Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>7908E5BA5162C53BAFC7B21CBD80EAE4DF832D25FB6D8A356EFBD5DBB7BB78F8</fileHash>
+    </file>
   </files>
 </deviationsLog>

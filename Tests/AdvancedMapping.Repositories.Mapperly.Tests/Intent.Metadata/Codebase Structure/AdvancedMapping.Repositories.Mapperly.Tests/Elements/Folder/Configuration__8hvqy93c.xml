@@ -3,54 +3,24 @@
   <name>Configuration</name>
   <display>Configuration</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2da7ab48-0251-4062-9b8c-c8b013350b56</parentFolderId>
-  <stereotypes />
+  <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="56319897-58da-40ee-858f-17daba39eb3a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</name>
-      <display>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</display>
-      <externalReference>Intent.AspNetCore.HealthChecks</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="8d92b648-b7d7-4ef3-b58b-cc981fed27a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
-      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
-      <externalReference>Intent.AspNetCore.Versioning</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="56dbe9d2-f913-492a-b7dd-4e3d82ffba02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
-      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
-      <externalReference>Intent.AspNetCore.Versioning</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="eaaa9c19-16e5-4c7a-89c5-249ea025d82a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
       <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
@@ -59,21 +29,45 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d0a27e24-c3f7-41f7-9a3f-7643706aabe4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
-      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="56319897-58da-40ee-858f-17daba39eb3a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</name>
+      <display>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</display>
+      <externalReference>Intent.AspNetCore.HealthChecks</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -87,7 +81,97 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
-      <stereotypes />
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d0a27e24-c3f7-41f7-9a3f-7643706aabe4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8d92b648-b7d7-4ef3-b58b-cc981fed27a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="56dbe9d2-f913-492a-b7dd-4e3d82ffba02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>042f287b-d291-470d-9abd-2442b93cc486</parentFolderId>
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

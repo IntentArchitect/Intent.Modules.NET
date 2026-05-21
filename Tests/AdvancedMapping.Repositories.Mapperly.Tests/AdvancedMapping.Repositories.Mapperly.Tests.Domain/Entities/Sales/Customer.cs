@@ -27,5 +27,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
         public virtual ICollection<Address> Addresses { get; set; } = [];
 
         public virtual Preferences? Preferences { get; set; }
+
+        public virtual ICollection<CustomerSegments> CustomerSegments { get; set; } = [];
     }
 }

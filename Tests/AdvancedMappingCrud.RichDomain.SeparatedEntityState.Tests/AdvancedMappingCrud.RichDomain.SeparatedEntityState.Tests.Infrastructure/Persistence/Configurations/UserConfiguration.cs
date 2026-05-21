@@ -52,6 +52,27 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
 
             builder.Property(x => x.Postal)
                 .IsRequired();
+
+            builder.OwnsOne(x => x.AddressDetails, ConfigureAddressDetails);
+        }
+
+        public static void ConfigureAddressDetails(OwnedNavigationBuilder<Address, AddressDetails> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.AddressType)
+                .IsRequired();
+
+            builder.Property(x => x.AddressTypeNullable);
+
+            builder.Property(x => x.Name)
+                .IsRequired();
+
+            builder.Property(x => x.Number)
+                .IsRequired();
         }
 
         public static void ConfigureContactDetails(OwnedNavigationBuilder<User, ContactDetailsVO> builder)

@@ -219,9 +219,9 @@ internal static class MappingHelper
         {
             return;
         }
-
+        var fieldsWithMappings = dtoModel.Fields.Where(f => f.Mapping != null);
         // Iterate through all fields that have mappings
-        foreach (var field in dtoModel.Fields.Where(f => f.Mapping != null))
+        foreach (var field in fieldsWithMappings)
         {
             // Get the target element ID (handles both direct types and collection element types)
             var targetElementId = field.TypeReference.Element?.Id;
@@ -239,10 +239,7 @@ internal static class MappingHelper
                 continue;
             }
             
-            // Get the DTOModel from the DTO template - this is the key!
-            var nestedDtoAsTemplateWithModel = nestedDtoTemplate as ITemplateWithModel;
-
-            if (nestedDtoAsTemplateWithModel?.Model is not DTOModel nestedDtoModel)
+            if(!nestedDtoTemplate.TryGetModel<DTOModel>(out var nestedDtoModel))
             {
                 continue;
             }

@@ -65,6 +65,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Configuration
                     { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
                 });
                     options.SchemaFilter<TypeSchemaFilter>();
+
                 });
             return services;
         }

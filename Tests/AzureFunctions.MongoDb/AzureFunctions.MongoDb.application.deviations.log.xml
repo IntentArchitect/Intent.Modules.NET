@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#a16bccfa-3339-4586-b9ee-bce8e593ff13</correlationId>
+      <path>AzureFunctions.MongoDb.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:00:22.8496548Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>54D5F451CF2E05DA13B7DD0CEC38D9B5660E3D7D3AC9FC3ADA25F22F03230419</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#dcae70b6-89cb-4e09-9605-400e72fe867c</correlationId>
+      <path>AzureFunctions.MongoDb.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:00:22.8509161Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>DC8A97B42508126E3B1FA8D831F1BD5D7EEB02FEDBB767E9E0C8A23B6763F0BD</fileHash>
+    </file>
+  </files>
 </deviationsLog>

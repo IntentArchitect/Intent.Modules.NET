@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
 {
     internal static class MappingHelper
     {
-
+        private const string EnumSpecializationId = "85fba0e9-9161-4c85-a603-a229ef312beb";
         internal static ICSharpFileBuilderTemplate GetEntityTemplate(IntentTemplateBase template, DTOModel templateModel)
         {
             if (template.TryGetTemplate(TemplateRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId, out ICSharpFileBuilderTemplate entityTemplate) ||
@@ -252,6 +253,12 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
             if(!type.EndsWith("?"))
             {
                 type = $"{type}?";
+            }
+
+            // if its an enum, then default to default, and not null
+            if (field.TypeReference.Element?.SpecializationTypeId == EnumSpecializationId)
+            {
+                return template.GetTypeInfo(field.TypeReference).IsNullable ? " ?? default : default" : " : default";
             }
 
             // only have an explicit cast if its a primitive, otherwise null is fine

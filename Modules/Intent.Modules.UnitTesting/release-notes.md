@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Updated instruction format and generation to align with other modules.
+
 ### Version 1.1.0
 
 - Improvement: Centralized AI task registration for generated unit tests into a factory extension instead of registering tasks inside individual templates.

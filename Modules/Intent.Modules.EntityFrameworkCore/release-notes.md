@@ -1,3 +1,7 @@
+### Version 5.0.44
+
+- Improvement: Index modeling supports unmapped columns.
+
 ### Version 5.0.43
 
 - Improvement: AI Skill enhancements.

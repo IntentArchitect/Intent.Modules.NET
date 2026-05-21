@@ -25,7 +25,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetOrde
         public async Task<List<OrderDto>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
         {
             var orders = await _orderRepository.FindAllAsync(cancellationToken);
-            return _mapper.OrderToOrderDtoList(orders.ToList());
+            return _mapper.OrderToOrderDtoList(orders);
         }
     }
 }

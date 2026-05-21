@@ -36,5 +36,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
         public string City { get; private set; }
 
         public int Postal { get; private set; }
+
+        public virtual AddressDetails? AddressDetails { get; private set; }
     }
 }

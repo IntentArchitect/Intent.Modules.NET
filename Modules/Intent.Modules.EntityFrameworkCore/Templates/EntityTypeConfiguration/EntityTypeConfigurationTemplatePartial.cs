@@ -789,6 +789,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
         {
+            if (column.SourceType == null)
+                return $"{prefix}{column.Name}";
             return column.SourceType.IsAssociationEndModel()
                 ? $"{prefix}{column.Name.ToPascalCase()}Id"
                 : $"{prefix}{column.SourceType.Name.ToPascalCase()}";

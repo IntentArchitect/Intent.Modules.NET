@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities;
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -106,6 +107,82 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
             builder.Property(x => x.TrackingNumber);
 
             builder.Property(x => x.ShippedOn);
+
+            builder.Property(x => x.ContainerId);
+
+            builder.OwnsOne(x => x.Dispatch, ConfigureDispatch)
+                .Navigation(x => x.Dispatch).IsRequired();
+
+            builder.OwnsOne(x => x.Manifest, ConfigureManifest)
+                .Navigation(x => x.Manifest).IsRequired();
+
+            builder.HasOne(x => x.Container)
+                .WithMany()
+                .HasForeignKey(x => x.ContainerId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
+
+        public static void ConfigureDispatch(OwnedNavigationBuilder<Shipment, Dispatch> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.OriginLocation)
+                .IsRequired();
+
+            builder.OwnsOne(x => x.Document, ConfigureDocument)
+                .Navigation(x => x.Document).IsRequired();
+        }
+
+        public static void ConfigureDocument(OwnedNavigationBuilder<Dispatch, DispatchDocument> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.DocumentNumber)
+                .IsRequired();
+
+            builder.Property(x => x.IssuedOn)
+                .IsRequired();
+
+            builder.Property(x => x.FileUrl);
+        }
+
+        public static void ConfigureDocument(OwnedNavigationBuilder<Manifest, ManifestDocument> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.DocumentNumber)
+                .IsRequired();
+
+            builder.Property(x => x.IssuedOn)
+                .IsRequired();
+
+            builder.Property(x => x.FileUrl);
+        }
+
+        public static void ConfigureManifest(OwnedNavigationBuilder<Shipment, Manifest> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.CarrierCode)
+                .IsRequired();
+
+            builder.Property(x => x.TotalWeight)
+                .IsRequired();
+
+            builder.OwnsOne(x => x.Document, ConfigureDocument)
+                .Navigation(x => x.Document).IsRequired();
         }
     }
 }

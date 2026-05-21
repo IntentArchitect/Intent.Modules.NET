@@ -11,5 +11,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities
         public bool Newsletter { get; set; }
 
         public bool Specials { get; set; }
+
+        public Theme Theme { get; set; }
     }
 }

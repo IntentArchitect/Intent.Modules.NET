@@ -95,5 +95,29 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="1f6c797c-a6e3-4a5f-9373-f682dbbbbe6e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Theme</name>
+      <display>Theme: Theme</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="52be6d30-3c10-4340-9dd1-e44355db1bb5">
+        <typeId>fc67e000-7769-41dd-83a8-01a9a67e9d33</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+        <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>67af50ae-bce4-468c-996c-d2cdd2743347</parentFolderId>
+      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

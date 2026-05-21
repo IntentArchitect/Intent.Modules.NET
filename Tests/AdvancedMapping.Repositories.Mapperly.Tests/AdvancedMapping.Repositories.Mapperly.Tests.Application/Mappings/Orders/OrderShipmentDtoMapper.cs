@@ -12,8 +12,11 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     public partial class OrderShipmentDtoMapper
     {
         [MapperIgnoreSource(nameof(Shipment.OrderId))]
+        [MapperIgnoreSource(nameof(Shipment.ContainerId))]
+        [MapProperty(nameof(@Shipment.Dispatch.Document.DocumentNumber), nameof(OrderShipmentDto.DispatchDocumentNumber))]
+        [MapProperty(nameof(@Shipment.Manifest.Document.DocumentNumber), nameof(OrderShipmentDto.ManifestDocumentNumber))]
         public partial OrderShipmentDto ShipmentToOrderShipmentDto(Shipment shipment);
 
-        public partial List<OrderShipmentDto> ShipmentToOrderShipmentDtoList(List<Shipment> shipments);
+        public partial List<OrderShipmentDto> ShipmentToOrderShipmentDtoList(IEnumerable<Shipment> shipments);
     }
 }

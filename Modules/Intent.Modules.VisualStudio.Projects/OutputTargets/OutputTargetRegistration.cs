@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using NuGet.Versioning;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.CodebaseStructure.Api;
@@ -11,10 +13,12 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
     public class OutputTargetRegistration : IOutputTargetRegistration
     {
         private readonly IMetadataManager _metadataManager;
+        private readonly IApplicationConfigurationProvider _configurationProvider;
 
-        public OutputTargetRegistration(IMetadataManager metadataManager)
+        public OutputTargetRegistration(IMetadataManager metadataManager, IApplicationConfigurationProvider configurationProvider)
         {
             _metadataManager = metadataManager;
+            _configurationProvider = configurationProvider;
         }
 
         public void Register(IOutputTargetRegistry registry, IApplication application)
@@ -29,13 +33,18 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 }
             }
 
-            var rootFolders = _metadataManager.CodebaseStructure(application).GetRootFolderModels();
-            foreach (var rootFolder in rootFolders)
+            // the below block has been moved into the Codebase Structure designer module. However, cannot be removed from here due to 
+            // dependency and build ordering conflicts.
+            if (AddRootFolderModels())
             {
-                registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig());
-                foreach (var f in rootFolder.Folders)
+                var rootFolders = _metadataManager.CodebaseStructure(application).GetRootFolderModels();
+                foreach (var rootFolder in rootFolders)
                 {
-                    Register(registry, f);
+                    registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig());
+                    foreach (var f in rootFolder.Folders)
+                    {
+                        Register(registry, f);
+                    }
                 }
             }
 
@@ -56,6 +65,24 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
             }
         }
 
+        private bool AddRootFolderModels()
+        {
+            var codebaseStructureDesigner = _configurationProvider.GetInstalledModules().FirstOrDefault(m => m.ModuleId == "Intent.Modelers.CodebaseStructure");
+
+            if (codebaseStructureDesigner is null)
+            {
+                return true;
+            }
+
+            if (NuGetVersion.TryParse(codebaseStructureDesigner.Version, out var version) &&
+                version >= NuGetVersion.Parse("1.0.1-pre.0"))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private static void Register(IOutputTargetRegistry registry, FolderModel folder)
         {
             var outputTargetConfig = folder.ToOutputTargetConfig();
@@ -66,6 +93,8 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 Register(registry, child);
             }
         }
+
+
     }
 
     internal static class OutputTargetRegistrationExtensions

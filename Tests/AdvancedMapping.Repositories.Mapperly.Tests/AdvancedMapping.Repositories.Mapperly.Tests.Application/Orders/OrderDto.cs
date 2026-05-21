@@ -10,11 +10,13 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
         public OrderDto()
         {
             Status = null!;
-            Customer = null!;
             Discounts = null!;
             OrderLines = null!;
             Payments = null!;
             Shipments = null!;
+            CustomerSegments = null!;
+            CustomerName = null!;
+            CustomerEmail = null!;
         }
 
         public Guid Id { get; set; }
@@ -23,12 +25,14 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
         public DateTime RequiredBy { get; set; }
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
-        public OrderCustomerDto Customer { get; set; }
         public List<OrderDiscountDto> Discounts { get; set; }
         public List<OrderOrderLineDto> OrderLines { get; set; }
         public List<OrderPaymentDto> Payments { get; set; }
         public List<OrderShipmentDto> Shipments { get; set; }
         public bool IsActive { get; set; }
+        public List<OrderCustomerSegmentsDto> CustomerSegments { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
 
         public static OrderDto Create(
             Guid id,
@@ -37,12 +41,12 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
             DateTime requiredBy,
             string status,
             decimal totalAmount,
-            OrderCustomerDto customer,
             List<OrderDiscountDto> discounts,
             List<OrderOrderLineDto> orderLines,
             List<OrderPaymentDto> payments,
             List<OrderShipmentDto> shipments,
-            bool isActive)
+            bool isActive,
+            List<OrderCustomerSegmentsDto> customerSegments, string customerName, string customerEmail)
         {
             return new OrderDto
             {
@@ -52,12 +56,15 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
                 RequiredBy = requiredBy,
                 Status = status,
                 TotalAmount = totalAmount,
-                Customer = customer,
                 Discounts = discounts,
                 OrderLines = orderLines,
                 Payments = payments,
                 Shipments = shipments,
                 IsActive = isActive
+,
+                CustomerSegments = customerSegments,
+                CustomerName = customerName,
+                CustomerEmail = customerEmail
             };
         }
     }

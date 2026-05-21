@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#f1451214-a013-4bd3-8674-63c500476077</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:38.4155458Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>3D9416EE1A484E500C1416C4674A15D9E5C9A217A959787DEB2F07818ABC2CF8</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#dd13015f-0643-4a62-9bc7-2d70eddf3de5</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.Application/EventHandlers/Customers/NewQuoteCreatedHandler.cs</path>
       <count>1</count>
@@ -26,6 +36,16 @@
       <approvedAt>2025-07-09T15:13:09.0211025Z</approvedAt>
       <deviationsHash>7DDB14679BAE5658B3E3B8B7EC3C275F95293D41B8541B39AC4B37C23152C604</deviationsHash>
       <fileHash>2B4DAE5B19A8BDF8E596ED27C2030B5C0F27E9AC397B42E521A6D745D385A22F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#30eada7e-f68d-4954-b409-8457cc7ee25b</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:38.4167098Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>52CFBDFB4FC31CBDA06F1A5FE20EABE599336729DBAD2858EB4F6C81BD0EF556</fileHash>
     </file>
     <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c28c7bc4-2b22-4257-bf26-e3deffc0cfb9</correlationId>

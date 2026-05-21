@@ -13,6 +13,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     {
         public partial OrderDiscountDto DiscountToOrderDiscountDto(Discount discount);
 
-        public partial List<OrderDiscountDto> DiscountToOrderDiscountDtoList(List<Discount> discounts);
+        public partial List<OrderDiscountDto> DiscountToOrderDiscountDtoList(IEnumerable<Discount> discounts);
     }
 }

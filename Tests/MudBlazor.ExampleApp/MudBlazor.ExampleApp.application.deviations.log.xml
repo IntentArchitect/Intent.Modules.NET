@@ -14,5 +14,25 @@
       <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
       <fileHash>4C03821E547F0758B27153E4F322FAA690031A9B5ED1371AB4B0336A43953B0E</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#a828b473-9990-4dd5-ba46-41a08013df7a</correlationId>
+      <path>MudBlazor.ExampleApp.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:01:00.0749751Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>098BDA223169CA1CC524B39C6879F5D8EFEF5D8A39B21500CA51D9CBCC94EA3A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#ae2410d0-dcee-44f5-a2a5-a2ef8016f643</correlationId>
+      <path>MudBlazor.ExampleApp.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:01:00.0756688Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>EA2FF68091DE83E9676B791BC9995773EAE9264D4F9844B35308D50EE9469C8B</fileHash>
+    </file>
   </files>
 </deviationsLog>

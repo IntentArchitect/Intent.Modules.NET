@@ -2,6 +2,7 @@ using System.Reflection;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Behaviours;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Validation;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Customers;
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.CustomerSegments;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Orders;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -15,6 +16,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
@@ -28,10 +30,13 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddSingleton<CustomerDtoMapper>();
+            services.AddSingleton<CustomerLeanDtoMapper>();
             services.AddSingleton<CustomerPreferencesDtoMapper>();
             services.AddSingleton<CustomerSummaryDtoMapper>();
+            services.AddSingleton<CustomerSegmentsDtoMapper>();
             services.AddSingleton<OrderAddressDtoMapper>();
             services.AddSingleton<OrderCustomerDtoMapper>();
+            services.AddSingleton<OrderCustomerSegmentsDtoMapper>();
             services.AddSingleton<OrderDiscountDtoMapper>();
             services.AddSingleton<OrderDtoMapper>();
             services.AddSingleton<OrderOrderLineDtoMapper>();
@@ -39,7 +44,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
             services.AddSingleton<OrderProductCategoryDtoMapper>();
             services.AddSingleton<OrderProductDtoMapper>();
             services.AddSingleton<OrderShipmentDtoMapper>();
+            services.AddSingleton<ShipmentDtoMapper>();
+            services.AddSingleton<ShipmentVesselDtoMapper>();
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }

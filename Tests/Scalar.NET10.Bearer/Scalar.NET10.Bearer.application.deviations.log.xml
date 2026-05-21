@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#68172ac6-9fee-4cff-b4a0-fa81e731d6c3</correlationId>
+      <path>Scalar.NET10.Bearer.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:09:34.4580453Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>FA7B9DBF27CB8FC0C66431D814AE8FC54E3C94E879DB6A8FDFBDE328F3C4C46E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#18a02575-c59c-40ee-a457-f057bddfe41a</correlationId>
+      <path>Scalar.NET10.Bearer.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:09:34.4581515Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>5C35340690047DD6D8B8F8B1C41033304048D428654F3A29E97D5F9EB5A0A831</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -9,13 +9,14 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.CreateO
 {
     public class CreateOrderCommand : IRequest<Guid>, ICommand
     {
-        public CreateOrderCommand(Guid customerId, DateTime orderDate, DateTime? requiredBy, string status, decimal totalAmount)
+        public CreateOrderCommand(Guid customerId, DateTime orderDate, DateTime? requiredBy, string status, decimal totalAmount, List<CreateOrderCommandShipmentsDto> shipments)
         {
             CustomerId = customerId;
             OrderDate = orderDate;
             RequiredBy = requiredBy;
             Status = status;
             TotalAmount = totalAmount;
+            Shipments = shipments;
         }
 
         public Guid CustomerId { get; set; }
@@ -23,5 +24,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.CreateO
         public DateTime? RequiredBy { get; set; }
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
+        public List<CreateOrderCommandShipmentsDto> Shipments { get; set; }
     }
 }

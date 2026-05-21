@@ -21,7 +21,7 @@
   <targetEnd id="75ae1c4b-e136-4f6e-b8b5-bc004c8847ea" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>order</name>
     <display>[create] order: Order</display>
-    <order>5</order>
+    <order>6</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -126,6 +126,238 @@
                 <path>
                   <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                   <target id="75a34f26-61ad-4a29-8477-00b4275b98b5" name="TotalAmount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Shipments" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Provider}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="bf7c9abc-4dc7-487f-a3e7-0b4ad17e42c3" name="Provider" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Provider" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="845f00cc-405d-40b9-92d6-1ecfb919da35" name="Provider" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.ContainerId}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="9d3dc51e-1365-47bf-945d-d54b21ac6601" name="ContainerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.ContainerId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="76cf4c08-d92b-432e-8d51-4a2bc45e07f1" name="ContainerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Dispatch.OriginLocation}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7da0f3d6-f6ca-4914-9615-7b555edcd812" name="Dispatch" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a8092893-97d0-41ce-889a-99fe6027d6e1" name="OriginLocation" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Dispatch.OriginLocation" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="89a13613-56ab-433a-bbe9-894172cf37d9" name="Dispatch" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8aeab0ad-b6ff-4329-b9b1-99d8289c1bc3" name="OriginLocation" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Dispatch.Document.DocumentNumber}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7da0f3d6-f6ca-4914-9615-7b555edcd812" name="Dispatch" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ce4d75cd-bb33-4d6c-a3e2-ce3e8071d7cf" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="79ecdd26-6f8e-441e-84a7-e814226f9889" name="DocumentNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Dispatch.Document.DocumentNumber" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="89a13613-56ab-433a-bbe9-894172cf37d9" name="Dispatch" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="72b753c6-eff6-4a47-a1d5-a1ac8599427a" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="750c32a0-aad2-4453-999e-335e1a34c3df" name="DocumentNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Dispatch.Document.IssuedOn}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7da0f3d6-f6ca-4914-9615-7b555edcd812" name="Dispatch" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ce4d75cd-bb33-4d6c-a3e2-ce3e8071d7cf" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="4fc41484-95ae-49d7-982d-1bd58e91f135" name="IssuedOn" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Dispatch.Document.IssuedOn" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="89a13613-56ab-433a-bbe9-894172cf37d9" name="Dispatch" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="72b753c6-eff6-4a47-a1d5-a1ac8599427a" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="7f482184-e3d8-4a4f-92b2-fee7bd4008a4" name="IssuedOn" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Dispatch.Document.FileUrl}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7da0f3d6-f6ca-4914-9615-7b555edcd812" name="Dispatch" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ce4d75cd-bb33-4d6c-a3e2-ce3e8071d7cf" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="889b660d-f1cc-40eb-b6eb-55335bb9235f" name="FileUrl" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Dispatch.Document.FileUrl" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="89a13613-56ab-433a-bbe9-894172cf37d9" name="Dispatch" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="72b753c6-eff6-4a47-a1d5-a1ac8599427a" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9bd4fdf0-cb2e-4b6c-9256-da0514266aec" name="FileUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Manifest.CarrierCode}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" name="Manifest" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7d1cc912-d221-47b6-9b76-8ad3af9e2e23" name="CarrierCode" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Manifest.CarrierCode" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cae29423-186f-4b78-a507-18b2f99aa1a3" name="Manifest" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="6748c081-cbb8-4092-b1a3-5666dbeb863b" name="CarrierCode" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Manifest.TotalWeight}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" name="Manifest" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="d961196b-aff2-4e5c-aaa4-660ea1dfc807" name="TotalWeight" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Manifest.TotalWeight" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cae29423-186f-4b78-a507-18b2f99aa1a3" name="Manifest" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e5ff4b20-77ad-43c9-b16b-ccdfe859b45f" name="TotalWeight" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Manifest.Document.DocumentNumber}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" name="Manifest" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="c81a487a-786a-4c87-86dd-4ee2a5fe0141" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="fd891fcc-d070-4970-95cc-0dbd1e617cd2" name="DocumentNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Manifest.Document.DocumentNumber" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cae29423-186f-4b78-a507-18b2f99aa1a3" name="Manifest" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3ca3d51b-9588-4e8e-814e-2fc144956c18" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="738af859-79d4-46a1-a1f2-706f1b13085f" name="DocumentNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Manifest.Document.IssuedOn}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" name="Manifest" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="c81a487a-786a-4c87-86dd-4ee2a5fe0141" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7b42f8c7-ceed-4ab0-9937-5a28edea7754" name="IssuedOn" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Manifest.Document.IssuedOn" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cae29423-186f-4b78-a507-18b2f99aa1a3" name="Manifest" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3ca3d51b-9588-4e8e-814e-2fc144956c18" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a5cbd843-3d23-4c74-aa4a-9719a498e7a3" name="IssuedOn" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Shipments.Manifest.Document.FileUrl}</expression>
+            <path>
+              <target id="337519c7-8aeb-481f-aa3b-93d8ac11dc74" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="381b911d-ba73-4f89-8af3-91b7e79ee721" name="Shipments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" name="Manifest" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="c81a487a-786a-4c87-86dd-4ee2a5fe0141" name="Document" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7a64fabf-cb90-419c-bd2d-f5aa4dc428e8" name="FileUrl" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Shipments.Manifest.Document.FileUrl" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ad74fddc-60c4-458d-8196-ae6d8cb7b7c5" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5de2a42a-b182-4e80-a3a6-9a98cad5e889" name="Shipments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cae29423-186f-4b78-a507-18b2f99aa1a3" name="Manifest" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3ca3d51b-9588-4e8e-814e-2fc144956c18" name="Document" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="b296e4b7-4043-4108-917d-0ee7dbb9f1f5" name="FileUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

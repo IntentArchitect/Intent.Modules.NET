@@ -1,3 +1,11 @@
+### Version 1.1.0
+- Improvement: If a navigation of a field hops across classes or enities are fully qualified prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.  
+See: https://mapperly.riok.app/docs/configuration/full-nameof/
+- Fixed: When entities needed to be fully qualified, mapping file is now generated correctly
+- Fixed: When an `Enum` is in the return type of an explict mapping it's associated `using` statements are added.
+- Fixed: Domain entities with pluralised names are now fully qualified it to prevent conflicting with the namespace name
+- Fixed: When a `List` is mapped accross multiple classes in a explicit mapping, the associated LINQ `Select` statement is added to perform the map
+
 ### Version 1.0.4
 
 - Improvement: Split Mapperly mapping path generation for attribute paths vs runtime expressions to avoid trimming and keep `nameof(...)` paths clean.

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#4d0fa58c-9b4b-4ca2-9ce1-b8dd3d97455d</correlationId>
+      <path>Redis.Om.Repositories.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:03:27.5655175Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>415AE69E6016CE82745CEAB97875D45F37B8920A94B71077AF134FA08046A8A3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#432545e7-8d4e-43ea-9e75-e12038ad3a8e</correlationId>
+      <path>Redis.Om.Repositories.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:03:27.5658487Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>B2B8E03FD3DE3A0EC023F82A4DA0FF40FF62F55C4EB79DDC5B0A4369B93657A9</fileHash>
+    </file>
+  </files>
 </deviationsLog>

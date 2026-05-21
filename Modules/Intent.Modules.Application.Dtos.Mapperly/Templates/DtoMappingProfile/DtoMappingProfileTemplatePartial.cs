@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -28,6 +29,10 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
         {
             AddNugetDependency(NugetPackages.RiokMapperly(outputTarget));
 
+            /*These often are field types in the target dto. Not only value types*/
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Riok.Mapperly.Abstractions")
                 .AddClass($"{Model.Name}Mapper", @class =>
@@ -39,8 +44,12 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     var mapperDependencies = MappingHelper.DiscoverMapperDependencies(this, Model);
 
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
-                    var dtoModelName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
+
+                    var entityClassName = entityTemplate.ClassName;
                     var entityTypeName = GetTypeName(entityTemplate);
+
+                    var dtoModelName = Model.Name;
+                    var dtoTypeName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
 
                     // Analyze field mappings to determine what custom methods/attributes are needed
                     var mappingConfigurations = BuildMappingConfigurations();
@@ -51,7 +60,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     // Generate [UseMapper] fields for each dependency
                     foreach (var dependency in mapperDependencies)
                     {
-                        var fieldName = $"_{dependency.ClassName.ToCamelCase()}";
+                        string fieldName = GetDependencyFieldName(dependency);
                         @class.AddField(this.GetTypeName(dependency), fieldName, field =>
                         {
                             field.PrivateReadOnly();
@@ -78,17 +87,17 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     }
 
                     // Generate mapping methods with attributes
-                    @class.AddMethod(dtoModelName, $"{entityTypeName}To{dtoModelName}", method =>
+                    @class.AddMethod(dtoTypeName, $"{entityClassName}To{dtoModelName}", method =>
                     {
                         method.Public().Partial();
-                        method.AddParameter(entityTypeName, entityTypeName.ToCamelCase()).WithoutMethodModifier();
+                        method.AddParameter(entityTypeName, entityClassName.ToCamelCase()).WithoutMethodModifier();
 
                         // Add [MapperIgnoreSource] attributes for unmapped source properties
                         foreach (var unmappedProp in unmappedSourceProperties)
                         {
                             method.AddAttribute("MapperIgnoreSource", attribute =>
                             {
-                                attribute.AddArgument($"nameof({entityTypeName}.{unmappedProp})");
+                                attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, unmappedProp));
                             });
                         }
 
@@ -99,7 +108,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapPropertyFromSource", attribute =>
                                 {
-                                    attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument(GetSafeMapperlyNameof(dtoTypeName, config.TargetPropertyName));
                                     attribute.AddArgument($"Use = nameof({config.CustomMethodName})");
                                 });
                             }
@@ -107,17 +116,18 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    attribute.AddArgument($"nameof({entityTypeName}.{config.AttributePath})");
-                                    attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, config.AttributePath));
+
+                                    attribute.AddArgument(GetSafeMapperlyNameof(dtoTypeName, config.TargetPropertyName));
                                 });
                             }
                         }
                     });
 
-                    @class.AddMethod($"List<{dtoModelName}>", $"{entityTypeName}To{dtoModelName}List", method =>
+                    @class.AddMethod(UseType($"System.Collections.Generic.List<{dtoTypeName}>"), $"{entityClassName}To{dtoModelName}List", method =>
                     {
                         method.Public().Partial();
-                        method.AddParameter($"List<{entityTypeName}>", entityTypeName.ToCamelCase().Pluralize()).WithoutMethodModifier();
+                        method.AddParameter($"IEnumerable<{entityTypeName}>", entityClassName.ToCamelCase().Pluralize()).WithoutMethodModifier();
                     });
 
                     // Generate custom mapping methods
@@ -127,11 +137,32 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         {
                             method.Private();
                             method.AddParameter(entityTypeName, "source");
-                            method.WithExpressionBody(BuildCustomMappingExpression(config));
+                            method.WithExpressionBody(BuildCustomMappingExpression(config, mapperDependencies));
                         });
                     }
                 });
         }
+
+        private static string GetDependencyFieldName(ICSharpFileBuilderTemplate dependency)
+        {
+            return $"_{dependency.ClassName.ToCamelCase()}";
+        }
+
+        /*See Mapperly docs on "full nameof".
+         Nasty issues occur if you dont "full nameof" if the full path has propreties with the same name when C# nameof resolves
+           */
+        private static string GetSafeMapperlyNameof(string typeName, string memberPath)
+        {
+            var typeIsFullyQualified = typeName.Contains('.');
+            var memberPathHopsOutsideClass = memberPath.Contains('.');
+
+            var useFullNameof = typeIsFullyQualified || memberPathHopsOutsideClass;
+
+            return useFullNameof
+                ? $"nameof(@{typeName}.{memberPath})"
+                : $"nameof({typeName}.{memberPath})";
+        }
+
 
         public override void BeforeTemplateExecution()
         {
@@ -240,12 +271,33 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             return result;
         }
 
-        private string BuildCustomMappingExpression(MappingConfiguration config)
+        private string BuildCustomMappingExpression(MappingConfiguration config, IReadOnlyCollection<ICSharpFileBuilderTemplate> mapperDependencies)
         {
             var expression = config.SourceExpression.Replace("src.", "source.");
+            var targetReference = config.Field.TypeReference;
+
             if (config.ShouldCast)
             {
                 expression = $"({GetTypeName(config.Field.TypeReference)}){expression}";
+            }
+            if (config.Field.TypeReference.IsCollection)
+            {
+                var targetClassName = config.Field.TypeReference.Element.Name;
+                var dependency = mapperDependencies.FirstOrDefault(x =>
+                {
+                    return x.TryGetModel<DTOModel>(out var dtoModel)
+                           && dtoModel.Name == targetClassName;
+                });
+                if (dependency != null)
+                {
+                    var mapperFieldName = GetDependencyFieldName(dependency);
+                    dependency.TryGetModel<DTOModel>(out var dtoModel); //TryGetModel guaranteed to pass since it was returned in the firstordefault above
+                    var entityClassName = dtoModel.Mapping.Element.Name;
+                    var modelClassName = dtoModel.Name;
+
+                    expression = $"{expression}.{UseType("System.Linq.Select")}({mapperFieldName}.{entityClassName}To{modelClassName})";
+
+                }
             }
 
             return expression;

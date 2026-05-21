@@ -13,6 +13,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     {
         public partial OrderProductCategoryDto ProductCategoryToOrderProductCategoryDto(ProductCategory productCategory);
 
-        public partial List<OrderProductCategoryDto> ProductCategoryToOrderProductCategoryDtoList(List<ProductCategory> productCategories);
+        public partial List<OrderProductCategoryDto> ProductCategoryToOrderProductCategoryDtoList(IEnumerable<ProductCategory> productCategories);
     }
 }

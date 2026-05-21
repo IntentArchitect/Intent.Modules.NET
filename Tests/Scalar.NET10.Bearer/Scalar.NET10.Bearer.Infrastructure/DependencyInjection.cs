@@ -9,6 +9,7 @@ namespace Scalar.NET10.Bearer.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             return services;

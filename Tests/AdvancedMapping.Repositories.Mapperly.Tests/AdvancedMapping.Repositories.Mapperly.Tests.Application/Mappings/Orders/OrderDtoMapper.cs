@@ -12,8 +12,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     public partial class OrderDtoMapper
     {
         [UseMapper]
-        private readonly OrderCustomerDtoMapper _orderCustomerDtoMapper;
-        [UseMapper]
         private readonly OrderDiscountDtoMapper _orderDiscountDtoMapper;
         [UseMapper]
         private readonly OrderOrderLineDtoMapper _orderOrderLineDtoMapper;
@@ -21,14 +19,16 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         private readonly OrderPaymentDtoMapper _orderPaymentDtoMapper;
         [UseMapper]
         private readonly OrderShipmentDtoMapper _orderShipmentDtoMapper;
+        [UseMapper]
+        private readonly OrderCustomerSegmentsDtoMapper _orderCustomerSegmentsDtoMapper;
 
-        public OrderDtoMapper(OrderCustomerDtoMapper orderCustomerDtoMapper, OrderDiscountDtoMapper orderDiscountDtoMapper, OrderOrderLineDtoMapper orderOrderLineDtoMapper, OrderPaymentDtoMapper orderPaymentDtoMapper, OrderShipmentDtoMapper orderShipmentDtoMapper)
+        public OrderDtoMapper(OrderDiscountDtoMapper orderDiscountDtoMapper, OrderOrderLineDtoMapper orderOrderLineDtoMapper, OrderPaymentDtoMapper orderPaymentDtoMapper, OrderShipmentDtoMapper orderShipmentDtoMapper, OrderCustomerSegmentsDtoMapper orderCustomerSegmentsDtoMapper)
         {
-            _orderCustomerDtoMapper = orderCustomerDtoMapper;
             _orderDiscountDtoMapper = orderDiscountDtoMapper;
             _orderOrderLineDtoMapper = orderOrderLineDtoMapper;
             _orderPaymentDtoMapper = orderPaymentDtoMapper;
             _orderShipmentDtoMapper = orderShipmentDtoMapper;
+            _orderCustomerSegmentsDtoMapper = orderCustomerSegmentsDtoMapper;
         }
 
         [MapPropertyFromSource(nameof(OrderDto.RequiredBy), Use = nameof(MapRequiredBy))]
@@ -37,9 +37,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapProperty(nameof(Order.Payments), nameof(OrderDto.Payments))]
         [MapProperty(nameof(Order.Shipments), nameof(OrderDto.Shipments))]
         [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
+        [MapProperty(nameof(@Order.Customer.CustomerSegments), nameof(OrderDto.CustomerSegments))]
         public partial OrderDto OrderToOrderDto(Order order);
 
-        public partial List<OrderDto> OrderToOrderDtoList(List<Order> orders);
+        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
 
         private DateTime MapRequiredBy(Order source) => (DateTime)source.RequiredBy;
 

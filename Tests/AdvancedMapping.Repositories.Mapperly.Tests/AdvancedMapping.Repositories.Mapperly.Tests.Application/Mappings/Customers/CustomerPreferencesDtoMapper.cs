@@ -11,8 +11,9 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
     [Mapper]
     public partial class CustomerPreferencesDtoMapper
     {
+        [MapperIgnoreSource(nameof(Preferences.Theme))]
         public partial CustomerPreferencesDto PreferencesToCustomerPreferencesDto(Preferences preferences);
 
-        public partial List<CustomerPreferencesDto> PreferencesToCustomerPreferencesDtoList(List<Preferences> preferences);
+        public partial List<CustomerPreferencesDto> PreferencesToCustomerPreferencesDtoList(IEnumerable<Preferences> preferences);
     }
 }
