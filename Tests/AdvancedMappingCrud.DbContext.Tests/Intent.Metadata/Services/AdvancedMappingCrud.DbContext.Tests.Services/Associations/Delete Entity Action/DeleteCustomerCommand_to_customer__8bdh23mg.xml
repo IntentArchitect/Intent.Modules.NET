@@ -39,20 +39,20 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9dbc696c-cc64-48a6-bb67-68455bdf635b" location="DeleteCustomerCommand" />
-        <target applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3" location="Customer" />
+        <source applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9dbc696c-cc64-48a6-bb67-68455bdf635b" location="[AdvancedMappingCrud.DbContext.Tests].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3" location="[AdvancedMappingCrud.DbContext.Tests].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3" name="Customer" type="element" specialization="Class" />
-              <target id="e1958b7f-809a-4eda-ab53-287fedc35c65" name="Id" type="element" specialization="Attribute" />
+              <target id="efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e1958b7f-809a-4eda-ab53-287fedc35c65" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="9dbc696c-cc64-48a6-bb67-68455bdf635b" name="DeleteCustomerCommand" type="element" specialization="Command" />
-                  <target id="14e865f1-66b5-428c-b21d-a29d83913f4f" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="9dbc696c-cc64-48a6-bb67-68455bdf635b" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="14e865f1-66b5-428c-b21d-a29d83913f4f" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

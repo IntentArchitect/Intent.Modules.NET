@@ -15,6 +15,11 @@ namespace AdvancedMappingCrud.DbContext.Tests.Api.Filters
     /// </summary>
     public class HideRouteParametersFromBodyOperationFilter : IOperationFilter
     {
+
+        private static bool IsPlainStringSchema(IOpenApiSchema schema)
+        {
+            return schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid";
+        }
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             // Only process operations with both route parameters and a request body
@@ -86,8 +91,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Api.Filters
                 }
 
                 // Find properties that match route parameter names (case-insensitive)
-                var propertyKeysToRemove = concreteSchema.Properties.Keys
-                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
+                var propertyKeysToRemove = concreteSchema.Properties
+                    .Where(property => routeParameters.Contains(property.Key.ToLowerInvariant()) && !IsPlainStringSchema(property.Value))
+                    .Select(property => property.Key)
                     .ToList();
 
                 if (propertyKeysToRemove.Count == 0)

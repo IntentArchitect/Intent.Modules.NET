@@ -1,0 +1,24 @@
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
+
+namespace AdvancedMappingCrud.DbContext.Tests.Application.GiftCards.CreateGiftCard
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class CreateGiftCardCommandValidator : AbstractValidator<CreateGiftCardCommand>
+    {
+        [IntentManaged(Mode.Merge)]
+        public CreateGiftCardCommandValidator()
+        {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            RuleFor(v => v.Id)
+                .NotNull();
+        }
+    }
+}

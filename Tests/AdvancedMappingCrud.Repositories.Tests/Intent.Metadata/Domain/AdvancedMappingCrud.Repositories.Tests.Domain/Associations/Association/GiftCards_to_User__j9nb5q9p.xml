@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="445b03ec-64c8-42bb-9f6e-acc716be8cb9">
+  <sourceEnd id="56659343-15ec-430d-9c13-d30c20f1bb2d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>GiftCards</name>
+    <display>GiftCards: GiftCard[*]</display>
+    <order>0</order>
+    <typeReference id="4eb4b89a-024d-42e1-b979-641aa4e9f244">
+      <typeId>c1f4e0d1-57ea-435e-82cb-8bd2282f3c73</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="445b03ec-64c8-42bb-9f6e-acc716be8cb9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>User</name>
+    <display>User: User?</display>
+    <order>3</order>
+    <typeReference id="fa6626f9-83dc-47ac-aa32-d2696c183d07">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

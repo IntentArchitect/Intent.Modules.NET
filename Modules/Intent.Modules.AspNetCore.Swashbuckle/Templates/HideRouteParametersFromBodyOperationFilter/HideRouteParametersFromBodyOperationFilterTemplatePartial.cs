@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -9,6 +6,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Newtonsoft.Json.Schema;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -41,6 +42,16 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                         "/// This prevents duplicate documentation of parameters that are supplied via the URL.",
                         "/// </summary>"
                     });
+                    /*We must exclude strings because when non-null reference types are not supplied in the body, asp.net validation will reject the request since a default value cannot be inferred
+                    By removing this you will break typical requests for applications using documentDBs like Mongo, or edge cases like where a user supplied primary key is a string
+                    If this becomes problematic, consider removing this file entirely and instead using request-to-command mapping pattern as described in CQRS guidance */
+                    @class.AddMethod("bool", "IsPlainStringSchema", method =>
+                    {
+                        method.Private();
+                        method.Static();
+                        method.AddParameter("IOpenApiSchema", "schema");
+                        method.AddReturn("""schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid" """);
+                    });
                     @class.AddMethod("void", "Apply", method =>
                     {
                         method
@@ -53,7 +64,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                             stmt.AddReturn("");
                             stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
                         });
-                        
+
                         if (isMicrosoftOpenApi_2_4_1)
                         {
                             method.AddStatement("var parameters = operation.Parameters!;");
@@ -63,26 +74,26 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                 stmt.AddReturn("");
                             });
                             method.AddStatement("var requestBodyContent = requestBody.Content;");
-                            
+
                             method.AddStatement("// Get all route parameter names (case-insensitive for matching)", c => c.SeparatedFromPrevious());
                             method.AddStatements(
                                 """
-                                    var routeParameters = parameters
-                                        .Where(p => p.In == ParameterLocation.Path && !string.IsNullOrEmpty(p.Name))
-                                        .Select(p => p.Name!.ToLowerInvariant())
-                                        .ToHashSet();
-                                    """.ConvertToStatements());
+                var routeParameters = parameters
+                    .Where(p => p.In == ParameterLocation.Path && !string.IsNullOrEmpty(p.Name))
+                    .Select(p => p.Name!.ToLowerInvariant())
+                    .ToHashSet();
+                """.ConvertToStatements());
                         }
                         else
                         {
                             method.AddStatement("// Get all route parameter names (case-insensitive for matching)", c => c.SeparatedFromPrevious());
                             method.AddStatements(
                                 """
-                                    var routeParameters = operation.Parameters
-                                        .Where(p => p.In == ParameterLocation.Path)
-                                        .Select(p => p.Name.ToLowerInvariant())
-                                        .ToHashSet();
-                                    """.ConvertToStatements());
+                var routeParameters = operation.Parameters
+                    .Where(p => p.In == ParameterLocation.Path)
+                    .Select(p => p.Name.ToLowerInvariant())
+                    .ToHashSet();
+                """.ConvertToStatements());
                         }
                         method.AddIfStatement("routeParameters.Count == 0", stmt =>
                         {
@@ -128,10 +139,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                 forEach.AddStatement("// Find properties that match route parameter names (case-insensitive)", s => s.SeparatedFromPrevious());
                                 forEach.AddStatements(
                                     """
-                                    var propertyKeysToRemove = concreteSchema.Properties.Keys
-                                        .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
-                                        .ToList();
-                                    """.ConvertToStatements());
+                var propertyKeysToRemove = concreteSchema.Properties
+                    .Where(property => routeParameters.Contains(property.Key.ToLowerInvariant()) && !IsPlainStringSchema(property.Value))
+                    .Select(property => property.Key)
+                    .ToList();
+                """.ConvertToStatements());
                                 forEach.AddIfStatement("propertyKeysToRemove.Count == 0", stmt =>
                                 {
                                     stmt.AddStatement("continue;");
@@ -178,10 +190,10 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                 forEach.AddStatement("// Find properties that match route parameter names (case-insensitive)", s => s.SeparatedFromPrevious());
                                 forEach.AddStatements(
                                     """
-                                    var propertiesToRemove = schema.Properties.Keys
-                                        .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
-                                        .ToList();
-                                    """.ConvertToStatements());
+                var propertiesToRemove = schema.Properties.Keys
+                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
+                    .ToList();
+                """.ConvertToStatements());
                                 forEach.AddIfStatement("propertiesToRemove.Count == 0", stmt =>
                                 {
                                     stmt.AddStatement("continue;");
@@ -190,18 +202,18 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
 
                                 forEach.AddStatements(
                                     """
-                                    var newSchema = new OpenApiSchema
-                                    {
-                                        Type = schema.Type,
-                                        Format = schema.Format,
-                                        Description = schema.Description,
-                                        Nullable = schema.Nullable,
-                                        Properties = new Dictionary<string, OpenApiSchema>(schema.Properties),
-                                        Required = new HashSet<string>(schema.Required),
-                                        AdditionalPropertiesAllowed = schema.AdditionalPropertiesAllowed,
-                                        AdditionalProperties = schema.AdditionalProperties
-                                    };
-                                    """.ConvertToStatements());
+                var newSchema = new OpenApiSchema
+                {
+                    Type = schema.Type,
+                    Format = schema.Format,
+                    Description = schema.Description,
+                    Nullable = schema.Nullable,
+                    Properties = new Dictionary<string, OpenApiSchema>(schema.Properties),
+                    Required = new HashSet<string>(schema.Required),
+                    AdditionalPropertiesAllowed = schema.AdditionalPropertiesAllowed,
+                    AdditionalProperties = schema.AdditionalProperties
+                };
+                """.ConvertToStatements());
                                 forEach.AddStatement("// Remove matching properties from the new schema", s => s.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyName", "propertiesToRemove", innerForEach =>
                                 {
@@ -220,7 +232,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")).Any();
+            ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")).Any();
         }
 
         [IntentManaged(Mode.Fully)]
