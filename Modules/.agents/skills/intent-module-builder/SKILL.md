@@ -34,21 +34,9 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 
 ---
 
-## The Iteration Cycle (applies to every change, not just initial scaffold)
+## The Iteration Cycle
 
-Any modification to module behaviour — template type, NuGet version, factory extension logic, registration type — follows this fixed sequence:
-
-```
-1. Change in designer (Module Builder)
-2. Run SF on the module app       → run_software_factory(module_app_id)
-3. Apply staged changes           → apply_staged_file_changes(module_app_id)
-4. Edit bespoke bodies if needed  → only Body = Mode.Ignore sections
-5. Compile the module             → dotnet build <module.csproj>
-6. Run SF on the target/test app  → run_software_factory(target_app_id)
-7. Inspect the generated output
-```
-
-Skipping or reordering steps (e.g. editing generated files before running SF, or running target SF before compiling the module) produces incorrect or overwritten output.
+Any modification to module behaviour — template type, NuGet version, factory extension logic, registration type — follows a fixed designer → SF → install → SF → inspect → build → run sequence. This skill applies it once for the **initial scaffold**. Every subsequent change is owned by `module-increment-loop` — load that skill once this one's scaffold is verified.
 
 ---
 

@@ -54,6 +54,33 @@ OnAfterTemplateRegistrations()       ──►  FindTemplateInstance(s) → reso
 
 11. **When consuming stereotype properties inside a factory extension**, delegate the logic to the typed extension methods defined in `*StereotypeExtensions.cs`. See **intent-metadata-consumer** for the full consumption workflow.
 
+### Multi-Broker / Multi-Implementation Co-existence
+
+12. **Register the module's broker stereotype IDs via `MessageBusRegistry.Register(...)` in `OnAfterMetadataLoad`** when authoring an eventing/messaging module. This declares the stereotypes that mark messages as belonging to *this* broker, so other brokers can filter them out in multi-broker apps.
+
+    ```csharp
+    protected override void OnAfterMetadataLoad(IApplication application)
+    {
+        MessageBusRegistry.Register(MyMessageBusId, MyBrokerStereotypeIds);
+    }
+    ```
+
+    `MyMessageBusId` should be the `id` attribute of the module's `<class type="Message Bus Provider">` element XML (same as MassTransit's pattern — a unique dictionary key, but using the designer element ID keeps it stable).
+
+13. **Filter cross-broker subscriptions via `FilterMessagesForThisMessageBroker`** in any template that enumerates `IntegrationEventSubscriptions` or per-message templates. In single-broker apps it is a no-op; in multi-broker apps it excludes messages tagged for another broker.
+
+    ```csharp
+    var mine = subscriptions
+        .FilterMessagesForThisMessageBroker(
+            ExecutionContext,
+            MyBrokerStereotypeIds,
+            x => x.TypeReference.Element.AsMessageModel()!);
+    ```
+
+    **Watch the overload:** the three-arg `(sequence, template, ids)` overload accepts `IIntentTemplate`. The four-arg overload with a `Func<TMessage, TElementWithStereotype>` selector requires `ISoftwareFactoryExecutionContext` — pass `ExecutionContext` (the property on the template), **not** `this`.
+
+14. **Drive technology-specific message classification from the model, not from name/namespace heuristics.** When a broker (e.g. NServiceBus) needs explicit type classification beyond what `IConsumer<T>` provides, generate explicit type predicates by enumerating `FindTemplateInstances<...IntegrationEventMessage>` / `FindTemplateInstances<...IntegrationCommand>` filtered through `FilterMessagesForThisMessageBroker`. Emit `new[] { typeof(A), typeof(B) }.Contains` rather than `t => t.Name.EndsWith("Event")`. The model is the source of truth and the result composes with the broker filter automatically.
+
 ## Must Nots
 
 1. **Never use Regex** to modify `Program.cs`, `appsettings.json`, or any other generated file. All structural modifications must go through the CSharpFile builder API or published events.

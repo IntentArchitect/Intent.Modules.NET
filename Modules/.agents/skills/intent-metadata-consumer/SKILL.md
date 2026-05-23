@@ -273,6 +273,24 @@ public static class ClassModelStereotypeExtensions   // one file per model type
 }
 ```
 
+### Generated Namespace Convention
+
+When SF generates per-model-type extension files for a stereotype, the namespace is **`Intent.<ModuleSuffix>.Api`** (matching the `imodspec` package id), **not** the runtime assembly's namespace.
+
+For example, the `Intent.Eventing.NServiceBus` module's generated extensions live in:
+
+```csharp
+namespace Intent.Eventing.NServiceBus.Api
+{
+    public static class MessageModelStereotypeExtensions { ... }
+    public static class IntegrationCommandModelStereotypeExtensions { ... }
+}
+```
+
+— NOT in `Intent.Modules.Eventing.NServiceBus.Api` (which is where hand-written extensions might sit).
+
+**How to apply:** When a stereotype targets multiple model types (e.g. `Message` + `Integration Command`), SF emits one `*StereotypeExtensions.cs` per model type, all sharing the same wrapper class and `DefinitionId`. Update your `using` statements to the SF-generated namespace and delete any hand-written extension that overlaps. The hand-written file should be hollowed out (left with `[assembly: DefaultIntentManaged(Mode.Ignore)]` only) so SF doesn't fight with it.
+
 ### Step 3 — Replace Bridge Code with Typed Calls
 
 Once the extension is in place, replace all GUID/raw-string references:

@@ -31,6 +31,21 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 8. Must not use raw string interpolation for Lambda arrows `=>` or Object Initializer braces `{}`. Use dedicated builder blocks (`CSharpLambdaBlock`, `CSharpObjectInitializerBlock`).
 9. Never call `field.WithAssignment(string)` directly on `CSharpField` — that overload is `[Obsolete]`. Use `field.WithAssignment(new CSharpStatement("value"))` instead. For collection fields that should be initialised to their default empty state, prefer `field.WithInstantiation()`.
 10. Never use `param.IntroduceReadonlyField()` for fields that are not constructor-injected parameters (e.g. nullable state fields like `IEndpointInstance? _endpointInstance`). Those must be declared with an explicit `@class.AddField(type, name, f => f.Private())` call.
+11. Never declare a class called `Constants` (or any other name that collides with `Intent.Modules.Constants`) in a template file that also imports `Intent.Modules.Constants`. The unqualified name resolves to whichever was last imported, silently swapping which `Constants.X` you read. Either rename the local class (e.g. `<ModuleName>Constants`) or use a `using` alias: `using LocalConstants = MyModule.Templates.Constants;`.
+
+## Resolving Other Templates' Namespaces
+
+When one template needs to `AddUsing` for a namespace defined by another template, look the source template up as `IClassProvider` (from `Intent.Modules.Common.Templates`):
+
+```csharp
+var configTemplate = application.FindTemplateInstance<IClassProvider>(NServiceBusConfigurationTemplate.TemplateId);
+if (configTemplate != null)
+{
+    file.AddUsing(configTemplate.Namespace);
+}
+```
+
+This avoids hardcoding namespaces and survives namespace changes driven by the codebase-structure designer.
 
 ## Pattern Index
 

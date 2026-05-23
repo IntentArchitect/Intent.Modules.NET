@@ -67,6 +67,7 @@ Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **
 | **tech-pattern-researcher** | `skills/tech-pattern-researcher/SKILL.md` | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
 | **module-ecosystem-analyst** | `skills/module-ecosystem-analyst/SKILL.md` | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
 | **intent-module-builder** | `skills/intent-module-builder/SKILL.md` | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
+| **module-increment-loop** | `skills/module-increment-loop/SKILL.md` | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
 
 ### Implementation Skills (load as needed during module implementation)
 
@@ -76,6 +77,7 @@ Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **
 | **intent-mapping-architect** | `skills/intent-mapping-architect/SKILL.md` | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
 | **intent-metadata-consumer** | `skills/intent-metadata-consumer/SKILL.md` | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
 | **intent-module-orchestrator** | `skills/intent-module-orchestrator/SKILL.md` | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
+| **intent-domain-interactions-expert** | `skills/intent-domain-interactions-expert/SKILL.md` | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
 
 > **Maintenance:** Use `Modules/.agents/prompts/refresh-intent-skills.prompt.md` to audit skills against the latest SDK and update any stale patterns or resource files.
 
