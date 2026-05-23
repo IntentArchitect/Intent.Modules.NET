@@ -16,6 +16,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IClientRepository, ClientDaprStateStoreRepository>();

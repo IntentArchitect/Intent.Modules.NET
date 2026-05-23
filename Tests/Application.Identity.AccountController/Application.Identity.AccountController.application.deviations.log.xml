@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#eb3f2b89-2b94-450d-99c1-f335dcf537e4</correlationId>
+      <path>Application.Identity.AccountController.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:07:52.006193Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>275243345EAE1211DA8DD0BA05C787AA8F09845ADE149036ECA3C488847174EF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a01ba392-56b8-4929-a5f9-b08465755d7a</correlationId>
+      <path>Application.Identity.AccountController.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:07:52.0063793Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>89C7CF978A8A6ABD526B0AC55CCF7409885175AC3FDD7A0A69761711A367C61E</fileHash>
+    </file>
+  </files>
 </deviationsLog>

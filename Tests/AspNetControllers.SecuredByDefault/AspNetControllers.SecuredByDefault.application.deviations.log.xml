@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#26cef937-b284-4a94-8c8e-9df43eea3438</correlationId>
+      <path>AspNetControllers.SecuredByDefault.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:10:43.9331419Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>CD2CB9D9730CBA58EE715B91C4FFF770ECA61F86C0E98B421CE5B18AD1EAE86E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1c33236f-16da-4a77-8965-e48bace53372</correlationId>
+      <path>AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:10:43.9334321Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>B8C566893372773B00F9CAF4790E884F7C06A438A647CBEF8B9C9C4C0E436DCF</fileHash>
+    </file>
+  </files>
 </deviationsLog>

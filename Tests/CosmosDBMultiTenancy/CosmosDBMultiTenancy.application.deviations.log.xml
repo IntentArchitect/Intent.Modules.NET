@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#cfa9a6b8-2157-4707-a950-85056cd8b0fa</correlationId>
+      <path>CosmosDBMultiTenancy.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:08:36.6092774Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>E63F89F5E159D2DD40FA9105BE3C9CE2B92DB35262DC2FD5AC3AFB363D248CB4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#2c2c6d92-c536-4b1f-a0c2-b502c28eba1e</correlationId>
+      <path>CosmosDBMultiTenancy.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:08:36.6095017Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>B22EEBBABE7863E261765E45F30DB802E47C43ACDFB6CF18AD9372967A94B434</fileHash>
+    </file>
+  </files>
 </deviationsLog>

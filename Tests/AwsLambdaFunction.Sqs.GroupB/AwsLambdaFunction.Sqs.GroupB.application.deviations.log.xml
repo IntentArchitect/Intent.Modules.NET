@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#f1f7adae-52e1-4503-93fa-148afc672ec9</correlationId>
+      <path>AwsLambdaFunction.Sqs.GroupB.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:05:26.2788464Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>68BD420656DFD521ACD08A9618178B49B5CB89CF0A02ABF6029D8A18B22EC23C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#87c89f37-410a-4e19-ba06-0e3cb525ea5a</correlationId>
+      <path>AwsLambdaFunction.Sqs.GroupB.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:05:26.279015Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>06C5AC7962D00529DCD3CA34DEFBB49A0CDED09FC981666F396BF23553F4A446</fileHash>
+    </file>
+  </files>
 </deviationsLog>

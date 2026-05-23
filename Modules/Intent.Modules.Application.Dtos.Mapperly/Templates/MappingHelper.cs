@@ -143,7 +143,7 @@ internal static class MappingHelper
             .Select(pathTarget =>
             {
                 var operationCall = pathTarget.Specialization == OperationModel.SpecializationType ? "()" : string.Empty;
-                return $"{pathTarget.Name}{operationCall}";
+                return $"{pathTarget.Name.ToPropertyName()}{operationCall}";
             }));
 
         return path;

@@ -240,11 +240,11 @@ namespace Intent.Modules.CosmosDB.Templates
                 {
                     var nullable = associationEnd.IsNullable ? "?" : string.Empty;
 
-                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity()";
+                    var assignmentValueExpression = $"{associationEnd.Name.ToPascalCase()}{nullable}.ToEntity()";
 
                     if (associationEnd.IsCollection)
                     {
-                        assignmentValueExpression = $"{associationEnd.Name}{nullable}.Select(x => x.ToEntity()).ToList()";
+                        assignmentValueExpression = $"{associationEnd.Name.ToPascalCase()}{nullable}.Select(x => x.ToEntity()).ToList()";
                     }
                     else if (!associationEnd.IsNullable)
                     {
@@ -340,12 +340,12 @@ namespace Intent.Modules.CosmosDB.Templates
                         template.AddUsing("System.Linq");
 
                         var nullable = associationEnd.IsNullable ? "?" : string.Empty;
-                        method.AddStatement($"{associationEnd.Name} = entity.{associationEnd.Name}{nullable}.Select(x => {documentTypeName}.FromEntity(x)!).ToList();");
+                        method.AddStatement($"{associationEnd.Name.ToPascalCase()} = entity.{associationEnd.Name.ToPascalCase()}{nullable}.Select(x => {documentTypeName}.FromEntity(x)!).ToList();");
                         continue;
                     }
 
                     var nullableSuppression = associationEnd.IsNullable ? string.Empty : "!";
-                    method.AddStatement($"{associationEnd.Name} = {documentTypeName}.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
+                    method.AddStatement($"{associationEnd.Name.ToPascalCase()} = {documentTypeName}.FromEntity(entity.{associationEnd.Name.ToPascalCase()}){nullableSuppression};");
                 }
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate && !hasBaseType)

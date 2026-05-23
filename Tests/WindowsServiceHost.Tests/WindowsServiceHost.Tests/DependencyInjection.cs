@@ -10,6 +10,7 @@ namespace WindowsServiceHost.Tests
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(cfg =>

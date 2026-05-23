@@ -17,6 +17,7 @@ namespace TableStorage.Tests.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<TableServiceClient>(provider => new TableServiceClient(configuration["TableStorageConnectionString"]));

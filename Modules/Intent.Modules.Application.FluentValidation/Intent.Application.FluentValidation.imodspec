@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.12.1-pre.0</version>
+  <version>3.12.1</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -92,11 +92,11 @@
         <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0" />
       </install>
     </detect>
-	<detect id="Intent.VisualStudio.Projects">
-	  <install>
-		<package id="Intent.VisualStudio.Projects" version="4.1.0" />
-	  </install>
-	</detect>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="4.1.0" />
+      </install>
+    </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>

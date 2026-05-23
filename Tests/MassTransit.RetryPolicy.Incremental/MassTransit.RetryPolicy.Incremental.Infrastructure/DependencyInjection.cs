@@ -12,6 +12,7 @@ namespace MassTransit.RetryPolicy.Incremental.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMassTransitConfiguration(configuration);

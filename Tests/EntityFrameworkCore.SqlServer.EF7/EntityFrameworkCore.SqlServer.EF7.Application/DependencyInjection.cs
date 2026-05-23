@@ -10,6 +10,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Application
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             return services;

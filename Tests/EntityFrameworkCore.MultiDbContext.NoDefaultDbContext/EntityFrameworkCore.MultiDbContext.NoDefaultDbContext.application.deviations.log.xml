@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#364a77ca-10d3-4e86-80ba-c3f163bd7e23</correlationId>
+      <path>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:02:48.5915581Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>FE68DCA5248C9D9C44CE5A0AFD8FC43135EFEDF0AF3B83FD1F28CA387F680704</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#0593ea3e-e188-4f56-bc90-ae1a53cc3210</correlationId>
+      <path>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:02:48.5919721Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>7DBD1A2BF3F893C38A11B79936B5B851D4BD1B892F57C4B35E2580A2F8933E28</fileHash>
+    </file>
+  </files>
 </deviationsLog>

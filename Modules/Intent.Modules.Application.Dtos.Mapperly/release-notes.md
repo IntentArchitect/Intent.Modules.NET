@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: Issue when association name wasn't formatted correctly in some scenarios.
+
 ### Version 1.1.0
 - Improvement: If a navigation of a field hops across classes or enities are fully qualified prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.  
 See: https://mapperly.riok.app/docs/configuration/full-nameof/

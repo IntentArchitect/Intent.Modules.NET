@@ -2,6 +2,26 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#0db7b1ef-1340-4a27-aff6-504008873e41</correlationId>
+      <path>ValueObjects.Record.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:04:49.1477659Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>123067EA20AEEE6BD44ED1C8579E25B069EF23D9C64554DDC687392AACD2D17C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#f0db45fb-3ad8-4ee6-bf86-2e7446d8efaa</correlationId>
+      <path>ValueObjects.Record.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:04:49.147996Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>41E97982734C4715DDA43E0CFBC20E099AAF0D1B50365E5331D5DFF5FCBF0649</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture#d028b12e-076b-425d-b3ff-a24ac8442c82</correlationId>
       <path>ValueObjects.Record.IntegrationTests/EFContainerFixture.cs</path>
       <count>1</count>

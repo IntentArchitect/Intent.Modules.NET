@@ -20,6 +20,7 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             var cs = configuration.GetConnectionString("MongoDbConnection");

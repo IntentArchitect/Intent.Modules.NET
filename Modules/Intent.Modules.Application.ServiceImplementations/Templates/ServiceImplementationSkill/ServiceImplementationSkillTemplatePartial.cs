@@ -27,7 +27,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: "application-service-implementation")
                 .FromMarkdown($"""
 ---
-name: traditional-service-implementation
+name: application-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
 template-id: {TemplateId}
 ---

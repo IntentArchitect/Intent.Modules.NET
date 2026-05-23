@@ -1,3 +1,7 @@
+### Version 4.1.15
+
+- Improvement: Made `AddApplication` be `IntentMerge` by default, this is a better default with AI.
+ 
 ### Version 4.1.14
 
 - Improvement: Updated NuGet package versions.

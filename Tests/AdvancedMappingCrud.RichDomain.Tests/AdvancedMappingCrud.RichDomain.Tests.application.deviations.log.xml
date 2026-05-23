@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#c39a9bbe-33fe-458e-bd11-b6fa21243294</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.Tests.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:47.1910824Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>F26FF985C5BF6C20EBFE43F26D0C3F4AF84ACB9CA0D5A06F423B8E9DCD3823F9</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.DomainServices.DomainServiceImplementation#0b4fda89-35c9-4175-9009-f0150e36b42e</correlationId>
       <path>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/CategoriesService.cs</path>
       <count>1</count>
@@ -13,6 +23,16 @@
       <approvedAt>2026-04-30T15:19:34.7946281Z</approvedAt>
       <deviationsHash>D6FB972F4A5094216E4F49A3C133087C410CD03701336EC97A6EB6D0B61A7DDF</deviationsHash>
       <fileHash>137CDF3B3AEFEDCFFEA4A09DDFF68DC0580A253DB4CD626544B58024C85B0C0D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#476eaa52-0f8e-4e5f-8cd6-76a9f8990e7c</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:47.1916722Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>DC40E7B0914DA4294A846D962739B6B328577426D01C6AA6795816580E24FE6D</fileHash>
     </file>
   </files>
 </deviationsLog>

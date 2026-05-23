@@ -2,6 +2,26 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#33d30b32-aed5-44f9-8365-36345291b0e3</correlationId>
+      <path>AdvancedMappingCrudMongo.Tests.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:21.556622Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>E588FE16A10F2530337F23C339E279F98B16E529236B94F9043B59CC59259ED0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#47bbb4dd-a8af-42b6-858f-18c85912b22f</correlationId>
+      <path>AdvancedMappingCrudMongo.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T08:57:21.5569073Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>E180AB4FA92FC3C21D08814038A93584B07C470B89D841DFDCDCF691C4E52188</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory#5b04ad52-dcc5-4b74-a167-8be647df7522</correlationId>
       <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/TestDataFactory.cs</path>
       <count>1</count>
