@@ -1,3 +1,7 @@
+### Version 1.0.21
+
+- Fixed: Issue when association name wasn't formatted correctly in some scenarios.
+
 ### Version 1.0.20
 
 - Improvement: Updated NuGet package versions.
