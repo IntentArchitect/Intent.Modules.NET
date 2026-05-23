@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#8ddee4ce-91af-4f7d-8a92-f538c63c4a6f</correlationId>
-      <path>Finbuckle.SharedDatabase.TestApplication.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:08:44.6257035Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>F87D494373333CE5E8387F7661D60900F1FB5F2D6AA0E276741FE8BD4890E672</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#db206802-ad97-4384-bb1c-f89ff30d7415</correlationId>
-      <path>Finbuckle.SharedDatabase.TestApplication.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:08:44.6259194Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>93574D353DD97AC88CB9E65E3A01A5644161534607B28A1B790F48DEE7363F75</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

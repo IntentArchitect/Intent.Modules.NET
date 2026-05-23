@@ -49,8 +49,16 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                     {
                         method.Private();
                         method.Static();
-                        method.AddParameter("IOpenApiSchema", "schema");
-                        method.AddReturn("""schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid" """);
+                        if (isMicrosoftOpenApi_2_4_1)
+                        {
+                            method.AddParameter("IOpenApiSchema", "schema");
+                            method.AddReturn("""schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid" """);
+                        }
+                        else
+                        {
+                            method.AddParameter("OpenApiSchema", "schema");
+                            method.AddReturn("""schema.Type == "string" && schema.Format != "uuid" """);
+                        }
                     });
                     @class.AddMethod("void", "Apply", method =>
                     {
@@ -191,7 +199,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                 forEach.AddStatements(
                                     """
                 var propertiesToRemove = schema.Properties.Keys
-                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
+                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()) && !IsPlainStringSchema(schema.Properties[key]))
                     .ToList();
                 """.ConvertToStatements());
                                 forEach.AddIfStatement("propertiesToRemove.Count == 0", stmt =>

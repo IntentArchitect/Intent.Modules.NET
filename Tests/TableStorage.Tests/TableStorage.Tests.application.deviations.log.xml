@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#eadf9603-cc28-4fa4-be8b-c7c63f7b2b4c</correlationId>
-      <path>TableStorage.Tests.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:11:07.2612017Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>F16ACFF8C160DB84D736C54A7217D71670781F1583D967256D6249D49435CECF</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#440f408b-9796-4f8f-8781-a18645425ddc</correlationId>
       <path>TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs</path>
       <count>1</count>
@@ -23,16 +13,6 @@
       <approvedAt>2025-07-09T10:15:25.542194Z</approvedAt>
       <deviationsHash>C0BBDB42DAEEB7F2FD59E4224ADDA5360F674F299071B60BE4C9243BDB78A2EC</deviationsHash>
       <fileHash>EEBD09A327EB79819ED59E9BB34030093A58EA5150CE09CC606ECC44AF470781</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#f762f712-073b-4dfc-841a-27af0baa5a61</correlationId>
-      <path>TableStorage.Tests.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:11:07.2614613Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>F6E8B88314D8064433498E682FF229E8407B6E3CFB3C48069229C5B161A43EBF</fileHash>
     </file>
   </files>
 </deviationsLog>

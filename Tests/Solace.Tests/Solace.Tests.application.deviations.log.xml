@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#e2aa4e09-34ea-4b61-9e62-7a2f9ab19734</correlationId>
-      <path>Solace.Tests.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:07:19.4673235Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>F981A9C2F2923DCDA4483BAEB4EBE3D9855453DA4A8B76864D09F06FF1C10A67</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#c22e8240-e744-4522-b39a-03e707054765</correlationId>
       <path>Solace.Tests.Application/IntegrationEvents/EventHandlers/Customers/CustomerCreatedHandler.cs</path>
       <count>1</count>
@@ -23,16 +13,6 @@
       <approvedAt>2025-12-03T22:18:18.3197749Z</approvedAt>
       <deviationsHash>0A6D036A13B516E591965518AE22B69A100F290D34E3AFB385337FD201249B95</deviationsHash>
       <fileHash>AAAEBBDA922524FDA6C3698ED25413A106652290BB799DE82A7DDE55F2C9974B</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#44a3e13e-bb8d-45af-8e32-cf6dc8b9a233</correlationId>
-      <path>Solace.Tests.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:07:19.4677648Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>B0FABF4A0C779D43305E34558CFC08D9A4079823DE5B2DC07C0A876BFF456BB4</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#f14f2a23-c597-4147-b9ad-2d944a706fd6</correlationId>
-      <path>EntityFrameworkCore.Oracle.TestApplication.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:02:57.2699164Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>A3D12896D71AF19A1BF086EA623348B62EA0672D115579DB2DB6A0A270E9B298</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#610b6f87-58d9-4dcd-baac-86bb13570a89</correlationId>
-      <path>EntityFrameworkCore.Oracle.TestApplication.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:02:57.2701198Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>D1CC5D031EC2DA995B67F8231D08D47225DB9642F64688F6505D0B5559748736</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

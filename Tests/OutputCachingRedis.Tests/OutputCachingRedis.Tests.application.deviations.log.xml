@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#1bcfa8a3-0d0b-44b2-b711-dce9444dfd2d</correlationId>
-      <path>OutputCachingRedis.Tests.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:01:33.196582Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>94348315530B091D0CDB697575F0C05944CD0F9815AAE2993407A95A2502CC07</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#ef1d8324-00d9-4916-b4e0-c42e7684e91b</correlationId>
       <path>OutputCachingRedis.Tests.Application/Files/CreateFiles/CreateFilesCommandHandler.cs</path>
       <count>1</count>
@@ -36,16 +26,6 @@
       <approvedAt>2025-07-09T09:58:25.1104147Z</approvedAt>
       <deviationsHash>72891819F5ABFE84515DC6E6DC148A16F9F17142720B624784BC2225954CD479</deviationsHash>
       <fileHash>8C9674881FEEA1E33CA20F02627310F4899E84588A9869C09C6491BC04AA8484</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#9c78dfab-c102-43c8-bd3f-7476b30228a4</correlationId>
-      <path>OutputCachingRedis.Tests.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:01:33.1969552Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>0509F18262BEF9CF1D27E825225E85913E6F8B363B9FABD6BCA9AA38CA352A10</fileHash>
     </file>
   </files>
 </deviationsLog>

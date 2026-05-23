@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#fb676756-b7f6-483e-b834-d6c83a4bb93c</correlationId>
-      <path>CloudBlobStorageClients.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:11:03.6115794Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>AE5737E8B3E2553D6E857DB9B02AB8218C0226BD70AB4CAE4D8F60C886A51C7C</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#cb2fbe3f-b57d-4698-a8c5-202020fe3abd</correlationId>
-      <path>CloudBlobStorageClients.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:11:03.6121315Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>B6542EB842A854F7BA62E037D8E56AB0A10C6AD770E0C6A9525D704C3096E975</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>
