@@ -12,6 +12,7 @@ using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Eventing.NServiceBus.Templates.Constants;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -36,6 +37,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
             // Flatten all (handler, subscription) pairs across every handler in this folder group
             var handlerSubscriptions = Model
                 .SelectMany(h => h.IntegrationEventSubscriptions()
+                    .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
                     .Select(sub => (Handler: h, Subscription: sub)))
                 .ToList();
 

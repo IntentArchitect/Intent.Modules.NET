@@ -2,16 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.NServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
-using Intent.Modules.Eventing.NServiceBus.Api;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Eventing.NServiceBus.Templates.Constants;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -105,8 +108,39 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
                         method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
 
-                        method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
-                        method.AddStatement("conventions.DefiningEventsAs(type => type.Name.EndsWith(\"Event\"));");
+                        // Discover modeled events and commands belonging to this broker.
+                        // We classify them explicitly by type rather than by name/namespace
+                        // so the convention is precise and respects multi-broker filtering.
+                        var eventTemplates = ExecutionContext
+                            .FindTemplateInstances<CSharpTemplateBase<MessageModel>>(
+                                IntegrationEventMessageTemplate.TemplateId)
+                            .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, t => t.Model)
+                            .ToList();
+
+                        var commandTemplates = ExecutionContext
+                            .FindTemplateInstances<CSharpTemplateBase<IntegrationCommandModel>>(
+                                IntegrationCommandTemplate.TemplateId)
+                            .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, t => t.Model)
+                            .ToList();
+
+                        if (eventTemplates.Count > 0 || commandTemplates.Count > 0)
+                        {
+                            method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
+
+                            if (eventTemplates.Count > 0)
+                            {
+                                var eventTypeOfs = string.Join(", ",
+                                    eventTemplates.Select(t => $"typeof({GetTypeName(IntegrationEventMessageTemplate.TemplateId, t.Model)})"));
+                                method.AddStatement($"conventions.DefiningEventsAs(new[] {{ {eventTypeOfs} }}.Contains);");
+                            }
+
+                            if (commandTemplates.Count > 0)
+                            {
+                                var commandTypeOfs = string.Join(", ",
+                                    commandTemplates.Select(t => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, t.Model)})"));
+                                method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {commandTypeOfs} }}.Contains);");
+                            }
+                        }
 
                         if (!recoverabilityPolicy.IsNone())
                         {
@@ -126,20 +160,19 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             method.AddStatement("""endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");""");
                         }
 
-                        var commandTemplates = ExecutionContext
-                            .FindTemplateInstances<CSharpTemplateBase<IntegrationCommandModel>>(
-                                IntegrationCommandTemplate.TemplateId)
-                            .ToList();
-
                         if (commandTemplates.Count > 0)
                         {
-                            method.AddStatement("var routing = transportConfig.Routing();", s => s.SeparatedFromPrevious());
+                            var first = true;
                             foreach (var ct in commandTemplates)
                             {
                                 var commandTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, ct.Model);
                                 var commandName = ct.Model.Name;
-                                var defaultEndpoint = ct.Model.GetNServiceBusMessageSettings()?.EndpointName() ?? commandName;
-                                method.AddStatement($"""routing.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{defaultEndpoint}");""");
+                                var defaultEndpoint = ct.Model.GetNServiceBus()?.EndpointName() ?? commandName;
+                                var isFirst = first;
+                                first = false;
+                                method.AddStatement(
+                                    $"""transportConfig.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{defaultEndpoint}");""",
+                                    s => { if (isFirst) s.SeparatedFromPrevious(); });
                             }
                         }
 

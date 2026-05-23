@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" version="3.1.0">
+  <name>NServiceBus</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>d174aaae-d428-4241-b433-d22329f87a97</parentFolderId>
+  <order>0</order>
+  <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+  <packageName>Intent.Eventing.NServiceBus</packageName>
+  <properties>
+    <property id="7fb26481-5156-4067-ad30-b55b48f2bfbe">
+      <hint>Override the target endpoint name for this command. Leave blank to use the command class name.</hint>
+      <name>Endpoint Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

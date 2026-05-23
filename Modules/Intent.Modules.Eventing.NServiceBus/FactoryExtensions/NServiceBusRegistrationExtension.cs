@@ -8,11 +8,13 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using NServiceBusConstants = Intent.Modules.Eventing.NServiceBus.Templates.Constants;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -26,6 +28,11 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 500;
+
+        protected override void OnAfterMetadataLoad(IApplication application)
+        {
+            MessageBusRegistry.Register(NServiceBusConstants.NServiceBusMessageBusId, NServiceBusConstants.BrokerStereotypeIds);
+        }
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
