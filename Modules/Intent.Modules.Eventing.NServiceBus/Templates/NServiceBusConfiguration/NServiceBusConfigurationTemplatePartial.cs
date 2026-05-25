@@ -4,14 +4,19 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.NServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.NServiceBus.Settings;
+using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -30,6 +35,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         public NServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole("Infrastructure.DependencyInjection.NServiceBus");
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
+
+            AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
+            AddTypeSource(IntegrationCommandTemplate.TemplateId);
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
             AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
@@ -59,6 +68,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("NServiceBus")
                 .AddClass("NServiceBusConfiguration", @class =>
@@ -71,6 +81,54 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddParameter("IHostBuilder", "hostBuilder", p => p.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
                         method.AddReturn("hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration))");
+                    });
+
+                    @class.AddMethod("IServiceCollection", "AddNServiceBusConfiguration", method =>
+                    {
+                        method.Static();
+                        method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
+
+                        var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                        var nsbBusName = this.GetTypeName(NServiceBusMessageBusTemplate.TemplateId);
+                        if (requiresCompositeMessageBus)
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                            method.AddStatement($"services.AddScoped<{nsbBusName}>();");
+                        }
+                        else
+                        {
+                            var busInterface = this.GetBusInterfaceName();
+                            method.AddStatement($"services.AddScoped<{nsbBusName}>();");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{nsbBusName}>());");
+                        }
+
+                        if (requiresCompositeMessageBus)
+                        {
+                            var registryEventTemplates = ExecutionContext
+                                .FindTemplateInstances<CSharpTemplateBase<MessageModel>>(IntegrationEventMessageTemplate.TemplateId)
+                                .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, t => t.Model)
+                                .ToList();
+
+                            var registryCommandTemplates = ExecutionContext
+                                .FindTemplateInstances<CSharpTemplateBase<IntegrationCommandModel>>(IntegrationCommandTemplate.TemplateId)
+                                .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, t => t.Model)
+                                .ToList();
+
+                            foreach (var et in registryEventTemplates)
+                            {
+                                var msgName = GetTypeName(IntegrationEventMessageTemplate.TemplateId, et.Model);
+                                method.AddStatement($"registry.Register<{msgName}, {nsbBusName}>();");
+                            }
+
+                            foreach (var ct in registryCommandTemplates)
+                            {
+                                var msgName = GetTypeName(IntegrationCommandTemplate.TemplateId, ct.Model);
+                                method.AddStatement($"registry.Register<{msgName}, {nsbBusName}>();");
+                            }
+                        }
+
+                        method.AddReturn("services");
                     });
 
                     @class.AddMethod("EndpointConfiguration", "ConfigureEndpoint", method =>
@@ -179,6 +237,19 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (this.RequiresCompositeMessageBus())
+            {
+                return;
+            }
+
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("AddNServiceBusConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                .ForConcern("Infrastructure")
+                .HasDependency(this));
         }
 
         [IntentManaged(Mode.Fully)]

@@ -12,6 +12,7 @@ using Intent.Modules.Eventing.Contracts;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
+using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using NServiceBusConstants = Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -36,16 +37,10 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var messageBusTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                TemplateRoles.Application.Eventing.MessageBusImplementation);
-            if (messageBusTemplate == null) return;
-
-            application.EventDispatcher.Publish(
-                ContainerRegistrationRequest.ToRegister(messageBusTemplate)
-                    .ForInterface(messageBusTemplate.GetBusInterfaceName())
-                    .ForConcern("Infrastructure")
-                    .WithPriority(100)
-                    .WithPerServiceCallLifeTime());
+            // DI registration is owned by NServiceBusConfigurationTemplate.AddNServiceBusConfiguration —
+            // in single-broker mode it publishes a ServiceConfigurationRequest that wires Infrastructure DI,
+            // in multi-broker mode the composite discovers the same method via the MessageBusConfiguration role.
+            // This factory extension only handles app-settings + Program.cs host-builder wiring.
 
             var transport = application.Settings.GetNServiceBusSettings().Transport();
             var recoverabilityPolicy = application.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
@@ -74,7 +69,7 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var messageBusTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                TemplateRoles.Application.Eventing.MessageBusImplementation);
+                NServiceBusMessageBusTemplate.TemplateId);
 
             if (messageBusTemplate != null)
             {
@@ -105,7 +100,7 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
             {
                 file.AddUsing(configTemplate.Namespace);
                 programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(
-                    new CSharpStatement("builder.Host.AddNServiceBus(builder.Configuration)"));
+                    new CSharpStatement("builder.Host.AddNServiceBus(builder.Configuration);"));
             }, 10);
         }
     }

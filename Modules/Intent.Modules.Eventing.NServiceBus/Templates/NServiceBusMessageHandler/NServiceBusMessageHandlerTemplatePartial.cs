@@ -29,10 +29,18 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
 
-            var parentElement = Model.First().InternalElement.ParentElement;
-            var className = parentElement.SpecializationType == "Folder"
-                ? $"{parentElement.Name.ToPascalCase()}MessageHandler"
-                : "EventMessageHandler";
+            // When the application has no integration event handlers (or none whose subscriptions resolve
+            // to this broker in composite mode), Model is empty. Fall back to the default class name so the
+            // template still produces a valid (empty) class — emitting nothing would breach the SDK's
+            // "at least one structural declaration" contract.
+            var className = "EventMessageHandler";
+            if (Model.Any())
+            {
+                var parentElement = Model.First().InternalElement.ParentElement;
+                className = parentElement.SpecializationType == "Folder"
+                    ? $"{parentElement.Name.ToPascalCase()}MessageHandler"
+                    : "EventMessageHandler";
+            }
 
             // Flatten all (handler, subscription) pairs across every handler in this folder group
             var handlerSubscriptions = Model
