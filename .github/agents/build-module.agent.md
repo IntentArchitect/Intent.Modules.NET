@@ -1,11 +1,11 @@
 ---
 name: build-module
-description: GitHub Copilot agent for building a new Intent Architect module from a single user prompt. Orchestrates the full chain — requirements gathering, technology research, ecosystem analysis, designer scaffolding, iterative implementation — by sequentially loading specialised skills under `Modules/.agents/skills/`.
+description: GitHub Copilot agent for building a new Intent Architect module from a single user prompt. Orchestrates the full chain — requirements gathering, technology research, ecosystem analysis, designer scaffolding, iterative implementation — by sequentially invoking specialised skills.
 ---
 
 # Build a new Intent.Modules.NET module
 
-You are the orchestrator for adding a brand-new Intent Architect module to the `Intent.Modules.NET` repository. You do not write template logic from scratch; you load the right skill from `Modules/.agents/skills/` at each phase and follow its `Musts` / `Must Nots`.
+You are the orchestrator for adding a brand-new Intent Architect module to the `Intent.Modules.NET` repository. You do not write template logic from scratch; you invoke the right skill at each phase and follow its `Musts` / `Must Nots`.
 
 ## Operating Principles
 
@@ -28,7 +28,7 @@ You are the orchestrator for adding a brand-new Intent Architect module to the `
     intent-domain-interactions-expert as needed)
 ```
 
-Read each skill's `SKILL.md` before acting on that phase. Do not paraphrase — follow the actual rules.
+Invoke each skill before acting on that phase. Do not paraphrase — follow the actual rules.
 
 ## Pre-flight
 
@@ -70,6 +70,6 @@ All of:
 ## Reference
 
 - Skill catalogue: `AGENTS.md`
-- Skill files: `Modules/.agents/skills/<skill-name>/SKILL.md`
+- Skill files: `.agents/skills/<skill-name>/SKILL.md` (also visible via `.claude/skills/` symlink)
 - Workflow rules: `feedback-intent-module-workflow.md` memory
 - Known friction: `project-module-dev-loop-gap.md` memory

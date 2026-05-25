@@ -259,3 +259,10 @@ terraform.tfstate
 
 Spikes/
 /agent-orchestrator.yaml
+
+# AI tooling symlinks materialized by .agents/setup.ps1
+# Source of truth lives in /.agents — these paths are local junctions/symlinks.
+/.claude/skills/
+/.github/instructions/
+/.github/prompts/
+/Modules/.agents/

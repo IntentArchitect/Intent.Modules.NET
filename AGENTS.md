@@ -57,29 +57,29 @@ dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --no
 
 ## 🤖 Available Skills
 
-Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
+Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
 
-### Module Building Skills (load in sequence when building a new module)
+### Module Building Skills (use in sequence when building a new module)
 
-| Skill | Path | When to use |
-| :--- | :--- | :--- |
-| **module-kickoff** | `skills/module-kickoff/SKILL.md` | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
-| **tech-pattern-researcher** | `skills/tech-pattern-researcher/SKILL.md` | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
-| **module-ecosystem-analyst** | `skills/module-ecosystem-analyst/SKILL.md` | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
-| **intent-module-builder** | `skills/intent-module-builder/SKILL.md` | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
-| **module-increment-loop** | `skills/module-increment-loop/SKILL.md` | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
+| Skill | When to use |
+| :--- | :--- |
+| **module-kickoff** | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
+| **tech-pattern-researcher** | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
+| **module-ecosystem-analyst** | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
+| **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
+| **module-increment-loop** | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
 
-### Implementation Skills (load as needed during module implementation)
+### Implementation Skills (use as needed during module implementation)
 
-| Skill | Path | When to use |
-| :--- | :--- | :--- |
-| **file-builder-expert** | `skills/file-builder-expert/SKILL.md` | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
-| **intent-mapping-architect** | `skills/intent-mapping-architect/SKILL.md` | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
-| **intent-metadata-consumer** | `skills/intent-metadata-consumer/SKILL.md` | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
-| **intent-module-orchestrator** | `skills/intent-module-orchestrator/SKILL.md` | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
-| **intent-domain-interactions-expert** | `skills/intent-domain-interactions-expert/SKILL.md` | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
+| Skill | When to use |
+| :--- | :--- |
+| **file-builder-expert** | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
+| **intent-mapping-architect** | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
+| **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
+| **intent-module-orchestrator** | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
+| **intent-domain-interactions-expert** | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
 
-> **Maintenance:** Use `Modules/.agents/prompts/refresh-intent-skills.prompt.md` to audit skills against the latest SDK and update any stale patterns or resource files.
+> **Maintenance:** Use the `refresh-intent-skills` prompt to audit skills against the latest SDK and update any stale patterns or resource files.
 
 ---
 

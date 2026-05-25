@@ -27,4 +27,4 @@ Perform a "Freshness Audit" on the following skills:
 
 # Context
 - Source of Truth: https://github.com/IntentArchitect/Intent.Modules
-- Local Skills Path: Modules/.agents/skills/
+- Local Skills Path: .agents/skills/
