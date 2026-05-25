@@ -1,3 +1,7 @@
+### Version 1.0.14
+
+- Fixed: Migration updated to correctly create the`extends` relationship between `ApplicationIdentityUser` and `IdentityUser<T>`.
+
 ### Version 1.0.13
 
 - Fixed: `ApplicationIdentityUser` to have `Table` stereotype to ensure `IdentityUser<T>` table doesn't get created.
