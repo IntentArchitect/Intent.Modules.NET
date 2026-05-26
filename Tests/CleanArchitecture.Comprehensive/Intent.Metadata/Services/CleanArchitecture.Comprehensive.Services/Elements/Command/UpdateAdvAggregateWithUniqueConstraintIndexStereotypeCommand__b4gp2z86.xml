@@ -241,11 +241,11 @@
     </childElement>
     <childElement id="56f61d1d-a4f2-4fbc-abcf-0102639df5d6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>UniqueConstraintIndexCompositeEntityForStereotypes</name>
-      <display>UniqueConstraintIndexCompositeEntityForStereotypes: UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto[*]</display>
+      <display>UniqueConstraintIndexCompositeEntityForStereotypes: AggregateWithUniqueConstraintIndexStereotypeDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1cce71a3-f688-4728-b0ca-cdee1927c40d">
-        <typeId>e2eb2816-ac20-4095-9fab-576e6268c94d</typeId>
+        <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
