@@ -1,3 +1,8 @@
+### Version 4.0.22
+
+- Fixed: Free-form mapping expressions missing `src.` prefix, causing generated mapping lambdas to be invalid.
+- Fixed: Free-form mapping expressions (containing lambdas, LINQ, ternaries) incorrectly generated lowercase property accesses (e.g. `a.id` instead of `a.Id`).
+
 ### Version 4.0.21
 
 - Fixed: Default enum values to `default` instead of `null`  when mapping in certain scenarios.

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DataContractGeneralizationModel = Intent.Modelers.Domain.Api.DataContractGeneralizationModel;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
@@ -116,12 +117,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
             {
                 if(IsExpression(pathTargets))
                 {
-                    return (string.Join(".", pathTargets.Select(s => s.Name)), MethodName.ForMember);
+                    var expression = string.Join(".", pathTargets.Select(s => s.Name));
+                    var prefix = expression.TrimStart().StartsWith("src.") ? string.Empty : "src.";
+                    return ($"{prefix}{PascalCasePropertyAccesses(expression)}", MethodName.ForMember);
                 }
 
                 var (path, methodName) = GetPath(pathTargets);
 
-                return ($"src.{path}", methodName);
+                return (PascalCasePropertyAccesses($"src.{path}"), methodName);
             }
 
             var association = pathTargets.First().Element.AsAssociationEndModel().Association;
@@ -146,6 +149,15 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
             var fullExpressionPath = string.Join(".", pathTargets.Select(p => p.Name));
 
             return fullExpressionPath.Any(c => targetChars.Contains(c));
+        }
+
+        // Capitalises property-access identifiers inside free-form expressions, e.g. "a.id" → "a.Id".
+        // Only touches identifiers that follow a '.' and start with a lowercase letter, leaving
+        // lambda parameters (which appear before '=>') and already-cased names untouched.
+        private static string PascalCasePropertyAccesses(string expression)
+        {
+            return Regex.Replace(expression, @"\.([a-z][a-zA-Z0-9_]*)", m =>
+                "." + char.ToUpperInvariant(m.Groups[1].Value[0]) + m.Groups[1].Value.Substring(1));
         }
 
         private static void AddFieldMapping(CSharpMethodChainStatement statement, DTOFieldModel field, string mapping)
@@ -214,9 +226,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
             var rawParts = expression.Split('.');
             var checks = new List<string>();
 
-            // a bit rudamentary, but basically if the expression already contains a ternary operation
-            // then don't add a null check as we will assume this is performing that. This is for custom mappings
-            if(expression.Contains(" ? ") && expression.Contains(" : "))
+            // Expressions containing method calls or an existing ternary don't need null checks.
+            // The '!' in LINQ bodies (e.g. !a.id.HasValue) is logical NOT, not a null-forgiving
+            // operator, so splitting on '.' would produce false positives.
+            if (expression.Contains("(") || (expression.Contains(" ? ") && expression.Contains(" : ")))
             {
                 return string.Empty;
             }
