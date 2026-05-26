@@ -13,7 +13,6 @@
   <metadata />
   <childElements>
     <childElement id="c2997ad3-1c22-4e1d-9577-bdafa99a632f" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>Status</name>
       <display>Status: OrderStatus</display>
       <isAbstract>false</isAbstract>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a769c8f6-2f60-4537-ab66-8f854a9ec719" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <comment />
   <name>D_MultipleDependent</name>
   <display>D_MultipleDependent</display>
   <isAbstract>false</isAbstract>

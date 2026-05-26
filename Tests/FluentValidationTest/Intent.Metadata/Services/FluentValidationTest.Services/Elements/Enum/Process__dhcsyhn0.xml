@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6e05cfb4-8a63-4913-a357-a3bcfdc62a37" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
-  <comment />
   <name>Process</name>
   <display>Process</display>
   <isAbstract>false</isAbstract>

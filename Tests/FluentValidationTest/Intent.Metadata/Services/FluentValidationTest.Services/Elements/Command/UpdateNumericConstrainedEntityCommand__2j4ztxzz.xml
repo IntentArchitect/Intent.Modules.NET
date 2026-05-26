@@ -326,7 +326,6 @@
       <childElements />
     </childElement>
     <childElement id="24a1873e-356d-4dcc-8352-95ff25928b2d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>ExclusiveMinInclusiveMaxFloat</name>
       <display>ExclusiveMinInclusiveMaxFloat: float</display>
       <isAbstract>false</isAbstract>
@@ -377,7 +376,6 @@
       <childElements />
     </childElement>
     <childElement id="3bc7116e-f5c3-416f-848e-d6e05353e1a1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>InclusiveMinExclusiveMaxDouble</name>
       <display>InclusiveMinExclusiveMaxDouble: double</display>
       <isAbstract>false</isAbstract>
@@ -428,7 +426,6 @@
       <childElements />
     </childElement>
     <childElement id="3f89649d-66b2-4b6b-b63e-e26b260e9623" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>ExclusiveMinExclusiveMaxDecimal</name>
       <display>ExclusiveMinExclusiveMaxDecimal: decimal</display>
       <isAbstract>false</isAbstract>
@@ -479,7 +476,6 @@
       <childElements />
     </childElement>
     <childElement id="5b25c7b3-e45f-4642-8c16-7c2b586ba4aa" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>OnlyMinExclusiveFloat</name>
       <display>OnlyMinExclusiveFloat: float</display>
       <isAbstract>false</isAbstract>
@@ -530,7 +526,6 @@
       <childElements />
     </childElement>
     <childElement id="48896c2c-1a28-4da3-bf76-59c10396de51" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>OnlyMaxExclusiveDouble</name>
       <display>OnlyMaxExclusiveDouble: double</display>
       <isAbstract>false</isAbstract>
@@ -581,7 +576,6 @@
       <childElements />
     </childElement>
     <childElement id="4ddc50e1-e972-4b01-938a-757abbe55371" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>InclusiveMinInclusiveMaxFloat</name>
       <display>InclusiveMinInclusiveMaxFloat: float</display>
       <isAbstract>false</isAbstract>
@@ -632,7 +626,6 @@
       <childElements />
     </childElement>
     <childElement id="2f5a6cdf-ce25-4dd4-a0c7-fbe5f1630f32" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>NegativeRangeDecimal</name>
       <display>NegativeRangeDecimal: decimal</display>
       <isAbstract>false</isAbstract>
@@ -683,7 +676,6 @@
       <childElements />
     </childElement>
     <childElement id="05d804aa-218c-45dc-ad9a-5a2ab27a9adb" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>NarrowRangeDouble</name>
       <display>NarrowRangeDouble: double</display>
       <isAbstract>false</isAbstract>

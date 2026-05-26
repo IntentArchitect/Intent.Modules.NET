@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="62c1d293-ce8c-4833-bcb8-2a3bcc4da6f3" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <comment />
   <name>J_MultipleAggregate</name>
   <display>J_MultipleAggregate</display>
   <isAbstract>false</isAbstract>

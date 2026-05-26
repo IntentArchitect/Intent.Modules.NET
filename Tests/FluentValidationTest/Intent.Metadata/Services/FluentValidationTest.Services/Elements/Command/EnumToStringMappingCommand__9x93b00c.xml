@@ -134,7 +134,6 @@ Domain Entity Target: Order (OrderStatus enum mapped to Order.StatusText string)
       <childElements />
     </childElement>
     <childElement id="96b4e48e-4319-4bd3-beb4-45b8232eafdf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <comment />
       <name>Process</name>
       <display>Process: Process</display>
       <isAbstract>false</isAbstract>
