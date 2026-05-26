@@ -27,7 +27,7 @@ public class EfCoreKeyColumnPropertyStatement : CSharpStatement
     public override string GetText(string indentation)
     {
         var propertyStatement = new CSharpInvocationStatement("builder", "Property")
-            .AddArgument(new CSharpLambdaBlock("x"), lambda => lambda.WithExpressionBody(new CSharpStatement($"x.{_model.Name}")))
+            .AddArgument(new CSharpLambdaBlock("x"), lambda => lambda.WithExpressionBody(new CSharpStatement($"x.{_model.Name.ToPascalCase()}")))
             .WithSemicolon();
         
         if (!string.IsNullOrWhiteSpace(_model.GetColumn()?.Name()))

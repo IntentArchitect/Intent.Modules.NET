@@ -1,3 +1,7 @@
+### Version 5.0.45
+
+- Fixed: Primary key `builder.Property(x => x.<Name>)` did not pascal-case the attribute name, causing casing-sensitive code regeneration mismatches when the domain attribute name was not already in PascalCase.
+
 ### Version 5.0.44
 
 - Improvement: Index modeling supports unmapped columns.
