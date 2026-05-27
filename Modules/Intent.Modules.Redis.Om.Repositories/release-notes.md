@@ -1,3 +1,7 @@
+### Version 1.0.22
+
+- Improvement: Updated script to cater for possible null stereotype property value
+
 ### Version 1.0.21
 
 - Fixed: Issue when association name wasn't formatted correctly in some scenarios.
