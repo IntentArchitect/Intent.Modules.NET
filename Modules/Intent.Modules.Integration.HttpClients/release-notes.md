@@ -1,3 +1,7 @@
+### Version 6.1.2
+
+- Improvement: Internal refactoring.
+
 ### Version 6.1.1
 
 - Fixed: Added additional null check when dealing with nullable collection parameters.

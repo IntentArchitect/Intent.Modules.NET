@@ -53,13 +53,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
             var groups = proxies.Select(GetGroupName).Distinct();
             foreach (var groupName in groups)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), $"http://{groupName}/"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(groupName, "Uri"), $"http://{groupName}/"));
             }
-        }
-
-        private static string GetConfigKey(string groupName, string key)
-        {
-            return $"HttpClients:{groupName}:{key.ToPascalCase()}";
         }
     }
 }

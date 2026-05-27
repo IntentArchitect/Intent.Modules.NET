@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientHeaderHandler\HttpClientHeaderHandlerTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientRequestException\HttpClientRequestExceptionTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientSettingsHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\IServiceProxyModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ProblemDetailsWithErrors\ProblemDetailsWithErrorsBase.cs" />

@@ -26,6 +26,7 @@
 ### 2 — Implementation Quality
 * **Eliminate Magic Values:** Use `const` or `static readonly` fields. No inline magic numbers or strings.
 * **Modern Strings:** Use **verbatim literals** (`@"..."`) for quotes and **raw string literals** (`"""..."""`) for multi-line blocks.
+* **Builder API First:** When generating or modifying `CSharpFile` code, use the most specific builder API available. Treat raw `AddStatement`, rendered-text replacement, and `GetText()` rewrites as fallback techniques requiring an explicit reason.
 * **Warning:** Never use global singletons for template-family scope (state must be clearable between Software Factory runs).
 
 ### 3 — Template Metadata & Priority Bands

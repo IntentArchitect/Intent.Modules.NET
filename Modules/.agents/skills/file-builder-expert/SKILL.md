@@ -29,6 +29,8 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 6. Never use implicit priority (omitting the second argument, which defaults to 0) for reconciliation logic that depends on the existence of elements from other modules. Always supply an explicit integer.
 7. Never hardcode type strings for types represented in the Intent model. Resolve them via `GetTypeName(...)` / `GetTypeName(templateId, model)` and only use `UseType(...)` for external fully qualified names.
 8. Must not use raw string interpolation for Lambda arrows `=>` or Object Initializer braces `{}`. Use dedicated builder blocks (`CSharpLambdaBlock`, `CSharpObjectInitializerBlock`).
+9. Do not override `TemplateMetadata` or `Migrations` for brand-new templates. Only add them when there is a real `ITemplateMigration`.
+10. When writing new code or changing a specific call site, do not introduce `[Obsolete]` API usage. Leave unrelated existing obsolete code alone.
 
 ## Pattern Index
 

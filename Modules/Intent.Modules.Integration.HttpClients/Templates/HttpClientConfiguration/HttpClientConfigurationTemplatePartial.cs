@@ -45,7 +45,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy)}\", \"{proxy.Name.ToPascalCase()}\");");
+                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{proxy.GetGroupName()}\", \"{proxy.Name.ToPascalCase()}\");");
                   })
         {
             _typedModels = model;
@@ -75,56 +75,18 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             }
 
             var proxies = _typedModels.DistinctBy(x => x.Id);
-            var proxySettings = proxies.Select(p => (GroupName: GetGroupName(p), Url: ProxyUrlHelper.GetProxyApplicationtUrl(p, ExecutionContext))).DistinctBy(d => d.GroupName);
+            var proxySettings = proxies.Select(p => (GroupName: p.GetGroupName(), Url: ProxyUrlHelper.GetProxyApplicationtUrl(p, ExecutionContext))).DistinctBy(d => d.GroupName);
 
             foreach (var (GroupName, Url) in proxySettings)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "Uri"), Url));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Uri"), Url));
                 if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "IdentityClientKey"), "default"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "IdentityClientKey"), "default"));
                 }
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "Timeout"), "00:01:00"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Timeout"), "00:01:00"));
 
             }
         }
-
-        internal static string GetConfigKey(IServiceProxyModel proxy, KeyType keyType, string key)
-        {
-            switch (keyType)
-            {
-                case KeyType.Group:
-                    return GetConfigKey(GetGroupName(proxy), key);
-                case KeyType.Service:
-                default:
-                    return GetConfigKey(proxy.Name.ToPascalCase(), key);
-            }
-        }
-
-        internal static string GetGroupName(IServiceProxyModel model)
-        {
-            var element = model.InternalElement;
-            var result = element?.MappedElement?.Element?.Package?.Name;
-            result ??= element?.Package.Name;
-
-            if (model.Endpoints.Any() && string.IsNullOrWhiteSpace(result))
-            {
-                result = model.Endpoints[0].InternalElement?.Package?.Name;
-            }
-
-            return result ?? string.Empty;
-        }
-
-        private static string GetConfigKey(string groupName, string key)
-        {
-            return $"HttpClients:{groupName}:{key.ToPascalCase()}";
-        }
-    }
-
-    [IntentIgnore]
-    public enum KeyType
-    {
-        Group,
-        Service
     }
 }
