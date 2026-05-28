@@ -1,11 +1,9 @@
 ---
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 772F11A6496A42240E977397A48C019B0D6AD534034C06D619E66D36EDECCFBD
+template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
+contentHash: 7F0EBFCAD8BEEC3DE0A74A83152635588FC10940B38E4ADEAA62411E828325C3
 ---
-
-Manual
-
 # MediatR Query Handler
 
 Implement query handler business logic inside an existing handler file. Keep handlers aligned with the modeled domain and existing query patterns while protecting architectural boundaries.
@@ -29,10 +27,10 @@ Implement query handler business logic inside an existing handler file. Keep han
 
 1. Inspect the existing handler, request, response, repository or read-service abstractions, and related domain/read-model types.
 2. Search for code usages of:
-   - similar query handlers
-   - projection or DTO mapping patterns
-   - pagination, sorting, filtering, and authorization rules
-   - repository or read-service methods serving similar data
+  - similar query handlers
+  - projection or DTO mapping patterns
+  - pagination, sorting, filtering, and authorization rules
+  - repository or read-service methods serving similar data
 3. Infer the intended read behavior from the request shape, response contract, naming, and nearby feature implementations.
 4. Implement the `Handle` method using existing query patterns first.
 5. If the handler needs missing DAL capabilities, extend the relevant repository or read abstraction in an allowed layer instead of introducing infrastructure access into the handler.
@@ -62,19 +60,26 @@ When a needed read capability is missing:
 
 ## AutoMapper guidance
 
-- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
-  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
-- If the required mapping does not exist, create it:
-  - Add an AutoMapper Profile.
-  - Include mapping extension methods in the same file, matching existing conventions:
-- Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
-- Allowed exception (rare):
-  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-  - This must include an inline code comment explaining why AutoMapper is not reasonable.
-  - “Mapping doesn’t exist yet” is not a valid exception.
+- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
+    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
+- **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
+    - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
+    - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
+    - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
+- **Registration assumption (do not block on DI):**
+    - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
+    - Do not modify DI registration as part of this guidance unless the user explicitly asks.
+- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+    - This must include an inline code comment explaining why AutoMapper is not reasonable.
+    - “Mapping doesn’t exist yet” is not a valid exception.
+- If you can't find any existing mappings, create them in the same project as the services under:
+    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
 
-Example:
+**Example:**
 ```csharp
+
 public class CustomerDtoProfile : Profile
 {
     public CustomerDtoProfile()
@@ -85,9 +90,11 @@ public class CustomerDtoProfile : Profile
 
 public static class CustomerDtoMappingExtensions
 {
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+        mapper.Map<CustomerDto>(projectFrom);
 
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 
