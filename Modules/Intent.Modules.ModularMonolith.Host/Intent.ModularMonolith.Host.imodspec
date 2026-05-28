@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ModularMonolith.Host</id>
-  <version>2.0.0</version>
+  <version>2.0.1-pre.0</version>
   <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Module for configuring Modular Monolith Host</summary>
   <description>Module for configuring Modular Monolith Host</description>
@@ -29,6 +29,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.ModularMonolith.Host.AITemplateDisableExtension" externalReference="7c472d25-e6a9-47f7-a8d0-ef51cc0969e9" />
     <factoryExtension id="Intent.ModularMonolith.Host.ExceptionFilterExtension" externalReference="d67ffc26-a36b-42fb-9653-38ce74103cf0" />
     <factoryExtension id="Intent.ModularMonolith.Host.MassTransitRegistrationsExtension" externalReference="3acb0590-9fa7-4669-9722-fb7dc7f87654" />
     <factoryExtension id="Intent.ModularMonolith.Host.ModuleRegistrationExtension" externalReference="f1265ad1-9653-427a-99dd-5ab5a9ceeb9f" />
@@ -44,7 +45,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common" version="3.11.1" />
     <dependency id="Intent.Common.CSharp" version="3.8.14" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

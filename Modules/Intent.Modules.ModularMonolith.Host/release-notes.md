@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: ModularMonolith.Host no longer outputs skills or instructions, leading to contention with ModularMonolith modules.
+
 ### Version 2.0.0
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
