@@ -2,6 +2,7 @@
 
 - Fixed: Free-form mapping expressions missing `src.` prefix, causing generated mapping lambdas to be invalid.
 - Fixed: Free-form mapping expressions (containing lambdas, LINQ, ternaries) incorrectly generated lowercase property accesses (e.g. `a.id` instead of `a.Id`).
+- Fixed: Improved free-form mapping expression parsing to support more use cases.
 
 ### Version 4.0.21
 
