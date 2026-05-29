@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Improvement: Migration to correct `.agent` folder location when required in certain scenarios.
+
 ### Version 4.1.1
 
 - Improvement: Moved common folder logic to `Intent.Modelers.CodebaseStructure`
