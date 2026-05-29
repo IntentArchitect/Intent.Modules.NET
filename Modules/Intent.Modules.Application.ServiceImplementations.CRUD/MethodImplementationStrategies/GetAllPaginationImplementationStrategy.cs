@@ -47,8 +47,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         if ((!operationModel.Parameters.Any(IsPageNumberParam)
              && !operationModel.Parameters.Any(IsPageIndexParam))
              || !operationModel.Parameters.Any(IsPageSizeParam)
-             || operationModel.ReturnType.Element.Name != "PagedResult"
-             || !operationModel.ReturnType.GenericTypeParameters.Any())
+             || operationModel.ReturnType?.Element.Name != "PagedResult"
+             || operationModel.ReturnType?.GenericTypeParameters.Any() != true)
         {
             return false;
         }
