@@ -1,6 +1,7 @@
 ### Version 4.1.2
 
 - Improvement: Migration to correct `.agent` folder location when required in certain scenarios.
+- Fixed: `Console App (.NET Framework)` and `WCF Service Application` project types were generating `net48` instead of the correct `v4.8` for `<TargetFrameworkVersion>` in legacy `.csproj` files when `.NET Framework 4.8` was selected.
 
 ### Version 4.1.1
 
