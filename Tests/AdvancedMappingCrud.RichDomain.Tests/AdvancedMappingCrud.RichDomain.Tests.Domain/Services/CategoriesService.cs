@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Services
     {
         private readonly ICategoryRepository _categoriesRepository;
 
+        [IntentManaged(Mode.Merge)]
         public CategoriesService(ICategoryRepository categoriesRepository)
         {
             _categoriesRepository = categoriesRepository;
