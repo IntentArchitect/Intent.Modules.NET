@@ -145,7 +145,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
 
         private static bool IsExpression(IEnumerable<IElementMappingPathTarget> pathTargets)
         {
-            char[] targetChars = { '?', '(', '+', '{', '@' };
+            char[] targetChars = { '?', '(', '+', '{', '@', '!', '-', '=' };
             var fullExpressionPath = string.Join(".", pathTargets.Select(p => p.Name));
 
             return fullExpressionPath.Any(c => targetChars.Contains(c));
