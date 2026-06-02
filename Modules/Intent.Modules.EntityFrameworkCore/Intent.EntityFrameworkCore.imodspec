@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.45-pre.1</version>
-  <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
+  <version>5.0.45-pre.2</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
   <authors>Intent Architect</authors>
@@ -83,7 +83,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.9.1" />
+    <dependency id="Intent.Common" version="3.11.1" />
     <dependency id="Intent.Common.CSharp" version="3.7.3" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.7.14" />
@@ -187,6 +187,7 @@
     </groupExtension>
   </moduleSettingsExtensions>
   <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.AISkillGuidanceForServiceImplementations" externalReference="bbc29237-b0d4-4322-9570-1d1b104f4899" />
     <factoryExtension id="Intent.EntityFrameworkCore.ConfigureConventionsExtension" externalReference="3b7cb49a-005e-4b51-bffa-c7e290a73ae6" />
     <factoryExtension id="Intent.EntityFrameworkCore.DependencyInjectionExtension" externalReference="9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9" />
     <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
