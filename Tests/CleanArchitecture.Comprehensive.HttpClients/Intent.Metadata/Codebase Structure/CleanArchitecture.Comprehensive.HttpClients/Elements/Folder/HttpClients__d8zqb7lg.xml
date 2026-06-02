@@ -93,5 +93,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="06b4c168-7400-4d56-a3f4-ac4347854b6c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.Fakes.FactoryHelpers</name>
+      <display>Intent.Integration.HttpClients.Fakes.FactoryHelpers</display>
+      <externalReference>Intent.Integration.HttpClients.Fakes</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f884d3b1-17a7-425e-a2ae-29e8439821bb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b0b10140-01f9-4309-b00e-391708a1dc25" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.Fakes.ResponseDtoFactory</name>
+      <display>Intent.Integration.HttpClients.Fakes.ResponseDtoFactory</display>
+      <externalReference>Intent.Integration.HttpClients.Fakes</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f884d3b1-17a7-425e-a2ae-29e8439821bb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

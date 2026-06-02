@@ -10,52 +10,52 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
 {
     public class CustomersServiceHttpClientFake : ICustomersService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> CreateCustomerAsync(
             CreateCustomerCommand command,
             CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(Guid.Empty);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(CustomerDtoFactory.CreateDefault());
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> GetCustomerByNameEmailAsync(
             GetCustomerByNameEmailQuery query,
             CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(CustomerDtoFactory.CreateDefaultList(1));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> GetCustomerExtraFieldsAsync(
             GetCustomerExtraFieldsQuery query,
             CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(CustomerDtoFactory.CreateDefaultList(1));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(CustomerDtoFactory.CreateDefaultList(1));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
         }
 
         public void Dispose()

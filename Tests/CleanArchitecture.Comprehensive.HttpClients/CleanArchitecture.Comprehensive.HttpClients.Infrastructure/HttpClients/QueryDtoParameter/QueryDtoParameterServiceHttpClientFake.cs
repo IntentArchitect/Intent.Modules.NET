@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
 {
     public class QueryDtoParameterServiceHttpClientFake : IQueryDtoParameterService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<int> HasDtoParameterAsync(
             QueryDtoParameterCriteria arg,
             CancellationToken cancellationToken = default)
