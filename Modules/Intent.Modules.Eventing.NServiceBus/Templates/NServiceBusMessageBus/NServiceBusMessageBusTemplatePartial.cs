@@ -25,6 +25,8 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
         {
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
 
+            AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")

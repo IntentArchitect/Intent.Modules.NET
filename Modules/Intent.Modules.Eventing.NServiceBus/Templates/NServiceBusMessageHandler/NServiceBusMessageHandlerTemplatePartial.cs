@@ -29,53 +29,40 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
 
-            // When the application has no integration event handlers (or none whose subscriptions resolve
-            // to this broker in composite mode), Model is empty. Fall back to the default class name so the
-            // template still produces a valid (empty) class — emitting nothing would breach the SDK's
-            // "at least one structural declaration" contract.
-            var className = "EventMessageHandler";
-            if (Model.Any())
-            {
-                var parentElement = Model.First().InternalElement.ParentElement;
-                className = parentElement.SpecializationType == "Folder"
-                    ? $"{parentElement.Name.ToPascalCase()}MessageHandler"
-                    : "EventMessageHandler";
-            }
-
-            // Flatten all (handler, subscription) pairs across every handler in this folder group
-            var handlerSubscriptions = Model
+            var allSubscriptions = model
                 .SelectMany(h => h.IntegrationEventSubscriptions()
                     .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
-                    .Select(sub => (Handler: h, Subscription: sub)))
+                    .Select(sub => sub.TypeReference.Element.AsMessageModel()!))
+                .Distinct()
                 .ToList();
 
-            CSharpFile = new CSharpFile(this.GetNamespace("MessageHandlers"), this.GetFolderPath("MessageHandlers"))
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("NServiceBus")
-                .AddClass(className, @class =>
+                .AddClass("NServiceBusMessageHandlers", @class =>
                 {
-                    foreach (var (_, sub) in handlerSubscriptions)
+                    foreach (var messageModel in allSubscriptions)
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
+                        var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
                         @class.ImplementsInterface($"IHandleMessages<{messageTypeName}>");
                     }
 
                     @class.AddConstructor(ctor =>
                     {
-                        foreach (var (_, sub) in handlerSubscriptions)
+                        foreach (var messageModel in allSubscriptions)
                         {
-                            var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
+                            var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
                             var handlerInterface = $"{this.GetIntegrationEventHandlerInterfaceName()}<{messageTypeName}>";
-                            var paramName = $"handler{sub.TypeReference.Element.Name.ToPascalCase()}";
+                            var paramName = $"handler{messageModel.Name.ToPascalCase()}";
                             ctor.AddParameter(handlerInterface, paramName, param =>
                                 param.IntroduceReadonlyField());
                         }
                     });
 
-                    foreach (var (_, sub) in handlerSubscriptions)
+                    foreach (var messageModel in allSubscriptions)
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
-                        var fieldName = $"_handler{sub.TypeReference.Element.Name.ToPascalCase()}";
+                        var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
+                        var fieldName = $"_handler{messageModel.Name.ToPascalCase()}";
 
                         @class.AddMethod("Task", "Handle", method =>
                         {
@@ -88,13 +75,22 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                 });
         }
 
+        public override bool CanRunTemplate()
+        {
+            // Suppress output when no handler subscriptions route to this broker
+            return Model.Any(h => h.IntegrationEventSubscriptions()
+                .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
+                .Any());
+        }
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile.GetConfig(
+            );
         }
 
         [IntentManaged(Mode.Fully)]

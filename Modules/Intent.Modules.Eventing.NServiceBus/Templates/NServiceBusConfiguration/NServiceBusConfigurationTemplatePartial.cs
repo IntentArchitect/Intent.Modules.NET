@@ -67,6 +67,8 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.IO")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
@@ -160,7 +162,15 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         }
                         else if (transport.IsLearningTransport())
                         {
-                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new LearningTransport());", s => s.SeparatedFromPrevious());
+                            method.AddStatement(
+                                """
+                                var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
+                                var storageDirectory = rawStoragePath is not null
+                                    ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                                    : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+                                """,
+                                s => s.SeparatedFromPrevious());
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });");
                         }
 
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
@@ -241,15 +251,80 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
         public override void BeforeTemplateExecution()
         {
-            if (this.RequiresCompositeMessageBus())
+            if (!this.RequiresCompositeMessageBus())
             {
-                return;
+                ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                    .ToRegister("AddNServiceBusConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                    .ForConcern("Infrastructure")
+                    .HasDependency(this));
             }
 
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddNServiceBusConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
+            PublishAppSettings();
+        }
+
+        private void PublishAppSettings()
+        {
+            var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
+            var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
+
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                "NServiceBus:EndpointName", OutputTarget.ApplicationName()));
+
+            switch (transport.AsEnum())
+            {
+                case NServiceBusSettings.TransportOptionsEnum.LearningTransport:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "NServiceBus:LearningTransport:StorageDirectory",
+                        GetLearningTransportDefaultPath()));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.Rabbitmq:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "ConnectionStrings:RabbitMQ", "amqp://guest:guest@localhost:5672"));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.AzureServiceBus:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "ConnectionStrings:AzureServiceBus", "Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<key>"));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "ConnectionStrings:SqlServer", "Server=.;Database=NServiceBus;Trusted_Connection=True;"));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.AmazonSqs:
+                    // Amazon SQS uses AWS credentials/environment — no connection string needed
+                    break;
+            }
+
+            if (!recoverabilityPolicy.IsNone())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                    "NServiceBus:ErrorQueue", "error"));
+
+                if (recoverabilityPolicy.IsImmediateOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "NServiceBus:Recoverability:ImmediateRetries", 5));
+                }
+
+                if (recoverabilityPolicy.IsDelayedOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "NServiceBus:Recoverability:DelayedRetries", 3));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "NServiceBus:Recoverability:DelayIncreaseSeconds", 10));
+                }
+            }
+        }
+
+        private static string GetLearningTransportDefaultPath()
+        {
+            if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+                return @"%TEMP%\nservicebus-learning";
+
+            if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
+                return "%TMPDIR%/nservicebus-learning";
+
+            // Linux: TMPDIR is not reliably set; use /tmp directly
+            return "/tmp/nservicebus-learning";
         }
 
         [IntentManaged(Mode.Fully)]

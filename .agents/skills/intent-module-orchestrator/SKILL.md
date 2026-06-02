@@ -79,7 +79,7 @@ OnAfterTemplateRegistrations()       ──►  FindTemplateInstance(s) → reso
 
     **Watch the overload:** the three-arg `(sequence, template, ids)` overload accepts `IIntentTemplate`. The four-arg overload with a `Func<TMessage, TElementWithStereotype>` selector requires `ISoftwareFactoryExecutionContext` — pass `ExecutionContext` (the property on the template), **not** `this`.
 
-14. **Drive technology-specific message classification from the model, not from name/namespace heuristics.** When a broker (e.g. NServiceBus) needs explicit type classification beyond what `IConsumer<T>` provides, generate explicit type predicates by enumerating `FindTemplateInstances<...IntegrationEventMessage>` / `FindTemplateInstances<...IntegrationCommand>` filtered through `FilterMessagesForThisMessageBroker`. Emit `new[] { typeof(A), typeof(B) }.Contains` rather than `t => t.Name.EndsWith("Event")`. The model is the source of truth and the result composes with the broker filter automatically.
+15. **Drive technology-specific message classification from the model, not from name/namespace heuristics.** When a broker (e.g. NServiceBus) needs explicit type classification beyond what `IConsumer<T>` provides, generate explicit type predicates by enumerating `FindTemplateInstances<...IntegrationEventMessage>` / `FindTemplateInstances<...IntegrationCommand>` filtered through `FilterMessagesForThisMessageBroker`. Emit `new[] { typeof(A), typeof(B) }.Contains` rather than `t => t.Name.EndsWith("Event")`. The model is the source of truth and the result composes with the broker filter automatically.
 
 ## Must Nots
 
@@ -89,8 +89,6 @@ OnAfterTemplateRegistrations()       ──►  FindTemplateInstance(s) → reso
 4. **Never omit the priority integer** in `AfterBuild` for callbacks that call `FindMethod`, `FindClass`, or `FindStatement` on elements created by other templates.
 5. **Never publish registration requests from `OnAfterTemplateRegistrations`** — that lifecycle phase is for finding templates and scheduling build callbacks, not for event dispatch.
 6. **Never call `AddAppConfigurationLambda("UseEndpoints", ...)`.** The SDK throws for this path; use `AddUseEndpointsStatement(...)` instead.
-
-## Safe Resolution Hierarchy (Must Follow Order)
 
 ```
 Step 1  ──►  application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Xxx.Yyy)

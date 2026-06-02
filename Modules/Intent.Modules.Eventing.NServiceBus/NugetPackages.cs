@@ -17,6 +17,7 @@ namespace Intent.Modules.Eventing.NServiceBus
         public const string NServiceBusRabbitMQPackageName = "NServiceBus.RabbitMQ";
         public const string NServiceBusTransportAzureServiceBusPackageName = "NServiceBus.Transport.AzureServiceBus";
         public const string NServiceBusTransportSqlServerPackageName = "NServiceBus.Transport.SqlServer";
+        public const string NServiceBusPersistenceSqlPackageName = "NServiceBus.Persistence.Sql";
 
         public void RegisterPackages()
         {
@@ -39,6 +40,13 @@ namespace Intent.Modules.Eventing.NServiceBus
                     {
                         ( >= 8, >= 0) => new PackageVersion("4.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(NServiceBusPersistenceSqlPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("7.3.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusRabbitMQPackageName,
@@ -75,5 +83,7 @@ namespace Intent.Modules.Eventing.NServiceBus
         public static NugetPackageInfo NServiceBusTransportAzureServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusTransportAzureServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusTransportSqlServer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusTransportSqlServerPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo NServiceBusPersistenceSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPersistenceSqlPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

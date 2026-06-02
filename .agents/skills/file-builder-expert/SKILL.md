@@ -148,9 +148,16 @@ public partial class SampleTemplate : CSharpTemplateBase<object>, ICSharpFileBui
 |---------------|-------------------|
 | Single output file | `SingleFileTemplateRegistration` |
 | One file per model | `FilePerModelTemplateRegistration<TModel>` — override `GetModels` |
+| One file for all models | `SingleFileListModelTemplateRegistration<TModel>` — override `GetModels` |
 | Event/pipeline driven | `ITemplateRegistration` |
 
 `TemplateId` must be defined as `public const string` in the template and referenced by name from the registration.
+
+### `SingleFileListModelTemplateRegistration` — Filename
+
+`CSharpFile.GetConfig()` derives the output filename from the **name of the first class added** to the file. Plan class names accordingly.
+
+> Note: `CSharpClass` has `.Internal()` but **not** `.Public()`. Omitting any access modifier produces `public` by default.
 
 ## Source of Truth
 

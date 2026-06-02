@@ -3,16 +3,12 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
-using Intent.Modules.Common.CSharp.DependencyInjection;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts;
-using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
-using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using NServiceBusConstants = Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -68,27 +64,6 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var messageBusTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                NServiceBusMessageBusTemplate.TemplateId);
-
-            if (messageBusTemplate != null)
-            {
-                var diTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                    TemplateRoles.Infrastructure.DependencyInjection);
-                if (diTemplate != null)
-                {
-                    var busInterfaceTemplate = application.FindTemplateInstance<IClassProvider>(
-                        TemplateRoles.Application.Eventing.MessageBusInterface);
-                    if (busInterfaceTemplate != null)
-                    {
-                        diTemplate.CSharpFile.OnBuild(file =>
-                        {
-                            file.AddUsing(busInterfaceTemplate.Namespace);
-                        }, 500);
-                    }
-                }
-            }
-
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null) return;
 

@@ -99,6 +99,43 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
         }
         public RecoverabilityPolicyOptions RecoverabilityPolicy() => new RecoverabilityPolicyOptions(_groupSettings.GetSetting("4060477a-191f-43be-a2c1-f2dd94ff00e2")?.Value);
 
+        public OutboxPatternOptions OutboxPattern() => new OutboxPatternOptions(_groupSettings.GetSetting("61e27361-13e1-46ad-834f-3c98088c3947")?.Value);
+
+        public class OutboxPatternOptions
+        {
+            public readonly string Value;
+
+            public OutboxPatternOptions(string value)
+            {
+                Value = value;
+            }
+
+            public OutboxPatternOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "none" => OutboxPatternOptionsEnum.None,
+                    "entity-framework" => OutboxPatternOptionsEnum.EntityFramework,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+
+            public bool IsEntityFramework()
+            {
+                return Value == "entity-framework";
+            }
+        }
+
+        public enum OutboxPatternOptionsEnum
+        {
+            None,
+            EntityFramework,
+        }
         public class RecoverabilityPolicyOptions
         {
             public readonly string Value;
