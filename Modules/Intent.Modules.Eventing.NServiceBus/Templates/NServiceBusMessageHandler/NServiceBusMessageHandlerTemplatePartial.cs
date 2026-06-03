@@ -8,8 +8,10 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -28,8 +30,12 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
         public NServiceBusMessageHandlerTemplate(IOutputTarget outputTarget, IList<IntegrationEventHandlerModel> model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
+            AddTypeSource(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId);
 
-            var allSubscriptions = model
+            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
+            var hasOutbox = outboxPattern.IsEntityFramework();
+
+            SubscribedMessageModels = model
                 .SelectMany(h => h.IntegrationEventSubscriptions()
                     .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
                     .Select(sub => sub.TypeReference.Element.AsMessageModel()!))
@@ -38,42 +44,66 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("NServiceBus")
-                .AddClass("NServiceBusMessageHandlers", @class =>
+                .AddUsing("NServiceBus");
+
+            if (hasOutbox)
+            {
+                CSharpFile
+                    .AddUsing("Microsoft.EntityFrameworkCore")
+                    .AddUsing("NServiceBus.Persistence.Sql");
+            }
+
+            // Generic handler — all logic lives here. Handler discovery uses the NSB internal
+            // registry APIs directly (see NServiceBusConfigurationTemplate), avoiding assembly
+            // scanning and the C# 14 source generator emitted by AddHandler<T>().
+            CSharpFile.AddClass("NServiceBusMessageHandler", @class =>
+            {
+                @class.Internal();
+                @class.AddGenericParameter("TMessage");
+                @class.AddGenericTypeConstraint("TMessage", c => c.AddType("class"));
+                @class.ImplementsInterface("IHandleMessages<TMessage>");
+
+                @class.AddConstructor(ctor =>
                 {
-                    foreach (var messageModel in allSubscriptions)
+                    ctor.AddParameter(this.GetIntegrationEventHandlerInterfaceName() + "<TMessage>", "handler", p => p.IntroduceReadonlyField());
+                    if (hasOutbox)
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
-                        @class.ImplementsInterface($"IHandleMessages<{messageTypeName}>");
+                        ctor.AddParameter(this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext), "dbContext", p => p.IntroduceReadonlyField());
                     }
+                    ctor.AddParameter(this.GetTypeName(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId), "messageBus", p => p.IntroduceReadonlyField());
+                });
 
-                    @class.AddConstructor(ctor =>
+                @class.AddMethod("Task", "Handle", method =>
+                {
+                    method.Async();
+                    method.AddParameter("TMessage", "message");
+                    method.AddParameter("IMessageHandlerContext", "context");
+
+                    method.AddStatement("_messageBus.ActiveContext = context;");
+
+                    if (hasOutbox)
                     {
-                        foreach (var messageModel in allSubscriptions)
-                        {
-                            var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
-                            var handlerInterface = $"{this.GetIntegrationEventHandlerInterfaceName()}<{messageTypeName}>";
-                            var paramName = $"handler{messageModel.Name.ToPascalCase()}";
-                            ctor.AddParameter(handlerInterface, paramName, param =>
-                                param.IntroduceReadonlyField());
-                        }
-                    });
-
-                    foreach (var messageModel in allSubscriptions)
+                        method.AddStatement("var sqlSession = context.SynchronizedStorageSession.SqlPersistenceSession();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("_dbContext.Database.SetDbConnection(sqlSession.Connection);");
+                        method.AddStatement("await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, context.CancellationToken);");
+                        method.AddStatement("await _handler.HandleAsync(message, context.CancellationToken);", s => s.SeparatedFromPrevious());
+                        method.AddStatement("await _dbContext.SaveChangesAsync(context.CancellationToken);");
+                        method.AddStatement("await _messageBus.FlushAllAsync(context.CancellationToken);");
+                    }
+                    else
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(messageModel);
-                        var fieldName = $"_handler{messageModel.Name.ToPascalCase()}";
-
-                        @class.AddMethod("Task", "Handle", method =>
-                        {
-                            method.Async();
-                            method.AddParameter(messageTypeName, "message");
-                            method.AddParameter("IMessageHandlerContext", "context");
-                            method.AddStatement($"await {fieldName}.HandleAsync(message, context.CancellationToken);");
-                        });
+                        method.AddStatement("await _handler.HandleAsync(message, context.CancellationToken);", s => s.SeparatedFromPrevious());
                     }
                 });
+            });
         }
+
+        /// <summary>
+        /// Message types this endpoint subscribes to for this broker.
+        /// Read by <see cref="NServiceBusConfiguration.NServiceBusConfigurationTemplate"/> to emit
+        /// direct NSB registry registration calls in <c>ConfigureEndpoint</c>.
+        /// </summary>
+        public IReadOnlyList<MessageModel> SubscribedMessageModels { get; }
 
         public override bool CanRunTemplate()
         {

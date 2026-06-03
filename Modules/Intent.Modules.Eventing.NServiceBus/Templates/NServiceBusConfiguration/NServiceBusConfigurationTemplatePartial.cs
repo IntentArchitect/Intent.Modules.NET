@@ -17,6 +17,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
+using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -39,12 +40,14 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationCommandTemplate.TemplateId);
+            AddTypeSource(NServiceBusMessageHandlerTemplate.TemplateId);
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
             AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
             var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
+            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
             switch (transport.AsEnum())
             {
                 case NServiceBusSettings.TransportOptionsEnum.Rabbitmq:
@@ -56,14 +59,23 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 case NServiceBusSettings.TransportOptionsEnum.AmazonSqs:
                     AddNugetDependency(NugetPackages.NServiceBusAmazonSQS(OutputTarget));
                     break;
-                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
-                    AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));
-                    break;
                 case NServiceBusSettings.TransportOptionsEnum.LearningTransport:
                     // Learning Transport is included in NServiceBus.Core — no extra package needed
                     break;
                 default:
                     throw new InvalidOperationException($"Unsupported transport type: {transport.Value}");
+            }
+
+            if (outboxPattern.IsEntityFramework())
+            {
+                if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
+                    throw new InvalidOperationException(
+                        "OutboxPattern is set to 'EntityFramework' but the 'Intent.EntityFrameworkCore' module is not installed. " +
+                        "The NServiceBus transactional outbox requires EF Core to share the same database transaction. " +
+                        "Please install 'Intent.EntityFrameworkCore' or change OutboxPattern to 'None'.");
+
+                AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -72,8 +84,15 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
-                .AddUsing("NServiceBus")
-                .AddClass("NServiceBusConfiguration", @class =>
+                .AddUsing("NServiceBus");
+
+            if (outboxPattern.IsEntityFramework())
+            {
+                CSharpFile.AddUsing("Microsoft.Data.SqlClient");
+                CSharpFile.AddUsing("NServiceBus.TransactionalSession");
+            }
+
+            CSharpFile.AddClass("NServiceBusConfiguration", @class =>
                 {
                     @class.Static();
 
@@ -155,11 +174,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         {
                             method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new SqsTransport());", s => s.SeparatedFromPrevious());
                         }
-                        else if (transport.IsSqlServer())
-                        {
-                            method.AddStatement(@"var connectionString = configuration.GetConnectionString(""SqlServer"") ?? throw new InvalidOperationException(""ConnectionStrings:SqlServer is not configured"");", s => s.SeparatedFromPrevious());
-                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));");
-                        }
                         else if (transport.IsLearningTransport())
                         {
                             method.AddStatement(
@@ -171,6 +185,18 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                                 """,
                                 s => s.SeparatedFromPrevious());
                             method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });");
+                        }
+
+                        if (outboxPattern.IsEntityFramework())
+                        {
+                            method.AddStatement(
+                                @"var persistenceConnectionString = configuration.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""ConnectionStrings:DefaultConnection is not configured"");",
+                                s => s.SeparatedFromPrevious());
+                            method.AddStatement("var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();");
+                            method.AddStatement("persistence.SqlDialect<SqlDialect.MsSqlServer>();");
+                            method.AddStatement("persistence.ConnectionBuilder(connectionBuilder: () => new SqlConnection(persistenceConnectionString));");
+                            method.AddStatement("persistence.EnableTransactionalSession();");
+                            method.AddStatement("endpointConfiguration.EnableOutbox();");
                         }
 
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
@@ -247,6 +273,51 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                     });
                 });
+
+            // Register handlers via a private helper that mirrors what AddHandler<T>()'s source
+            // generator produces — without requiring C# 14. Works on .NET 8, 9, and 10.
+            CSharpFile.OnBuild(file =>
+            {
+                var handlerTemplate = ExecutionContext
+                    .FindTemplateInstances<NServiceBusMessageHandlerTemplate>(
+                        NServiceBusMessageHandlerTemplate.TemplateId)
+                    .FirstOrDefault();
+
+                var subscriptions = handlerTemplate?.SubscribedMessageModels
+                    ?? new List<MessageModel>();
+                if (!subscriptions.Any()) return;
+
+                var cls = file.Classes.First();
+                var configureEndpointMethod = cls.FindMethod("ConfigureEndpoint");
+                if (configureEndpointMethod == null) return;
+
+                var handlerTypeName = this.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId);
+
+                // Add a call per subscribed message type before the return statement.
+                foreach (var sub in subscriptions)
+                {
+                    var msgType = this.GetTypeName(IntegrationEventMessageTemplate.TemplateId, sub);
+                    configureEndpointMethod.InsertStatement(
+                        configureEndpointMethod.Statements.Count - 1,
+                        $"RegisterHandler<{handlerTypeName}<{msgType}>, {msgType}>(endpointConfiguration);");
+                }
+
+                // Add the helper method once — encapsulates the NSB internal registry calls.
+                cls.AddMethod("void", "RegisterHandler", method =>
+                {
+                    method.Static().Private();
+                    method.AddGenericParameter("THandler");
+                    method.AddGenericParameter("TMessage");
+                    method.AddGenericTypeConstraint("THandler", c => c.AddType("class").AddType("IHandleMessages<TMessage>"));
+                    method.AddGenericTypeConstraint("TMessage", c => c.AddType("class"));
+                    method.AddParameter("EndpointConfiguration", "endpointConfiguration");
+                    method.AddStatement("var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);");
+                    method.AddStatement("var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();");
+                    method.AddStatement("var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();");
+                    method.AddStatement("messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();");
+                    method.AddStatement("messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());");
+                });
+            });
         }
 
         public override void BeforeTemplateExecution()
@@ -266,6 +337,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         {
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
             var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
+            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                 "NServiceBus:EndpointName", OutputTarget.ApplicationName()));
@@ -284,10 +356,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 case NServiceBusSettings.TransportOptionsEnum.AzureServiceBus:
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                         "ConnectionStrings:AzureServiceBus", "Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<key>"));
-                    break;
-                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
-                        "ConnectionStrings:SqlServer", "Server=.;Database=NServiceBus;Trusted_Connection=True;"));
                     break;
                 case NServiceBusSettings.TransportOptionsEnum.AmazonSqs:
                     // Amazon SQS uses AWS credentials/environment — no connection string needed
@@ -312,6 +380,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                         "NServiceBus:Recoverability:DelayIncreaseSeconds", 10));
                 }
+            }
+
+            if (outboxPattern.IsEntityFramework())
+            {
+                // DefaultConnection is owned by EF — NServiceBus outbox shares the same DB, no extra key needed.
             }
         }
 
