@@ -75,6 +75,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme.js"));
+                            body.AddHtmlElement("script", t => t.WithText("themeHelper.init();"));
                         });
 
                         html.AddEmptyLine();

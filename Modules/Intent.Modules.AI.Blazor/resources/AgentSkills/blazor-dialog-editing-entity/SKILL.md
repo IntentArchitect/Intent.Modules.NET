@@ -122,6 +122,8 @@ MudBlazor rules:
 - Keep component-specific styles minimal
 - Never modify existing shared styles or theme values
 - Match the sample dialog layout closely
+- Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
+- Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
 
 ---
 
