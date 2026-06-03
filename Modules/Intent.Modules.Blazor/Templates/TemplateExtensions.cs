@@ -9,6 +9,7 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
+using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutorInterface;
@@ -89,6 +90,11 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetScopedMediatorInterfaceTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ScopedMediatorInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetThemeServiceTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ThemeServiceTemplate.TemplateId);
         }
 
         public static string GetRazorComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
