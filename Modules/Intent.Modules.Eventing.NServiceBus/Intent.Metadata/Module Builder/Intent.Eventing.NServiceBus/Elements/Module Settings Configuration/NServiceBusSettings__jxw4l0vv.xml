@@ -64,8 +64,8 @@
           <childElements />
         </childElement>
         <childElement id="93699281-15bf-47d0-be2b-a9c55568509c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>AzureServiceBus</name>
-          <display>AzureServiceBus = azure-service-bus</display>
+          <name>Azure Service Bus</name>
+          <display>Azure Service Bus = azure-service-bus</display>
           <isAbstract>false</isAbstract>
           <value>azure-service-bus</value>
           <genericTypes />
@@ -91,23 +91,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="21e43c32-0703-497e-9228-c260f2cb6dfe" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>SqlServer</name>
-          <display>SqlServer = sql-server</display>
-          <isAbstract>false</isAbstract>
-          <value>sql-server</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
-          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-          <packageName>Intent.Eventing.NServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="eccedcd3-e765-472b-bb91-6f83d61e8a39" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>LearningTransport</name>
-          <display>LearningTransport = learning-transport</display>
+          <name>Learning Transport</name>
+          <display>Learning Transport = learning-transport</display>
           <isAbstract>false</isAbstract>
           <value>learning-transport</value>
           <genericTypes />
@@ -122,8 +108,8 @@
       </childElements>
     </childElement>
     <childElement id="4060477a-191f-43be-a2c1-f2dd94ff00e2" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>RecoverabilityPolicy</name>
-      <display>RecoverabilityPolicy</display>
+      <name>Recoverability Policy</name>
+      <display>Recoverability Policy</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />
@@ -164,8 +150,8 @@
           <childElements />
         </childElement>
         <childElement id="59dc00ab-53c3-42c8-9ce3-f7e4fb3c11d7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>ImmediateOnly</name>
-          <display>ImmediateOnly = immediate-only</display>
+          <name>Immediate Only</name>
+          <display>Immediate Only = immediate-only</display>
           <isAbstract>false</isAbstract>
           <value>immediate-only</value>
           <genericTypes />
@@ -178,8 +164,8 @@
           <childElements />
         </childElement>
         <childElement id="69588d78-6225-47e8-bd9b-267eca4f3b42" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>DelayedOnly</name>
-          <display>DelayedOnly = delayed-only</display>
+          <name>Delayed Only</name>
+          <display>Delayed Only = delayed-only</display>
           <isAbstract>false</isAbstract>
           <value>delayed-only</value>
           <genericTypes />
@@ -192,8 +178,8 @@
           <childElements />
         </childElement>
         <childElement id="f24e2298-1758-44d4-bf04-48807de36bc7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>ImmediateAndDelayed</name>
-          <display>ImmediateAndDelayed = immediate-and-delayed</display>
+          <name>Immediate And Delayed</name>
+          <display>Immediate And Delayed = immediate-and-delayed</display>
           <isAbstract>false</isAbstract>
           <value>immediate-and-delayed</value>
           <genericTypes />
@@ -208,8 +194,8 @@
       </childElements>
     </childElement>
     <childElement id="61e27361-13e1-46ad-834f-3c98088c3947" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>OutboxPattern</name>
-      <display>OutboxPattern</display>
+      <name>Outbox Pattern</name>
+      <display>Outbox Pattern</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />
@@ -250,8 +236,8 @@
           <childElements />
         </childElement>
         <childElement id="5a9e0bc3-d731-4901-92b8-1d5adaee1c7d" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>EntityFramework</name>
-          <display>EntityFramework = entity-framework</display>
+          <name>SQL Persistence</name>
+          <display>SQL Persistence = entity-framework</display>
           <isAbstract>false</isAbstract>
           <value>entity-framework</value>
           <genericTypes />
