@@ -28,7 +28,6 @@
     <Build Include="Schemas\policy.sql" />
     <Build Include="Schemas\reporting.sql" />
     <Build Include="reporting\Views\vwPolicySummary.sql" />
-    <Build Include="dbo\Tables\PolicySummaryTable.sql" />
     <Build Include="reporting\Tables\PolicySummaryTable.sql" />
   </ItemGroup>
   <ItemGroup>
