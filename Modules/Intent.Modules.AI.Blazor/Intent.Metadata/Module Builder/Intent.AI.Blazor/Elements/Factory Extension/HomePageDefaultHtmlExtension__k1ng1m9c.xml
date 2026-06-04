@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d0ac0f6-01ca-4f4d-ba03-145277340f97" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HomePageDefaultHtmlExtension</name>
+  <display>HomePageDefaultHtmlExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6762a76f-df5c-4024-999c-7174f4d678fa</parentFolderId>
+  <packageId>6762a76f-df5c-4024-999c-7174f4d678fa</packageId>
+  <packageName>Intent.AI.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

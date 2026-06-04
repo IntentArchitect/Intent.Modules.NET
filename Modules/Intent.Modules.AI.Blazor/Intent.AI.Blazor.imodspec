@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AI.Blazor</id>
   <version>1.1.1-pre.0</version>
@@ -25,6 +25,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.AI.Blazor.HomePageDefaultHtmlExtension" externalReference="9d0ac0f6-01ca-4f4d-ba03-145277340f97" />
     <factoryExtension id="Intent.AI.Blazor.WireupCssExtension" externalReference="80e2fd46-e30d-45df-bb96-9e169a84e3b0" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>

@@ -26,7 +26,7 @@ When a sample exists, you MUST match the sample's visual structure, not only its
 Required process:
 
 1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (typically under `wwwroot`, such as `ux-theme.css`) and then reuse them.
+2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (typically under `wwwroot`, such as `ux-token.css` or `ux-mudblazor.css`) and then reuse them.
 
 Required baseline layout (when supported by the target app):
 
@@ -129,6 +129,17 @@ Button placement:
 - Never modify existing shared styles, variables, or theme values
 - Match the sample layout without introducing unnecessary wrappers
 - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (usually under `wwwroot`) and reuse them
+
+**Design context (if design.md is present)**
+
+If a `design.md` file exists in the project, read it before choosing MudBlazor component properties. Use it for:
+- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
+- `Color` semantics for primary, secondary, and error actions
+- Card elevation and hover behaviour
+- Page header treatment (gradient clip text vs plain text, icon badge style)
+- Chip `Color` and `Variant` semantics for status display
+
+`design.md` informs prop choices only — it does not override the sample's layout structure.
 
 ---
 
