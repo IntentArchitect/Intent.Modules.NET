@@ -1,4 +1,4 @@
-CREATE PROCEDURE [stakeholder].[GetStakeholderPerson]
+CREATE PROCEDURE [accountholder].[GetAccountHolderPerson]
     @stakeholderId BIGINT
 AS
 SET NOCOUNT ON;

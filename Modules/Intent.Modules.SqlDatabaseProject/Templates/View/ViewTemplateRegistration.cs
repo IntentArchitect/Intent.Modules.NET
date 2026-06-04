@@ -13,24 +13,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.SqlDatabaseProject.Templates.Table
+namespace Intent.Modules.SqlDatabaseProject.Templates.View
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class TableTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>
+    public class ViewTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public TableTemplateRegistration(IMetadataManager metadataManager)
+        public ViewTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => TableTemplate.TemplateId;
+        public override string TemplateId => ViewTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
-            return new TableTemplate(outputTarget, model);
+            return new ViewTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -38,7 +38,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
         {
             return _metadataManager.Domain(application)
                 .GetClassModels()
-                .Where(x => !x.HasView())
+                .Where(x => x.HasView())
                 .ToArray();
         }
     }

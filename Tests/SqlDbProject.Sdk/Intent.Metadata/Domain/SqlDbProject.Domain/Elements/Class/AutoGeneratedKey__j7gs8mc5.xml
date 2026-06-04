@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>be165961-4046-4c94-9b32-9487cb177619</parentFolderId>
   <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-  <packageName>SqlDbProject.Domain</packageName>
+  <packageName>SqlDbProject.Sdk.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>1002ffea-fce4-4300-ac31-398d9d24d585</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
           <addedByDefault>false</addedByDefault>
@@ -75,7 +75,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>1002ffea-fce4-4300-ac31-398d9d24d585</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
@@ -110,7 +110,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>1002ffea-fce4-4300-ac31-398d9d24d585</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
