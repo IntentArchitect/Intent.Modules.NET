@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#9d0ac0f6-01ca-4f4d-ba03-145277340f97</correlationId>
+      <path>Intent.Modules.AI.Blazor/FactoryExtensions/HomePageDefaultHtmlExtension.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-04T08:35:04.7990545Z</updatedAt>
+      <deviationsHash>13B910005E07ACAC4E13F889F1BE88436C3F6F66AEC26140B0A4CAE291E5108B</deviationsHash>
+      <fileHash>FB17450A81961F1EAA546C1114028C467408A930433CEC49CCB970FD67C94965</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#80e2fd46-e30d-45df-bb96-9e169a84e3b0</correlationId>
       <path>Intent.Modules.AI.Blazor/FactoryExtensions/WireupCssExtension.cs</path>
       <count>1</count>
@@ -10,6 +20,16 @@
       <updatedAt>2025-08-12T21:32:21.0260164Z</updatedAt>
       <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
       <fileHash>E80613B26A7097394B2B70F0AEAE34CC9F7D656B55278E2008C771578CFBC8D8</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#ac882f8b-f6a0-4208-9887-5a4d81dfd2fb</correlationId>
+      <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/AIAgentInstructionsStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-03T14:20:59.9233916Z</updatedAt>
+      <deviationsHash>C1817E7BE076454A339C6BC75BA1683A43870793195FB6136D227312B29682EE</deviationsHash>
+      <fileHash>1F6254800565A6F85CA3DF7F2F8FAF7AEA298553082A92A98827AE994149C11E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#34e97eb7-8cca-4b18-b097-1d64e245c26f</correlationId>
