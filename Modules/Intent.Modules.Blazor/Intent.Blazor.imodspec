@@ -11,6 +11,30 @@
   <tags>blazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate" externalReference="13297947-0406-4238-bc5f-bee51e6579c6">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="126d3417-12cf-4743-873a-5d18ed8409ad">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate" externalReference="2bfbd8aa-9f0f-4dc5-b3b0-72de6b8b4234">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate" externalReference="c84a605a-dc42-44e1-9ad6-354fa56adeec">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="4a16b11d-f73c-4bd8-87f3-7202c891752f">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.ClientImportsRazorTemplate" externalReference="4a938a9b-e670-43dd-8e6d-f03f0c48d812">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -139,6 +163,10 @@
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration" externalReference="1847a039-bc0e-41ec-9b51-a56f93d1c1b6">
       <role>Blazor.NoSample</role>
       <location></location>
@@ -147,7 +175,7 @@
       <role>Blazor.Sample</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeJavascriptStaticContentTemplateRegistration" externalReference="90716486-d2c5-4813-bdf8-e32192e096f8">
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="90716486-d2c5-4813-bdf8-e32192e096f8">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
@@ -214,6 +242,16 @@
     <detect id="Intent.Application.MediatR">
       <install>
         <package id="Intent.Application.MediatR" version="4.4.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Modules.AI.Blazor">
+      <install>
+        <package id="Intent.Modules.AI.Blazor" version="1.1.1-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Modules.Blazor.Components.MudBlazor">
+      <install>
+        <package id="Intent.Modules.Blazor.Components.MudBlazor" version="1.1.1-pre.0" />
       </install>
     </detect>
   </interoperability>
