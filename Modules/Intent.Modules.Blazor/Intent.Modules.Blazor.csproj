@@ -15,7 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
+    <Compile Remove="content\SkillSamples\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
@@ -37,10 +46,17 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="content\SkillSamples\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="docs\images\" />
+    <Folder Include="resources\static-content\" />
   </ItemGroup>
 
 </Project>
