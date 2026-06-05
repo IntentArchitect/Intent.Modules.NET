@@ -21,7 +21,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.ThemeService
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new ThemeServiceTemplate(outputTarget);
+            return new ThemeServiceTemplate(outputTarget, outputTarget.Application);
         }
     }
 }

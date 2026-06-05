@@ -1,32 +1,38 @@
-﻿@page "/Error"
+@page "/Error"
 @using System.Diagnostics
 
 <PageTitle>Error</PageTitle>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div class="ux-fade-in" style="max-width: 560px;">
 
-@if (ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@RequestId</code>
-    </p>
-}
+    <h1 style="color: var(--danger);">Error</h1>
+    <p style="color: var(--text-muted); margin-bottom: var(--space-5);">An error occurred while processing your request.</p>
 
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-    It can result in displaying sensitive information from exceptions to end users.
-    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-    and restarting the app.
-</p>
+    @if (ShowRequestId)
+    {
+        <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-5);">
+            <p style="font-size: var(--type-label-md); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 var(--space-2);">Request ID</p>
+            <code style="font-family: var(--font-mono); font-size: var(--type-body-sm); color: var(--text);">@RequestId</code>
+        </div>
+    }
 
-@code{
+    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-5);">
+        <h3 style="margin-top: 0;">Development Mode</h3>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-3);">
+            Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+        </p>
+        <p style="color: var(--text-muted); margin: 0;">
+            <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+            For local debugging, set the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong> and restart the app.
+        </p>
+    </div>
 
+</div>
+
+@code {
     private string? RequestId { get; set; }
     private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
+    protected override void OnInitialized() =>
+        RequestId = Activity.Current?.Id;
 }

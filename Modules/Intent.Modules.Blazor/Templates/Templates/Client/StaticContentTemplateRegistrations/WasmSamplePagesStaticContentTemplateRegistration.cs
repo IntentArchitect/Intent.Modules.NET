@@ -37,10 +37,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
 
         };
 
-        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
-        {
-            return OverwriteBehaviour.OnceOff;
-        }
+        //protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
+        //{
+        //    return OverwriteBehaviour.OnceOff;
+        //}
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
