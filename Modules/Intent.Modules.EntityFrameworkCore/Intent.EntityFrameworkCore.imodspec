@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
   <version>5.0.44-pre.0</version>
@@ -192,6 +192,7 @@
     <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
     <factoryExtension id="Intent.EntityFrameworkCore.LazyLoadingProxyFactoryExtension" externalReference="5e6a2761-b883-495c-a3b9-1309933b6f43" />
     <factoryExtension id="Intent.EntityFrameworkCore.PostgresUtcConverterExtension" externalReference="17df1d73-9ffb-4731-990c-4c8cc8230ad0" />
+    <factoryExtension id="Intent.EntityFrameworkCore.UnitOfWorkExternalTransactionExtension" externalReference="c1877186-0dcd-40c7-9c3e-4756dc0dae42" />
   </factoryExtensions>
   <migrations has-on-install-migration="true">
     <migration version="5.0.28-pre.2" />
