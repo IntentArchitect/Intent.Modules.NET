@@ -52,9 +52,13 @@ Configure what your underlying message broker is, the supported options are:
 * Azure Service Bus
 * Amazon SQS
 
+The default provider is `In Memory`.
+
+If you want to use another broker, such as `Rabbit MQ`, change the **Messaging Service Provider** option in Intent Architect's application settings for the MassTransit module and then rerun the Software Factory. Intent will regenerate the relevant configuration, `appsettings.json` entries and infrastructure code for the selected broker.
+
 > [!IMPORTANT]
 >
-> The in-memory transport is a great tool for testing, as it doesn't require a message broker to be installed or running. It's also very fast. But it isn't durable, and messages are gone if the bus is stopped or the process terminates. So, it's generally not a smart option for a production system
+> The in-memory transport can be used for in-process event distribution or for testing. It cannot span over multiple applications and its not durable so messages will be lost when the process ended unexpectedly.
 
 ### Outbox Pattern Setting
 
