@@ -15,11 +15,11 @@
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#b9d38f7c-7a8d-4007-b33d-7f386ccf119a</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Settings/ModuleSettingsExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:53:10.2466295Z</updatedAt>
-      <deviationsHash>8DC58534C92E1A17299D2A8806B7E41CC0B3638506ED9583A690FCCE7A50A935</deviationsHash>
-      <fileHash>C464B897F303EE231C9BAD6EB5F2E3DBB29DF3B30663DFFA64078EF076667BD0</fileHash>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-05T12:51:20.2671577Z</updatedAt>
+      <deviationsHash>39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A</deviationsHash>
+      <fileHash>309CD7A0BFE9FA88C2363915D25A8AE5E3B0266F7E3F9B6022B25B39E18FB25E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b1dde391-adec-41d2-a5c8-e4d2bb58db7c</correlationId>
@@ -29,7 +29,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-08-06T18:56:33.0327994Z</updatedAt>
       <deviationsHash>D18CE308028C284BDC7586408A4861CAE081B61275F9081CA6C52DDC7F7ABC65</deviationsHash>
-      <fileHash>B071A7806CC413F147443C7D2B85CC316E8FDD05F33C5560E74331653728C8E9</fileHash>
+      <fileHash>8C6B4DBBB3B1A446DB2F84B9018600F4585669E236AB9BD17B5B488248729857</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1145f97b-3ae3-4bc4-8759-87905618b27f</correlationId>
@@ -39,7 +39,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-08-06T18:56:33.0328102Z</updatedAt>
       <deviationsHash>A44FA35597C722271B88C635392F4EF4150BAE331BDCAC62A9C70C1FF947E8DC</deviationsHash>
-      <fileHash>15B2C9FE9BEF1686996368C90F69F84B4EF00E7A20D782175D4DA71EEC478BB1</fileHash>
+      <fileHash>E1798294145D43429650E8B6047690ECCE6D6E955F05C4A3A27EDD8843958A44</fileHash>
     </file>
   </files>
 </deviationsLog>

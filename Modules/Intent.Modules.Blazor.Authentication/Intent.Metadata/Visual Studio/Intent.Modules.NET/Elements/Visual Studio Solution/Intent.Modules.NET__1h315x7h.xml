@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="719e8e4e-52f6-4e2c-b835-e5c686827d41" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
+<class id="901e8415-50a8-43f8-afb5-e9e8529dc96d" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
   <name>Intent.Modules.NET</name>
   <display>Intent.Modules.NET</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>5530625e-c07e-4edf-862b-55806a6d3bf4</parentFolderId>
-  <packageId>5530625e-c07e-4edf-862b-55806a6d3bf4</packageId>
+  <parentFolderId>7d654d13-8f02-4c25-b621-bb084e1201a4</parentFolderId>
+  <packageId>7d654d13-8f02-4c25-b621-bb084e1201a4</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
