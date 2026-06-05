@@ -33,7 +33,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
     /// This is an EF concern, not a transport/messaging concern. Any module that externally enlists an
     /// EF connection benefits automatically once this extension fires.
     /// </summary>
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Comments = Mode.Ignore)]
     public class UnitOfWorkExternalTransactionExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.EntityFrameworkCore.UnitOfWorkExternalTransactionExtension";

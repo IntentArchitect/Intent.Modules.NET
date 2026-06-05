@@ -44,14 +44,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
       <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:58:52.4228227Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:20:32.9394616Z</approvedAt>
-      <deviationsHash>67712BBD9D92F06392D23CA6C17AC8ED892D2D68519E998F62B6442BF57A4B39</deviationsHash>
-      <fileHash>AD2E0DF502F689C304F03E669556CFEA4453D53DED588E963D2287811ADF0E87</fileHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-06-05T09:17:06.14135Z</updatedAt>
+      <deviationsHash>6CA987185FA20749CF1CCB36174FBC249527C8D395F3451F5C26C9D55E95CBD5</deviationsHash>
+      <fileHash>C89B1BFD7FB6A84F98E2001443D5D37DB19288E788FF78DFFF09D275426DE9C7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>

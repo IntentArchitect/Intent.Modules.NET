@@ -117,7 +117,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             //    }
             //    method.Statements.SeparateAll();
             //});
-
             entityBuilder.CSharpFile.AfterBuild(_ => // Needs to run after other decorators of the entity
             {
                 if (!method.TryGetMetadata("model", out IElement element) ||
@@ -282,7 +281,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 throw new ElementException(model.InternalElement, $"Not Supported: Composite entity inherits from {model.ParentClass.Name} that is not Abstract.");
             }
-            
+
             if (model.HasView() && model.HasTable())
             {
                 throw new ElementException(model.InternalElement, $"Entity \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
@@ -807,7 +806,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             //{
             //    yield return new EfCoreKeyMappingStatement(model);
             //}
-
             if (!(ForCosmosDb() && !model.IsAggregateRoot() && !model.GetExplicitPrimaryKey().Any() && ownedRelationship == RelationshipType.OneToOne))
             {
                 yield return new EfCoreKeyMappingStatement(model, ownedRelationship);
