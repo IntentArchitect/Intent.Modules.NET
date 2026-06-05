@@ -16,11 +16,19 @@ namespace Intent.Modules.Eventing.NServiceBus
         public const string NServiceBusExtensionsHostingPackageName = "NServiceBus.Extensions.Hosting";
         public const string NServiceBusRabbitMQPackageName = "NServiceBus.RabbitMQ";
         public const string NServiceBusTransportAzureServiceBusPackageName = "NServiceBus.Transport.AzureServiceBus";
-        public const string NServiceBusTransportSqlServerPackageName = "NServiceBus.Transport.SqlServer";
         public const string NServiceBusPersistenceSqlPackageName = "NServiceBus.Persistence.Sql";
+        public const string NServiceBusPersistenceSqlTransactionalSessionPackageName = "NServiceBus.Persistence.Sql.TransactionalSession";
+        public const string MicrosoftDataSqlClientPackageName = "Microsoft.Data.SqlClient";
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("6.0.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftDataSqlClientPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(NServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -45,8 +53,15 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(NServiceBusPersistenceSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("7.3.2"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(NServiceBusPersistenceSqlTransactionalSessionPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("9.0.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlTransactionalSessionPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusRabbitMQPackageName,
@@ -63,13 +78,6 @@ namespace Intent.Modules.Eventing.NServiceBus
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusTransportAzureServiceBusPackageName}'"),
                     }
                 );
-            NugetRegistry.Register(NServiceBusTransportSqlServerPackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 8, >= 0) => new PackageVersion("9.0.1"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusTransportSqlServerPackageName}'"),
-                    }
-                );
         }
 
         public static NugetPackageInfo NServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
@@ -78,12 +86,14 @@ namespace Intent.Modules.Eventing.NServiceBus
 
         public static NugetPackageInfo NServiceBusExtensionsHosting(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusExtensionsHostingPackageName, outputTarget.GetMaxNetAppVersion());
 
+        public static NugetPackageInfo NServiceBusPersistenceSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPersistenceSqlPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo NServiceBusPersistenceSqlTransactionalSession(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPersistenceSqlTransactionalSessionPackageName, outputTarget.GetMaxNetAppVersion());
+
         public static NugetPackageInfo NServiceBusRabbitMQ(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusRabbitMQPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusTransportAzureServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusTransportAzureServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo NServiceBusTransportSqlServer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusTransportSqlServerPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo NServiceBusPersistenceSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPersistenceSqlPackageName, outputTarget.GetMaxNetAppVersion());
+        public static NugetPackageInfo MicrosoftDataSqlClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftDataSqlClientPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

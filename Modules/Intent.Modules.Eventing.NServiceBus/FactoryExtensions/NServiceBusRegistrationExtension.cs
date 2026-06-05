@@ -57,9 +57,6 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
             else if (transport.IsAzureServiceBus())
                 application.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings",
                     new { AzureServiceBus = "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key" }));
-            else if (transport.IsSqlServer())
-                application.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings",
-                    new { SqlServer = "Server=localhost;Database=NServiceBus;Integrated Security=True;" }));
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)

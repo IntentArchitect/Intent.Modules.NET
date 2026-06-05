@@ -51,6 +51,7 @@ Inside this loop, load **implementation-tier skills** as needed:
 3. **Never declare an increment done on green compilation alone.** Compilation proves syntax. Behaviour requires a run.
 4. **Never silently work around a friction point.** If the loop hits a tool gap (e.g. DLL lock during reinstall), capture it in memory and surface it. These gaps are exactly what this skill is here to eliminate over time.
 5. **Never batch multiple increments into a single SF cycle "to save time".** One increment, one cycle, one verification. Batched failures are exponentially harder to isolate.
+6. **Never add NuGet packages by editing `NugetPackages.cs` directly.** That file is `[DefaultIntentManaged(Mode.Fully)]` — the next SF run will silently regenerate it and drop your change. All NuGet declarations must go through the Module Builder designer via MCP. See `intent-module-builder` Learnings for the full story.
 
 ---
 
@@ -82,25 +83,21 @@ The cycle is fractal — within a single increment, a failed verification at ste
 
 ---
 
-## Dev-Loop Friction: Module DLL Reload
+## Dev-Loop: Module DLL Reload
 
-**The problem:** Intent Architect loads installed modules from `<target-intent>/.intent/modules/<ModuleId>.<Version>/lib/<Module>.dll` into memory at solution-open time. While IA is running, the OS holds an exclusive lock on the DLL — you cannot overwrite it. `install_or_update_modules` MCP refreshes from IA's *cached* source (NuGet/feed), not from a local source rebuild. `run_software_factory` uses the in-memory DLL → no template changes picked up.
+**The correct workflow — no DLL copying required:**
 
-**Current workaround (until IA MCP exposes a reload tool):**
+Intent Architect monitors the module's build output folder. When you recompile the module `.csproj`, IA detects the change and automatically picks up the new assembly the next time SF runs. There is **no need to copy DLL files manually** and **no need to close IA**.
 
-1. Build the module: `dotnet build <Modules/Intent.Modules.X/X.csproj> --no-incremental`
-2. Ask the developer to close *just the IA window for the target sample* — no need to touch other open solutions
-3. Copy the freshly-built DLL + PDB over the installed location:
-   ```
-   cp <Modules/.../bin/Debug/net8.0/X.dll>  <target/intent/.intent/modules/X.<Ver>/lib/X.dll>
-   cp <Modules/.../bin/Debug/net8.0/X.pdb>  <target/intent/.intent/modules/X.<Ver>/lib/X.pdb>
-   ```
-4. Reopen the target sample via `open_solution`
-5. Run SF — picks up the rebuilt template
+```
+1. Edit the template body
+2. dotnet build <Modules/Intent.Modules.X/X.csproj> --no-incremental   ← IA picks this up automatically
+3. run_software_factory(target_app_id)                                   ← uses the freshly built DLL
+```
 
-**Detect the symptom:** If `run_software_factory` returns `0 changes` after a template body change that should have produced output, the DLL is stale. Don't debug the template — fix the dev-loop first.
+**NEVER copy DLL files manually.** The OS may lock them, you may overwrite the wrong version, and it bypasses IA's module management entirely.
 
-**Long-term:** This friction is exactly the kind of thing a future MCP `reload_modules` tool should solve. Capture it whenever you hit it.
+**Detect a stale run:** If `run_software_factory` returns `0 changes` after a template body change that should have produced output, confirm the `dotnet build` succeeded (exit 0) before assuming the template is wrong.
 
 ---
 

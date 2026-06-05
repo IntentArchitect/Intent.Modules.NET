@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,58 +26,132 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
         {
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
 
+            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
+            var hasOutbox = outboxPattern.IsEntityFramework();
+
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+            if (hasOutbox)
+            {
+                AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
+                AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+            }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("NServiceBus")
-                .AddClass("NServiceBusMessageBus", @class =>
+                .AddUsing("NServiceBus");
+
+            if (hasOutbox)
+            {
+                CSharpFile
+                    .AddUsing("System.Transactions")
+                    .AddUsing("Microsoft.EntityFrameworkCore")
+                    .AddUsing("NServiceBus.Persistence.Sql")
+                    .AddUsing("NServiceBus.TransactionalSession");
+            }
+
+            CSharpFile.AddClass("NServiceBusMessageBus", @class =>
+            {
+                @class.ImplementsInterface(this.GetBusInterfaceName());
+
+                @class.AddField("List<object>", "_buffer", field => field
+                    .PrivateReadOnly()
+                    .WithAssignment(new CSharpStatement("new()")));
+
+                @class.AddConstructor(ctor =>
                 {
-                    @class.ImplementsInterface(this.GetBusInterfaceName());
-
-                    @class.AddField("List<(object Message, bool IsPublish)>", "_buffer", field => field
-                        .PrivateReadOnly()
-                        .WithAssignment(new CSharpStatement("new()")));
-
-                    @class.AddConstructor(ctor =>
+                    if (hasOutbox)
                     {
-                        ctor.AddParameter("IMessageSession", "messageSession", param =>
-                            param.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("void", "Publish", method =>
+                        ctor.AddParameter("ITransactionalSession", "transactionalSession", p => p.IntroduceReadonlyField());
+                        // DbContext is resolved by the EF template role
+                        ctor.AddParameter(this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext), "dbContext", p => p.IntroduceReadonlyField());
+                    }
+                    else
                     {
-                        method.AddGenericParameter("TMessage", out var tMessage)
-                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
-                            .AddParameter(tMessage, "message");
-                        method.AddStatement("_buffer.Add((message, true));");
-                    });
-
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var tMessage)
-                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
-                            .AddParameter(tMessage, "message");
-                        method.AddStatement("_buffer.Add((message, false));");
-                    });
-
-                    @class.AddMethod("Task", "FlushAllAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter("CancellationToken", "cancellationToken", p =>
-                            p.WithDefaultValue("default"));
-                        method.AddForEachStatement("(message, isPublish)", "_buffer", fe =>
-                        {
-                            fe.AddIfStatement("isPublish", b =>
-                                b.AddStatement("await _messageSession.Publish(message);"));
-                            fe.AddElseStatement(b =>
-                                b.AddStatement("await _messageSession.Send(message);"));
-                        });
-                        method.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
-                    });
+                        ctor.AddParameter("IMessageSession", "messageSession", p => p.IntroduceReadonlyField());
+                    }
                 });
+
+                // The ActiveContext property is the core of the push pattern (mirrors MassTransit's ConsumeContext).
+                // Infrastructure sets this before business logic runs — NServiceBusMessageHandler<T> sets it to
+                // IMessageHandlerContext; HTTP middleware sets it to ITransactionalSession.
+                // Application code never touches it.
+                @class.AddProperty("object?", "ActiveContext");
+
+                @class.AddMethod("void", "Publish", method =>
+                {
+                    method.AddGenericParameter("TMessage", out var tMessage)
+                        .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
+                        .AddParameter(tMessage, "message");
+                    method.AddStatement("_buffer.Add(message);");
+                });
+
+                @class.AddMethod("void", "Send", method =>
+                {
+                    method.AddGenericParameter("TMessage", out var tMessage)
+                        .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
+                        .AddParameter(tMessage, "message");
+                    method.AddStatement("_buffer.Add(message);");
+                });
+
+                @class.AddMethod("Task", "FlushAllAsync", method =>
+                {
+                    method.Async();
+                    method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+
+                    method.AddIfStatement("_buffer.Count == 0", b =>
+                        b.AddStatement("return;"));
+
+                    // Priority 1: inside an inbound NSB handler — route through handler's outbox transaction
+                    method.AddIfStatement("ActiveContext is IMessageHandlerContext handlerContext", b =>
+                    {
+                        b.AddForEachStatement("message", "_buffer", fe =>
+                            fe.AddStatement("await handlerContext.Publish(message);"));
+                        b.AddStatement("_buffer.Clear();");
+                        b.AddStatement("return;");
+                    });
+
+                    if (hasOutbox)
+                    {
+                        // Priority 2: HTTP/MediatR path — open ITransactionalSession and join EF atomically.
+                        // Suppress any ambient TransactionScope (e.g. from UnitOfWorkBehaviour) so that
+                        // NSB's SqlConnection does not auto-enlist and trigger MSDTC escalation.
+                        // EF joins NSB's own connection+transaction below, ensuring atomicity.
+                        method.AddUsingBlock(
+                            "new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled)",
+                            usingBlock =>
+                            {
+                                usingBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
+                                usingBlock.AddStatement("await _transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);");
+                                usingBlock.AddStatement("var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();");
+                                usingBlock.AddStatement("_dbContext.Database.SetDbConnection(sqlSession.Connection);");
+                                usingBlock.AddStatement("await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);");
+                                usingBlock.AddTryBlock(tryBlock =>
+                                {
+                                    tryBlock.AddForEachStatement("message", "_buffer", fe =>
+                                        fe.AddStatement("await _transactionalSession.Publish(message);"));
+                                    tryBlock.AddStatement("await _dbContext.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
+                                    tryBlock.AddStatement("await _transactionalSession.Commit(cancellationToken);");
+                                    // Only clear after successful commit — messages would be lost on crash if cleared earlier
+                                    tryBlock.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
+                                })
+                                .AddFinallyBlock(finallyBlock =>
+                                {
+                                    finallyBlock.AddStatement("_dbContext.Database.SetDbConnection(null);");
+                                });
+                            });
+                    }
+                    else
+                    {
+                        // Priority 3: best-effort dispatch via global IMessageSession
+                        method.AddForEachStatement("message", "_buffer", fe =>
+                            fe.AddStatement("await _messageSession.Publish(message);"));
+                        method.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
+                    }
+                });
+            });
         }
 
         [IntentManaged(Mode.Fully)]

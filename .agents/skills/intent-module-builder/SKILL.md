@@ -31,8 +31,25 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 6. Never run SF on the target application (the sample app) before compiling the module — the target app must pick up the updated module first.
 7. **Never directly edit `*TemplateRegistration.cs` files** for structural changes (base class, method signatures, registration type). These files carry `[assembly: IntentTemplate(...)]` and are SF-owned. To change a template's registration type (e.g. `FilePerModel` → `SingleFileListModel`), change it in the Module Builder designer and let SF regenerate the file. Only `[IntentManaged(Body = Mode.Ignore)]` bodies (e.g. `GetModels`) are editable directly.
 8. **Never manually look up NuGet versions for existing packages.** Use the **"Get latest from NuGet.org"** context menu action in the Intent Architect Module Builder designer — right-click the NuGet Packages element to update all versions at once. Only look up versions manually when creating a brand-new package that doesn't yet exist in the designer.
+9. **Never add a NuGet package by editing `NugetPackages.cs` directly.** This file carries `[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages")]` and `[assembly: DefaultIntentManaged(Mode.Fully)]`. Every line is regenerated from the designer on the next SF run. A direct edit looks like it works — the build passes — but the change vanishes silently the moment SF runs. The only correct path is: add a NuGet Package element in the Module Builder designer via MCP → SF on module → apply staged changes.
 
 ---
+
+## Learnings
+
+### NuGet Packages must go through the designer — not `NugetPackages.cs`
+
+**What happened:** A session added `NServiceBus.Persistence.Sql.TransactionalSession` by directly editing `NugetPackages.cs`, including the registry call and static factory method. The module built successfully. However, `NugetPackages.cs` is `[DefaultIntentManaged(Mode.Fully)]` — the next SF run regenerated it from the designer model and silently dropped the new package entirely.
+
+**Root cause:** The agent correctly identified that the NuGet package was needed, then bypassed the MCP workflow and edited the generated file directly. Must #8 (check for Intent markers) was listed but not strong enough to prevent this.
+
+**Correct approach:**
+1. In the Intent Architect Module Builder designer (via MCP), find the module package and create a `NuGet Package` element (`specializationId: f747cc37-29ee-488a-8dbe-755e856a842d`) under it.
+2. Add a `Package Version` child element with the version string.
+3. Run SF on the module → `NugetPackages.cs` is regenerated with the new entry.
+4. Only then reference `NugetPackages.MyNewPackage(OutputTarget)` in template code.
+
+**The tell:** If a file in the module's own source has `[assembly: IntentTemplate(...)]`, it is owned by SF. Do not edit it. Period.
 
 ## The Iteration Cycle
 
