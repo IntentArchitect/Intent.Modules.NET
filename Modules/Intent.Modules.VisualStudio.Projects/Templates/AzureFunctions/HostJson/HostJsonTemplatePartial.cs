@@ -79,14 +79,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
                 content = TransformText();
             }
 
-            var json = JsonConvert.DeserializeObject<JObject>(content);
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
 
             foreach (var request in _registrationRequestsByKey)
             {
                 json.SetFieldValue(request.Key, request.Value.Request.Value, allowReplacement: false);
             }
 
-            return JsonConvert.SerializeObject(json, Formatting.Indented);
+            var serialized = JsonConvert.SerializeObject(json, Formatting.Indented);
+            return JsonCommentPreserver.Restore(serialized, commentBlocks);
         }
     }
 }

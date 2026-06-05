@@ -11,18 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Common.ThemeService
+namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ThemeServiceTemplateRegistration : SingleFileTemplateRegistration
+    public class DefaultDesignMdTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => ThemeServiceTemplate.TemplateId;
+        public override string TemplateId => DefaultDesignMdTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            // IntentIgnore
-            return new ThemeServiceTemplate(outputTarget, outputTarget.Application);
+            return new DefaultDesignMdTemplate(outputTarget);
         }
     }
 }

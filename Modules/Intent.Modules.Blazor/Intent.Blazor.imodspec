@@ -35,6 +35,10 @@
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" externalReference="71dd8fd0-e402-452c-b33e-718d4c3b9991">
+      <role>AI.Context</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.ClientImportsRazorTemplate" externalReference="4a938a9b-e670-43dd-8e6d-f03f0c48d812">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -216,6 +220,10 @@
           <hint>Enable prerendering for Interactive Server mode.</hint>
           <defaultValue>false</defaultValue>
           <isActiveFunction>return getProperty("Render Mode").value != "interactive-web-assembly";</isActiveFunction>
+        </setting>
+        <setting id="fa401099-f333-4702-a261-4d66239dde29" title="Enable Theme Toggle" type="switch">
+          <hint>Show a dark/light mode toggle in the navigation bar</hint>
+          <defaultValue>true</defaultValue>
         </setting>
       </settings>
     </group>

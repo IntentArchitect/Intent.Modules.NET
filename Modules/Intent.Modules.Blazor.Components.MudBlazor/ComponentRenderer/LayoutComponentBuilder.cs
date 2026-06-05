@@ -1,6 +1,7 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -28,9 +29,13 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     {
         var layoutModel = new LayoutModel(component);
 
-        var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
-        themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
-        parentNode.AddChildNode(themeProvider);
+        if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+        {
+            var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
+            themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
+            parentNode.AddChildNode(themeProvider);
+        }
+
         var popoverProvider = new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile);
         //popoverProvider.AddAttribute("@rendermode", "InteractiveServer"); // throws exception. Check with Dom
         parentNode.AddChildNode(popoverProvider);
@@ -68,10 +73,11 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     _componentResolver.BuildComponent(child, appBar);
                 }
 
-                var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
-
-                ConfigureThemeSelection(appBar, code, insertPosition);
-
+                if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                {
+                    var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
+                    ConfigureThemeSelection(appBar, code, insertPosition);
+                }
             });
         }
         //layoutHtml.AddHtmlElement("Layout", layoutHtml =>
