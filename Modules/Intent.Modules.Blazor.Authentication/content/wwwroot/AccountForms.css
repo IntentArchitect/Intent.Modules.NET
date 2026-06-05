@@ -1,10 +1,17 @@
-﻿/* ==== Layout === */
+/* ============================================================================
+   Account form styling
+   Consumes the design tokens from ux-tokens.css (Intent.Blazor module) so the
+   Account pages inherit the active theme — palette, typography, spacing and
+   light/dark — without depending on the MudBlazor bridge or any AI step.
+   ============================================================================ */
+
+/* ==== Layout === */
 .row {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
 }
 
 .col-md-4, .col-md-6 {
@@ -26,32 +33,34 @@
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-4);
 }
 
 section {
-    padding: 1rem 0;
+    padding: var(--space-4) 0;
 }
 
 /* ==== Floating Labels === */
 .form-floating {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-5);
 }
 
     .form-floating input {
         width: 100%;
         padding: 1rem 0.75rem 0.25rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: white;
+        font-family: var(--font-primary);
+        font-size: var(--type-body-md);
+        color: var(--text);
+        border: var(--border-width) solid var(--border);
+        border-radius: var(--radius-md);
+        background-color: var(--surface);
         transition: border 0.2s ease, box-shadow 0.2s ease;
     }
 
         .form-floating input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px var(--primary-subtle);
             outline: none;
         }
 
@@ -63,8 +72,9 @@ section {
         position: absolute;
         top: 0.75rem;
         left: 0.75rem;
-        font-size: 1rem;
-        color: #666;
+        font-family: var(--font-primary);
+        font-size: var(--type-body-md);
+        color: var(--text-muted);
         pointer-events: none;
         transition: all 0.2s ease-out;
     }
@@ -73,32 +83,33 @@ section {
     .form-floating input:not(:placeholder-shown) + label {
         top: 0.25rem;
         left: 0.65rem;
-        font-size: 0.75rem;
-        color: #3b82f6;
-        background-color: white;
-        padding: 0 0.25rem;
+        font-size: var(--type-label-md);
+        color: var(--primary);
+        background-color: var(--surface);
+        padding: 0 var(--space-1);
     }
 
 /* ==== Validation Styles === */
 .text-danger {
-    color: #dc2626;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+    color: var(--danger);
+    font-size: var(--type-body-sm);
+    margin-top: var(--space-1);
     display: block;
 }
 
 [role="alert"] {
-    margin-bottom: 1rem;
-    color: #dc2626;
+    margin-bottom: var(--space-4);
+    color: var(--danger);
 }
 
 /* ==== Checkbox === */
 .darker-border-checkbox {
-    margin-right: 0.5rem;
+    margin-right: var(--space-2);
     width: 1.2rem;
     height: 1.2rem;
-    border: 2px solid #888;
-    border-radius: 3px;
+    border: 2px solid var(--text-secondary);
+    border-radius: var(--radius-sm);
+    accent-color: var(--primary);
     vertical-align: middle;
 }
 
@@ -111,13 +122,14 @@ button[type="submit"],
 .btn {
     display: inline-block;
     width: 100%;
-    margin-top: 2rem;
-    padding: 0.75rem;
-    font-size: 1rem;
-    background-color: #3b82f6;
-    color: white;
+    margin-top: var(--space-6);
+    padding: var(--space-3);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-md);
+    background-color: var(--primary);
+    color: var(--primary-contrast);
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     text-align: center;
     transition: background-color 0.2s ease;
@@ -125,14 +137,14 @@ button[type="submit"],
 
     button[type="submit"]:hover,
     .btn:hover {
-        background-color: #2563eb;
+        background-color: var(--primary-dark);
     }
 
 /* ==== Links === */
 a {
-    color: #3b82f6;
+    color: var(--primary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--type-body-sm);
 }
 
     a:hover {
@@ -141,33 +153,36 @@ a {
 
 /* ==== Headers === */
 h1, h2, h3 {
-    margin-bottom: 0.5rem;
+    color: var(--text);
+    margin-bottom: var(--space-2);
 }
 
 hr {
     border: none;
-    border-top: 1px solid #ccc;
-    margin: 1rem 0;
+    border-top: var(--border-width) solid var(--border);
+    margin: var(--space-4) 0;
 }
 
 /* === Checkbox styling === */
 .form-check {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
 }
 
 .form-check-input {
     width: 1.2rem;
     height: 1.2rem;
-    border: 2px solid #888;
-    border-radius: 3px;
+    border: 2px solid var(--text-secondary);
+    border-radius: var(--radius-sm);
+    accent-color: var(--primary);
     cursor: pointer;
 }
 
 .form-check-label {
-    font-size: 0.95rem;
+    font-size: var(--type-body-sm);
+    color: var(--text);
     user-select: none;
     cursor: pointer;
 }

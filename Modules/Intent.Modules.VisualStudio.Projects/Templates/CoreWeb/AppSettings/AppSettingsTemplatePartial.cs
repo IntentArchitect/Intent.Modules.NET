@@ -57,7 +57,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 content = TransformText();
             }
 
-            var json = JsonConvert.DeserializeObject<JObject>(content);
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
 
             foreach (var appSetting in _appSettings)
             {
@@ -83,6 +84,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 decorator.UpdateSettings(appSettings);
             }
 
+            string serialized;
             using (var sw = new StringWriter())
             {
                 using (var jw = new JsonTextWriter(sw))
@@ -94,9 +96,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
                     var serializer = new JsonSerializer();
                     serializer.Serialize(jw, json);
-                    return sw.ToString();
+                    serialized = sw.ToString();
                 }
             }
+
+            return JsonCommentPreserver.Restore(serialized, commentBlocks);
         }
 
         static Dictionary<string, string> DefaultSettings { get; } = new()

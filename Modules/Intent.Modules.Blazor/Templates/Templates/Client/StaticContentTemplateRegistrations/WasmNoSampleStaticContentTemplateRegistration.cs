@@ -17,8 +17,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
     [IntentMerge]
     public class WasmNoSampleStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        [IntentIgnore]
-        public new const string TemplateId = "Intent.Blazor.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration";
 
         public WasmNoSampleStaticContentTemplateRegistration() : base(TemplateId)
         {
@@ -38,10 +37,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
 
         };
 
-        //protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
-        //{
-        //    return OverwriteBehaviour.OnceOff;
-        //}
+        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
+        {
+            return OverwriteBehaviour.OnceOff;
+        }
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {

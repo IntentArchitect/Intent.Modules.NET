@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
@@ -7,11 +9,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -24,7 +25,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.ThemeService
         public const string TemplateId = "Intent.Blazor.Templates.Common.ThemeServiceTemplate";
         private readonly IApplication _application;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
         public ThemeServiceTemplate(IOutputTarget outputTarget, IApplication application, object model = null) : base(TemplateId, outputTarget, model)
         {
             _application = application;
@@ -124,6 +125,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.ThemeService
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
         }
     }
 }
