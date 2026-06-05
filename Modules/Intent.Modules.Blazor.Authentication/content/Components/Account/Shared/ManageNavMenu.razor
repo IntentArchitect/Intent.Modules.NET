@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<<#= IdentityClass #>> SignInManager
 
@@ -25,12 +25,3 @@
         <NavLink class="nav-link" href="Account/Manage/PersonalData">Personal data</NavLink>
     </li>
 </ul>
-
-@code {
-    private bool hasExternalLogins;
-
-    protected override async Task OnInitializedAsync()
-    {
-        hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
-    }
-}

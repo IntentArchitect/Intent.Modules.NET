@@ -44,6 +44,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
                 replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data");
+                replacements.Add("IdentityClassNamespace", $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data");
             }
             else
             {
@@ -51,6 +52,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 var identityClass = IdentityHelperExtensions.GetIdentityUserClassTuple(startup);
                 replacements.Add("IdentityClass", identityClass.Name);
                 replacements.Add("NamespaceData", $"@using {identityClass.Namespace}");
+                replacements.Add("IdentityClassNamespace", identityClass.Namespace);
             }
 
             return replacements;
