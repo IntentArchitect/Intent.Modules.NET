@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Blazor.Authentication.Settings
 {
 
-    public static class BlazorExtensions
+    public static class BlazorSettingsExtensions
     {
         [IntentIgnore]
         public static AuthenticationOptions Authentication(this Intent.Modules.Blazor.Settings.Blazor groupSettings) => new AuthenticationOptions(groupSettings.GetSetting("5ec4a775-6208-405b-b66f-0dd5c6e591bb")?.Value);

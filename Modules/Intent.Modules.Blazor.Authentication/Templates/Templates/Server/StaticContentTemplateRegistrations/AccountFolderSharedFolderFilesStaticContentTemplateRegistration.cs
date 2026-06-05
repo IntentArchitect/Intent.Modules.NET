@@ -38,10 +38,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         {
             var replacements = new Dictionary<string, string>();
 
+            replacements.Add("Namespace", outputTarget.GetNamespace().Replace("Components.Account.Shared", ""));
+
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
                 replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
+                replacements.Add("IdentityClassNamespace", $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
             }
             else
             {
@@ -49,6 +52,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 var identityClass = IdentityHelperExtensions.GetIdentityUserClassTuple(startup);
                 replacements.Add("IdentityClass", identityClass.Name);
                 replacements.Add("NamespaceData", $"@using {identityClass.Namespace}");
+                replacements.Add("IdentityClassNamespace", identityClass.Namespace);
             }
 
             return replacements;

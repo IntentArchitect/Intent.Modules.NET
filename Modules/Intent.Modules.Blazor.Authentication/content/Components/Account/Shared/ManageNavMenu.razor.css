@@ -1,0 +1,29 @@
+/* Page-specific manage navigation layout. */
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav ::deep .nav-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--text-muted);
+    text-decoration: none;
+    border: var(--border-width) solid transparent;
+    border-radius: var(--radius-md);
+    transition: color var(--dur-med) var(--ease-out),
+                background-color var(--dur-med) var(--ease-out),
+                border-color var(--dur-med) var(--ease-out);
+}
+
+.nav ::deep .nav-link:hover,
+.nav ::deep .nav-link.active {
+    color: var(--text);
+    background: var(--surface-2);
+    border-color: var(--border);
+}

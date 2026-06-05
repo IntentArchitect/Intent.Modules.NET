@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Authentication</id>
   <version>1.1.1-pre.0</version>
@@ -202,10 +202,6 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
-    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration" externalReference="bac0ff15-dd32-4618-b598-a0c72013e3de">
-      <role>Startup,Blazor</role>
-      <location>wwwroot</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -217,7 +213,7 @@
   <moduleSettings />
   <dependencies>
     <dependency id="Intent.Blazor" version="1.0.0" />
-    <dependency id="Intent.Code.Weaving.Razor" version="1.0.7" />
+    <dependency id="Intent.Code.Weaving.Razor" version="2.0.1" />
     <dependency id="Intent.Common" version="3.11.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

@@ -1,4 +1,4 @@
-﻿@page "/Account/Manage/PersonalData"
+@page "/Account/Manage/PersonalData"
 
 @inject IdentityUserAccessor UserAccessor
 
@@ -22,13 +22,3 @@
         </p>
     </div>
 </div>
-
-@code {
-    [CascadingParameter]
-    private HttpContext HttpContext { get; set; } = default!;
-
-    protected override async Task OnInitializedAsync()
-    {
-        _ = await UserAccessor.GetRequiredUserAsync(HttpContext);
-    }
-}

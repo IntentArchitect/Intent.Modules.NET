@@ -1,0 +1,13 @@
+/* Page-specific external login layout. App-wide controls live in ux-controls.css. */
+
+.form-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.form-horizontal p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
