@@ -108,7 +108,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     method.AddIfStatement("ActiveContext is IMessageHandlerContext handlerContext", b =>
                     {
                         b.AddForEachStatement("message", "_buffer", fe =>
-                            fe.AddStatement("await handlerContext.Publish(message);"));
+                            fe.AddStatement("await handlerContext.Publish(message, cancellationToken);"));
                         b.AddStatement("_buffer.Clear();");
                         b.AddStatement("return;");
                     });
@@ -131,7 +131,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                                 usingBlock.AddTryBlock(tryBlock =>
                                 {
                                     tryBlock.AddForEachStatement("message", "_buffer", fe =>
-                                        fe.AddStatement("await _transactionalSession.Publish(message);"));
+                                        fe.AddStatement("await _transactionalSession.Publish(message, cancellationToken);"));
                                     tryBlock.AddStatement("await _dbContext.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
                                     tryBlock.AddStatement("await _transactionalSession.Commit(cancellationToken);");
                                     // Only clear after successful commit — messages would be lost on crash if cleared earlier
@@ -147,7 +147,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     {
                         // Priority 3: best-effort dispatch via global IMessageSession
                         method.AddForEachStatement("message", "_buffer", fe =>
-                            fe.AddStatement("await _messageSession.Publish(message);"));
+                            fe.AddStatement("await _messageSession.Publish(message, cancellationToken);"));
                         method.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
                     }
                 });
