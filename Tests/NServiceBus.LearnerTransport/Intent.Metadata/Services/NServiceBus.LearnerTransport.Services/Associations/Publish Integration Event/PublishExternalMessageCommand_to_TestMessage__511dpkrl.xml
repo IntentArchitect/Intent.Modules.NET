@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="20775902-1fa7-4a12-b0a3-86827a3a49f4">
+  <sourceEnd id="c13adb0c-f5e7-4c8f-9f3d-f0d119405074" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="52e940d2-7fd5-4a2a-9862-ca77be011518">
+      <typeId>fdbb4468-f377-42ec-a8de-4625748d7bae</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Services</typePackageName>
+      <typePackageId>949bbc79-f237-42b1-ac6b-20b32300f302</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="20775902-1fa7-4a12-b0a3-86827a3a49f4" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] TestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="f001372e-9353-4808-bcfa-95558100f7b4">
+      <typeId>09af8c88-f871-42c0-81ea-6c98c73ddf6a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Eventing.Messages</typePackageName>
+      <typePackageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

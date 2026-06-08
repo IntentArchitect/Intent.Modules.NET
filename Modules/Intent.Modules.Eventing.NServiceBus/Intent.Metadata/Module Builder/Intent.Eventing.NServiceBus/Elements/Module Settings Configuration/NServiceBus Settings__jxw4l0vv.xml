@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="76e5fbf4-95c3-4d3e-8343-0969c4a67df6" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>NServiceBusSettings</name>
-  <display>NServiceBusSettings</display>
+  <name>NServiceBus Settings</name>
+  <display>NServiceBus Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18d132e0-0cfd-421f-a45f-55809fcf8f4a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>741143f1-bbc9-4aff-94f6-29d38f3dbc74</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1f079ee7-95ed-4847-8504-d8b1f1010dd7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.EventBusInterface</name>
+      <display>Intent.Eventing.Contracts.EventBusInterface</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18d132e0-0cfd-421f-a45f-55809fcf8f4a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6585cb1e-9e84-4323-9ca5-6e3aaadc1dfb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18d132e0-0cfd-421f-a45f-55809fcf8f4a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="afc95043-63e5-4e2c-ae5a-e157936e6246" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBusInterface</name>
+      <display>Intent.Eventing.Contracts.MessageBusInterface</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18d132e0-0cfd-421f-a45f-55809fcf8f4a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

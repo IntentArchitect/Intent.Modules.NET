@@ -24,8 +24,9 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             services.AddKafkaConfiguration(configuration, registry);
             services.AddMassTransitConfiguration(configuration, registry);
 
-            services.AddSolaceConfiguration(configuration, registry);
+            services.AddNServiceBusConfiguration(configuration, registry);
 
+            services.AddSolaceConfiguration(configuration, registry);
             services.AddSingleton(registry);
             services.AddScoped<MessageBrokerResolver>();
             services.AddScoped<IEventBus, Infrastructure.Eventing.CompositeMessageBus>();

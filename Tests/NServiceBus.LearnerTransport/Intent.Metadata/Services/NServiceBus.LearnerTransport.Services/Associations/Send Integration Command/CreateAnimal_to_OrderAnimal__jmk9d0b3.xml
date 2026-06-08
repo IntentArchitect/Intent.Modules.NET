@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c290a2f0-e43f-43a7-8244-fbb2e20abf7f">
+  <sourceEnd id="924257a0-c35b-4cc0-908f-eb05a5389a38" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalsService.CreateAnimal</display>
+    <order>0</order>
+    <typeReference id="4afac899-4256-4cec-b49c-86302826e550">
+      <typeId>c62247fa-8800-4354-9454-5540b63b8cca</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Services</typePackageName>
+      <typePackageId>949bbc79-f237-42b1-ac6b-20b32300f302</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c290a2f0-e43f-43a7-8244-fbb2e20abf7f" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] OrderAnimal</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="53c446c9-a41a-43ef-83f1-9b68ec2c2711">
+      <typeId>658c593d-a468-4edc-8cde-d6e57c5ea9d1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Eventing.Messages</typePackageName>
+      <typePackageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

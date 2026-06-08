@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fdbb4468-f377-42ec-a8de-4625748d7bae" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>PublishExternalMessageCommand</name>
+  <display>PublishExternalMessageCommand: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="1089c974-4613-4c5f-b8c0-87e4e6e91473">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>faf44b5e-7706-4136-957c-9f827ec4407d</parentFolderId>
+  <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
+  <packageName>NServiceBus.LearnerTransport.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

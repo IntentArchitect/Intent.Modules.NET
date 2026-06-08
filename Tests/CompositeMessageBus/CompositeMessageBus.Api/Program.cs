@@ -4,6 +4,7 @@ using CompositeMessageBus.Api.Logging;
 using CompositeMessageBus.Api.Services;
 using CompositeMessageBus.Application;
 using CompositeMessageBus.Infrastructure;
+using CompositeMessageBus.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
@@ -28,12 +29,13 @@ namespace CompositeMessageBus.Api
                 var builder = WebApplication.CreateBuilder(args);
 
                 // Add services to the container.
+                builder.Host.AddNServiceBus(builder.Configuration);
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-                builder.Services.AddDaprSidekick(builder.Configuration);
 
+                builder.Services.AddDaprSidekick(builder.Configuration);
                 builder.Services.AddControllers(
                     opt =>
                     {

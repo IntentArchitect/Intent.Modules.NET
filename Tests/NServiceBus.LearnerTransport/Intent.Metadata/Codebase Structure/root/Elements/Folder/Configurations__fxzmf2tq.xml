@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6600a1c9-6dac-4da5-acaf-e315e48bfe55" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Configurations</name>
+  <display>Configurations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>98c9f69c-50ea-429d-aadf-693cc2853fce</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c69846fe-4a3e-4215-aba2-9961292ac25c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</name>
+      <display>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6600a1c9-6dac-4da5-acaf-e315e48bfe55</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d9ee946a-35f9-4108-a024-8f3f9e773b4c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.EntityTypeConfiguration</name>
+      <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6600a1c9-6dac-4da5-acaf-e315e48bfe55</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

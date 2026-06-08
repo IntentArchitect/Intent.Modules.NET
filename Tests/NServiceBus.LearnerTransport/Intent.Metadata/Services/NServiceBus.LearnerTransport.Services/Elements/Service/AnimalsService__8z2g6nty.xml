@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="28e6ca81-2f99-4065-ba13-f359e08a882a" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>AnimalsService</name>
+  <display>AnimalsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>95c2bbc5-7c0b-4e2e-897c-75f93233c64d</parentFolderId>
+  <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
+  <packageName>NServiceBus.LearnerTransport.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c62247fa-8800-4354-9454-5540b63b8cca" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateAnimal</name>
+      <display>CreateAnimal(dto: CreateAnimalDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="815b9ef2-4dbd-43b1-a819-655ecdd45a0f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>28e6ca81-2f99-4065-ba13-f359e08a882a</parentFolderId>
+      <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
+      <packageName>NServiceBus.LearnerTransport.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7b2dfa11-027a-426a-b4f9-b57b794e3e78" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateAnimalDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="54555423-3fa7-4c87-be54-1bfe7764a6b2">
+            <typeId>4750e862-d105-4e9d-8193-78e37a754780</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>NServiceBus.LearnerTransport.Services</typePackageName>
+            <typePackageId>949bbc79-f237-42b1-ac6b-20b32300f302</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c62247fa-8800-4354-9454-5540b63b8cca</parentFolderId>
+          <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
+          <packageName>NServiceBus.LearnerTransport.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
