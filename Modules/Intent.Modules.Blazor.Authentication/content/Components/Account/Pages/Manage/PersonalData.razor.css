@@ -1,0 +1,24 @@
+/* Page-specific account form layout. App-wide controls live in ux-controls.css. */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    padding: var(--space-4);
+}
+
+.row ::deep .col-md-6 {
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .row ::deep .col-md-6 {
+        max-width: 600px;
+    }
+}
+
+.row ::deep form {
+    display: inline-flex;
+    margin-right: var(--space-3);
+}

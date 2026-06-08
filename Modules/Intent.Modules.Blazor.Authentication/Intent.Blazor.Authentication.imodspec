@@ -202,10 +202,6 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
-    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration" externalReference="bac0ff15-dd32-4618-b598-a0c72013e3de">
-      <role>Startup,Blazor</role>
-      <location>wwwroot</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
