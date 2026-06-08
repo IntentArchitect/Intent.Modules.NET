@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Entities;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Repositories;
+using AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
-using RichDomain.Domain.Entities;
-using RichDomain.Domain.Repositories;
-using RichDomain.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
-namespace RichDomain.Infrastructure.Repositories
+namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class DerivedClassRepository : RepositoryBase<IDerivedClass, DerivedClass, ApplicationDbContext>, IDerivedClassRepository
+    public class SpecializedProductRepository : RepositoryBase<SpecializedProduct, SpecializedProduct, ApplicationDbContext>, ISpecializedProductRepository
     {
-        public DerivedClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
+        public SpecializedProductRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
@@ -28,20 +28,22 @@ namespace RichDomain.Infrastructure.Repositories
             return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<IDerivedClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<SpecializedProduct?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<IDerivedClass?> FindByIdAsync(
+        public async Task<SpecializedProduct?> FindByIdAsync(
             Guid id,
-            Func<IQueryable<DerivedClass>, IQueryable<DerivedClass>> queryOptions,
+            Func<IQueryable<SpecializedProduct>, IQueryable<SpecializedProduct>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
         }
 
-        public async Task<List<IDerivedClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<SpecializedProduct>> FindByIdsAsync(
+            Guid[] ids,
+            CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
             var idList = ids.ToList();
