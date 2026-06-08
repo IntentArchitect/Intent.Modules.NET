@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -30,6 +31,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
         public NServiceBusMessageHandlerTemplate(IOutputTarget outputTarget, IList<IntegrationEventHandlerModel> model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
+            AddTypeSource(IntegrationCommandTemplate.TemplateId);
             AddTypeSource(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId);
 
             var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
@@ -39,6 +41,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                 .SelectMany(h => h.IntegrationEventSubscriptions()
                     .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
                     .Select(sub => sub.TypeReference.Element.AsMessageModel()!))
+                .Distinct()
+                .ToList();
+
+            SubscribedCommandModels = model
+                .SelectMany(h => h.IntegrationCommandSubscriptions()
+                    .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsIntegrationCommandModel()!)
+                    .Select(sub => sub.TypeReference.Element.AsIntegrationCommandModel()!))
                 .Distinct()
                 .ToList();
 
@@ -99,18 +108,29 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
         }
 
         /// <summary>
-        /// Message types this endpoint subscribes to for this broker.
+        /// Integration event (Message) types this endpoint subscribes to for this broker.
         /// Read by <see cref="NServiceBusConfiguration.NServiceBusConfigurationTemplate"/> to emit
         /// direct NSB registry registration calls in <c>ConfigureEndpoint</c>.
         /// </summary>
         public IReadOnlyList<MessageModel> SubscribedMessageModels { get; }
 
+        /// <summary>
+        /// Integration command types this endpoint handles for this broker.
+        /// Read by <see cref="NServiceBusConfiguration.NServiceBusConfigurationTemplate"/> to emit
+        /// direct NSB registry registration calls in <c>ConfigureEndpoint</c>.
+        /// </summary>
+        public IReadOnlyList<IntegrationCommandModel> SubscribedCommandModels { get; }
+
         public override bool CanRunTemplate()
         {
-            // Suppress output when no handler subscriptions route to this broker
-            return Model.Any(h => h.IntegrationEventSubscriptions()
-                .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
-                .Any());
+            // Suppress output when no event or command subscriptions route to this broker
+            return Model.Any(h =>
+                h.IntegrationEventSubscriptions()
+                    .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel()!)
+                    .Any()
+                || h.IntegrationCommandSubscriptions()
+                    .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, x => x.TypeReference.Element.AsIntegrationCommandModel()!)
+                    .Any());
         }
 
         [IntentManaged(Mode.Fully)]

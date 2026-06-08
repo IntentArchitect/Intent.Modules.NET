@@ -56,7 +56,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
             {
                 @class.ImplementsInterface(this.GetBusInterfaceName());
 
-                @class.AddField("List<object>", "_buffer", field => field
+                // Events (Publish) and commands (Send) are buffered separately because NSB routes them
+                // differently: events go via Publish (pub/sub), commands go via Send (point-to-point routing
+                // configured by RouteToEndpoint in NServiceBusConfiguration).
+                @class.AddField("List<object>", "_publishBuffer", field => field
+                    .PrivateReadOnly()
+                    .WithAssignment(new CSharpStatement("new()")));
+                @class.AddField("List<object>", "_sendBuffer", field => field
                     .PrivateReadOnly()
                     .WithAssignment(new CSharpStatement("new()")));
 
@@ -85,7 +91,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     method.AddGenericParameter("TMessage", out var tMessage)
                         .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
                         .AddParameter(tMessage, "message");
-                    method.AddStatement("_buffer.Add(message);");
+                    method.AddStatement("_publishBuffer.Add(message);");
                 });
 
                 @class.AddMethod("void", "Send", method =>
@@ -93,7 +99,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     method.AddGenericParameter("TMessage", out var tMessage)
                         .AddGenericTypeConstraint(tMessage, c => c.AddType("class"))
                         .AddParameter(tMessage, "message");
-                    method.AddStatement("_buffer.Add(message);");
+                    method.AddStatement("_sendBuffer.Add(message);");
                 });
 
                 @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -101,15 +107,20 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     method.Async();
                     method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
 
-                    method.AddIfStatement("_buffer.Count == 0", b =>
+                    method.AddIfStatement("_publishBuffer.Count == 0 && _sendBuffer.Count == 0", b =>
                         b.AddStatement("return;"));
 
-                    // Priority 1: inside an inbound NSB handler — route through handler's outbox transaction
+                    // Priority 1: inside an inbound NSB handler — route through handler's outbox transaction.
+                    // IMessageHandlerContext.Publish/Send do NOT have CancellationToken overloads; use
+                    // PublishOptions/SendOptions to pass cancellation if needed in future.
                     method.AddIfStatement("ActiveContext is IMessageHandlerContext handlerContext", b =>
                     {
-                        b.AddForEachStatement("message", "_buffer", fe =>
-                            fe.AddStatement("await handlerContext.Publish(message, cancellationToken);"));
-                        b.AddStatement("_buffer.Clear();");
+                        b.AddForEachStatement("message", "_publishBuffer", fe =>
+                            fe.AddStatement("await handlerContext.Publish(message, new PublishOptions());"));
+                        b.AddForEachStatement("message", "_sendBuffer", fe =>
+                            fe.AddStatement("await handlerContext.Send(message, new SendOptions());"));
+                        b.AddStatement("_publishBuffer.Clear();");
+                        b.AddStatement("_sendBuffer.Clear();");
                         b.AddStatement("return;");
                     });
 
@@ -130,12 +141,15 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                                 usingBlock.AddStatement("await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);");
                                 usingBlock.AddTryBlock(tryBlock =>
                                 {
-                                    tryBlock.AddForEachStatement("message", "_buffer", fe =>
+                                    tryBlock.AddForEachStatement("message", "_publishBuffer", fe =>
                                         fe.AddStatement("await _transactionalSession.Publish(message, cancellationToken);"));
+                                    tryBlock.AddForEachStatement("message", "_sendBuffer", fe =>
+                                        fe.AddStatement("await _transactionalSession.Send(message, cancellationToken);"));
                                     tryBlock.AddStatement("await _dbContext.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
                                     tryBlock.AddStatement("await _transactionalSession.Commit(cancellationToken);");
                                     // Only clear after successful commit — messages would be lost on crash if cleared earlier
-                                    tryBlock.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
+                                    tryBlock.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
+                                    tryBlock.AddStatement("_sendBuffer.Clear();");
                                 })
                                 .AddFinallyBlock(finallyBlock =>
                                 {
@@ -146,9 +160,12 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     else
                     {
                         // Priority 3: best-effort dispatch via global IMessageSession
-                        method.AddForEachStatement("message", "_buffer", fe =>
+                        method.AddForEachStatement("message", "_publishBuffer", fe =>
                             fe.AddStatement("await _messageSession.Publish(message, cancellationToken);"));
-                        method.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
+                        method.AddForEachStatement("message", "_sendBuffer", fe =>
+                            fe.AddStatement("await _messageSession.Send(message, cancellationToken);"));
+                        method.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("_sendBuffer.Clear();");
                     }
                 });
             });

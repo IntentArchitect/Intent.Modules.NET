@@ -276,6 +276,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
             // Register handlers via a private helper that mirrors what AddHandler<T>()'s source
             // generator produces — without requiring C# 14. Works on .NET 8, 9, and 10.
+            // Covers both Integration Event subscriptions (pub/sub) and Integration Command
+            // subscriptions (point-to-point) — commands are sent to this endpoint via RouteToEndpoint
+            // and also need handler registration so NSB's message dispatcher can activate them.
             CSharpFile.OnBuild(file =>
             {
                 var handlerTemplate = ExecutionContext
@@ -283,9 +286,12 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         NServiceBusMessageHandlerTemplate.TemplateId)
                     .FirstOrDefault();
 
-                var subscriptions = handlerTemplate?.SubscribedMessageModels
+                var eventSubscriptions = handlerTemplate?.SubscribedMessageModels
                     ?? new List<MessageModel>();
-                if (!subscriptions.Any()) return;
+                var commandSubscriptions = handlerTemplate?.SubscribedCommandModels
+                    ?? new List<IntegrationCommandModel>();
+
+                if (!eventSubscriptions.Any() && !commandSubscriptions.Any()) return;
 
                 var cls = file.Classes.First();
                 var configureEndpointMethod = cls.FindMethod("ConfigureEndpoint");
@@ -293,13 +299,22 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
                 var handlerTypeName = this.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId);
 
-                // Add a call per subscribed message type before the return statement.
-                foreach (var sub in subscriptions)
+                // Register event handlers — one call per subscribed Integration Event (Message) type.
+                foreach (var sub in eventSubscriptions)
                 {
                     var msgType = this.GetTypeName(IntegrationEventMessageTemplate.TemplateId, sub);
                     configureEndpointMethod.InsertStatement(
                         configureEndpointMethod.Statements.Count - 1,
                         $"RegisterHandler<{handlerTypeName}<{msgType}>, {msgType}>(endpointConfiguration);");
+                }
+
+                // Register command handlers — one call per subscribed Integration Command type.
+                foreach (var cmd in commandSubscriptions)
+                {
+                    var cmdType = this.GetTypeName(IntegrationCommandTemplate.TemplateId, cmd);
+                    configureEndpointMethod.InsertStatement(
+                        configureEndpointMethod.Statements.Count - 1,
+                        $"RegisterHandler<{handlerTypeName}<{cmdType}>, {cmdType}>(endpointConfiguration);");
                 }
 
                 // Add the helper method once — encapsulates the NSB internal registry calls.
