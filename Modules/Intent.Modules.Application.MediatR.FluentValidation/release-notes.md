@@ -1,3 +1,7 @@
+### Version 4.12.1
+
+- Fixed: Resolved CS1574 XML doc comment warning on `IBypassPipelineValidation` where the `cref` attribute for `ValidationBehaviour{TRequest, TResponse}` could not be resolved.
+
 ### Version 4.12.0
 
 - Improvement: `Numeric Limits` domain constraint stereotype now supports `Exclusive` boundary types, generating `GreaterThan`, `LessThan`, and `ExclusiveBetween` rules as appropriate.
@@ -56,10 +60,7 @@
 
 > ⚠️ **NOTE**
 >
-> This module update may cause a compilation breaks if you have written any custom code which uses FluentValidation features which are not supported on v12.
-> Any generated code will be compliant.
-> For details on what the breaking changes are check out the [upgrade guide](https://docs.fluentvalidation.net/en/latest/upgrading-to-12.html).
-
+> This module update may cause a compilation breaks if you have written any custom code which uses FluentValidation features which are not supported on v12. Any generated code will be compliant. For details on what the breaking changes are check out the [upgrade guide](https://docs.fluentvalidation.net/en/latest/upgrading-to-12.html).
 
 ### Version 4.8.4
 
