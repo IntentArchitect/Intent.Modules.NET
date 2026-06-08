@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11104.47
@@ -408,6 +407,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.JsonPatch", "Intent.Modules.AspNetCore.Controllers.JsonPatch\Intent.Modules.AspNetCore.Controllers.JsonPatch.csproj", "{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients.Fakes", "Intent.Modules.Integration.HttpClients.Fakes\Intent.Modules.Integration.HttpClients.Fakes.csproj", "{69C56294-27F8-4388-B351-2C07BCE835ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{89E0C178-1FD2-4864-887C-C84EE20406B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.Constants", "Intent.Modules.Infrastructure.Constants\Intent.Modules.Infrastructure.Constants.csproj", "{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1075,6 +1078,10 @@ Global
 		{69C56294-27F8-4388-B351-2C07BCE835ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C56294-27F8-4388-B351-2C07BCE835ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C56294-27F8-4388-B351-2C07BCE835ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1259,6 +1266,7 @@ Global
 		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{69C56294-27F8-4388-B351-2C07BCE835ED} = {DF68BE63-8664-4738-9512-7A8571C650E5}
+		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE} = {89E0C178-1FD2-4864-887C-C84EE20406B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
