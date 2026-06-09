@@ -1345,6 +1345,7 @@ Global
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{d9ee0b15-fa5d-4bad-90c2-cf771e4b80de}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{ded84d15-0d51-44ab-a00d-fbdb739730a7}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e18a801d-8b65-406e-ba1b-4280d754f5d3}*SharedItemsImports = 5
+		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{e492480e-7810-4634-83ac-c8e3c16e1cad}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e515e56c-436e-40d9-b8da-9fbb3f2d5545}*SharedItemsImports = 5
 		Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems*{e6a962cc-6864-45d9-ab6a-fcfb19173e82}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5

@@ -4,9 +4,14 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Settings;
+using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.EntityFrameworkCore.Shared;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -21,20 +26,25 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 500;
 
+        protected override void OnBeforeTemplateExecution(IApplication application)
+        {
+            InstallNServiceBusForServiceContractDispatch(application);
+            InstallNServiceBusForMediatRDispatch(application);
+        }
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!IsOutboxActive(application))
+            InstallNServiceBusForDbContextForTransactionalOutboxPattern(application);
+        }
+
+        private void InstallNServiceBusForMediatRDispatch(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
             {
                 return;
             }
 
-            SuppressUnitOfWorkSaveChanges(application);
-        }
-
-        private static void SuppressUnitOfWorkSaveChanges(IApplication application)
-        {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.DependencyInjection.DependencyInjection"); // Replace with Role later.
             if (template == null)
             {
                 return;
@@ -42,34 +52,117 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
             template.CSharpFile.AfterBuild(file =>
             {
-                var handleMethod = file.Classes.First().FindMethod("Handle");
-                if (handleMethod == null)
+                var priClass = file.Classes.First();
+                var method = priClass.FindMethod("AddApplication");
+                var meditarConfigLambda = (CSharpInvocationStatement)method.FindStatement(stmt => stmt.HasMetadata("mediatr-config"));
+                if (meditarConfigLambda == null)
                 {
                     return;
                 }
-
-                // Remove the SaveChangesAsync call so that domain entity changes stay pending in the
-                // EF ChangeTracker. FlushAllAsync (invoked by MessageBusPublishBehaviour after the
-                // pipeline) opens the ITransactionalSession, joins EF to NSB's connection+transaction,
-                // and commits domain entities + outbox records in one atomic operation.
-                //
-                // The SaveChangesAsync statement is tagged with metadata "transaction" = "save-changes"
-                // by the UnitOfWork framework (PersistenceUnitOfWork.cs). Using metadata lookup is more
-                // reliable than text matching and correctly locates the statement even when it is nested
-                // inside a TransactionScope using block.
-                var saveStatement = handleMethod.FindStatement(
-                    s => s.HasMetadata("transaction") && s.GetMetadata<string>("transaction") == "save-changes");
-                saveStatement?.Remove();
-
-                // Also remove the explanatory comment immediately preceding SaveChangesAsync if it exists.
-                // It references "SaveChanges" and becomes misleading when the call is suppressed.
-                var saveComment = handleMethod.FindStatement(
-                    s => s.HasMetadata("transaction") && s.GetMetadata<string>("transaction") == "save-changes-comment");
-                saveComment?.Remove();
+                var mediatorConfig = (CSharpLambdaBlock)(meditarConfigLambda.Statements.FirstOrDefault());
+                var statementToMove = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("MessageBusPublishBehaviour"));
+                if (statementToMove == null)
+                {
+                    return;
+                }
+                statementToMove.Remove();
             }, 1000);
         }
 
-        private static bool IsOutboxActive(IApplication application) =>
-            application.Settings.GetNServiceBusSettings()?.OutboxPattern()?.IsSqlPersistence() == true;
+        private void InstallNServiceBusForServiceContractDispatch(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.WebApi.Controller));
+            foreach (var template in templates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    foreach (var method in priClass.Methods)
+                    {
+                        var statementToMove = method.FindStatement(stmt => stmt.HasMetadata("eventbus-flush"));
+                        if (statementToMove == null)
+                        {
+                            continue;
+                        }
+                        statementToMove.Remove();
+                    }
+                }, 1000);
+            }
+        }
+
+        private void InstallNServiceBusForDbContextForTransactionalOutboxPattern(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
+            if (template is null)
+            {
+                return;
+            }
+
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var busInterface = template.GetBusInterfaceName();
+                var busParameterName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName()
+                    ? "eventBus"
+                    : "messageBus";
+                var constructor = @class.Constructors.First();
+                if (!constructor.Parameters.Any(p => p.Type == busInterface))
+                {
+                    constructor.AddParameter(busInterface, busParameterName, p => p.IntroduceReadonlyField());
+                }
+
+                var busFieldName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName()
+                    ? "_eventBus"
+                    : "_messageBus";
+
+                var method = template.GetSaveChangesMethod();
+                var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
+                if (statement != null)
+                {
+                    statement.InsertBelow((CSharpStatement)$"{busFieldName}.FlushAllAsync().GetAwaiter().GetResult();");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove($"{busFieldName}.FlushAllAsync().GetAwaiter().GetResult();");
+                    }
+                }
+
+                method = template.GetSaveChangesAsyncMethod();
+                method = @class.FindMethod("SaveChangesAsync");
+                statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
+                if (statement != null)
+                {
+                    statement.InsertBelow((CSharpStatement)$"await {busFieldName}.FlushAllAsync(cancellationToken);");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove($"await {busFieldName}.FlushAllAsync(cancellationToken);");
+                    }
+                }
+
+            }, 10);
+
+        }
+
+        private static bool IsTransactionalOutboxPatternSelected(IApplication application)
+        {
+            return application.Settings.GetNServiceBusSettings()?.OutboxPattern()?.IsSqlPersistence() == true;
+        }
     }
 }

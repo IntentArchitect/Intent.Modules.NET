@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Publish.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,9 +10,27 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        private readonly IMessageBus _messageBus;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IMessageBus messageBus) : base(options)
         {
+            _messageBus = messageBus;
         }
+
+        public override async Task<int> SaveChangesAsync(
+            bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = default)
+        {
+            await _messageBus.FlushAllAsync(cancellationToken);
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            _messageBus.FlushAllAsync().GetAwaiter().GetResult();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -24,4 +24,6 @@
     <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <Import Project="..\Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems" Label="Shared" />
+
 </Project>
