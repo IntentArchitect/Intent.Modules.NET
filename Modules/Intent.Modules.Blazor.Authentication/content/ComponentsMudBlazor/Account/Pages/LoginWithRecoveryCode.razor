@@ -16,15 +16,19 @@
     an authenticator app code at log in or disable 2FA and log in again.
 </MudText>
 
-<MudCard Class="auth-form-card">
-    <MudCardContent>
-        <EditForm Model="Input" FormName="login-with-recovery-code" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <MudTextField Label="Recovery Code" For="@(() => Input.RecoveryCode)" @bind-Value="Input.RecoveryCode"
-                          Required="true" RequiredError="Recovery code is required"
-                          AutoComplete="off" Placeholder="RecoveryCode" Class="mb-3" />
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" FormName="login-with-recovery-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="recovery-code" class="form-label">Recovery Code</label>
+                <InputText id="recovery-code" class="form-control" @bind-Value="Input.RecoveryCode" autocomplete="off" placeholder="RecoveryCode" />
+                <ValidationMessage For="() => Input.RecoveryCode" class="text-danger" />
+            </div>
+
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
-        </EditForm>
-    </MudCardContent>
-</MudCard>
+        </MudStack>
+    </EditForm>
+</MudPaper>

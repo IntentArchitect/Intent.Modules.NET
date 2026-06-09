@@ -428,7 +428,6 @@ a:hover { color: var(--primary-dark); }
 
 .form-floating > .form-control,
 .form-floating > .form-select {
-    min-height: 3.5rem;
     padding: 1rem 0.75rem 0.25rem;
 }
 

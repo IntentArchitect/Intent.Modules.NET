@@ -26,7 +26,7 @@
                         <input type="hidden" name="@nameof(LoginProvider)" value="@context.LoginProvider" />
                         <input type="hidden" name="@nameof(ProviderKey)" value="@context.ProviderKey" />
                         <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small"
-                                   Title="Remove this @context.ProviderDisplayName login from your account">Remove</MudButton>
+                                   Title="@($"Remove this {context.ProviderDisplayName} login from your account")">Remove</MudButton>
                     </form>
                 }
             </MudTd>
@@ -43,7 +43,7 @@
             {
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
                            Name="Provider" Value="@provider.Name"
-                           Title="Log in using your @provider.DisplayName account">@provider.DisplayName</MudButton>
+                           Title="@($"Log in using your {provider.DisplayName} account")">@provider.DisplayName</MudButton>
             }
         </div>
     </form>

@@ -15,18 +15,22 @@
 
 <MudAlert Severity="Severity.Warning" Class="mb-3">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
 
-<MudCard Class="auth-form-card">
-    <MudCardContent>
-        <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
             @if (requirePassword)
             {
-                <MudTextField Label="Password" For="@(() => Input.Password)" @bind-Value="Input.Password"
-                              InputType="InputType.Password" Required="true" RequiredError="Password is required"
-                              AutoComplete="current-password" Class="mb-3" />
+                <div class="form-field">
+                    <label for="password" class="form-label">Password</label>
+                    <InputText id="password" type="password" class="form-control" @bind-Value="Input.Password" autocomplete="current-password" />
+                    <ValidationMessage For="() => Input.Password" class="text-danger" />
+                </div>
             }
+
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" FullWidth="true" Size="Size.Large">Delete data and close my account</MudButton>
-        </EditForm>
-    </MudCardContent>
-</MudCard>
+        </MudStack>
+    </EditForm>
+</MudPaper>

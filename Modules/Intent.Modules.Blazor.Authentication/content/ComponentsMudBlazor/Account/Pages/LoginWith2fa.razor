@@ -13,23 +13,33 @@
 <StatusMessage Message="@message" />
 <MudText Typo="Typo.body1" Class="mb-3">Your login is protected with an authenticator app. Enter your authenticator code below.</MudText>
 
-<MudCard Class="auth-form-card">
-    <MudCardContent>
-        <EditForm Model="Input" FormName="login-with-2fa" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
-            <input type="hidden" name="RememberMe" value="@RememberMe" />
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <MudTextField Label="Authenticator code" For="@(() => Input.TwoFactorCode)" @bind-Value="Input.TwoFactorCode"
-                          Required="true" RequiredError="Authenticator code is required"
-                          AutoComplete="off" Class="mb-3" />
-            <MudCheckBox T="bool" @bind-Value="Input.RememberMachine" Label="Remember this machine" Color="Color.Primary" Class="mb-3" />
+<MudPaper Class="pa-6">
+    @* Static-SSR Identity form: posted fields use Blazor InputBase<T> components so they bind via
+       [SupplyParameterFromForm]. MudBlazor is used for chrome (paper/stack/text/button) only. *@
+    <EditForm Model="Input" FormName="login-with-2fa" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+        <input type="hidden" name="RememberMe" value="@RememberMe" />
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="two-factor-code" class="form-label">Authenticator code</label>
+                <InputText id="two-factor-code" class="form-control" @bind-Value="Input.TwoFactorCode" autocomplete="off" />
+                <ValidationMessage For="() => Input.TwoFactorCode" class="text-danger" />
+            </div>
+
+            <label class="form-check">
+                <InputCheckbox @bind-Value="Input.RememberMachine" class="form-check-input" />
+                Remember this machine
+            </label>
+
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
-        </EditForm>
-    </MudCardContent>
-</MudCard>
+        </MudStack>
+    </EditForm>
+</MudPaper>
 
 <MudText Typo="Typo.body2" Class="mt-3">
     Don't have access to your authenticator device? You can
-    <MudLink Href="Account/LoginWithRecoveryCode?ReturnUrl=@ReturnUrl">log in with a recovery code</MudLink>.
+    <MudLink Href="@($"Account/LoginWithRecoveryCode?ReturnUrl={ReturnUrl}")">log in with a recovery code</MudLink>.
 </MudText>

@@ -20,7 +20,7 @@ else
             {
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
                            Name="provider" Value="@provider.Name"
-                           Title="Log in using your @provider.DisplayName account">@provider.DisplayName</MudButton>
+                           Title="@($"Log in using your {provider.DisplayName} account")">@provider.DisplayName</MudButton>
             }
         </div>
     </form>

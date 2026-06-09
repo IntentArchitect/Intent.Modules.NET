@@ -12,15 +12,23 @@
 <MudText Typo="Typo.h5" Class="mb-3">Profile</MudText>
 <StatusMessage />
 
-<MudCard Class="auth-form-card">
-    <MudCardContent>
-        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <MudTextField Label="Username" Value="@username" Disabled="true" Class="mb-3" />
-            <MudTextField Label="Phone number" For="@(() => Input.PhoneNumber)" @bind-Value="Input.PhoneNumber"
-                          Placeholder="Please enter your phone number." Class="mb-3" />
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="username" class="form-label">Username</label>
+                <input id="username" class="form-control" type="text" value="@username" disabled />
+            </div>
+            <div class="form-field">
+                <label for="phone-number" class="form-label">Phone number</label>
+                <InputText id="phone-number" class="form-control" @bind-Value="Input.PhoneNumber" placeholder="Please enter your phone number." />
+                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+            </div>
+
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Save</MudButton>
-        </EditForm>
-    </MudCardContent>
-</MudCard>
+        </MudStack>
+    </EditForm>
+</MudPaper>

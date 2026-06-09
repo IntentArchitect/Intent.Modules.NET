@@ -26,15 +26,19 @@
     logging in.
 </MudAlert>
 
-<MudCard Class="auth-form-card">
-    <MudCardContent>
-        <EditForm Model="Input" OnValidSubmit="OnValidSubmitAsync" FormName="confirmation" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <MudTextField Label="Email" For="@(() => Input.Email)" @bind-Value="Input.Email"
-                          Required="true" RequiredError="Email is required"
-                          AutoComplete="email" Placeholder="Please enter your email." Class="mb-3" />
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" OnValidSubmit="OnValidSubmitAsync" FormName="confirmation" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="email" class="form-label">Email</label>
+                <InputText id="email" class="form-control" @bind-Value="Input.Email" autocomplete="email" placeholder="Please enter your email." />
+                <ValidationMessage For="() => Input.Email" class="text-danger" />
+            </div>
+
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Register</MudButton>
-        </EditForm>
-    </MudCardContent>
-</MudCard>
+        </MudStack>
+    </EditForm>
+</MudPaper>
