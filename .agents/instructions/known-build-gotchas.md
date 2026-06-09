@@ -73,6 +73,6 @@ using NServiceBusConstants = Intent.Modules.Eventing.NServiceBus.Templates.Const
 
 ### NuGet Package Downgrade Errors (NU1605)
 
-IA 5.x can generate stale SDK package versions after an SF run, triggering `NU1605` downgrade errors. When this happens, manually correct the affected package versions in the `.csproj`. The root cause is NuGet versions drifting out of sync with the corresponding Intent module version — keep them aligned to avoid recurrence.
+You may encounter SDK package versions after an SF run, triggering `NU1605` downgrade errors. When this happens, manually correct the affected package versions in the `.csproj`. The root cause is NuGet versions drifting out of sync with the corresponding Intent module version — keep them aligned to avoid recurrence.
 
 Packages most commonly affected: `Intent.Modules.Common`, `Intent.Modules.Common.CSharp`, `Intent.SoftwareFactory.SDK`.
