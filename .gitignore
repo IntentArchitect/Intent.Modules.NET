@@ -265,4 +265,6 @@ Spikes/
 /.claude/skills/
 /.github/instructions/
 /.github/prompts/
+/.codex/instructions/
+/.codex/skills/
 /Modules/.agents/

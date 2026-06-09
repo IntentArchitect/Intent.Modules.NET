@@ -51,6 +51,8 @@ $Mappings = @(
     @{ Source = Join-Path $AgentsRoot 'skills';       Target = Join-Path $RepoRoot '.claude/skills' }
     @{ Source = Join-Path $AgentsRoot 'instructions'; Target = Join-Path $RepoRoot '.github/instructions' }
     @{ Source = Join-Path $AgentsRoot 'prompts';      Target = Join-Path $RepoRoot '.github/prompts' }
+    @{ Source = Join-Path $AgentsRoot 'skills';       Target = Join-Path $RepoRoot '.codex/skills' }
+    @{ Source = Join-Path $AgentsRoot 'instructions'; Target = Join-Path $RepoRoot '.codex/instructions' }
     @{ Source = $AgentsRoot;                          Target = Join-Path $RepoRoot 'Modules/.agents' }
 )
 
