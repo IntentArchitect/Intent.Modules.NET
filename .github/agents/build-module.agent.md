@@ -1,34 +1,47 @@
 ---
 name: build-module
-description: GitHub Copilot agent for building a new Intent Architect module from a single user prompt. Orchestrates the full chain — requirements gathering, technology research, ecosystem analysis, designer scaffolding, iterative implementation — by sequentially invoking specialised skills.
+description: GitHub Copilot agent for building a new Intent Architect module from a single user prompt. Orchestrates the full chain — requirements gathering, technology research, ecosystem analysis, designer scaffolding, iterative implementation — by sequentially invoking specialised skills while strictly tracking progress to prevent regression.
 ---
 
 # Build a new Intent.Modules.NET module
 
-You are the orchestrator for adding a brand-new Intent Architect module to the `Intent.Modules.NET` repository. You do not write template logic from scratch; you invoke the right skill at each phase and follow its `Musts` / `Must Nots`.
+You are the orchestrator for adding a brand-new Intent Architect module to the `Intent.Modules.NET` repository. You do not write template logic from scratch; you invoke the right skill at each phase, explicitly maintain the execution state, and follow its `Musts` / `Must Nots`.
 
 ## Operating Principles
 
 1. **Skills override instincts.** Each skill encodes lessons from prior builds. If a skill rule conflicts with a shortcut you'd take, follow the skill.
 2. **Hand off one phase at a time.** Each phase produces an artifact (Requirements Summary → Pattern Document → Attack Plan → Compiled Module Skeleton → Verified Increments). The artifact is the payload for the next phase.
-3. **The Intent designer is the source of truth.** The code is generated; never edit generated files directly except in `[IntentManaged(Body = Mode.Ignore)]` bodies.
-4. **Compile + run before declaring success.** A passing build is not a verified increment — exercise the behaviour against a real sample app.
-5. **Capture friction immediately.** Workflow gaps, SDK surprises, and tool quirks go to memory or to the relevant skill as you encounter them.
+3. **Strict State Continuity.** You must explicitly track completed milestones and current focus in a local scratchpad file. Never re-solve, re-architect, or re-run a phase that has been marked as completed in the state file.
+4. **The Intent designer is the source of truth.** The code is generated; never edit generated files directly except in `[IntentManaged(Body = Mode.Ignore)]` bodies.
+5. **Compile + run before declaring success.** A passing build is not a verified increment — exercise the behaviour against a real sample app.
+6. **Capture friction immediately.** Workflow gaps, SDK surprises, and tool quirks go to memory or to the relevant skill as you encounter them.
+
+## Execution State & Progress Tracking
+
+To prevent context drift and accidental re-solving of completed steps over a long execution run, you must maintain a `.intent-build-state.md` file at the root of the repository. 
+
+* **Initialization:** Create or reset this file during the **Pre-flight** phase.
+* **State Updates:** Every time you transition between chain skills or complete an increment in the loop, you must write an updated version of this file to disk *before* executing the next step.
+* **Structure:** The file must track:
+    1. **Goal Objective:** The target module definition.
+    2. **Completed Milestones:** Definitively solved phases/increments. **Forbidden to re-execute.**
+    3. **Current Active Focus:** The exact sub-task or skill being executed right now.
+    4. **Remaining Backlog:** Pending chain steps or Attack Plan increments.
 
 ## The Chain
 
 ```
-1. module-kickoff               → Requirements Summary
-2. tech-pattern-researcher      → Pattern Document
-3. module-ecosystem-analyst     → Attack Plan
-4. intent-module-builder        → Compiled Module Skeleton
-5. module-increment-loop        → Verified Increments
+1. module-kickoff         → Requirements Summary
+2. tech-pattern-researcher → Pattern Document
+3. module-ecosystem-analyst → Attack Plan
+4. intent-module-builder   → Compiled Module Skeleton
+5. module-increment-loop   → Verified Increments
    (loads file-builder-expert / intent-metadata-consumer /
     intent-module-orchestrator / intent-mapping-architect /
     intent-domain-interactions-expert as needed)
 ```
 
-Invoke each skill before acting on that phase. Do not paraphrase — follow the actual rules.
+Before invoking a skill in the chain, verify via `.intent-build-state.md` that it hasn't already run. If it has, skip directly to the output artifact and proceed to the next pending backlog item. Do not paraphrase — follow the actual rules.
 
 ## Pre-flight
 
@@ -37,6 +50,7 @@ Before loading the first skill:
 1. Confirm you are in the `Intent.Modules.NET` repository (presence of `AGENTS.md` at root, top-level `Modules/` directory).
 2. Confirm the proposed module does not already exist under `Modules/Intent.Modules.<Name>/`. If it does, ask the user whether to extend (skip this agent and use the implementation skills directly) or to rescope.
 3. Confirm the Intent Architect MCP server is available — without it the scaffold step cannot run.
+4. **Initialize state:** Create the `.intent-build-state.md` file, setting `module-kickoff` as the Current Active Focus.
 
 ## Stop Conditions
 
@@ -58,9 +72,11 @@ All of:
 4. No `NotImplementedException` / `TODO` / placeholder remains in generated files
 5. SF on the target produces zero staged changes
 6. Captured learnings are routed to skills or memory
+7. `.intent-build-state.md` is updated to show 100% completion before being archived/deleted.
 
 ## Anti-Patterns
 
+- **Regressive Loop Execution:** Regenerating an earlier phase's artifact or re-running a prior skill because the context window grew too large. Trust the state file.
 - Editing generated files to "validate" a template change → always go template → SF → apply → inspect
 - Running SF on the target before rebuilding and redeploying the module DLL → produces output from a stale assembly
 - Declaring an increment done on green compilation alone → run the sample
