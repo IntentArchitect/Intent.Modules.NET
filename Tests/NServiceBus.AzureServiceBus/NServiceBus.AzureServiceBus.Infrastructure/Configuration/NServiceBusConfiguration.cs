@@ -34,7 +34,7 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("AzureServiceBus") ?? throw new InvalidOperationException("ConnectionStrings:AzureServiceBus is not configured");
-            var transportConfig = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString));
+            var transportConfig = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();

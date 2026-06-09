@@ -168,7 +168,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         else if (transport.IsAzureServiceBus())
                         {
                             method.AddStatement(@"var connectionString = configuration.GetConnectionString(""AzureServiceBus"") ?? throw new InvalidOperationException(""ConnectionStrings:AzureServiceBus is not configured"");", s => s.SeparatedFromPrevious());
-                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString));");
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));");
                         }
                         else if (transport.IsAmazonSqs())
                         {

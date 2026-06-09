@@ -32,49 +32,56 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(NServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("10.1.4"),
+                        ( >= 10, >= 0) => new PackageVersion("10.2.5"),
+                        ( >= 8,  >= 0) => new PackageVersion("9.2.11"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusAmazonSQSPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.0.1"),
+                        ( >= 10, >= 0) => new PackageVersion("9.0.1"),
+                        ( >= 8,  >= 0) => new PackageVersion("8.1.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusAmazonSQSPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusExtensionsHostingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("4.0.1"),
+                        ( >= 10, >= 0) => new PackageVersion("4.1.0"),
+                        ( >= 8,  >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusPersistenceSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.0.0"),
+                        ( >= 10, >= 0) => new PackageVersion("9.0.1"),
+                        ( >= 8,  >= 0) => new PackageVersion("8.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusPersistenceSqlTransactionalSessionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.0.1"),
+                        ( >= 10, >= 0) => new PackageVersion("9.0.1"),
+                        ( >= 8,  >= 0) => new PackageVersion("8.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlTransactionalSessionPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusRabbitMQPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("11.2.1"),
+                        ( >= 10, >= 0) => new PackageVersion("11.2.1"),
+                        ( >= 8,  >= 0) => new PackageVersion("9.2.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusRabbitMQPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusTransportAzureServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("6.3.0"),
+                        ( >= 10, >= 0) => new PackageVersion("6.3.0"),
+                        ( >= 8,  >= 0) => new PackageVersion("5.1.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusTransportAzureServiceBusPackageName}'"),
                     }
                 );
