@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07cb8769-af6f-40b9-83b6-f16ca8f29c76" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>CreatePersonIdentity</name>
+  <display>CreatePersonIdentity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>32ae7689-5afc-4176-ba9a-11e09d48564e</parentFolderId>
+  <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
+  <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ae5c0f5d-4c1a-4921-b6ef-158583314a3a" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="23c6ef6f-26e8-44cf-a8de-782c049c3ea4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>07cb8769-af6f-40b9-83b6-f16ca8f29c76</parentFolderId>
+      <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
+      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="71dd789e-498d-4d94-8dcc-22d016b5c8b1" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e61e8309-bbf9-4910-8c12-5f27503eb19b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>07cb8769-af6f-40b9-83b6-f16ca8f29c76</parentFolderId>
+      <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
+      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

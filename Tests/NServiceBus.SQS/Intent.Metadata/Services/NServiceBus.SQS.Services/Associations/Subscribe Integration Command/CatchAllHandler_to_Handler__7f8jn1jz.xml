@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="11f27a6b-50c3-4a9a-8a70-9e26b98d419c">
+  <sourceEnd id="05afc9f8-812d-4ea8-8ec6-99915e7f1db8" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.SQS.Services.CatchAllHandler</display>
+    <order>0</order>
+    <typeReference id="2b847e1f-b9b0-4fe6-a689-3582625794f7">
+      <typeId>10cc409e-9a54-402f-883b-afb8b9e6011e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Services</typePackageName>
+      <typePackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="11f27a6b-50c3-4a9a-8a70-9e26b98d419c" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] OrderAnimal</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="d028b45e-e4f3-4c84-86b8-1d30d5270e39">
+      <typeId>46ec465b-ec3e-4cfb-a6b0-c10f82afb909</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Eventing.Messages</typePackageName>
+      <typePackageId>32ae7689-5afc-4176-ba9a-11e09d48564e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

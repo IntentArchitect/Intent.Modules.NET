@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b3610156-e187-47d6-b18e-8a4926d1c8a3" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExternalMessagePublish</name>
+  <display>ExternalMessagePublish</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26676bec-a1bd-40a6-8631-f24807d3cb66</parentFolderId>
+  <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
+  <packageName>NServiceBus.SQS.Services</packageName>
+  <diagram>
+    <targetPackageId>b3610156-e187-47d6-b18e-8a4926d1c8a3</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

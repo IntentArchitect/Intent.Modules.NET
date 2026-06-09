@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="94868c7f-48ac-4bcb-af08-9dd91136e977" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>TestMessageHandler</name>
+  <display>TestMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>64af3760-4e7a-48fc-9595-57c84fa57ea7</parentFolderId>
+  <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
+  <packageName>NServiceBus.SQS.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
