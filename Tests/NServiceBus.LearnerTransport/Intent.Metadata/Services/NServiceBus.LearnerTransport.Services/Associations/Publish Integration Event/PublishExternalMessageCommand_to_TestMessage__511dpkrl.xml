@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="20775902-1fa7-4a12-b0a3-86827a3a49f4" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] TestMessage</display>
-    <order>0</order>
+    <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -36,6 +36,29 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d69bfc1f-2e5b-4609-b1da-c715bf152c84" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fdbb4468-f377-42ec-a8de-4625748d7bae" location="[NServiceBus.LearnerTransport].[Services].[PublishExternalMessageCommand]" />
+        <target applicationId="d69bfc1f-2e5b-4609-b1da-c715bf152c84" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="09af8c88-f871-42c0-81ea-6c98c73ddf6a" location="[NServiceBus.LearnerTransport].[Services].[TestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="09af8c88-f871-42c0-81ea-6c98c73ddf6a" name="TestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="58be45c4-0d37-40af-8c34-13ea23a0c9fa" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fdbb4468-f377-42ec-a8de-4625748d7bae" name="PublishExternalMessageCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="65d0a0df-4d6e-42a3-834d-98520c5e04d9" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

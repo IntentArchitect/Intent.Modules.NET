@@ -10,7 +10,8 @@ namespace CompositeMessageBus.Infrastructure.Eventing
     public class NServiceBusMessageBus : IEventBus
     {
         public const string AddressKey = "address";
-        private readonly List<object> _buffer = new();
+        private readonly List<object> _publishBuffer = new();
+        private readonly List<object> _sendBuffer = new();
         private readonly IMessageSession _messageSession;
 
         public NServiceBusMessageBus(IMessageSession messageSession)
@@ -23,7 +24,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Publish<TMessage>(TMessage message)
             where TMessage : class
         {
-            _buffer.Add(message);
+            _publishBuffer.Add(message);
         }
 
         public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
@@ -35,7 +36,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
-            _buffer.Add(message);
+            _sendBuffer.Add(message);
         }
 
         public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
@@ -52,27 +53,39 @@ namespace CompositeMessageBus.Infrastructure.Eventing
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
-            if (_buffer.Count == 0)
+            if (_publishBuffer.Count == 0 && _sendBuffer.Count == 0)
             {
                 return;
             }
 
             if (ActiveContext is IMessageHandlerContext handlerContext)
             {
-                foreach (var message in _buffer)
+                foreach (var message in _publishBuffer)
                 {
-                    await handlerContext.Publish(message, cancellationToken);
+                    await handlerContext.Publish(message, new PublishOptions());
                 }
-                _buffer.Clear();
+
+                foreach (var message in _sendBuffer)
+                {
+                    await handlerContext.Send(message, new SendOptions());
+                }
+                _publishBuffer.Clear();
+                _sendBuffer.Clear();
                 return;
             }
 
-            foreach (var message in _buffer)
+            foreach (var message in _publishBuffer)
             {
                 await _messageSession.Publish(message, cancellationToken);
             }
 
-            _buffer.Clear();
+            foreach (var message in _sendBuffer)
+            {
+                await _messageSession.Send(message, cancellationToken);
+            }
+
+            _publishBuffer.Clear();
+            _sendBuffer.Clear();
         }
 
         public void SchedulePublish<TMessage>(TMessage message, DateTime scheduled)

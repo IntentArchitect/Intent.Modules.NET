@@ -2,7 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NServiceBus;
 using NServiceBus.LearnerTransport.Application.Common.Eventing;
 using NServiceBus.LearnerTransport.Eventing.Messages;
 using NServiceBus.LearnerTransport.Infrastructure.Eventing;
@@ -51,11 +50,15 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "People");
+            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "CreatePersonIdentity");
             transportConfig.RouteToEndpoint(typeof(OrderAnimal), configuration["NServiceBus:Routing:Commands:OrderAnimal"] ?? "Animals");
-            transportConfig.RouteToEndpoint(typeof(TalkToPersonCommand), configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "People");
+            transportConfig.RouteToEndpoint(typeof(TalkToPersonCommand), configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "TalkToPersonCommand");
             transportConfig.RouteToEndpoint(typeof(MakeSoundCommand), configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "Animals");
             RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
 
             return endpointConfiguration;
         }

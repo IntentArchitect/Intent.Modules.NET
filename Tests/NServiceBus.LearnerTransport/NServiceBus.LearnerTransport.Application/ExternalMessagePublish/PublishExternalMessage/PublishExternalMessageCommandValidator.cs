@@ -17,7 +17,8 @@ namespace NServiceBus.LearnerTransport.Application.ExternalMessagePublish.Publis
 
         private void ConfigureValidationRules()
         {
-            // Implement custom validation logic here if required
+            RuleFor(v => v.Message)
+                .NotNull();
         }
     }
 }

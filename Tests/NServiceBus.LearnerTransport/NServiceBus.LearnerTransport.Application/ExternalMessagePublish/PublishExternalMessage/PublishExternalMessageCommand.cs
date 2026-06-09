@@ -9,8 +9,11 @@ namespace NServiceBus.LearnerTransport.Application.ExternalMessagePublish.Publis
 {
     public class PublishExternalMessageCommand : IRequest, ICommand
     {
-        public PublishExternalMessageCommand()
+        public PublishExternalMessageCommand(string message)
         {
+            Message = message;
         }
+
+        public string Message { get; set; }
     }
 }

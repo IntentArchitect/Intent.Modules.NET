@@ -24,6 +24,7 @@ namespace NServiceBus.LearnerTransport.Application.ExternalMessagePublish.Publis
         {
             _messageBus.Publish(new TestMessageEvent
             {
+                Message = request.Message
             });
         }
     }

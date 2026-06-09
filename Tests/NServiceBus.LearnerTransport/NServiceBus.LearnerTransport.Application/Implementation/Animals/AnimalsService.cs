@@ -25,6 +25,8 @@ namespace NServiceBus.LearnerTransport.Application.Implementation.Animals
         {
             _messageBus.Send(new OrderAnimal
             {
+                Name = dto.Name,
+                Type = dto.Type
             });
         }
     }
