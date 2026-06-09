@@ -1,5 +1,5 @@
 /* Page-specific layout for the Profile (Account/Manage) page.
-   App-wide controls live in ux-controls.css. */
+   App-wide controls live in ux-tokens.css. */
 
 .row {
     display: flex;
