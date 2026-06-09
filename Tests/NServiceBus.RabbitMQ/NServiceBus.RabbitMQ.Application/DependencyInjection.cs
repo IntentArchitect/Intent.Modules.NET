@@ -4,7 +4,12 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.RabbitMQ.Application.Common.Behaviours;
+using NServiceBus.RabbitMQ.Application.Common.Eventing;
 using NServiceBus.RabbitMQ.Application.Common.Validation;
+using NServiceBus.RabbitMQ.Application.Implementation.Animals;
+using NServiceBus.RabbitMQ.Application.IntegrationEvents.EventHandlers;
+using NServiceBus.RabbitMQ.Application.Interfaces.Animals;
+using NServiceBus.RabbitMQ.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -23,11 +28,18 @@ namespace NServiceBus.RabbitMQ.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(MessageBusPublishBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IAnimalsService, AnimalsService>();
+            services.AddTransient<IIntegrationEventHandler<OrderAnimal>, OrderAnimalHandler>();
+            services.AddTransient<IIntegrationEventHandler<MakeSoundCommand>, OrderAnimalHandler>();
+            services.AddTransient<IIntegrationEventHandler<TalkToPersonCommand>, OrderAnimalHandler>();
+            services.AddTransient<IIntegrationEventHandler<CreatePersonIdentity>, OrderAnimalHandler>();
+            services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageHandler>();
             return services;
         }
     }

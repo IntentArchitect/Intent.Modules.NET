@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c6cb2657-4a09-4b09-99f3-bad1a83ec172">
+  <sourceEnd id="777abae6-b6ee-48d3-b673-b6352dac71e3" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="bec20ac0-2b85-4722-b183-ea7310486c04">
+      <typeId>7b91362c-841b-4da9-9ec5-e462f5a4aa5f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Services</typePackageName>
+      <typePackageId>6ada38bc-eb52-4e66-baf9-750369c1f931</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c6cb2657-4a09-4b09-99f3-bad1a83ec172" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreatePersonIdentity</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3fbbc667-7049-4625-b3c2-17e7bc29ae05">
+      <typeId>b50954b4-e04a-485b-ba6c-1e8f35f40178</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

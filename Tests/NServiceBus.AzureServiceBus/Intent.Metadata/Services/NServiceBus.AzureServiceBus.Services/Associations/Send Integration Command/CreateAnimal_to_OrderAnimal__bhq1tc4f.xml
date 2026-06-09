@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="60570698-34dc-4844-afeb-ac424e6aa110">
+  <sourceEnd id="b7145a7f-39c7-4a83-be7a-e9c7f4714a39" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalsService.CreateAnimal</display>
+    <order>0</order>
+    <typeReference id="2e584d74-7dfb-468e-a0f4-752d928576f9">
+      <typeId>4808ba62-47bb-40a6-acec-d5ce7402e0ff</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Services</typePackageName>
+      <typePackageId>6ada38bc-eb52-4e66-baf9-750369c1f931</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="60570698-34dc-4844-afeb-ac424e6aa110" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] OrderAnimal</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ae6093b7-024e-4d16-9568-ecef012e1a13">
+      <typeId>04acbb36-65d3-4bf8-9f55-2e7bd16b8ec0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

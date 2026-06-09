@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="60c9fbff-4d4f-4792-b310-4e64eedb53b7">
+  <sourceEnd id="ed254399-5e86-4d2f-ab3a-b3da9d047edc" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalsService.CreateAnimal</display>
+    <order>0</order>
+    <typeReference id="22f9d491-de84-483c-901c-b3f0f735e139">
+      <typeId>422befb4-8f86-4f64-8a2f-72c4377ca5e9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="60c9fbff-4d4f-4792-b310-4e64eedb53b7" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] OrderAnimal</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5a925fa0-5aad-4674-a18f-6101c87c81b3">
+      <typeId>29d706a9-4917-40f9-b39c-6a42a8944013</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.RabbitMQ.Domain.Common.Interfaces;
+using NServiceBus.RabbitMQ.Infrastructure.Configuration;
 using NServiceBus.RabbitMQ.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -21,6 +22,7 @@ namespace NServiceBus.RabbitMQ.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddNServiceBusConfiguration(configuration);
             return services;
         }
     }

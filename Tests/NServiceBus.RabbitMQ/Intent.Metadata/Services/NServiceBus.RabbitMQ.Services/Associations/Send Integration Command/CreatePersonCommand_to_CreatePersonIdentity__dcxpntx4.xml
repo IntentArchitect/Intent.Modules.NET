@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ab3032b3-5909-45ba-8e9b-ceacbe1186a8">
+  <sourceEnd id="9ef84d1f-404a-4c6e-ac85-3b4364fe1b06" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="f4462717-432a-459a-ac54-4e92506b4f5d">
+      <typeId>d645e5db-898d-473d-8fe7-93eadf013950</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ab3032b3-5909-45ba-8e9b-ceacbe1186a8" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreatePersonIdentity</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="db22a700-1d83-4193-be1a-4fb078065e02">
+      <typeId>63125168-faee-4eff-b28f-f68b73180ab8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

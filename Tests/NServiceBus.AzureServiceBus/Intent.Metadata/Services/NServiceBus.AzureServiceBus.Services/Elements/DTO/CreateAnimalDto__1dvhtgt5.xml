@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="01217814-3572-49f4-b3e5-946a25d4ac9e" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CreateAnimalDto</name>
+  <display>CreateAnimalDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46210188-31bb-4ad1-89d2-ac849b5f8c3b</parentFolderId>
+  <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
+  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

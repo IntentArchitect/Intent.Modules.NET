@@ -4,6 +4,7 @@ using NServiceBus.RabbitMQ.Api.Filters;
 using NServiceBus.RabbitMQ.Api.Logging;
 using NServiceBus.RabbitMQ.Application;
 using NServiceBus.RabbitMQ.Infrastructure;
+using NServiceBus.RabbitMQ.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -27,11 +28,12 @@ namespace NServiceBus.RabbitMQ.Api
                 var builder = WebApplication.CreateBuilder(args);
 
                 // Add services to the container.
+                builder.Host.AddNServiceBus(builder.Configuration);
+
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-
                 builder.Services.AddControllers(
                     opt =>
                     {

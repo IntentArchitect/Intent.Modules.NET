@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aa76450e-84f7-4676-8c58-cf7a2e878fe7">
+  <sourceEnd id="8052f192-ef00-4e9e-b71a-f1cb56d946c3" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="3d273fb5-6bc1-4e62-acf1-1ea9ee8cdfe4">
+      <typeId>3f94e4f1-8387-45b4-97aa-93c279011d9e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Services</typePackageName>
+      <typePackageId>6ada38bc-eb52-4e66-baf9-750369c1f931</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aa76450e-84f7-4676-8c58-cf7a2e878fe7" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] TestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ef648b9f-3681-4b9c-9f86-e6d7f962e4ee">
+      <typeId>f149f678-7c24-49a8-a904-f7d9ed318b81</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

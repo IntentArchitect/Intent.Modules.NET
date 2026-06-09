@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>509ec879-9053-4eec-ba0e-2849e66d1797</parentFolderId>
+  <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
+  <packageName>NServiceBus.RabbitMQ.Services</packageName>
   <diagram>
     <targetPackageId>509ec879-9053-4eec-ba0e-2849e66d1797</targetPackageId>
   </diagram>

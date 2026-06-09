@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8d303b5d-af10-4b22-a2d7-a5366a2a85c5" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CreateAnimalDto</name>
+  <display>CreateAnimalDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26b2f64a-3221-4716-a88a-2f6d6bcad450</parentFolderId>
+  <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
+  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

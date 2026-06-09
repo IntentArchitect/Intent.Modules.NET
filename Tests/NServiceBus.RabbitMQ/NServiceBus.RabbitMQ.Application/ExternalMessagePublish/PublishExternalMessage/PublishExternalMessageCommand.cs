@@ -1,0 +1,16 @@
+using Intent.RoslynWeaver.Attributes;
+using MediatR;
+using NServiceBus.RabbitMQ.Application.Common.Interfaces;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+
+namespace NServiceBus.RabbitMQ.Application.ExternalMessagePublish.PublishExternalMessage
+{
+    public class PublishExternalMessageCommand : IRequest, ICommand
+    {
+        public PublishExternalMessageCommand()
+        {
+        }
+    }
+}
