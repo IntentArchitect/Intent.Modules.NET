@@ -33,7 +33,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.2.5"),
-                        ( >= 8,  >= 0) => new PackageVersion("9.2.11"),
+                        ( >= 8, >= 0) => new PackageVersion("9.2.11"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPackageName}'"),
                     }
                 );
@@ -41,7 +41,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("9.0.1"),
-                        ( >= 8,  >= 0) => new PackageVersion("8.1.1"),
+                        ( >= 8, >= 0) => new PackageVersion("8.1.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusAmazonSQSPackageName}'"),
                     }
                 );
@@ -49,7 +49,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("4.1.0"),
-                        ( >= 8,  >= 0) => new PackageVersion("3.0.2"),
+                        ( >= 8, >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
                     }
                 );
@@ -57,7 +57,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("9.0.1"),
-                        ( >= 8,  >= 0) => new PackageVersion("8.3.1"),
+                        ( >= 8, >= 0) => new PackageVersion("8.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlPackageName}'"),
                     }
                 );
@@ -65,7 +65,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("9.0.1"),
-                        ( >= 8,  >= 0) => new PackageVersion("8.3.1"),
+                        ( >= 8, >= 0) => new PackageVersion("8.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPersistenceSqlTransactionalSessionPackageName}'"),
                     }
                 );
@@ -73,7 +73,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("11.2.1"),
-                        ( >= 8,  >= 0) => new PackageVersion("9.2.3"),
+                        ( >= 8, >= 0) => new PackageVersion("9.2.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusRabbitMQPackageName}'"),
                     }
                 );
@@ -81,7 +81,7 @@ namespace Intent.Modules.Eventing.NServiceBus
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("6.3.0"),
-                        ( >= 8,  >= 0) => new PackageVersion("5.1.3"),
+                        ( >= 8, >= 0) => new PackageVersion("5.1.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusTransportAzureServiceBusPackageName}'"),
                     }
                 );

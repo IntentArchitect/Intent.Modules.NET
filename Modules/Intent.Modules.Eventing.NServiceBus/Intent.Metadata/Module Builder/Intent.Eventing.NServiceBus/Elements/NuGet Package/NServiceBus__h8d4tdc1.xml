@@ -25,8 +25,31 @@
   <metadata />
   <childElements>
     <childElement id="e797c230-8ee5-4894-b1e0-3b51815cfd7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.1.4</name>
-      <display>10.1.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>10.2.5</name>
+      <display>10.2.5 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0c44f4dc-8137-4e35-b1f1-1fe54d5d0501</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="32a30b2d-f542-42b9-93cb-056e49962b7c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.2.11</name>
+      <display>9.2.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
