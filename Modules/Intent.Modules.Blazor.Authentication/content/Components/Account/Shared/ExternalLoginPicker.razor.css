@@ -1,4 +1,4 @@
-/* Page-specific external login button layout. App-wide buttons live in ux-controls.css. */
+/* Page-specific external login button layout. App-wide buttons live in ux-tokens.css. */
 
 .form-horizontal {
     display: flex;

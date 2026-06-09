@@ -353,6 +353,17 @@ a:hover { color: var(--primary-dark); }
 
 .text-white { color: var(--primary-contrast) !important; }
 
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+
+.mb-3 { margin-bottom: var(--space-3) !important; }
+
+.font-weight-bold { font-weight: 700 !important; }
+
+.text-danger  { color: var(--danger) !important; }
+.text-success { color: var(--success) !important; }
+.text-info    { color: var(--info) !important; }
+
 /* Status badges */
 .badge-success { display:inline-flex;align-items:center;gap:.25em;font-size:var(--type-label-md);font-weight:500;padding:.2em .65em;border-radius:var(--radius-full);background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success);border:1px solid color-mix(in srgb,var(--success) 28%,transparent); }
 .badge-danger  { display:inline-flex;align-items:center;gap:.25em;font-size:var(--type-label-md);font-weight:500;padding:.2em .65em;border-radius:var(--radius-full);background:color-mix(in srgb,var(--danger)  14%,transparent);color:var(--danger); border:1px solid color-mix(in srgb,var(--danger)  28%,transparent); }
@@ -362,7 +373,271 @@ a:hover { color: var(--primary-dark); }
 
 
 /* ============================================================================
-   SECTION 9: Accessibility & Motion
+   SECTION 9: Standard Form Controls
+   ============================================================================ */
+
+.form-control,
+.form-select {
+    display: block;
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-md);
+    line-height: var(--lh-body);
+    color: var(--text);
+    background-color: var(--surface);
+    background-clip: padding-box;
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+
+.form-control:focus,
+.form-select:focus {
+    color: var(--text);
+    background-color: var(--surface);
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--primary-subtle);
+    outline: 0;
+}
+
+.form-control:disabled,
+.form-control[disabled],
+.form-select:disabled {
+    color: var(--text-muted);
+    background-color: var(--surface-2);
+    opacity: 1;
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary);
+    opacity: 1;
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+    color: var(--text-muted);
+}
+
+.form-floating {
+    position: relative;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+    min-height: 3.5rem;
+    padding: 1rem 0.75rem 0.25rem;
+}
+
+.form-floating > .form-control::placeholder {
+    color: transparent;
+}
+
+.form-floating > label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: top var(--dur-med) var(--ease-out),
+                left var(--dur-med) var(--ease-out),
+                color var(--dur-med) var(--ease-out),
+                font-size var(--dur-med) var(--ease-out);
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+    top: 0.25rem;
+    left: 0.65rem;
+    padding: 0 var(--space-1);
+    font-size: var(--type-label-md);
+    color: var(--primary);
+    background: var(--surface);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.form-check-input {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary);
+}
+
+.form-check-label {
+    color: var(--text);
+    font-size: var(--type-body-sm);
+}
+
+.checkbox label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text);
+    font-size: var(--type-body-sm);
+}
+
+.checkbox input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary);
+}
+
+.input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group > .form-control {
+    min-width: 0;
+}
+
+.input-group-append {
+    display: flex;
+}
+
+.input-group-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-3);
+    color: var(--text);
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+
+/* ============================================================================
+   SECTION 10: Buttons
+   ============================================================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-md);
+    font-weight: 600;
+    line-height: var(--lh-label);
+    color: var(--text);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+    transition: color var(--dur-med) var(--ease-out),
+                background-color var(--dur-med) var(--ease-out),
+                border-color var(--dur-med) var(--ease-out),
+                box-shadow var(--dur-med) var(--ease-out);
+}
+
+.btn:hover {
+    color: var(--text);
+    background-color: var(--surface-3);
+    border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: var(--primary-contrast);
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    color: var(--primary-contrast);
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-danger {
+    color: var(--primary-contrast);
+    background: var(--danger);
+    border-color: var(--danger);
+}
+
+.btn-link {
+    color: var(--primary);
+    background: transparent;
+    border-color: transparent;
+    padding-inline: 0;
+}
+
+.btn-link:hover {
+    color: var(--primary-dark);
+    background: transparent;
+    border-color: transparent;
+    text-decoration: underline;
+}
+
+.btn-lg {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--type-body-lg);
+}
+
+
+/* ============================================================================
+   SECTION 11: Feedback & Data Display
+   ============================================================================ */
+
+.alert {
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-4);
+    color: var(--text);
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.alert-danger {
+    color: var(--danger);
+    background: var(--danger-subtle);
+    border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+.alert-success {
+    color: var(--success);
+    background: var(--success-subtle);
+    border-color: color-mix(in srgb, var(--success) 30%, transparent);
+}
+
+.alert-warning {
+    color: var(--warning);
+    background: var(--warning-subtle);
+    border-color: color-mix(in srgb, var(--warning) 30%, transparent);
+}
+
+.table {
+    width: 100%;
+    margin-bottom: var(--space-4);
+    color: var(--text);
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: var(--space-3);
+    vertical-align: middle;
+    border-bottom: var(--border-width) solid var(--border);
+}
+
+
+/* ============================================================================
+   SECTION 12: Accessibility & Motion
    ============================================================================ */
 
 :focus-visible {
@@ -420,7 +695,7 @@ h4:focus-visible, h5:focus-visible, h6:focus-visible {
     position: relative;
     overflow: hidden;
     min-height: calc(100vh - 64px);
-    margin: -1rem; /* bleed out of MudMainContent pa-4 padding */
+    margin: -1rem; /* bleed out of layout padding */
 }
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */

@@ -1,4 +1,4 @@
-/* Page-specific recovery code layout. App-wide controls live in ux-controls.css. */
+/* Page-specific recovery code layout. App-wide controls live in ux-tokens.css. */
 
 .row {
     display: flex;
