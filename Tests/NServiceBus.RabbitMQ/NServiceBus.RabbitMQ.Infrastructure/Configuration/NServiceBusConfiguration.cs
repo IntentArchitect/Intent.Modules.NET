@@ -49,7 +49,7 @@ namespace NServiceBus.RabbitMQ.Infrastructure.Configuration
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
             transportConfig.RouteToEndpoint(typeof(OrderAnimal), configuration["NServiceBus:Routing:Commands:OrderAnimal"] ?? "Animals");
-            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "People");
+            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "CreatePersonIdentity");
             transportConfig.RouteToEndpoint(typeof(MakeSoundCommand), configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "MakeSoundCommand");
             transportConfig.RouteToEndpoint(typeof(TalkToPersonCommand), configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "TalkToPersonCommand");
             RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);

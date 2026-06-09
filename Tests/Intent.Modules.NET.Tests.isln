@@ -205,5 +205,6 @@
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Eventing" relativePath="EventingSubscribers/EventingSubscribers.application.config" />
     <application id="d69bfc1f-2e5b-4609-b1da-c715bf152c84" name="NServiceBus.LearnerTransport" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.LearnerTransport/NServiceBus.LearnerTransport.application.config" />
     <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="NServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.RabbitMQ/NServiceBus.RabbitMQ.application.config" />
+    <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="NServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.AzureServiceBus/NServiceBus.AzureServiceBus.application.config" />
   </applications>
 </solution>
