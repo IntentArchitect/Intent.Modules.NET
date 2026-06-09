@@ -1,7 +1,6 @@
 using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-using NServiceBus;
 using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Publish.Infrastructure.Persistence;
 using NServiceBus.Persistence.Sql;

@@ -3,7 +3,6 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NServiceBus;
 using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing;

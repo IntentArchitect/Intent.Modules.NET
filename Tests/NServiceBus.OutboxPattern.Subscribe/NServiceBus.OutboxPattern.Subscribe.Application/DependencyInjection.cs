@@ -3,8 +3,11 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Behaviours;
+using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Validation;
+using NServiceBus.OutboxPattern.Subscribe.Application.IntegrationEvents.EventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -29,6 +32,8 @@ namespace NServiceBus.OutboxPattern.Subscribe.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<TestCommand>, TestCommandHandler>();
+            services.AddTransient<IIntegrationEventHandler<TestEvent>, TestEventHandler>();
             return services;
         }
     }

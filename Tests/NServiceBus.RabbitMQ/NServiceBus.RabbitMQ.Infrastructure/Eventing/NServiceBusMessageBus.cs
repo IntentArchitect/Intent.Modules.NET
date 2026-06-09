@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using NServiceBus;
 using NServiceBus.RabbitMQ.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

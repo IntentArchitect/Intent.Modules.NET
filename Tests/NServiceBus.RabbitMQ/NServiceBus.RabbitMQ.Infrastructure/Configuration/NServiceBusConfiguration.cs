@@ -2,7 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NServiceBus;
 using NServiceBus.RabbitMQ.Application.Common.Eventing;
 using NServiceBus.RabbitMQ.Eventing.Messages;
 using NServiceBus.RabbitMQ.Infrastructure.Eventing;
