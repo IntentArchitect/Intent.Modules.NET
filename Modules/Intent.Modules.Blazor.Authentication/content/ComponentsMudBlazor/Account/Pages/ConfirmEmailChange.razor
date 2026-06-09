@@ -1,0 +1,14 @@
+@page "/Account/ConfirmEmailChange"
+
+@using System.Text
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityRedirectManager RedirectManager
+
+<PageTitle>Confirm email change</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-3">Confirm email change</MudText>
+<StatusMessage Message="@message" />

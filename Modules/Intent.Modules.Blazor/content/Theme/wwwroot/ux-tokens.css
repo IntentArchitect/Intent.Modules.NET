@@ -428,7 +428,6 @@ a:hover { color: var(--primary-dark); }
 
 .form-floating > .form-control,
 .form-floating > .form-select {
-    min-height: 3.5rem;
     padding: 1rem 0.75rem 0.25rem;
 }
 
@@ -525,63 +524,98 @@ a:hover { color: var(--primary-dark); }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
+    gap: 0.4rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-sm);
     font-family: var(--font-primary);
-    font-size: var(--type-body-md);
+    font-size: var(--type-body-sm);
     font-weight: 600;
-    line-height: var(--lh-label);
-    color: var(--text);
-    text-align: center;
-    text-decoration: none;
+    border: none;
     cursor: pointer;
-    user-select: none;
-    background-color: var(--surface-2);
-    border: var(--border-width) solid var(--border);
-    border-radius: var(--radius-md);
-    transition: color var(--dur-med) var(--ease-out),
-                background-color var(--dur-med) var(--ease-out),
-                border-color var(--dur-med) var(--ease-out),
-                box-shadow var(--dur-med) var(--ease-out);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: box-shadow var(--dur-fast) var(--ease-out),
+                transform  var(--dur-fast) var(--ease-out);
 }
 
-.btn:hover {
-    color: var(--text);
-    background-color: var(--surface-3);
-    border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
-    text-decoration: none;
-}
+.btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.btn:active { transform: translateY(0) !important; box-shadow: var(--shadow-1) !important; }
 
 .btn-primary {
-    color: var(--primary-contrast);
-    background: var(--primary);
-    border-color: var(--primary);
+    background: var(--gradient-brand);
+    color: #fff;
+    box-shadow: var(--shadow-1);
 }
 
 .btn-primary:hover {
-    color: var(--primary-contrast);
-    background: var(--primary-dark);
-    border-color: var(--primary-dark);
+    box-shadow: var(--glow-primary), var(--shadow-2);
+    transform: translateY(-1px);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+    background: var(--hover-overlay);
+    color: var(--text);
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out),
+                color     var(--dur-fast) var(--ease-out);
+    flex-shrink: 0;
+}
+
+.btn-icon:hover {
+    background: var(--hover-overlay);
+    color: var(--text);
 }
 
 .btn-danger {
-    color: var(--primary-contrast);
     background: var(--danger);
-    border-color: var(--danger);
+    color: #fff;
+    box-shadow: var(--shadow-1);
+}
+
+.btn-danger:hover {
+    box-shadow: var(--shadow-2);
+    transform: translateY(-1px);
+    color: #fff;
+    text-decoration: none;
 }
 
 .btn-link {
-    color: var(--primary);
     background: transparent;
-    border-color: transparent;
+    color: var(--primary);
+    border: none;
+    box-shadow: none;
     padding-inline: 0;
 }
 
 .btn-link:hover {
     color: var(--primary-dark);
     background: transparent;
-    border-color: transparent;
     text-decoration: underline;
+    box-shadow: none;
+    transform: none;
 }
 
 .btn-lg {
@@ -624,16 +658,30 @@ a:hover { color: var(--primary-dark); }
 .table {
     width: 100%;
     margin-bottom: var(--space-4);
-    color: var(--text);
     border-collapse: collapse;
+    font-size: var(--type-body-sm);
 }
 
-.table th,
-.table td {
-    padding: var(--space-3);
-    vertical-align: middle;
+.table thead th {
+    text-align: left;
+    padding: 0.875rem 1rem;
+    font-size: var(--type-label-md);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
     border-bottom: var(--border-width) solid var(--border);
+    background: var(--surface-2);
 }
+
+.table tbody td {
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    border-bottom: var(--border-width) solid var(--border-light);
+}
+
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: var(--hover-overlay); }
 
 
 /* ============================================================================

@@ -1,0 +1,34 @@
+@page "/Account/LoginWithRecoveryCode"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<LoginWithRecoveryCode> Logger
+
+<PageTitle>Recovery code verification</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-3">Recovery code verification</MudText>
+<StatusMessage Message="@message" />
+<MudText Typo="Typo.body1" Class="mb-3">
+    You have requested to log in with a recovery code. This login will not be remembered until you provide
+    an authenticator app code at log in or disable 2FA and log in again.
+</MudText>
+
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" FormName="login-with-recovery-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="recovery-code" class="form-label">Recovery Code</label>
+                <InputText id="recovery-code" class="form-control" @bind-Value="Input.RecoveryCode" autocomplete="off" placeholder="RecoveryCode" />
+                <ValidationMessage For="() => Input.RecoveryCode" class="text-danger" />
+            </div>
+
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
+        </MudStack>
+    </EditForm>
+</MudPaper>

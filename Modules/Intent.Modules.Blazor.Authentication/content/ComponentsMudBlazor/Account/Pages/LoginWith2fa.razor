@@ -1,0 +1,45 @@
+@page "/Account/LoginWith2fa"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<LoginWith2fa> Logger
+
+<PageTitle>Two-factor authentication</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-3">Two-factor authentication</MudText>
+<StatusMessage Message="@message" />
+<MudText Typo="Typo.body1" Class="mb-3">Your login is protected with an authenticator app. Enter your authenticator code below.</MudText>
+
+<MudPaper Class="pa-6">
+    @* Static-SSR Identity form: posted fields use Blazor InputBase<T> components so they bind via
+       [SupplyParameterFromForm]. MudBlazor is used for chrome (paper/stack/text/button) only. *@
+    <EditForm Model="Input" FormName="login-with-2fa" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+        <input type="hidden" name="RememberMe" value="@RememberMe" />
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="two-factor-code" class="form-label">Authenticator code</label>
+                <InputText id="two-factor-code" class="form-control" @bind-Value="Input.TwoFactorCode" autocomplete="off" />
+                <ValidationMessage For="() => Input.TwoFactorCode" class="text-danger" />
+            </div>
+
+            <label class="form-check">
+                <InputCheckbox @bind-Value="Input.RememberMachine" class="form-check-input" />
+                Remember this machine
+            </label>
+
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
+        </MudStack>
+    </EditForm>
+</MudPaper>
+
+<MudText Typo="Typo.body2" Class="mt-3">
+    Don't have access to your authenticator device? You can
+    <MudLink Href="@($"Account/LoginWithRecoveryCode?ReturnUrl={ReturnUrl}")">log in with a recovery code</MudLink>.
+</MudText>

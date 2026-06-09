@@ -1,0 +1,36 @@
+@page "/Account/Manage/DeletePersonalData"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityUserAccessor UserAccessor
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<DeletePersonalData> Logger
+
+<PageTitle>Delete Personal Data</PageTitle>
+
+<StatusMessage Message="@message" />
+<MudText Typo="Typo.h5" Class="mb-3">Delete Personal Data</MudText>
+
+<MudAlert Severity="Severity.Warning" Class="mb-3">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
+
+<MudPaper Class="pa-6">
+    <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            @if (requirePassword)
+            {
+                <div class="form-field">
+                    <label for="password" class="form-label">Password</label>
+                    <InputText id="password" type="password" class="form-control" @bind-Value="Input.Password" autocomplete="current-password" />
+                    <ValidationMessage For="() => Input.Password" class="text-danger" />
+                </div>
+            }
+
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" FullWidth="true" Size="Size.Large">Delete data and close my account</MudButton>
+        </MudStack>
+    </EditForm>
+</MudPaper>

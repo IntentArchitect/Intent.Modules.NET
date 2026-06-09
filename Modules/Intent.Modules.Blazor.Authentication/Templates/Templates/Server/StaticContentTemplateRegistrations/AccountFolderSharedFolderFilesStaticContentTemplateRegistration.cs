@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -10,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -61,9 +65,72 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+            {
+                return;
+            }
+
+            var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
+
+            if (!mudBlazorInstalled)
             {
                 base.Register(registry, application);
+                return;
+            }
+
+            RegisterFiltered(registry, application, ext => ext == ".cs");
+        }
+
+        [IntentIgnore]
+        private void RegisterFiltered(ITemplateInstanceRegistry registry, IApplication application, Func<string, bool> extensionFilter)
+        {
+            var assemblyDir = Path.GetDirectoryName(GetType().Assembly.Location)!;
+            var contentDir = Path.GetFullPath(Path.Combine(assemblyDir, "..", "content", ContentSubFolder));
+
+            if (!Directory.Exists(contentDir))
+            {
+                return;
+            }
+
+            var allFiles = Directory.EnumerateFiles(contentDir, "*.*", System.IO.SearchOption.AllDirectories).ToArray();
+            var getBinaryFiles = typeof(StaticContentTemplateRegistration)
+                .GetMethod("GetBinaryFiles", BindingFlags.NonPublic | BindingFlags.Instance);
+            var binaryFiles = getBinaryFiles != null
+                ? (string[])getBinaryFiles.Invoke(this, new object[] { contentDir })!
+                : Array.Empty<string>();
+
+            var textFiles = allFiles.Except(binaryFiles).ToArray();
+
+            foreach (var fileFullPath in textFiles)
+            {
+                var ext = Path.GetExtension(fileFullPath);
+                if (!extensionFilter(ext))
+                {
+                    continue;
+                }
+
+                var fileRelativePath = Path.GetRelativePath(contentDir, fileFullPath);
+                var capturedPath = fileFullPath;
+                var capturedRel = fileRelativePath;
+                RegisterTemplate(registry, application,
+                    outputTarget => CreateTemplate(outputTarget, capturedPath, capturedRel,
+                        GetDefaultOverrideBehaviour(outputTarget)));
+            }
+
+            foreach (var fileFullPath in binaryFiles)
+            {
+                var ext = Path.GetExtension(fileFullPath);
+                if (!extensionFilter(ext))
+                {
+                    continue;
+                }
+
+                var fileRelativePath = Path.GetRelativePath(contentDir, fileFullPath);
+                var capturedPath = fileFullPath;
+                var capturedRel = fileRelativePath;
+                RegisterTemplate(registry, application,
+                    outputTarget => CreateBinaryTemplate(outputTarget, capturedPath, capturedRel,
+                        GetDefaultOverrideBehaviour(outputTarget)));
             }
         }
     }

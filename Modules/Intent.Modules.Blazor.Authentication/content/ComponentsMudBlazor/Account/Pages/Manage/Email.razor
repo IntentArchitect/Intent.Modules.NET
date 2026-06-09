@@ -1,0 +1,48 @@
+@page "/Account/Manage/Email"
+
+@using System.Text
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IEmailSender<<#= IdentityClass #>> EmailSender
+@inject IdentityUserAccessor UserAccessor
+@inject NavigationManager NavigationManager
+
+<PageTitle>Manage email</PageTitle>
+
+<MudText Typo="Typo.h5" Class="mb-3">Manage email</MudText>
+<StatusMessage Message="@message"/>
+
+<MudPaper Class="pa-6">
+    <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
+        <AntiforgeryToken />
+    </form>
+    <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" role="alert" />
+
+        <MudStack Spacing="3">
+            <div class="form-field">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" class="form-control" type="text" value="@email" disabled />
+                @if (isEmailConfirmed)
+                {
+                    <MudText Typo="Typo.caption" Color="Color.Success" Class="mt-1">Verified</MudText>
+                }
+                else
+                {
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Primary" form="send-verification-form" Class="mt-1">Send verification email</MudButton>
+                }
+            </div>
+            <div class="form-field">
+                <label for="new-email" class="form-label">New email</label>
+                <InputText id="new-email" class="form-control" @bind-Value="Input.NewEmail" autocomplete="email" placeholder="Please enter new email." />
+                <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
+            </div>
+
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Change email</MudButton>
+        </MudStack>
+    </EditForm>
+</MudPaper>
