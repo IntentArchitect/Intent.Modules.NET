@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
 
             var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
-            var hasOutbox = outboxPattern.IsEntityFramework();
+            var hasOutbox = outboxPattern.IsSqlPersistence();
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
             if (hasOutbox)

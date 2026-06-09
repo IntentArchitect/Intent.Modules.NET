@@ -66,11 +66,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     throw new InvalidOperationException($"Unsupported transport type: {transport.Value}");
             }
 
-            if (outboxPattern.IsEntityFramework())
+            if (outboxPattern.IsSqlPersistence())
             {
                 if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
                     throw new InvalidOperationException(
-                        "OutboxPattern is set to 'EntityFramework' but the 'Intent.EntityFrameworkCore' module is not installed. " +
+                        "OutboxPattern is set to 'SqlPersistence' but the 'Intent.EntityFrameworkCore' module is not installed. " +
                         "The NServiceBus transactional outbox requires EF Core to share the same database transaction. " +
                         "Please install 'Intent.EntityFrameworkCore' or change OutboxPattern to 'None'.");
 
@@ -86,7 +86,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("NServiceBus");
 
-            if (outboxPattern.IsEntityFramework())
+            if (outboxPattern.IsSqlPersistence())
             {
                 CSharpFile.AddUsing("Microsoft.Data.SqlClient");
                 CSharpFile.AddUsing("NServiceBus.TransactionalSession");
@@ -187,7 +187,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });");
                         }
 
-                        if (outboxPattern.IsEntityFramework())
+                        if (outboxPattern.IsSqlPersistence())
                         {
                             method.AddStatement(
                                 @"var persistenceConnectionString = configuration.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""ConnectionStrings:DefaultConnection is not configured"");",
@@ -397,7 +397,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 }
             }
 
-            if (outboxPattern.IsEntityFramework())
+            if (outboxPattern.IsSqlPersistence())
             {
                 // DefaultConnection is owned by EF — NServiceBus outbox shares the same DB, no extra key needed.
             }

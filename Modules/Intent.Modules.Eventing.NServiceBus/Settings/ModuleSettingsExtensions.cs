@@ -108,7 +108,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
                 return Value switch
                 {
                     "none" => OutboxPatternOptionsEnum.None,
-                    "entity-framework" => OutboxPatternOptionsEnum.EntityFramework,
+                    "sql-persistence" => OutboxPatternOptionsEnum.SqlPersistence,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -118,16 +118,16 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
                 return Value == "none";
             }
 
-            public bool IsEntityFramework()
+            public bool IsSqlPersistence()
             {
-                return Value == "entity-framework";
+                return Value == "sql-persistence";
             }
         }
 
         public enum OutboxPatternOptionsEnum
         {
             None,
-            EntityFramework,
+            SqlPersistence,
         }
         public class RecoverabilityPolicyOptions
         {

@@ -207,5 +207,7 @@
     <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="NServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.RabbitMQ/NServiceBus.RabbitMQ.application.config" />
     <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="NServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.AzureServiceBus/NServiceBus.AzureServiceBus.application.config" />
     <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="NServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.SQS/NServiceBus.SQS.application.config" />
+    <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="NServiceBus.OutboxPattern.Publish" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Publish/NServiceBus.OutboxPattern.Publish.application.config" />
+    <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="NServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Subscribe/NServiceBus.OutboxPattern.Subscribe.application.config" />
   </applications>
 </solution>

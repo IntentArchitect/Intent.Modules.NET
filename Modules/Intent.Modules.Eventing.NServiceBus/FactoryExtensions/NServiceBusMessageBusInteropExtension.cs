@@ -71,6 +71,6 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
         }
 
         private static bool IsOutboxActive(IApplication application) =>
-            application.Settings.GetNServiceBusSettings()?.OutboxPattern()?.IsEntityFramework() == true;
+            application.Settings.GetNServiceBusSettings()?.OutboxPattern()?.IsSqlPersistence() == true;
     }
 }

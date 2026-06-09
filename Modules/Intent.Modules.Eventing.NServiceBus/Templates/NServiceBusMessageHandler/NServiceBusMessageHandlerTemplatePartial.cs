@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
             AddTypeSource(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId);
 
             var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
-            var hasOutbox = outboxPattern.IsEntityFramework();
+            var hasOutbox = outboxPattern.IsSqlPersistence();
 
             SubscribedMessageModels = model
                 .SelectMany(h => h.IntegrationEventSubscriptions()

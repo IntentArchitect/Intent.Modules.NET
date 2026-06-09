@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bd2bfaba-b922-4b85-a938-dc5efd998e4d">
+  <sourceEnd id="3f40576f-45d8-42e8-b18e-6a8c6491abfb" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : NServiceBus.OutboxPattern.Publish.Services.TestCommandSendCommand</display>
+    <order>0</order>
+    <typeReference id="c127daff-f809-4cbd-afa6-f4b7edcff2c6">
+      <typeId>c75b3c06-8381-42a8-8c7a-88cea61ed24a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Publish.Services</typePackageName>
+      <typePackageId>2083793c-6328-4b6e-a8fb-d5a4ab577918</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bd2bfaba-b922-4b85-a938-dc5efd998e4d" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] TestCommand</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c74a111c-5ce9-411c-aa72-e56a577ce0b2">
+      <typeId>a248d1a9-a9a1-46c1-861b-36e8b4c625d3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>4b31a225-80ee-4c5a-ab82-16b57da74155</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="3ea966d0-b6c8-4478-82b7-27652ec1cb89" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c75b3c06-8381-42a8-8c7a-88cea61ed24a" location="[NServiceBus.OutboxPattern.Publish].[Services].[TestCommandSendCommand]" />
+        <target applicationId="3ea966d0-b6c8-4478-82b7-27652ec1cb89" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a248d1a9-a9a1-46c1-861b-36e8b4c625d3" location="[NServiceBus.OutboxPattern.Publish].[Services].[TestCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="a248d1a9-a9a1-46c1-861b-36e8b4c625d3" name="TestCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="afa3b541-a389-45c9-8aca-934d61c2c928" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="c75b3c06-8381-42a8-8c7a-88cea61ed24a" name="TestCommandSendCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="87a9ff60-4577-48f5-bdaf-212babb90518" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

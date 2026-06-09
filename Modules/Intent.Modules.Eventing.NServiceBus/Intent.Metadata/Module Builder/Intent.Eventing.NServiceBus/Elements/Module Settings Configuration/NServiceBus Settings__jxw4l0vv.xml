@@ -125,7 +125,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Determines which retry configuration blocks are generated. Values are read from appsettings.json at runtime." isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Determines which retry configuration blocks are generated." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="immediate-and-delayed" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
@@ -211,7 +211,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Enables the NServiceBus transactional outbox. EntityFramework requires the Intent.Eventing.NServiceBus.EntityFrameworkCore companion module." isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Enables the NServiceBus transactional outbox." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="none" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
@@ -237,9 +237,9 @@
         </childElement>
         <childElement id="5a9e0bc3-d731-4901-92b8-1d5adaee1c7d" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>SQL Persistence</name>
-          <display>SQL Persistence = entity-framework</display>
+          <display>SQL Persistence = sql-persistence</display>
           <isAbstract>false</isAbstract>
-          <value>entity-framework</value>
+          <value>sql-persistence</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61e27361-13e1-46ad-834f-3c98088c3947</parentFolderId>
