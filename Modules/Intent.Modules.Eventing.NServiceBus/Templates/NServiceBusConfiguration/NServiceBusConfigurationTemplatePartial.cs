@@ -41,9 +41,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationCommandTemplate.TemplateId);
             AddTypeSource(NServiceBusMessageHandlerTemplate.TemplateId);
+            AddTypeSource(TemplateRoles.Infrastructure.Data.DbContext);
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
-            AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
             var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
@@ -83,7 +83,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 .AddUsing("System.IO")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("NServiceBus");
 
             if (outboxPattern.IsSqlPersistence())
@@ -95,14 +94,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             CSharpFile.AddClass("NServiceBusConfiguration", @class =>
                 {
                     @class.Static();
-
-                    @class.AddMethod("IHostBuilder", "AddNServiceBus", method =>
-                    {
-                        method.Static();
-                        method.AddParameter("IHostBuilder", "hostBuilder", p => p.WithThisModifier());
-                        method.AddParameter("IConfiguration", "configuration");
-                        method.AddReturn("hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration))");
-                    });
 
                     @class.AddMethod("IServiceCollection", "AddNServiceBusConfiguration", method =>
                     {
@@ -149,6 +140,18 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             }
                         }
 
+                        if (outboxPattern.IsSqlPersistence())
+                        {
+                            // Lazy<T> registration breaks the circular DI dependency between NServiceBusMessageBus
+                            // (which needs ApplicationDbContext to enlist EF in the NSB transaction) and
+                            // ApplicationDbContext (which needs IMessageBus to call FlushAllAsync).
+                            var dbContextType = this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext);
+                            method.AddStatement(
+                                $"services.AddScoped(sp => new Lazy<{dbContextType}>(() => sp.GetRequiredService<{dbContextType}>()));",
+                                s => s.SeparatedFromPrevious());
+                        }
+
+                        method.AddStatement("services.AddNServiceBusEndpoint(ConfigureEndpoint(configuration));", s => s.SeparatedFromPrevious());
                         method.AddReturn("services");
                     });
 

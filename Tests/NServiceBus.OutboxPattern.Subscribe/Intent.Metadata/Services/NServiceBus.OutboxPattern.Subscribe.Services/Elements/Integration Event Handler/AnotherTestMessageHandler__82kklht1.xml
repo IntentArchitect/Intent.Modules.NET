@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="067ff374-d1e4-47bd-b796-d82ff8150361" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>AnotherTestMessageHandler</name>
+  <display>AnotherTestMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>73a1688a-1f05-4b66-8921-2b9b767f3d3e</parentFolderId>
+  <packageId>73a1688a-1f05-4b66-8921-2b9b767f3d3e</packageId>
+  <packageName>NServiceBus.OutboxPattern.Subscribe.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

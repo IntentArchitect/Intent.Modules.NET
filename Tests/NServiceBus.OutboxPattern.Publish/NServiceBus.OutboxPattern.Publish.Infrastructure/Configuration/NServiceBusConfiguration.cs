@@ -2,10 +2,10 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing;
+using NServiceBus.OutboxPattern.Publish.Infrastructure.Persistence;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -15,10 +15,6 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-        public static IHostBuilder AddNServiceBus(this IHostBuilder hostBuilder, IConfiguration configuration)
-        {
-            return hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration));
-        }
 
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
@@ -26,6 +22,10 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
+
+            services.AddScoped(sp => new Lazy<ApplicationDbContext>(() => sp.GetRequiredService<ApplicationDbContext>()));
+
+            services.AddNServiceBusEndpoint(ConfigureEndpoint(configuration));
             return services;
         }
 

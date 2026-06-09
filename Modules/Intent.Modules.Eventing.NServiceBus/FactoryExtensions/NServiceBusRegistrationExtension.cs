@@ -1,14 +1,11 @@
 using Intent.Engine;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.AppStartup;
-using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts;
 using Intent.Modules.Eventing.NServiceBus.Settings;
-using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using NServiceBusConstants = Intent.Modules.Eventing.NServiceBus.Templates.Constants;
@@ -59,21 +56,5 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
                     new { AzureServiceBus = "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key" }));
         }
 
-        protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
-            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
-            if (programTemplate == null) return;
-
-            var configTemplate = application.FindTemplateInstance<IClassProvider>(
-                NServiceBusConfigurationTemplate.TemplateId);
-            if (configTemplate == null) return;
-
-            programTemplate.CSharpFile.OnBuild(file =>
-            {
-                file.AddUsing(configTemplate.Namespace);
-                programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(
-                    new CSharpStatement("builder.Host.AddNServiceBus(builder.Configuration);"));
-            }, 10);
-        }
     }
 }

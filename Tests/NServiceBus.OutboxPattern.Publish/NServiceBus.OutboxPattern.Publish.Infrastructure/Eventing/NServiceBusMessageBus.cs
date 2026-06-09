@@ -16,9 +16,9 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
         private readonly List<object> _publishBuffer = new();
         private readonly List<object> _sendBuffer = new();
         private readonly ITransactionalSession _transactionalSession;
-        private readonly ApplicationDbContext _dbContext;
+        private readonly Lazy<ApplicationDbContext> _dbContext;
 
-        public NServiceBusMessageBus(ITransactionalSession transactionalSession, ApplicationDbContext dbContext)
+        public NServiceBusMessageBus(ITransactionalSession transactionalSession, Lazy<ApplicationDbContext> dbContext)
         {
             _transactionalSession = transactionalSession;
             _dbContext = dbContext;
@@ -64,9 +64,9 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
             using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
-                var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();
-                _dbContext.Database.SetDbConnection(sqlSession.Connection);
-                await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);
+                //var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();
+                //_dbContext.Value.Database.SetDbConnection(sqlSession.Connection);
+                //await _dbContext.Value.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);
 
                 try
                 {
@@ -80,7 +80,7 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
                         await _transactionalSession.Send(message, cancellationToken);
                     }
 
-                    await _dbContext.SaveChangesAsync(cancellationToken);
+                    //await _dbContext.Value.SaveChangesAsync(cancellationToken);
                     await _transactionalSession.Commit(cancellationToken);
 
                     _publishBuffer.Clear();
@@ -88,7 +88,7 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
                 }
                 finally
                 {
-                    _dbContext.Database.SetDbConnection(null);
+                    //_dbContext.Value.Database.SetDbConnection(null);
                 }
             }
         }

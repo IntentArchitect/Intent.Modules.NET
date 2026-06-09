@@ -4,7 +4,6 @@ using NServiceBus.OutboxPattern.Publish.Api.Filters;
 using NServiceBus.OutboxPattern.Publish.Api.Logging;
 using NServiceBus.OutboxPattern.Publish.Application;
 using NServiceBus.OutboxPattern.Publish.Infrastructure;
-using NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -26,9 +25,6 @@ namespace NServiceBus.OutboxPattern.Publish.Api
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
-
-                // Add services to the container.
-                builder.Host.AddNServiceBus(builder.Configuration);
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)

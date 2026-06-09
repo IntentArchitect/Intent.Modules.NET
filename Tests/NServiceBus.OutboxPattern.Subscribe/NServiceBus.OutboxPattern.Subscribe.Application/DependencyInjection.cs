@@ -8,6 +8,7 @@ using NServiceBus.OutboxPattern.Subscribe.Application.Common.Behaviours;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Validation;
 using NServiceBus.OutboxPattern.Subscribe.Application.IntegrationEvents.EventHandlers;
+using NServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -31,6 +32,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageHandler>();
             services.AddTransient<IIntegrationEventHandler<TestCommand>, TestCommandHandler>();
             services.AddTransient<IIntegrationEventHandler<TestEvent>, TestEventHandler>();
             return services;

@@ -71,8 +71,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     if (hasOutbox)
                     {
                         ctor.AddParameter("ITransactionalSession", "transactionalSession", p => p.IntroduceReadonlyField());
-                        // DbContext is resolved by the EF template role
-                        ctor.AddParameter(this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext), "dbContext", p => p.IntroduceReadonlyField());
+                        // Lazy<T> breaks the circular DI dependency: ApplicationDbContext → IMessageBus → NServiceBusMessageBus → ApplicationDbContext.
+                        // The Lazy wrapper is resolved without constructing ApplicationDbContext; .Value is only accessed inside FlushAllAsync
+                        // by which time the scoped ApplicationDbContext is already in the DI scope cache.
+                        ctor.AddParameter($"Lazy<{this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext)}>", "dbContext", p => p.IntroduceReadonlyField());
                     }
                     else
                     {
@@ -137,15 +139,15 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                                 usingBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
                                 usingBlock.AddStatement("await _transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);");
                                 usingBlock.AddStatement("var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();");
-                                usingBlock.AddStatement("_dbContext.Database.SetDbConnection(sqlSession.Connection);");
-                                usingBlock.AddStatement("await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);");
+                                usingBlock.AddStatement("_dbContext.Value.Database.SetDbConnection(sqlSession.Connection);");
+                                usingBlock.AddStatement("await _dbContext.Value.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);");
                                 usingBlock.AddTryBlock(tryBlock =>
                                 {
                                     tryBlock.AddForEachStatement("message", "_publishBuffer", fe =>
                                         fe.AddStatement("await _transactionalSession.Publish(message, cancellationToken);"));
                                     tryBlock.AddForEachStatement("message", "_sendBuffer", fe =>
                                         fe.AddStatement("await _transactionalSession.Send(message, cancellationToken);"));
-                                    tryBlock.AddStatement("await _dbContext.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
+                                    tryBlock.AddStatement("await _dbContext.Value.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
                                     tryBlock.AddStatement("await _transactionalSession.Commit(cancellationToken);");
                                     // Only clear after successful commit — messages would be lost on crash if cleared earlier
                                     tryBlock.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
@@ -153,7 +155,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                                 })
                                 .AddFinallyBlock(finallyBlock =>
                                 {
-                                    finallyBlock.AddStatement("_dbContext.Database.SetDbConnection(null);");
+                                    finallyBlock.AddStatement("_dbContext.Value.Database.SetDbConnection(null);");
                                 });
                             });
                     }

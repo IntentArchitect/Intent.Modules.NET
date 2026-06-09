@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="26905398-1d93-46ff-93dc-d9e5e3570204">
+  <sourceEnd id="ba5c334f-c32c-472a-883c-48306d06b0df" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : TestEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="d6f15727-8773-4c44-b121-8b18b81cfb74">
+      <typeId>183a6e27-5893-43a1-acaa-cf5d68d2f997</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Subscribe.Services</typePackageName>
+      <typePackageId>73a1688a-1f05-4b66-8921-2b9b767f3d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="26905398-1d93-46ff-93dc-d9e5e3570204" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] AnotherTestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e123a39b-b7ea-41a0-94e0-b293fedd520d">
+      <typeId>6516bed8-d2c5-4366-adc5-706702e73718</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Subscribe.Eventing.Messages</typePackageName>
+      <typePackageId>b35a11d0-3778-43b5-a7c6-ea4328b07a28</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="e82d01d3-006c-431b-8f3d-8f6d823c14ec" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="183a6e27-5893-43a1-acaa-cf5d68d2f997" location="[NServiceBus.OutboxPattern.Subscribe].[Services].[Handler]" />
+        <target applicationId="e82d01d3-006c-431b-8f3d-8f6d823c14ec" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6516bed8-d2c5-4366-adc5-706702e73718" location="[NServiceBus.OutboxPattern.Subscribe].[Services].[AnotherTestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="6516bed8-d2c5-4366-adc5-706702e73718" name="AnotherTestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="4bca710d-da00-491c-9f0b-baefb1cd043d" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="183a6e27-5893-43a1-acaa-cf5d68d2f997" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="91c623a4-c1dd-4f4c-a31d-11a7ab9f8ed6" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

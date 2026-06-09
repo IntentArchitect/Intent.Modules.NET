@@ -2,10 +2,11 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
+using NServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Infrastructure.Eventing;
+using NServiceBus.OutboxPattern.Subscribe.Infrastructure.Persistence;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -15,10 +16,6 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-        public static IHostBuilder AddNServiceBus(this IHostBuilder hostBuilder, IConfiguration configuration)
-        {
-            return hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration));
-        }
 
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
@@ -26,6 +23,10 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
+
+            services.AddScoped(sp => new Lazy<ApplicationDbContext>(() => sp.GetRequiredService<ApplicationDbContext>()));
+
+            services.AddNServiceBusEndpoint(ConfigureEndpoint(configuration));
             return services;
         }
 
@@ -48,7 +49,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningEventsAs(new[] { typeof(TestEvent) }.Contains);
+            conventions.DefiningEventsAs(new[] { typeof(AnotherTestMessageEvent), typeof(TestEvent) }.Contains);
             conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
 
             endpointConfiguration.Recoverability()
@@ -57,6 +58,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
             transportConfig.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "TestCommand");
+            RegisterHandler<NServiceBusMessageHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>(endpointConfiguration);
             RegisterHandler<NServiceBusMessageHandler<TestEvent>, TestEvent>(endpointConfiguration);
             RegisterHandler<NServiceBusMessageHandler<TestCommand>, TestCommand>(endpointConfiguration);
 
