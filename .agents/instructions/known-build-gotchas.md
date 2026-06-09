@@ -1,3 +1,12 @@
+---
+applyTo: '**/*.cs'
+description: >
+  Template authoring pitfalls and solutions: NuGet dependency registration, 
+  SingleFileListModel filename stability, filter method calls, Constants naming conflicts, 
+  and NuGet package version management.
+keywords: [intent architect, template authoring, nuget, build, gotchas, constants]
+---
+
 ## Known Build Gotchas
 
 ### NuGet Dependencies — Not Inside `OnBuild`

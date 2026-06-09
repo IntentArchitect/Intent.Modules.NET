@@ -1,7 +1,12 @@
-# Skill: intent-architect-mcp
+---
+name: intent-architect-mcp
+description: >
+  Intent Architect MCP workflow: designer operations, element discovery, model modification, 
+  Software Factory execution, compilation verification, and cross-module integration patterns.
+  If you find yourself wanting to edit `.xml`, `.config` files inside an `intent` folder directly, stop and ask the user to model the change instead. The IA MCP workflow is designed to keep models as the single source of truth — direct file edits are a last resort for truly exceptional cases.
+---
 
-## When to Use
-Invoke this skill before any session that involves reading or modifying Intent Architect designers, running the Software Factory, installing modules, or operating the MCP tools. Not needed for pure code-reading tasks.
+# Skill: intent-architect-mcp
 
 ---
 
