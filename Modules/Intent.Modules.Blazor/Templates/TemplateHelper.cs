@@ -11,7 +11,7 @@ namespace Intent.Modules.Blazor.Templates
     {
         internal static bool ComponentLibraryInstalled(IApplication application)
         {
-            //This is base component library, if you have this installed you have a component library like MudBlazor installed
+            // This is the base component library marker; component-library modules install it.
             return application.InstalledModules.Any(x => x.ModuleId == "Intent.Modelers.UI.Core");
         }
 

@@ -11,7 +11,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorPageAddingEntitySkill
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class BlazorPageAddingEntitySkillTemplateRegistration : SingleFileTemplateRegistration

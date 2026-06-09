@@ -12,13 +12,13 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorPageSearchEntitySkill
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class BlazorPageSearchEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate";
+        public const string TemplateId = "Intent.Blazor.Components.MudBlazor.BlazorPageSearchEntitySkillTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BlazorPageSearchEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

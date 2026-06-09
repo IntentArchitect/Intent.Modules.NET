@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorDialogAddingEntitySkill
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class BlazorDialogEditingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+    public class BlazorDialogAddingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate";
+        public const string TemplateId = "Intent.Blazor.Components.MudBlazor.BlazorDialogAddingEntitySkillTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public BlazorDialogEditingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public BlazorDialogAddingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
-            MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-dialog-editing-entity")
+            MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-dialog-adding-entity")
                 .FromMarkdown("""
 ---
-name: blazor-dialog-editing-entity
-description: Creates Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when implementing edit or update entity dialogs in Blazor.
+name: blazor-dialog-adding-entity
+description: Creates Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when implementing add or create entity dialogs in Blazor.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"
@@ -38,8 +38,8 @@ paths:
 
 STOP - You MUST read ALL sample files in the SAME folder as this SKILL.md before writing ANY code:
 
-1. `edit-entity-dialog-sample.razor`
-2. `edit-entity-dialog-sample.razor.cs`
+1. `add-entity-dialog-sample.razor`
+2. `add-entity-dialog-sample.razor.cs`
 
 Then read the target component `.razor`, `.razor.cs`, and related project files such as models, enums, lookups, services, and shared styles.
 
@@ -49,22 +49,22 @@ If any sample file cannot be accessed: stop immediately, confirm the SKILL.md fo
 
 ## Preserve Existing Implementation
 
-Use for: Edit or update entity dialogs in Blazor with MudBlazor  
-Do NOT use for: Full pages, search pages, add dialogs, or non-Blazor projects  
-Source of truth: Existing `.razor.cs` file defines data loading, service calls, dialog behavior, and model structure  
+Use for: Add or create entity dialogs in Blazor with MudBlazor  
+Do NOT use for: Full pages, search pages, edit dialogs, or non-Blazor projects  
+Source of truth: Existing `.razor.cs` file defines service calls, dialog behavior, and model structure  
 This is a dialog: close or cancel through MudBlazor dialog APIs rather than navigation
 
 ### You MUST NOT:
-- Modify existing backend methods such as `UpdateEntity()` or `UpdateEntityAsync()`
+- Modify existing backend methods such as `CreateEntity()` or `CreateEntityAsync()`
 - Change payload shape sent to the backend
 - Add, rename, or remove model properties
 - Invent lookup services
 - Rewrite existing C# functionality
-- Add navigation logic to the dialog flow
+- Add page navigation logic to the dialog flow
 
 ---
 
-## 1. Dialog Structure And Data Loading
+## 1. Dialog Structure
 
 This component is a MudBlazor dialog, not a page.
 
@@ -74,20 +74,19 @@ Dialog rules:
 - Do not use old dialog tags such as `MudDialogTitle`, `MudDialogContent`, or `MudDialogActions`
 - For success, close with `MudDialog.Close(DialogResult.Ok(true))`
 - For cancel, use `MudDialog.Cancel()`
+- The dialog result property name is `Canceled`, not `Cancelled`
 
-Data loading:
-- Receive dialog input through `[Parameter]` properties or existing project conventions
-- If an ID is passed, load the entity through existing methods
-- If a model is passed, prepopulate from that existing input structure
-- Do not invent new dialog input contracts
+If input data is needed, receive it through `[Parameter]` properties or existing project conventions.
 
 ---
 
 ## 2. Save And Cancel Methods
 
+Implement or use top-level methods for the template:
+
 `Save()` or `SaveAsync()`:
 1. Validate the form
-2. Call the existing update method without modification
+2. Call the existing backend method without modifying it
 3. On success, close the dialog with a success result
 4. On error, keep the dialog open and set existing error state such as `serviceErrors.*`
 
@@ -99,13 +98,13 @@ Data loading:
 Template bindings:
 - Bind Save button to `Save()` or `SaveAsync()`
 - Bind Cancel button to `Cancel()`
-- Do not call backend methods directly from the Razor template
+- Do not call service methods directly from the Razor template
 
 ---
 
-## 3. Form Validation
+## 3. Form And Validation In Dialogs
 
-Use valid Blazor `EditForm` patterns with the project's existing validation approach.
+Use valid Blazor form patterns such as `EditForm` with the component's existing validation conventions.
 
 Required fields must have:
 - Existing validation annotations or validator wiring
@@ -114,7 +113,7 @@ Required fields must have:
 
 Save button state:
 - Disable Save when the form is invalid
-- Disable Save while saving
+- Disable Save while a save is in progress
 
 ---
 
@@ -128,11 +127,11 @@ Save button state:
 | Lookup | `MudSelect` from real option sources only |
 | Array | Repeatable MudBlazor blocks |
 
-MudBlazor rules:
-- Declare `T` explicitly for generic controls when required
-- Add placeholders to `MudSelect`
-- If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
-- Never assume enum members from sample code
+Enum rules:
+- Read and verify the enum definition before rendering options
+- Use only verified members
+- Prefer explicit numeric values in `MudSelectItem`
+- Never assume enum members from the sample files
 
 ---
 
@@ -150,8 +149,6 @@ MudBlazor rules:
 - Keep component-specific styles minimal
 - Never modify existing shared styles or theme values
 - Match the sample dialog layout closely
-- Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
-- Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
 
 **Design context (if design.md is present)**
 
@@ -168,10 +165,10 @@ If a `design.md` file exists in the project, read it before choosing MudBlazor c
 
 - [ ] All bindings used in `.razor` exist in `.razor.cs`
 - [ ] Dialog uses `IMudDialogInstance` and modern MudBlazor dialog sections
-- [ ] Entity data is loaded or prepopulated using existing patterns only
 - [ ] Save closes with `DialogResult.Ok(true)` on success
 - [ ] Cancel only cancels the dialog
-- [ ] Backend update methods were not modified
+- [ ] Service methods were not called directly from the template
+- [ ] Backend methods were not modified
 - [ ] Model properties were not added, removed, or renamed
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation prevents service calls when invalid

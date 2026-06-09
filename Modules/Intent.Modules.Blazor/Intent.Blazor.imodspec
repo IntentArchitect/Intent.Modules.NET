@@ -11,30 +11,6 @@
   <tags>blazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html</projectUrl>
   <templates>
-    <template id="Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate" externalReference="13297947-0406-4238-bc5f-bee51e6579c6">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="126d3417-12cf-4743-873a-5d18ed8409ad">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate" externalReference="2bfbd8aa-9f0f-4dc5-b3b0-72de6b8b4234">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate" externalReference="c84a605a-dc42-44e1-9ad6-354fa56adeec">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="4a16b11d-f73c-4bd8-87f3-7202c891752f">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate" externalReference="29e609f7-7153-49e3-9275-64d6ef358462">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -170,10 +146,6 @@
       </config>
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
-    </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
-      <role>AI.Context.Skills</role>
-      <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration" externalReference="1847a039-bc0e-41ec-9b51-a56f93d1c1b6">
       <role>Blazor.NoSample</role>

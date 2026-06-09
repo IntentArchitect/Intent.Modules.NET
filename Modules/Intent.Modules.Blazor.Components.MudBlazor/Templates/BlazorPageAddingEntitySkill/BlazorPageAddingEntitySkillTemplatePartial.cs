@@ -12,13 +12,13 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorPageAddingEntitySkill
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class BlazorPageAddingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate";
+        public const string TemplateId = "Intent.Blazor.Components.MudBlazor.BlazorPageAddingEntitySkillTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BlazorPageAddingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

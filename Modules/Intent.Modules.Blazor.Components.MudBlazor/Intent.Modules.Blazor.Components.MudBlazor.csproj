@@ -15,6 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="content\SkillSamples\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3" />
@@ -43,6 +52,12 @@
       <PackagePath></PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="content\SkillSamples\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
   </ItemGroup>
 
 </Project>

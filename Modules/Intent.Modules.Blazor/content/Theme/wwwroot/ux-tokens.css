@@ -420,7 +420,7 @@ h4:focus-visible, h5:focus-visible, h6:focus-visible {
     position: relative;
     overflow: hidden;
     min-height: calc(100vh - 64px);
-    margin: -1rem; /* bleed out of MudMainContent pa-4 padding */
+    margin: -1rem; /* bleed out of layout padding */
 }
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */

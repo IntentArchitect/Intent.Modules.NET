@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a4b6fd47-21b9-4950-a4e9-4143566f48d8" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
-  <name>BlazorSkillSampleFilesTemplate</name>
-  <display>BlazorSkillSampleFilesTemplate</display>
+  <name>MudBlazorSkillSampleFilesTemplate</name>
+  <display>MudBlazorSkillSampleFilesTemplate</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>b44ebbc8-109d-4a4f-92d2-45f36852802c</parentFolderId>
-  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
-  <packageName>Intent.Blazor</packageName>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="1fd8fd68-ff20-437c-8c00-ac77920d7ff0" name="Template Settings">
       <addedByDefault>true</addedByDefault>

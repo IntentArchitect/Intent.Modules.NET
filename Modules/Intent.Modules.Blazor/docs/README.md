@@ -44,7 +44,7 @@ Create this class in the `.Client` project (for example under `Common/Auth/`):
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
-namespace MudBlazor.Sample.Client.Common.Auth;
+namespace Blazor.Sample.Client.Common.Auth;
 
 public class NeverAuthenticatedAuthStateProvider : AuthenticationStateProvider
 {
@@ -80,7 +80,7 @@ Create this class in the .Client project (for example under Common/Auth/):
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
-namespace MudBlazor.Sample.Client.Common.Auth;
+namespace Blazor.Sample.Client.Common.Auth;
 
 public class AlwaysAuthenticatedAuthStateProvider : AuthenticationStateProvider
 {

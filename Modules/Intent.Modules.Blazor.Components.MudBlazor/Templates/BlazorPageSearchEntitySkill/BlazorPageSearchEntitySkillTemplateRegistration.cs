@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogAddingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorPageSearchEntitySkill
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class BlazorDialogAddingEntitySkillTemplateRegistration : SingleFileTemplateRegistration
+    public class BlazorPageSearchEntitySkillTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => BlazorDialogAddingEntitySkillTemplate.TemplateId;
+        public override string TemplateId => BlazorPageSearchEntitySkillTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new BlazorDialogAddingEntitySkillTemplate(outputTarget);
+            return new BlazorPageSearchEntitySkillTemplate(outputTarget);
         }
     }
 }
