@@ -1,0 +1,50 @@
+@page "/Account/Manage/ExternalLogins"
+
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityUserAccessor UserAccessor
+@inject IUserStore<<#= IdentityClass #>> UserStore
+@inject IdentityRedirectManager RedirectManager
+
+<PageTitle>Manage your external logins</PageTitle>
+
+<StatusMessage />
+@if (currentLogins?.Count > 0)
+{
+    <MudText Typo="Typo.h5" Class="mb-3">Registered Logins</MudText>
+    <MudTable Items="currentLogins" Hover="true" Dense="true" Class="mb-3">
+        <RowTemplate>
+            <MudTd>@context.ProviderDisplayName</MudTd>
+            <MudTd>
+                @if (showRemoveButton)
+                {
+                    <form @formname="@($"remove-login-{context.LoginProvider}")" @onsubmit="OnSubmitAsync" method="post">
+                        <AntiforgeryToken />
+                        <input type="hidden" name="@nameof(LoginProvider)" value="@context.LoginProvider" />
+                        <input type="hidden" name="@nameof(ProviderKey)" value="@context.ProviderKey" />
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small"
+                                   Title="Remove this @context.ProviderDisplayName login from your account">Remove</MudButton>
+                    </form>
+                }
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}
+@if (otherLogins?.Count > 0)
+{
+    <MudText Typo="Typo.h6" Class="mb-3">Add another service to log in.</MudText>
+    <form class="form-horizontal" action="Account/Manage/LinkExternalLogin" method="post">
+        <AntiforgeryToken />
+        <div class="external-login-buttons">
+            @foreach (var provider in otherLogins)
+            {
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
+                           Name="Provider" Value="@provider.Name"
+                           Title="Log in using your @provider.DisplayName account">@provider.DisplayName</MudButton>
+            }
+        </div>
+    </form>
+}

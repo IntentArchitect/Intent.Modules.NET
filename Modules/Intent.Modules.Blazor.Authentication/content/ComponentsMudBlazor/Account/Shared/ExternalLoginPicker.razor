@@ -1,0 +1,27 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityRedirectManager RedirectManager
+
+@if (externalLogins.Length == 0)
+{
+    <MudText Typo="Typo.body1">
+        There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+        about setting up this ASP.NET application to support logging in via external services</a>.
+    </MudText>
+}
+else
+{
+    <form class="form-horizontal" action="Account/PerformExternalLogin" method="post">
+        <AntiforgeryToken />
+        <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+        <div class="external-login-buttons">
+            @foreach (var provider in externalLogins)
+            {
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
+                           Name="provider" Value="@provider.Name"
+                           Title="Log in using your @provider.DisplayName account">@provider.DisplayName</MudButton>
+            }
+        </div>
+    </form>
+}

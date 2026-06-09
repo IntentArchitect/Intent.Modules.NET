@@ -1,0 +1,42 @@
+@page "/Account/Manage/Email"
+
+@using System.Text
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IEmailSender<<#= IdentityClass #>> EmailSender
+@inject IdentityUserAccessor UserAccessor
+@inject NavigationManager NavigationManager
+
+<PageTitle>Manage email</PageTitle>
+
+<MudText Typo="Typo.h5" Class="mb-3">Manage email</MudText>
+<StatusMessage Message="@message"/>
+
+<MudCard Class="auth-form-card">
+    <MudCardContent>
+        <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
+            <AntiforgeryToken />
+        </form>
+        <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            @if (isEmailConfirmed)
+            {
+                <MudTextField Label="Email" Value="@email" Disabled="true" Class="mb-3"
+                              Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.CheckCircle" AdornmentColor="Color.Success" />
+            }
+            else
+            {
+                <MudTextField Label="Email" Value="@email" Disabled="true" Class="mb-3" />
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Primary" form="send-verification-form" Class="mb-3">Send verification email</MudButton>
+            }
+            <MudTextField Label="New email" For="@(() => Input.NewEmail)" @bind-Value="Input.NewEmail"
+                          Required="true" RequiredError="Email is required"
+                          AutoComplete="email" Placeholder="Please enter new email." Class="mb-3" />
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Change email</MudButton>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

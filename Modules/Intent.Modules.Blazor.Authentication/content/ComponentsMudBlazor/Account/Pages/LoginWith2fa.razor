@@ -1,0 +1,35 @@
+@page "/Account/LoginWith2fa"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<LoginWith2fa> Logger
+
+<PageTitle>Two-factor authentication</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-3">Two-factor authentication</MudText>
+<StatusMessage Message="@message" />
+<MudText Typo="Typo.body1" Class="mb-3">Your login is protected with an authenticator app. Enter your authenticator code below.</MudText>
+
+<MudCard Class="auth-form-card">
+    <MudCardContent>
+        <EditForm Model="Input" FormName="login-with-2fa" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+            <input type="hidden" name="RememberMe" value="@RememberMe" />
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <MudTextField Label="Authenticator code" For="@(() => Input.TwoFactorCode)" @bind-Value="Input.TwoFactorCode"
+                          Required="true" RequiredError="Authenticator code is required"
+                          AutoComplete="off" Class="mb-3" />
+            <MudCheckBox T="bool" @bind-Value="Input.RememberMachine" Label="Remember this machine" Color="Color.Primary" Class="mb-3" />
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
+        </EditForm>
+    </MudCardContent>
+</MudCard>
+
+<MudText Typo="Typo.body2" Class="mt-3">
+    Don't have access to your authenticator device? You can
+    <MudLink Href="Account/LoginWithRecoveryCode?ReturnUrl=@ReturnUrl">log in with a recovery code</MudLink>.
+</MudText>

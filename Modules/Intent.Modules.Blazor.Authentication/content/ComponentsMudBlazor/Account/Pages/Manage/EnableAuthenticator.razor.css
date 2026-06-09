@@ -1,0 +1,11 @@
+.auth-form-card {
+    max-width: 600px;
+}
+
+.auth-steps {
+    padding-left: var(--space-5);
+}
+
+.auth-steps li {
+    margin-bottom: var(--space-4);
+}

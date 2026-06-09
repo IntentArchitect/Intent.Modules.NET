@@ -1,0 +1,30 @@
+@page "/Account/LoginWithRecoveryCode"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<LoginWithRecoveryCode> Logger
+
+<PageTitle>Recovery code verification</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-3">Recovery code verification</MudText>
+<StatusMessage Message="@message" />
+<MudText Typo="Typo.body1" Class="mb-3">
+    You have requested to log in with a recovery code. This login will not be remembered until you provide
+    an authenticator app code at log in or disable 2FA and log in again.
+</MudText>
+
+<MudCard Class="auth-form-card">
+    <MudCardContent>
+        <EditForm Model="Input" FormName="login-with-recovery-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <MudTextField Label="Recovery Code" For="@(() => Input.RecoveryCode)" @bind-Value="Input.RecoveryCode"
+                          Required="true" RequiredError="Recovery code is required"
+                          AutoComplete="off" Placeholder="RecoveryCode" Class="mb-3" />
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Log in</MudButton>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

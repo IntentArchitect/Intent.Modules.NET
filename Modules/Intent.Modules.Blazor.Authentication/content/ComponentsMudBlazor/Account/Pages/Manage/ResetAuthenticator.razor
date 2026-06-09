@@ -1,0 +1,22 @@
+@page "/Account/Manage/ResetAuthenticator"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityUserAccessor UserAccessor
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<ResetAuthenticator> Logger
+
+<PageTitle>Reset authenticator key</PageTitle>
+
+<StatusMessage />
+<MudText Typo="Typo.h5" Class="mb-3">Reset authenticator key</MudText>
+<MudAlert Severity="Severity.Warning" Class="mb-3">
+    <MudText Typo="Typo.body1"><strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong></MudText>
+    <MudText Typo="Typo.body1">This process disables 2FA until you verify your authenticator app. If you do not complete your authenticator app configuration you may lose access to your account.</MudText>
+</MudAlert>
+<form @formname="reset-authenticator" @onsubmit="OnSubmitAsync" method="post">
+    <AntiforgeryToken />
+    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error">Reset authenticator key</MudButton>
+</form>

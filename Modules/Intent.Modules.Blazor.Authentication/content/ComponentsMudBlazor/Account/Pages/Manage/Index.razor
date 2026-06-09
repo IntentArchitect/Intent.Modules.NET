@@ -1,0 +1,26 @@
+@page "/Account/Manage"
+
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<<#= IdentityClass #>> UserManager
+@inject SignInManager<<#= IdentityClass #>> SignInManager
+@inject IdentityUserAccessor UserAccessor
+@inject IdentityRedirectManager RedirectManager
+
+<PageTitle>Profile</PageTitle>
+
+<MudText Typo="Typo.h5" Class="mb-3">Profile</MudText>
+<StatusMessage />
+
+<MudCard Class="auth-form-card">
+    <MudCardContent>
+        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <MudTextField Label="Username" Value="@username" Disabled="true" Class="mb-3" />
+            <MudTextField Label="Phone number" For="@(() => Input.PhoneNumber)" @bind-Value="Input.PhoneNumber"
+                          Placeholder="Please enter your phone number." Class="mb-3" />
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Save</MudButton>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

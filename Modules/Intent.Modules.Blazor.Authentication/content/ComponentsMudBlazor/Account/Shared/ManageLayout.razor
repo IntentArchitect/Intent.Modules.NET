@@ -1,0 +1,13 @@
+@inherits LayoutComponentBase
+@layout AccountLayout
+
+<MudText Typo="Typo.h4" Class="mb-3">Manage your account</MudText>
+
+<MudGrid>
+    <MudItem xs="12" md="3">
+        <ManageNavMenu />
+    </MudItem>
+    <MudItem xs="12" md="9">
+        @Body
+    </MudItem>
+</MudGrid>

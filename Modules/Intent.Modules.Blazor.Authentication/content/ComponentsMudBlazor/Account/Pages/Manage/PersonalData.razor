@@ -1,0 +1,19 @@
+@page "/Account/Manage/PersonalData"
+
+@inject IdentityUserAccessor UserAccessor
+
+<PageTitle>Personal Data</PageTitle>
+
+<StatusMessage />
+<MudText Typo="Typo.h5" Class="mb-3">Personal Data</MudText>
+
+<MudText Typo="Typo.body1" Class="mb-3">Your account contains personal data that you have given us. This page allows you to download or delete that data.</MudText>
+<MudAlert Severity="Severity.Warning" Class="mb-3">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
+
+<div class="personal-data-actions">
+    <form action="Account/Manage/DownloadPersonalData" method="post">
+        <AntiforgeryToken />
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Download</MudButton>
+    </form>
+    <MudButton Href="Account/Manage/DeletePersonalData" Variant="Variant.Filled" Color="Color.Error">Delete</MudButton>
+</div>
