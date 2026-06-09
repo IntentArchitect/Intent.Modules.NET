@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#9f2cb515-5850-4ff6-a380-84bf96c52f9c</correlationId>
-      <path>Blazor.ProductService.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:00:48.0745968Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>1AEE0BC6D4CF54C8A1D2AEA7B63858A4EB56B83684313985430D720FBC7F91EF</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#8803cb2d-1eea-4180-a44f-033f369fcd8b</correlationId>
-      <path>Blazor.ProductService.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:00:48.0747541Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>EC23F02EEE2E7E8F711DC03502D93F9C2C8838CB85842EC97499CFAAECF4A698</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

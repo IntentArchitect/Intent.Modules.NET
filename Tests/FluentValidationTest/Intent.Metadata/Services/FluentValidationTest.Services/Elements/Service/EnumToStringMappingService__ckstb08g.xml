@@ -13,7 +13,6 @@
   <metadata />
   <childElements>
     <childElement id="362d538b-a022-4852-b931-34eeb1402029" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <comment />
       <name>ProcessOrder</name>
       <display>ProcessOrder(dto: ProcessOrderDto): void</display>
       <isAbstract>false</isAbstract>

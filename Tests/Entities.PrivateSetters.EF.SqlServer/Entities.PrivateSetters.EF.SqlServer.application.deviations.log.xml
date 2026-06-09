@@ -14,25 +14,5 @@
       <deviationsHash>19F38C4AC26CE12317F366DC72D65C72FFEEDAD5F4BE87CE6EE47A4737A7F807</deviationsHash>
       <fileHash>0F85CAD7B1B4AAA484183146B4C86649783D17DCBC06F1E9903C1E16C7B50593</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#b49298f5-7f01-493e-9c22-d307169e64d3</correlationId>
-      <path>Entities.PrivateSetters.EF.SqlServer.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:04:37.2314983Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>634F2B10DB0373DCFD5F3EFB02C45193803A463876C7D4685D8CAA4B826AA0A6</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a1bdd2ad-dbbe-44c9-b5fc-30e4815380df</correlationId>
-      <path>Entities.PrivateSetters.EF.SqlServer.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:04:37.2317863Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>63FE651208A1EB5F475437DF1FCCF72A39905A3CE5DCA2B47D6CF878BB7E588A</fileHash>
-    </file>
   </files>
 </deviationsLog>

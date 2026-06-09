@@ -13,7 +13,6 @@
   <icon type="FontAwesome" source="sign-out-alt" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return true;</displayIconFunction>
-  <displayFunction />
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>

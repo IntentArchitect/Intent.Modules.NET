@@ -475,7 +475,6 @@
       </childElements>
     </childElement>
     <childElement id="668f5ee5-516d-4f41-996d-ee046d587834" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <comment />
       <name>MappedAzureFunction</name>
       <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
       <isAbstract>false</isAbstract>

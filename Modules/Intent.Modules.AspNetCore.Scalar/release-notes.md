@@ -1,3 +1,7 @@
+### Version 1.0.9
+
+- Fixed an issue in `HideRouteParametersFromBodyOperationTransformer` where omitted non-nullable string properties could cause ASP.NET model validation failures in certain request scenarios. Updated route-body parameter reconciliation behavior for string properties to preserve compatibility with common document database and user-supplied identifier patterns.
+
 ### Version 1.0.8
 
 - Improvement: Added OAuth 2.0 Authorization Code authentication support to OpenAPI security document generation for Scalar.

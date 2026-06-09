@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b368f4d-f3f8-4db7-b55f-9ef55a5c5437" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HttpClientFakeRegistrationFactoryExtension</name>
+  <display>HttpClientFakeRegistrationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>05ec7ac0-e27f-49d8-8988-8f681434ff69</parentFolderId>
+  <packageId>05ec7ac0-e27f-49d8-8988-8f681434ff69</packageId>
+  <packageName>Intent.Integration.HttpClients.Fakes</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

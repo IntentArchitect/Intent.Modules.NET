@@ -41,16 +41,6 @@
       <fileHash>B0DC186EE05BB90D8A54B4EF4C1F5773E84F79D8D125D2CE9302FB2DC689A9D1</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#60f00310-024f-46e9-a78b-147e179e5c6c</correlationId>
-      <path>CosmosDB.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:01:44.1138594Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>E0FB5D985940BFA7C4C62AF92F1571C26DC48109499B42251907D34F28B90927</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#7cdfd277-2f95-40c5-89c7-c957eb651078</correlationId>
       <path>CosmosDB.Application/GetAllImplementation.Customers/GetGetallimplementationCustomerGetallimplementationOrders/GetGetallimplementationCustomerGetallimplementationOrdersQueryHandler.cs</path>
       <count>1</count>

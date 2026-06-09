@@ -6,6 +6,20 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates
 {
     public static class ProxySettingsHelper
     {
+        public static string GetGroupName(this IServiceProxyModel model)
+        {
+            var element = model.InternalElement;
+            var result = element?.MappedElement?.Element?.Package?.Name;
+            result ??= element?.Package.Name;
+
+            if (model.Endpoints.Any() && string.IsNullOrWhiteSpace(result))
+            {
+                result = model.Endpoints[0].InternalElement?.Package?.Name;
+            }
+
+            return result ?? string.Empty;
+        }
+
         public static bool SerializeEnumsAsStrings(this IIntentTemplate template, IElement? element)
         {
             var applicationId = element?.MappedElement?.Element?.Package.ApplicationId ?? element?.Package.ApplicationId;

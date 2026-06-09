@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="fc3b319b-351b-471f-ac44-e86381258b89" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
-  <comment />
   <name>MappedAzureFunction</name>
   <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
   <isAbstract>false</isAbstract>

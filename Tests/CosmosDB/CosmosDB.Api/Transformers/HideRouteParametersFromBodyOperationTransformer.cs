@@ -56,8 +56,9 @@ namespace CosmosDB.Api.Transformers
                 }
 
                 // Find properties that match route parameter names (case-insensitive)
-                var propertiesToRemove = schema.Properties.Keys
-                    .Where(key => routeParameters.Contains(key?.ToLowerInvariant()))
+                var propertiesToRemove = schema.Properties
+                    .Where(property => routeParameters.Contains(property.Key?.ToLowerInvariant()) && !IsPlainStringSchema(property.Value))
+                    .Select(property => property.Key)
                     .ToList();
 
                 if (propertiesToRemove.Count == 0)
@@ -77,6 +78,11 @@ namespace CosmosDB.Api.Transformers
             }
 
             return Task.CompletedTask;
+        }
+
+        private static bool IsPlainStringSchema(IOpenApiSchema schema)
+        {
+            return schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid";
         }
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3bca9ed6-f61e-4175-884e-ee8c526a6ea7</correlationId>
+      <path>Intent.Modules.Integration.HttpClients.Fakes/Templates/HttpClientFake/HttpClientFakeTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-05-27T12:32:54.9613679Z</updatedAt>
+      <deviationsHash>13038A94EBFDE8CFE2DC407CCCD8EA0CE8AC89E5C7E7759EFAF6B343B1D85E83</deviationsHash>
+      <fileHash>3BF5B7B35820846FAFC7BC7171299C37745439CE276B3DB0F677DA530EBBEDFE</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -65,7 +65,7 @@ namespace HashiCorpVault.Api.Filters
 
                 // Find properties that match route parameter names (case-insensitive)
                 var propertiesToRemove = schema.Properties.Keys
-                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
+                    .Where(key => routeParameters.Contains(key.ToLowerInvariant()) && !IsPlainStringSchema(schema.Properties[key]))
                     .ToList();
 
                 if (propertiesToRemove.Count == 0)
@@ -96,6 +96,11 @@ namespace HashiCorpVault.Api.Filters
                 // Replace the content schema with the new filtered schema
                 operation.RequestBody.Content[contentType].Schema = newSchema;
             }
+        }
+
+        private static bool IsPlainStringSchema(OpenApiSchema schema)
+        {
+            return schema.Type == "string" && schema.Format != "uuid";
         }
     }
 }

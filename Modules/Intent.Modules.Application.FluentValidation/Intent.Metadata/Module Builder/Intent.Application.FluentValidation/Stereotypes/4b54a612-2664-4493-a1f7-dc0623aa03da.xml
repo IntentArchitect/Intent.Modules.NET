@@ -28,7 +28,6 @@ return "";</displayFunction>
   <order>0</order>
   <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
   <packageName>Intent.Application.FluentValidation</packageName>
-  <validateFunction />
   <properties>
     <property id="d144e1aa-b506-407a-b60b-716ce38b70bb">
       <name>Not Empty</name>
@@ -86,7 +85,6 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
 return type ? type.getName() == "int" || type.getName() == "long" || type.getName() == "decimal" : false;</isActiveFunction>
     </property>
     <property id="ad0c1113-ee22-4275-8177-576494ecfa45">
-      <hint />
       <name>Regular Expression</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -131,6 +129,7 @@ return regExValue?.length &gt; 0;</isActiveFunction>
       <isActiveFunction>return Predicate != "" &amp;&amp; Predicate != null</isActiveFunction>
     </property>
     <property id="85282cb5-5e12-4eb0-9568-7ccee0685e12">
+      <hint>Checks for a valid email address, not whether it exists.</hint>
       <name>Email Address</name>
       <type>string</type>
       <controlType>checkbox</controlType>

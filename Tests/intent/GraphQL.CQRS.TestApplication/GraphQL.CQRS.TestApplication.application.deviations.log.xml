@@ -15,16 +15,6 @@
       <fileHash>D632F05D1B82865E8D40CE658787DE101F45A70C962495DACC2D10FBBA61C008</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#a92654a4-3ed7-440d-9cd2-5b6321b89a2f</correlationId>
-      <path>GraphQL.CQRS.TestApplication.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:07:45.8544527Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>475F10816CD8E90651A8CFD37FE48D787EEF6A2E338258D601D7E3B21EC15CC8</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#c62a6a2a-94d1-436f-b864-58bdd57515cd</correlationId>
       <path>GraphQL.CQRS.TestApplication.Domain/Repositories/IEFRepository.cs</path>
       <count>1</count>
@@ -36,16 +26,6 @@
       <approvedAt>2025-09-02T22:41:07.4011406Z</approvedAt>
       <deviationsHash>10080B8CCB382A6B13EB78BDF31EC2B13FEDD9B6983CACFF1A74B0A75C92D64C</deviationsHash>
       <fileHash>DEB0D6867612AF8244F4B39208DD0202B687C433A8A4993DD4A765DF8B394BA9</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#00afa30e-0eab-4290-ab2b-76369486b1f7</correlationId>
-      <path>GraphQL.CQRS.TestApplication.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:07:45.8549585Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>25293D4517372337301D227F101C266ECB04699302A2F1C34DBBA92F5839C0FF</fileHash>
     </file>
     <file>
       <correlationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#e09c33ec-3804-47f8-8369-2d8abf7f93ef</correlationId>

@@ -455,8 +455,6 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             return false;
         }
 
-        var elementName = "TargetFrameworkVersion";
-
         element.Value = elementValue;
 
         return true;

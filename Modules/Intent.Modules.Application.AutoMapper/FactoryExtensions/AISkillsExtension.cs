@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 1; // Made this 1 so this runs after the UOWs (just for backs compatibility)
-       
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             RegisterAutoMapperGuidance(
@@ -84,7 +84,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                     projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
             }
             """, "csharp", "Example:");
-            });                
+            });
         }
     }
 }

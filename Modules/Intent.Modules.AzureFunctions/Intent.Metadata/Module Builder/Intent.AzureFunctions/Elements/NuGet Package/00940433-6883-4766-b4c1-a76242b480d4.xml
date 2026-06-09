@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="00940433-6883-4766-b4c1-a76242b480d4" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment />
   <name>Microsoft.Azure.Functions.Worker.Extensions.Timer</name>
   <display>Microsoft.Azure.Functions.Worker.Extensions.Timer</display>
   <isAbstract>false</isAbstract>

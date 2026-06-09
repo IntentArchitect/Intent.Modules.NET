@@ -9,7 +9,7 @@ using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates;
 
-internal static class ServiceProxyHelpers
+public static class ServiceProxyHelpers
 {
     public static IList<IServiceProxyModel> GetServiceProxyModels(
         this IMetadataManager metadataManager,

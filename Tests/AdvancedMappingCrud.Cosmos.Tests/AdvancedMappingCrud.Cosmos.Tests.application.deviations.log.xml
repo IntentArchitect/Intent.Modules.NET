@@ -41,26 +41,6 @@
       <fileHash>7D5CC3B7896A0FB2D172A7DCEE9C55FC5DB125C2D74D85A1B997E48034889FF2</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#faa3c766-68f5-4507-83fb-d05a1cc29238</correlationId>
-      <path>AdvancedMappingCrud.Cosmos.Tests.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T08:57:26.3974149Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>88666B2DE91CE1738B03951145604C433BF1ED2780AEF9BA2ACCAA917CBFF9A6</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#dbccba0e-2a72-460e-af85-b3a3e5f9422e</correlationId>
-      <path>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T08:57:26.3978847Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>A4301F37FFB5A053D0915A04BCC4182314775C52537C64294A214305B4AF251A</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#964f72f6-6eff-495c-84a9-8017b11c7184</correlationId>
       <path>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ExplicitETags/UpdateExplicitETagTests.cs</path>
       <count>2</count>

@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration
 {
@@ -63,8 +64,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                             .AddParameter("string", "groupName")
                             .AddParameter("string", "serviceName")
                             ;
-                        method.AddStatement("client.BaseAddress = configuration.GetValue<Uri>($\"HttpClients:{serviceName}:Uri\") ?? configuration.GetValue<Uri>($\"HttpClients:{groupName}:Uri\");");
-                        method.AddStatement("client.Timeout = configuration.GetValue<TimeSpan?>($\"HttpClients:{serviceName}:Timeout\") ?? configuration.GetValue<TimeSpan?>($\"HttpClients:{groupName}:Timeout\") ?? TimeSpan.FromSeconds(100);");
+                        method.AddStatement($@"client.BaseAddress = configuration.GetValue<Uri>($""{HttpClientSettingsHelper.HttpClientsSection}:{{serviceName}}:Uri"") ?? configuration.GetValue<Uri>($""{HttpClientSettingsHelper.HttpClientsSection}:{{groupName}}:Uri"");");
+                        method.AddStatement($@"client.Timeout = configuration.GetValue<TimeSpan?>($""{HttpClientSettingsHelper.HttpClientsSection}:{{serviceName}}:Timeout"") ?? configuration.GetValue<TimeSpan?>($""{HttpClientSettingsHelper.HttpClientsSection}:{{groupName}}:Timeout"") ?? TimeSpan.FromSeconds(100);");
                     });
                 });
         }

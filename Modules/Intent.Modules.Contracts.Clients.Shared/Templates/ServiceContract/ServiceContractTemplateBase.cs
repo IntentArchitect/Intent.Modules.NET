@@ -56,6 +56,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
 
                                 method.AddOptionalCancellationTokenParameter(this);
                             });
+
                         }
                     });
         }

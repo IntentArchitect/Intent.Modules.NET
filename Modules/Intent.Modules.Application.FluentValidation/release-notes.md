@@ -1,3 +1,7 @@
+### Version 3.12.2
+
+- Improvement: Added a helpful hint to the `Email Address` validation option to clarify that it checks email format only and does not verify that the email exists.
+
 ### Version 3.12.1
 
 - Improvement: Updated skill format and generation to align with other modules.

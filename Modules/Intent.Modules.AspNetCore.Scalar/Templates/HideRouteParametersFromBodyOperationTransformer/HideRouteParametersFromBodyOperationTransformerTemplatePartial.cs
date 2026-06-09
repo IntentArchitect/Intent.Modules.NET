@@ -50,6 +50,18 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                         "/// This prevents duplicate documentation of parameters that are supplied via the URL.",
                         "/// </summary>"
                     });
+                    /*We must exclude strings because when non-null reference types are not supplied in the body, asp.net validation will reject the request since a default value cannot be inferred
+                    By removing this you will break typical requests for applications using documentDBs like Mongo, or edge cases like where a user supplied primary key is a string
+                    If this becomes problematic, consider removing this file entirely and instead using request-to-command mapping pattern as described in CQRS guidance */
+                    @class.AddMethod("bool", "IsPlainStringSchema", method =>
+                    {
+                        method.Private();
+                        method.Static();
+                        method.AddParameter(usesMicrosoftOpenApiV2 ? "IOpenApiSchema" : "OpenApiSchema", "schema");
+                        method.AddReturn(usesMicrosoftOpenApiV2
+                            ? """schema is OpenApiSchema openApiSchema && (openApiSchema.Type & JsonSchemaType.String) == JsonSchemaType.String && openApiSchema.Format != "uuid" """
+                            : """schema.Type == "string" && schema.Format != "uuid" """);
+                    });
 
                     @class.AddMethod("Task", "TransformAsync", method =>
                     {
@@ -106,8 +118,9 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                             forEach.AddStatement("// Find properties that match route parameter names (case-insensitive)", s => s.SeparatedFromPrevious());
                             forEach.AddStatements(
                                 """
-                                var propertiesToRemove = schema.Properties.Keys
-                                    .Where(key => routeParameters.Contains(key?.ToLowerInvariant()))
+                                var propertiesToRemove = schema.Properties
+                                    .Where(property => routeParameters.Contains(property.Key?.ToLowerInvariant()) && !IsPlainStringSchema(property.Value))
+                                    .Select(property => property.Key)
                                     .ToList();
                                 """.ConvertToStatements());
                             forEach.AddIfStatement("propertiesToRemove.Count == 0", stmt =>

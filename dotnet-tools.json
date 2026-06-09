@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "intent.softwarefactory.cli": {
+      "version": "5.0.4",
+      "commands": [
+        "intent-cli"
+      ],
+      "rollForward": false
+    }
+  }
+}

@@ -1,3 +1,6 @@
+### Version 6.0.2
+- Fixed an issue in `HideRouteParametersFromBodyOperationFilter` where omitted non-nullable string properties could cause ASP.NET model validation failures in certain request scenarios. Updated route-body parameter reconciliation behavior for string properties to preserve compatibility with common document database and user-supplied identifier patterns.
+
 ### Version 6.0.1
 
 - Improvement: Updated module dependencies.

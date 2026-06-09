@@ -36,6 +36,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
         public DbSet<Order> Orders { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<SpecializedProduct> SpecializedProducts { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Super> Supers { get; set; }
         public DbSet<User> Users { get; set; }
@@ -71,6 +72,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new SpecializedProductConfiguration());
             modelBuilder.ApplyConfiguration(new StockConfiguration());
             modelBuilder.ApplyConfiguration(new SuperConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());

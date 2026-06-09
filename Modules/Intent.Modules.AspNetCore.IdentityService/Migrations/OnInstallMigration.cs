@@ -956,7 +956,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                 new StereotypePersistable
                                 {
                                     DefinitionId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A",
-                                    Name = "Text CConstraints",
+                                    Name = "Text Constraints",
                                     DefinitionPackageId = "AF8F3810-745C-42A2-93C8-798860DC45B1",
                                     DefinitionPackageName = "Intent.Metadata.RDBMS",
                                     Properties =
@@ -1019,6 +1019,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                         SpecializationTypeId = "8190bf43-222c-4b53-8a44-14626efe3574",
                         Display = ": ApplicationIdentityUser",
                         Order = 0,
+                        Name = "ApplicationIdentityUser",
                         TypeReference = new TypeReferencePersistable
                         {
                             Id = Guid.NewGuid().ToString(),
@@ -1046,7 +1047,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                             TypePackageName = "Intent.AspNetCore.Identity.Domain",
                             TypePackageId = "d1f3cf7b-cd9a-431f-af26-a86aec1ace6f",
                             IsRequired = true,
-                            IsNavigable = false,
+                            IsNavigable = true,
                             IsNullable = false,
                             IsCollection = false,
                             GenericTypeParameters =

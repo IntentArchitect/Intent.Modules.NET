@@ -35,6 +35,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
         public DbSet<Order> Order { get; set; }
         public DbSet<Person> Person { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<SpecializedProduct> SpecializedProduct { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Super> Super { get; set; }
         public DbSet<User> User { get; set; }
@@ -70,6 +71,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new SpecializedProductConfiguration());
             modelBuilder.ApplyConfiguration(new StockConfiguration());
             modelBuilder.ApplyConfiguration(new SuperConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());

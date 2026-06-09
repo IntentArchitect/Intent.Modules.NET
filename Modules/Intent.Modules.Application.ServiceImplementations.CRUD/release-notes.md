@@ -1,3 +1,8 @@
+
+### Version 5.3.4
+
+- Fixed: Issue where SF would throw an exception if the return type was `void` in some use cases.
+
 ### Version 5.3.3
 
 - Fixed: Issue where DtoName was duplicate with some PagedResults.

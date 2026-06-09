@@ -68,7 +68,7 @@
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.12.6" />
     <dependency id="Intent.Modelers.Domain.Events" version="4.4.7" />
-    <dependency id="Intent.Modelers.Services" version="4.0.13" />
+    <dependency id="Intent.Modelers.Services" version="4.0.14" />
     <dependency id="Intent.Modelers.Services.DomainInteractions" version="2.4.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>

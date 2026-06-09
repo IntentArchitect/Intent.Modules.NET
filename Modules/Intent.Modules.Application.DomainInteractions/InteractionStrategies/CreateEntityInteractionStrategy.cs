@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Intent.Exceptions;
+﻿using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -15,6 +12,10 @@ using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using static Intent.Modules.Application.DomainInteractions.Extensions.AttributeModelExtensions;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
@@ -118,7 +119,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         {
 
             // TODO: GCB - This needs to be re-looked at. It's using the tracked entities, which doesn't make sense.
-            var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
+            var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, PrimaryKeyDataSourceFilter.NonUserSupplied);
 
             foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
             {
@@ -138,14 +139,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         }
 
 
-        private static List<EntityDetails> GetEntitiesReturningPk(ICSharpClassMethodDeclaration method, ITypeReference returnType, bool? isUserSupplied = null)
+        private static List<EntityDetails> GetEntitiesReturningPk(ICSharpClassMethodDeclaration method, ITypeReference returnType, PrimaryKeyDataSourceFilter primaryKeyDataSourceFilter = PrimaryKeyDataSourceFilter.Any)
         {
             if (returnType.Element.IsDTOModel())
             {
                 var dto = returnType.Element.AsDTOModel();
 
                 var mappedPks = dto.Fields
-                    .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
+                    .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(primaryKeyDataSourceFilter))
                     .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
                     .Distinct()
                     .ToList();
@@ -160,7 +161,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             return method.TrackedEntities().Values
                 .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                     .SelectMany(c => c.Attributes)
-                    .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+                    .Count(a => a.IsPrimaryKey(primaryKeyDataSourceFilter) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
                 .ToList();
         }
 

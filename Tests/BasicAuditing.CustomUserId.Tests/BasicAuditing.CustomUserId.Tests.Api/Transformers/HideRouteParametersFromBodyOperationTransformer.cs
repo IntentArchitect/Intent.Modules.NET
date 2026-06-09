@@ -63,8 +63,9 @@ namespace BasicAuditing.CustomUserId.Tests.Api.Transformers
                 }
 
                 // Find properties that match route parameter names (case-insensitive)
-                var propertiesToRemove = schema.Properties.Keys
-                    .Where(key => routeParameters.Contains(key?.ToLowerInvariant()))
+                var propertiesToRemove = schema.Properties
+                    .Where(property => routeParameters.Contains(property.Key?.ToLowerInvariant()) && !IsPlainStringSchema(property.Value))
+                    .Select(property => property.Key)
                     .ToList();
 
                 if (propertiesToRemove.Count == 0)
@@ -87,6 +88,11 @@ namespace BasicAuditing.CustomUserId.Tests.Api.Transformers
             }
 
             return Task.CompletedTask;
+        }
+
+        private static bool IsPlainStringSchema(OpenApiSchema schema)
+        {
+            return schema.Type == "string" && schema.Format != "uuid";
         }
     }
 }

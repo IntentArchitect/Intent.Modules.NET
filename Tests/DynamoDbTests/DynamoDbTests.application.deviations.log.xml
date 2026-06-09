@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#3d21d628-458b-43fc-9fa3-020e4330f9d3</correlationId>
-      <path>DynamoDbTests.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:05:06.4120578Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>7D17FAD9275D05909FC927A7B32933062CDC5678739E3295B7DBB142A149C39F</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#d1db272f-fa63-4a35-a6c6-0a497c5dca91</correlationId>
       <path>DynamoDbTests.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
@@ -22,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2026-05-21T09:52:16.5860083Z</approvedAt>
       <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
-      <fileHash>F73858E8FDEF1B32A31814DEA0FB288EB897FEDD0EFD35459B3826EA9EDD1A09</fileHash>
+      <fileHash>AC7B77DBD7C964BAF912E9A2AA832937CBFB3CE7B1F552FB427706CB28CE2CD3</fileHash>
     </file>
   </files>
 </deviationsLog>

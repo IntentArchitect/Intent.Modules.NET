@@ -21,21 +21,21 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure
             services.AddDbContext<Db1DbContext>((sp, options) =>
             {
                 options.UseSqlServer(
-                    configuration.GetConnectionString("Db1ConnectionString"),
+                    configuration.GetConnectionString(Constants.Db1ConnectionString),
                     b => b.MigrationsAssembly(typeof(Db1DbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddDbContext<Db2DbContext>((sp, options) =>
             {
                 options.UseSqlServer(
-                    configuration.GetConnectionString("Db2ConnectionString"),
+                    configuration.GetConnectionString(Constants.Db2ConnectionString),
                     b => b.MigrationsAssembly(typeof(Db2DbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddDbContext<Db3DbContext>((sp, options) =>
             {
                 options.UseNpgsql(
-                    configuration.GetConnectionString("Db3ConnectionString"),
+                    configuration.GetConnectionString(Constants.Db3ConnectionString),
                     b => b.MigrationsAssembly(typeof(Db3DbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });

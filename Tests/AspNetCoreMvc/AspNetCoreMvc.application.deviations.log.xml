@@ -14,25 +14,5 @@
       <deviationsHash>F47E19BE72FFE1D2BAB49A3D40DBC236811943DDC5756FEF01C3349218A3AC1E</deviationsHash>
       <fileHash>A6308777473CEAB75170CA6B70B3F593583DD426A40AD2A8F3D4260159883776</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#beac9c15-fc02-418d-a225-ffcd8961db20</correlationId>
-      <path>AspNetCoreMvc.Application/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T08:59:20.971982Z</updatedAt>
-      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
-      <fileHash>90F897129E762DFAD08E028F4D76ACD7EC3F34B5CE00A026001F3EDF4771204F</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#e52ab49a-3158-4157-b607-f98791c51c46</correlationId>
-      <path>AspNetCoreMvc.Infrastructure/DependencyInjection.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T08:59:20.9725498Z</updatedAt>
-      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
-      <fileHash>A339B8B0850985D83A5A60FCDBE4E600F85D99FD35DB718E2BF29FC8C049F478</fileHash>
-    </file>
   </files>
 </deviationsLog>

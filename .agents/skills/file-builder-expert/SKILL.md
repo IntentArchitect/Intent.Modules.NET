@@ -46,6 +46,8 @@ if (configTemplate != null)
 ```
 
 This avoids hardcoding namespaces and survives namespace changes driven by the codebase-structure designer.
+12. Do not override `TemplateMetadata` or `Migrations` for brand-new templates. Only add them when there is a real `ITemplateMigration`.
+13. When writing new code or changing a specific call site, do not introduce `[Obsolete]` API usage. Leave unrelated existing obsolete code alone.
 
 ## Pattern Index
 
