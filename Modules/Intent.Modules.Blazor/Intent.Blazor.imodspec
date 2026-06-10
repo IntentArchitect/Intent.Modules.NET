@@ -11,6 +11,22 @@
   <tags>blazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate" externalReference="96181a18-37c8-4fab-8adb-475ee677ffe7">
+      <role>AI.Context.Instructions</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="be73c60a-3f50-479a-b8bf-8804adaa7308">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate" externalReference="d10e102d-5a08-425e-aa45-54a5c7787b24">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="a9dc71e3-f44a-4401-b49c-44a0735ee0da">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate" externalReference="29e609f7-7153-49e3-9275-64d6ef358462">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -153,6 +169,10 @@
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration" externalReference="cf0d83f6-5edf-461b-bc7f-91a5e241dc13">
       <role>Blazor.Sample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="1e3178f5-9735-494f-b95f-ecd465ff3ec8">
+      <role>AI.Context.Skills</role>
       <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="90716486-d2c5-4813-bdf8-e32192e096f8">

@@ -44,4 +44,16 @@
     <Folder Include="resources\static-content\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <None Include="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.razor.cs" />
+  </ItemGroup>
+
 </Project>

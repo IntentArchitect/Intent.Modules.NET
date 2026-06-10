@@ -1,0 +1,204 @@
+@page "/templates/pages/customers/edit/{CustomerId:guid}"
+@using System.ComponentModel.DataAnnotations
+@using UI.AI.Samples.Domain
+
+<div class="p-4 mb-4 ux-gradient-primary text-white rounded">
+    <h4 class="fw-bold mb-2">
+        <i class="bi bi-pencil-square me-2"></i>
+        Edit Customer
+    </h4>
+    <p class="mb-0 opacity-75">
+        Update the details of this customer.
+    </p>
+</div>
+
+<div class="card ux-fade-in-up" style="animation-delay: 0.1s">
+    <div class="card-body">
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <div class="alert alert-danger" role="alert">@_errorMessage</div>
+        }
+
+        @if (Model is not null)
+        {
+            <EditForm Model="Model" OnValidSubmit="SaveAsync">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="mb-3" />
+
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="name">Name</label>
+                        <InputText id="name" class="form-control" @bind-Value="Model.Name" placeholder="Enter name" />
+                        <ValidationMessage For="() => Model.Name" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="surname">Surname</label>
+                        <InputText id="surname" class="form-control" @bind-Value="Model.Surname" placeholder="Enter surname" />
+                        <ValidationMessage For="() => Model.Surname" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="email">Email</label>
+                        <InputText id="email" class="form-control" @bind-Value="Model.Email" placeholder="name@company.com" />
+                        <ValidationMessage For="() => Model.Email" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="category">Category</label>
+                        <InputSelect id="category" class="form-select" @bind-Value="Model.CategoryId" @bind-Value:after="OnCategoryChanged">
+                            <option value="">Select...</option>
+                            @if (CategoriesLookupModels is { Count: > 0 })
+                            {
+                                @foreach (var cat in CategoriesLookupModels)
+                                {
+                                    <option value="@cat.Id">@cat.Name</option>
+                                }
+                            }
+                        </InputSelect>
+                        <ValidationMessage For="() => Model.CategoryId" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="subCategory">Sub Category</label>
+                        <InputSelect id="subCategory" class="form-select" @bind-Value="Model.SubCategoryID">
+                            <option value="">Select...</option>
+                            @if (SubCategoriesLookupModels is { Count: > 0 })
+                            {
+                                @foreach (var sub in SubCategoriesLookupModels)
+                                {
+                                    <option value="@sub.Id">@sub.Name</option>
+                                }
+                            }
+                        </InputSelect>
+                        <ValidationMessage For="() => Model.SubCategoryID" />
+                    </div>
+                    <div class="col-12 col-md-6 d-flex align-items-end">
+                        <div class="form-check form-switch">
+                            <InputCheckbox id="isActive" class="form-check-input" @bind-Value="Model.IsActive" />
+                            <label class="form-check-label" for="isActive">Active</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <hr class="my-2" />
+                        <h6>Preferences</h6>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="form-check form-switch">
+                            <InputCheckbox id="newsletter" class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
+                            <label class="form-check-label" for="newsletter">Subscribe to Newsletter</label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="form-check form-switch">
+                            <InputCheckbox id="specials" class="form-check-input" @bind-Value="Model.Preference.Specials" />
+                            <label class="form-check-label" for="specials">Receive Specials</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <hr class="my-2" />
+                        <div class="d-flex align-items-center gap-3">
+                            <h6 class="mb-0">Loyalty</h6>
+                            <div class="form-check form-switch mb-0">
+                                <input id="hasLoyalty" type="checkbox" class="form-check-input" checked="@HasLoyalty" @onchange="@(e => HasLoyalty = (bool)e.Value!)" />
+                                <label class="form-check-label" for="hasLoyalty">Has Loyalty</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (HasLoyalty)
+                    {
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="loyaltyNo">Loyalty Number</label>
+                            <InputText id="loyaltyNo" class="form-control" @bind-Value="Model.Loyalty.LoyaltyNo" placeholder="Enter loyalty number" />
+                            <ValidationMessage For="() => Model.Loyalty.LoyaltyNo" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="points">Points</label>
+                            <InputNumber id="points" class="form-control" @bind-Value="Model.Loyalty.Points" placeholder="0" min="0" max="1000000" />
+                            <ValidationMessage For="() => Model.Loyalty.Points" />
+                        </div>
+                    }
+
+                    <div class="col-12">
+                        <hr class="my-2" />
+                        <h6>Addresses</h6>
+                    </div>
+
+                    @if (Model.Addresses is not null && Model.Addresses.Count > 0)
+                    {
+                        @for (var i = 0; i < Model.Addresses.Count; i++)
+                        {
+                            var index = i;
+                            var address = Model.Addresses[index];
+                            <div class="col-12 border-bottom pb-3 mb-2" @key="address">
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-3">
+                                        <label class="form-label">Type</label>
+                                        <InputSelect class="form-select" @bind-Value="address.AddressType">
+                                            <option value="@AddressType.Deliver">Delivery</option>
+                                            <option value="@AddressType.Billing">Billing</option>
+                                        </InputSelect>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <label class="form-label">Address line 1</label>
+                                        <InputText class="form-control" @bind-Value="address.Line1" placeholder="Street, number" />
+                                        <ValidationMessage For="() => address.Line1" />
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <label class="form-label">Address line 2</label>
+                                        <InputText class="form-control" @bind-Value="address.Line2" placeholder="Apartment / unit (optional)" />
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <label class="form-label">City</label>
+                                        <InputText class="form-control" @bind-Value="address.City" placeholder="City" />
+                                        <ValidationMessage For="() => address.City" />
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <label class="form-label">Postal code</label>
+                                        <InputText class="form-control" @bind-Value="address.Postal" placeholder="e.g. 2196" />
+                                        <ValidationMessage For="() => address.Postal" />
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-outline-danger" @onclick="@(() => RemoveAddress(index))">
+                                            <i class="bi bi-trash me-1"></i>Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-primary" @onclick="AddAddress">
+                            <i class="bi bi-plus-lg me-1"></i>Add address
+                        </button>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="d-flex justify-content-end align-items-center gap-2">
+                            <button type="submit" class="btn btn-primary" disabled="@_saving">
+                                @if (_saving)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                    <span>Saving…</span>
+                                }
+                                else
+                                {
+                                    <span><i class="bi bi-save me-1"></i>Save</span>
+                                }
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" @onclick="Cancel" disabled="@_saving">
+                                <i class="bi bi-arrow-left me-1"></i>Back to list
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </EditForm>
+        }
+        else
+        {
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
+                <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                <span class="mt-2">Loading customer...</span>
+            </div>
+        }
+    </div>
+</div>

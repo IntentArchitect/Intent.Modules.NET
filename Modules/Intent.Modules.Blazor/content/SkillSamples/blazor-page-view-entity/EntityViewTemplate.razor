@@ -1,0 +1,152 @@
+@page "/templates/pages/customers/view/{CustomerId:guid}"
+@using UI.AI.Samples.Domain
+
+<div class="p-4 mb-4 ux-gradient-primary text-white rounded">
+    <h4 class="fw-bold mb-2">
+        <i class="bi bi-eye me-2"></i>
+        View Customer
+    </h4>
+    <p class="mb-0 opacity-75">
+        Read-only view of this customer's details.
+    </p>
+</div>
+
+<div class="card ux-fade-in-up" style="animation-delay: 0.1s">
+    <div class="card-body">
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <div class="alert alert-danger" role="alert">@_errorMessage</div>
+        }
+
+        @if (CustomerByIdModels is null)
+        {
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
+                <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                <span class="mt-2">Loading customer...</span>
+            </div>
+        }
+        else
+        {
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Name</div>
+                    <div>@CustomerByIdModels.Name</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Surname</div>
+                    <div>@CustomerByIdModels.Surname</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Email</div>
+                    <div>@CustomerByIdModels.Email</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Category</div>
+                    <div>@CustomerByIdModels.CategoryName</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Sub Category</div>
+                    <div>@CustomerByIdModels.SubCategoryName</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-uppercase small text-muted">Status</div>
+                    @if (CustomerByIdModels.IsActive)
+                    {
+                        <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge border text-secondary"><i class="bi bi-pause-circle me-1"></i>Inactive</span>
+                    }
+                </div>
+
+                <div class="col-12">
+                    <hr class="my-2" />
+                    <h6>Preferences</h6>
+                    <div class="d-flex gap-2">
+                        <span class="badge @(CustomerByIdModels.Preference.NewsLetter ? "bg-primary" : "border text-secondary")">
+                            <i class="bi bi-mailbox me-1"></i>Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
+                        </span>
+                        <span class="badge @(CustomerByIdModels.Preference.Specials ? "bg-primary" : "border text-secondary")">
+                            <i class="bi bi-tag me-1"></i>Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
+                        </span>
+                    </div>
+                </div>
+
+                @if (CustomerByIdModels.Loyalty is not null)
+                {
+                    <div class="col-12">
+                        <hr class="my-2" />
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Loyalty</h6>
+                            <span class="badge border text-primary"><i class="bi bi-gift me-1"></i>Enabled</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="text-uppercase small text-muted">Loyalty Number</div>
+                        <div>@CustomerByIdModels.Loyalty!.LoyaltyNo</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="text-uppercase small text-muted">Points</div>
+                        <div>@CustomerByIdModels.Loyalty!.Points</div>
+                    </div>
+                }
+
+                <div class="col-12">
+                    <hr class="my-2" />
+                    <h6>Addresses</h6>
+                </div>
+
+                @if (CustomerByIdModels.Addresses?.Count > 0)
+                {
+                    @foreach (var a in CustomerByIdModels.Addresses)
+                    {
+                        <div class="col-12 mb-2">
+                            <div class="border rounded p-3">
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-3">
+                                        <div class="text-uppercase small text-muted">Type</div>
+                                        <span class="badge border text-secondary"><i class="bi bi-tag me-1"></i>@((a.AddressType == AddressType.Deliver) ? "Delivery" : "Billing")</span>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <div class="text-uppercase small text-muted">Address line 1</div>
+                                        <div>@a.Line1</div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="text-uppercase small text-muted">Address line 2</div>
+                                        <div>@a.Line2</div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="text-uppercase small text-muted">City</div>
+                                        <div>@a.City</div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="text-uppercase small text-muted">Postal code</div>
+                                        <div>@a.Postal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12">
+                        <span class="text-muted">No addresses captured.</span>
+                    </div>
+                }
+
+                <div class="col-12 mt-3">
+                    <div class="d-flex justify-content-end align-items-center gap-2">
+                        <button type="button" class="btn btn-primary" @onclick="@(() => NavigationManager.NavigateTo($"templates/pages/customers/edit/{CustomerByIdModels.Id}"))">
+                            <i class="bi bi-pencil-square me-1"></i>Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">
+                            <i class="bi bi-arrow-left me-1"></i>Back to list
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
