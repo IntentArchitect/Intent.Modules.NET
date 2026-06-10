@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -12,6 +8,11 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using static Intent.Modules.VisualStudio.Projects.Templates.JsonCommentPreserver;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -79,14 +80,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
                 content = TransformText();
             }
 
-            var json = JsonConvert.DeserializeObject<JObject>(content);
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
 
             foreach (var request in _registrationRequestsByKey)
             {
                 json.SetFieldValue(request.Key, request.Value.Request.Value, allowReplacement: false);
             }
 
-            return JsonConvert.SerializeObject(json, Formatting.Indented);
+            var serialized = JsonConvert.SerializeObject(json, Formatting.Indented);
+            return JsonCommentPreserver.Restore(serialized, commentBlocks);
         }
     }
 }
