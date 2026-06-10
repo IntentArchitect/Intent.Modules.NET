@@ -33,6 +33,17 @@ Inside this loop, load **implementation-tier skills** as needed:
 - `intent-mapping-architect` — for entity↔DTO mapping templates
 - `intent-domain-interactions-expert` — for handler/processing-handler interaction patterns
 
+## Governing Principle — Industry Standard First
+
+Every implementation decision must be grounded in the technology's documented patterns first. When Intent's patterns add constraints, use those as the second layer. Improvise only where both are silent — and log every improvisation in `PATTERN-DOCUMENT.md`'s Decision Log.
+
+**Before starting any increment:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md`.
+- Check the Decision Log — do not re-derive or re-open any closed decision.
+- Check Open Questions — if one is now answerable, close it before proceeding.
+- Check the Progress Tracker — do not re-implement any increment marked ✅ Complete.
+
+**After completing each increment:** update the Progress Tracker row for that increment to ✅ Complete (or ❌ Blocked with the blocker noted). Add any new decisions to the Decision Log. Close any Open Questions resolved during this increment.
+
 ## Musts
 
 1. **Follow the full iteration cycle for every change, no exceptions.** Skipping or reordering produces output that drifts from the designer.
@@ -142,6 +153,9 @@ Before moving to the next increment in the Attack Plan:
 - [ ] Observable result confirms behaviour (log line / response / diagnostic entry)
 - [ ] Sample stopped cleanly
 - [ ] Any non-obvious finding captured to memory or to the relevant skill
+- [ ] Progress Tracker in `ATTACK-PLAN.md` updated (✅ Complete or ❌ Blocked with reason)
+- [ ] Any new decisions added to the Decision Log in `PATTERN-DOCUMENT.md`
+- [ ] Any resolved Open Questions closed in `PATTERN-DOCUMENT.md`
 
 If any box can't be ticked, the increment is not done — keep iterating.
 

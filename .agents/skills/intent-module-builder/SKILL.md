@@ -10,6 +10,14 @@ argument-hint: "[Attack Plan or path to it]"
 
 Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the new module from the Attack Plan. By the end of this skill, the module's folder structure, imodspec, template stubs, and NuGet declarations all exist as generated code — ready for the implementation skills to fill in.
 
+## Governing Principle — Industry Standard First
+
+All scaffolding decisions must be grounded in Intent's established module patterns (the standard for this layer). Improvise only where the SDK provides no pattern — and log every improvisation in the Pattern Document Decision Log.
+
+**Before doing any work:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md`. Check the Decision Log — do not re-derive any closed decision. Check the Progress Tracker — if the Scaffold row is ✅ Complete, this skill has already run; do not re-scaffold.
+
+**After completing the scaffold:** update the Progress Tracker row for "Scaffold" to ✅ Complete, noting the module `.csproj` path and any new decisions made.
+
 ## Musts
 
 1. **Call `get_full_instructions` first, every time.** MCP instructions are authoritative — read them before taking any action.

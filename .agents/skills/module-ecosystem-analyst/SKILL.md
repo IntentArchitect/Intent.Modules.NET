@@ -10,6 +10,14 @@ argument-hint: "[Pattern Document or path to it]"
 
 Turn the Pattern Document from `tech-pattern-researcher` into a concrete Attack Plan: exactly what to scaffold, in what order, using which Intent SDK building blocks. This skill prevents wasted work by establishing the full implementation picture before a single line of module code is written.
 
+## Governing Principle — Industry Standard First
+
+Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions are the standard for this layer. Only where the SDK is silent do we improvise — and every improvisation must be logged in the Pattern Document Decision Log with basis and rationale.
+
+**Before doing any work:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md` (if they exist). Check the Decision Log — do not re-derive any closed decision. Check Open Questions — close any that are now answerable. Check the Progress Tracker — do not re-implement work already marked ✅ Complete.
+
+**After completing work:** update the Decision Log with new decisions, close resolved Open Questions, and update the Progress Tracker in `ATTACK-PLAN.md`.
+
 ## Musts
 
 1. **Use `search_docs` to verify Intent SDK patterns** before assigning base classes or event types. Do not assume from memory — SDK APIs evolve.
@@ -27,6 +35,50 @@ Turn the Pattern Document from `tech-pattern-researcher` into a concrete Attack 
 3. Never put NServiceBus (or any transport-specific) types in the dependency list for Eventing.Contracts templates — that module must stay transport-agnostic.
 4. Never plan all increments at once without verifying Increment 1 success criteria are achievable with in-memory transport. If they aren't, revise the scope of Increment 1.
 5. Never skip the MCP inspection step. Designer model state drives what templates fire and what models they receive.
+
+---
+
+## Phase 2.0.5 — Intent Mapping Validation
+
+**Goal:** Verify that the stereotype and settings design from the Pattern Document covers every scenario in the Scenario Findings table. Find gaps before planning any templates.
+
+This is the second adversarial pass. Phase 1.1.5 stress-tested the technology. This phase stress-tests the Intent design against the same scenarios.
+
+### Tasks
+
+For each row in the Pattern Document's Scenario Findings table:
+
+1. **Simulate modelling it in the Intent designer.** What stereotype properties and settings would the developer fill in?
+   - Walk through each field: is there a stereotype property for it? A module setting?
+   - If not, the design has a gap — add the missing property or setting.
+
+2. **Check for over-engineering.** Is there a stereotype property that no scenario exercises? If it serves no scenario, remove it — it will confuse users.
+
+3. **Check for ambiguity.** Is there a scenario where two different stereotype configurations produce the same generated output? Tighten the design so each configuration maps to exactly one output.
+
+4. **Check convention fallback.** For each optional stereotype property: what does the module generate when left blank? Does the fallback match what the technology actually does by default (from Scenario Findings)? If not, fix the default.
+
+5. **Check the multi-instance case explicitly.** Can the developer model the "Two messages, different destinations" scenario entirely through stereotypes/settings without writing code? If not, the module is incomplete.
+
+### When it doesn't click
+
+If a mapping feels awkward — a stereotype that exists "just to make it work", a setting requiring knowledge of an internal convention, a generated output that needs a comment explaining its shape — **stop**. That friction is the signal that a "what if?" question hasn't been asked yet.
+
+Go back to the scenario producing the awkward mapping and ask:
+- What if this scenario was modelled differently in the designer?
+- What if this stereotype wasn't needed — what would the technology do by default?
+- What if the generated code took a different shape — would the technology still work?
+- What does the technology's documentation say to configure explicitly vs. what should be inferred?
+
+Only continue when the mapping feels natural: the developer models what they conceptually mean, the stereotype captures only what deviates from the default, and the generated code looks like what an experienced developer of that technology would write by hand.
+
+If friction persists after 3+ "what if?" attempts, escalate: the Intent design needs adjustment. State the incompatibility and propose the revised design — do not hack through it.
+
+### Output (add to Attack Plan — Section: Mapping Validation)
+
+| Scenario | Stereotype/setting that covers it | Gap found | Resolution |
+|---|---|---|---|
+| Two Commands, different destinations | `Endpoint Name` on each Command | Initially missing | Added mandatory `Endpoint Name` on Integration Command stereotype |
 
 ---
 
@@ -169,10 +221,13 @@ Module ID, imodspec dependency list, NuGet packages table, settings definition, 
 
 ## Attack Plan Format
 
-Produce this document as the output of this skill. It becomes the input to `intent-module-builder`.
+Write this document to `[ModuleFolder]/ATTACK-PLAN.md`. It is a **living document** — every subsequent skill reads it before working and updates it after concluding.
 
 ```markdown
 # Attack Plan: [Module Name]
+
+## Mapping Validation
+[Phase 2.0.5 output — scenario coverage table]
 
 ## Ecosystem Dependencies
 [Phase 2.1 output]
@@ -182,6 +237,15 @@ Produce this document as the output of this skill. It becomes the input to `inte
 
 ## Module Blueprint
 [Phase 2.3 output — module ID, imodspec deps, NuGet packages, settings, folder scaffold]
+
+## Progress Tracker
+Updated by each skill after completing an increment. Status: ⬜ Not started / 🔄 In Progress / ✅ Complete / ❌ Blocked
+
+| Increment | Status | Outcome / Blocker | Decisions made |
+|---|---|---|---|
+| Scaffold | ⬜ Not started | — | — |
+| 1 | ⬜ Not started | — | — |
+| 2 | ⬜ Not started | — | — |
 
 ## Implementation Increments
 

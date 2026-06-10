@@ -130,6 +130,19 @@ Never manually copy DLL files. The correct flow:
 
 Manual DLL copying causes file lock errors and hot-reload issues.
 
+### Module Deploy Loop — Compile Only When Already Installed
+**Do NOT call `install_or_update_modules` on every iteration.** It is only needed when:
+- The module is not yet installed in the target application, OR
+- The module version has changed (imodspec version bump)
+
+When the module is already installed at the correct version, the deploy loop is:
+1. Edit template source
+2. `dotnet build` the module `.csproj`
+3. IA hot-reloads the new DLL automatically
+4. Run SF (via MCP or IA UI)
+
+Calling `install_or_update_modules` unnecessarily can corrupt IA's internal package reference cache, causing `Failed to resolve package reference` errors on the next SF run that require a UI restart to clear.
+
 ### `NugetPackages.cs` — Do Not Edit
 This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overwritten by the next SF run. All NuGet package and version changes must go through the **Module Builder designer**.
 
