@@ -44,9 +44,114 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Resend email confirmation"));
 
-                    // When MudBlazor is installed the page body is provided by the hand-authored
-                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
-                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    // Emit a MudBlazor-styled body when MudBlazor is installed, otherwise the default Bootstrap body.
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
+                        file.AddHtmlElement("MudPaper", paper => paper
+                            .AddAttribute("Class", "pa-4 mb-4 ux-gradient-primary")
+                            .AddAttribute("Elevation", "0")
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.h4")
+                                .AddAttribute("Class", "text-white font-weight-bold mb-2")
+                                .AddHtmlElement("MudIcon", icon => icon
+                                    .AddAttribute("Icon", "@Icons.Material.Filled.Mail")
+                                    .AddAttribute("Class", "mr-2"))
+                                .WithText("Resend email confirmation"))
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.body1")
+                                .AddAttribute("Class", "text-white opacity-90")
+                                .WithText("Enter your email address and we will send you another confirmation email.")));
+
+                        file.AddHtmlElement("MudGrid", grid => grid
+                            .AddAttribute("Spacing", "3")
+                            .AddHtmlElement("MudItem", item => item
+                                .AddAttribute("xs", "12")
+                                .AddAttribute("md", "7")
+                                .AddAttribute("lg", "6")
+                                .AddHtmlElement("MudCard", card => card
+                                    .AddAttribute("Class", "ux-fade-in-up")
+                                    .AddAttribute("Style", "animation-delay: 0.1s")
+                                    .AddHtmlElement("MudCardContent", content => content
+                                        .AddHtmlElement("StatusMessage", status => status.AddAttribute("Message", "@message"))
+                                        .AddHtmlElement("EditForm", form => form
+                                            .AddAttribute("Model", "Input")
+                                            .AddAttribute("FormName", "resend-email-confirmation")
+                                            .AddAttribute("OnValidSubmit", "OnValidSubmitAsync")
+                                            .AddAttribute("method", "post")
+                                            .AddHtmlElement("DataAnnotationsValidator")
+                                            .AddHtmlElement("MudGrid", formGrid => formGrid
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudText", t => t.AddAttribute("Typo", "Typo.h5").WithText("Send another confirmation email"))
+                                                    .AddHtmlElement("MudText", t => t.AddAttribute("Typo", "Typo.body2").AddAttribute("Class", "mb-2").WithText("Enter the email address you used when registering."))
+                                                    .AddHtmlElement("ValidationSummary", v => v.AddClass("text-danger").AddAttribute("role", "alert")))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("div", field => field.AddClass("resend-email-input-field")
+                                                        .AddHtmlElement("label", l => l.AddClass("resend-email-input-label").AddAttribute("for", "email").WithText("Email"))
+                                                        .AddHtmlElement("div", shell => shell.AddClass("resend-email-input-shell")
+                                                            .AddHtmlElement("MudIcon", ic => ic.AddAttribute("Icon", "@Icons.Material.Filled.Email").AddAttribute("Class", "resend-email-input-icon"))
+                                                            .AddHtmlElement("InputText", it => it.AddAttribute("id", "email").AddClass("resend-email-input-control").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com").AddAttribute("type", "email")))
+                                                        .AddHtmlElement("ValidationMessage", v => v.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudStack", s => s.AddAttribute("Row", "true").AddAttribute("Spacing", "2").AddAttribute("Justify", "Justify.FlexEnd").AddAttribute("AlignItems", "AlignItems.Center")
+                                                        .AddHtmlElement("MudButton", b => b.AddAttribute("ButtonType", "ButtonType.Submit").AddAttribute("Color", "Color.Primary").AddAttribute("Variant", "Variant.Filled").AddAttribute("FullWidth", "true").AddAttribute("StartIcon", "@Icons.Material.Filled.Send").WithText("Resend"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudStack", s => s.AddAttribute("Spacing", "1")
+                                                        .AddHtmlElement("MudLink", l => l.AddAttribute("Href", "Account/Login").WithText("Back to log in"))))))))));
+
+                        file.AddHtmlElement("style", style => style.WithText(@"
+    .resend-email-input-field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .resend-email-input-label {
+        color: var(--text);
+        font-size: var(--type-label-lg);
+        font-weight: 500;
+    }
+
+    .resend-email-input-shell {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        min-height: 44px;
+        padding: 0 0.875rem;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-1);
+    }
+
+    .resend-email-input-shell:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+    }
+
+    .resend-email-input-icon {
+        color: var(--text-muted);
+        flex-shrink: 0;
+    }
+
+    .resend-email-input-control {
+        width: 100%;
+        min-height: 42px;
+        color: var(--text);
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .resend-email-input-control::placeholder {
+        color: var(--text-muted);
+    }
+"));
+                    }
+                    else
                     {
                     file.AddHtmlElement("h1", element => element.WithText("Resend email confirmation"));
                     file.AddHtmlElement("h2", element => element.WithText("Enter your email."));
@@ -108,7 +213,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            // TEMP (verification): force full overwrite so the Software Factory reflects pure template output.
+            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
+            return config;
         }
 
         /// <inheritdoc />
