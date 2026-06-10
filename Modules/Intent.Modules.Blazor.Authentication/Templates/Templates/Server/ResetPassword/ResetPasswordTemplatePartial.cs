@@ -44,9 +44,133 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Reset password"));
 
-                    // When MudBlazor is installed the page body is provided by the hand-authored
-                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
-                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    // Emit a MudBlazor-styled body when MudBlazor is installed, otherwise the default Bootstrap body.
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
+                        file.AddHtmlElement("MudPaper", paper => paper
+                            .AddAttribute("Class", "pa-4 mb-4 ux-gradient-primary")
+                            .AddAttribute("Elevation", "0")
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.h4")
+                                .AddAttribute("Class", "text-white font-weight-bold mb-2")
+                                .AddHtmlElement("MudIcon", icon => icon
+                                    .AddAttribute("Icon", "@Icons.Material.Filled.Password")
+                                    .AddAttribute("Class", "mr-2"))
+                                .WithText("Reset password"))
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.body1")
+                                .AddAttribute("Class", "text-white opacity-90")
+                                .WithText("Enter your email address and choose a new password.")));
+
+                        file.AddHtmlElement("MudGrid", grid => grid
+                            .AddAttribute("Spacing", "3")
+                            .AddHtmlElement("MudItem", item => item
+                                .AddAttribute("xs", "12")
+                                .AddAttribute("md", "7")
+                                .AddAttribute("lg", "6")
+                                .AddHtmlElement("MudCard", card => card
+                                    .AddAttribute("Class", "ux-fade-in-up")
+                                    .AddAttribute("Style", "animation-delay: 0.1s")
+                                    .AddHtmlElement("MudCardContent", content => content
+                                        .AddHtmlElement("StatusMessage", status => status.AddAttribute("Message", "@Message"))
+                                        .AddHtmlElement("EditForm", form => form
+                                            .AddAttribute("Model", "Input")
+                                            .AddAttribute("FormName", "reset-password")
+                                            .AddAttribute("OnValidSubmit", "OnValidSubmitAsync")
+                                            .AddAttribute("method", "post")
+                                            .AddHtmlElement("DataAnnotationsValidator")
+                                            .AddHtmlElement("MudGrid", formGrid => formGrid
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudText", t => t.AddAttribute("Typo", "Typo.h5").WithText("Reset your password"))
+                                                    .AddHtmlElement("MudText", t => t.AddAttribute("Typo", "Typo.body2").AddAttribute("Class", "mb-2").WithText("Enter your email address and your new password below."))
+                                                    .AddHtmlElement("ValidationSummary", v => v.AddClass("text-danger").AddAttribute("role", "alert")))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("div", field => field.AddClass("reset-password-input-field")
+                                                        .AddHtmlElement("label", l => l.AddClass("reset-password-input-label").AddAttribute("for", "email").WithText("Email"))
+                                                        .AddHtmlElement("div", shell => shell.AddClass("reset-password-input-shell")
+                                                            .AddHtmlElement("MudIcon", ic => ic.AddAttribute("Icon", "@Icons.Material.Filled.Email").AddAttribute("Class", "reset-password-input-icon"))
+                                                            .AddHtmlElement("InputText", it => it.AddAttribute("id", "email").AddClass("reset-password-input-control").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com").AddAttribute("type", "email")))
+                                                        .AddHtmlElement("ValidationMessage", v => v.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("div", field => field.AddClass("reset-password-input-field")
+                                                        .AddHtmlElement("label", l => l.AddClass("reset-password-input-label").AddAttribute("for", "password").WithText("Password"))
+                                                        .AddHtmlElement("div", shell => shell.AddClass("reset-password-input-shell")
+                                                            .AddHtmlElement("MudIcon", ic => ic.AddAttribute("Icon", "@Icons.Material.Filled.Lock").AddAttribute("Class", "reset-password-input-icon"))
+                                                            .AddHtmlElement("InputText", it => it.AddAttribute("id", "password").AddClass("reset-password-input-control").AddAttribute("@bind-Value", "Input.Password").AddAttribute("autocomplete", "new-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "Enter your new password").AddAttribute("type", "password")))
+                                                        .AddHtmlElement("ValidationMessage", v => v.AddClass("text-danger").AddAttribute("For", "() => Input.Password"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("div", field => field.AddClass("reset-password-input-field")
+                                                        .AddHtmlElement("label", l => l.AddClass("reset-password-input-label").AddAttribute("for", "confirm-password").WithText("Confirm password"))
+                                                        .AddHtmlElement("div", shell => shell.AddClass("reset-password-input-shell")
+                                                            .AddHtmlElement("MudIcon", ic => ic.AddAttribute("Icon", "@Icons.Material.Filled.LockReset").AddAttribute("Class", "reset-password-input-icon"))
+                                                            .AddHtmlElement("InputText", it => it.AddAttribute("id", "confirm-password").AddClass("reset-password-input-control").AddAttribute("@bind-Value", "Input.ConfirmPassword").AddAttribute("autocomplete", "new-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "Confirm your new password").AddAttribute("type", "password")))
+                                                        .AddHtmlElement("ValidationMessage", v => v.AddClass("text-danger").AddAttribute("For", "() => Input.ConfirmPassword"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("InputText", it => it.AddAttribute("id", "code").AddClass("d-none").AddAttribute("@bind-Value", "Input.Code").AddAttribute("type", "hidden")))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudStack", s => s.AddAttribute("Row", "true").AddAttribute("Spacing", "2").AddAttribute("Justify", "Justify.FlexEnd").AddAttribute("AlignItems", "AlignItems.Center")
+                                                        .AddHtmlElement("MudButton", b => b.AddAttribute("ButtonType", "ButtonType.Submit").AddAttribute("Color", "Color.Primary").AddAttribute("Variant", "Variant.Filled").AddAttribute("FullWidth", "true").AddAttribute("StartIcon", "@Icons.Material.Filled.SaveAs").WithText("Reset password"))))
+                                                .AddHtmlElement("MudItem", i => i
+                                                    .AddAttribute("xs", "12")
+                                                    .AddHtmlElement("MudStack", s => s.AddAttribute("Spacing", "1")
+                                                        .AddHtmlElement("MudLink", l => l.AddAttribute("Href", "Account/Login").WithText("Back to log in"))))))))));
+
+                        file.AddHtmlElement("style", style => style.WithText(@"
+    .reset-password-input-field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .reset-password-input-label {
+        color: var(--text);
+        font-size: var(--type-label-lg);
+        font-weight: 500;
+    }
+
+    .reset-password-input-shell {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        min-height: 44px;
+        padding: 0 0.875rem;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-1);
+    }
+
+    .reset-password-input-shell:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+    }
+
+    .reset-password-input-icon {
+        color: var(--text-muted);
+        flex-shrink: 0;
+    }
+
+    .reset-password-input-control {
+        width: 100%;
+        min-height: 42px;
+        color: var(--text);
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .reset-password-input-control::placeholder {
+        color: var(--text-muted);
+    }
+"));
+                    }
+                    else
                     {
                     file.AddHtmlElement("h1", element => element.WithText("Reset password"));
                     file.AddHtmlElement("h2", element => element.WithText("Reset your password"));
@@ -157,7 +281,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            // TEMP (verification): force full overwrite so the Software Factory reflects pure template output.
+            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
+            return config;
         }
 
         /// <inheritdoc />
