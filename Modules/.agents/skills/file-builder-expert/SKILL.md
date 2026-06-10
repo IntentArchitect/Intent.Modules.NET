@@ -13,9 +13,10 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 4. Use specialized control flow builders (`AddIfStatement`, `AddForEachStatement`, `AddTryBlock`, etc.) for all logic. Use `CSharpInvocationStatement` for method calls. `CSharpMethodChainStatement` and `AddMethodChainStatement(...)` are `[Obsolete]` — never use either.
 5. Register all `OnBuild` and `AfterBuild` callbacks during constructor setup. Always supply an explicit priority integer. Use the workspace band convention: **0=Core, 100=Enrichment, 500=Extension, 1000=Final**. `FileBuilderHelper.cs` is the authority on sort order: priority → template-type-name → template-id → model-id → creation order.
 6. When a template must locate an element created by another template (`FindMethod`, `FindClass`, `FindStatement`), its callback **must** use a strictly higher priority number than the source template's callback.
-7. Resolve model-driven types via the Type System APIs, never by guessing: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` when a namespace should be introduced only because a specific concrete type is required. Do not use `UseType(...)` for types represented in the Intent model.
+7. Resolve emitted type positions through the Type System APIs: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` for framework/external types, including method return/parameter types. Do not use `UseType(...)` for types represented in the Intent model.
 8. Generate members from model metadata when applicable: iterate `Model.Attributes` / `Model.Operations` and call `.AddProperty(...)` / `.AddMethod(...)` with resolved type names.
-9. Advanced member discipline:
+9. For generated type declarations, put the final class/interface name on the template model/provider (for example `IHasName.Name`) and use the same model when resolving references via `GetTypeName(templateId, model)`; handle name collisions before `AddClass(...)`.
+10. Advanced member discipline:
     - Properties: use `.Static()` for static members; use `.WithOptional(bool)` only when the target member API exposes it, otherwise model optionality must come from resolved type/nullability (`GetTypeName(...)`) and explicit property modifiers (for example `.Required()` when needed).
     - Constructors: DI parameters must call `param.IntroduceReadonlyField()` unless there is a deliberate, documented exception.
     - Async methods: when generated behavior is async (for example operations returning `Task`/`Task<T>`), call `.Async()` on the method builder.
@@ -53,7 +54,7 @@ Read the relevant pattern file **before generating code** for that scenario:
 5. `AddUsingBlock(...)` is unrelated to namespace imports. It creates a C# `using (...) { }` statement inside a method body.
 
 ### 🔑 Builder inference rule
-The builder can only track type references that go through its type system (`UseType`, `GetTypeName`). When you emit a type name as a **raw string** (e.g. `AddAttribute("DefaultValue(0)")`), the builder sees opaque text and cannot infer the namespace. In that case you must add the namespace manually with `AddUsing(...)`. **The correct fix is always to reach for the typed builder API first** so the namespace is introduced as a side-effect of the type reference:
+The builder can only track type references that go through its type system (`UseType`, `GetTypeName`). Raw type strings in signatures or attributes are opaque, so prefer the typed builder API before adding `AddUsing(...)`:
 
 ```csharp
 // BAD — raw string, builder cannot infer System.ComponentModel
@@ -65,9 +66,12 @@ prop.AddAttribute(UseType("System.ComponentModel.DefaultValueAttribute"), attrib
 {
     attribute.AddArgument(property.Value);
 });
+
+// GOOD — method signatures are type references too
+method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 ```
 
-Apply this rule to every emitted type reference — attributes, base types, parameter types, generic arguments. Reach for `UseType` / `GetTypeName` before reaching for `AddUsing`.
+Apply this to emitted type references: method signatures, attributes, base types, generic arguments, properties, and fields.
 
 ## Conditional AddUsing Patterns
 
