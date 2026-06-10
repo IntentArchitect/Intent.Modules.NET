@@ -9,26 +9,61 @@
 
 <PageTitle>Profile</PageTitle>
 
-<MudText Typo="Typo.h5" Class="mb-3">Profile</MudText>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.AccountCircle" Class="mr-2" />
+        Profile
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Manage your personal account details.
+    </MudText>
+</MudPaper>
+
 <StatusMessage />
 
-<MudPaper Class="pa-6">
-    <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
-        <DataAnnotationsValidator />
-        <ValidationSummary class="text-danger" role="alert" />
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
 
-        <MudStack Spacing="3">
-            <div class="form-field">
-                <label for="username" class="form-label">Username</label>
-                <input id="username" class="form-control" type="text" value="@username" disabled />
-            </div>
-            <div class="form-field">
-                <label for="phone-number" class="form-label">Phone number</label>
-                <InputText id="phone-number" class="form-control" @bind-Value="Input.PhoneNumber" placeholder="Please enter your phone number." />
-                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
-            </div>
-
-            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Save</MudButton>
-        </MudStack>
-    </EditForm>
-</MudPaper>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h5">Profile details</MudText>
+                    <MudText Typo="Typo.body2" Class="mb-4">Update the information associated with your account.</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                Value="@username"
+                                Label="Username"
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.Badge"
+                                Disabled="true" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                @bind-Value="Input.PhoneNumber"
+                                Label="Phone number"
+                                Placeholder="Please enter your phone number."
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.Phone"
+                                Immediate="true"
+                                For="@(() => Input.PhoneNumber)" />
+                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Row="true" Justify="Justify.FlexEnd">
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.Save">
+                            Save
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

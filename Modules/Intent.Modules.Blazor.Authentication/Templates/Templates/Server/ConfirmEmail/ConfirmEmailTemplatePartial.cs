@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ConfirmEmailCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -41,29 +43,75 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
                     file.AddInjectDirective(GetTypeName(IdentityRedirectManagerTemplate.TemplateId), "RedirectManager");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Confirm email"));
-                    file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
-                    file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
 
-                    file.AddCodeBlock(code =>
+                    // Emit a MudBlazor-styled body when MudBlazor is installed, otherwise the default Bootstrap body.
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                     {
-                        code.AddField("string?", "statusMessage", c => c.Private());
+                        file.AddHtmlElement("MudPaper", mudPaper => mudPaper
+                            .AddAttribute("Class", "pa-4 mb-4 ux-gradient-primary")
+                            .AddAttribute("Elevation", "0")
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.h4")
+                                .AddAttribute("Class", "text-white font-weight-bold mb-2")
+                                .AddHtmlElement("MudIcon", icon => icon
+                                    .AddAttribute("Icon", "@Icons.Material.Filled.MarkEmailRead")
+                                    .AddAttribute("Class", "mr-2"))
+                                .WithText("Confirm email"))
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.body1")
+                                .AddAttribute("Class", "text-white opacity-90")
+                                .WithText("We are verifying your email address and completing your account setup.")));
 
-                        code.AddProperty("HttpContext", "HttpContext", httpContext => httpContext.WithInitialValue("default!").AddAttribute("CascadingParameter"));
+                        file.AddHtmlElement("MudGrid", grid => grid
+                            .AddAttribute("Spacing", "3")
+                            .AddHtmlElement("MudItem", item => item
+                                .AddAttribute("xs", "12")
+                                .AddAttribute("md", "8")
+                                .AddAttribute("lg", "6")
+                                .AddHtmlElement("MudCard", card => card
+                                    .AddAttribute("Class", "ux-fade-in-up")
+                                    .AddAttribute("Style", "animation-delay: 0.1s")
+                                    .AddHtmlElement("MudCardContent", content => content
+                                        .AddHtmlElement("MudText", text => text
+                                            .AddAttribute("Typo", "Typo.h5")
+                                            .WithText("Email confirmation status"))
+                                        .AddHtmlElement("MudText", text => text
+                                            .AddAttribute("Typo", "Typo.body2")
+                                            .AddAttribute("Class", "mb-4")
+                                            .WithText("The result of your email confirmation request is shown below."))
+                                        .AddHtmlElement("StatusMessage", status => status
+                                            .AddAttribute("Message", "@statusMessage"))
+                                        .AddHtmlElement("MudStack", stack => stack
+                                            .AddAttribute("Spacing", "1")
+                                            .AddAttribute("Class", "mt-4")
+                                            .AddHtmlElement("MudLink", link => link
+                                                .AddAttribute("Href", "Account/Login")
+                                                .WithText("Continue to log in")))))));
+                    }
+                    else
+                    {
+                        file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
+                        file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
+                    }
 
-                        code.AddProperty("string?", "UserId", httpContext => httpContext.AddAttribute("SupplyParameterFromQuery"));
-                        code.AddProperty("string?", "Code", httpContext => httpContext.AddAttribute("SupplyParameterFromQuery"));
+                    var code = GetCodeBehind();
+                    code.AddField("string?", "statusMessage", c => c.Private());
 
-                        code.AddMethod("Task", "OnInitializedAsync", onInitializedAsync =>
+                    code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", httpContext => httpContext.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+
+                    code.AddProperty("string?", "UserId", httpContext => httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+                    code.AddProperty("string?", "Code", httpContext => httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+                    {
+                        onInitializedAsync.Async().Protected().Override();
+
+                        onInitializedAsync.AddIfStatement("UserId is null || Code is null", @if =>
                         {
-                            onInitializedAsync.Async().Protected().Override();
-
-                            onInitializedAsync.AddIfStatement("UserId is null || Code is null", @if =>
-                            {
-                                @if.AddStatement("RedirectManager.RedirectTo(\"\");");
-                            });
-
-                            onInitializedAsync.AddStatement("statusMessage = await AuthService.ConfirmEmail(UserId, Code);");
+                            @if.AddStatement("RedirectManager.RedirectTo(\"\");");
                         });
+
+                        onInitializedAsync.AddStatement("statusMessage = await AuthService.ConfirmEmail(UserId, Code);");
                     });
                 });
         }
@@ -76,7 +124,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            // TEMP (verification): force full overwrite so the Software Factory reflects pure template
+            // output rather than merging into the hand-authored file.
+            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
+            return config;
         }
 
         /// <inheritdoc />
@@ -86,6 +138,40 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
+        }
+
+        // Code-behind plumbing (hand-added; Body=Merge region, survives module regen). Routes this
+        // page's @code into the sibling ConfirmEmailCodeBehindTemplate (.razor.cs) when present,
+        // falling back to an inline @code block otherwise.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(ConfirmEmailCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
         }
     }
 }

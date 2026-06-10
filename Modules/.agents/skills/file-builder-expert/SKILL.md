@@ -77,21 +77,25 @@ Apply this to emitted type references: method signatures, attributes, base types
 ### 🔑 Split-file / code-behind usings
 When a template contributes members to a **file other than its own** — e.g. a `.razor` template writing its `@code` into a sibling `.razor.cs` code-behind — two things bite:
 
-1. **No inherited imports.** A plain `.razor.cs` does **not** get Razor's implicit `_Imports` (`Microsoft.AspNetCore.Components`, `System.Threading.Tasks`, `System.ComponentModel.DataAnnotations`, …). References that compiled inline now need explicit usings, so run **every** member type, return type, and attribute through `UseType(...)` — even ones that were implicit inline:
+1. **No inherited imports.** A plain `.razor.cs` gets **none** of Razor's implicit `_Imports` (`Microsoft.AspNetCore.Components`, `System.Threading.Tasks`, `System.Collections.Generic`, `System.Linq`, `System.ComponentModel.DataAnnotations`, …). References that compiled inline now need explicit usings, so run **every** member type, return type, and attribute through the type system. Attributes must drop the `Attribute` suffix with `.RemoveSuffix("Attribute")`:
 
    ```csharp
-   code.AddMethod(UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", ...);
-   input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
-   email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+   var code = GetCodeBehind();   // the code-behind class (IBuildsCSharpMembers)
+   code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", ...);
+   input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+   email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
    ```
 
-2. **Resolution must target the code-behind.** `UseType`/`GetTypeName` add (and prune) usings on the file of the template's `RootCodeContext`. To land them on the code-behind instead of the host file, redirect it — mirroring `RazorComponentTemplateBase`:
+   Types referenced only inside **raw statement/expression strings** (e.g. `Encoding`, `WebEncoders`, a `.Select(...)` in a getter, or an `IEnumerable<>` field type) can't be inferred — either interpolate a `code.Template.UseType("…")` into the string, or add the namespace explicitly on the code-behind file (`CSharpFile.AddUsing("System.Linq")`).
+
+2. **Resolve via the target block's template, not the host.** `UseType`/`GetTypeName` add (and prune) usings on the file of *that template's* `RootCodeContext`. A bare `UseType(...)` on the `.razor` template resolves against the `.razor`; instead call **`code.Template.UseType(...)`** — `code.Template` is the template that owns the block (the code-behind when present, the inline `@code` otherwise), so the using lands on the correct file either way. For this to resolve, the code-behind template must expose its class as the context:
 
    ```csharp
-   public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+   // on the code-behind (CSharpTemplateBase) template:
+   public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();
    ```
 
-   Razor `@using`/`@inject` directives are managed by the `RazorFile` independently of `RootCodeContext`, so redirecting it does not disturb them.
+   Razor `@using`/`@inject` directives are managed by the `RazorFile` independently, so this does not disturb them.
 
 ## Conditional AddUsing Patterns
 

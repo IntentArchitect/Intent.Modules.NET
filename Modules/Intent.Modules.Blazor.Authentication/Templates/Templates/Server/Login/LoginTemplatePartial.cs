@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.LoginCodeBehind;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -38,13 +40,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                 {
                     file.AddPageDirective($"/Account/Login");
 
-                    file.AddUsing("System.ComponentModel.DataAnnotations");
-                    file.AddUsing("Microsoft.AspNetCore.Mvc");
-                    file.AddUsing("Microsoft.AspNetCore.Authentication");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Log in"));
+
+                    // When MudBlazor is installed the page body is provided by the hand-authored
+                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
+                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
 
                     file.AddHtmlElement("h1", element => element.WithText("Log in"));
                     file.AddHtmlElement($"div", element => element.AddClass("row")
@@ -105,59 +109,59 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                                 );
                     }
 
-                    file.AddCodeBlock(code =>
+                    }
+
+                    var code = GetCodeBehind();
+                    code.AddField("string?", "errorMessage");
+
+                    code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", input =>
                     {
-                        code.AddField("string?", "errorMessage");
+                        input.Private();
+                        input.WithInitialValue("default!");
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute"));
+                    });
+                    code.AddProperty("InputModel", "Input", input =>
+                    {
+                        input.Private();
+                        input.WithInitialValue("new()");
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+                    });
+                    code.AddProperty("string?", "ReturnUrl", input =>
+                    {
+                        input.Private();
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute"));
+                    });
 
-                        code.AddProperty("HttpContext", "HttpContext", input =>
+
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "LoginUser", onValidSubmitAsync =>
+                    {
+                        onValidSubmitAsync.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Mvc.IgnoreAntiforgeryTokenAttribute").RemoveSuffix("Attribute"));
+                        onValidSubmitAsync.Async();
+
+                        onValidSubmitAsync.AddStatement("await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);");
+                    });
+
+                    code.AddClass("InputModel", inputModel =>
+                    {
+                        inputModel.Private().Sealed();
+
+                        inputModel.AddProperty("string", "Email", email =>
                         {
-                            input.Private();
-                            input.WithInitialValue("default!");
-                            input.AddAttribute("CascadingParameter");
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute").RemoveSuffix("Attribute"));
+                            email.WithInitialValue("\"\"");
                         });
-                        code.AddProperty("InputModel", "Input", input =>
+
+                        inputModel.AddProperty("string", "Password", email =>
                         {
-                            input.Private();
-                            input.WithInitialValue("new()");
-                            input.AddAttribute("SupplyParameterFromForm");
-                        });
-                        code.AddProperty("string?", "ReturnUrl", input =>
-                        {
-                            input.Private();
-                            input.AddAttribute("SupplyParameterFromQuery");
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute("DataType(DataType.Password)");
+                            email.WithInitialValue("\"\"");
                         });
 
-
-                        code.AddMethod("Task", "LoginUser", onValidSubmitAsync =>
+                        inputModel.AddProperty("bool", "RememberMe", email =>
                         {
-                            onValidSubmitAsync.AddAttribute("[IgnoreAntiforgeryToken]");
-                            onValidSubmitAsync.Async();
-
-                            onValidSubmitAsync.AddStatement("await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);");
-                        });
-
-                        code.AddClass("InputModel", inputModel =>
-                        {
-                            inputModel.Private().Sealed();
-
-                            inputModel.AddProperty("string", "Email", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("EmailAddress");
-                                email.WithInitialValue("\"\"");
-                            });
-
-                            inputModel.AddProperty("string", "Password", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("DataType(DataType.Password)");
-                                email.WithInitialValue("\"\"");
-                            });
-
-                            inputModel.AddProperty("bool", "RememberMe", email =>
-                            {
-                                email.AddAttribute("Display(Name = \"Remember me?\")");
-                            });
+                            email.AddAttribute("Display(Name = \"Remember me?\")");
                         });
                     });
                 });
@@ -177,5 +181,39 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
         public override string TransformText() => RazorFile.ToString();
+
+        // Code-behind plumbing (hand-added; Body=Merge region, survives module regen). Routes this
+        // page's @code into the sibling LoginCodeBehindTemplate (.razor.cs) when present, falling
+        // back to an inline @code block otherwise.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(LoginCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
+        }
     }
 }

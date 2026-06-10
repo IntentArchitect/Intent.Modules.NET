@@ -1,3 +1,9 @@
+.auth-form-shell {
+    max-width: 720px;
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-xl);
+}
+
 .personal-data-actions {
     display: flex;
     flex-wrap: wrap;

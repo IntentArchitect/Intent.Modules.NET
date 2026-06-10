@@ -2,5 +2,19 @@
 
 <PageTitle>Locked out</PageTitle>
 
-<MudText Typo="Typo.h4" Color="Color.Error" Class="mb-3">Locked out</MudText>
-<MudText Typo="Typo.body1" Color="Color.Error">This account has been locked out, please try again later.</MudText>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.Lock" Class="mr-2" />
+        Locked out
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Your account is temporarily unavailable due to security restrictions.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Color="Color.Error" Class="mb-3">Locked out</MudText>
+        <MudText Typo="Typo.body1">This account has been locked out, please try again later.</MudText>
+    </MudCardContent>
+</MudCard>
