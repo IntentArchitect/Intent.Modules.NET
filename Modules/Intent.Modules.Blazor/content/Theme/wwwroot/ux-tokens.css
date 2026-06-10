@@ -378,12 +378,7 @@ a:hover { color: var(--primary-dark); }
 
 .form-control,
 .form-select {
-    display: block;
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
     font-family: var(--font-primary);
-    font-size: var(--type-body-md);
-    line-height: var(--lh-body);
     color: var(--text);
     background-color: var(--surface);
     background-clip: padding-box;
@@ -392,27 +387,27 @@ a:hover { color: var(--primary-dark); }
     transition: border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
 }
 
-.form-control:focus,
-.form-select:focus {
-    color: var(--text);
-    background-color: var(--surface);
-    border-color: var(--border-focus);
-    box-shadow: 0 0 0 3px var(--primary-subtle);
-    outline: 0;
-}
+    .form-control:focus,
+    .form-select:focus {
+        color: var(--text);
+        background-color: var(--surface);
+        border-color: var(--border-focus);
+        box-shadow: 0 0 0 3px var(--primary-subtle);
+        outline: 0;
+    }
 
-.form-control:disabled,
-.form-control[disabled],
-.form-select:disabled {
-    color: var(--text-muted);
-    background-color: var(--surface-2);
-    opacity: 1;
-}
+    .form-control:disabled,
+    .form-control[disabled],
+    .form-select:disabled {
+        color: var(--text-muted);
+        background-color: var(--surface-2);
+        opacity: 1;
+    }
 
-.form-control::placeholder {
-    color: var(--text-secondary);
-    opacity: 1;
-}
+    .form-control::placeholder {
+        color: var(--text-secondary);
+        opacity: 1;
+    }
 
 .form-label {
     display: inline-block;
@@ -426,37 +421,21 @@ a:hover { color: var(--primary-dark); }
     position: relative;
 }
 
-.form-floating > .form-control,
-.form-floating > .form-select {
-    padding: 1rem 0.75rem 0.25rem;
-}
 
-.form-floating > .form-control::placeholder {
-    color: transparent;
-}
+    .form-floating > .form-control::placeholder {
+        color: transparent;
+    }
 
-.form-floating > label {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    color: var(--text-muted);
-    pointer-events: none;
-    transition: top var(--dur-med) var(--ease-out),
-                left var(--dur-med) var(--ease-out),
-                color var(--dur-med) var(--ease-out),
-                font-size var(--dur-med) var(--ease-out);
-}
+    .form-floating > label {
+        color: var(--text-muted);
+    }
 
-.form-floating > .form-control:focus ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label,
-.form-floating > .form-select ~ label {
-    top: 0.25rem;
-    left: 0.65rem;
-    padding: 0 var(--space-1);
-    font-size: var(--type-label-md);
-    color: var(--primary);
-    background: var(--surface);
-}
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label,
+    .form-floating > .form-select ~ label {
+        font-size: var(--type-label-md);
+        color: var(--primary);
+    }
 
 .form-check {
     display: flex;
@@ -496,9 +475,9 @@ a:hover { color: var(--primary-dark); }
     width: 100%;
 }
 
-.input-group > .form-control {
-    min-width: 0;
-}
+    .input-group > .form-control {
+        min-width: 0;
+    }
 
 .input-group-append {
     display: flex;
