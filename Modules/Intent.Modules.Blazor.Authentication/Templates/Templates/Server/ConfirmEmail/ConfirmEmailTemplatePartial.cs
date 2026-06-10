@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ConfirmEmailCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -44,26 +46,24 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
                     file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
                     file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
 
-                    file.AddCodeBlock(code =>
+                    var code = GetCodeBehind();
+                    code.AddField("string?", "statusMessage", c => c.Private());
+
+                    code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", httpContext => httpContext.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+
+                    code.AddProperty("string?", "UserId", httpContext => httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+                    code.AddProperty("string?", "Code", httpContext => httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
                     {
-                        code.AddField("string?", "statusMessage", c => c.Private());
+                        onInitializedAsync.Async().Protected().Override();
 
-                        code.AddProperty("HttpContext", "HttpContext", httpContext => httpContext.WithInitialValue("default!").AddAttribute("CascadingParameter"));
-
-                        code.AddProperty("string?", "UserId", httpContext => httpContext.AddAttribute("SupplyParameterFromQuery"));
-                        code.AddProperty("string?", "Code", httpContext => httpContext.AddAttribute("SupplyParameterFromQuery"));
-
-                        code.AddMethod("Task", "OnInitializedAsync", onInitializedAsync =>
+                        onInitializedAsync.AddIfStatement("UserId is null || Code is null", @if =>
                         {
-                            onInitializedAsync.Async().Protected().Override();
-
-                            onInitializedAsync.AddIfStatement("UserId is null || Code is null", @if =>
-                            {
-                                @if.AddStatement("RedirectManager.RedirectTo(\"\");");
-                            });
-
-                            onInitializedAsync.AddStatement("statusMessage = await AuthService.ConfirmEmail(UserId, Code);");
+                            @if.AddStatement("RedirectManager.RedirectTo(\"\");");
                         });
+
+                        onInitializedAsync.AddStatement("statusMessage = await AuthService.ConfirmEmail(UserId, Code);");
                     });
                 });
         }
@@ -86,6 +86,40 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
+        }
+
+        // Code-behind plumbing (hand-added; Body=Merge region, survives module regen). Routes this
+        // page's @code into the sibling ConfirmEmailCodeBehindTemplate (.razor.cs) when present,
+        // falling back to an inline @code block otherwise.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(ConfirmEmailCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
         }
     }
 }

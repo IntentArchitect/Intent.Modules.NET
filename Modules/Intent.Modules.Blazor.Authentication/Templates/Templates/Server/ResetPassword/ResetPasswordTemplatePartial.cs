@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetPasswordCodeBehind;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -37,9 +39,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                 {
                     file.AddPageDirective($"/Account/ResetPassword");
 
-                    file.AddUsing("System.ComponentModel.DataAnnotations");
-                    file.AddUsing("Microsoft.AspNetCore.WebUtilities");
-                    file.AddUsing("System.Text");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddInjectDirective(GetTypeName(IdentityRedirectManager.IdentityRedirectManagerTemplate.TemplateId), "RedirectManager");
 
@@ -70,76 +69,74 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                          )
                      )));
 
-                    file.AddCodeBlock(code =>
+                    var code = GetCodeBehind();
+                    code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");
+
+                    code.AddProperty("InputModel", "Input", input =>
                     {
-                        code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");
+                        input.Private();
+                        input.WithInitialValue("new()");
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+                    });
 
-                        code.AddProperty("InputModel", "Input", input =>
+                    code.AddProperty("string?", "Code", input =>
+                    {
+                        input.Private();
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute"));
+                    });
+
+                    code.AddProperty("string?", "Message", p => p.Private().WithoutSetter().Getter.WithExpressionImplementation("identityErrors is null ? null : $\"Error: {string.Join(\", \", identityErrors.Select(error => error.Description))}\""));
+
+                    code.AddMethod("void", "OnInitialized", onValidSubmitAsync =>
+                    {
+                        onValidSubmitAsync.Protected().Override();
+
+                        onValidSubmitAsync.AddIfStatement("Code is null", @if =>
                         {
-                            input.Private();
-                            input.WithInitialValue("new()");
-                            input.AddAttribute("SupplyParameterFromForm");
+                            @if.AddStatement("RedirectManager.RedirectTo(\"Account/ResetPasswordConfirmation\");");
                         });
 
-                        code.AddProperty("string?", "Code", input =>
+                        onValidSubmitAsync.AddStatement($"Input.Code = {code.Template.UseType("System.Text.Encoding")}.UTF8.GetString({code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlDecode(Code));");
+                    });
+
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
+                    {
+                        onValidSubmitAsync.Private().Async();
+
+                        onValidSubmitAsync.AddStatement("await AuthService.ResetPassword(Input.Email, Input.Code, Input.Password);");
+                    });
+
+                    code.AddClass("InputModel", inputModel =>
+                    {
+                        inputModel.Private().Sealed();
+
+                        inputModel.AddProperty("string", "Email", email =>
                         {
-                            input.Private();
-                            input.AddAttribute("SupplyParameterFromQuery");
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute").RemoveSuffix("Attribute"));
+                            email.WithInitialValue("\"\"");
                         });
 
-                        code.AddProperty("string?", "Message", p => p.Private().WithoutSetter().Getter.WithExpressionImplementation("identityErrors is null ? null : $\"Error: {string.Join(\", \", identityErrors.Select(error => error.Description))}\""));
-
-                        code.AddMethod("void", "OnInitialized", onValidSubmitAsync =>
+                        inputModel.AddProperty("string", "Password", email =>
                         {
-                            onValidSubmitAsync.Protected().Override();
-
-                            onValidSubmitAsync.AddIfStatement("Code is null", @if =>
-                            {
-                                @if.AddStatement("RedirectManager.RedirectTo(\"Account/ResetPasswordConfirmation\");");
-                            });
-
-                            onValidSubmitAsync.AddStatement("Input.Code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(Code));");
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute("StringLength(100, ErrorMessage = \"The {0} must be at least {2} and at max {1} characters long.\", MinimumLength = 6)");
+                            email.AddAttribute("DataType(DataType.Password)");
+                            email.WithInitialValue("\"\"");
                         });
 
-                        code.AddMethod("Task", "OnValidSubmitAsync", onValidSubmitAsync =>
+                        inputModel.AddProperty("string", "ConfirmPassword", email =>
                         {
-                            onValidSubmitAsync.Private().Async();
-
-                            onValidSubmitAsync.AddStatement("await AuthService.ResetPassword(Input.Email, Input.Code, Input.Password);");
+                            email.AddAttribute("DataType(DataType.Password)");
+                            email.AddAttribute("Display(Name = \"Confirm password\")");
+                            email.AddAttribute("Compare(\"Password\", ErrorMessage = \"The password and confirmation password do not match.\")");
+                            email.WithInitialValue("\"\"");
                         });
 
-                        code.AddClass("InputModel", inputModel =>
+                        inputModel.AddProperty("string", "Code", email =>
                         {
-                            inputModel.Private().Sealed();
-
-                            inputModel.AddProperty("string", "Email", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("EmailAddress");
-                                email.WithInitialValue("\"\"");
-                            });
-
-                            inputModel.AddProperty("string", "Password", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("StringLength(100, ErrorMessage = \"The {0} must be at least {2} and at max {1} characters long.\", MinimumLength = 6)");
-                                email.AddAttribute("DataType(DataType.Password)");
-                                email.WithInitialValue("\"\"");
-                            });
-
-                            inputModel.AddProperty("string", "ConfirmPassword", email =>
-                            {
-                                email.AddAttribute("DataType(DataType.Password)");
-                                email.AddAttribute("Display(Name = \"Confirm password\")");
-                                email.AddAttribute("Compare(\"Password\", ErrorMessage = \"The password and confirmation password do not match.\")");
-                                email.WithInitialValue("\"\"");
-                            });
-
-                            inputModel.AddProperty("string", "Code", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.WithInitialValue("\"\"");
-                            });
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.WithInitialValue("\"\"");
                         });
                     });
                 });
@@ -163,6 +160,40 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
+        }
+
+        // Code-behind plumbing (hand-added; Body=Merge region, survives module regen). Routes this
+        // page's @code into the sibling ResetPasswordCodeBehindTemplate (.razor.cs) when present,
+        // falling back to an inline @code block otherwise.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(ResetPasswordCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
         }
     }
 }

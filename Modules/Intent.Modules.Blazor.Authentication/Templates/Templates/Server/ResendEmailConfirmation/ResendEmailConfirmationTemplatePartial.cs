@@ -1,11 +1,14 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResendEmailConfirmationCodeBehind;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -37,7 +40,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
                 {
                     file.AddPageDirective($"/Account/ResendEmailConfirmation");
 
-                    file.AddUsing("System.ComponentModel.DataAnnotations");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Resend email confirmation"));
@@ -59,35 +61,33 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
                          )
                      );
 
-                    file.AddCodeBlock(code =>
+                    var code = GetCodeBehind();
+                    code.AddField("string?", "message");
+
+                    code.AddProperty("InputModel", "Input", input =>
                     {
-                        code.AddField("string?", "message");
+                        input.Private();
+                        input.WithInitialValue("new()");
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+                    });
 
-                        code.AddProperty("InputModel", "Input", input =>
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
+                    {
+                        onValidSubmitAsync.Private().Async();
+
+                        onValidSubmitAsync.AddStatement("await AuthService.ResendEmailConfirmation(Input.Email);");
+                        onValidSubmitAsync.AddStatement("message = \"Verification email sent. Please check your email.\";");
+                    });
+
+                    code.AddClass("InputModel", inputModel =>
+                    {
+                        inputModel.Private().Sealed();
+
+                        inputModel.AddProperty("string", "Email", email =>
                         {
-                            input.Private();
-                            input.WithInitialValue("new()");
-                            input.AddAttribute("SupplyParameterFromForm");
-                        });
-
-                        code.AddMethod("Task", "OnValidSubmitAsync", onValidSubmitAsync =>
-                        {
-                            onValidSubmitAsync.Private().Async();
-
-                            onValidSubmitAsync.AddStatement("await AuthService.ResendEmailConfirmation(Input.Email);");
-                            onValidSubmitAsync.AddStatement("message = \"Verification email sent. Please check your email.\";");
-                        });
-
-                        code.AddClass("InputModel", inputModel =>
-                        {
-                            inputModel.Private().Sealed();
-
-                            inputModel.AddProperty("string", "Email", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("EmailAddress");
-                                email.WithInitialValue("\"\"");
-                            });
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute").RemoveSuffix("Attribute"));
+                            email.WithInitialValue("\"\"");
                         });
                     });
                 });
@@ -111,6 +111,40 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
+        }
+
+        // Code-behind plumbing (hand-added; Body=Merge region, survives module regen). Routes this
+        // page's @code into the sibling ResendEmailConfirmationCodeBehindTemplate (.razor.cs) when
+        // present, falling back to an inline @code block otherwise.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(ResendEmailConfirmationCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
         }
     }
 }
