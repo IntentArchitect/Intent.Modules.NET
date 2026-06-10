@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
+
+namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorGeneralInstructions
+{
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    public class BlazorGeneralInstructionsTemplateRegistration : SingleFileTemplateRegistration
+    {
+        public override string TemplateId => BlazorGeneralInstructionsTemplate.TemplateId;
+
+        [IntentManaged(Mode.Fully)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
+        {
+            return new BlazorGeneralInstructionsTemplate(outputTarget);
+        }
+
+        protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            {
+                return;
+            }
+
+            base.Register(registry, application);
+        }
+    }
+}
