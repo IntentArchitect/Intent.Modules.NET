@@ -32,18 +32,10 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            endpointConfiguration.UseTransport(new SqsTransport());
-
-            endpointConfiguration.EnableInstallers();
-            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+            ConfigureCommonSettings(endpointConfiguration, configuration);
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
-
-            endpointConfiguration.Recoverability()
-                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
-                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
-            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
 
             return endpointConfiguration;
@@ -54,18 +46,10 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = "Animals";
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            endpointConfiguration.UseTransport(new SqsTransport());
-
-            endpointConfiguration.EnableInstallers();
-            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+            ConfigureCommonSettings(endpointConfiguration, configuration);
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(MakeSoundCommand) }.Contains);
-
-            endpointConfiguration.Recoverability()
-                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
-                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
-            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
             RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
 
@@ -77,18 +61,10 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "talk-to-person-command";
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            endpointConfiguration.UseTransport(new SqsTransport());
-
-            endpointConfiguration.EnableInstallers();
-            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+            ConfigureCommonSettings(endpointConfiguration, configuration);
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningCommandsAs(new[] { typeof(TalkToPersonCommand) }.Contains);
-
-            endpointConfiguration.Recoverability()
-                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
-                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
-            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
 
             return endpointConfiguration;
@@ -99,21 +75,30 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "create-person-identity";
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            endpointConfiguration.UseTransport(new SqsTransport());
-
-            endpointConfiguration.EnableInstallers();
-            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+            ConfigureCommonSettings(endpointConfiguration, configuration);
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity) }.Contains);
+            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static RoutingSettings ConfigureCommonSettings(
+            EndpointConfiguration endpointConfiguration,
+            IConfiguration configuration)
+        {
+            var routing = endpointConfiguration.UseTransport(new SqsTransport());
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
-            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
 
-            return endpointConfiguration;
+            return routing;
         }
 
         private static void RegisterHandler<THandler, TMessage>(EndpointConfiguration endpointConfiguration)

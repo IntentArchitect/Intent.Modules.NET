@@ -188,11 +188,21 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
                     method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
 
-                    AddTransportStatements(method, captureVar: sentCommandTemplates.Count > 0);
-                    AddPersistenceStatements(method);
-
-                    method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
-                    method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+                    if (commandGroups.Any())
+                    {
+                        // ConfigureCommonSettings exists — use it. Capture the routing settings if
+                        // we need to register RouteToEndpoint for sent commands.
+                        var capture = sentCommandTemplates.Count > 0 ? "var routing = " : "";
+                        method.AddStatement($"{capture}ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
+                    }
+                    else
+                    {
+                        // No command groups → no helper; inline the common setup directly.
+                        AddTransportStatements(method, captureVar: sentCommandTemplates.Count > 0);
+                        AddPersistenceStatements(method);
+                        method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+                    }
 
                     if (eventTemplates.Count > 0 || sentCommandTemplates.Count > 0)
                     {
@@ -213,10 +223,14 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         }
                     }
 
-                    AddRecoverabilityStatements(method);
+                    // For the inline path (no command groups), recoverability goes after conventions
+                    // to match the original ordering. For the helper path it is inside ConfigureCommonSettings.
+                    if (!commandGroups.Any())
+                        AddRecoverabilityStatements(method);
 
                     if (sentCommandTemplates.Count > 0)
                     {
+                        var routingVar = "routing";
                         var first = true;
                         foreach (var ct in sentCommandTemplates)
                         {
@@ -225,7 +239,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             var commandName = ct.Model.Name;
                             var isFirst = first; first = false;
                             method.AddStatement(
-                                $"""transportConfig.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{resolvedEndpoint}");""",
+                                $"""{routingVar}.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{resolvedEndpoint}");""",
                                 s => { if (isFirst) s.SeparatedFromPrevious(); });
                         }
                     }
@@ -263,24 +277,38 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         }
 
                         method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
-
-                        // Command endpoints never route — no need to capture the transport config variable.
-                        AddTransportStatements(method, captureVar: false);
-                        AddPersistenceStatements(method);
-
-                        method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
-                        method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+                        method.AddStatement("ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
 
                         var typeOfs = string.Join(", ",
                             cmdsInGroup.Select(cmd => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, cmd)})"));
                         method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
                         method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {typeOfs} }}.Contains);");
 
-                        AddRecoverabilityStatements(method);
-
                         // Handler registrations are inserted by the OnBuild callback below.
 
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
+                    });
+                }
+
+                // ── ConfigureCommonSettings ────────────────────────────────────────────────────────
+                // Shared setup used by all endpoint methods (main + command groups).
+                // Returns RoutingSettings so callers that need RouteToEndpoint can use the return value.
+                if (commandGroups.Any())
+                {
+                    @class.AddMethod("RoutingSettings", "ConfigureCommonSettings", method =>
+                    {
+                        method.Static().Private();
+                        method.AddParameter("EndpointConfiguration", "endpointConfiguration");
+                        method.AddParameter("IConfiguration", "configuration");
+
+                        AddTransportStatements(method, captureVar: true);
+                        AddPersistenceStatements(method);
+
+                        method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+
+                        AddRecoverabilityStatements(method);
+                        method.AddReturn("routing", s => s.SeparatedFromPrevious());
                     });
                 }
             });
@@ -387,7 +415,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         private void AddTransportStatements(CSharpClassMethod method, bool captureVar)
         {
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
-            var varPrefix = captureVar ? "var transportConfig = " : "";
+            var varPrefix = captureVar ? "var routing = " : "";
 
             if (transport.IsRabbitmq())
             {
