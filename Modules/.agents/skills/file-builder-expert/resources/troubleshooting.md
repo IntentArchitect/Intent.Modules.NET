@@ -93,3 +93,11 @@ public class MyTemplateRegistration : SingleFileTemplateRegistration<MyTemplate>
 | One output file | `SingleFileTemplateRegistration` |
 | One file per model element | `FilePerModelTemplateRegistration<TModel>` — must also override `GetModels` |
 | Event/pipeline-driven | `ITemplateRegistration` directly |
+
+---
+
+## 9. Missing usings in a code-behind / extracted file
+
+**Symptom:** Generated file (often a `.razor.cs` whose members were moved out of a `.razor` `@code` block) fails to compile — `Task`, `[SupplyParameterFromForm]`, `[Required]`, etc. not found — even though the same code compiled inline.
+**Cause:** (a) members were added with **raw type strings** the builder can't track, and/or (b) the host file's implicit imports (Razor `_Imports`) don't carry to a plain `.cs` file, and/or (c) the template writes into a code-behind but `RootCodeContext` still points at itself, so usings land on the wrong file.
+**Fix:** Resolve every type/return/attribute through `UseType("Namespace.Type")`, and when contributing members to a code-behind, redirect resolution with `public override ICSharpCodeContext RootCodeContext => GetCodeBehind();`. See *Split-file / code-behind usings* in `SKILL.md`.

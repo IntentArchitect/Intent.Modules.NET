@@ -1,12 +1,15 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ForgotPasswordCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -37,7 +40,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                 .Configure(file =>
                 {
                     file.AddPageDirective($"/Account/ForgotPassword");
-                    file.AddUsing("System.ComponentModel.DataAnnotations");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Forgot your password?"));
@@ -58,32 +60,30 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                          )
                      );
 
-                    file.AddCodeBlock(code =>
+                    var code = GetCodeBehind();
+                    code.AddProperty("InputModel", "Input", input =>
                     {
-                        code.AddProperty("InputModel", "Input", input =>
+                        input.Private();
+                        input.WithInitialValue("new()");
+                        input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute"));
+                    });
+
+                    code.AddMethod(UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
+                    {
+                        onValidSubmitAsync.Private().Async();
+
+                        onValidSubmitAsync.AddStatement("await AuthService.ForgotPassword(Input.Email);");
+                    });
+
+                    code.AddClass("InputModel", inputModel =>
+                    {
+                        inputModel.Private().Sealed();
+
+                        inputModel.AddProperty("string", "Email", email =>
                         {
-                            input.Private();
-                            input.WithInitialValue("new()");
-                            input.AddAttribute("SupplyParameterFromForm");
-                        });
-
-                        code.AddMethod("Task", "OnValidSubmitAsync", onValidSubmitAsync =>
-                        {
-                            onValidSubmitAsync.Private().Async();
-
-                            onValidSubmitAsync.AddStatement("await AuthService.ForgotPassword(Input.Email);");
-                        });
-
-                        code.AddClass("InputModel", inputModel =>
-                        {
-                            inputModel.Private().Sealed();
-
-                            inputModel.AddProperty("string", "Email", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.AddAttribute("EmailAddress");
-                                email.WithInitialValue("\"\"");
-                            });
+                            email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute"));
+                            email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute"));
+                            email.WithInitialValue("\"\"");
                         });
                     });
                 });
@@ -107,6 +107,44 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
+        }
+
+        // Code-behind plumbing (hand-added; lives in the Body=Merge region so it survives module
+        // regeneration). Routes this page's @code into the sibling ForgotPasswordCodeBehindTemplate
+        // (.razor.cs) when present, falling back to an inline @code block otherwise. Mirrors
+        // Intent.Modules.Blazor's RazorComponentTemplateBase without requiring a model.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        // Route C# type resolution (UseType/GetTypeName) for the @code members at the code-behind
+        // file when present, so its usings are managed there (and pruned from the .razor). The
+        // RazorFile manages its own @using/@inject directives independently of this context.
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(ForgotPasswordCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
         }
     }
 }

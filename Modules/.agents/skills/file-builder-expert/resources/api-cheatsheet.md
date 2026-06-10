@@ -53,9 +53,9 @@ foreach (var ns in requiredNamespaces)
 ```
 
 Use `AddUsing(...)` when the namespace is needed independently of a specific type reference, or is discovered dynamically.  
-Prefer `UseType("Namespace.Type")` when the namespace should only be introduced if that exact concrete type is required.
+Prefer `UseType("Namespace.Type")` when the namespace should only be introduced if that exact concrete type is required, including method signatures.
 
-> **Builder inference rule**: `UseType(...)` works because the builder tracks the type reference and auto-introduces the namespace. Raw strings are opaque — the builder cannot see a type reference inside `"DefaultValue(0)"`. Always reach for `UseType` / `GetTypeName` before reaching for `AddUsing`.
+> **Builder inference rule**: `UseType(...)` works because the builder tracks the type reference and auto-introduces the namespace. Raw strings are opaque, including return/parameter type strings.
 
 ---
 
