@@ -44,13 +44,54 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Confirm email"));
 
-                    // When MudBlazor is installed the page body is provided by the hand-authored
-                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
-                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    // Emit a MudBlazor-styled body when MudBlazor is installed, otherwise the default Bootstrap body.
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                     {
-                    file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
-                    file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
+                        file.AddHtmlElement("MudPaper", mudPaper => mudPaper
+                            .AddAttribute("Class", "pa-4 mb-4 ux-gradient-primary")
+                            .AddAttribute("Elevation", "0")
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.h4")
+                                .AddAttribute("Class", "text-white font-weight-bold mb-2")
+                                .AddHtmlElement("MudIcon", icon => icon
+                                    .AddAttribute("Icon", "@Icons.Material.Filled.MarkEmailRead")
+                                    .AddAttribute("Class", "mr-2"))
+                                .WithText("Confirm email"))
+                            .AddHtmlElement("MudText", text => text
+                                .AddAttribute("Typo", "Typo.body1")
+                                .AddAttribute("Class", "text-white opacity-90")
+                                .WithText("We are verifying your email address and completing your account setup.")));
 
+                        file.AddHtmlElement("MudGrid", grid => grid
+                            .AddAttribute("Spacing", "3")
+                            .AddHtmlElement("MudItem", item => item
+                                .AddAttribute("xs", "12")
+                                .AddAttribute("md", "8")
+                                .AddAttribute("lg", "6")
+                                .AddHtmlElement("MudCard", card => card
+                                    .AddAttribute("Class", "ux-fade-in-up")
+                                    .AddAttribute("Style", "animation-delay: 0.1s")
+                                    .AddHtmlElement("MudCardContent", content => content
+                                        .AddHtmlElement("MudText", text => text
+                                            .AddAttribute("Typo", "Typo.h5")
+                                            .WithText("Email confirmation status"))
+                                        .AddHtmlElement("MudText", text => text
+                                            .AddAttribute("Typo", "Typo.body2")
+                                            .AddAttribute("Class", "mb-4")
+                                            .WithText("The result of your email confirmation request is shown below."))
+                                        .AddHtmlElement("StatusMessage", status => status
+                                            .AddAttribute("Message", "@statusMessage"))
+                                        .AddHtmlElement("MudStack", stack => stack
+                                            .AddAttribute("Spacing", "1")
+                                            .AddAttribute("Class", "mt-4")
+                                            .AddHtmlElement("MudLink", link => link
+                                                .AddAttribute("Href", "Account/Login")
+                                                .WithText("Continue to log in")))))));
+                    }
+                    else
+                    {
+                        file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
+                        file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
                     }
 
                     var code = GetCodeBehind();
@@ -83,7 +124,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            // TEMP (verification): force full overwrite so the Software Factory reflects pure template
+            // output rather than merging into the hand-authored file.
+            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
+            return config;
         }
 
         /// <inheritdoc />
