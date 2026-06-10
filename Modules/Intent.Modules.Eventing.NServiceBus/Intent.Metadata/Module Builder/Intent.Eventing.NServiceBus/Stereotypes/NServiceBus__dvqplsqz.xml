@@ -21,12 +21,13 @@
   <packageName>Intent.Eventing.NServiceBus</packageName>
   <properties>
     <property id="7fb26481-5156-4067-ad30-b55b48f2bfbe">
-      <hint>Override the target endpoint name for this command. Leave blank to use the command class name.</hint>
+      <hint>The destination endpoint that handles this command. Must be set for NServiceBus to generate the correct RouteToEndpoint call.</hint>
       <name>Endpoint Name</name>
       <type>string</type>
       <controlType>text</controlType>
+      <isRequired>true</isRequired>
       <optionsSource>n/a</optionsSource>
-      <placeholder>(default)</placeholder>
+      <placeholder>e.g. my-service-endpoint</placeholder>
       <isActiveFunction>return element.specialization === "Integration Command";</isActiveFunction>
     </property>
   </properties>

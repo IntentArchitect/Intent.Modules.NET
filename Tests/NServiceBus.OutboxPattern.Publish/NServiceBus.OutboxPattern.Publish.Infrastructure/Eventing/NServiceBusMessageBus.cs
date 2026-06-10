@@ -50,19 +50,12 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
 
             using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
-                var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();
+                var transactionalSession = _serviceProvider.GetRequiredService<ITransactionalSession>();
 
-                if (transactionalSession != null)
-                {
-                    await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
-                    await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));
+                await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
+                await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));
 
-                    await transactionalSession.Commit(cancellationToken);
-                    return;
-                }
-
-                var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();
-                await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));
+                await transactionalSession.Commit(cancellationToken);
             }
         }
 

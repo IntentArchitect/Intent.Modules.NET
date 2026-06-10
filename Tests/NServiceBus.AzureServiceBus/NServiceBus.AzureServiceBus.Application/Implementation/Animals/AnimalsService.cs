@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using NServiceBus.AzureServiceBus.Application.Animals;
 using NServiceBus.AzureServiceBus.Application.Common.Eventing;
 using NServiceBus.AzureServiceBus.Application.Interfaces.Animals;
 using NServiceBus.AzureServiceBus.Eventing.Messages;
@@ -20,10 +21,11 @@ namespace NServiceBus.AzureServiceBus.Application.Implementation.Animals
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task CreateAnimal(string dto, CancellationToken cancellationToken = default)
+        public async Task CreateAnimal(CreateAnimalDto dto, CancellationToken cancellationToken = default)
         {
             _messageBus.Send(new OrderAnimal
             {
+                Name = dto.Name
             });
         }
     }

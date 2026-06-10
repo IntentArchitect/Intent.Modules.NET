@@ -30,13 +30,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
             var hasOutbox = outboxPattern.IsSqlPersistence();
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
-            // Always add TransactionalSession packages so ITransactionalSession? field compiles
-            // on all transports. At runtime GetService<ITransactionalSession>() returns null
-            // when outbox is not configured — the outbox code path is never executed.
-            AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
-            AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
             if (hasOutbox)
             {
+                AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
+                AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             }
 
@@ -46,9 +43,14 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Transactions")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("NServiceBus")
-                .AddUsing("NServiceBus.Persistence.Sql")
-                .AddUsing("NServiceBus.TransactionalSession");
+                .AddUsing("NServiceBus");
+
+            if (hasOutbox)
+            {
+                CSharpFile
+                    .AddUsing("NServiceBus.Persistence.Sql")
+                    .AddUsing("NServiceBus.TransactionalSession");
+            }
 
             CSharpFile.AddClass("NServiceBusMessageBus", @class =>
             {
@@ -108,21 +110,19 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                         usingBlock =>
                         {
                             usingBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
-                            usingBlock.AddStatement("var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();");
 
-                            // Outbox path: ITransactionalSession is registered when SQL Persistence outbox is configured.
-                            usingBlock.AddIfStatement("transactionalSession != null", ifBlock =>
+                            if (hasOutbox)
                             {
-                                ifBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
-                                ifBlock.AddStatement("await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);");
-                                ifBlock.AddStatement("await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));");
-                                ifBlock.AddStatement("await transactionalSession.Commit(cancellationToken);", s => s.SeparatedFromPrevious());
-                                ifBlock.AddStatement("return;");
-                            });
-
-                            // Direct session path: fallback when outbox is not configured.
-                            usingBlock.AddStatement("var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();", s => s.SeparatedFromPrevious());
-                            usingBlock.AddStatement("await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));");
+                                usingBlock.AddStatement("var transactionalSession = _serviceProvider.GetRequiredService<ITransactionalSession>();");
+                                usingBlock.AddStatement("await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);", s => s.SeparatedFromPrevious());
+                                usingBlock.AddStatement("await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));");
+                                usingBlock.AddStatement("await transactionalSession.Commit(cancellationToken);", s => s.SeparatedFromPrevious());
+                            }
+                            else
+                            {
+                                usingBlock.AddStatement("var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();");
+                                usingBlock.AddStatement("await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));");
+                            }
                         });
                 });
 

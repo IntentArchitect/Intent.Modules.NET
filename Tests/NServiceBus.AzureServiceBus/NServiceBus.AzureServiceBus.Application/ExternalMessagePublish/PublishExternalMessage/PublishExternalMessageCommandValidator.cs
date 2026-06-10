@@ -17,7 +17,8 @@ namespace NServiceBus.AzureServiceBus.Application.ExternalMessagePublish.Publish
 
         private void ConfigureValidationRules()
         {
-            // Implement custom validation logic here if required
+            RuleFor(v => v.Message)
+                .NotNull();
         }
     }
 }

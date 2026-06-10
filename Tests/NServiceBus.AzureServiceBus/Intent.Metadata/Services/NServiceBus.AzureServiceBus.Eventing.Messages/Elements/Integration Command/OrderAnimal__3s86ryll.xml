@@ -3,6 +3,7 @@
   <name>OrderAnimal</name>
   <display>OrderAnimal</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</parentFolderId>
@@ -19,5 +20,30 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="222f6e72-146c-4733-9825-7b2bf57dedd0" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7580c9bb-02eb-401c-a428-296368266ad0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>04acbb36-65d3-4bf8-9f55-2e7bd16b8ec0</parentFolderId>
+      <packageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</packageId>
+      <packageName>NServiceBus.AzureServiceBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

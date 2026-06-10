@@ -7,5 +7,11 @@ namespace NServiceBus.AzureServiceBus.Eventing.Messages
 {
     public record OrderAnimal
     {
+        public OrderAnimal()
+        {
+            Name = null!;
+        }
+
+        public string Name { get; init; }
     }
 }

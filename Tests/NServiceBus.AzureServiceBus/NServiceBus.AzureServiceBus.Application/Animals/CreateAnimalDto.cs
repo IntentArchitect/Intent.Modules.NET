@@ -9,6 +9,9 @@ namespace NServiceBus.AzureServiceBus.Application.Animals
     {
         public CreateAnimalDto()
         {
+            Name = null!;
         }
+
+        public string Name { get; init; }
     }
 }

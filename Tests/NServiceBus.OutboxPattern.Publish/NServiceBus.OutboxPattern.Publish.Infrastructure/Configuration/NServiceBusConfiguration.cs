@@ -30,7 +30,21 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
+            var routing = ConfigureCommonSettings(endpointConfiguration, configuration);
 
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningEventsAs(new[] { typeof(TestEvent) }.Contains);
+            conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
+
+            routing.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "NServiceBus.OutboxPattern.Subscribe");
+
+            return endpointConfiguration;
+        }
+
+        private static RoutingSettings ConfigureCommonSettings(
+            EndpointConfiguration endpointConfiguration,
+            IConfiguration configuration)
+        {
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
             var routing = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
@@ -44,18 +58,12 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningEventsAs(new[] { typeof(TestEvent) }.Contains);
-            conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
-
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            routing.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "test-command");
-
-            return endpointConfiguration;
+            return routing;
         }
     }
 }

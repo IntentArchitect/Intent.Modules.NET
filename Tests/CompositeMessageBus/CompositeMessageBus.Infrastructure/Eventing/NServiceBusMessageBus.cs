@@ -2,8 +2,6 @@ using System.Transactions;
 using CompositeMessageBus.Application.Common.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using NServiceBus.Persistence.Sql;
-using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusMessageBus", Version = "1.0")]
@@ -69,16 +67,6 @@ namespace CompositeMessageBus.Infrastructure.Eventing
 
             using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
-                var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();
-
-                if (transactionalSession != null)
-                {
-                    await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
-                    await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));
-
-                    await transactionalSession.Commit(cancellationToken);
-                    return;
-                }
 
                 var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();
                 await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));

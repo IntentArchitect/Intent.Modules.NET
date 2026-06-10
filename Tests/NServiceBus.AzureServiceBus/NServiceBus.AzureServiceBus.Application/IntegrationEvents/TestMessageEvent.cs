@@ -7,5 +7,11 @@ namespace NServiceBus.AzureServiceBus.Eventing.Messages
 {
     public record TestMessageEvent
     {
+        public TestMessageEvent()
+        {
+            Message = null!;
+        }
+
+        public string Message { get; init; }
     }
 }

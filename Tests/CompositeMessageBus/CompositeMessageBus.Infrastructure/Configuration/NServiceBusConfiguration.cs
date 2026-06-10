@@ -30,24 +30,33 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
+            ConfigureCommonSettings(endpointConfiguration, configuration);
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningEventsAs(new[] { typeof(MsgNServiceBusEvent) }.Contains);
+
+            return endpointConfiguration;
+        }
+
+        private static RoutingSettings ConfigureCommonSettings(
+            EndpointConfiguration endpointConfiguration,
+            IConfiguration configuration)
+        {
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
             var storageDirectory = rawStoragePath is not null
                 ? Environment.ExpandEnvironmentVariables(rawStoragePath)
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
-            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+            var routing = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningEventsAs(new[] { typeof(MsgNServiceBusEvent) }.Contains);
 
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            return endpointConfiguration;
+            return routing;
         }
     }
 }

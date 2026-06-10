@@ -93,7 +93,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             {
                 @class.Static();
 
-                // ── Message & handler discovery (class scope — shared by all method lambdas) ──────
+                // ── Message & handler discovery ────────────────────────────────────────────────────
                 var eventTemplates = ExecutionContext
                     .FindTemplateInstances<CSharpTemplateBase<MessageModel>>(IntegrationEventMessageTemplate.TemplateId)
                     .FilterMessagesForThisMessageBroker(ExecutionContext, BrokerStereotypeIds, t => t.Model)
@@ -116,11 +116,18 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     .Where(ct => !subscribedIds.Contains(ct.Model.Id))
                     .ToList();
 
-                // Group handled commands by resolved endpoint name.
-                // Same endpoint name → same NSB endpoint (one queue, multiple handlers).
-                var commandGroups = commandSubscriptions
-                    .GroupBy(ResolveCommandEndpointName)
+                // Sent commands MUST have the NServiceBus stereotype EndpointName set so we can
+                // generate the correct RouteToEndpoint call. Missing values mean silent misrouting.
+                var missingEndpointName = sentCommandTemplates
+                    .Where(ct => string.IsNullOrEmpty(ct.Model.GetNServiceBus()?.EndpointName()))
                     .ToList();
+                if (missingEndpointName.Any())
+                {
+                    var names = string.Join(", ", missingEndpointName.Select(ct => $"'{ct.Model.Name}'"));
+                    throw new InvalidOperationException(
+                        $"The following Integration Command(s) are sent by this application but have no NServiceBus endpoint name configured: {names}. " +
+                        "Open the Integration Command in the designer, apply the 'NServiceBus' stereotype, and set 'Endpoint Name' to the destination endpoint.");
+                }
 
                 // ── AddNServiceBusConfiguration ────────────────────────────────────────────────────
                 @class.AddMethod("IServiceCollection", "AddNServiceBusConfiguration", method =>
@@ -158,28 +165,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         }
                     }
 
-                    // Command endpoints first, main endpoint last.
-                    // The last AddNServiceBusEndpoint call wins the IMessageSession DI registration —
-                    // NServiceBusMessageBus relies on this for out-of-handler publish/send.
-                    var firstEndpoint = true;
-                    foreach (var group in commandGroups)
-                    {
-                        var isFirst = firstEndpoint; firstEndpoint = false;
-                        var suffix = EndpointNameToMethodSuffix(group.Key);
-                        method.AddStatement(
-                            $"services.AddNServiceBusEndpoint(ConfigureEndpointFor{suffix}(configuration));",
-                            s => { if (isFirst) s.SeparatedFromPrevious(); });
-                    }
-
-                    method.AddStatement(
-                        "services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));",
-                        s => { if (firstEndpoint) s.SeparatedFromPrevious(); });
+                    method.AddStatement("services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));",
+                        s => s.SeparatedFromPrevious());
 
                     method.AddReturn("services");
                 });
 
                 // ── ConfigureMainEndpoint ──────────────────────────────────────────────────────────
-                // Handles events + routes sent commands. Named by NServiceBus:EndpointName (app name).
                 @class.AddMethod("EndpointConfiguration", "ConfigureMainEndpoint", method =>
                 {
                     method.Static().Private();
@@ -188,23 +180,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
                     method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
 
-                    if (commandGroups.Any())
-                    {
-                        // ConfigureCommonSettings exists — use it. Capture the routing settings if
-                        // we need to register RouteToEndpoint for sent commands.
-                        var capture = sentCommandTemplates.Count > 0 ? "var routing = " : "";
-                        method.AddStatement($"{capture}ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
-                    }
-                    else
-                    {
-                        // No command groups → no helper; inline the common setup directly.
-                        AddTransportStatements(method, captureVar: sentCommandTemplates.Count > 0);
-                        AddPersistenceStatements(method);
-                        method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
-                        method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
-                    }
+                    var capture = sentCommandTemplates.Count > 0 ? "var routing = " : "";
+                    method.AddStatement($"{capture}ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
 
-                    if (eventTemplates.Count > 0 || sentCommandTemplates.Count > 0)
+                    if (eventTemplates.Count > 0 || commandTemplates.Count > 0)
                     {
                         method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
 
@@ -215,31 +194,25 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             method.AddStatement($"conventions.DefiningEventsAs(new[] {{ {typeOfs} }}.Contains);");
                         }
 
-                        if (sentCommandTemplates.Count > 0)
+                        if (commandTemplates.Count > 0)
                         {
                             var typeOfs = string.Join(", ",
-                                sentCommandTemplates.Select(t => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, t.Model)})"));
+                                commandTemplates.Select(t => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, t.Model)})"));
                             method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {typeOfs} }}.Contains);");
                         }
                     }
 
-                    // For the inline path (no command groups), recoverability goes after conventions
-                    // to match the original ordering. For the helper path it is inside ConfigureCommonSettings.
-                    if (!commandGroups.Any())
-                        AddRecoverabilityStatements(method);
-
                     if (sentCommandTemplates.Count > 0)
                     {
-                        var routingVar = "routing";
                         var first = true;
                         foreach (var ct in sentCommandTemplates)
                         {
-                            var resolvedEndpoint = ResolveCommandEndpointName(ct.Model);
+                            var destinationEndpoint = ct.Model.GetNServiceBus()!.EndpointName();
                             var commandTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, ct.Model);
                             var commandName = ct.Model.Name;
                             var isFirst = first; first = false;
                             method.AddStatement(
-                                $"""{routingVar}.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{resolvedEndpoint}");""",
+                                $"""routing.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{destinationEndpoint}");""",
                                 s => { if (isFirst) s.SeparatedFromPrevious(); });
                         }
                     }
@@ -247,138 +220,22 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                 });
 
-                // ── Per-command-group endpoint methods ────────────────────────────────────────────
-                // One method per unique resolved endpoint name among handled commands.
-                foreach (var group in commandGroups)
-                {
-                    var groupKey = group.Key;
-                    var cmdsInGroup = group.ToList();
-                    // Single command with no stereotype → convention name; allow config override.
-                    var isSingleConvention = cmdsInGroup.Count == 1
-                        && string.IsNullOrEmpty(cmdsInGroup[0].GetNServiceBus()?.EndpointName());
-                    var suffix = EndpointNameToMethodSuffix(groupKey);
-
-                    @class.AddMethod("EndpointConfiguration", $"ConfigureEndpointFor{suffix}", method =>
-                    {
-                        method.Static().Private();
-                        method.AddParameter("IConfiguration", "configuration");
-
-                        if (isSingleConvention)
-                        {
-                            // Convention-derived name: allow override via the same key the publisher uses for routing
-                            // so both sides can be changed in sync through config.
-                            var cmdName = cmdsInGroup[0].Name;
-                            method.AddStatement($@"var endpointName = configuration[""NServiceBus:Routing:Commands:{cmdName}""] ?? ""{groupKey}"";");
-                        }
-                        else
-                        {
-                            // Stereotype-set or multi-command group: designer is the source of truth.
-                            method.AddStatement($@"var endpointName = ""{groupKey}"";");
-                        }
-
-                        method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
-                        method.AddStatement("ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
-
-                        var typeOfs = string.Join(", ",
-                            cmdsInGroup.Select(cmd => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, cmd)})"));
-                        method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
-                        method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {typeOfs} }}.Contains);");
-
-                        // Handler registrations are inserted by the OnBuild callback below.
-
-                        method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
-                    });
-                }
-
                 // ── ConfigureCommonSettings ────────────────────────────────────────────────────────
-                // Shared setup used by all endpoint methods (main + command groups).
-                // Returns RoutingSettings so callers that need RouteToEndpoint can use the return value.
-                if (commandGroups.Any())
-                {
-                    @class.AddMethod("RoutingSettings", "ConfigureCommonSettings", method =>
-                    {
-                        method.Static().Private();
-                        method.AddParameter("EndpointConfiguration", "endpointConfiguration");
-                        method.AddParameter("IConfiguration", "configuration");
-
-                        AddTransportStatements(method, captureVar: true);
-                        AddPersistenceStatements(method);
-
-                        method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
-                        method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
-
-                        AddRecoverabilityStatements(method);
-                        method.AddReturn("routing", s => s.SeparatedFromPrevious());
-                    });
-                }
-            });
-
-            // OnBuild: insert RegisterHandler<> calls into the correct endpoint method per message type.
-            // Runs after the main class lambdas so all endpoint methods are already defined.
-            CSharpFile.OnBuild(file =>
-            {
-                var handlerTemplate = ExecutionContext
-                    .FindTemplateInstances<NServiceBusMessageHandlerTemplate>(NServiceBusMessageHandlerTemplate.TemplateId)
-                    .FirstOrDefault();
-
-                var eventSubscriptions = handlerTemplate?.SubscribedMessageModels ?? new List<MessageModel>();
-                var commandSubscriptions = handlerTemplate?.SubscribedCommandModels ?? new List<IntegrationCommandModel>();
-
-                if (!eventSubscriptions.Any() && !commandSubscriptions.Any()) return;
-
-                var cls = file.Classes.First();
-                var handlerTypeName = this.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId);
-
-                // Event handlers → main endpoint
-                if (eventSubscriptions.Any())
-                {
-                    var mainMethod = cls.FindMethod("ConfigureMainEndpoint");
-                    if (mainMethod != null)
-                    {
-                        foreach (var sub in eventSubscriptions)
-                        {
-                            var msgType = this.GetTypeName(IntegrationEventMessageTemplate.TemplateId, sub);
-                            mainMethod.InsertStatement(
-                                mainMethod.Statements.Count - 1,
-                                $"RegisterHandler<{handlerTypeName}<{msgType}>, {msgType}>(endpointConfiguration);");
-                        }
-                    }
-                }
-
-                // Command handlers → their group's endpoint method
-                var commandGroups = commandSubscriptions
-                    .GroupBy(ResolveCommandEndpointName)
-                    .ToList();
-
-                foreach (var group in commandGroups)
-                {
-                    var methodName = $"ConfigureEndpointFor{EndpointNameToMethodSuffix(group.Key)}";
-                    var endpointMethod = cls.FindMethod(methodName);
-                    if (endpointMethod == null) continue;
-
-                    foreach (var cmd in group)
-                    {
-                        var cmdType = this.GetTypeName(IntegrationCommandTemplate.TemplateId, cmd);
-                        endpointMethod.InsertStatement(
-                            endpointMethod.Statements.Count - 1,
-                            $"RegisterHandler<{handlerTypeName}<{cmdType}>, {cmdType}>(endpointConfiguration);");
-                    }
-                }
-
-                // RegisterHandler helper — added once, reachable from all endpoint methods.
-                cls.AddMethod("void", "RegisterHandler", method =>
+                // Returns RoutingSettings so ConfigureMainEndpoint can add RouteToEndpoint calls.
+                @class.AddMethod("RoutingSettings", "ConfigureCommonSettings", method =>
                 {
                     method.Static().Private();
-                    method.AddGenericParameter("THandler");
-                    method.AddGenericParameter("TMessage");
-                    method.AddGenericTypeConstraint("THandler", c => c.AddType("class").AddType("IHandleMessages<TMessage>"));
-                    method.AddGenericTypeConstraint("TMessage", c => c.AddType("class"));
                     method.AddParameter("EndpointConfiguration", "endpointConfiguration");
-                    method.AddStatement("var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);");
-                    method.AddStatement("var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();");
-                    method.AddStatement("var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();");
-                    method.AddStatement("messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();");
-                    method.AddStatement("messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());");
+                    method.AddParameter("IConfiguration", "configuration");
+
+                    AddTransportStatements(method, captureVar: true);
+                    AddPersistenceStatements(method);
+
+                    method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
+                    method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+
+                    AddRecoverabilityStatements(method);
+                    method.AddReturn("routing", s => s.SeparatedFromPrevious());
                 });
             });
         }
@@ -395,22 +252,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
             PublishAppSettings();
         }
-
-        // Resolves the NSB endpoint name for a command: stereotype override, else command name in kebab-case.
-        // Used as the GroupBy key so commands with the same resolved name share one NSB endpoint.
-        private static string ResolveCommandEndpointName(IntegrationCommandModel cmd)
-        {
-            var stereotype = cmd.GetNServiceBus()?.EndpointName();
-            return !string.IsNullOrEmpty(stereotype) ? stereotype : cmd.Name.ToKebabCase();
-        }
-
-        // Converts an endpoint name string to a PascalCase method-name suffix.
-        // "test-command" → "TestCommand", "x-group-command" → "XGroupCommand"
-        private static string EndpointNameToMethodSuffix(string endpointName) =>
-            string.Concat(
-                endpointName
-                    .Split(new[] { '-', '.', '_', ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(part => char.ToUpperInvariant(part[0]) + part.Substring(1)));
 
         private void AddTransportStatements(CSharpClassMethod method, bool captureVar)
         {

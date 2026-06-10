@@ -15,7 +15,7 @@
       <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
       <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
       <properties>
-        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="" isActive="true" />
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="create-person-identity" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

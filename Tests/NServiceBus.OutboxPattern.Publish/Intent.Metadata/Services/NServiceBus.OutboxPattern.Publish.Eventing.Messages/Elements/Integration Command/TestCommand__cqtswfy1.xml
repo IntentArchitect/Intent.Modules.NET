@@ -9,7 +9,16 @@
   <parentFolderId>4b31a225-80ee-4c5a-ab82-16b57da74155</parentFolderId>
   <packageId>4b31a225-80ee-4c5a-ab82-16b57da74155</packageId>
   <packageName>NServiceBus.OutboxPattern.Publish.Eventing.Messages</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="NServiceBus.OutboxPattern.Subscribe" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="afa3b541-a389-45c9-8aca-934d61c2c928" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">

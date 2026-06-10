@@ -24,6 +24,7 @@ namespace NServiceBus.AzureServiceBus.Application.ExternalMessagePublish.Publish
         {
             _messageBus.Publish(new TestMessageEvent
             {
+                Message = request.Message
             });
         }
     }

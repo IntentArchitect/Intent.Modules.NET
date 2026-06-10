@@ -34,6 +34,7 @@ namespace NServiceBus.AzureServiceBus.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAnimalsService, AnimalsService>();
             services.AddTransient<IIntegrationEventHandler<OrderAnimal>, OrderAnimalHandler>();
             services.AddTransient<IIntegrationEventHandler<MakeSoundCommand>, OrderAnimalHandler>();

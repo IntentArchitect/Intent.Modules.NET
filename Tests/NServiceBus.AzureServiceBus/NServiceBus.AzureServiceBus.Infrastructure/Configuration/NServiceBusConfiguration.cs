@@ -20,10 +20,6 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration));
-            services.AddNServiceBusEndpoint(ConfigureEndpointForMakeSoundCommand(configuration));
-            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration));
-            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration));
             services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
@@ -37,63 +33,7 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForAnimals(IConfiguration configuration)
-        {
-            var endpointName = "Animals";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForMakeSoundCommand(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "make-sound-command";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(MakeSoundCommand) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForTalkToPersonCommand(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "talk-to-person-command";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(TalkToPersonCommand) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForCreatePersonIdentity(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "create-person-identity";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
+            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(CreatePersonIdentity), typeof(MakeSoundCommand), typeof(TalkToPersonCommand) }.Contains);
 
             return endpointConfiguration;
         }
@@ -114,17 +54,6 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
             return routing;
-        }
-
-        private static void RegisterHandler<THandler, TMessage>(EndpointConfiguration endpointConfiguration)
-            where THandler : class, IHandleMessages<TMessage>
-            where TMessage : class
-        {
-            var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);
-            var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();
-            var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();
-            messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();
-            messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());
         }
     }
 }

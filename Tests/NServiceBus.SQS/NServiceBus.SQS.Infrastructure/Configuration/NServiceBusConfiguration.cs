@@ -20,10 +20,10 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration));
-            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration));
-            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration));
-            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration), "Animals");
+            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration), "talk-to-person-command");
+            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration), "create-person-identity");
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration), "main");
             return services;
         }
 
@@ -89,6 +89,8 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             IConfiguration configuration)
         {
             var routing = endpointConfiguration.UseTransport(new SqsTransport());
+
+            endpointConfiguration.AssemblyScanner().Disable = true;
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();

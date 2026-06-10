@@ -23,7 +23,7 @@
   <childElements>
     <childElement id="4808ba62-47bb-40a6-acec-d5ce7402e0ff" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>CreateAnimal</name>
-      <display>CreateAnimal(dto: string): void</display>
+      <display>CreateAnimal(dto: CreateAnimalDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -60,17 +60,17 @@
       <childElements>
         <childElement id="39f5587f-1d72-4663-91d1-fe39b50115a0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
-          <display>in : dto: string</display>
+          <display>in : dto: CreateAnimalDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="059589a1-a092-4244-80c2-b3f3436dd29f">
-            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeId>01217814-3572-49f4-b3e5-946a25d4ac9e</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <typePackageName>NServiceBus.AzureServiceBus.Services</typePackageName>
+            <typePackageId>6ada38bc-eb52-4e66-baf9-750369c1f931</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

@@ -23,7 +23,6 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddNServiceBusEndpoint(ConfigureEndpointForTestCommand(configuration));
             services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
@@ -37,22 +36,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(AnotherTestMessageEvent), typeof(TestEvent) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>(endpointConfiguration);
-            RegisterHandler<NServiceBusMessageHandler<TestEvent>, TestEvent>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForTestCommand(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "test-command";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
             conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<TestCommand>, TestCommand>(endpointConfiguration);
 
             return endpointConfiguration;
         }
@@ -80,17 +64,6 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
             return routing;
-        }
-
-        private static void RegisterHandler<THandler, TMessage>(EndpointConfiguration endpointConfiguration)
-            where THandler : class, IHandleMessages<TMessage>
-            where TMessage : class
-        {
-            var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);
-            var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();
-            var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();
-            messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();
-            messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());
         }
     }
 }
