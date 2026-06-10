@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing;
-using NServiceBus.OutboxPattern.Publish.Infrastructure.Persistence;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,13 +22,11 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddScoped(sp => new Lazy<ApplicationDbContext>(() => sp.GetRequiredService<ApplicationDbContext>()));
-
-            services.AddNServiceBusEndpoint(ConfigureEndpoint(configuration));
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
-        private static EndpointConfiguration ConfigureEndpoint(IConfiguration configuration)
+        private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
@@ -56,7 +53,7 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Configuration
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            transportConfig.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "TestCommand");
+            transportConfig.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "test-command");
 
             return endpointConfiguration;
         }

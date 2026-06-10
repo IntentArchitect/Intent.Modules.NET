@@ -4,7 +4,6 @@ using NServiceBus.LearnerTransport.Api.Filters;
 using NServiceBus.LearnerTransport.Api.Logging;
 using NServiceBus.LearnerTransport.Application;
 using NServiceBus.LearnerTransport.Infrastructure;
-using NServiceBus.LearnerTransport.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -26,9 +25,6 @@ namespace NServiceBus.LearnerTransport.Api
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
-
-                // Add services to the container.
-                builder.Host.AddNServiceBus(builder.Configuration);
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)

@@ -4,7 +4,6 @@ using NServiceBus.SQS.Api.Filters;
 using NServiceBus.SQS.Api.Logging;
 using NServiceBus.SQS.Application;
 using NServiceBus.SQS.Infrastructure;
-using NServiceBus.SQS.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -26,9 +25,6 @@ namespace NServiceBus.SQS.Api
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
-
-                // Add services to the container.
-                builder.Host.AddNServiceBus(builder.Configuration);
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)

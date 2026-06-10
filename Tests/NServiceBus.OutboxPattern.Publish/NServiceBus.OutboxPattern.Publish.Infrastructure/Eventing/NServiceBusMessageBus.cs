@@ -1,8 +1,7 @@
 using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
-using NServiceBus.OutboxPattern.Publish.Infrastructure.Persistence;
 using NServiceBus.Persistence.Sql;
 using NServiceBus.TransactionalSession;
 
@@ -15,13 +14,11 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
     {
         private readonly List<object> _publishBuffer = new();
         private readonly List<object> _sendBuffer = new();
-        private readonly ITransactionalSession _transactionalSession;
-        private readonly Lazy<ApplicationDbContext> _dbContext;
+        private readonly IServiceProvider _serviceProvider;
 
-        public NServiceBusMessageBus(ITransactionalSession transactionalSession, Lazy<ApplicationDbContext> dbContext)
+        public NServiceBusMessageBus(IServiceProvider serviceProvider)
         {
-            _transactionalSession = transactionalSession;
-            _dbContext = dbContext;
+            _serviceProvider = serviceProvider;
         }
 
         public object? ActiveContext { get; set; }
@@ -47,50 +44,42 @@ namespace NServiceBus.OutboxPattern.Publish.Infrastructure.Eventing
 
             if (ActiveContext is IMessageHandlerContext handlerContext)
             {
-                foreach (var message in _publishBuffer)
-                {
-                    await handlerContext.Publish(message, new PublishOptions());
-                }
-
-                foreach (var message in _sendBuffer)
-                {
-                    await handlerContext.Send(message, new SendOptions());
-                }
-                _publishBuffer.Clear();
-                _sendBuffer.Clear();
+                await DispatchAsync(m => handlerContext.Publish(m, new PublishOptions()), m => handlerContext.Send(m, new SendOptions()));
                 return;
             }
 
             using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
-                //var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();
-                //_dbContext.Value.Database.SetDbConnection(sqlSession.Connection);
-                //await _dbContext.Value.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);
+                var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();
 
-                try
+                if (transactionalSession != null)
                 {
-                    foreach (var message in _publishBuffer)
-                    {
-                        await _transactionalSession.Publish(message, cancellationToken);
-                    }
+                    await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
+                    await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));
 
-                    foreach (var message in _sendBuffer)
-                    {
-                        await _transactionalSession.Send(message, cancellationToken);
-                    }
-
-                    //await _dbContext.Value.SaveChangesAsync(cancellationToken);
-                    await _transactionalSession.Commit(cancellationToken);
-
-                    _publishBuffer.Clear();
-                    _sendBuffer.Clear();
+                    await transactionalSession.Commit(cancellationToken);
+                    return;
                 }
-                finally
-                {
-                    //_dbContext.Value.Database.SetDbConnection(null);
-                }
+
+                var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();
+                await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));
             }
+        }
+
+        private async Task DispatchAsync(Func<object, Task> publishFn, Func<object, Task> sendFn)
+        {
+            foreach (var message in _publishBuffer)
+            {
+                await publishFn(message);
+            }
+
+            foreach (var message in _sendBuffer)
+            {
+                await sendFn(message);
+            }
+
+            _publishBuffer.Clear();
+            _sendBuffer.Clear();
         }
     }
 }

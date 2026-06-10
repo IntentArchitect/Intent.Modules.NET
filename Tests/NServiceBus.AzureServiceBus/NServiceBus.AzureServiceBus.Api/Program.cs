@@ -4,7 +4,6 @@ using NServiceBus.AzureServiceBus.Api.Filters;
 using NServiceBus.AzureServiceBus.Api.Logging;
 using NServiceBus.AzureServiceBus.Application;
 using NServiceBus.AzureServiceBus.Infrastructure;
-using NServiceBus.AzureServiceBus.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -26,9 +25,6 @@ namespace NServiceBus.AzureServiceBus.Api
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
-
-                // Add services to the container.
-                builder.Host.AddNServiceBus(builder.Configuration);
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)

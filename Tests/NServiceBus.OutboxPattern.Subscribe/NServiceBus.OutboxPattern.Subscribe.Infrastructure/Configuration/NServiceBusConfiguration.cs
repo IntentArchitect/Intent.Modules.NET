@@ -6,7 +6,6 @@ using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
 using NServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Infrastructure.Eventing;
-using NServiceBus.OutboxPattern.Subscribe.Infrastructure.Persistence;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,19 +23,18 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddScoped(sp => new Lazy<ApplicationDbContext>(() => sp.GetRequiredService<ApplicationDbContext>()));
-
-            services.AddNServiceBusEndpoint(ConfigureEndpoint(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForTestCommand(configuration));
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
-        private static EndpointConfiguration ConfigureEndpoint(IConfiguration configuration)
+        private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
-            var transportConfig = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
             var persistenceConnectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is not configured");
             var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();
@@ -50,16 +48,42 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(AnotherTestMessageEvent), typeof(TestEvent) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
+            RegisterHandler<NServiceBusMessageHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<TestEvent>, TestEvent>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForTestCommand(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "test-command";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+
+            var persistenceConnectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is not configured");
+            var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();
+            persistence.SqlDialect<SqlDialect.MsSqlServer>();
+            persistence.ConnectionBuilder(connectionBuilder: () => new SqlConnection(persistenceConnectionString));
+            persistence.EnableTransactionalSession();
+            endpointConfiguration.EnableOutbox();
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
             conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
 
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
-
-            transportConfig.RouteToEndpoint(typeof(TestCommand), configuration["NServiceBus:Routing:Commands:TestCommand"] ?? "TestCommand");
-            RegisterHandler<NServiceBusMessageHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>(endpointConfiguration);
-            RegisterHandler<NServiceBusMessageHandler<TestEvent>, TestEvent>(endpointConfiguration);
             RegisterHandler<NServiceBusMessageHandler<TestCommand>, TestCommand>(endpointConfiguration);
 
             return endpointConfiguration;

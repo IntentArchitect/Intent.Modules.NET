@@ -30,10 +30,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
             var hasOutbox = outboxPattern.IsSqlPersistence();
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+            // Always add TransactionalSession packages so ITransactionalSession? field compiles
+            // on all transports. At runtime GetService<ITransactionalSession>() returns null
+            // when outbox is not configured — the outbox code path is never executed.
+            AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
+            AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
             if (hasOutbox)
             {
-                AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
-                AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             }
 
@@ -41,24 +44,16 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("NServiceBus");
-
-            if (hasOutbox)
-            {
-                CSharpFile
-                    .AddUsing("System.Transactions")
-                    .AddUsing("Microsoft.EntityFrameworkCore")
-                    .AddUsing("NServiceBus.Persistence.Sql")
-                    .AddUsing("NServiceBus.TransactionalSession");
-            }
+                .AddUsing("System.Transactions")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("NServiceBus")
+                .AddUsing("NServiceBus.Persistence.Sql")
+                .AddUsing("NServiceBus.TransactionalSession");
 
             CSharpFile.AddClass("NServiceBusMessageBus", @class =>
             {
                 @class.ImplementsInterface(this.GetBusInterfaceName());
 
-                // Events (Publish) and commands (Send) are buffered separately because NSB routes them
-                // differently: events go via Publish (pub/sub), commands go via Send (point-to-point routing
-                // configured by RouteToEndpoint in NServiceBusConfiguration).
                 @class.AddField("List<object>", "_publishBuffer", field => field
                     .PrivateReadOnly()
                     .WithAssignment(new CSharpStatement("new()")));
@@ -68,24 +63,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
 
                 @class.AddConstructor(ctor =>
                 {
-                    if (hasOutbox)
-                    {
-                        ctor.AddParameter("ITransactionalSession", "transactionalSession", p => p.IntroduceReadonlyField());
-                        // Lazy<T> breaks the circular DI dependency: ApplicationDbContext → IMessageBus → NServiceBusMessageBus → ApplicationDbContext.
-                        // The Lazy wrapper is resolved without constructing ApplicationDbContext; .Value is only accessed inside FlushAllAsync
-                        // by which time the scoped ApplicationDbContext is already in the DI scope cache.
-                        ctor.AddParameter($"Lazy<{this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext)}>", "dbContext", p => p.IntroduceReadonlyField());
-                    }
-                    else
-                    {
-                        ctor.AddParameter("IMessageSession", "messageSession", p => p.IntroduceReadonlyField());
-                    }
+                    ctor.AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField());
                 });
 
-                // The ActiveContext property is the core of the push pattern (mirrors MassTransit's ConsumeContext).
-                // Infrastructure sets this before business logic runs — NServiceBusMessageHandler<T> sets it to
-                // IMessageHandlerContext; HTTP middleware sets it to ITransactionalSession.
-                // Application code never touches it.
                 @class.AddProperty("object?", "ActiveContext");
 
                 @class.AddMethod("void", "Publish", method =>
@@ -112,63 +92,51 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                     method.AddIfStatement("_publishBuffer.Count == 0 && _sendBuffer.Count == 0", b =>
                         b.AddStatement("return;"));
 
-                    // Priority 1: inside an inbound NSB handler — route through handler's outbox transaction.
-                    // IMessageHandlerContext.Publish/Send do NOT have CancellationToken overloads; use
-                    // PublishOptions/SendOptions to pass cancellation if needed in future.
+                    // IMessageHandlerContext.Publish/Send do not have CancellationToken overloads;
+                    // pass PublishOptions/SendOptions instead.
                     method.AddIfStatement("ActiveContext is IMessageHandlerContext handlerContext", b =>
                     {
-                        b.AddForEachStatement("message", "_publishBuffer", fe =>
-                            fe.AddStatement("await handlerContext.Publish(message, new PublishOptions());"));
-                        b.AddForEachStatement("message", "_sendBuffer", fe =>
-                            fe.AddStatement("await handlerContext.Send(message, new SendOptions());"));
-                        b.AddStatement("_publishBuffer.Clear();");
-                        b.AddStatement("_sendBuffer.Clear();");
+                        b.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
+                        b.AddStatement("await DispatchAsync(m => handlerContext.Publish(m, new PublishOptions()), m => handlerContext.Send(m, new SendOptions()));");
                         b.AddStatement("return;");
                     });
 
-                    if (hasOutbox)
-                    {
-                        // Priority 2: HTTP/MediatR path — open ITransactionalSession and join EF atomically.
-                        // Suppress any ambient TransactionScope (e.g. from UnitOfWorkBehaviour) so that
-                        // NSB's SqlConnection does not auto-enlist and trigger MSDTC escalation.
-                        // EF joins NSB's own connection+transaction below, ensuring atomicity.
-                        method.AddUsingBlock(
-                            "new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled)",
-                            usingBlock =>
+                    // Both non-handler paths suppress any ambient TransactionScope to prevent
+                    // ASB/RabbitMQ/SQL clients from attempting DTC enlistment.
+                    method.AddUsingBlock(
+                        "new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled)",
+                        usingBlock =>
+                        {
+                            usingBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
+                            usingBlock.AddStatement("var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();");
+
+                            // Outbox path: ITransactionalSession is registered when SQL Persistence outbox is configured.
+                            usingBlock.AddIfStatement("transactionalSession != null", ifBlock =>
                             {
-                                usingBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
-                                usingBlock.AddStatement("await _transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);");
-                                usingBlock.AddStatement("var sqlSession = _transactionalSession.SynchronizedStorageSession.SqlPersistenceSession();");
-                                usingBlock.AddStatement("_dbContext.Value.Database.SetDbConnection(sqlSession.Connection);");
-                                usingBlock.AddStatement("await _dbContext.Value.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, cancellationToken);");
-                                usingBlock.AddTryBlock(tryBlock =>
-                                {
-                                    tryBlock.AddForEachStatement("message", "_publishBuffer", fe =>
-                                        fe.AddStatement("await _transactionalSession.Publish(message, cancellationToken);"));
-                                    tryBlock.AddForEachStatement("message", "_sendBuffer", fe =>
-                                        fe.AddStatement("await _transactionalSession.Send(message, cancellationToken);"));
-                                    tryBlock.AddStatement("await _dbContext.Value.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious());
-                                    tryBlock.AddStatement("await _transactionalSession.Commit(cancellationToken);");
-                                    // Only clear after successful commit — messages would be lost on crash if cleared earlier
-                                    tryBlock.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
-                                    tryBlock.AddStatement("_sendBuffer.Clear();");
-                                })
-                                .AddFinallyBlock(finallyBlock =>
-                                {
-                                    finallyBlock.AddStatement("_dbContext.Value.Database.SetDbConnection(null);");
-                                });
+                                ifBlock.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
+                                ifBlock.AddStatement("await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);");
+                                ifBlock.AddStatement("await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));");
+                                ifBlock.AddStatement("await transactionalSession.Commit(cancellationToken);", s => s.SeparatedFromPrevious());
+                                ifBlock.AddStatement("return;");
                             });
-                    }
-                    else
-                    {
-                        // Priority 3: best-effort dispatch via global IMessageSession
-                        method.AddForEachStatement("message", "_publishBuffer", fe =>
-                            fe.AddStatement("await _messageSession.Publish(message, cancellationToken);"));
-                        method.AddForEachStatement("message", "_sendBuffer", fe =>
-                            fe.AddStatement("await _messageSession.Send(message, cancellationToken);"));
-                        method.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
-                        method.AddStatement("_sendBuffer.Clear();");
-                    }
+
+                            // Direct session path: fallback when outbox is not configured.
+                            usingBlock.AddStatement("var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();", s => s.SeparatedFromPrevious());
+                            usingBlock.AddStatement("await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));");
+                        });
+                });
+
+                @class.AddMethod("Task", "DispatchAsync", method =>
+                {
+                    method.Private().Async();
+                    method.AddParameter("Func<object, Task>", "publishFn");
+                    method.AddParameter("Func<object, Task>", "sendFn");
+                    method.AddForEachStatement("message", "_publishBuffer", fe =>
+                        fe.AddStatement("await publishFn(message);"));
+                    method.AddForEachStatement("message", "_sendBuffer", fe =>
+                        fe.AddStatement("await sendFn(message);"));
+                    method.AddStatement("_publishBuffer.Clear();", s => s.SeparatedFromPrevious());
+                    method.AddStatement("_sendBuffer.Clear();");
                 });
             });
         }

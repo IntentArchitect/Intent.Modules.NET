@@ -12,10 +12,6 @@ namespace CompositeMessageBus.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-        public static IHostBuilder AddNServiceBus(this IHostBuilder hostBuilder, IConfiguration configuration)
-        {
-            return hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration));
-        }
 
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
@@ -24,10 +20,12 @@ namespace CompositeMessageBus.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             registry.Register<MsgNServiceBusEvent, NServiceBusMessageBus>();
+
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
-        private static EndpointConfiguration ConfigureEndpoint(IConfiguration configuration)
+        private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
@@ -36,7 +34,7 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             var storageDirectory = rawStoragePath is not null
                 ? Environment.ExpandEnvironmentVariables(rawStoragePath)
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
-            var transportConfig = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();

@@ -1,7 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using NServiceBus.LearnerTransport.Application.Common.Eventing;
 using NServiceBus.LearnerTransport.Eventing.Messages;
 using NServiceBus.LearnerTransport.Infrastructure.Eventing;
@@ -13,10 +12,6 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-        public static IHostBuilder AddNServiceBus(this IHostBuilder hostBuilder, IConfiguration configuration)
-        {
-            return hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration));
-        }
 
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
@@ -24,40 +19,114 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
+
+            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration));
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
-        private static EndpointConfiguration ConfigureEndpoint(IConfiguration configuration)
+        private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
             var storageDirectory = rawStoragePath is not null
-    ? Environment.ExpandEnvironmentVariables(rawStoragePath)
-    : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
-            var transportConfig = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
-            conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity), typeof(OrderAnimal), typeof(TalkToPersonCommand), typeof(MakeSoundCommand) }.Contains);
 
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
-
-            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "CreatePersonIdentity");
-            transportConfig.RouteToEndpoint(typeof(OrderAnimal), configuration["NServiceBus:Routing:Commands:OrderAnimal"] ?? "Animals");
-            transportConfig.RouteToEndpoint(typeof(TalkToPersonCommand), configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "TalkToPersonCommand");
-            transportConfig.RouteToEndpoint(typeof(MakeSoundCommand), configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "Animals");
             RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForAnimals(IConfiguration configuration)
+        {
+            var endpointName = "Animals";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
+            var storageDirectory = rawStoragePath is not null
+                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(MakeSoundCommand) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
             RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForTalkToPersonCommand(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "talk-to-person-command";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
+            var storageDirectory = rawStoragePath is not null
+                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(TalkToPersonCommand) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForCreatePersonIdentity(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "create-person-identity";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
+            var storageDirectory = rawStoragePath is not null
+                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
 
             return endpointConfiguration;

@@ -19,6 +19,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.12" />
     <PackageReference Include="NServiceBus" Version="10.2.5" />
     <PackageReference Include="NServiceBus.Extensions.Hosting" Version="4.1.0" />
+    <PackageReference Include="NServiceBus.Persistence.Sql" Version="9.0.1" />
+    <PackageReference Include="NServiceBus.Persistence.Sql.TransactionalSession" Version="9.0.1" />
     <PackageReference Include="NServiceBus.RabbitMQ" Version="11.2.1" />
   </ItemGroup>
   </Project>

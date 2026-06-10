@@ -18,8 +18,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Application.IntegrationEvents.Even
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(TestCommand message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (TestCommandHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+           
         }
     }
 }

@@ -1,7 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using NServiceBus.RabbitMQ.Application.Common.Eventing;
 using NServiceBus.RabbitMQ.Eventing.Messages;
 using NServiceBus.RabbitMQ.Infrastructure.Eventing;
@@ -13,10 +12,6 @@ namespace NServiceBus.RabbitMQ.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-        public static IHostBuilder AddNServiceBus(this IHostBuilder hostBuilder, IConfiguration configuration)
-        {
-            return hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration));
-        }
 
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
@@ -24,37 +19,125 @@ namespace NServiceBus.RabbitMQ.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
+
+            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForMakeSoundCommand(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration));
+            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration));
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
-        private static EndpointConfiguration ConfigureEndpoint(IConfiguration configuration)
+        private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
         {
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
-            var transportConfig = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             var conventions = endpointConfiguration.Conventions();
             conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
-            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(CreatePersonIdentity), typeof(MakeSoundCommand), typeof(TalkToPersonCommand) }.Contains);
 
             endpointConfiguration.Recoverability()
                 .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
-
-            transportConfig.RouteToEndpoint(typeof(OrderAnimal), configuration["NServiceBus:Routing:Commands:OrderAnimal"] ?? "Animals");
-            transportConfig.RouteToEndpoint(typeof(CreatePersonIdentity), configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "CreatePersonIdentity");
-            transportConfig.RouteToEndpoint(typeof(MakeSoundCommand), configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "MakeSoundCommand");
-            transportConfig.RouteToEndpoint(typeof(TalkToPersonCommand), configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "TalkToPersonCommand");
             RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForAnimals(IConfiguration configuration)
+        {
+            var endpointName = "Animals";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForMakeSoundCommand(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:MakeSoundCommand"] ?? "make-sound-command";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(MakeSoundCommand) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForTalkToPersonCommand(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "talk-to-person-command";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(TalkToPersonCommand) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static EndpointConfiguration ConfigureEndpointForCreatePersonIdentity(IConfiguration configuration)
+        {
+            var endpointName = configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "create-person-identity";
+            var endpointConfiguration = new EndpointConfiguration(endpointName);
+
+            var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+
+            endpointConfiguration.EnableInstallers();
+            endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity) }.Contains);
+
+            endpointConfiguration.Recoverability()
+                .Immediate(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5)))
+                .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
+            endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
             RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
 
             return endpointConfiguration;

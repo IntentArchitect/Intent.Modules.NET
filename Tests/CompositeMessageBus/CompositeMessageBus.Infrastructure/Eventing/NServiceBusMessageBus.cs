@@ -1,5 +1,9 @@
+using System.Transactions;
 using CompositeMessageBus.Application.Common.Eventing;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
+using NServiceBus.Persistence.Sql;
+using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusMessageBus", Version = "1.0")]
@@ -11,11 +15,11 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public const string AddressKey = "address";
         private readonly List<object> _publishBuffer = new();
         private readonly List<object> _sendBuffer = new();
-        private readonly IMessageSession _messageSession;
+        private readonly IServiceProvider _serviceProvider;
 
-        public NServiceBusMessageBus(IMessageSession messageSession)
+        public NServiceBusMessageBus(IServiceProvider serviceProvider)
         {
-            _messageSession = messageSession;
+            _serviceProvider = serviceProvider;
         }
 
         public object? ActiveContext { get; set; }
@@ -59,32 +63,26 @@ namespace CompositeMessageBus.Infrastructure.Eventing
 
             if (ActiveContext is IMessageHandlerContext handlerContext)
             {
-                foreach (var message in _publishBuffer)
-                {
-                    await handlerContext.Publish(message, new PublishOptions());
-                }
-
-                foreach (var message in _sendBuffer)
-                {
-                    await handlerContext.Send(message, new SendOptions());
-                }
-                _publishBuffer.Clear();
-                _sendBuffer.Clear();
+                await DispatchAsync(m => handlerContext.Publish(m, new PublishOptions()), m => handlerContext.Send(m, new SendOptions()));
                 return;
             }
 
-            foreach (var message in _publishBuffer)
+            using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _messageSession.Publish(message, cancellationToken);
-            }
+                var transactionalSession = _serviceProvider.GetService<ITransactionalSession>();
 
-            foreach (var message in _sendBuffer)
-            {
-                await _messageSession.Send(message, cancellationToken);
-            }
+                if (transactionalSession != null)
+                {
+                    await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);
+                    await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));
 
-            _publishBuffer.Clear();
-            _sendBuffer.Clear();
+                    await transactionalSession.Commit(cancellationToken);
+                    return;
+                }
+
+                var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();
+                await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));
+            }
         }
 
         public void SchedulePublish<TMessage>(TMessage message, DateTime scheduled)
@@ -97,6 +95,22 @@ namespace CompositeMessageBus.Infrastructure.Eventing
             where TMessage : class
         {
             throw new NotSupportedException("Scheduled publishing is not supported by this message bus provider.");
+        }
+
+        private async Task DispatchAsync(Func<object, Task> publishFn, Func<object, Task> sendFn)
+        {
+            foreach (var message in _publishBuffer)
+            {
+                await publishFn(message);
+            }
+
+            foreach (var message in _sendBuffer)
+            {
+                await sendFn(message);
+            }
+
+            _publishBuffer.Clear();
+            _sendBuffer.Clear();
         }
     }
 }
