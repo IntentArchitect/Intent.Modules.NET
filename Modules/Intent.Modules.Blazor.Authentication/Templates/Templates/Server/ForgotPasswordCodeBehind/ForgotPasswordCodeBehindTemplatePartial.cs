@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -34,6 +35,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                     @class.Partial();
                 });
         }
+
+        public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

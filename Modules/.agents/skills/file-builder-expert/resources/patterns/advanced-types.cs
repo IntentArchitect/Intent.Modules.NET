@@ -28,6 +28,10 @@
 // Positional arguments:
 @class.AddAttribute("Serializable");
 
+// Resolve the real CLR attribute type, then trim the suffix for idiomatic emitted output:
+@class.AddProperty("string", "Email", property =>
+    property.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute")));
+
 // Mix of positional and named arguments (identical AddArgument call for both):
 @class.AddAttribute("AttributeUsage", attr => attr
     .AddArgument("AttributeTargets.Class")   // positional

@@ -65,10 +65,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                     {
                         input.Private();
                         input.WithInitialValue("new()");
-                        input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute"));
+                        input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
                     });
 
-                    code.AddMethod(UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
+                    code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
                     {
                         onValidSubmitAsync.Private().Async();
 
@@ -81,8 +81,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
 
                         inputModel.AddProperty("string", "Email", email =>
                         {
-                            email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute"));
-                            email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute"));
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                            email.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.EmailAddressAttribute").RemoveSuffix("Attribute"));
                             email.WithInitialValue("\"\"");
                         });
                     });
