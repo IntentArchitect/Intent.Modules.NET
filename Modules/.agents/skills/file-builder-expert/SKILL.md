@@ -61,8 +61,9 @@ The builder can only track type references that go through its type system (`Use
 prop.AddAttribute($"DefaultValue({property.Value})");
 // That requires manually calling AddUsing("System.ComponentModel") elsewhere.
 
-// GOOD — typed builder call, UseType introduces System.ComponentModel automatically
-prop.AddAttribute(UseType("System.ComponentModel.DefaultValueAttribute"), attribute =>
+// GOOD — typed builder call, UseType introduces System.ComponentModel automatically.
+// Trim Attribute only after type resolution when you want [DefaultValue(...)] output.
+prop.AddAttribute(UseType("System.ComponentModel.DefaultValueAttribute").RemoveSuffix("Attribute"), attribute =>
 {
     attribute.AddArgument(property.Value);
 });
@@ -80,8 +81,8 @@ When a template contributes members to a **file other than its own** — e.g. a 
 
    ```csharp
    code.AddMethod(UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", ...);
-   input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute"));
-   email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute"));
+   input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+   email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
    ```
 
 2. **Resolution must target the code-behind.** `UseType`/`GetTypeName` add (and prune) usings on the file of the template's `RootCodeContext`. To land them on the code-behind instead of the host file, redirect it — mirroring `RazorComponentTemplateBase`:
