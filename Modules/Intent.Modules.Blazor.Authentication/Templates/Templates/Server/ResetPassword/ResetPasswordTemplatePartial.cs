@@ -43,6 +43,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                     file.AddInjectDirective(GetTypeName(IdentityRedirectManager.IdentityRedirectManagerTemplate.TemplateId), "RedirectManager");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Reset password"));
+
+                    // When MudBlazor is installed the page body is provided by the hand-authored
+                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
+                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
                     file.AddHtmlElement("h1", element => element.WithText("Reset password"));
                     file.AddHtmlElement("h2", element => element.WithText("Reset your password"));
                     file.AddHtmlElement($"hr");
@@ -68,6 +73,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                              )
                          )
                      )));
+
+                    }
 
                     var code = GetCodeBehind();
                     code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");

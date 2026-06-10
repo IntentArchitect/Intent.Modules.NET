@@ -11,17 +11,31 @@
 
 <PageTitle>Register confirmation</PageTitle>
 
-<MudText Typo="Typo.h4" Class="mb-3">Register confirmation</MudText>
-<StatusMessage Message="@statusMessage" />
-
-@if (emailConfirmationLink is not null)
-{
-    <MudText Typo="Typo.body1">
-        This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-        Normally this would be emailed: <MudLink Href="@emailConfirmationLink">Click here to confirm your account</MudLink>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread" Class="mr-2" />
+        Register confirmation
     </MudText>
-}
-else
-{
-    <MudText Typo="Typo.body1">Please check your email to confirm your account.</MudText>
-}
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Confirm your email address to activate your account.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Class="mb-3">Confirmation status</MudText>
+        <StatusMessage Message="@statusMessage" />
+
+        @if (emailConfirmationLink is not null)
+        {
+            <MudText Typo="Typo.body1">
+                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                Normally this would be emailed: <MudLink Href="@emailConfirmationLink">Click here to confirm your account</MudLink>
+            </MudText>
+        }
+        else
+        {
+            <MudText Typo="Typo.body1">Please check your email to confirm your account.</MudText>
+        }
+    </MudCardContent>
+</MudCard>

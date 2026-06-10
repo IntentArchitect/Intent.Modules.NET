@@ -10,27 +10,57 @@
 
 <PageTitle>Delete Personal Data</PageTitle>
 
-<StatusMessage Message="@message" />
-<MudText Typo="Typo.h5" Class="mb-3">Delete Personal Data</MudText>
-
-<MudAlert Severity="Severity.Warning" Class="mb-3">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
-
-<MudPaper Class="pa-6">
-    <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
-        <DataAnnotationsValidator />
-        <ValidationSummary class="text-danger" role="alert" />
-
-        <MudStack Spacing="3">
-            @if (requirePassword)
-            {
-                <div class="form-field">
-                    <label for="password" class="form-label">Password</label>
-                    <InputText id="password" type="password" class="form-control" @bind-Value="Input.Password" autocomplete="current-password" />
-                    <ValidationMessage For="() => Input.Password" class="text-danger" />
-                </div>
-            }
-
-            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" FullWidth="true" Size="Size.Large">Delete data and close my account</MudButton>
-        </MudStack>
-    </EditForm>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.DeleteForever" Class="mr-2" />
+        Delete personal data
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Permanently remove your account and all associated personal data.
+    </MudText>
 </MudPaper>
+
+<StatusMessage Message="@message" />
+
+<MudAlert Severity="Severity.Warning" Class="mb-4">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h5">Confirm account deletion</MudText>
+                    <MudText Typo="Typo.body2" Class="mb-4">Review this action carefully before continuing.</MudText>
+                </MudItem>
+                @if (requirePassword)
+                {
+                    <MudItem xs="12">
+                        <MudTextField T="string"
+                                        @bind-Value="Input.Password"
+                                        Label="Password"
+                                        Variant="Variant.Outlined"
+                                        Adornment="Adornment.Start"
+                                        AdornmentIcon="@Icons.Material.Filled.Lock"
+                                        InputType="InputType.Password"
+                                        Immediate="true"
+                                        For="@(() => Input.Password)" />
+                        <ValidationMessage For="() => Input.Password" class="text-danger" />
+                    </MudItem>
+                }
+                <MudItem xs="12">
+                    <MudStack Row="true" Justify="Justify.FlexEnd">
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Error"
+                                    StartIcon="@Icons.Material.Filled.DeleteForever">
+                            Delete data and close my account
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

@@ -43,6 +43,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Resend email confirmation"));
+
+                    // When MudBlazor is installed the page body is provided by the hand-authored
+                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
+                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
                     file.AddHtmlElement("h1", element => element.WithText("Resend email confirmation"));
                     file.AddHtmlElement("h2", element => element.WithText("Enter your email."));
                     file.AddHtmlElement($"hr");
@@ -60,6 +65,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
                              )
                          )
                      );
+
+                    }
 
                     var code = GetCodeBehind();
                     code.AddField("string?", "message");

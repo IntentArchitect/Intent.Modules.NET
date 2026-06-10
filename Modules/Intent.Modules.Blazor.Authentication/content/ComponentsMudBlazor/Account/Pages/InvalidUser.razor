@@ -2,5 +2,19 @@
 
 <PageTitle>Invalid user</PageTitle>
 
-<MudText Typo="Typo.h5" Class="mb-3">Invalid user</MudText>
-<StatusMessage />
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.PersonOff" Class="mr-2" />
+        Invalid user
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        The requested user could not be found or is no longer available.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Class="mb-3">User status</MudText>
+        <StatusMessage />
+    </MudCardContent>
+</MudCard>

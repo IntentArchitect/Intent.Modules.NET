@@ -12,37 +12,79 @@
 
 <PageTitle>Manage email</PageTitle>
 
-<MudText Typo="Typo.h5" Class="mb-3">Manage email</MudText>
-<StatusMessage Message="@message"/>
-
-<MudPaper Class="pa-6">
-    <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
-        <AntiforgeryToken />
-    </form>
-    <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
-        <DataAnnotationsValidator />
-        <ValidationSummary class="text-danger" role="alert" />
-
-        <MudStack Spacing="3">
-            <div class="form-field">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" class="form-control" type="text" value="@email" disabled />
-                @if (isEmailConfirmed)
-                {
-                    <MudText Typo="Typo.caption" Color="Color.Success" Class="mt-1">Verified</MudText>
-                }
-                else
-                {
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Primary" form="send-verification-form" Class="mt-1">Send verification email</MudButton>
-                }
-            </div>
-            <div class="form-field">
-                <label for="new-email" class="form-label">New email</label>
-                <InputText id="new-email" class="form-control" @bind-Value="Input.NewEmail" autocomplete="email" placeholder="Please enter new email." />
-                <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
-            </div>
-
-            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Size="Size.Large">Change email</MudButton>
-        </MudStack>
-    </EditForm>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.AlternateEmail" Class="mr-2" />
+        Manage email
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Review your current email address and request an email change.
+    </MudText>
 </MudPaper>
+
+<StatusMessage Message="@message" />
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
+            <AntiforgeryToken />
+        </form>
+        <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h5">Email settings</MudText>
+                    <MudText Typo="Typo.body2" Class="mb-4">Update the email address associated with your account.</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                Value="@email"
+                                Label="Email"
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.Email"
+                                Disabled="true" />
+                    @if (isEmailConfirmed)
+                    {
+                        <MudChip T="string" Color="Color.Success" Variant="Variant.Outlined" Class="mt-2">Verified</MudChip>
+                    }
+                    else
+                    {
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Text"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.MarkEmailRead"
+                                    form="send-verification-form"
+                                    Class="mt-2">
+                            Send verification email
+                        </MudButton>
+                    }
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                @bind-Value="Input.NewEmail"
+                                Label="New email"
+                                Placeholder="Please enter new email."
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.ForwardToInbox"
+                                Immediate="true"
+                                For="@(() => Input.NewEmail)" />
+                    <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Row="true" Justify="Justify.FlexEnd">
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.SaveAs">
+                            Change email
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudCardContent>
+</MudCard>

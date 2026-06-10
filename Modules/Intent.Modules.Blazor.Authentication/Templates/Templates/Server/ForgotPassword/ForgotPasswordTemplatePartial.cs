@@ -43,6 +43,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Forgot your password?"));
+
+                    // When MudBlazor is installed the page body is provided by the hand-authored
+                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
+                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
                     file.AddHtmlElement("h1", element => element.WithText("Forgot your password?"));
                     file.AddHtmlElement($"hr");
                     file.AddHtmlElement($"div", element => element.AddClass("row")
@@ -59,6 +64,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                              )
                          )
                      );
+
+                    }
 
                     var code = GetCodeBehind();
                     code.AddProperty("InputModel", "Input", input =>

@@ -43,8 +43,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
                     file.AddInjectDirective(GetTypeName(IdentityRedirectManagerTemplate.TemplateId), "RedirectManager");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Confirm email"));
+
+                    // When MudBlazor is installed the page body is provided by the hand-authored
+                    // MudBlazor markup (preserved on merge); only emit the default Bootstrap body otherwise.
+                    if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                    {
                     file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
                     file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
+
+                    }
 
                     var code = GetCodeBehind();
                     code.AddField("string?", "statusMessage", c => c.Private());
