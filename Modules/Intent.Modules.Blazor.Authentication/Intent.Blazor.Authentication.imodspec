@@ -86,6 +86,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
     </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ForgotPasswordCodeBehindTemplate" externalReference="87cb09ae-d91e-4e1f-9169-04c772649556">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
     <template id="Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate" externalReference="fcc16ec8-8672-4444-bafe-4e5c2a68bcd9">
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>

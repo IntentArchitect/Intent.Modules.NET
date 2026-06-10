@@ -73,6 +73,25 @@ method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellation
 
 Apply this to emitted type references: method signatures, attributes, base types, generic arguments, properties, and fields.
 
+### 🔑 Split-file / code-behind usings
+When a template contributes members to a **file other than its own** — e.g. a `.razor` template writing its `@code` into a sibling `.razor.cs` code-behind — two things bite:
+
+1. **No inherited imports.** A plain `.razor.cs` does **not** get Razor's implicit `_Imports` (`Microsoft.AspNetCore.Components`, `System.Threading.Tasks`, `System.ComponentModel.DataAnnotations`, …). References that compiled inline now need explicit usings, so run **every** member type, return type, and attribute through `UseType(...)` — even ones that were implicit inline:
+
+   ```csharp
+   code.AddMethod(UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", ...);
+   input.AddAttribute(UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute"));
+   email.AddAttribute(UseType("System.ComponentModel.DataAnnotations.RequiredAttribute"));
+   ```
+
+2. **Resolution must target the code-behind.** `UseType`/`GetTypeName` add (and prune) usings on the file of the template's `RootCodeContext`. To land them on the code-behind instead of the host file, redirect it — mirroring `RazorComponentTemplateBase`:
+
+   ```csharp
+   public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+   ```
+
+   Razor `@using`/`@inject` directives are managed by the `RazorFile` independently of `RootCodeContext`, so redirecting it does not disturb them.
+
 ## Conditional AddUsing Patterns
 
 ```csharp

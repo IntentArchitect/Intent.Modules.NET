@@ -11,6 +11,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNetCore
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ConfirmEmail;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ForgotPassword;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ForgotPasswordCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityComponentsEndpointRouteBuilderExtensions;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityNoOpEmailSender;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
@@ -67,6 +68,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetAuthServiceInterfaceTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthServiceInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetForgotPasswordCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ForgotPasswordCodeBehindTemplate.TemplateId);
         }
 
         public static string GetIdentityComponentsEndpointRouteBuilderExtensionsTemplateName(this IIntentTemplate template)
