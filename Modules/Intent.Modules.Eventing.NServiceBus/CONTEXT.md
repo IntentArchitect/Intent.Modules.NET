@@ -280,37 +280,17 @@ Changes in this module must be evaluated against the broader matrix, not just on
 
 ### Transport Coverage
 
-| Transport | Test App | Runtime Verified |
-|---|---|---|
-| Learning Transport | `Tests/NServiceBus.LearnerTransport` | ✓ 2026-06-11 |
-| RabbitMQ | `Tests/NServiceBus.RabbitMQ` | ✓ 2026-06-11 |
-| Azure Service Bus | `Tests/NServiceBus.AzureServiceBus` | ✓ 2026-06-11 |
-| Amazon SQS | `Tests/NServiceBus.SQS` | Handlers implemented; live SQS infra required to run |
-| RabbitMQ + Outbox | `Tests/NServiceBus.OutboxPattern.Publish` + `Subscribe` | ✓ 2026-06-11 |
+Each transport scenario has a dedicated test application with its own README describing
+infrastructure requirements, how to run it, and expected output. The test apps are the
+authoritative source of the acceptance matrix — this section summarises their status.
 
-**SQS note:** The test app is fully generated and compiles. AWS credentials (IAM access key
-or environment profile) are required to start it. `EnableInstallers()` will auto-create the
-SQS queues and SNS topics on first run. Not suitable for routine CI verification without
-real AWS credentials.
-
-### Runtime Verification Protocol
-
-For each transport, the minimum bar is:
-
-1. App starts without errors
-2. A message is published/sent via the HTTP API
-3. `[HANDLER HIT]` log line appears in the console
-
-Verified flows per test app (as of 2026-06-11):
-
-| App | Flow | Trigger | Expected log |
+| Transport | Test App | README | Runtime Verified |
 |---|---|---|---|
-| LearnerTransport | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] TestMessageHandler received: ...` |
-| RabbitMQ | Event publish | `POST /api/animals/publish-test-event` | `[HANDLER HIT] RabbitMQ.TestMessageHandler received TestMessageEvent` |
-| AzureServiceBus | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] AzureServiceBus.TestMessageHandler received TestMessageEvent` |
-| OutboxPattern | Pub→Sub | `PUT /api/test-event-send` on Publish app | `[HANDLER HIT] Subscribe.AnotherTestMessageHandler received: ...` on Subscribe app |
-| SQS | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] SQS.TestMessageHandler received: ...` |
-| SQS | Command send | `POST /api/animals` | `[HANDLER HIT] SQS.CatchAllHandler received OrderAnimal: ...` |
+| Learning Transport | `Tests/NServiceBus.LearnerTransport` | [README](../../../../Tests/NServiceBus.LearnerTransport/README.md) | ✓ 2026-06-11 |
+| RabbitMQ | `Tests/NServiceBus.RabbitMQ` | [README](../../../../Tests/NServiceBus.RabbitMQ/README.md) | ✓ 2026-06-11 |
+| Azure Service Bus | `Tests/NServiceBus.AzureServiceBus` | [README](../../../../Tests/NServiceBus.AzureServiceBus/README.md) | ✓ 2026-06-11 |
+| Amazon SQS | `Tests/NServiceBus.SQS` | [README](../../../../Tests/NServiceBus.SQS/README.md) | Requires live AWS credentials |
+| RabbitMQ + SQL Outbox | `Tests/NServiceBus.OutboxPattern.Publish` + `.Subscribe` | [Publish README](../../../../Tests/NServiceBus.OutboxPattern.Publish/README.md) · [Subscribe README](../../../../Tests/NServiceBus.OutboxPattern.Subscribe/README.md) | ✓ 2026-06-11 |
 
 ### Outbox Coverage
 
