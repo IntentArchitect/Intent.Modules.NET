@@ -54,7 +54,7 @@ When a sample exists, you MUST match the sample’s visual structure, not only i
 Required process:
 
 1. Reuse the sample’s top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (typically under `wwwroot`, such as `ux-token.css` or `ux-mudblazor.css`) and then reuse them.
+2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot`. CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
 
 Required baseline layout (when supported by the target app):
 
