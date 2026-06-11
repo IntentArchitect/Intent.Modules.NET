@@ -24,6 +24,8 @@ namespace NServiceBus.AzureServiceBus.Application.People.CreatePerson
         {
             _messageBus.Send(new CreatePersonIdentity
             {
+                FirstName = request.FirstName,
+                LastName = request.LastName
             });
         }
     }

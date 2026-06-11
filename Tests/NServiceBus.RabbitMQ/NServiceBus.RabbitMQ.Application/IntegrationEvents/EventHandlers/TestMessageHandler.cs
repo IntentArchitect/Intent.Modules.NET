@@ -19,7 +19,7 @@ namespace NServiceBus.RabbitMQ.Application.IntegrationEvents.EventHandlers
         public async Task HandleAsync(TestMessageEvent message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (TestMessageHandler) functionality
-            Console.WriteLine($"[HANDLER HIT] RabbitMQ.TestMessageHandler received TestMessageEvent");
+            Console.WriteLine($"[HANDLER HIT] RabbitMQ.TestMessageHandler received: {message.Message}");
         }
     }
 }

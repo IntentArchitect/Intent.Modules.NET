@@ -24,6 +24,7 @@ namespace NServiceBus.RabbitMQ.Application.ExternalMessagePublish.PublishExterna
         {
             _messageBus.Publish(new TestMessageEvent
             {
+                Message = request.Message
             });
         }
     }

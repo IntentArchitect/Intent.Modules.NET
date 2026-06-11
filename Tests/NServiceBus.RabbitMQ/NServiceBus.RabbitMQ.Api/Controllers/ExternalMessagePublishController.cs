@@ -23,12 +23,15 @@ namespace NServiceBus.RabbitMQ.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPut("api/external-message-publish/publish-external-message")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PublishExternalMessage(CancellationToken cancellationToken = default)
+        public async Task<ActionResult> PublishExternalMessage(
+            [FromBody] PublishExternalMessageCommand command, CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new PublishExternalMessageCommand(), cancellationToken);
+            await _mediator.Send(command, cancellationToken);
             return NoContent();
         }
     }

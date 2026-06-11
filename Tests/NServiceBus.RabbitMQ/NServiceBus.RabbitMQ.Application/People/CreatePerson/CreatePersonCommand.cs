@@ -9,8 +9,13 @@ namespace NServiceBus.RabbitMQ.Application.People.CreatePerson
 {
     public class CreatePersonCommand : IRequest, ICommand
     {
-        public CreatePersonCommand()
+        public CreatePersonCommand(string firstName, string lastName)
         {
+            FirstName = firstName;
+            LastName = lastName;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

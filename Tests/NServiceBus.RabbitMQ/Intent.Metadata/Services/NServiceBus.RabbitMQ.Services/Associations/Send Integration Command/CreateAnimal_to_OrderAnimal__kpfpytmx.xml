@@ -36,6 +36,30 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="422befb4-8f86-4f64-8a2f-72c4377ca5e9" location="[NServiceBus.RabbitMQ].[Services].[CreateAnimal]" />
+        <target applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="29d706a9-4917-40f9-b39c-6a42a8944013" location="[NServiceBus.RabbitMQ].[Services].[OrderAnimal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="29d706a9-4917-40f9-b39c-6a42a8944013" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="42fbd12e-20e6-47c1-a04f-e7d24e8ccfb9" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="422befb4-8f86-4f64-8a2f-72c4377ca5e9" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d8822366-5107-4911-a3fb-7836cdc8b16d" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="920281f7-ca40-4a8f-bb11-def3a21e2a45" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

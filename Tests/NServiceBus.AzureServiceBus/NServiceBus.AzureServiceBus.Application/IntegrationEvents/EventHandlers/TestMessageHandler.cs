@@ -18,7 +18,7 @@ namespace NServiceBus.AzureServiceBus.Application.IntegrationEvents.EventHandler
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(TestMessageEvent message, CancellationToken cancellationToken = default)
         {
-            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.TestMessageHandler received TestMessageEvent");
+            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.TestMessageHandler received: {message.Message}");
         }
     }
 }

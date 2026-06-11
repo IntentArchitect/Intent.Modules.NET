@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="ab3032b3-5909-45ba-8e9b-ceacbe1186a8" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] CreatePersonIdentity</display>
-    <order>0</order>
+    <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -36,6 +36,44 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d645e5db-898d-473d-8fe7-93eadf013950" location="[NServiceBus.RabbitMQ].[Services].[CreatePersonCommand]" />
+        <target applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="63125168-faee-4eff-b28f-f68b73180ab8" location="[NServiceBus.RabbitMQ].[Services].[CreatePersonIdentity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="63125168-faee-4eff-b28f-f68b73180ab8" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="1e54d399-762f-4866-a9f9-cce65faf13dc" name="FirstName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="d645e5db-898d-473d-8fe7-93eadf013950" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0d5fd207-8610-48da-98d6-086e2d6f0239" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="63125168-faee-4eff-b28f-f68b73180ab8" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="483a9b9a-16ac-4ee0-ae29-f4ad87786a89" name="LastName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="d645e5db-898d-473d-8fe7-93eadf013950" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="72344376-3dda-4ca9-8c67-3ee4e508121f" name="LastName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

@@ -2,7 +2,9 @@ using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NServiceBus.RabbitMQ.Application.Animals;
 using NServiceBus.RabbitMQ.Application.Common.Eventing;
+using NServiceBus.RabbitMQ.Application.Common.Validation;
 using NServiceBus.RabbitMQ.Application.Interfaces.Animals;
 using NServiceBus.RabbitMQ.Domain.Common.Interfaces;
 
@@ -17,12 +19,14 @@ namespace NServiceBus.RabbitMQ.Api.Controllers.Animals
     public class AnimalsController : ControllerBase
     {
         private readonly IAnimalsService _appService;
+        private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMessageBus _messageBus;
 
-        public AnimalsController(IAnimalsService appService, IUnitOfWork unitOfWork, IMessageBus messageBus)
+        public AnimalsController(IAnimalsService appService, IValidationService validationService, IUnitOfWork unitOfWork, IMessageBus messageBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
         }
@@ -35,8 +39,10 @@ namespace NServiceBus.RabbitMQ.Api.Controllers.Animals
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> CreateAnimal(string dto, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> CreateAnimal(
+            [FromBody] CreateAnimalDto dto, CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

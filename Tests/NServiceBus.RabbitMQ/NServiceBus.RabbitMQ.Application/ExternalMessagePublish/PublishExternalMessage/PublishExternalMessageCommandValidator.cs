@@ -17,7 +17,8 @@ namespace NServiceBus.RabbitMQ.Application.ExternalMessagePublish.PublishExterna
 
         private void ConfigureValidationRules()
         {
-            // Implement custom validation logic here if required
+            RuleFor(v => v.Message)
+                .NotNull();
         }
     }
 }

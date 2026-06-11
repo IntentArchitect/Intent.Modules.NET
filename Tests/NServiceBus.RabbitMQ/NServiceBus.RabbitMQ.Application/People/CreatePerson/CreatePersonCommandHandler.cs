@@ -24,6 +24,8 @@ namespace NServiceBus.RabbitMQ.Application.People.CreatePerson
         {
             _messageBus.Send(new CreatePersonIdentity
             {
+                FirstName = request.FirstName,
+                LastName = request.LastName
             });
         }
     }

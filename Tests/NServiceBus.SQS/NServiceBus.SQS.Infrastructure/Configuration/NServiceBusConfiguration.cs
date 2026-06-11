@@ -29,7 +29,7 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            endpointConfiguration.UseTransport(new SqsTransport());
+            var routing = endpointConfiguration.UseTransport(new SqsTransport());
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -41,6 +41,11 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
 
             ConfigureMessageConventions(endpointConfiguration);
             RegisterHandlers(endpointConfiguration);
+
+            routing.RouteToEndpoint(typeof(OrderAnimal), endpointName);
+            routing.RouteToEndpoint(typeof(MakeSoundCommand), endpointName);
+            routing.RouteToEndpoint(typeof(TalkToPersonCommand), endpointName);
+            routing.RouteToEndpoint(typeof(CreatePersonIdentity), endpointName);
 
             return endpointConfiguration;
         }

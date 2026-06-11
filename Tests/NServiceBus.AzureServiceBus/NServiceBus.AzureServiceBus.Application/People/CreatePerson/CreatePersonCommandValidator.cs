@@ -17,7 +17,11 @@ namespace NServiceBus.AzureServiceBus.Application.People.CreatePerson
 
         private void ConfigureValidationRules()
         {
-            // Implement custom validation logic here if required
+            RuleFor(v => v.FirstName)
+                .NotNull();
+
+            RuleFor(v => v.LastName)
+                .NotNull();
         }
     }
 }
