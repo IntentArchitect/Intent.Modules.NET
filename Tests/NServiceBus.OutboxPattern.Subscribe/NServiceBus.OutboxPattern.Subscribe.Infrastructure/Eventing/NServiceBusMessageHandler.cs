@@ -1,8 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
-using NServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
 using NServiceBus.OutboxPattern.Subscribe.Infrastructure.Persistence;
 using NServiceBus.Persistence.Sql;
 
@@ -38,33 +36,6 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Eventing
             await _handler.HandleAsync(message, context.CancellationToken);
             await _dbContext.SaveChangesAsync(context.CancellationToken);
             await _messageBus.FlushAllAsync(context.CancellationToken);
-        }
-    }
-
-    internal sealed class NServiceBusAnotherTestMessageEventHandler : NServiceBusMessageHandler<AnotherTestMessageEvent>
-    {
-        public NServiceBusAnotherTestMessageEventHandler(IIntegrationEventHandler<AnotherTestMessageEvent> handler,
-            ApplicationDbContext dbContext,
-            NServiceBusMessageBus messageBus) : base(handler, dbContext, messageBus)
-        {
-        }
-    }
-
-    internal sealed class NServiceBusTestEventHandler : NServiceBusMessageHandler<TestEvent>
-    {
-        public NServiceBusTestEventHandler(IIntegrationEventHandler<TestEvent> handler,
-            ApplicationDbContext dbContext,
-            NServiceBusMessageBus messageBus) : base(handler, dbContext, messageBus)
-        {
-        }
-    }
-
-    internal sealed class NServiceBusTestCommandHandler : NServiceBusMessageHandler<TestCommand>
-    {
-        public NServiceBusTestCommandHandler(IIntegrationEventHandler<TestCommand> handler,
-            ApplicationDbContext dbContext,
-            NServiceBusMessageBus messageBus) : base(handler, dbContext, messageBus)
-        {
         }
     }
 }

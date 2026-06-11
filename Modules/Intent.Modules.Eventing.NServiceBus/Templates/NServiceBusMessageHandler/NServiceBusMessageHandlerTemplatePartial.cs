@@ -62,9 +62,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                     .AddUsing("NServiceBus.Persistence.Sql");
             }
 
-            // Generic base — all pipeline logic lives here. NServiceBus's assembly scanner skips
-            // open generic types, so we also emit one sealed concrete subclass per subscribed
-            // message type below. Those are discovered by the scanner and delegate to this base.
+            // Generic handler — all logic lives here. Handler discovery uses the NSB internal
+            // registry APIs directly (see NServiceBusConfigurationTemplate), avoiding assembly
+            // scanning and the C# 14 source generator emitted by AddHandler<T>().
             CSharpFile.AddClass("NServiceBusMessageHandler", @class =>
             {
                 @class.Internal();
@@ -102,61 +102,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                     else
                     {
                         method.AddStatement("await _handler.HandleAsync(message, context.CancellationToken);", s => s.SeparatedFromPrevious());
-                    }
-                });
-            });
-
-            // Sealed concrete subclass per subscribed message type — non-generic, so the
-            // NServiceBus assembly scanner can find and register them.
-            // Deferred to AfterBuild so GetTypeName / UseType resolve correctly.
-            CSharpFile.AfterBuild(file =>
-            {
-                var handlerInterfaceName = this.GetIntegrationEventHandlerInterfaceName();
-                var messageBusTypeName = this.GetTypeName(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId);
-                var dbContextTypeName = hasOutbox ? this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext) : null;
-
-                foreach (var msgModel in SubscribedMessageModels)
-                {
-                    var msgTypeName = GetTypeName(IntegrationEventMessageTemplate.TemplateId, msgModel);
-                    AddConcreteHandlerClass(file, msgTypeName, handlerInterfaceName, messageBusTypeName, dbContextTypeName);
-                }
-
-                foreach (var cmdModel in SubscribedCommandModels)
-                {
-                    var cmdTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, cmdModel);
-                    AddConcreteHandlerClass(file, cmdTypeName, handlerInterfaceName, messageBusTypeName, dbContextTypeName);
-                }
-            }, 100);
-        }
-
-        private static void AddConcreteHandlerClass(
-            CSharpFile file,
-            string messageTypeName,
-            string handlerInterfaceName,
-            string messageBusTypeName,
-            string? dbContextTypeName)
-        {
-            file.AddClass($"NServiceBus{messageTypeName}Handler", @class =>
-            {
-                @class.Internal().Sealed();
-                @class.WithBaseType($"NServiceBusMessageHandler<{messageTypeName}>");
-
-                @class.AddConstructor(ctor =>
-                {
-                    ctor.AddParameter($"{handlerInterfaceName}<{messageTypeName}>", "handler");
-                    if (dbContextTypeName is not null)
-                    {
-                        ctor.AddParameter(dbContextTypeName, "dbContext");
-                    }
-                    ctor.AddParameter(messageBusTypeName, "messageBus");
-
-                    if (dbContextTypeName is not null)
-                    {
-                        ctor.CallsBase(b => b.AddArgument("handler").AddArgument("dbContext").AddArgument("messageBus"));
-                    }
-                    else
-                    {
-                        ctor.CallsBase(b => b.AddArgument("handler").AddArgument("messageBus"));
                     }
                 });
             });
