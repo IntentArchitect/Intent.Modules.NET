@@ -33,54 +33,44 @@ Use the durable architecture in `CONTEXT.md`, with these additional branch-speci
 
 ---
 
-## Current Broken State
+## Current State
 
-**The config template shape has drifted from the intended single-endpoint design and the
-current generated output no longer reliably reflects the desired registration model.**
+The config template has been stabilized. The broken state described below is now resolved.
 
-The branch needs `NServiceBusConfigurationTemplatePartial.cs` to generate:
+**What was fixed:**
 
-- one `ConfigureMainEndpoint(...)`
-- inline endpoint construction in that method
-- explicit generic handler registration
-- explicit command routing
-- no per-command endpoint methods
+- `ConfigureCommonSettings` (vague helper) removed
+- `ConfigureMainEndpoint` now inlines transport/persistence/installers/serialization/recoverability
+- `RegisterHandlers` + `RegisterHandler<THandler,TMessage>` generation added; uses NSB internal
+  registry APIs (no DI registration, no assembly scanning)
+- `ConfigureMessageConventions` extracted as a narrow-responsibility helper
+- `RouteToEndpoint` kept inline in `ConfigureMainEndpoint` for sent commands only
 
-When this drifts, the failure modes are:
+**Runtime verification (2026-06-11):**
 
-- `No handlers could be found for message type: ...` because handler registration disappeared
-- commands not being delivered correctly because routing metadata/rules are inconsistent
-- the configuration class becoming harder to reason about because endpoint construction is
-  split across too many indirections or multiple generated endpoint methods
+- LearnerTransport: PUT `/api/external-message-publish/publish-external-message` → `[HANDLER HIT] TestMessageHandler received: Runtime verification - handler hit test` ✓
+- RabbitMQ: POST `/api/animals/publish-test-event` (bespoke endpoint) → `[HANDLER HIT] RabbitMQ.TestMessageHandler received TestMessageEvent` ✓
+- OutboxPattern Publish→Subscribe: PUT `/api/test-event-send` on Publish → Subscribe `TestEventHandler` re-published → `[HANDLER HIT] Subscribe.AnotherTestMessageHandler received: OutboxPattern runtime verification - handler hit test` ✓
+- AzureServiceBus: PUT `/api/external-message-publish/publish-external-message` → `[HANDLER HIT] AzureServiceBus.TestMessageHandler received TestMessageEvent` ✓ (user secrets provided real credentials)
 
-**Fix direction:**
-
-1. Keep `ConfigureMainEndpoint(...)` as the single endpoint-construction method
-2. Inline transport/persistence/installers/serialization/recoverability in that method
-3. Delegate only conventions, handler-registration emission, and sent-command routing
-4. Restore explicit `RegisterHandler<NServiceBusMessageHandler<T>, T>(endpointConfiguration);`
-   generation for subscribed events/messages and subscribed commands
-5. Keep `RouteToEndpoint(...)` generation only for commands this app sends
-6. Do not reintroduce multi-endpoint configuration methods
-
-Useful commit references:
-
-- `22ac223725` — explicit generic handler registration pattern
-- `903459f819` — compacted configuration structure worth learning from
-- `e593812272` — contains ideas worth studying, but **must not** be copied wholesale because
-  it includes the rejected multi-endpoint direction
+**SF applied to:**
+- NServiceBus.LearnerTransport ✓ (builds + runtime verified)
+- NServiceBus.RabbitMQ ✓ (builds + runtime verified)
+- NServiceBus.AzureServiceBus ✓ (builds + runtime verified)
+- NServiceBus.OutboxPattern.Publish ✓ (builds + runtime verified)
+- NServiceBus.OutboxPattern.Subscribe ✓ (builds + runtime verified)
 
 ---
 
 ## Still To Do
 
-- [ ] Restore `RegisterHandler` in `NServiceBusConfigurationTemplatePartial.cs`
-- [ ] Reshape `NServiceBusConfigurationTemplatePartial.cs` around one `ConfigureMainEndpoint(...)`
-- [ ] Inline transport/persistence/installers/serialization/recoverability into `ConfigureMainEndpoint(...)`
-- [ ] Ensure commands require `EndpointName`; events/messages do not
-- [ ] Build module DLL, run SF on all 5 test apps (skip SQS), verify 0 errors
-- [ ] Build all test app Infrastructure projects — 0 compile errors
-- [ ] Runtime verify: start at least one app, dispatch a message, confirm handler executes
+- [x] Restore `RegisterHandler` in `NServiceBusConfigurationTemplatePartial.cs`
+- [x] Reshape `NServiceBusConfigurationTemplatePartial.cs` around one `ConfigureMainEndpoint(...)`
+- [x] Inline transport/persistence/installers/serialization/recoverability into `ConfigureMainEndpoint(...)`
+- [ ] Ensure commands require `EndpointName`; events/messages do not (validation — separate task)
+- [x] Build module DLL, run SF on all 5 test apps (skip SQS), verify 0 errors
+- [x] Build all test app Infrastructure projects — 0 compile errors
+- [x] Runtime verify: start at least one app, dispatch a message, confirm handler executes
 - [ ] Revisit test coverage/doc notes for mixed-broker coexistence scenarios
 - [ ] Capture the full acceptance matrix in test notes: mixed-broker coexistence, Azure Service Bus, Learning Transport, RabbitMQ, SQS gap, and outbox
 - [ ] Commit

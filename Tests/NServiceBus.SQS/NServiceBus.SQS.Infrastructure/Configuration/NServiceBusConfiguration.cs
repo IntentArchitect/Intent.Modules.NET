@@ -20,10 +20,7 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             services.AddScoped<NServiceBusMessageBus>();
             services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<NServiceBusMessageBus>());
 
-            services.AddNServiceBusEndpoint(ConfigureEndpointForAnimals(configuration), "Animals");
-            services.AddNServiceBusEndpoint(ConfigureEndpointForTalkToPersonCommand(configuration), "talk-to-person-command");
-            services.AddNServiceBusEndpoint(ConfigureEndpointForCreatePersonIdentity(configuration), "create-person-identity");
-            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration), "main");
+            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
         }
 
@@ -32,65 +29,7 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForAnimals(IConfiguration configuration)
-        {
-            var endpointName = "Animals";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(MakeSoundCommand) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
-            RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForTalkToPersonCommand(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:TalkToPersonCommand"] ?? "talk-to-person-command";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(TalkToPersonCommand) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static EndpointConfiguration ConfigureEndpointForCreatePersonIdentity(IConfiguration configuration)
-        {
-            var endpointName = configuration["NServiceBus:Routing:Commands:CreatePersonIdentity"] ?? "create-person-identity";
-            var endpointConfiguration = new EndpointConfiguration(endpointName);
-
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningCommandsAs(new[] { typeof(CreatePersonIdentity) }.Contains);
-            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
-
-            return endpointConfiguration;
-        }
-
-        private static RoutingSettings ConfigureCommonSettings(
-            EndpointConfiguration endpointConfiguration,
-            IConfiguration configuration)
-        {
-            var routing = endpointConfiguration.UseTransport(new SqsTransport());
-
-            endpointConfiguration.AssemblyScanner().Disable = true;
+            endpointConfiguration.UseTransport(new SqsTransport());
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -100,7 +39,26 @@ namespace NServiceBus.SQS.Infrastructure.Configuration
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            return routing;
+            ConfigureMessageConventions(endpointConfiguration);
+            RegisterHandlers(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static void ConfigureMessageConventions(EndpointConfiguration endpointConfiguration)
+        {
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningEventsAs(new[] { typeof(TestMessageEvent) }.Contains);
+            conventions.DefiningCommandsAs(new[] { typeof(OrderAnimal), typeof(CreatePersonIdentity), typeof(TalkToPersonCommand), typeof(MakeSoundCommand) }.Contains);
+        }
+
+        private static void RegisterHandlers(EndpointConfiguration endpointConfiguration)
+        {
+            RegisterHandler<NServiceBusMessageHandler<TestMessageEvent>, TestMessageEvent>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<OrderAnimal>, OrderAnimal>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<MakeSoundCommand>, MakeSoundCommand>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<TalkToPersonCommand>, TalkToPersonCommand>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<CreatePersonIdentity>, CreatePersonIdentity>(endpointConfiguration);
         }
 
         private static void RegisterHandler<THandler, TMessage>(EndpointConfiguration endpointConfiguration)

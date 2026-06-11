@@ -32,21 +32,8 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
-            ConfigureCommonSettings(endpointConfiguration, configuration);
-
-            var conventions = endpointConfiguration.Conventions();
-            conventions.DefiningEventsAs(new[] { typeof(AnotherTestMessageEvent), typeof(TestEvent) }.Contains);
-            conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
-
-            return endpointConfiguration;
-        }
-
-        private static RoutingSettings ConfigureCommonSettings(
-            EndpointConfiguration endpointConfiguration,
-            IConfiguration configuration)
-        {
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
-            var routing = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
             var persistenceConnectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is not configured");
             var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();
@@ -63,7 +50,35 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
                 .Delayed(r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10))));
             endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");
 
-            return routing;
+            ConfigureMessageConventions(endpointConfiguration);
+            RegisterHandlers(endpointConfiguration);
+
+            return endpointConfiguration;
+        }
+
+        private static void ConfigureMessageConventions(EndpointConfiguration endpointConfiguration)
+        {
+            var conventions = endpointConfiguration.Conventions();
+            conventions.DefiningEventsAs(new[] { typeof(AnotherTestMessageEvent), typeof(TestEvent) }.Contains);
+            conventions.DefiningCommandsAs(new[] { typeof(TestCommand) }.Contains);
+        }
+
+        private static void RegisterHandlers(EndpointConfiguration endpointConfiguration)
+        {
+            RegisterHandler<NServiceBusMessageHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<TestEvent>, TestEvent>(endpointConfiguration);
+            RegisterHandler<NServiceBusMessageHandler<TestCommand>, TestCommand>(endpointConfiguration);
+        }
+
+        private static void RegisterHandler<THandler, TMessage>(EndpointConfiguration endpointConfiguration)
+            where THandler : class, IHandleMessages<TMessage>
+            where TMessage : class
+        {
+            var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);
+            var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();
+            var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();
+            messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();
+            messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());
         }
     }
 }

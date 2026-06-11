@@ -19,28 +19,28 @@ namespace NServiceBus.RabbitMQ.Application.IntegrationEvents.EventHandlers
         public async Task HandleAsync(OrderAnimal message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (OrderAnimalHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] RabbitMQ.OrderAnimalHandler received: {message.GetType().Name}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(MakeSoundCommand message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (OrderAnimalHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] RabbitMQ.OrderAnimalHandler received: {message.GetType().Name}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(TalkToPersonCommand message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (OrderAnimalHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] RabbitMQ.OrderAnimalHandler received: {message.GetType().Name}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(CreatePersonIdentity message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (OrderAnimalHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] RabbitMQ.OrderAnimalHandler received: {message.GetType().Name}");
         }
     }
 }

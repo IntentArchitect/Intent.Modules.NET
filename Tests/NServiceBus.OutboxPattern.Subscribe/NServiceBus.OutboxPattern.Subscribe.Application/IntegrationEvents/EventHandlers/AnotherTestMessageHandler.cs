@@ -18,7 +18,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Application.IntegrationEvents.Even
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(AnotherTestMessageEvent message, CancellationToken cancellationToken = default)
         {
-            
+            Console.WriteLine($"[HANDLER HIT] Subscribe.AnotherTestMessageHandler received: {message.Message}");
         }
     }
 }

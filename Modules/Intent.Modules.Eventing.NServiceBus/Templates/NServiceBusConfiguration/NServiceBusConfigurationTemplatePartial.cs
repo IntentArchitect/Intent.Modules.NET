@@ -180,26 +180,23 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
                     method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
 
-                    var capture = sentCommandTemplates.Count > 0 ? "var routing = " : "";
-                    method.AddStatement($"{capture}ConfigureCommonSettings(endpointConfiguration, configuration);", s => s.SeparatedFromPrevious());
+                    AddTransportStatements(method, captureVar: sentCommandTemplates.Count > 0);
+                    AddPersistenceStatements(method);
+
+                    method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
+                    method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+
+                    AddRecoverabilityStatements(method);
 
                     if (eventTemplates.Count > 0 || commandTemplates.Count > 0)
                     {
-                        method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("ConfigureMessageConventions(endpointConfiguration);", s => s.SeparatedFromPrevious());
+                    }
 
-                        if (eventTemplates.Count > 0)
-                        {
-                            var typeOfs = string.Join(", ",
-                                eventTemplates.Select(t => $"typeof({GetTypeName(IntegrationEventMessageTemplate.TemplateId, t.Model)})"));
-                            method.AddStatement($"conventions.DefiningEventsAs(new[] {{ {typeOfs} }}.Contains);");
-                        }
-
-                        if (commandTemplates.Count > 0)
-                        {
-                            var typeOfs = string.Join(", ",
-                                commandTemplates.Select(t => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, t.Model)})"));
-                            method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {typeOfs} }}.Contains);");
-                        }
+                    var subscribedMessages = handlerTemplate?.SubscribedMessageModels ?? new List<MessageModel>();
+                    if (subscribedMessages.Any() || commandSubscriptions.Any())
+                    {
+                        method.AddStatement("RegisterHandlers(endpointConfiguration);");
                     }
 
                     if (sentCommandTemplates.Count > 0)
@@ -220,23 +217,71 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                 });
 
-                // ── ConfigureCommonSettings ────────────────────────────────────────────────────────
-                // Returns RoutingSettings so ConfigureMainEndpoint can add RouteToEndpoint calls.
-                @class.AddMethod("RoutingSettings", "ConfigureCommonSettings", method =>
+                // ── ConfigureMessageConventions ────────────────────────────────────────────────────
+                if (eventTemplates.Count > 0 || commandTemplates.Count > 0)
                 {
-                    method.Static().Private();
-                    method.AddParameter("EndpointConfiguration", "endpointConfiguration");
-                    method.AddParameter("IConfiguration", "configuration");
+                    @class.AddMethod("void", "ConfigureMessageConventions", method =>
+                    {
+                        method.Static().Private();
+                        method.AddParameter("EndpointConfiguration", "endpointConfiguration");
 
-                    AddTransportStatements(method, captureVar: true);
-                    AddPersistenceStatements(method);
+                        method.AddStatement("var conventions = endpointConfiguration.Conventions();");
 
-                    method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
-                    method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
+                        if (eventTemplates.Count > 0)
+                        {
+                            var typeOfs = string.Join(", ",
+                                eventTemplates.Select(t => $"typeof({GetTypeName(IntegrationEventMessageTemplate.TemplateId, t.Model)})"));
+                            method.AddStatement($"conventions.DefiningEventsAs(new[] {{ {typeOfs} }}.Contains);");
+                        }
 
-                    AddRecoverabilityStatements(method);
-                    method.AddReturn("routing", s => s.SeparatedFromPrevious());
-                });
+                        if (commandTemplates.Count > 0)
+                        {
+                            var typeOfs = string.Join(", ",
+                                commandTemplates.Select(t => $"typeof({GetTypeName(IntegrationCommandTemplate.TemplateId, t.Model)})"));
+                            method.AddStatement($"conventions.DefiningCommandsAs(new[] {{ {typeOfs} }}.Contains);");
+                        }
+                    });
+                }
+
+                // ── RegisterHandlers + RegisterHandler ────────────────────────────────────────────
+                var subscribedEventsForReg = handlerTemplate?.SubscribedMessageModels ?? new List<MessageModel>();
+                if (subscribedEventsForReg.Any() || commandSubscriptions.Any())
+                {
+                    @class.AddMethod("void", "RegisterHandlers", method =>
+                    {
+                        method.Static().Private();
+                        method.AddParameter("EndpointConfiguration", "endpointConfiguration");
+
+                        var handlerTypeName = GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId);
+
+                        foreach (var msg in subscribedEventsForReg)
+                        {
+                            var msgTypeName = GetTypeName(IntegrationEventMessageTemplate.TemplateId, msg);
+                            method.AddStatement($"RegisterHandler<{handlerTypeName}<{msgTypeName}>, {msgTypeName}>(endpointConfiguration);");
+                        }
+
+                        foreach (var cmd in commandSubscriptions)
+                        {
+                            var cmdTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, cmd);
+                            method.AddStatement($"RegisterHandler<{handlerTypeName}<{cmdTypeName}>, {cmdTypeName}>(endpointConfiguration);");
+                        }
+                    });
+
+                    @class.AddMethod("void", "RegisterHandler", method =>
+                    {
+                        method.Static().Private();
+                        method.AddGenericParameter("THandler");
+                        method.AddGenericParameter("TMessage");
+                        method.AddGenericTypeConstraint("THandler", c => c.AddType("class").AddType("IHandleMessages<TMessage>"));
+                        method.AddGenericTypeConstraint("TMessage", c => c.AddType("class"));
+                        method.AddParameter("EndpointConfiguration", "endpointConfiguration");
+                        method.AddStatement("var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);");
+                        method.AddStatement("var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();");
+                        method.AddStatement("var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();");
+                        method.AddStatement("messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();");
+                        method.AddStatement("messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());");
+                    });
+                }
             });
         }
 
