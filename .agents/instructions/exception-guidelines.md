@@ -16,16 +16,16 @@ module setting.
 Use when the error is not tied to a specific element — e.g. a missing module, an invalid
 combination of module settings, or a misconfigured application.
 
-Supports **Markdown** in the message. Use bold, inline code, and `\n\n` paragraph breaks to
-make the message scannable.
+Write plain prose — **Markdown is not rendered** in FriendlyException messages. Avoid `**bold**`,
+backticks, and `\n\n` paragraph breaks; they appear as literal characters in the UI.
 
 ```csharp
 using Intent.Exceptions;
 
 throw new FriendlyException(
-    "**NServiceBus Outbox — missing dependency**\n\n" +
-    "OutboxPattern is set to **SqlPersistence** but `Intent.EntityFrameworkCore` is not installed.\n\n" +
-    "**Fix:** Install `Intent.EntityFrameworkCore`, or change OutboxPattern to `None`.");
+    "OutboxPattern is set to SqlPersistence but Intent.EntityFrameworkCore is not installed. " +
+    "The transactional outbox shares the EF Core DbConnection/DbTransaction to guarantee " +
+    "exactly-once dispatch. Install Intent.EntityFrameworkCore or change OutboxPattern to None.");
 ```
 
 Constructor: `FriendlyException(string message)`
@@ -38,7 +38,8 @@ Use when the error is tied to a *specific element* in the designer (a command, e
 stereotype, etc.). Intent Architect uses the element reference to highlight the offending node
 in the UI and include its name/location in the error panel.
 
-Supports **Markdown** in the message.
+Write plain prose — **Markdown is not rendered** in ElementException messages. Avoid backticks,
+`**bold**`, and `\n\n` paragraph breaks; they appear as literal characters in the UI.
 
 ```csharp
 using Intent.Exceptions;
@@ -46,8 +47,8 @@ using Intent.Exceptions;
 // model is e.g. IntegrationCommandModel, EntityModel, etc.
 // model.InternalElement implements ICanBeReferencedType
 throw new ElementException(model.InternalElement,
-    $"Integration Command `{model.Name}` is missing an **Endpoint Name**.\n\n" +
-    "Apply the **NServiceBus** stereotype and set **Endpoint Name** to the destination endpoint.");
+    $"Integration Command '{model.Name}' is missing an Endpoint Name. " +
+    "Apply the NServiceBus stereotype and set Endpoint Name to the destination endpoint.");
 ```
 
 Constructors:

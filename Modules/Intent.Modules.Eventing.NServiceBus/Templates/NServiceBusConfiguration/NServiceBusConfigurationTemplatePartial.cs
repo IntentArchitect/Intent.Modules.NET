@@ -76,11 +76,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             {
                 if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
                     throw new FriendlyException(
-                        "**NServiceBus Outbox — missing dependency**\n\n" +
-                        "OutboxPattern is set to **SqlPersistence** but the `Intent.EntityFrameworkCore` module is not installed.\n\n" +
-                        "The NServiceBus transactional outbox shares the EF Core `DbConnection`/`DbTransaction` to ensure " +
-                        "exactly-once message dispatch alongside your database writes.\n\n" +
-                        "**Fix:** Install `Intent.EntityFrameworkCore`, or change the OutboxPattern module setting to `None`.");
+                        "OutboxPattern is set to SqlPersistence but the Intent.EntityFrameworkCore module is not installed. " +
+                        "The NServiceBus transactional outbox shares the EF Core DbConnection/DbTransaction to ensure " +
+                        "exactly-once message dispatch alongside your database writes. " +
+                        "Install Intent.EntityFrameworkCore, or change the OutboxPattern module setting to None.");
                 
                 AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
@@ -152,11 +151,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     .Where(ct => string.IsNullOrEmpty(ct.Model.GetNServiceBus()?.EndpointName())))
                 {
                     throw new ElementException(ct.Model.InternalElement,
-                        $"Integration Command `{ct.Model.Name}` has no NServiceBus endpoint name configured.\n\n" +
-                        "The **Endpoint Name** identifies which endpoint owns this command — it must be set consistently " +
-                        "on every app that sends or subscribes to it.\n\n" +
-                        "Apply the **NServiceBus** stereotype to this command and set **Endpoint Name** to the " +
-                        "endpoint name of the application that handles it (its `NServiceBus:EndpointName` config value).");
+                        $"Integration Command '{ct.Model.Name}' has no NServiceBus endpoint name configured. " +
+                        "The Endpoint Name identifies which endpoint owns this command and must be set consistently " +
+                        "on every app that sends or subscribes to it. " +
+                        "Apply the NServiceBus stereotype to this command and set Endpoint Name to the " +
+                        "endpoint name of the application that handles it (its NServiceBus:EndpointName config value).");
                 }
 
                 // ── AddNServiceBusConfiguration ────────────────────────────────────────────────────
