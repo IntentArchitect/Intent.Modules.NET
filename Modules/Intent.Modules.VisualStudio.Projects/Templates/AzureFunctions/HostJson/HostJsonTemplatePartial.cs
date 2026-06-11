@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -8,10 +12,6 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using static Intent.Modules.VisualStudio.Projects.Templates.JsonCommentPreserver;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

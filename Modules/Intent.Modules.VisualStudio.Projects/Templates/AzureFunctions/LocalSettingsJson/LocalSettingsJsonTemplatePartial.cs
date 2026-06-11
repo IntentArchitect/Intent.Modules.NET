@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Globalization;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text.Json;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -8,14 +16,6 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Globalization;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text.Json;
-using System.Xml.Linq;
 using static Intent.Modules.VisualStudio.Projects.Templates.JsonCommentPreserver;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -120,7 +120,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 content = TransformText();
             }
 
-            var(cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
             var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
             var valuesObj = (JObject)(json["Values"] ??= new JObject());
 
