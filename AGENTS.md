@@ -5,16 +5,49 @@
 
 ---
 
-## 📋 Working Context (Read First)
+## 📋 Context & Working State (Read First)
 
-Before making **any** code changes, check for `WORKING.md` files and read every one that exists:
+Before making **any** code changes, check for both `CONTEXT.md` and `WORKING.md` files and
+read every one that exists and is relevant to the files you are about to touch.
+
+### `CONTEXT.md`
+
+`CONTEXT.md` is the **durable knowledge layer** for a module or area. It should capture
+important architectural decisions, invariants, technology constraints, accepted patterns,
+rejected approaches worth remembering, test/acceptance expectations, and commit references
+that future AI sessions must not lose.
+
+Read order:
+
+1. **Repo root** — `CONTEXT.md` (cross-cutting repo knowledge)
+2. **Same directory as files you are about to modify** — e.g.
+   `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
+
+Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches.
+If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than
+silently "improving" the design.
+
+### `WORKING.md`
+
+`WORKING.md` is the **temporary in-progress layer**. It captures active branch/task state:
+current goals, known breakages, partial implementations, temporary decisions, and the
+specific path the current work is taking.
+
+Read order:
 
 1. **Repo root** — `WORKING.md` (cross-cutting work spanning multiple modules or test apps)
-2. **Same directory as files you are about to modify** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
+2. **Same directory as files you are about to modify** — e.g.
+   `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
 
-These files are the authoritative record of active design decisions, rejected approaches, and current known issues. Reading them is **mandatory, not optional**. If what you are about to do contradicts something in a `WORKING.md`, stop and flag the conflict rather than proceeding.
+These files are the authoritative record of active design decisions, rejected approaches,
+and current known issues for the current work. Reading them is **mandatory, not optional**.
+If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
+conflict rather than proceeding.
 
-**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work is complete, the file is deleted (stable decisions are extracted into a proper skill). Do not create or leave behind `WORKING.md` files for completed work.
+**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
+is complete, the file is deleted or reduced, and any durable knowledge that should survive
+must be extracted into `CONTEXT.md` (or a proper skill if appropriate). Do not create or
+leave behind `WORKING.md` files for completed work.
 
 ---
 
