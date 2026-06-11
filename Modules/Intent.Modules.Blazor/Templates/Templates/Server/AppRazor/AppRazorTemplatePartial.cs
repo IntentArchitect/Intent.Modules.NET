@@ -39,7 +39,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                     {
                         html.AddAttribute("lang", "en");
                         html.AddEmptyLine();
-                        html.AddCodeBlock("@Intent.Merge()");
+                        // temp mhh todo: marker neutralised so the SF shows the full App.razor delta (the explicit merge region overrides DefaultMode)
+                        //html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
                         {
                             head.AddHtmlElement("meta", t => t.AddAttribute("charset", "utf-8"));
@@ -117,7 +118,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            // temp mhh todo
+            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
+            return config;
         }
 
         /// <inheritdoc />
