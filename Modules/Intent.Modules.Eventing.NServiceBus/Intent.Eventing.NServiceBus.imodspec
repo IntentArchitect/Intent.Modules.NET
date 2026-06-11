@@ -89,6 +89,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.NServiceBus/Intent.Eventing.NServiceBus.pkg.config" externalReference="62ed1010-b7ea-41be-8a1e-617d3d8b5f8b" />
+    <install target="Services" src="modelers/NServiceBus Settings.designer.settings" externalReference="b0319bd7-d378-42db-b58a-beb886c99560" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
   <migrations />

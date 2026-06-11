@@ -9,7 +9,16 @@
   <parentFolderId>9616aacd-32d9-47fe-ae62-4ec7956deb01</parentFolderId>
   <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
   <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="talk-person" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="0ad3ace3-89a4-4766-bf82-ce6eb07cad11" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
