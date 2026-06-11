@@ -19,7 +19,7 @@ namespace NServiceBus.AzureServiceBus.Application.IntegrationEvents.EventHandler
         public async Task HandleAsync(OrderAnimal message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (OrderAnimalHandler) functionality
-            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.OrderAnimalHandler received: {message.GetType().Name}");
+            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.OrderAnimalHandler received: {message.Name}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
@@ -37,7 +37,7 @@ namespace NServiceBus.AzureServiceBus.Application.IntegrationEvents.EventHandler
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(CreatePersonIdentity message, CancellationToken cancellationToken = default)
         {
-            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.OrderAnimalHandler received: {message.GetType().Name}");
+            Console.WriteLine($"[HANDLER HIT] AzureServiceBus.OrderAnimalHandler received: FirstName = {message.FirstName}, LastName = {message.LastName}");
         }
     }
 }

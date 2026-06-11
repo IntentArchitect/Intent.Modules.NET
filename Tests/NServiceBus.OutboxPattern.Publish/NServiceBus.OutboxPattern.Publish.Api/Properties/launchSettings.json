@@ -3,16 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44314/",
-      "sslPort": 44314
+      "applicationUrl": "https://localhost:44315/",
+      "sslPort": 44315
     }
   },
   "profiles": {
     "NServiceBus.OutboxPattern.Publish.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44314/",
-      "launchUrl": "https://localhost:44314/swagger",
+      "applicationUrl": "https://localhost:44315/",
+      "launchUrl": "https://localhost:44315/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44314/swagger",
+      "launchUrl": "https://localhost:44315/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
