@@ -187,13 +187,14 @@ technologies.
 
 ### `EndpointName` Requirement
 
-`EndpointName` is mandatory for **sent commands** (commands this app dispatches to another
-endpoint), not for subscribed commands, events, or messages.
+`EndpointName` is mandatory for **all NServiceBus commands** — both sent and subscribed.
+Events/messages do not carry endpoint names.
 
-- Sent commands need an explicit destination endpoint for `routing.RouteToEndpoint(...)`. A
-  missing value means silent misrouting at runtime.
-- Subscribed commands are routed to `endpointName` (self) — no stereotype needed.
-- Events/messages are publish/subscribe and do not carry endpoint names.
+- `EndpointName` is a property of the command **definition**, not of any particular sender or
+  subscriber. It declares which endpoint owns (handles) that command type.
+- Both the app that sends a command and the app that subscribes to it must carry the same
+  `EndpointName` value on the stereotype. Without it the definition is incomplete.
+- Events/messages are publish/subscribe and do not require an endpoint name.
 
 **Validation is enforced at SF time** in `NServiceBusConfigurationTemplatePartial.cs`. If any
 sent command is missing a `NServiceBus` stereotype `EndpointName`, SF throws an

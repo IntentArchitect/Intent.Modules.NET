@@ -144,15 +144,19 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     .Where(ct => !subscribedIds.Contains(ct.Model.Id))
                     .ToList();
 
-                // Sent commands MUST have the NServiceBus stereotype EndpointName set so we can
-                // generate the correct RouteToEndpoint call. Missing values mean silent misrouting.
-                foreach (var ct in sentCommandTemplates
+                // ALL NServiceBus commands must have EndpointName — it is a property of the command
+                // definition, not of the sender. Both the sending app and the subscribing app must
+                // agree on the same name. Missing it here means incomplete definition regardless of
+                // whether this app sends or handles the command.
+                foreach (var ct in commandTemplates
                     .Where(ct => string.IsNullOrEmpty(ct.Model.GetNServiceBus()?.EndpointName())))
                 {
                     throw new ElementException(ct.Model.InternalElement,
-                        $"Integration Command `{ct.Model.Name}` is sent by this application but has no NServiceBus endpoint name configured.\n\n" +
-                        "Apply the **NServiceBus** stereotype to this command and set the **Endpoint Name** property to the " +
-                        "destination endpoint (the `NServiceBus:EndpointName` value of the receiving application).");
+                        $"Integration Command `{ct.Model.Name}` has no NServiceBus endpoint name configured.\n\n" +
+                        "The **Endpoint Name** identifies which endpoint owns this command — it must be set consistently " +
+                        "on every app that sends or subscribes to it.\n\n" +
+                        "Apply the **NServiceBus** stereotype to this command and set **Endpoint Name** to the " +
+                        "endpoint name of the application that handles it (its `NServiceBus:EndpointName` config value).");
                 }
 
                 // ── AddNServiceBusConfiguration ────────────────────────────────────────────────────
