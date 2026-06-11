@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using NServiceBus.AzureServiceBus.Application.Common.Eventing;
+using NServiceBus.AzureServiceBus.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusMessageHandler", Version = "1.0")]
@@ -23,6 +24,46 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Eventing
             _messageBus.ActiveContext = context;
 
             await _handler.HandleAsync(message, context.CancellationToken);
+        }
+    }
+
+    internal sealed class NServiceBusTestMessageEventHandler : NServiceBusMessageHandler<TestMessageEvent>
+    {
+        public NServiceBusTestMessageEventHandler(IIntegrationEventHandler<TestMessageEvent> handler,
+            NServiceBusMessageBus messageBus) : base(handler, messageBus)
+        {
+        }
+    }
+
+    internal sealed class NServiceBusOrderAnimalHandler : NServiceBusMessageHandler<OrderAnimal>
+    {
+        public NServiceBusOrderAnimalHandler(IIntegrationEventHandler<OrderAnimal> handler,
+            NServiceBusMessageBus messageBus) : base(handler, messageBus)
+        {
+        }
+    }
+
+    internal sealed class NServiceBusMakeSoundCommandHandler : NServiceBusMessageHandler<MakeSoundCommand>
+    {
+        public NServiceBusMakeSoundCommandHandler(IIntegrationEventHandler<MakeSoundCommand> handler,
+            NServiceBusMessageBus messageBus) : base(handler, messageBus)
+        {
+        }
+    }
+
+    internal sealed class NServiceBusTalkToPersonCommandHandler : NServiceBusMessageHandler<TalkToPersonCommand>
+    {
+        public NServiceBusTalkToPersonCommandHandler(IIntegrationEventHandler<TalkToPersonCommand> handler,
+            NServiceBusMessageBus messageBus) : base(handler, messageBus)
+        {
+        }
+    }
+
+    internal sealed class NServiceBusCreatePersonIdentityHandler : NServiceBusMessageHandler<CreatePersonIdentity>
+    {
+        public NServiceBusCreatePersonIdentityHandler(IIntegrationEventHandler<CreatePersonIdentity> handler,
+            NServiceBusMessageBus messageBus) : base(handler, messageBus)
+        {
         }
     }
 }

@@ -23,7 +23,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="474118b0-25b1-437b-94cf-716f10307370" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ad0b5293-8841-4dba-80a9-72091de00b17" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.NServiceBus.NServiceBusConfiguration</name>
       <display>Intent.Eventing.NServiceBus.NServiceBusConfiguration</display>
       <externalReference>Intent.Eventing.NServiceBus</externalReference>

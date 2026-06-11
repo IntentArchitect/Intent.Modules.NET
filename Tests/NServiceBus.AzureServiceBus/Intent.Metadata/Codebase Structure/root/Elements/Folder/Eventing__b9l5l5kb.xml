@@ -51,7 +51,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="261e87c8-9e3e-4e28-9ec7-00a17c25e76a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="2992f9f0-12c7-49d9-a0aa-5bcdac30bcfc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.NServiceBus.NServiceBusMessageBus</name>
       <display>Intent.Eventing.NServiceBus.NServiceBusMessageBus</display>
       <externalReference>Intent.Eventing.NServiceBus</externalReference>
@@ -65,7 +65,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d016a750-6f6e-47ee-9c26-f53d85c4dce0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="d6241dca-68e3-4215-a545-7714c8359b00" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</name>
       <display>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</display>
       <externalReference>Intent.Eventing.NServiceBus</externalReference>
