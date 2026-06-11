@@ -20,9 +20,12 @@ namespace CompositeMessageBus.Infrastructure.Configuration
         {
             services.AddScoped<NServiceBusMessageBus>();
             registry.Register<MsgNServiceBusEvent, NServiceBusMessageBus>();
-
-            services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
             return services;
+        }
+
+        public static IHostBuilder UseNServiceBusHost(this IHostBuilder hostBuilder)
+        {
+            return hostBuilder.UseNServiceBus(ctx => ConfigureMainEndpoint(ctx.Configuration));
         }
 
         private static EndpointConfiguration ConfigureMainEndpoint(IConfiguration configuration)
@@ -31,9 +34,11 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
+
             var storageDirectory = rawStoragePath is not null
                 ? Environment.ExpandEnvironmentVariables(rawStoragePath)
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+
             endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();

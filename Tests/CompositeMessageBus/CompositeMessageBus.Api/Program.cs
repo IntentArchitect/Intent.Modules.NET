@@ -27,11 +27,13 @@ namespace CompositeMessageBus.Api
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
+                // Add services to the container.
+                builder.Host.UseNServiceBusHost();
+
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-
                 builder.Services.AddDaprSidekick(builder.Configuration);
                 builder.Services.AddControllers(
                     opt =>

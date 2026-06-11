@@ -15,6 +15,8 @@ using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Common.CSharp.AppStartup;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler;
@@ -32,9 +34,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
     {
         public const string TemplateId = "Intent.Eventing.NServiceBus.NServiceBusConfiguration";
 
+        private readonly bool _isLegacyFramework;
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public NServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            _isLegacyFramework = OutputTarget.GetMaxNetAppVersion().Major < 10;
+
             FulfillsRole("Infrastructure.DependencyInjection.NServiceBus");
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
@@ -43,6 +49,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             AddTypeSource(NServiceBusMessageHandlerTemplate.TemplateId);
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+            AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
             var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
@@ -76,12 +83,30 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             }
 
+            if (_isLegacyFramework)
+            {
+                var programTemplate = ExecutionContext.FindTemplateInstance<IProgramTemplate>("App.Program");
+                if (programTemplate != null)
+                {
+                    programTemplate.CSharpFile.OnBuild(file =>
+                    {
+                        file.AddUsing(this.Namespace);
+                        programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(
+                            new CSharpStatement("builder.Host.UseNServiceBusHost();"),
+                            priority: 500);
+                    }, 30);
+                }
+            }
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.IO")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("NServiceBus");
+
+            if (_isLegacyFramework)
+                CSharpFile.AddUsing("Microsoft.Extensions.Hosting");
 
             if (outboxPattern.IsSqlPersistence())
             {
@@ -165,11 +190,25 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         }
                     }
 
-                    method.AddStatement("services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));",
-                        s => s.SeparatedFromPrevious());
+                    if (!_isLegacyFramework)
+                    {
+                        method.AddStatement("services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));",
+                            s => s.SeparatedFromPrevious());
+                    }
 
                     method.AddReturn("services");
                 });
+
+                // ── UseNServiceBusHost (v9 / .NET 8-9 host-builder wiring) ──────────────
+                if (_isLegacyFramework)
+                {
+                    @class.AddMethod("IHostBuilder", "UseNServiceBusHost", method =>
+                    {
+                        method.Static().Public();
+                        method.AddParameter("IHostBuilder", "hostBuilder", p => p.WithThisModifier());
+                        method.AddReturn("hostBuilder.UseNServiceBus(ctx => ConfigureMainEndpoint(ctx.Configuration))");
+                    });
+                }
 
                 // ── ConfigureMainEndpoint ──────────────────────────────────────────────────────────
                 @class.AddMethod("EndpointConfiguration", "ConfigureMainEndpoint", method =>
@@ -337,11 +376,14 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 method.AddStatement(
                     """
                     var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
-                    var storageDirectory = rawStoragePath is not null
-                        ? Environment.ExpandEnvironmentVariables(rawStoragePath)
-                        : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
                     """,
                     s => s.SeparatedFromPrevious());
+                method.AddStatement(new CSharpAssignmentStatement(
+                    new CSharpVariableDeclaration("storageDirectory"),
+                    new CSharpConditionalExpressionStatement(
+                        "rawStoragePath is not null", 
+                        "Environment.ExpandEnvironmentVariables(rawStoragePath)", 
+                        @"Path.Combine(Path.GetTempPath(), ""nservicebus-learning"")")).WithSemicolon().SeparatedFromPrevious());
                 method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new LearningTransport {{ StorageDirectory = storageDirectory }});");
             }
         }

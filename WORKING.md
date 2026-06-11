@@ -71,9 +71,9 @@ The config template has been stabilized. The broken state described below is now
 - [x] Build module DLL, run SF on all 5 test apps (skip SQS), verify 0 errors
 - [x] Build all test app Infrastructure projects — 0 compile errors
 - [x] Runtime verify: start at least one app, dispatch a message, confirm handler executes
+- [x] Conditional v9/v10 host registration — `UseNServiceBusHost` extension for .NET 8/9; `AddNServiceBusEndpoint` for .NET 10+; `NServiceBus.Extensions.Hosting` NuGet now explicit
 - [ ] Revisit test coverage/doc notes for mixed-broker coexistence scenarios
 - [ ] Capture the full acceptance matrix in test notes: mixed-broker coexistence, Azure Service Bus, Learning Transport, RabbitMQ, SQS gap, and outbox
-- [ ] Commit
 
 ---
 
