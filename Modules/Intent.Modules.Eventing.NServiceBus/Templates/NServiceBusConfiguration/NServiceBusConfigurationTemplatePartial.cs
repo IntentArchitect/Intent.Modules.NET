@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.NServiceBus.Api;
+using Intent.Exceptions;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
-using Intent.Modules.Common.CSharp.AppStartup;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler;
@@ -74,11 +75,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             if (outboxPattern.IsSqlPersistence())
             {
                 if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
-                    throw new InvalidOperationException(
-                        "OutboxPattern is set to 'SqlPersistence' but the 'Intent.EntityFrameworkCore' module is not installed. " +
-                        "The NServiceBus transactional outbox requires EF Core to share the same database transaction. " +
-                        "Please install 'Intent.EntityFrameworkCore' or change OutboxPattern to 'None'.");
-
+                    throw new FriendlyException(
+                        "**NServiceBus Outbox — missing dependency**\n\n" +
+                        "OutboxPattern is set to **SqlPersistence** but the `Intent.EntityFrameworkCore` module is not installed.\n\n" +
+                        "The NServiceBus transactional outbox shares the EF Core `DbConnection`/`DbTransaction` to ensure " +
+                        "exactly-once message dispatch alongside your database writes.\n\n" +
+                        "**Fix:** Install `Intent.EntityFrameworkCore`, or change the OutboxPattern module setting to `None`.");
+                
                 AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             }
@@ -143,15 +146,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
                 // Sent commands MUST have the NServiceBus stereotype EndpointName set so we can
                 // generate the correct RouteToEndpoint call. Missing values mean silent misrouting.
-                var missingEndpointName = sentCommandTemplates
-                    .Where(ct => string.IsNullOrEmpty(ct.Model.GetNServiceBus()?.EndpointName()))
-                    .ToList();
-                if (missingEndpointName.Any())
+                foreach (var ct in sentCommandTemplates
+                    .Where(ct => string.IsNullOrEmpty(ct.Model.GetNServiceBus()?.EndpointName())))
                 {
-                    var names = string.Join(", ", missingEndpointName.Select(ct => $"'{ct.Model.Name}'"));
-                    throw new InvalidOperationException(
-                        $"The following Integration Command(s) are sent by this application but have no NServiceBus endpoint name configured: {names}. " +
-                        "Open the Integration Command in the designer, apply the 'NServiceBus' stereotype, and set 'Endpoint Name' to the destination endpoint.");
+                    throw new ElementException(ct.Model.InternalElement,
+                        $"Integration Command `{ct.Model.Name}` is sent by this application but has no NServiceBus endpoint name configured.\n\n" +
+                        "Apply the **NServiceBus** stereotype to this command and set the **Endpoint Name** property to the " +
+                        "destination endpoint (the `NServiceBus:EndpointName` value of the receiving application).");
                 }
 
                 // ── AddNServiceBusConfiguration ────────────────────────────────────────────────────
@@ -381,8 +382,8 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 method.AddStatement(new CSharpAssignmentStatement(
                     new CSharpVariableDeclaration("storageDirectory"),
                     new CSharpConditionalExpressionStatement(
-                        "rawStoragePath is not null", 
-                        "Environment.ExpandEnvironmentVariables(rawStoragePath)", 
+                        "rawStoragePath is not null",
+                        "Environment.ExpandEnvironmentVariables(rawStoragePath)",
                         @"Path.Combine(Path.GetTempPath(), ""nservicebus-learning"")")).WithSemicolon().SeparatedFromPrevious());
                 method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new LearningTransport {{ StorageDirectory = storageDirectory }});");
             }

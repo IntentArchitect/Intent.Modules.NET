@@ -149,6 +149,18 @@ Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.cl
 
 ---
 
+## ⚠️ Exception Guidelines
+
+See `.agents/instructions/exception-guidelines.md` for the full decision table.
+
+**Summary:**
+- **`FriendlyException(string message)`** — user-facing, no element reference. For missing modules, invalid setting combinations. Supports Markdown.
+- **`ElementException(model.InternalElement, string message)`** — user-facing, tied to a specific designer element. Intent Architect highlights the element in the UI. Supports Markdown.
+- **`InvalidOperationException`** — developer-facing (module bug, unhandled enum value). Raw stack trace, not shown in a friendly panel.
+- Generated code strings (`method.AddStatement(@"... ?? throw new InvalidOperationException(...)")`) are app-startup code — always stay as `InvalidOperationException`.
+
+---
+
 ## 🛠️ Debugging & Troubleshooting
 
 ### Runtime Context Acquisition

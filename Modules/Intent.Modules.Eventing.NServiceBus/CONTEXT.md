@@ -64,6 +64,51 @@ Do **not** hide endpoint construction behind vague helpers such as
 `ConfigureCommonSettings(...)`. If helper extraction is necessary, the helper name must match
 one real narrow responsibility.
 
+### .NET Version / NServiceBus Version Split
+
+NServiceBus 9 (.NET 8/9) and NServiceBus 10 (.NET 10+) use different host-wiring APIs.
+The template branches on `OutputTarget.GetMaxNetAppVersion().Major < 10` (`_isLegacyFramework`).
+
+**.NET 10+ (NServiceBus 10):** `NServiceBus.Extensions.Hosting` v4 — endpoint registered via DI:
+
+```csharp
+services.AddNServiceBusEndpoint(ConfigureMainEndpoint(configuration));
+```
+
+**.NET 8/9 (NServiceBus 9):** `NServiceBus.Extensions.Hosting` v3 — endpoint registered on
+the host builder. The template generates a public extension method and injects a call into
+`Program.cs`:
+
+```csharp
+// Generated in NServiceBusConfiguration.cs:
+public static IHostBuilder UseNServiceBusHost(this IHostBuilder hostBuilder)
+    => hostBuilder.UseNServiceBus(ctx => ConfigureMainEndpoint(ctx.Configuration));
+
+// Injected into Program.cs (via IProgramTemplate.AddHostBuilderConfigurationStatement):
+builder.Host.UseNServiceBusHost();
+```
+
+`ConfigureMainEndpoint` stays `private static` in both paths. The `UseNServiceBusHost`
+extension method is the public surface; it keeps the endpoint-config logic encapsulated.
+
+The injection into `Program.cs` is registered from the **template constructor** using:
+
+```csharp
+programTemplate.CSharpFile.OnBuild(file =>
+{
+    file.AddUsing(this.Namespace);
+    programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(
+        new CSharpStatement(“builder.Host.UseNServiceBusHost();”), priority: 500);
+}, order: 30);
+```
+
+This must be done in the constructor because `AddHostBuilderConfigurationStatement` internally
+calls `CSharpFile.OnBuild`, which requires `_isBuilt == false`. Doing it from
+`BeforeTemplateExecution` is too late.
+
+`NServiceBus.Extensions.Hosting` is added as an **explicit** NuGet dependency for all targets
+(it arrives transitively in practice, but explicit avoids fragile transitive resolution).
+
 ---
 
 ## NServiceBus Technical Constraints
@@ -142,12 +187,30 @@ technologies.
 
 ### `EndpointName` Requirement
 
-`EndpointName` is mandatory for **commands**, not for events/messages.
+`EndpointName` is mandatory for **sent commands** (commands this app dispatches to another
+endpoint), not for subscribed commands, events, or messages.
 
-- Commands need an explicit destination endpoint for routing
-- Events/messages are publish/subscribe and do not carry endpoint names
+- Sent commands need an explicit destination endpoint for `routing.RouteToEndpoint(...)`. A
+  missing value means silent misrouting at runtime.
+- Subscribed commands are routed to `endpointName` (self) — no stereotype needed.
+- Events/messages are publish/subscribe and do not carry endpoint names.
 
-Validators, defaults, stereotype behavior, and generated code should all reinforce this rule.
+**Validation is enforced at SF time** in `NServiceBusConfigurationTemplatePartial.cs`. If any
+sent command is missing a `NServiceBus` stereotype `EndpointName`, SF throws an
+`ElementException` pointing at the specific command element. Intent Architect displays this
+in the UI with the element highlighted:
+
+```
+Integration Command `OrderAnimal` is sent by this application but has no NServiceBus
+endpoint name configured. Apply the NServiceBus stereotype and set Endpoint Name to the
+destination endpoint.
+```
+
+There is no separate designer-level (real-time) validator — the SF-time `ElementException`
+is the authoritative gate. This is consistent with how other validation is done in this repo.
+
+See `.agents/instructions/exception-guidelines.md` for the general rule on when to use
+`ElementException` vs `FriendlyException` vs `InvalidOperationException`.
 
 ---
 
@@ -207,42 +270,65 @@ Changes in this module must be evaluated against the broader matrix, not just on
 ### Coexistence
 
 - NServiceBus must coexist with other broker modules such as MassTransit, Azure Service Bus
-  module integrations, Kafka, and similar technologies
-- The `NServiceBus` stereotype is part of how that coexistence remains unambiguous
+  module integrations, Kafka, and similar technologies.
+- The `NServiceBus` stereotype is the disambiguation mechanism — it marks which Integration
+  Commands/Events belong to NServiceBus in a multi-broker application.
+- `CompositeMessageBus` mode (multiple brokers in one app) is a verified scenario. In this
+  mode `AddNServiceBusConfiguration` accepts a `MessageBrokerRegistry` parameter and registers
+  message types against the NServiceBus bus rather than publishing a `ServiceConfigurationRequest`.
 
 ### Transport Coverage
 
-Dedicated scenarios exist for:
+| Transport | Test App | Runtime Verified |
+|---|---|---|
+| Learning Transport | `Tests/NServiceBus.LearnerTransport` | ✓ 2026-06-11 |
+| RabbitMQ | `Tests/NServiceBus.RabbitMQ` | ✓ 2026-06-11 |
+| Azure Service Bus | `Tests/NServiceBus.AzureServiceBus` | ✓ 2026-06-11 |
+| Amazon SQS | `Tests/NServiceBus.SQS` | Handlers implemented; live SQS infra required to run |
+| RabbitMQ + Outbox | `Tests/NServiceBus.OutboxPattern.Publish` + `Subscribe` | ✓ 2026-06-11 |
 
-- Azure Service Bus
-- Learning Transport
-- RabbitMQ
-- Amazon SQS
+**SQS note:** The test app is fully generated and compiles. AWS credentials (IAM access key
+or environment profile) are required to start it. `EnableInstallers()` will auto-create the
+SQS queues and SNS topics on first run. Not suitable for routine CI verification without
+real AWS credentials.
 
-### Runtime Validation Expectation
+### Runtime Verification Protocol
 
-Expected runnable validation currently focuses on:
+For each transport, the minimum bar is:
 
-- Azure Service Bus
-- Learning Transport
-- RabbitMQ
+1. App starts without errors
+2. A message is published/sent via the HTTP API
+3. `[HANDLER HIT]` log line appears in the console
 
-Amazon SQS may exist in the test matrix but is currently a known gap for routine runtime
-verification.
+Verified flows per test app (as of 2026-06-11):
+
+| App | Flow | Trigger | Expected log |
+|---|---|---|---|
+| LearnerTransport | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] TestMessageHandler received: ...` |
+| RabbitMQ | Event publish | `POST /api/animals/publish-test-event` | `[HANDLER HIT] RabbitMQ.TestMessageHandler received TestMessageEvent` |
+| AzureServiceBus | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] AzureServiceBus.TestMessageHandler received TestMessageEvent` |
+| OutboxPattern | Pub→Sub | `PUT /api/test-event-send` on Publish app | `[HANDLER HIT] Subscribe.AnotherTestMessageHandler received: ...` on Subscribe app |
+| SQS | Event publish | `PUT /api/external-message-publish/publish-external-message` | `[HANDLER HIT] SQS.TestMessageHandler received: ...` |
+| SQS | Command send | `POST /api/animals` | `[HANDLER HIT] SQS.CatchAllHandler received OrderAnimal: ...` |
 
 ### Outbox Coverage
 
-RabbitMQ + SQL Persistence outbox scenarios must continue to work.
+RabbitMQ + SQL Persistence outbox scenario is verified. The outbox path:
+
+- Requires `Intent.EntityFrameworkCore` module (enforced with an SF-time guard)
+- Uses `NServiceBus.Persistence.Sql` + `NServiceBus.TransactionalSession`
+- Shares the EF Core `DbConnection`/`DbTransaction`
+- Separate Publish and Subscribe apps are needed to observe end-to-end behaviour
 
 ### Message Flows
 
 Coverage should include:
 
-- service-level publish flows
-- command sending flows
-- Integration Event/message publish flows
-- Integration Command sending flows
-- subscription/handling for both commands and events
+- Integration Event publish flows (event → SNS/topic → subscriber handler)
+- Integration Command send flows (command → queue → handler, with `RouteToEndpoint`)
+- Service-level publish via `IMessageBus`
+- Subscription/handling for both events and commands
+- Outbox-buffered publish (transactional session → deferred dispatch after commit)
 
 Success is not just “one app starts.” It is preserving the intended model across
 mixed-broker, multi-transport, and outbox scenarios.
@@ -259,6 +345,9 @@ mixed-broker, multi-transport, and outbox scenarios.
 | `71cfdbe614` | Important single-endpoint direction and endpoint-name validation history |
 | `620810cd12` | Historical attempt at concrete subclasses |
 | `51c9198d38` | Revert of concrete subclass approach |
+| `53b6812ae2` | Enriched test apps — `CreatePerson` command, `TestMessageEvent.Message` property, `AnimalsService` wiring |
+| `ed5a8a913c` | v9/v10 conditional host registration — `UseNServiceBusHost` for .NET 8/9, `AddNServiceBusEndpoint` for .NET 10+ |
+| `b74adcf4b0` | SQS handler bodies implemented for pub/sub verification |
 
 ---
 
