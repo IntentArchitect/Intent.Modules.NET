@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using NServiceBus;
 using NServiceBus.LearnerTransport.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

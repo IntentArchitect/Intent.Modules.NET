@@ -36,6 +36,8 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence
         public DbSet<OneToOptionalSource> OneToOptionalSources { get; set; }
         public DbSet<MappingRoot> MappingRoots { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

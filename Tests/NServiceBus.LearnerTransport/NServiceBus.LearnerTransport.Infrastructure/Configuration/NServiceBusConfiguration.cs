@@ -1,6 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NServiceBus;
 using NServiceBus.LearnerTransport.Application.Common.Eventing;
 using NServiceBus.LearnerTransport.Eventing.Messages;
 using NServiceBus.LearnerTransport.Infrastructure.Eventing;
@@ -31,8 +32,8 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
 
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
             var storageDirectory = rawStoragePath is not null
-    ? Environment.ExpandEnvironmentVariables(rawStoragePath)
-    : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
             var routing = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();

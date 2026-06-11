@@ -17,6 +17,8 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

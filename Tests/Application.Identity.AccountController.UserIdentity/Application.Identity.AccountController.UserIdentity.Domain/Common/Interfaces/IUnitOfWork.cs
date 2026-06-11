@@ -10,5 +10,6 @@ namespace Application.Identity.AccountController.UserIdentity.Domain.Common.Inte
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

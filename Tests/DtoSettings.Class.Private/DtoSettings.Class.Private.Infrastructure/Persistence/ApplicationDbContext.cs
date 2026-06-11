@@ -22,6 +22,8 @@ namespace DtoSettings.Class.Private.Infrastructure.Persistence
 
         public DbSet<Invoice> Invoices { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

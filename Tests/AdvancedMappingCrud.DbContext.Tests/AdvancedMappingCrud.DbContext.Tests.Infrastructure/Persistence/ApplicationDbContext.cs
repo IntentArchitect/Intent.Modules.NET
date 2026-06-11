@@ -46,6 +46,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

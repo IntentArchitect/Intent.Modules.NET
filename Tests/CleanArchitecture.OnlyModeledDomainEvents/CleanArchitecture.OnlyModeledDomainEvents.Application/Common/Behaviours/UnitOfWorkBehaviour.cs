@@ -35,6 +35,13 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Application.Common.Behaviour
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (_dataSource.HasDbTransaction())
+            {
+                // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
+                var result = await next(cancellationToken);
+                await _dataSource.SaveChangesAsync(cancellationToken);
+                return result;
+            }
             TResponse response;
 
             // The execution is wrapped in a transaction scope to ensure that if any other

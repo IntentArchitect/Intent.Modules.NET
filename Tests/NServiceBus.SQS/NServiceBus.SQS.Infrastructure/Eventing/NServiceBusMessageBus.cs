@@ -1,6 +1,7 @@
 using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using NServiceBus;
 using NServiceBus.SQS.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

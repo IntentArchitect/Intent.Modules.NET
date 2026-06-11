@@ -32,6 +32,13 @@ namespace CleanArchitecture.Dapr.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (_dataSource.HasDbTransaction())
+            {
+                // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
+                var result = await next(cancellationToken);
+                await _dataSource.SaveChangesAsync(cancellationToken);
+                return result;
+            }
             var response = await next(cancellationToken);
 
             await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
