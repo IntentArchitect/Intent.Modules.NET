@@ -1,0 +1,289 @@
+---
+name: tech-pattern-researcher
+description: "Use after module-kickoff produces a Requirements Summary. Researches the technology in isolation, maps it to Clean Architecture, and defines exactly what the module must generate. TRIGGER: when a Requirements Summary is in hand and the next step is understanding how to implement it. Produces a Pattern Document — the input to module-ecosystem-analyst."
+argument-hint: "[Requirements Summary or path to it]"
+---
+
+# Tech Pattern Researcher
+
+## Purpose
+
+Turn the Requirements Summary from `module-kickoff` into a precise Pattern Document: what the technology's native idioms are, how those map to Clean Architecture layers, and a concrete list of files the module must generate. This skill stops you from copying the wrong module's structural shape.
+
+## Governing Principle — Industry Standard First
+
+The primary goal of every design decision is to produce output that matches what the technology's own documentation, community, and ecosystem consider correct. Map to Clean Architecture second — not the other way round.
+
+- When the technology has an established pattern, use it exactly. Do not invent a variation that feels cleaner or mirrors another module.
+- When Intent Architect imposes structure (CA layers, DI, appsettings), use Intent's established patterns as the standard for that concern.
+- Improvise only where neither the technology's conventions nor Intent's conventions cover a case — and base the improvisation on the *principles* behind the relevant standards, not on borrowing from a different technology.
+- **Record every improvisation in the Pattern Document Decision Log** with: why the standard is silent, what principle guided the improvisation, and what would change if the technology later adds a standard pattern.
+
+### Verify Against Live Documentation — Do Not Trust Training Data
+
+During the research and PoC phases (1.1 and 1.1.5), always confirm API usage and patterns against current sources:
+
+1. **Use `context7`** (if available in the session) — fetch live library docs for the technology being researched. Training data may reflect outdated APIs, deprecated patterns, or pre-release behaviour.
+2. **Use web search** — for anything context7 doesn't cover: community best-practices, GitHub issues, migration guides, known caveats, transport-specific conventions.
+
+This is not optional. A design based on stale training data can look correct but generate code against APIs that have moved. Verify before concluding any phase.
+
+## Musts
+
+1. **Start from the reference sample.** Read the actual code — do not assume or recall patterns from training data. The Requirements Summary tells you where the sample lives.
+2. **Ask "what is THIS technology's native pattern?"** before mapping to CA. Every technology solves the same problems differently. Understand the idiom first, then map it — not the other way round.
+3. **Keep Application layer framework-agnostic.** If the technology has a handler interface (e.g. `IHandleMessages<T>`, `IConsumer<T>`), it must NOT appear in the Application layer. Only framework-agnostic abstractions from `Eventing.Contracts` (e.g. `IIntegrationEventHandler<T>`) belong there.
+4. **Produce a concrete file list.** The Pattern Document must name every file the module will generate, which CA layer it lands in, and whether it is fully-generated or merge-body.
+5. **Work through all four phases** (Tech in Isolation → Scenario Stress-Testing → Architecture Fit → Verify Runs) before producing the Pattern Document. Do not skip or merge phases.
+6. **Record anti-patterns explicitly.** If you spot a tempting shortcut that would violate CA or copy another module's structure incorrectly, name it in the Pattern Document as a Must Not.
+7. **Read the existing Pattern Document before starting** (if one exists). Check the Decision Log — do not re-derive or re-open any closed decision. Check Open Questions — close any that are now answerable.
+
+## Must Nots
+
+1. Never copy another module's structural shape without verifying it fits this technology's native idiom. MassTransit's generic wrapper pattern is wrong for NServiceBus. NServiceBus's concrete-per-message-type pattern may be wrong for the next technology.
+2. Never assume DI registration, lifecycle management, or assembly scanning work the same way across transports. Always verify from the sample.
+3. Never produce a Pattern Document that leaves any file in the output list without a layer assignment (Application / Infrastructure / Domain / API).
+4. Never skip the "Verify Runs" phase. A Pattern Document without a testable first increment is incomplete.
+
+---
+
+## Phase 1.1 — Tech in Isolation
+
+**Goal:** Understand how the technology works on its own terms, independent of Intent Architect or Clean Architecture.
+
+### Tasks
+
+1. **Read the reference sample** identified in the Requirements Summary (`U5`). Focus on the files that were hand-crafted (not generated by Intent).
+2. **Fetch live documentation** before drawing any conclusions:
+   - Use `context7` (if available) to load current API docs for the technology
+   - Use web search for transport-specific conventions, migration notes, known caveats, and community patterns
+   - Do not rely on training data alone — APIs change between major versions
+3. **Identify the technology's core abstractions:**
+   - What is the primary interface the technology exposes for sending / handling / consuming messages (or equivalent)?
+   - How does the technology discover handlers / consumers — explicit registration or assembly scanning?
+   - What is the lifecycle model — how is the endpoint or bus started and stopped?
+   - How does the technology integrate with ASP.NET Core DI?
+3. **List the key types** the technology requires you to implement or configure:
+   - Entry point / bus / endpoint
+   - Handler / consumer interface
+   - Configuration / builder
+   - Lifecycle / hosted service (if needed)
+4. **Note serialization, transport, and retry defaults** relevant to the module settings.
+
+### Output (add to Pattern Document — Section: Technology Profile)
+
+```
+- Primary send/publish API: [type name + method]
+- Handler/consumer interface: [type name]
+- Discovery model: [explicit registration | assembly scanning | attribute-driven]
+- Lifecycle: [built-in | IHostedService required | other]
+- DI integration: [native | external container helper | other]
+- Key NuGet packages: [list from reference sample]
+```
+
+---
+
+## Phase 1.1.5 — Scenario Stress-Testing
+
+**Goal:** Discover where the technology's conventions, defaults, and multi-instance behaviour diverge from your Phase 1.1 understanding — before locking in any architecture decisions.
+
+A mental model built on a single example is almost always incomplete. This phase is intentionally adversarial: its job is to break your Phase 1.1 assumptions.
+
+### Mandatory scenario classes (work through all of them)
+
+1. **Single message, single handler** — the hello world case; confirms basic wiring
+2. **Two messages of the same type (e.g. two Commands), different destinations**
+   - What happens to routing when both have no explicit configuration?
+   - Do they share an endpoint or need separate ones?
+   - What is the default convention and can it be overridden per-type?
+3. **Two messages of different types (Command + Event) in the same application**
+   - Does the technology treat them differently for routing/topology?
+   - Can they share infrastructure, or must they be separated?
+4. **Optional vs. required configuration**
+   - What happens when a property is left blank/default? Fail fast or silent convention?
+   - Which conventions are safe to rely on, and which cause silent conflicts in multi-message apps?
+5. **Multi-service scenario** — publisher in Service A, subscriber in Service B
+   - What must each side configure explicitly?
+   - What is auto-discovered vs. what must match by convention?
+6. **Conflict scenario** — two types whose defaults would collide (same name, same exchange/topic, same convention)
+   - Does the technology detect this? Fail? Silently merge?
+   - What is the escape hatch?
+7. **Technology-specific edge case** — one scenario unique to this technology's model
+   (e.g. for NServiceBus: what happens with `IHandleMessages<T>` when multiple handlers are in scope for the same message type?)
+
+### For each scenario, answer
+
+- What does the technology's **own documentation** say is the correct approach?
+- What does the technology do by default (no explicit config)?
+- What explicit configuration is required to make this work correctly?
+- Does this reveal a constraint that contradicts my Phase 1.1 summary?
+- Does this require a new stereotype property, a new setting, or a change to an existing one?
+- If the technology has no documented pattern for this case: what do its *design principles* suggest — and is this an improvisation that must be logged?
+
+### The Industry-vs-Intent Tension
+
+Many technologies have idioms that appear to clash with Intent Architect's architectural requirements. **This is expected and normal — do not rush past it.**
+
+When you find a tension (e.g. "the technology uses assembly scanning for discovery, but Intent generates one file per type which could conflict"), treat it as a signal to ask more "what if?" questions. Do not pick whichever option seems workable and move on.
+
+**The design is not done until the tension resolves naturally** — meaning you can explain why both the technology's pattern and Intent's requirements are satisfied *without compromise*. A design that satisfies both by coincidence is not the same as one where you understand *why* they fit.
+
+#### Tension resolution loop (repeat until resolved)
+
+1. **Name the tension explicitly.** State what the technology requires and what Intent requires, and why they appear to conflict.
+2. **Ask "what if?" for each side.** What if Intent generates X differently? What if the technology is configured Y way? What if this constraint is actually optional, not required?
+3. **Look for the pivot.** Usually one assumption is wrong — either about what the technology actually requires, or about what Intent actually constrains. Find that assumption.
+4. **Test the resolution.** Does the resolved design work for *all* scenarios in the stress-test table? If a scenario still breaks, the tension is not resolved — go back to step 1.
+5. **If genuinely irresolvable — stop and escalate. Do not hack.**
+   - Do not implement a workaround. Clever code that forces a technology to do something it was not designed for is worse than no solution — it creates maintenance debt, breaks the technology's upgrade path, and hides the incompatibility.
+   - Go back to the Intent design. State clearly: *"This approach cannot be achieved with [library] without violating its design principles. The Intent designer model needs to be adjusted."*
+   - Propose a design adjustment: describe what the technology CAN do cleanly, and what the revised Intent model would look like to match that.
+   - Record the dead end in the Decision Log as `Status: Design Adjustment Required`.
+
+**Stopping condition:** If you have asked 3+ distinct "what if?" questions about a tension, tried each path, and all lead to a hack or a violation of the technology's design principles — the loop is done. Escalate.
+
+**Do not declare a tension resolved just because a workaround exists.** A workaround that adds complexity, surprises developers, or breaks in the next scenario is not a resolution.
+
+### Revision rule
+
+If any scenario answer contradicts your Phase 1.1 Technology Profile, **rewrite the affected Profile section before moving to Phase 1.2**. Unresolved tensions go to Open Questions — not silently absorbed.
+
+### Output (add to Pattern Document — Section: Scenario Findings)
+
+| Scenario | Default behaviour | Explicit config required | Mental model revision (if any) |
+|---|---|---|---|
+| Two Commands, different destinations | Each gets own endpoint by convention | Must register explicit endpoint names | `Endpoint Name` mandatory for Commands, not optional |
+| ... | ... | ... | ... |
+
+Do not proceed to Phase 1.2 until all scenario rows are filled and any revisions are applied.
+
+---
+
+## Phase 1.2 — Architecture Fit
+
+**Goal:** Map the technology's native types to Clean Architecture layers without polluting Application with framework references.
+
+### Tasks
+
+1. **Draw the boundary.** For each type identified in Phase 1.1, decide: does the Application layer need to know about it, or can it be hidden behind an existing abstraction from `Eventing.Contracts` (e.g. `IIntegrationEventHandler<T>`, `IEventBus`)?
+
+2. **Identify the adapter pattern.** When a framework-specific interface cannot appear in Application, what is the thin Infrastructure adapter that bridges it?
+   - Example: Application has `OrderPlacedEventHandler : IIntegrationEventHandler<OrderPlacedEvent>`. Infrastructure has `OrderPlacedEventNServiceBusConsumer : IHandleMessages<OrderPlacedEvent>` — fully generated, calls the handler, auto-discovered.
+
+3. **Check for per-instance vs. generic adapters.** Does this technology need one adapter class per message type (like NServiceBus), or a single generic adapter (like MassTransit)? This drives template cardinality — one template per handler model element vs. one shared template.
+
+4. **Map every technology type to a layer:**
+
+   | Technology Type | CA Layer | Notes |
+   |---|---|---|
+   | [e.g. NServiceBusMessageBus] | Infrastructure | Implements IEventBus from Eventing.Contracts |
+   | [e.g. *NServiceBusConsumer] | Infrastructure | One per modeled handler, fully generated |
+   | [e.g. *EventHandler] | Application | Merge body, developer writes business logic |
+   | [e.g. NServiceBusConfiguration] | Infrastructure | Endpoint + transport setup |
+   | [e.g. NServiceBusHostedService] | Infrastructure | Only if lifecycle needs IHostedService |
+
+5. **Identify DI registration points.** What does the module need to call in `Program.cs` / `Startup.cs`? How is that registered — extension method, `AddXxx`, lambda? This will drive the `intent-module-orchestrator` skill later.
+
+6. **Check appsettings needs.** What configuration keys (connection string, endpoint name, transport) does the technology need? These drive `AppSettingRegistrationRequest`.
+
+### Output (add to Pattern Document — Section: Architecture Mapping)
+
+Completed layer table from task 4, plus DI registration pattern and appsettings keys.
+
+---
+
+## Phase 1.3 — Verify Runs
+
+**Goal:** Define a testable first increment so you know what "working" looks like before implementation starts.
+
+### Tasks
+
+1. **Identify the simplest transport.** Start with in-memory / learning transport — no Docker, no external infrastructure. Confirm from the Requirements Summary (question E5) whether this approach was agreed.
+
+2. **Define the minimal working scenario:**
+   - What does the developer model in the designer to trigger the generation? (Minimum: one message, one handler.)
+   - What files does the Software Factory generate?
+   - What manual wiring (if any) does the developer do after generation?
+   - What does a passing test look like — a published event consumed by a handler within the same process?
+
+3. **List the success criteria for Increment 1:**
+   - Software Factory runs without errors
+   - Generated code compiles
+   - At runtime, publishing a message via `IEventBus` / `IMessageBus` results in the handler being called
+
+4. **Note graduation path.** After Increment 1 passes, what is Increment 2? (Typically: switch to real transport, e.g. RabbitMQ via Docker.)
+
+### Output (add to Pattern Document — Section: Test Strategy)
+
+```
+Increment 1 transport: [in-memory / learning transport]
+Minimum designer model: [what the developer creates]
+Expected generated files: [list]
+Success criteria: [3-5 bullet points]
+Increment 2: [real transport + Docker setup]
+```
+
+---
+
+## Pattern Document Format
+
+Write this document to `[ModuleFolder]/PATTERN-DOCUMENT.md`. It is a **living document** — every subsequent skill reads it before working and updates it after concluding. Do not treat it as a one-time handoff.
+
+```markdown
+# Pattern Document: [Module Name]
+
+## Technology Profile
+[Phase 1.1 output — native idioms, key types, discovery model, lifecycle, DI integration]
+
+## Scenario Findings
+[Phase 1.1.5 output — stress-test table]
+
+| Scenario | Default behaviour | Explicit config required | Mental model revision (if any) |
+|---|---|---|---|
+
+## Architecture Mapping
+[Phase 1.2 output — layer table, DI registration pattern, appsettings keys]
+
+## Files to Generate
+| File | Layer | Generated | Notes |
+|---|---|---|---|
+| [FileName] | [Layer] | Fully / Merge body | [Purpose] |
+
+## Designer Pattern
+[What the developer models in the Intent designer to trigger each generated file]
+- Message element → [generates...]
+- Integration Event Handler element → [generates...]
+- Subscribe Integration Event association → [generates...]
+- Publish Integration Event association → [generates...]
+
+## Anti-Patterns (Must Nots)
+[Explicit list of tempting wrong approaches identified during research]
+
+## Test Strategy
+[Phase 1.3 output — increments, success criteria, graduation path]
+
+## Decision Log
+Closed decisions — do not re-derive or re-open without explicit user instruction.
+
+| # | Decision | Basis | Rationale | Closed by |
+|---|---|---|---|---|
+| 1 | [decision] | Standard — [source] / Intent Convention — [source] / Improvisation — [why standard is silent] | [why] | [phase/increment] |
+
+Basis values:
+- `Standard — [source]` — technology's own docs or community consensus
+- `Intent Convention — [source]` — Intent's established module patterns
+- `Improvisation — [why standard is silent]` — triggers mandatory rationale and a revisit note for when the technology later adds a standard
+
+## Open Questions
+Unresolved items carried forward — do not proceed past the blocking increment until resolved.
+
+| # | Question | Blocking | Raised by |
+|---|---|---|---|
+| 1 | [question] | Increment N | [phase] |
+```
+
+---
+
+## Handoff
+
+Once the Pattern Document is complete, load **`module-ecosystem-analyst`** and pass the Pattern Document as context.

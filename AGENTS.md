@@ -5,6 +5,71 @@
 
 ---
 
+## 📋 Context & Working State (Read First)
+
+Before making **any** code changes, check for both `CONTEXT.md` and `WORKING.md` files and
+read every one that exists and is relevant to the files you are about to touch.
+The required order is:
+
+1. Read `CONTEXT.md` first
+2. Read `WORKING.md` second
+
+Do not treat them as interchangeable. `CONTEXT.md` establishes the durable architecture and
+constraints; `WORKING.md` tells you how the current branch/task fits inside that context.
+
+### `CONTEXT.md`
+
+`CONTEXT.md` is the **durable knowledge layer** for a module or area. It should capture
+important architectural decisions, invariants, technology constraints, accepted patterns,
+rejected approaches worth remembering, test/acceptance expectations, and commit references
+that future AI sessions must not lose.
+
+Read order:
+
+1. **Repo root** — `CONTEXT.md` (cross-cutting repo knowledge)
+2. **Same directory as files you are about to modify** — e.g.
+   `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
+
+Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches.
+If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than
+silently "improving" the design.
+
+### `WORKING.md`
+
+`WORKING.md` is the **temporary in-progress layer**. It captures active branch/task state:
+current goals, known breakages, partial implementations, temporary decisions, and the
+specific path the current work is taking.
+
+Read order:
+
+1. **Repo root** — `WORKING.md` (cross-cutting work spanning multiple modules or test apps)
+2. **Same directory as files you are about to modify** — e.g.
+   `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
+
+These files are the authoritative record of active design decisions, rejected approaches,
+and current known issues for the current work. Reading them is **mandatory, not optional**.
+If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
+conflict rather than proceeding.
+
+### Mandatory Comprehension Check
+
+After reading the relevant `CONTEXT.md` and `WORKING.md` files, and **before making code
+changes**, restate the following in 3-5 concise bullets:
+
+1. the current goal
+2. the key architectural constraints / non-goals
+3. the primary file(s) you expect to modify
+4. the validation/build steps you will use after the change
+
+If you cannot clearly restate those points, do not proceed with code changes yet.
+
+**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
+is complete, the file is deleted or reduced, and any durable knowledge that should survive
+must be extracted into `CONTEXT.md` (or a proper skill if appropriate). Do not create or
+leave behind `WORKING.md` files for completed work.
+
+---
+
 ## 🏷️ Naming Conventions & Standards
 
 ### FactoryExtensions & Templates
@@ -58,16 +123,41 @@ dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --no
 
 ## 🤖 Available Skills
 
-Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
+Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
 
-| Skill | Path | When to use |
-| :--- | :--- | :--- |
-| **file-builder-expert** | `skills/file-builder-expert/SKILL.md` | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
-| **intent-mapping-architect** | `skills/intent-mapping-architect/SKILL.md` | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
-| **intent-metadata-consumer** | `skills/intent-metadata-consumer/SKILL.md` | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
-| **intent-module-orchestrator** | `skills/intent-module-orchestrator/SKILL.md` | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
+### Module Building Skills (use in sequence when building a new module)
 
-> **Maintenance:** Use `Modules/.agents/prompts/refresh-intent-skills.prompt.md` to audit skills against the latest SDK and update any stale patterns or resource files.
+| Skill | When to use |
+| :--- | :--- |
+| **module-kickoff** | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
+| **tech-pattern-researcher** | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
+| **module-ecosystem-analyst** | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
+| **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
+| **module-increment-loop** | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
+
+### Implementation Skills (use as needed during module implementation)
+
+| Skill | When to use |
+| :--- | :--- |
+| **file-builder-expert** | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
+| **intent-mapping-architect** | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
+| **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
+| **intent-module-orchestrator** | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
+| **intent-domain-interactions-expert** | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
+
+> **Maintenance:** Use the `refresh-intent-skills` prompt to audit skills against the latest SDK and update any stale patterns or resource files.
+
+---
+
+## ⚠️ Exception Guidelines
+
+See `.agents/instructions/exception-guidelines.md` for the full decision table.
+
+**Summary:**
+- **`FriendlyException(string message)`** — user-facing, no element reference. For missing modules, invalid setting combinations. Supports Markdown.
+- **`ElementException(model.InternalElement, string message)`** — user-facing, tied to a specific designer element. Intent Architect highlights the element in the UI. Supports Markdown.
+- **`InvalidOperationException`** — developer-facing (module bug, unhandled enum value). Raw stack trace, not shown in a friendly panel.
+- Generated code strings (`method.AddStatement(@"... ?? throw new InvalidOperationException(...)")`) are app-startup code — always stay as `InvalidOperationException`.
 
 ---
 

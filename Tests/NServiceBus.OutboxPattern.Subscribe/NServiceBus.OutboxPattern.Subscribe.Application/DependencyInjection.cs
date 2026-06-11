@@ -1,0 +1,41 @@
+using System.Reflection;
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using NServiceBus.OutboxPattern.Publish.Eventing.Messages;
+using NServiceBus.OutboxPattern.Subscribe.Application.Common.Behaviours;
+using NServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
+using NServiceBus.OutboxPattern.Subscribe.Application.Common.Validation;
+using NServiceBus.OutboxPattern.Subscribe.Application.IntegrationEvents.EventHandlers;
+using NServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
+
+namespace NServiceBus.OutboxPattern.Subscribe.Application
+{
+    public static class DependencyInjection
+    {
+        [IntentMerge]
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
+            });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageHandler>();
+            services.AddTransient<IIntegrationEventHandler<TestCommand>, TestCommandHandler>();
+            services.AddTransient<IIntegrationEventHandler<TestEvent>, TestEventHandler>();
+            return services;
+        }
+    }
+}

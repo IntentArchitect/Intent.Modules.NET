@@ -1,3 +1,7 @@
+### Version 5.0.46
+
+- Improvement: When the MediatR UnitOfWorkBehaviour is installed, EF now automatically teaches it to detect an externally-managed EF transaction and skip TransactionScope, preventing MSDTC escalation.
+
 ### Version 5.0.45
 
 - Fixed: Primary key `builder.Property(x => x.<Name>)` did not pascal-case the attribute name, causing casing-sensitive code regeneration mismatches when the domain attribute name was not already in PascalCase.

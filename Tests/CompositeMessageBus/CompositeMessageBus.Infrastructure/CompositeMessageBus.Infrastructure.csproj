@@ -29,8 +29,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.23" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.8" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.2" />
+    <PackageReference Include="NServiceBus" Version="9.2.11" />
+    <PackageReference Include="NServiceBus.Extensions.Hosting" Version="3.0.2" />
     <PackageReference Include="SolaceSystems.Solclient.Messaging" Version="10.28.3" />
   </ItemGroup>
-  </Project>
+
+</Project>

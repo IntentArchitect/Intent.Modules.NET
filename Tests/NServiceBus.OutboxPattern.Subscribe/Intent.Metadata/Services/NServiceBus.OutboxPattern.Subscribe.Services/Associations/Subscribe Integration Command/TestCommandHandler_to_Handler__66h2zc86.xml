@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="57b7d759-09e5-496a-b540-8c846a28d2a7">
+  <sourceEnd id="6bd7d0cd-81e2-4b8d-82ba-6d12d8dfefc6" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.OutboxPattern.Subscribe.Services.TestCommandHandler</display>
+    <order>0</order>
+    <typeReference id="3e39666c-742b-49c2-b593-5ae044fd4776">
+      <typeId>0a1b59f2-a2db-45eb-a34f-25243bb9a57b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Subscribe.Services</typePackageName>
+      <typePackageId>73a1688a-1f05-4b66-8921-2b9b767f3d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="57b7d759-09e5-496a-b540-8c846a28d2a7" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] TestCommand</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="88996f45-ee61-4162-9c00-ac77f102009c">
+      <typeId>a248d1a9-a9a1-46c1-861b-36e8b4c625d3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>4b31a225-80ee-4c5a-ab82-16b57da74155</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

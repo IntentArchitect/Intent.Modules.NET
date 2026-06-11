@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0214e25b-8823-4d8f-b1d9-9fc5e644292e">
+  <sourceEnd id="8c95d682-c559-4632-bbbb-cc7bea119e22" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.SQS.Services.CatchAllHandler</display>
+    <order>0</order>
+    <typeReference id="c5b214b9-f511-4f41-a957-6b83ab72c44e">
+      <typeId>10cc409e-9a54-402f-883b-afb8b9e6011e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Services</typePackageName>
+      <typePackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0214e25b-8823-4d8f-b1d9-9fc5e644292e" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] TalkToPersonCommand</display>
+    <order>2</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="9bc54496-23eb-46de-8cd5-9c20ded1d566">
+      <typeId>e170967c-116d-4ba9-983a-6444bc2ee31e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Eventing.Messages</typePackageName>
+      <typePackageId>32ae7689-5afc-4176-ba9a-11e09d48564e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

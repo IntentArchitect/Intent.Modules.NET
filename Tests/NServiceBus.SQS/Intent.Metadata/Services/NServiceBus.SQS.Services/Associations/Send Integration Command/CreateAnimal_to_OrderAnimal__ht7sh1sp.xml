@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5eb8d2e4-9d64-41fd-816a-3cdcbd9f8ba8">
+  <sourceEnd id="93fc8108-45a4-46a9-bbb3-98daa9e906bd" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalsService.CreateAnimal</display>
+    <order>0</order>
+    <typeReference id="6da881d3-9226-4022-80f5-e54386e4330c">
+      <typeId>a72a4e7a-8f6c-4d02-83f8-50d990db4da0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Services</typePackageName>
+      <typePackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5eb8d2e4-9d64-41fd-816a-3cdcbd9f8ba8" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] OrderAnimal</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3b5cd5a2-8520-4b09-b049-d0498ab5486e">
+      <typeId>46ec465b-ec3e-4cfb-a6b0-c10f82afb909</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Eventing.Messages</typePackageName>
+      <typePackageId>32ae7689-5afc-4176-ba9a-11e09d48564e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d49a4f09-2df2-4b45-8069-7d331a523704" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a72a4e7a-8f6c-4d02-83f8-50d990db4da0" location="[NServiceBus.SQS].[Services].[CreateAnimal]" />
+        <target applicationId="d49a4f09-2df2-4b45-8069-7d331a523704" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="46ec465b-ec3e-4cfb-a6b0-c10f82afb909" location="[NServiceBus.SQS].[Services].[OrderAnimal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="46ec465b-ec3e-4cfb-a6b0-c10f82afb909" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="e2d9ae90-b16c-40dc-bb3c-21916522d778" name="name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="a72a4e7a-8f6c-4d02-83f8-50d990db4da0" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="640c1618-45b5-492c-abd6-943686b69ee5" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="c21f9c87-0e85-4dd5-a096-a06d676cd682" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Type}</expression>
+            <path>
+              <target id="46ec465b-ec3e-4cfb-a6b0-c10f82afb909" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="b043e0f7-522c-425e-9376-6232a32c1b88" name="type" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="a72a4e7a-8f6c-4d02-83f8-50d990db4da0" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="640c1618-45b5-492c-abd6-943686b69ee5" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="d3f76747-b0b5-4742-96b3-34721d7f4767" name="Type" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

@@ -179,6 +179,7 @@
     <application id="6a0d6a5d-e77c-4d6c-afbe-9796731b00f2" name="Intent.Modules.Aws.Lambda.Functions.Sqs" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Sqs/Intent.Modules.Aws.Lambda.Functions.Sqs.application.config" />
     <application id="b05c458b-71a3-47f2-b6eb-860f17d64775" name="Eventing.AzureQueueStorage" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureQueueStorage/Intent.Modules.Eventing.AzureQueueStorage.application.config" />
     <application id="b7db91ac-8839-48cd-8389-8b32ff4eaf41" name="Intent.Modules.AspNetCore.Controllers.JsonPatch" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Controllers.JsonPatch/Intent.Modules.AspNetCore.Controllers.JsonPatch.application.config" />
+    <application id="52e77c5c-d9ed-416c-8e1c-7414f149924c" name="Intent.Modules.Eventing.NServiceBus" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.NServiceBus/Intent.Modules.Eventing.NServiceBus.application.config" />
     <application id="8d2a1366-dbc0-411e-9245-fb6dce714919" name="Integration.HttpClients.Fakes" solutionFolder="Direct Integration" relativePath="Integration.HttpClients.Fakes/Integration.HttpClients.Fakes.application.config" />
     <application id="7c7bd9b5-382c-47b3-9e8e-de03117144ee" name="Intent.Modules.Infrastructure.Constants" solutionFolder="Infrastructure" relativePath="Intent.Modules.Infrastructure.Constants/Intent.Modules.Infrastructure.Constants.application.config" />
   </applications>

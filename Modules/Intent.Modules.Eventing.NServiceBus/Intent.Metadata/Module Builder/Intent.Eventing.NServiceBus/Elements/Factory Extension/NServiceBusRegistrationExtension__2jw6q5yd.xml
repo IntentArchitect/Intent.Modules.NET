@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="99e6d024-7e01-4b4c-a56a-9dbb2aa8b836" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>NServiceBusRegistrationExtension</name>
+  <display>NServiceBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</parentFolderId>
+  <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+  <packageName>Intent.Eventing.NServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
