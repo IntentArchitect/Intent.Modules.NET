@@ -225,7 +225,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Code.Weaving.Razor" version="2.0.2" />
+    <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
     <dependency id="Intent.Common" version="3.11.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.3" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
