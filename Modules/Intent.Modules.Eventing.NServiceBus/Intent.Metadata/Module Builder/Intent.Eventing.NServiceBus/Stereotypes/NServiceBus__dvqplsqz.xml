@@ -25,10 +25,10 @@
       <name>Endpoint Name</name>
       <type>string</type>
       <controlType>text</controlType>
-      <isRequired>true</isRequired>
       <optionsSource>n/a</optionsSource>
       <placeholder>e.g. my-service-endpoint</placeholder>
       <isActiveFunction>return element.specialization === "Integration Command";</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>
