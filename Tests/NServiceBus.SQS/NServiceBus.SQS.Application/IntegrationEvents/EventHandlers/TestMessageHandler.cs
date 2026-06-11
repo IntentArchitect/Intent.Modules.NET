@@ -18,8 +18,7 @@ namespace NServiceBus.SQS.Application.IntegrationEvents.EventHandlers
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(TestMessageEvent message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (TestMessageHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] SQS.TestMessageHandler received: {message.Message}");
         }
     }
 }

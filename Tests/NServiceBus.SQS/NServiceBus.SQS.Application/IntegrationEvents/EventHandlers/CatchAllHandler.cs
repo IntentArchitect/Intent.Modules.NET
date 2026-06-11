@@ -18,29 +18,25 @@ namespace NServiceBus.SQS.Application.IntegrationEvents.EventHandlers
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(OrderAnimal message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (CatchAllHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] SQS.CatchAllHandler received OrderAnimal: Name={message.Name}, Type={message.Type}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(MakeSoundCommand message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (CatchAllHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] SQS.CatchAllHandler received MakeSoundCommand: Name={message.Name}, Type={message.Type}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(TalkToPersonCommand message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (CatchAllHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] SQS.CatchAllHandler received TalkToPersonCommand");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(CreatePersonIdentity message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (CatchAllHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            Console.WriteLine($"[HANDLER HIT] SQS.CatchAllHandler received CreatePersonIdentity");
         }
     }
 }
