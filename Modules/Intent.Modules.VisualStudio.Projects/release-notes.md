@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Improvement: Comments in the appsettings are preserved when running the Software Factory.
+
 ### Version 4.1.2
 
 - Improvement: Migration to correct `.agent` folder location when required in certain scenarios.
