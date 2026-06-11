@@ -5,6 +5,19 @@
 
 ---
 
+## 📋 Working Context (Read First)
+
+Before making **any** code changes, check for `WORKING.md` files and read every one that exists:
+
+1. **Repo root** — `WORKING.md` (cross-cutting work spanning multiple modules or test apps)
+2. **Same directory as files you are about to modify** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
+
+These files are the authoritative record of active design decisions, rejected approaches, and current known issues. Reading them is **mandatory, not optional**. If what you are about to do contradicts something in a `WORKING.md`, stop and flag the conflict rather than proceeding.
+
+**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work is complete, the file is deleted (stable decisions are extracted into a proper skill). Do not create or leave behind `WORKING.md` files for completed work.
+
+---
+
 ## 🏷️ Naming Conventions & Standards
 
 ### FactoryExtensions & Templates
