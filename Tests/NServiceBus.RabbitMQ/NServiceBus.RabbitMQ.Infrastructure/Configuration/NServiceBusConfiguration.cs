@@ -30,7 +30,7 @@ namespace NServiceBus.RabbitMQ.Infrastructure.Configuration
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
-            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+            var routing = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -42,6 +42,11 @@ namespace NServiceBus.RabbitMQ.Infrastructure.Configuration
 
             ConfigureMessageConventions(endpointConfiguration);
             RegisterHandlers(endpointConfiguration);
+
+            routing.RouteToEndpoint(typeof(OrderAnimal), endpointName);
+            routing.RouteToEndpoint(typeof(MakeSoundCommand), endpointName);
+            routing.RouteToEndpoint(typeof(TalkToPersonCommand), endpointName);
+            routing.RouteToEndpoint(typeof(CreatePersonIdentity), endpointName);
 
             return endpointConfiguration;
         }

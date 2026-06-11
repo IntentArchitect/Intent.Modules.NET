@@ -180,7 +180,8 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
                     method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
 
-                    AddTransportStatements(method, captureVar: sentCommandTemplates.Count > 0);
+                    var needsRouting = sentCommandTemplates.Count > 0 || commandSubscriptions.Count > 0;
+                    AddTransportStatements(method, captureVar: needsRouting);
                     AddPersistenceStatements(method);
 
                     method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
@@ -199,9 +200,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddStatement("RegisterHandlers(endpointConfiguration);");
                     }
 
-                    if (sentCommandTemplates.Count > 0)
+                    if (needsRouting)
                     {
                         var first = true;
+                        // Commands sent to other endpoints — route to their declared destination
                         foreach (var ct in sentCommandTemplates)
                         {
                             var destinationEndpoint = ct.Model.GetNServiceBus()!.EndpointName();
@@ -210,6 +212,15 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                             var isFirst = first; first = false;
                             method.AddStatement(
                                 $"""routing.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{destinationEndpoint}");""",
+                                s => { if (isFirst) s.SeparatedFromPrevious(); });
+                        }
+                        // Commands handled by this endpoint — route to self so Send() works when this app also sends them
+                        foreach (var cmd in commandSubscriptions)
+                        {
+                            var cmdTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, cmd);
+                            var isFirst = first; first = false;
+                            method.AddStatement(
+                                $"routing.RouteToEndpoint(typeof({cmdTypeName}), endpointName);",
                                 s => { if (isFirst) s.SeparatedFromPrevious(); });
                         }
                     }

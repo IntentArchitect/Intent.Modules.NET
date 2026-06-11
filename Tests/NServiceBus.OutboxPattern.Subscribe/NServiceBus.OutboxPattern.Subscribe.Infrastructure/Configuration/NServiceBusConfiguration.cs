@@ -33,7 +33,7 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
-            endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
+            var routing = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 
             var persistenceConnectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is not configured");
             var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();
@@ -52,6 +52,8 @@ namespace NServiceBus.OutboxPattern.Subscribe.Infrastructure.Configuration
 
             ConfigureMessageConventions(endpointConfiguration);
             RegisterHandlers(endpointConfiguration);
+
+            routing.RouteToEndpoint(typeof(TestCommand), endpointName);
 
             return endpointConfiguration;
         }

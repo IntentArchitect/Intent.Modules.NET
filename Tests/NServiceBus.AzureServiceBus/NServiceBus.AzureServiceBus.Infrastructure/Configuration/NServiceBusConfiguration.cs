@@ -30,7 +30,7 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
             var connectionString = configuration.GetConnectionString("AzureServiceBus") ?? throw new InvalidOperationException("ConnectionStrings:AzureServiceBus is not configured");
-            endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));
+            var routing = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -42,6 +42,11 @@ namespace NServiceBus.AzureServiceBus.Infrastructure.Configuration
 
             ConfigureMessageConventions(endpointConfiguration);
             RegisterHandlers(endpointConfiguration);
+
+            routing.RouteToEndpoint(typeof(OrderAnimal), endpointName);
+            routing.RouteToEndpoint(typeof(MakeSoundCommand), endpointName);
+            routing.RouteToEndpoint(typeof(TalkToPersonCommand), endpointName);
+            routing.RouteToEndpoint(typeof(CreatePersonIdentity), endpointName);
 
             return endpointConfiguration;
         }

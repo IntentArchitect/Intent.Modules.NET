@@ -31,9 +31,9 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
 
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
             var storageDirectory = rawStoragePath is not null
-                ? Environment.ExpandEnvironmentVariables(rawStoragePath)
-                : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
-            endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
+    ? Environment.ExpandEnvironmentVariables(rawStoragePath)
+    : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
+            var routing = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             endpointConfiguration.EnableInstallers();
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -45,6 +45,11 @@ namespace NServiceBus.LearnerTransport.Infrastructure.Configuration
 
             ConfigureMessageConventions(endpointConfiguration);
             RegisterHandlers(endpointConfiguration);
+
+            routing.RouteToEndpoint(typeof(OrderAnimal), endpointName);
+            routing.RouteToEndpoint(typeof(MakeSoundCommand), endpointName);
+            routing.RouteToEndpoint(typeof(TalkToPersonCommand), endpointName);
+            routing.RouteToEndpoint(typeof(CreatePersonIdentity), endpointName);
 
             return endpointConfiguration;
         }
