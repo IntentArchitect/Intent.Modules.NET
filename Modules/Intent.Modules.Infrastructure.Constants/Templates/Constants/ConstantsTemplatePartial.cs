@@ -24,7 +24,7 @@ namespace Intent.Modules.Infrastructure.Constants.Templates.Constants
         public ConstantsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass("Constants", @class =>
+                .AddClass($"{OutputTarget.ApplicationName().ToPascalCase().Replace(".", "")}Constants", @class =>
                 {
                     @class.Static();
                 });

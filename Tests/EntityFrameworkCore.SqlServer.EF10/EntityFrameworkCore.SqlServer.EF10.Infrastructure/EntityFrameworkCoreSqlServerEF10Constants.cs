@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.SqlServer.EF10.Infrastructure
 {
-    public static class Constants
+    public static class EntityFrameworkCoreSqlServerEF10Constants
     {
         public const string DefaultConnection = "DefaultConnection";
     }

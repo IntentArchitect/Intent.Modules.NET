@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure
 {
-    public static class Constants
+    public static class EntityFrameworkCoreMultiDbContextNoDefaultDbContextConstants
     {
         public const string Db1ConnectionString = "Db1ConnectionString";
         public const string Db2ConnectionString = "Db2ConnectionString";

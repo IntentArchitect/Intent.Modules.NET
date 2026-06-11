@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             services.AddDbContext<AlternateConnStrDefaultDbDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
-                    configuration.GetConnectionString(Constants.AlternateConnStrDefaultDb),
+                    configuration.GetConnectionString(EntityFrameworkCoreMultiDbContextWithDefaultDbContextConstants.AlternateConnStrDefaultDb),
                     b => b.MigrationsAssembly(typeof(AlternateConnStrDefaultDbDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
                 options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
-                    configuration.GetConnectionString(Constants.DefaultConnection),
+                    configuration.GetConnectionString(EntityFrameworkCoreMultiDbContextWithDefaultDbContextConstants.DefaultConnection),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
