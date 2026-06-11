@@ -9,6 +9,13 @@
 
 Before making **any** code changes, check for both `CONTEXT.md` and `WORKING.md` files and
 read every one that exists and is relevant to the files you are about to touch.
+The required order is:
+
+1. Read `CONTEXT.md` first
+2. Read `WORKING.md` second
+
+Do not treat them as interchangeable. `CONTEXT.md` establishes the durable architecture and
+constraints; `WORKING.md` tells you how the current branch/task fits inside that context.
 
 ### `CONTEXT.md`
 
@@ -43,6 +50,18 @@ These files are the authoritative record of active design decisions, rejected ap
 and current known issues for the current work. Reading them is **mandatory, not optional**.
 If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
 conflict rather than proceeding.
+
+### Mandatory Comprehension Check
+
+After reading the relevant `CONTEXT.md` and `WORKING.md` files, and **before making code
+changes**, restate the following in 3-5 concise bullets:
+
+1. the current goal
+2. the key architectural constraints / non-goals
+3. the primary file(s) you expect to modify
+4. the validation/build steps you will use after the change
+
+If you cannot clearly restate those points, do not proceed with code changes yet.
 
 **Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
 is complete, the file is deleted or reduced, and any durable knowledge that should survive
