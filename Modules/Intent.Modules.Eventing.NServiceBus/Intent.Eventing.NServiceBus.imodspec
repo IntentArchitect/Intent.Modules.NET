@@ -81,6 +81,13 @@
     <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.10.4" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore" version="5.0.46-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
