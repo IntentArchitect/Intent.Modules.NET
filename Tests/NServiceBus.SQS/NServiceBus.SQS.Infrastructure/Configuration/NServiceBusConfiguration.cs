@@ -1,7 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NServiceBus;
 using NServiceBus.SQS.Application.Common.Eventing;
 using NServiceBus.SQS.Eventing.Messages;
 using NServiceBus.SQS.Infrastructure.Eventing;

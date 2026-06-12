@@ -1,7 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NServiceBus;
 using NServiceBus.AzureServiceBus.Application.Common.Eventing;
 using NServiceBus.AzureServiceBus.Eventing.Messages;
 using NServiceBus.AzureServiceBus.Infrastructure.Eventing;
