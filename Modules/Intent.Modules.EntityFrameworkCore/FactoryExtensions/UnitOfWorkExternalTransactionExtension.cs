@@ -90,26 +90,34 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static void AddHasDbTransactionToDbContext(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                TemplateRoles.Infrastructure.Data.DbContext);
-            if (template == null) return;
-
-            template.CSharpFile.AfterBuild(file =>
+            // Primary DbContexts fulfill DbContext role; secondary ones fulfill ConnectionStringDbContext.
+            // Only patch those that implement IUnitOfWork.
+            var roles = new[]
             {
-                var @class = file.Classes.First();
-                if (@class.FindMethod("HasDbTransaction") != null) return;
+                TemplateRoles.Infrastructure.Data.DbContext,
+                TemplateRoles.Infrastructure.Data.ConnectionStringDbContext
+            };
 
-                @class.AddMethod("bool", "HasDbTransaction", m =>
-                    m.WithExpressionBody("Database.CurrentTransaction != null"));
-            }, 500);
+            foreach (var template in roles.SelectMany(application.FindTemplateInstances<ICSharpFileBuilderTemplate>))
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    if (@class.FindMethod("HasDbTransaction") != null) return;
+
+                    @class.AddMethod("bool", "HasDbTransaction", m =>
+                        m.WithExpressionBody("Database.CurrentTransaction != null"));
+                }, 500);
+            }
         }
 
         private static void ModifyUnitOfWorkBehaviour(IApplication application)
         {
             // Only inject when an EF DbContext is present — other unit-of-work backends (e.g. Dapr)
             // don't have a _dataSource field and cannot call HasDbTransaction().
-            if (application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                    TemplateRoles.Infrastructure.Data.DbContext) == null) return;
+            var hasDbContext = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext).Any()
+                || application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext).Any();
+            if (!hasDbContext) return;
 
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");

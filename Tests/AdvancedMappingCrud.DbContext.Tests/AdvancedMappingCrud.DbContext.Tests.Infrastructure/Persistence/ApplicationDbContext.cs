@@ -46,8 +46,6 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
-        public bool HasDbTransaction() => Database.CurrentTransaction != null;
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -75,6 +73,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
             new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
         }
+
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
 
         private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
