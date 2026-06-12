@@ -30,7 +30,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                     .Where(x => x.Solution.Id == vsSolution.Id)
                     .ToList();
 
-                registry.RegisterApplicationTemplate(VisualStudioSolutionTemplate.Identifier, () => new VisualStudioSolutionTemplate(application, vsSolution, projects));
+                var useSlnx = vsSolution.GetVisualStudioSolutionOptions()?.SolutionFileFormat()?.IsXMLSolutionSlnx() ?? false;
+                if (useSlnx)
+                {
+                    registry.RegisterApplicationTemplate(VisualStudioSolutionSlnxTemplate.Identifier, () => new VisualStudioSolutionSlnxTemplate(application, vsSolution, projects));
+                }
+                else
+                {
+                    registry.RegisterApplicationTemplate(VisualStudioSolutionTemplate.Identifier, () => new VisualStudioSolutionTemplate(application, vsSolution, projects));
+                }
             }
         }
     }

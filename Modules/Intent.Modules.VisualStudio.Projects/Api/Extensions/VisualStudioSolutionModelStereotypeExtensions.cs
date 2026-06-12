@@ -78,6 +78,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<string>("Relative Path");
             }
 
+            public SolutionFileFormatOptions SolutionFileFormat()
+            {
+                return new SolutionFileFormatOptions(_stereotype.GetProperty<string>("Solution File Format"));
+            }
+
             public class OutputLocationOptions
             {
                 public readonly string Value;
@@ -121,6 +126,43 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 SameAsSlnFile,
                 CheckParentFolders,
                 RelativePath
+            }
+            public class SolutionFileFormatOptions
+            {
+                public readonly string Value;
+
+                public SolutionFileFormatOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public SolutionFileFormatOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Classic (.sln)":
+                            return SolutionFileFormatOptionsEnum.ClassicSln;
+                        case "XML Solution (.slnx)":
+                            return SolutionFileFormatOptionsEnum.XMLSolutionSlnx;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsClassicSln()
+                {
+                    return Value == "Classic (.sln)";
+                }
+                public bool IsXMLSolutionSlnx()
+                {
+                    return Value == "XML Solution (.slnx)";
+                }
+            }
+
+            public enum SolutionFileFormatOptionsEnum
+            {
+                ClassicSln,
+                XMLSolutionSlnx
             }
 
         }

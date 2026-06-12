@@ -73,5 +73,17 @@
       <optionsSource>n/a</optionsSource>
       <isActiveFunction>return OutputLocation === `Relative Path` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
     </property>
+    <property id="741b4a91-d121-486f-bbca-08bdfd830b1f">
+      <hint>Choose between the legacy .sln format and the new XML-based .slnx format.</hint>
+      <name>Solution File Format</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>Legacy (.sln)</defaultValue>
+      <valueOptions>
+        <option>Classic (.sln)</option>
+        <option>XML Solution (.slnx)</option>
+      </valueOptions>
+    </property>
   </properties>
 </stereotypeDefinition>
