@@ -154,6 +154,18 @@ By default, your **Visual Studio Solution** name will be the same as your `Visua
 
 By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location.
 
+#### Solution File Format
+
+Controls which solution file format is generated for this **Visual Studio Solution**. Two options are available:
+
+- **Classic (.sln)** (default): Generates the traditional `.sln` format that all Visual Studio versions support.
+- **XML Solution (.slnx)**: Generates the modern XML-based `.slnx` format introduced in Visual Studio 2022 and .NET 10. It is simpler to read and diff — no GUIDs, no configuration-platform boilerplate.
+
+To switch formats, apply the `Visual Studio Solution Options` stereotype to the solution element and change the `Solution File Format` property. When you run the Software Factory after switching, it will generate the new format and present the removal of the old file in the staged changes view.
+
+> [!NOTE]
+> The `.slnx` format requires Visual Studio 2022 17.10 or later, or the .NET 10 SDK.
+
 ### The *Folder Options* stereotype
 
 This stereotype is applied to **Solution Folder** elements.
