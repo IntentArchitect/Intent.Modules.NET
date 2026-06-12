@@ -16,7 +16,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
-    public class MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration : StaticContentTemplateRegistration
+    public class MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration : AuthStaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration";
 
@@ -64,7 +64,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity()
                 && application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
             {
-                base.Register(registry, application);
+                RegisterAuthStaticContent(registry, application);
             }
         }
     }
