@@ -40,8 +40,9 @@ Required structure:
 1. module-kickoff -> Requirements Summary
 2. tech-pattern-researcher -> Pattern Document
 3. module-ecosystem-analyst -> Attack Plan
-4. intent-module-builder -> Compiled Module Skeleton
-5. module-increment-loop -> Verified Increments
+4. reference-app-builder -> Green Reference App  ← MANDATORY GATE
+5. intent-module-builder -> Compiled Module Skeleton
+6. module-increment-loop -> Verified Increments
 
 Use implementation skills inside the increment loop as needed:
 - file-builder-expert
@@ -49,6 +50,8 @@ Use implementation skills inside the increment loop as needed:
 - intent-module-orchestrator
 - intent-mapping-architect
 - intent-domain-interactions-expert
+
+reference-app-builder is a hard gate: step 5 cannot begin until step 4 produces a reference app that builds and exercises the handler at runtime. If the reference app cannot be made green, halt and surface to the user.
 
 Before invoking a chain skill, check `.intent-build-state.md`. If completed, skip to its artifact and continue.
 

@@ -194,34 +194,47 @@ Completed layer table from task 4, plus DI registration pattern and appsettings 
 
 ## Phase 1.3 — Verify Runs
 
-**Goal:** Define a testable first increment so you know what "working" looks like before implementation starts.
+**Goal:** Define a testable first increment and record the observable success criteria that `reference-app-builder` will use to gate the build.
+
+> **Important:** This phase defines *what* success looks like and *what code shapes* prove it. The actual compilation and runtime verification is done by `reference-app-builder` — a mandatory skill that runs after `module-ecosystem-analyst` and before `intent-module-builder`. Phase 1.3 sets the target; `reference-app-builder` hits it.
 
 ### Tasks
 
-1. **Identify the simplest transport.** Start with in-memory / learning transport — no Docker, no external infrastructure. Confirm from the Requirements Summary (question E5) whether this approach was agreed.
+1. **Identify the simplest transport or dispatch path.** Start with in-memory / local dispatch — no Docker, no external infrastructure. Confirm from the Requirements Summary (question E5) whether this approach was agreed.
 
 2. **Define the minimal working scenario:**
-   - What does the developer model in the designer to trigger the generation? (Minimum: one message, one handler.)
+   - What does the developer model in the designer to trigger generation? (Minimum: one message, one handler.)
    - What files does the Software Factory generate?
    - What manual wiring (if any) does the developer do after generation?
-   - What does a passing test look like — a published event consumed by a handler within the same process?
+   - What is the observable proof that the handler was reached — a log line, a return value, a side effect?
 
-3. **List the success criteria for Increment 1:**
-   - Software Factory runs without errors
-   - Generated code compiles
-   - At runtime, publishing a message via `IEventBus` / `IMessageBus` results in the handler being called
+3. **Write the reference code shapes.** For every file in the "Files to Generate" table, write the exact class skeleton the template must produce. These become the blueprints `reference-app-builder` will hand-craft into the test app:
+   - Class name, namespace, method signature, return type, injected dependencies
+   - DI registration block verbatim
+   - No hand-wavy descriptions — actual C# skeletons
 
-4. **Note graduation path.** After Increment 1 passes, what is Increment 2? (Typically: switch to real transport, e.g. RabbitMQ via Docker.)
+4. **List the success criteria for Increment 1** (used by both `reference-app-builder` and `module-increment-loop`):
+   - `dotnet build` exits 0
+   - Handler body is reached (log / return value / observable side effect)
+   - DI resolves all registered types without exception at startup
+
+5. **Note the graduation path.** After Increment 1 passes, what is Increment 2?
 
 ### Output (add to Pattern Document — Section: Test Strategy)
 
 ```
-Increment 1 transport: [in-memory / learning transport]
+Increment 1 dispatch: [in-memory / local / learning transport]
 Minimum designer model: [what the developer creates]
-Expected generated files: [list]
-Success criteria: [3-5 bullet points]
-Increment 2: [real transport + Docker setup]
+Expected generated files: [list with exact class/method skeletons]
+Reference app location: [from Requirements Summary U9, or "to be scaffolded"]
+Success criteria:
+  - dotnet build exits 0
+  - [observable handler proof]
+  - [DI startup clean]
+Increment 2: [next step after Increment 1 passes]
 ```
+
+> **Gate:** The Pattern Document is not complete until the Test Strategy section contains concrete C# skeletons (not descriptions) for every generated file. `reference-app-builder` will copy these skeletons verbatim — vague shapes produce broken reference apps.
 
 ---
 
@@ -287,3 +300,5 @@ Unresolved items carried forward — do not proceed past the blocking increment 
 ## Handoff
 
 Once the Pattern Document is complete, load **`module-ecosystem-analyst`** and pass the Pattern Document as context.
+
+> After `module-ecosystem-analyst` produces the Attack Plan, the next step is **`reference-app-builder`** — not `intent-module-builder`. The reference app must be built and verified before any module scaffolding begins.

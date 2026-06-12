@@ -42,15 +42,18 @@ Maintain `.intent-build-state.md` at repository root.
 ## The Chain
 
 ```
-1. module-kickoff          → Requirements Summary
-2. tech-pattern-researcher → Pattern Document
+1. module-kickoff           → Requirements Summary
+2. tech-pattern-researcher  → Pattern Document
 3. module-ecosystem-analyst → Attack Plan
-4. intent-module-builder   → Compiled Module Skeleton
-5. module-increment-loop   → Verified Increments
+4. reference-app-builder    → Green Reference App  ← MANDATORY GATE
+5. intent-module-builder    → Compiled Module Skeleton
+6. module-increment-loop    → Verified Increments
    (loads file-builder-expert / intent-metadata-consumer /
     intent-module-orchestrator / intent-mapping-architect /
     intent-domain-interactions-expert as needed)
 ```
+
+> **reference-app-builder is a hard gate.** Step 5 cannot begin until step 4 produces a reference app that builds and exercises the handler at runtime. If the reference app cannot be made green, halt and surface to the user — do not proceed to scaffolding.
 
 Before invoking a chain skill, check `.intent-build-state.md`. If already completed, skip to its artifact and continue to the next pending backlog item.
 

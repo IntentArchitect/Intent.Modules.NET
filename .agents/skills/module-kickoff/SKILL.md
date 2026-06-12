@@ -41,6 +41,7 @@ Ask these regardless of module type:
 | U6 | Is this a new standalone module or does it extend/replace something that already exists? | Determines whether we're creating or extending |
 | U7 | What Clean Architecture layer(s) does the generated code belong in? (Domain / Application / Infrastructure / API) | Constrains where templates output and what they reference |
 | U8 | What is the target .NET version? | Affects API choices and generated code |
+| U9 | Is there an existing test/reference application the module can be verified against, or does one need to be created? If it exists, where is it? | **Mandatory for `reference-app-builder`.** The reference app is built or identified before any templates are written — without it there is no ground truth to verify against. |
 
 ---
 
@@ -97,6 +98,7 @@ Before producing the Requirements Summary, verify you can answer YES to every it
 - [ ] I know where to find a reference sample or existing implementation.
 - [ ] I know how to test a working output (what does success look like?).
 - [ ] I know the target .NET version.
+- [ ] I know whether a test/reference application already exists (U9). If not, I have confirmed with the user whether to scaffold one or whether they will provide it. **This item cannot be skipped — `reference-app-builder` is a mandatory chain step.**
 
 If any item is NO — ask a targeted follow-up before proceeding.
 
@@ -126,6 +128,10 @@ Produce this document as the output of this skill. It becomes the input to `tech
 ## Reference Material
 [Sample location, existing implementation, or hand-crafted code]
 
+## Reference App
+- Location: [path to existing test app, or "to be scaffolded by reference-app-builder"]
+- Status: [exists and builds / needs scaffolding / user will provide]
+
 ## Module Type
 [Eventing / Persistence / API / Infrastructure / Other]
 
@@ -141,3 +147,5 @@ Produce this document as the output of this skill. It becomes the input to `tech
 ## Handoff
 
 Once the Requirements Summary is complete, load **`tech-pattern-researcher`** and pass the summary as context.
+
+> **Note on reference app:** The Requirements Summary records the reference app status (U9) but does not build it. `reference-app-builder` is invoked after `module-ecosystem-analyst` produces the Attack Plan — at that point the code shapes are fully defined and the reference app can be hand-crafted with precision. Do not attempt to build the reference app during kickoff.
