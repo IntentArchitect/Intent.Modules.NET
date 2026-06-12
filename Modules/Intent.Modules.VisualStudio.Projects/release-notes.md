@@ -1,3 +1,7 @@
+### Version 4.1.3-pre.1
+
+- Improvement: Added support for the `.slnx` (Enhanced XML) solution format. Apply the `Visual Studio Solution Options` stereotype to a solution and set `Solution File Format` to `Enhanced (.slnx)` to generate an `.slnx` file instead of the legacy `.sln`. Switching format automatically removes the old file via the Software Factory's staged changes.
+
 ### Version 4.1.3
 
 - Improvement: Comments in the appsettings are preserved when running the Software Factory.
