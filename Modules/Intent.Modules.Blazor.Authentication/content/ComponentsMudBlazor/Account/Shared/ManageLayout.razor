@@ -1,13 +1,20 @@
 @inherits LayoutComponentBase
-@layout AccountLayout
+@layout <#= Namespace #>Components.Layout.MainLayout
 
-<MudText Typo="Typo.h4" Class="mb-3">Manage your account</MudText>
+@if (HttpContext is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <MudText Typo="Typo.h4" Class="mb-3">Manage your account</MudText>
 
-<MudGrid>
-    <MudItem xs="12" md="3">
-        <ManageNavMenu />
-    </MudItem>
-    <MudItem xs="12" md="9">
-        @Body
-    </MudItem>
-</MudGrid>
+    <MudGrid>
+        <MudItem xs="12" md="3">
+            <ManageNavMenu />
+        </MudItem>
+        <MudItem xs="12" md="9">
+            @Body
+        </MudItem>
+    </MudGrid>
+}
