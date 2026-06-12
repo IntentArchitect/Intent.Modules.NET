@@ -45,6 +45,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             AddHasDbTransactionToInterface(application);
+            AddHasDbTransactionToDbContextInterface(application);
             AddHasDbTransactionToDbContext(application);
             ModifyUnitOfWorkBehaviour(application);
         }
@@ -70,6 +71,20 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 var @class = file.Classes.FirstOrDefault();
                 if (@class != null && @class.FindMethod("HasDbTransaction") == null)
                     @class.AddMethod("bool", "HasDbTransaction", m => { });
+            }, 500);
+        }
+
+        private static void AddHasDbTransactionToDbContextInterface(IApplication application)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateRoles.Application.Common.DbContextInterface);
+            if (template == null) return;
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var iface = file.Interfaces.FirstOrDefault();
+                if (iface != null && iface.Methods.All(m => m.Name != "HasDbTransaction"))
+                    iface.AddMethod("bool", "HasDbTransaction", m => { });
             }, 500);
         }
 

@@ -20,5 +20,6 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Interfaces
         DbSet<ProductItem> ProductItems { get; }
         DbSet<Tag> Tags { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        bool HasDbTransaction();
     }
 }
