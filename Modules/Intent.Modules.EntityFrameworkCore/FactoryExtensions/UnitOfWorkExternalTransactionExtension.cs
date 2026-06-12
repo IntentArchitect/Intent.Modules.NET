@@ -106,6 +106,11 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static void ModifyUnitOfWorkBehaviour(IApplication application)
         {
+            // Only inject when an EF DbContext is present — other unit-of-work backends (e.g. Dapr)
+            // don't have a _dataSource field and cannot call HasDbTransaction().
+            if (application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                    TemplateRoles.Infrastructure.Data.DbContext) == null) return;
+
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");
             if (template == null) return;
