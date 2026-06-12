@@ -42,8 +42,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
 
         public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
 
-        private DateTime MapRequiredBy(Order source) => (DateTime)source.RequiredBy;
+        private static DateTime MapRequiredBy(Order source) => (DateTime)source.RequiredBy;
 
-        private bool MapIsActive(Order source) => source.IsActive();
+        private static bool MapIsActive(Order source) => source.IsActive();
     }
 }

@@ -11,6 +11,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     [Mapper]
     public partial class OrderCustomerSegmentsDtoMapper
     {
+        [MapperIgnoreSource(nameof(@Domain.Entities.CustomerSegments.Segment))]
+        [MapperIgnoreSource(nameof(@Domain.Entities.CustomerSegments.Customer))]
         public partial OrderCustomerSegmentsDto CustomerSegmentsToOrderCustomerSegmentsDto(Domain.Entities.CustomerSegments customerSegments);
 
         public partial List<OrderCustomerSegmentsDto> CustomerSegmentsToOrderCustomerSegmentsDtoList(IEnumerable<Domain.Entities.CustomerSegments> customerSegments);

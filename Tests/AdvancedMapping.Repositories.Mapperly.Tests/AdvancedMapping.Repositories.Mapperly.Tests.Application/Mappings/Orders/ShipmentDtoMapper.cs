@@ -26,6 +26,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
 
         public partial List<ShipmentDto> ShipmentToShipmentDtoList(IEnumerable<Shipment> shipments);
 
-        private IEnumerable<ShipmentVesselDto> MapVessels(Shipment source) => source.Container!.Vessels.Select(_shipmentVesselDtoMapper.VesselToShipmentVesselDto);
+        private IEnumerable<ShipmentVesselDto>? MapVessels(Shipment source) => source.Container?.Vessels.Select(_shipmentVesselDtoMapper.VesselToShipmentVesselDto);
     }
 }
