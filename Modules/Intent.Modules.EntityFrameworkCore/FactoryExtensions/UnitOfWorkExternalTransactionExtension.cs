@@ -118,15 +118,20 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 // Idempotency guard — skip if already modified
                 if (handleMethod.Statements.Any(s => s.ToString().Contains("HasDbTransaction"))) return;
 
-                handleMethod.InsertStatement(0, """
-                    if (_dataSource.HasDbTransaction())
-                    {
-                        // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
-                        var result = await next(cancellationToken);
-                        await _dataSource.SaveChangesAsync(cancellationToken);
-                        return result;
-                    }
-                    """, s => s.SeparatedFromNext());
+                // Match the next() call style already in the method (older MediatR omits cancellationToken)
+                var nextInvocation = handleMethod.Statements.Any(s => s.ToString().Contains("next(cancellationToken)"))
+                    ? "next(cancellationToken)"
+                    : "next()";
+
+                handleMethod.InsertStatement(0,
+                    "if (_dataSource.HasDbTransaction())\r\n" +
+                    "{\r\n" +
+                    "    // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.\r\n" +
+                    $"    var result = await {nextInvocation};\r\n" +
+                    "    await _dataSource.SaveChangesAsync(cancellationToken);\r\n" +
+                    "    return result;\r\n" +
+                    "}",
+                    s => s.SeparatedFromNext());
             }, 500);
         }
     }
