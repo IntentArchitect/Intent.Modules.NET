@@ -36,7 +36,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
             if (_dataSource.HasDbTransaction())
             {
                 // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
-                var result = await next(cancellationToken);
+                var result = await next();
                 await _dataSource.SaveChangesAsync(cancellationToken);
                 return result;
             }
