@@ -14,7 +14,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
     public class ThemeArtifactsStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration";
-        private const string ThemeScriptFileName = "theme.js";
+        private const string ThemeStorageScriptFileName = "theme-storage.js";
 
         public ThemeArtifactsStaticContentTemplateRegistration() : base(TemplateId)
         {
@@ -28,11 +28,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
             return OverwriteBehaviour.OnceOff;
         }
 
-        // theme.js is a generated utility file; CSS remains OnceOff so design-token customisations survive regeneration.
+        // theme-storage.js is generated infrastructure; CSS remains OnceOff so design-token customisations survive regeneration.
         [IntentIgnore]
         protected override ITemplate CreateTemplate(IOutputTarget outputTarget, string fileFullPath, string fileRelativePath, OverwriteBehaviour defaultOverwriteBehaviour)
         {
-            var overwriteBehaviour = Path.GetFileName(fileRelativePath).Equals(ThemeScriptFileName, StringComparison.OrdinalIgnoreCase)
+            var overwriteBehaviour = Path.GetFileName(fileRelativePath).Equals(ThemeStorageScriptFileName, StringComparison.OrdinalIgnoreCase)
                 ? OverwriteBehaviour.Always
                 : defaultOverwriteBehaviour;
 

@@ -1,4 +1,4 @@
-window.themeHelper = {
+window.themeStorage = {
     usesCookieStorage: function () {
         return document.documentElement.dataset.themeStorage === 'cookie';
     },
@@ -30,3 +30,4 @@ window.themeHelper = {
         this.set(current === 'light' ? 'dark' : 'light');
     }
 };
+window.themeHelper = window.themeStorage;

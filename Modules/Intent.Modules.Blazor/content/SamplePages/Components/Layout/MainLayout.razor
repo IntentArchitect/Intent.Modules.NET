@@ -52,8 +52,8 @@
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("themeHelper.init");
-            var saved = await JS.InvokeAsync<string>("themeHelper.get");
+            await JS.InvokeVoidAsync("themeStorage.init");
+            var saved = await JS.InvokeAsync<string>("themeStorage.get");
             _isDark = saved != "light";
             StateHasChanged();
         }
@@ -62,6 +62,6 @@
     private async Task ToggleTheme()
     {
         _isDark = !_isDark;
-        await JS.InvokeVoidAsync("themeHelper.set", _isDark ? "dark" : "light");
+        await JS.InvokeVoidAsync("themeStorage.set", _isDark ? "dark" : "light");
     }
 }

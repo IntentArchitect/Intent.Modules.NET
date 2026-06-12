@@ -122,9 +122,11 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     {
         if (requiresSsrSafeThemeToggle)
         {
+            // ASP.NET Core Identity account pages are static SSR so auth cookies can be issued.
+            // Use JS/cookie storage directly here so the theme toggle also works before Blazor interactivity.
             appBar.InsertHtmlElement(insertPosition, "span", span =>
             {
-                span.AddAttribute("onclick", "themeHelper.toggle()");
+                span.AddAttribute("onclick", "themeStorage.toggle()");
                 span.AddAttribute("style", "cursor:pointer");
 
                 span.AddHtmlElement("MudTooltip", themeToggle =>
@@ -203,7 +205,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     @if.AddStatement("_themeService.OnChange += StateHasChanged;");
 
                     @if.AddAssignmentStatement("var saved",
-                        new CSharpStatement(@"await JS.InvokeAsync<string>(""themeHelper.get"");"));
+                        new CSharpStatement(@"await JS.InvokeAsync<string>(""themeStorage.get"");"));
 
                     @if.AddIfStatement(@"saved == ""dark""", innerIf =>
                     {
@@ -227,7 +229,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 method.AddInvocationStatement("_themeService.Toggle");
                 method.AddInvocationStatement("await JS.InvokeVoidAsync", invoc =>
                 {
-                    invoc.AddArgument(@"""themeHelper.set""");
+                    invoc.AddArgument(@"""themeStorage.set""");
                     invoc.AddArgument(@"_themeService.IsDark ? ""dark"" : ""light""");
                 });
             });
