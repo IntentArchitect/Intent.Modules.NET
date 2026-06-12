@@ -28,8 +28,10 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
+        var enableThemeToggle = _componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
+        var requiresSsrSafeThemeToggle = _componentTemplate.ExecutionContext.RequiresSsrSafeThemeToggle();
 
-        if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+        if (enableThemeToggle)
         {
             var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
             themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
@@ -73,10 +75,10 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     _componentResolver.BuildComponent(child, appBar);
                 }
 
-                if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                if (enableThemeToggle)
                 {
                     var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
-                    ConfigureThemeSelection(appBar, code, insertPosition);
+                    ConfigureThemeSelection(appBar, code, insertPosition, requiresSsrSafeThemeToggle);
                 }
             });
         }
@@ -111,24 +113,64 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
             layoutContent.WithText("@Body");
         });
         //});
+
         return [layoutHtml];
 
     }
 
-    private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition)
+    private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition, bool requiresSsrSafeThemeToggle)
     {
-        // add the button
-        appBar.InsertHtmlElement(insertPosition, "MudTooltip", themeToggle =>
+        if (requiresSsrSafeThemeToggle)
         {
-            themeToggle.AddAttribute("Text", "@(_themeService.IsDark ? \"Switch to light mode\" : \"Switch to dark mode\")");
-
-            themeToggle.AddHtmlElement("MudIconButton", themeButton =>
+            appBar.InsertHtmlElement(insertPosition, "span", span =>
             {
-                themeButton.AddAttribute("Icon", "@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)");
-                themeButton.AddAttribute("Color", "Color.Inherit");
-                themeButton.AddAttribute("OnClick", "ToggleTheme");
+                span.AddAttribute("onclick", "themeHelper.toggle()");
+                span.AddAttribute("style", "cursor:pointer");
+
+                span.AddHtmlElement("MudTooltip", themeToggle =>
+                {
+                    themeToggle.AddAttribute("Text", "Toggle light/dark mode");
+
+                    themeToggle.AddHtmlElement("MudIconButton", lightButton =>
+                    {
+                        lightButton.AddAttribute("Icon", "@Icons.Material.Filled.LightMode");
+                        lightButton.AddAttribute("Color", "Color.Inherit");
+                        lightButton.AddAttribute("Class", "theme-toggle-to-light");
+                        lightButton.AddAttribute("OnClick", "ToggleTheme");
+                    });
+                    themeToggle.AddHtmlElement("MudIconButton", darkButton =>
+                    {
+                        darkButton.AddAttribute("Icon", "@Icons.Material.Filled.DarkMode");
+                        darkButton.AddAttribute("Color", "Color.Inherit");
+                        darkButton.AddAttribute("Class", "theme-toggle-to-dark");
+                        darkButton.AddAttribute("OnClick", "ToggleTheme");
+                    });
+                });
             });
-        });
+
+            appBar.InsertHtmlElement(insertPosition + 1, "style", themeToggleStyles =>
+            {
+                themeToggleStyles.WithText(@"
+            .theme-toggle-to-dark { display: none; }
+            :root[data-theme=""light""] .theme-toggle-to-light { display: none; }
+            :root[data-theme=""light""] .theme-toggle-to-dark  { display: inline-flex; }
+");
+            });
+        }
+        else
+        {
+            appBar.InsertHtmlElement(insertPosition, "MudTooltip", themeToggle =>
+            {
+                themeToggle.AddAttribute("Text", "@(_themeService.IsDark ? \"Switch to light mode\" : \"Switch to dark mode\")");
+
+                themeToggle.AddHtmlElement("MudIconButton", themeButton =>
+                {
+                    themeButton.AddAttribute("Icon", "@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)");
+                    themeButton.AddAttribute("Color", "Color.Inherit");
+                    themeButton.AddAttribute("OnClick", "ToggleTheme");
+                });
+            });
+        }
 
         var themeTemplate = code.File.Template.OutputTarget.FindTemplateInstance("Intent.Blazor.Templates.Common.ThemeServiceTemplate");
         // Really should never be null
