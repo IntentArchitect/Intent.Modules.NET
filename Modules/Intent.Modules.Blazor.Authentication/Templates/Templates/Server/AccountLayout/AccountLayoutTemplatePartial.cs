@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
@@ -7,7 +8,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,6 +24,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate";
+        private const string MudBlazorModuleId = "Intent.Blazor.Components.MudBlazor";
 
         /// <summary>
         /// Creates a new instance of <see cref="AccountLayoutTemplate"/>.
@@ -34,32 +35,33 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
             RazorFile = IRazorFile.Create(this, $"AccountLayout")
                 .Configure(file =>
                 {
-                    file.AddInheritsDirective("LayoutComponentBase");
-                    string layoutName = "Layout.MainLayout";
+                    // AccountLayout is the minimal pre-login shell: no app nav, just the theme toggle.
+                    // It deliberately does NOT nest MainLayout (ManageLayout does that for the post-login
+                    // Manage pages). Account pages are static SSR, so the toggle is circuit-free and the
+                    // Mud theme is derived from the cookie via HttpContext rather than a JS/theme service.
+                    var rootNamespace = outputTarget.GetNamespace().Replace("Components.Account.Shared", "");
+                    var layoutNamespace = $"{rootNamespace}Components.Layout";
                     if (TryGetTemplate<RazorLayoutTemplate>("Intent.Blazor.Templates.Client.RazorLayoutTemplate", out var layoutTemplate))
                     {
-                        layoutName = $"{layoutTemplate.Namespace}.MainLayout";
+                        layoutNamespace = layoutTemplate.Namespace;
                     }
 
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@layout {layoutName}"), file));
+                    var mudBlazorInstalled = outputTarget.ExecutionContext.InstalledModules.Any(module => module.ModuleId == MudBlazorModuleId);
+
+                    file.AddInheritsDirective("LayoutComponentBase");
+                    // The ThemeToggle component lives in the layout namespace; import it so <ThemeToggle /> resolves.
+                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@using {layoutNamespace}"), file));
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
                     file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@if(HttpContext is null)"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("<p>Loading...</p>"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("else"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@Body"), file));
-                    file.AddEmptyLine();
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
-                    file.AddEmptyLine();
+
+                    if (mudBlazorInstalled)
+                    {
+                        AddMudBlazorAccountShell(file);
+                    }
+                    else
+                    {
+                        AddStandardAccountShell(file);
+                    }
 
                     file.AddCodeBlock(code =>
                     {
@@ -68,6 +70,18 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                             httpContext.Private();
                             httpContext.AddAttribute("CascadingParameter");
                         });
+
+                        if (mudBlazorInstalled)
+                        {
+                            // Derive the Mud dark/light mode from the theme cookie on the server so the
+                            // (circuit-free) static-SSR account pages render the correct palette first paint.
+                            code.AddProperty("bool", "IsDarkTheme", isDarkTheme =>
+                            {
+                                isDarkTheme.Private();
+                                isDarkTheme.WithoutSetter().Getter.WithExpressionImplementation(
+                                    @"!(HttpContext?.Request.Cookies.TryGetValue(""theme"", out var theme) == true && theme == ""light"")");
+                            });
+                        }
 
                         code.AddMethod("void", "OnParametersSet", onParametersSet =>
                         {
@@ -96,5 +110,59 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
         public override string TransformText() => RazorFile.ToString();
+
+        private static void AddMudBlazorAccountShell(IRazorFile file)
+        {
+            file.AddHtmlElement("MudThemeProvider", themeProvider => themeProvider.AddAttribute("IsDarkMode", "@IsDarkTheme"));
+            file.AddHtmlElement("MudPopoverProvider");
+            file.AddHtmlElement("MudDialogProvider");
+            file.AddHtmlElement("MudSnackbarProvider");
+            file.AddEmptyLine();
+
+            file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            file.AddEmptyLine();
+
+            file.AddHtmlElement("MudLayout", mudLayout => mudLayout
+                .AddHtmlElement("MudMainContent", mainContent =>
+                {
+                    mainContent.AddAttribute("Class", "pa-4");
+                    mainContent.AddHtmlElement("div", contentDiv =>
+                    {
+                        contentDiv.AddClass("account-layout-content");
+                        AddContentGuard(file, contentDiv);
+                    });
+                }));
+        }
+
+        private static void AddStandardAccountShell(IRazorFile file)
+        {
+            file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            file.AddEmptyLine();
+
+            file.AddHtmlElement("main", main =>
+            {
+                main.AddClass("account-layout-main");
+                main.AddHtmlElement("div", contentDiv =>
+                {
+                    contentDiv.AddClass("account-layout-content");
+                    AddContentGuard(file, contentDiv);
+                });
+            });
+        }
+
+        // Shows a loading placeholder while HttpContext is null (during the OnParametersSet forced reload),
+        // otherwise renders the page, as an @if/else control-flow block inside the content area.
+        private static void AddContentGuard(IRazorFile file, IHtmlElement contentDiv)
+        {
+            // A RazorCodeDirective renders its own braces and indents its child nodes, so each branch's
+            // markup is added as children of the @if / else directive rather than emitting { } ourselves.
+            var ifDirective = IRazorCodeDirective.Create(new CSharpStatement("@if (HttpContext is null)"), file);
+            ifDirective.AddChildNode(new HtmlElement("p", file).WithText("Loading..."));
+            contentDiv.AddChildNode(ifDirective);
+
+            var elseDirective = IRazorCodeDirective.Create(new CSharpStatement("else"), file);
+            elseDirective.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@Body"), file));
+            contentDiv.AddChildNode(elseDirective);
+        }
     }
 }

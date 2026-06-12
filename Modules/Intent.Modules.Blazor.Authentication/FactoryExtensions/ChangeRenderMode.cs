@@ -36,8 +36,8 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
             app.OnBuild(file =>
             {
-                // Add data-theme to <html> so static-SSR account pages get the right theme server-side
-                // (without this, navigating from an interactive page resets to the default theme on account pages).
+                // ASP.NET Core Identity account pages must run as static SSR so Identity can issue auth cookies.
+                // Add theme attributes to <html> so those SSR pages render with the cookie-backed theme before interactivity.
                 var htmlElement = file.ChildNodes.FirstOrDefault(n => n is IHtmlElement) as IHtmlElement;
                 htmlElement?.AddAttribute("data-theme", "@_theme");
                 htmlElement?.AddAttribute("data-theme-storage", BlazorThemeCapabilities.CookieThemeStorageValue);
@@ -48,7 +48,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 {
                     var codeBlock = razorCodeBlock as ICSharpClass;
 
-                    // Add the cookie-backed _theme property before the existing members
+                    // The cookie-backed theme is needed because ASP.NET Core Identity forces account pages through static SSR.
                     codeBlock?.AddCodeBlock(
                         "private string _theme => HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\";");
 

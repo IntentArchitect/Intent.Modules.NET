@@ -79,8 +79,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
-                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme.js"));
-                            body.AddHtmlElement("script", t => t.WithText("themeHelper.init();"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
                         });
 
                         html.AddEmptyLine();
