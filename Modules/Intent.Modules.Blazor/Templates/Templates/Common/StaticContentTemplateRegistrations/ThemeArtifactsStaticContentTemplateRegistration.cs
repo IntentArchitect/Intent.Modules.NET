@@ -32,10 +32,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
             return OverwriteBehaviour.OnceOff;
         }
 
-        // The MudBlazor module ships its own Mud-flavoured ThemeToggle.razor to the same output path, so when it
-        // is installed we skip ours to avoid two modules emitting the same file. Everything else (theme-storage.js,
-        // the design-token CSS) is emitted regardless. theme-storage.js and ThemeToggle.razor are generated
-        // infrastructure (Always); the CSS stays OnceOff so design-token customisations survive regeneration.
+        // The MudBlazor module ships its own Mud-flavoured ThemeToggle (.razor + .razor.css) to the same output
+        // path, so when it is installed we skip ours to avoid two modules emitting the same file. Everything else
+        // (theme-storage.js, the design-token CSS) is emitted regardless. theme-storage.js and the ThemeToggle
+        // files are generated infrastructure (Always); the design-token CSS stays OnceOff so customisations survive.
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
@@ -54,7 +54,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
                 var fileRelativePath = Path.GetRelativePath(contentDir, fileFullPath);
                 var fileName = Path.GetFileName(fileRelativePath);
 
-                if (mudBlazorInstalled && fileName.Equals(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase))
+                // StartsWith covers both ThemeToggle.razor and its co-located ThemeToggle.razor.css.
+                if (mudBlazorInstalled && fileName.StartsWith(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase))
                 {
                     continue;
                 }
@@ -79,7 +80,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
         {
             var fileName = Path.GetFileName(fileRelativePath);
             return fileName.Equals(ThemeStorageScriptFileName, StringComparison.OrdinalIgnoreCase)
-                   || fileName.Equals(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase)
+                   || fileName.StartsWith(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase)
                 ? OverwriteBehaviour.Always
                 : GetDefaultOverrideBehaviour(outputTarget);
         }

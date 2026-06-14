@@ -1,0 +1,13 @@
+.account-layout-content {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    min-height: 100vh;
+}
+
+@media (max-width: 600px) {
+    .account-layout-content {
+        padding-top: 2.5rem;
+    }
+}

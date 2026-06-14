@@ -71,15 +71,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                             httpContext.AddAttribute("CascadingParameter");
                         });
 
-                        // Loading placeholder shown by the content guard while HttpContext is null
-                        // (i.e. during the OnParametersSet forced reload). See AddContentGuard.
-                        code.AddProperty("RenderFragment", "Loading", loading =>
-                        {
-                            loading.Private();
-                            loading.WithoutSetter().Getter.WithExpressionImplementation(
-                                "builder => builder.AddMarkupContent(0, \"<p>Loading...</p>\")");
-                        });
-
                         if (mudBlazorInstalled)
                         {
                             // Derive the Mud dark/light mode from the theme cookie on the server so the
@@ -134,55 +125,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
             file.AddHtmlElement("MudLayout", mudLayout => mudLayout
                 .AddHtmlElement("MudMainContent", mainContent =>
                 {
-                    mainContent.AddAttribute("Class", "account-layout-main pa-4");
+                    mainContent.AddAttribute("Class", "pa-4");
                     mainContent.AddHtmlElement("div", contentDiv =>
                     {
                         contentDiv.AddClass("account-layout-content");
-                        AddContentGuard(contentDiv);
+                        AddContentGuard(file, contentDiv);
                     });
                 }));
-            file.AddEmptyLine();
-
-            file.AddHtmlElement("style", style => style.WithText(@"
-    .account-theme-toggle {
-        position: fixed;
-        top: 0.75rem;
-        right: 0.75rem;
-        z-index: 1100;
-        width: 2.5rem;
-        height: 2.5rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        color: var(--text);
-        background: var(--surface-2);
-        box-shadow: var(--ux-shadow-sm);
-        cursor: pointer;
-    }
-
-    .account-theme-toggle:hover {
-        background: color-mix(in srgb, var(--surface-2) 86%, var(--hover-overlay));
-    }
-
-    .account-layout-main {
-        min-height: 100vh;
-    }
-
-    .account-layout-content {
-        width: 100%;
-        max-width: 1120px;
-        margin: 0 auto;
-        padding-top: 1.5rem;
-    }
-
-    @@media (max-width: 600px) {
-        .account-layout-content {
-            padding-top: 2.5rem;
-        }
-    }
-"));
         }
 
         private static void AddStandardAccountShell(IRazorFile file)
@@ -196,77 +145,23 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                 main.AddHtmlElement("div", contentDiv =>
                 {
                     contentDiv.AddClass("account-layout-content");
-                    AddContentGuard(contentDiv);
+                    AddContentGuard(file, contentDiv);
                 });
             });
-            file.AddEmptyLine();
-
-            file.AddHtmlElement("style", style => style.WithText(@"
-    .account-theme-toggle {
-        position: fixed;
-        top: 0.75rem;
-        right: 0.75rem;
-        z-index: 1100;
-        display: inline-flex;
-    }
-
-    .account-theme-toggle .theme-toggle-button {
-        width: 2.5rem;
-        height: 2.5rem;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        color: var(--text);
-        background: var(--surface-2);
-        box-shadow: var(--ux-shadow-sm);
-    }
-
-    .account-theme-toggle .theme-toggle-button:hover {
-        background: color-mix(in srgb, var(--surface-2) 86%, var(--hover-overlay));
-    }
-
-    .account-layout-main {
-        min-height: 100vh;
-        padding: 1rem;
-    }
-
-    .account-layout-content {
-        width: 100%;
-        max-width: 1120px;
-        margin: 0 auto;
-        padding-top: 1.5rem;
-    }
-
-    @@media (max-width: 600px) {
-        .account-layout-content {
-            padding-top: 2.5rem;
-        }
-    }
-"));
         }
 
-        // Renders the HttpContext guard inside the content area.
-        //
-        // What this SHOULD be (and what the hand-written prototype uses) is an @if/else block:
-        //
-        //     @if (HttpContext is null)
-        //     {
-        //         <p>Loading...</p>
-        //     }
-        //     else
-        //     {
-        //         @Body
-        //     }
-        //
-        // However the Intent Architect Razor merger (Intent.Code.Weaving.Razor.RazorTreeMerger,
-        // v5.1.x) throws "Unexpected type: MarkupEphemeralTextLiteralSyntax" when re-merging an @if
-        // control-flow block nested inside markup, so a template that emits one cannot be regenerated.
-        // See razor-merger-if-block-bug.md (submitted to the maintainers). Until that is fixed we use a
-        // merger-safe single razor expression that selects between the Loading fragment and @Body — it
-        // is behaviourally identical and merges cleanly. Revert to the @if/else above once the merger
-        // handles nested @if blocks.
-        private static void AddContentGuard(IHtmlElement contentDiv)
+        // Shows a loading placeholder while HttpContext is null (during the OnParametersSet forced reload),
+        // otherwise renders the page, as an @if/else control-flow block inside the content area.
+        private static void AddContentGuard(IRazorFile file, IHtmlElement contentDiv)
         {
-            contentDiv.WithText("@(HttpContext is null ? Loading : Body)");
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@if (HttpContext is null)"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("<p>Loading...</p>"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("else"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@Body"), file));
+            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
         }
     }
 }
