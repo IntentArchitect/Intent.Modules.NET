@@ -154,14 +154,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
         // otherwise renders the page, as an @if/else control-flow block inside the content area.
         private static void AddContentGuard(IRazorFile file, IHtmlElement contentDiv)
         {
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@if (HttpContext is null)"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("<p>Loading...</p>"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("else"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("{"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@Body"), file));
-            contentDiv.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("}"), file));
+            // A RazorCodeDirective renders its own braces and indents its child nodes, so each branch's
+            // markup is added as children of the @if / else directive rather than emitting { } ourselves.
+            var ifDirective = IRazorCodeDirective.Create(new CSharpStatement("@if (HttpContext is null)"), file);
+            ifDirective.AddChildNode(new HtmlElement("p", file).WithText("Loading..."));
+            contentDiv.AddChildNode(ifDirective);
+
+            var elseDirective = IRazorCodeDirective.Create(new CSharpStatement("else"), file);
+            elseDirective.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement("@Body"), file));
+            contentDiv.AddChildNode(elseDirective);
         }
     }
 }
