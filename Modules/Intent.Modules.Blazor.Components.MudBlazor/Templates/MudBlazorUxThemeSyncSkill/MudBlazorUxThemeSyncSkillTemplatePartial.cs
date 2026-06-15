@@ -32,24 +32,28 @@ description: Updates ux-tokens.css and ux-mudblazor.css to match a new or replac
 paths:
   - "**/ux-tokens.css"
   - "**/ux-mudblazor.css"
+  - "**/ux-base.css"
+  - "**/ux-components.css"
   - "**/design.md"
 ---
 
 ## Purpose
 
-Translate a design specification (design.md) into a working MudBlazor CSS theme (ux-token.css and ux-mudblazor.css). The design.md may use any structure or naming convention — your job is to understand its design intent and express it faithfully in the CSS token and component override system, without breaking the parts of the theme the new spec does not address.
+Translate a design specification (design.md) into a working MudBlazor CSS theme across four files: `ux-tokens.css` (design tokens), `ux-mudblazor.css` (MudBlazor palette bridge and component overrides), `ux-base.css` (global base styles and animations), and `ux-components.css` (component primitives and utilities). The design.md may use any structure or naming convention — your job is to understand its design intent and express it faithfully in the CSS token and component override system, without breaking the parts of the theme the new spec does not address.
 
 ---
 
 ## MANDATORY: Read All Three Files Before Changing Anything
 
-STOP — you MUST read all three files in full before writing a single line:
+STOP — you MUST read all five files in full before writing a single line:
 
 1. `design.md` — the source of truth for the new design intent
 2. `ux-tokens.css` — design tokens, base styles, utility classes (library-agnostic)
 3. `ux-mudblazor.css` — MudBlazor palette bridge and component overrides
+4. `ux-base.css` — global resets, background patterns, accessibility rules, animations
+5. `ux-components.css` — form controls, buttons, feedback components, utility classes
 
-If any file is missing or unreadable: stop, report which file is missing, and do not proceed.
+If any of the five files is missing or unreadable: stop, report which file is missing, and do not proceed.
 
 ---
 
@@ -106,8 +110,17 @@ The theme is split across two files. Map extracted design values to the correct 
 | Component-specific rules | `ux-mudblazor.css` | Section 3: MudBlazor Component Overrides |
 | Page header utility | `ux-mudblazor.css` | Section 4: MudBlazor Page Header Utility |
 | Utility classes or animations | `ux-tokens.css` | Sections 8–9 |
+| Background/gradient patterns, page radial glow | `ux-base.css` | Section 1: Global Reset & Base Elements |
+| Light-mode dot-grid overlay colour | `ux-base.css` | Section 1: Global Reset & Base Elements |
+| Global keyframe animation curves | `ux-base.css` | Section 3: Global Animations |
+| Standard form control styles | `ux-components.css` | Section 1: Standard Form Controls |
+| Button styles (primary, outline, danger, link) | `ux-components.css` | Section 2: Buttons |
+| Alert / table / feedback styles | `ux-components.css` | Section 3: Feedback & Data Display |
+| Utility and badge classes | `ux-components.css` | Section 4: Utility Classes |
 
 If a file does not use numbered sections, map by token name and component selector instead.
+
+> **Note on ux-components.css:** This file uses only `var()` token references — most design changes (colours, typography, spacing, radii) flow through token updates in `ux-tokens.css` without requiring edits here. Edit `ux-components.css` only when the design explicitly introduces a new component variant or structural rule that cannot be expressed via tokens alone.
 
 ---
 
@@ -148,7 +161,7 @@ If the polarities differ (e.g. existing is dark-default, incoming is light-defau
    - Flipping dark→light: rename every `[data-theme="light"]` selector to `[data-theme="dark"]`
    - Flipping light→dark: rename every `[data-theme="dark"]` selector to `[data-theme="light"]`
 3. Update the renamed override block's token values to the opposite-polarity equivalents of the new design (dark surfaces for a dark override, light surfaces for a light override). If the design does not specify the opposite-polarity palette, derive it: invert surface lightness, flip text from dark-to-light or light-to-dark, adjust shadow strength accordingly.
-4. Check every component override rule in `ux-mudblazor.css` that uses `[data-theme="..."]` as a selector prefix — rename those too.
+4. Check every rule in **all four CSS files** that uses `[data-theme="..."]` as a selector prefix — including `:root[data-theme="..."]` forms in `ux-base.css` — rename those too.
 
 **The rename must be global across both files.** A partial rename produces broken behaviour: the CSS default shows correctly but the toggled state never triggers its overrides.
 
@@ -207,8 +220,11 @@ Forbidden:
 - [ ] design.md was read in full before any edits were made
 - [ ] ux-tokens.css was read in full before any edits were made
 - [ ] ux-mudblazor.css was read in full before any edits were made
+- [ ] ux-base.css was read in full before any edits were made
+- [ ] ux-components.css was read in full before any edits were made
 - [ ] Existing CSS polarity (dark-default or light-default) was identified before editing
-- [ ] If polarity flipped: every `[data-theme="..."]` selector across both files was renamed globally, not partially
+- [ ] If polarity flipped: every `[data-theme="..."]` selector across all four CSS files was renamed globally, not partially
+- [ ] If polarity flipped: `:root[data-theme="..."]` selectors in ux-base.css were included in the global rename
 - [ ] If polarity flipped: the renamed override block has opposite-polarity token values, not a duplicate of the default
 - [ ] All brand palette tokens reflect the new design
 - [ ] All semantic colour tokens for the affected theme variant(s) are updated
@@ -217,6 +233,8 @@ Forbidden:
 - [ ] The MudBlazor palette bridge still references semantic tokens (no hardcoded hex values introduced)
 - [ ] Backward-compatible `--ux-*` aliases still resolve correctly
 - [ ] No unrelated CSS rules or sections were modified
+- [ ] ux-base.css edits are limited to background/gradient values and animation durations — no structural or selector changes beyond polarity rename
+- [ ] ux-components.css was only edited if the design explicitly introduces a new component variant or structural rule; token-only design changes were not applied here
 - [ ] `!important` annotations on MudBlazor component overrides are preserved
 - [ ] Both dark and light theme blocks are internally consistent
 - [ ] Changes are limited to what the new design.md specifies; everything else is left unchanged

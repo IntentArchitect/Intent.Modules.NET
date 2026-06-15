@@ -25,12 +25,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
         }
 
         public override string ContentSubFolder => "Theme";
-
         [IntentIgnore]
-        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
-        {
-            return OverwriteBehaviour.OnceOff;
-        }
 
         [IntentIgnore]
         protected override ITemplate CreateTemplate(IOutputTarget outputTarget, string fileFullPath, string fileRelativePath, OverwriteBehaviour defaultOverwriteBehaviour)
