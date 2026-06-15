@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using UI.AI.Samples.Application.Categories;
 using UI.AI.Samples.Application.Categories.GetCategories;
 using UI.AI.Samples.Application.Customers;
@@ -26,10 +27,12 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
         [Inject]
+        public ISnackbar Snackbar { get; set; } = default!;
+        [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
 
+        private MudForm? _form;
         private bool _saving;
-        private string? _errorMessage;
         private bool _hasLoyalty;
 
         protected override async Task OnInitializedAsync()
@@ -50,45 +53,52 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                _errorMessage = e.Message;
+                Snackbar.Add(e.Message, Severity.Error);
             }
         }
 
         private async Task UpdateCustomer()
         {
-            await Mediator.Send(new UpdateCustomerCommand(
-                id: Model.Id.Value,
-                name: Model.Name,
-                surname: Model.Surname,
-                email: Model.Email,
-                isActive: Model.IsActive,
-                preference: new UpdateCustomerPreferenceDto
-                {
-                    Id = Model.Preference.Id.Value,
-                    NewsLetter = Model.Preference.NewsLetter,
-                    Specials = Model.Preference.Specials
-                },
-                categoryId: Model.CategoryId.Value,
-                loyalty: Model?.Loyalty is not null
-                    ? new UpdateCustomerCommandLoyaltyDto
+            try
+            {
+                await Mediator.Send(new UpdateCustomerCommand(
+                    id: Model.Id.Value,
+                    name: Model.Name,
+                    surname: Model.Surname,
+                    email: Model.Email,
+                    isActive: Model.IsActive,
+                    preference: new UpdateCustomerPreferenceDto
                     {
-                        Id = Model.Loyalty.Id.Value,
-                        LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                        Points = Model.Loyalty.Points.Value
-                    }
-                    : null,
-                subCategoryId: Model.SubCategoryID.Value,
-                addresses: Model.Addresses
-                    .Select(a => new UpdateCustomerCommandAddressesDto
-                    {
-                        Id = a.Id.Value,
-                        Line1 = a.Line1,
-                        Line2 = a.Line2,
-                        City = a.City,
-                        Postal = a.Postal,
-                        AddressType = a.AddressType
-                    })
-                    .ToList()));
+                        Id = Model.Preference.Id.Value,
+                        NewsLetter = Model.Preference.NewsLetter,
+                        Specials = Model.Preference.Specials
+                    },
+                    categoryId: Model.CategoryId.Value,
+                    loyalty: Model?.Loyalty is not null
+                        ? new UpdateCustomerCommandLoyaltyDto
+                        {
+                            Id = Model.Loyalty.Id.Value,
+                            LoyaltyNo = Model.Loyalty.LoyaltyNo,
+                            Points = Model.Loyalty.Points.Value
+                        }
+                        : null,
+                    subCategoryId: Model.SubCategoryID.Value,
+                    addresses: Model.Addresses
+                        .Select(a => new UpdateCustomerCommandAddressesDto
+                        {
+                            Id = a.Id.Value,
+                            Line1 = a.Line1,
+                            Line2 = a.Line2,
+                            City = a.City,
+                            Postal = a.Postal,
+                            AddressType = a.AddressType
+                        })
+                        .ToList()));
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
         }
 
         private async Task LoadCustomerById(Guid id)
@@ -135,7 +145,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                _errorMessage = e.Message;
+                Snackbar.Add(e.Message, Severity.Error);
             }
         }
 
@@ -148,23 +158,29 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                _errorMessage = e.Message;
+                Snackbar.Add(e.Message, Severity.Error);
             }
         }
 
-        private async Task OnCategoryChanged()
+        private async Task OnCategoryChanged(Guid? categoryId)
         {
-            if (Model is null) return;
+            Model.CategoryId = categoryId;
             Model.SubCategoryID = null;
-            await LoadSubCategories(Model.CategoryId);
+            await LoadSubCategories(categoryId);
             StateHasChanged();
         }
 
         private async Task SaveAsync()
         {
-            if (Model is null) return;
+            if (_form is null)
+                return;
+            await _form.Validate();
+            if (!_form.IsValid)
+            {
+                Snackbar.Add("Please fix validation errors before saving.", Severity.Warning);
+                return;
+            }
             _saving = true;
-            _errorMessage = null;
             try
             {
                 if (!_hasLoyalty)
@@ -184,11 +200,12 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                     }
                 }
                 await UpdateCustomer();
+                Snackbar.Add("Customer updated successfully.", Severity.Success);
                 NavigationManager.NavigateTo("templates/pages/customers");
             }
             catch (Exception ex)
             {
-                _errorMessage = $"Failed to save customer: {ex.Message}";
+                Snackbar.Add($"Failed to save customer: {ex.Message}", Severity.Error);
             }
             finally
             {
@@ -254,19 +271,13 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         public class UpdateCustomerModel
         {
             public Guid? Id { get; set; }
-            [Required(ErrorMessage = "Name is required")]
             public string Name { get; set; }
-            [Required(ErrorMessage = "Surname is required")]
             public string Surname { get; set; }
-            [Required(ErrorMessage = "Email is required")]
-            [EmailAddress(ErrorMessage = "Please enter a valid email")]
             public string Email { get; set; }
             public bool IsActive { get; set; }
             public UpdateCustomerPreferenceModel Preference { get; set; }
-            [Required(ErrorMessage = "Category is required")]
             public Guid? CategoryId { get; set; }
             public UpdateCustomerCommandLoyaltyModel? Loyalty { get; set; }
-            [Required(ErrorMessage = "Sub Category is required")]
             public Guid? SubCategoryID { get; set; }
             public List<UpdateCustomerCommandAddressesModel> Addresses { get; set; }
         }
@@ -279,20 +290,15 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         public class UpdateCustomerCommandLoyaltyModel
         {
             public Guid? Id { get; set; }
-            [Required(ErrorMessage = "No Loyalty No Captured")]
             public string LoyaltyNo { get; set; }
-            [Required(ErrorMessage = "No Points Captured")]
             public int? Points { get; set; }
         }
         public class UpdateCustomerCommandAddressesModel
         {
             public Guid? Id { get; set; }
-            [Required(ErrorMessage = "Line 1 is required")]
             public string Line1 { get; set; }
             public string? Line2 { get; set; }
-            [Required(ErrorMessage = "City is required")]
             public string City { get; set; }
-            [Required(ErrorMessage = "Postal code is required")]
             public string Postal { get; set; }
             public AddressType AddressType { get; set; }
         }

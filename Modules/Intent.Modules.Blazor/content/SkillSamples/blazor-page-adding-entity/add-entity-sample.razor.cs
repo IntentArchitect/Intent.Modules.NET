@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using UI.AI.Samples.Application.Categories;
 using UI.AI.Samples.Application.Categories.GetCategories;
 using UI.AI.Samples.Application.Customers;
@@ -24,9 +25,11 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         public IScopedMediator Mediator { get; set; } = default!;
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
+        [Inject]
+        public ISnackbar Snackbar { get; set; } = default!;
 
+        private MudForm? _form;
         private bool _saving;
-        private string? _errorMessage;
         private bool _hasLoyalty;
         public bool HasLoyalty
         {
@@ -74,17 +77,18 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                _errorMessage = e.Message;
+                Snackbar.Add(e.Message, Severity.Error);
             }
         }
 
-        private async Task OnCategoryChanged()
+        private async Task OnCategoryChanged(Guid? id)
         {
+            Model.CategoryId = id;
             Model.SubCategoryId = null;
             SubCategoriesLookupModels = null;
-            if (Model.CategoryId != null)
+            if (id != null)
             {
-                await LoadSubCategories(Model.CategoryId);
+                await LoadSubCategories(id);
             }
         }
 
@@ -97,14 +101,20 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                _errorMessage = e.Message;
+                Snackbar.Add(e.Message, Severity.Error);
             }
         }
 
         private async Task SaveAsync()
         {
+            if (_form is null) return;
+            await _form.Validate();
+            if (!_form.IsValid)
+            {
+                Snackbar.Add("Please fix validation errors before saving.", Severity.Warning);
+                return;
+            }
             _saving = true;
-            _errorMessage = null;
             try
             {
                 if (!_hasLoyalty)
@@ -112,11 +122,12 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                     Model.Loyalty = null;
                 }
                 await CreateCustomer();
+                Snackbar.Add("Customer created successfully.", Severity.Success);
                 NavigationManager.NavigateTo("templates/pages/customers");
             }
             catch (Exception ex)
             {
-                _errorMessage = $"Failed to save customer: {ex.Message}";
+                Snackbar.Add($"Failed to save customer: {ex.Message}", Severity.Error);
             }
             finally
             {
@@ -131,35 +142,42 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         private async Task CreateCustomer()
         {
-            await Mediator.Send(new CreateCustomerCommand(
-                name: Model.Name,
-                surname: Model.Surname,
-                email: Model.Email,
-                categoryId: Model.CategoryId.Value,
-                subCategoryId: Model.SubCategoryId.Value,
-                isActive: Model.IsActive,
-                preference: new CreateCustomerPreferenceDto
-                {
-                    NewsLetter = Model.Preference.NewsLetter,
-                    Specials = Model.Preference.Specials
-                },
-                loyalty: Model.Loyalty is not null
-                    ? new CreateCustomerCommandLoyaltyDto
+            try
+            {
+                await Mediator.Send(new CreateCustomerCommand(
+                    name: Model.Name,
+                    surname: Model.Surname,
+                    email: Model.Email,
+                    categoryId: Model.CategoryId.Value,
+                    subCategoryId: Model.SubCategoryId.Value,
+                    isActive: Model.IsActive,
+                    preference: new CreateCustomerPreferenceDto
                     {
-                        LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                        Points = Model.Loyalty.Points.Value
-                    }
-                    : null,
-                addresses: Model.Addresses
-                    .Select(a => new CreateCustomerCommandAddressesDto
-                    {
-                        Line1 = a.Line1,
-                        Line2 = a.Line2,
-                        City = a.City,
-                        Postal = a.Postal,
-                        AddressType = a.AddressType
-                    })
-                    .ToList()));
+                        NewsLetter = Model.Preference.NewsLetter,
+                        Specials = Model.Preference.Specials
+                    },
+                    loyalty: Model.Loyalty is not null
+                        ? new CreateCustomerCommandLoyaltyDto
+                        {
+                            LoyaltyNo = Model.Loyalty.LoyaltyNo,
+                            Points = Model.Loyalty.Points.Value
+                        }
+                        : null,
+                    addresses: Model.Addresses
+                        .Select(a => new CreateCustomerCommandAddressesDto
+                        {
+                            Line1 = a.Line1,
+                            Line2 = a.Line2,
+                            City = a.City,
+                            Postal = a.Postal,
+                            AddressType = a.AddressType
+                        })
+                        .ToList()));
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
         }
 
         public void AddAddress()
@@ -183,16 +201,10 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         public class CreateCustomerModel
         {
-            [Required(ErrorMessage = "Name is required")]
             public string Name { get; set; } = string.Empty;
-            [Required(ErrorMessage = "Surname is required")]
             public string Surname { get; set; } = string.Empty;
-            [Required(ErrorMessage = "Email is required")]
-            [EmailAddress(ErrorMessage = "Please enter a valid email")]
             public string Email { get; set; } = string.Empty;
-            [Required(ErrorMessage = "Category is required")]
             public Guid? CategoryId { get; set; }
-            [Required(ErrorMessage = "Sub Category is required")]
             public Guid? SubCategoryId { get; set; }
             public bool IsActive { get; set; }
             public CreateCustomerPreferenceModel Preference { get; set; } = new();
@@ -211,15 +223,11 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         }
         public class CreateCustomerCommandAddressesModel
         {
-            [Required(ErrorMessage = "Address type required")]
-            public AddressType AddressType { get; set; }
-            [Required(ErrorMessage = "Line 1 is required")]
             public string Line1 { get; set; } = string.Empty;
             public string? Line2 { get; set; }
-            [Required(ErrorMessage = "City is required")]
             public string City { get; set; } = string.Empty;
-            [Required(ErrorMessage = "Postal code is required")]
             public string Postal { get; set; } = string.Empty;
+            public AddressType AddressType { get; set; }
         }
     }
 }

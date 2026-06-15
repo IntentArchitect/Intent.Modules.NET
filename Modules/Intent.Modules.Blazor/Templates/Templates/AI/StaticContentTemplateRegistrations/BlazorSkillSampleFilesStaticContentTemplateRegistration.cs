@@ -6,13 +6,13 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations
+namespace Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations
 {
-    public class MudBlazorSkillSampleFilesStaticContentTemplateRegistration : StaticContentTemplateRegistration
+    public class BlazorSkillSampleFilesStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        public new const string TemplateId = "Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration";
 
-        public MudBlazorSkillSampleFilesStaticContentTemplateRegistration() : base(TemplateId)
+        public BlazorSkillSampleFilesStaticContentTemplateRegistration() : base(TemplateId)
         {
         }
 

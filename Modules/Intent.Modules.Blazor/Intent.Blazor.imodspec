@@ -163,16 +163,16 @@
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration" externalReference="1847a039-bc0e-41ec-9b51-a56f93d1c1b6">
       <role>Blazor.NoSample</role>
       <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration" externalReference="cf0d83f6-5edf-461b-bc7f-91a5e241dc13">
       <role>Blazor.Sample</role>
-      <location></location>
-    </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="1e3178f5-9735-494f-b95f-ecd465ff3ec8">
-      <role>AI.Context.Skills</role>
       <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="90716486-d2c5-4813-bdf8-e32192e096f8">
