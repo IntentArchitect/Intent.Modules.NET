@@ -2,6 +2,7 @@
 
 > **Scope:** Applies to all C# module code under `Modules/**`. Loaded automatically by VS Code Copilot.
 > **Directives:** Enforces structural integrity, type safety, and mandatory build validation. These rules are **non-negotiable**.
+> **Ignore:** The `InternalTestModules/` folder — it is unrelated infrastructure and should not be referenced or used as a target for module work.
 
 ---
 
