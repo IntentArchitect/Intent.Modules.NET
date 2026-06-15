@@ -118,10 +118,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            var config = RazorFile.GetConfig();
-            // temp mhh todo
-            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
-            return config;
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

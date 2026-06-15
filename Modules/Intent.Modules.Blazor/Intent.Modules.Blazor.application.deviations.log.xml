@@ -99,12 +99,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#90716486-d2c5-4813-bdf8-e32192e096f8</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-06-05T12:02:55.0236701Z</updatedAt>
-      <deviationsHash>5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1</deviationsHash>
-      <fileHash>78B510FF0FA32F564E28F2500637AFC9075063B83E42E972F4FB5424023EE111</fileHash>
+      <count>4</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-15T08:56:28.5596674Z</updatedAt>
+      <deviationsHash>530A492CFB0B6B8FDFBB18D4DD8D02EC0E4C37FF30214977F400710ED540895F</deviationsHash>
+      <fileHash>F0D321278B06C043991BCA0F9481A87BEF3C2D12154A1D9AA48052ED8375B25B</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c89e88-c8cd-4d7d-973f-f256613795d6</correlationId>
@@ -137,7 +137,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9739678Z</approvedAt>
       <deviationsHash>EB677E52EC84423A6AC719FAD686B65C99C5244DC6B8964C899617CE3749B8D2</deviationsHash>
-      <fileHash>C9D2B62363A23B49B83B638A0C5A08F2645138FECB88B4A77C3F55E964D1D515</fileHash>
+      <fileHash>5FF8239C16048916BCEDE04B82BB4C75CD13AD6E7D712B5A33B14B2BB00BF667</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</correlationId>

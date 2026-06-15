@@ -16,8 +16,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
     public class ThemeArtifactsStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration";
+
+        [IntentIgnore]
         private const string MudBlazorModuleId = "Intent.Blazor.Components.MudBlazor";
+        [IntentIgnore]
         private const string ThemeStorageScriptFileName = "theme-storage.js";
+        [IntentIgnore]
         private const string ThemeToggleFileName = "ThemeToggle.razor";
 
         public ThemeArtifactsStaticContentTemplateRegistration() : base(TemplateId)

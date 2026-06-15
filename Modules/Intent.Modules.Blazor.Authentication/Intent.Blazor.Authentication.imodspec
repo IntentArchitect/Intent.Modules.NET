@@ -46,15 +46,15 @@
       <role>Blazor.Client</role>
       <location>Components/Account/Shared</location>
     </template>
-    <template id="Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate" externalReference="9bf51ee3-9b8a-4021-a947-c4eb8e516a6d">
-      <role>Startup,Blazor</role>
-      <location>Components/Account/Shared</location>
-    </template>
-    <template id="Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate" externalReference="84d237b5-13ac-4d3c-b65c-3a10c011db65">
+    <template id="Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate" externalReference="c946e034-e095-4b30-b82d-4512cbf7b29e">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate" externalReference="9bf51ee3-9b8a-4021-a947-c4eb8e516a6d">
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
@@ -255,14 +255,6 @@
       <location>Components/Account/Pages</location>
     </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="1145f97b-3ae3-4bc4-8759-87905618b27f">
-      <role>Startup,Blazor</role>
-      <location>Components/Account/Shared</location>
-    </template>
-    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="5211171d-fc99-43ca-802b-9f68c8f586bb">
-      <role>Startup,Blazor</role>
-      <location>Components/Account/Pages</location>
-    </template>
-    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="705dd4b9-2236-4407-a5b3-25aa7d0f1eb6">
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>

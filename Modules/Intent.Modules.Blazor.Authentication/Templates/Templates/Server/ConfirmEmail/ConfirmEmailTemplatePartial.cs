@@ -124,11 +124,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            var config = RazorFile.GetConfig();
-            // TEMP (verification): force full overwrite so the Software Factory reflects pure template
-            // output rather than merging into the hand-authored file.
-            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
-            return config;
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

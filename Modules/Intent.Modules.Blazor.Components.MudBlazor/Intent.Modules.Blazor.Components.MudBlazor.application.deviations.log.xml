@@ -11,5 +11,15 @@
       <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
       <fileHash>0B70E2E822A184C568598FB8457669192D00BF09D4974B060316F3C072AEFBAB</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#586ea57e-986e-42e7-857a-6adfb025ed4a</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-15T08:57:50.9720897Z</updatedAt>
+      <deviationsHash>64DFD03F6B59B0194B634DB46C47DC0A14F4BD1E7B91BAE8DEC5B716E0C4E4A3</deviationsHash>
+      <fileHash>7AC4377FFA48D5133B762B26DA6540D98316E5055110FCF8D1D690AB221E9F04</fileHash>
+    </file>
   </files>
 </deviationsLog>

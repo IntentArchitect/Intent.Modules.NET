@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Intent.Engine;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Collections.Generic;
-using System.IO;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -14,6 +14,10 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
     public class ThemeArtifactsStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration";
+
+        // [IntentIgnore] so the Software Factory does not strip this when it regenerates this Mode.Fully file
+        // (the [IntentIgnore] CreateTemplate below depends on it).
+        [IntentIgnore]
         private const string ThemeToggleFileName = "ThemeToggle.razor";
 
         public ThemeArtifactsStaticContentTemplateRegistration() : base(TemplateId)
@@ -22,6 +26,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
 
         public override string ContentSubFolder => "Theme";
 
+        [IntentIgnore]
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
             return OverwriteBehaviour.OnceOff;
