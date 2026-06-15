@@ -2,9 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
+using Intent.Engine;
+using Intent.Eventing;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Plugins.FactoryExtensions;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
+using Intent.Templates;
+using OverwriteBehaviour = Intent.Templates.OverwriteBehaviour;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using IntentSolutionFolderModel = Intent.Modules.VisualStudio.Projects.Api.SolutionFolderModel;
 using NSubstitute;
@@ -175,6 +184,99 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
                 ["/Database/", "/Database/Infrastructure/"],
                 ignoreOrder: true);
             model.SolutionProjects.Single().FilePath.ShouldBe("Infrastructure/MyApp.Migrations/MyApp.Migrations.csproj");
+        }
+
+        [Fact]
+        public void SyncProcessor_WhenSlnxSolutionHasSolutionItems_ShouldAddFilesToFolders()
+        {
+            // Arrange
+            var solutionId = Guid.NewGuid().ToString();
+            var slnxDir = System.IO.Path.GetTempPath().TrimEnd(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar);
+            var slnxPath = System.IO.Path.Combine(slnxDir, "MyApp.slnx");
+            var itemPath = System.IO.Path.Combine(slnxDir, "dapr", "config.yaml");
+
+            var solutionElement = Substitute.For<IElement>();
+            solutionElement.Id.Returns(solutionId);
+            solutionElement.SpecializationType.Returns(VisualStudioSolutionModel.SpecializationType);
+            solutionElement.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
+            solutionElement.ParentElement.Returns((IElement)null);
+
+            var folderElement = Substitute.For<IElement>();
+            folderElement.Id.Returns(Guid.NewGuid().ToString());
+            folderElement.Name.Returns("dapr");
+            folderElement.SpecializationType.Returns(IntentSolutionFolderModel.SpecializationType);
+            folderElement.SpecializationTypeId.Returns(IntentSolutionFolderModel.SpecializationTypeId);
+            folderElement.ParentElement.Returns(solutionElement);
+            folderElement.ParentId.Returns(solutionId);
+            folderElement.ChildElements.Returns([]);
+
+            var folderModel = new IntentSolutionFolderModel(folderElement);
+            var solutionModel = new VisualStudioSolutionModel(solutionElement);
+
+            var application = Substitute.For<IApplication>();
+            application.OutputRootDirectory.Returns(slnxDir);
+            var slnxTemplate = new VisualStudioSolutionSlnxTemplate(application, solutionModel, []);
+
+            var fileMetadata = new SolutionFileMetadata(
+                outputType: "VisualStudioSolution",
+                overwriteBehaviour: OverwriteBehaviour.Always,
+                codeGenType: "UserControlledWeave",
+                fileName: "MyApp",
+                fileLocation: slnxDir,
+                fileExtension: "slnx");
+            slnxTemplate.ConfigureFileMetadata(fileMetadata);
+
+            var outputTargetId = Guid.NewGuid().ToString();
+            var outputTarget = Substitute.For<IOutputTarget>();
+            outputTarget.Id.Returns(outputTargetId);
+            outputTarget.Metadata.Returns(new Dictionary<string, object>
+            {
+                [FolderConfig.MetadataKey.IsMatch] = true,
+                [FolderConfig.MetadataKey.Model] = folderModel
+            });
+            application.OutputTargets.Returns([outputTarget]);
+
+            Action<SoftwareFactoryEvent> capturedHandler = null;
+            var dispatcher = Substitute.For<ISoftwareFactoryEventDispatcher>();
+            dispatcher
+                .When(x => x.Subscribe(SoftwareFactoryEvents.FileAddedEvent, Arg.Any<Action<SoftwareFactoryEvent>>()))
+                .Do(x => capturedHandler = x.ArgAt<Action<SoftwareFactoryEvent>>(1));
+
+            // Simulate an empty .slnx file (what the template would have already written)
+            var emptySlnx = SerializeEmptySlnx();
+            string capturedOutput = null;
+            var slnxChange = Substitute.For<IChange>();
+            slnxChange.Content.Returns(emptySlnx);
+            slnxChange.When(x => x.ChangeContent(Arg.Any<string>())).Do(x => capturedOutput = x.Arg<string>());
+
+            var changes = Substitute.For<IChanges>();
+            changes.FindChange(slnxPath).Returns(slnxChange);
+
+            var sut = new VisualStudioSolutionSyncProcessor(dispatcher, changes);
+            sut.PostCreation(slnxTemplate);
+
+            capturedHandler.ShouldNotBeNull();
+            capturedHandler(new SoftwareFactoryEvent(SoftwareFactoryEvents.FileAddedEvent, new Dictionary<string, string>
+            {
+                ["OutputTargetId"] = outputTargetId,
+                ["Path"] = itemPath
+            }));
+
+            // Act
+            sut.OnStep(application, ExecutionLifeCycleSteps.AfterTemplateExecution);
+
+            // Assert — the file should appear inside the dapr folder in the updated .slnx content
+            capturedOutput.ShouldNotBeNull();
+            capturedOutput.ShouldContain("dapr/config.yaml");
+        }
+
+        private static string SerializeEmptySlnx()
+        {
+            using var stream = new System.IO.MemoryStream();
+            Microsoft.VisualStudio.SolutionPersistence.Serializer.SolutionSerializers.SlnXml
+                .SaveAsync(stream, new Microsoft.VisualStudio.SolutionPersistence.Model.SolutionModel(), System.Threading.CancellationToken.None)
+                .GetAwaiter().GetResult();
+            return System.Text.Encoding.UTF8.GetString(stream.ToArray());
         }
 
         private static IVisualStudioSolutionProject CreateProject(
