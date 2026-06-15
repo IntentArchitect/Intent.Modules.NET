@@ -105,6 +105,42 @@ The developer models in the **Services designer** — identical to MediatR. No n
 
 ---
 
+## Middleware Migration Note
+
+For the first Wolverine module increments, we will keep the former MediatR cross-cutting concerns as **explicit generated offerings** rather than immediately collapsing them into Wolverine-native conventions.
+
+The intent is:
+
+- preserve an obvious one-to-one feature story for `Validation`, `UnitOfWork`, `UnhandledException`, `Logging`, `Performance`, and `Authorization`
+- validate each concern independently in the reference app and module output
+- only replace an explicit generated concern with a Wolverine-native equivalent once we are confident the behavior, scope, and operational characteristics are a full match
+
+This means v1 planning should assume:
+
+- `Validation` remains an explicit concern, even if later backed by Wolverine or Wolverine.HTTP validation integration
+- `UnitOfWork` remains an explicit concern, even if later backed by Wolverine transactional middleware
+- `UnhandledException`, `Logging`, `Performance`, and `Authorization` remain explicit concerns, even if later reimplemented as Wolverine middleware/policies
+
+The short-term priority is **clarity and parity**, not elegance. We can optimize toward deeper Wolverine integration after empirical confirmation.
+
+### Explicit Middleware Learnings
+
+The current reference-app investigation surfaced some important Wolverine conventions that should guide the module design:
+
+- When applying conventional middleware broadly, using the concrete message type as a middleware method parameter is fragile for reusable generated middleware because Wolverine composes every matching method on the middleware type into the generated handler chain.
+- Using interface-typed message parameters such as `ICommand` / `IQuery` in middleware methods did **not** work in the reference app. Wolverine failed to resolve those as the current message variable in generated code.
+- Using `object` as the middleware message parameter also did **not** work. Wolverine treated `object` as a service dependency instead of the current message.
+- Using `Envelope` is the promising universal hook for broad middleware because it is always available and exposes the current message through `envelope.Message`, plus structural metadata such as `Id`, `MessageType`, and `Destination`.
+- Middleware types applied by policy may still need DI registration if Wolverine chooses to resolve the middleware type from the service provider for generated chains.
+
+Practical implication for module design:
+
+- for broad explicit behaviors, prefer `Envelope`-based middleware over interface-typed or `object`-typed message parameters
+- keep one concern per middleware type
+- be cautious about multiple overloaded middleware methods on the same type, because Wolverine may compose all of them into the same generated chain
+
+---
+
 ## Test Strategy
 
 **Increment 1 dispatch:** In-process local — no external infrastructure, no Docker required.
@@ -229,9 +265,13 @@ public async Task<ActionResult<ItemDto>> GetItemById([FromRoute] Guid id, Cancel
 | 5 | No appsettings keys in v1 | Standard — in-process CQRS needs no transport config | Transport configuration belongs to future out-of-process Wolverine modules | Phase 1.2 |
 | 6 | Explicitly include the Application assembly for discovery in split-project apps | Empirical — reference app (Phase R.3) | `Program` assembly scanning alone is insufficient when handlers live in a separate Application project; `opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly)` successfully discovered and invoked handlers | reference-app-builder |
 | 7 | Pin v1 to Wolverine 5.x | Empirical — reference app (Phase R.3) and NuGet compatibility matrix | Wolverine 5.39.5 supports .NET 8/9/10 and ran successfully in the reference app. Wolverine 6.x drops .NET 8 support and changes service-location defaults in ways that would block the stated module targets | reference-app-builder |
+| 8 | Keep cross-cutting concerns explicit first | User direction | Validation, unit of work, exception handling, logging, performance, and authorization should be generated as explicit offerings first, then swapped to Wolverine-native equivalents only after full confirmation | current task |
+| 9 | Prefer `Envelope` for broad conventional middleware | Empirical - reference app investigation | Interface-typed (`ICommand` / `IQuery`) and `object` message parameters did not generate correctly for reusable middleware; `Envelope` is the stable universal hook to continue with | current task |
 
 ## Open Questions
 
 | # | Question | Blocking | Raised by |
 |---|---|---|---|
 | 1 | Can we eliminate Wolverine 5.x service-location warnings for `DbContext` and AutoMapper-backed repositories without changing the generated Clean Architecture registration style? | Increment 1 — affects whether Wolverine 6.x can be supported later without extra generated registration strategy | Phase R.3 |
+| 2 | For each explicit cross-cutting concern, which Wolverine-native feature is truly equivalent versus only approximately similar? | Increment 1+ — affects whether explicit generated middleware can later be replaced safely | current task |
+| 3 | Which broad explicit concerns should remain as generated conventional middleware versus be emitted directly into handler/controller code for maximum predictability? | Increment 1+ — the reference app proved that conventional middleware shape matters a lot to Wolverine's generated chain compiler | current task |

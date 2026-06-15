@@ -1,0 +1,50 @@
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+using Wolverine;
+using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
+using Wolverine.CQRS.TestApplication.Application.Common.Validation;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace Wolverine.CQRS.TestApplication.Application.Common.Behaviours
+{
+    public class ValidationMiddleware
+    {
+        public async Task BeforeAsync(Envelope envelope, IValidatorProvider validatorProvider, CancellationToken cancellationToken)
+        {
+            await ValidateAsync(envelope.Message, validatorProvider, cancellationToken);
+        }
+
+        private static async Task ValidateAsync(object request, IValidatorProvider validatorProvider, CancellationToken cancellationToken)
+        {
+            if (request is IBypassPipelineValidation)
+            {
+                return;
+            }
+
+            var validator = GetValidator(request, validatorProvider);
+            if (validator is null)
+            {
+                return;
+            }
+
+            var context = new ValidationContext<object>(request);
+            var validationResult = await validator.ValidateAsync(context, cancellationToken);
+            var failures = validationResult.Errors.Where(error => error is not null).ToList();
+
+            if (failures.Count != 0)
+            {
+                throw new ValidationException(failures);
+            }
+        }
+
+        private static IValidator? GetValidator(object request, IValidatorProvider validatorProvider)
+        {
+            var providerMethod = typeof(IValidatorProvider)
+                .GetMethod(nameof(IValidatorProvider.GetValidator))!
+                .MakeGenericMethod(request.GetType());
+
+            return providerMethod.Invoke(validatorProvider, null) as IValidator;
+        }
+    }
+}

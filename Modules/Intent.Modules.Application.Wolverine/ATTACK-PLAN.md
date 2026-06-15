@@ -145,8 +145,36 @@ Intent.Modules.Application.Wolverine/
 | 1 — Core templates + DI | ⬜ Not started | — | — |
 | 2 — Controller dispatch | ⬜ Not started | — | — |
 | Reference app | ✅ Complete | Reference app builds and dispatches through Wolverine; split-project discovery requires explicit Application assembly include | Pin v1 to Wolverine 5.39.5; use `IncludeAssembly(typeof(CreateItemCommandHandler).Assembly)` |
+| Explicit middleware investigation | 🟨 In progress | Interface-typed and `object` middleware message parameters both failed in generated Wolverine chains; `Envelope` is the current working direction under investigation | Record findings immediately; bias module design toward `Envelope`-based conventional middleware |
 
 ---
+
+## Cross-Cutting Concern Strategy
+
+For this module, the current implementation stance is:
+
+- make the MediatR-era behaviors explicit first
+- prove each concern in generated output and in the reference app
+- only then substitute Wolverine-native middleware/features where the equivalence is fully understood
+
+The explicit concerns to track are:
+
+- validation
+- unit of work / transaction handling
+- unhandled exception handling
+- logging
+- performance timing
+- authorization
+
+This is intentionally conservative. The goal is to avoid prematurely hiding behavior behind Wolverine features before we can prove feature parity.
+
+### Confirmed Implementation Notes
+
+- Prefer `Envelope` as the universal middleware input when a behavior must apply across many messages.
+- Do not rely on interface-typed middleware message parameters like `ICommand` / `IQuery` for broad conventional middleware. The reference app produced unresolvable generated variables.
+- Do not rely on `object` as the broad middleware message parameter. The reference app showed Wolverine treating that as a service dependency, not the current message.
+- Avoid multiple overloaded middleware methods for different concrete message types on the same middleware class when applying that middleware broadly. Wolverine composed all matching methods into the same generated chain and produced invalid generated code.
+- If we keep conventional middleware as the explicit offering, one concern per middleware type and `Envelope`-based access is the safest current direction.
 
 ## Implementation Increments
 
