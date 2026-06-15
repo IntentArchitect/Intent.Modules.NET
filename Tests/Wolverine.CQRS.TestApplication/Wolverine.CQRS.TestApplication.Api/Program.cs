@@ -8,7 +8,6 @@ using Wolverine.CQRS.TestApplication.Api.Logging;
 using Wolverine.CQRS.TestApplication.Application;
 using Wolverine.CQRS.TestApplication.Application.Common.Behaviours;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
-using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
 using Wolverine.CQRS.TestApplication.Infrastructure;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -35,16 +34,6 @@ namespace Wolverine.CQRS.TestApplication.Api
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-                builder.Host.UseWolverine(opts =>
-                {
-                    opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly);
-                    opts.Policies.AddMiddleware<AuthorizationMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
-                    opts.Policies.AddMiddleware<ValidationMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
-                    opts.Policies.AddMiddleware<LoggingMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
-                    opts.Policies.AddMiddleware<PerformanceMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
-                    opts.Policies.AddMiddleware<UnhandledExceptionMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
-                    opts.Policies.AddMiddleware<UnitOfWorkMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType));
-                });
 
                 builder.Services.AddControllers(
                     opt =>

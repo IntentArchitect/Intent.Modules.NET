@@ -10,6 +10,7 @@
 | Single query with response | Query element, return type set → `Task<T> Handle(query, ct)` | None | Standard Services designer Query element sufficient |
 | Command with return value (e.g. Guid) | Command element, return type set → `Task<Guid> Handle(cmd, ct)` | None | Same as query path — return type on command drives handler signature |
 | Two commands, different handlers | Two Command elements → two handler files | None | Wolverine maps by message type; no routing config needed |
+| Zero-property query (list-all) | Query element with no properties → `new GetItemsQuery()` in controller; handler returns `Task<List<T>>` | None | Controller emits `new GetItemsQuery()` with no initializer block |
 | Instance handler classes | No stereotype — always instance, always discovered by `Handler` suffix | None | Module convention — no designer surface needed |
 | Zero Wolverine usings in Application layer | No stereotype — handler body is developer-owned, no framework ref needed | None | Clean CA — this is a design advantage, not a gap |
 | CancellationToken in Handle method | Always generated in skeleton — no config needed | None | Module always emits `CancellationToken cancellationToken` as last param |
@@ -48,12 +49,20 @@
 
 | File | Base Class | Model Type | Registration | Managed |
 |---|---|---|---|---|
-| `{Command}.cs` | `CSharpTemplateBase<CommandModel>` | `CommandModel` | `FilePerModelTemplateRegistration<CommandModel>` | Fully |
-| `{Command}Handler.cs` | `CSharpTemplateBase<CommandModel>` | `CommandModel` | `FilePerModelTemplateRegistration<CommandModel>` | Merge body — `Handle()` body is developer-owned |
-| `{Query}.cs` | `CSharpTemplateBase<QueryModel>` | `QueryModel` | `FilePerModelTemplateRegistration<QueryModel>` | Fully |
-| `{Query}Handler.cs` | `CSharpTemplateBase<QueryModel>` | `QueryModel` | `FilePerModelTemplateRegistration<QueryModel>` | Merge body — `Handle()` body is developer-owned |
-| `UseWolverine` startup block | **FactoryExtension** — no standalone template | N/A | N/A | N/A — injected into existing startup template |
-| Controller `IMessageBus` injection | **FactoryExtension** — modifies existing controller template | N/A | N/A | N/A — AfterBuild on controller template |
+| `ICommand.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `IQuery.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `{Command}.cs` | `CSharpTemplateBase<CommandModel>` | `CommandModel` | `FilePerModelTemplateRegistration<CommandModel>` | Fully — implements `ICommand` |
+| `{Command}Handler.cs` | `CSharpTemplateBase<CommandModel>` | `CommandModel` | `FilePerModelTemplateRegistration<CommandModel>` | Merge body — `Handle()` body is `Body = Mode.Ignore` |
+| `{Query}.cs` | `CSharpTemplateBase<QueryModel>` | `QueryModel` | `FilePerModelTemplateRegistration<QueryModel>` | Fully — implements `IQuery` |
+| `{Query}Handler.cs` | `CSharpTemplateBase<QueryModel>` | `QueryModel` | `FilePerModelTemplateRegistration<QueryModel>` | Merge body — `Handle()` body is `Body = Mode.Ignore` |
+| `ValidationMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `UnitOfWorkMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `LoggingMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `PerformanceMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `UnhandledExceptionMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `AuthorizationMiddleware.cs` | `IntentTemplateBase` | (none) | `SingleFileTemplateRegistration` | Fully |
+| `UseWolverine` startup block | **FactoryExtension** (`FactoryExtensionBase`) | N/A | N/A — injects into `Intent.AspNetCore.Program` template via `FindTemplateInstance` | N/A |
+| Controller `IMessageBus` injection | **FactoryExtension** (`FactoryExtensionBase`) | N/A | N/A — AfterBuild on controller template (priority 500) | N/A |
 
 **GetModels implementations:**
 ```csharp
@@ -141,11 +150,11 @@ Intent.Modules.Application.Wolverine/
 
 | Increment | Status | Outcome / Blocker | Decisions made |
 |---|---|---|---|
-| Scaffold | ⬜ Not started | — | — |
-| 1 — Core templates + DI | ⬜ Not started | — | — |
-| 2 — Controller dispatch | ⬜ Not started | — | — |
-| Reference app | ✅ Complete | Reference app builds and dispatches through Wolverine; split-project discovery requires explicit Application assembly include | Pin v1 to Wolverine 5.39.5; use `IncludeAssembly(typeof(CreateItemCommandHandler).Assembly)` |
-| Explicit middleware investigation | 🟨 In progress | Interface-typed and `object` middleware message parameters both failed in generated Wolverine chains; `Envelope` is the current working direction under investigation | Record findings immediately; bias module design toward `Envelope`-based conventional middleware |
+| Reference app | ✅ Complete | Build green; Item entity + EF InMemory; 6 Wolverine middlewares implemented and verified; `ICommand`/`IQuery` markers used for middleware predicate targeting | `typeof(ICommand).Assembly` for discovery (hand-crafted app used `CreateItemCommandHandler` — corrected for module impl); `Envelope`-based middleware; `ICommand`/`IQuery` markers required; `UnitOfWorkMiddleware` uses `TransactionScope?` threading pattern; all 6 middleware types require explicit `AddTransient<>` in `AddApplication()` |
+| Scaffold | ✅ Complete | 12 templates + 2 factory extensions + WolverineFx NuGet in designer; `dotnet build` exits 0; module packaged as `Intent.Application.Wolverine.1.0.0-pre.0.imod` | SDK versions bumped to Common/CSharp 3.9.0, SDK 3.11.0 to match repo standard; `<Version>1.0.0-pre.0</Version>` added to csproj |
+| 1 — Core CQRS templates + ICommand/IQuery | ✅ Complete | SF generates correct POCOs, handler stubs, ICommand/IQuery interfaces; test app builds green | Old reference-app sub-folder files (Items/CreateItem/, Items/GetItemById/, Items/GetItems/) deleted — module generates flat layout; stale sub-namespace usings removed from ItemsController.cs and Program.cs |
+| 2 — Middleware templates + UseWolverine startup | 🔄 In progress | 5/6 middleware template bodies implemented (see below); WolverineRegistrationFactoryExtension pending | Cross-module type IDs confirmed: ICurrentUserService=`Intent.Application.Identity.CurrentUserServiceInterface`; IValidatorProvider=`Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface`; IBypassPipelineValidation=`Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface`; IUnitOfWork=`Intent.Entities.Repositories.Api.UnitOfWorkInterface`; AuthorizeAttribute=`Intent.Application.Identity.AuthorizeAttribute`; ForbiddenAccessException=`Intent.Application.Identity.ForbiddenAccessException` |
+| 3 — Controller dispatch | ⬜ Not started | — | — |
 
 ---
 
@@ -168,13 +177,16 @@ The explicit concerns to track are:
 
 This is intentionally conservative. The goal is to avoid prematurely hiding behavior behind Wolverine features before we can prove feature parity.
 
-### Confirmed Implementation Notes
+### Confirmed Implementation Notes (verified in reference app commit 4d9ef87073)
 
-- Prefer `Envelope` as the universal middleware input when a behavior must apply across many messages.
-- Do not rely on interface-typed middleware message parameters like `ICommand` / `IQuery` for broad conventional middleware. The reference app produced unresolvable generated variables.
-- Do not rely on `object` as the broad middleware message parameter. The reference app showed Wolverine treating that as a service dependency, not the current message.
-- Avoid multiple overloaded middleware methods for different concrete message types on the same middleware class when applying that middleware broadly. Wolverine composed all matching methods into the same generated chain and produced invalid generated code.
-- If we keep conventional middleware as the explicit offering, one concern per middleware type and `Envelope`-based access is the safest current direction.
+- **`ICommand`/`IQuery` as method parameters on middleware = failed.** Wolverine tried to resolve them from DI and could not.
+- **`ICommand`/`IQuery` in `chain.MessageType` predicate = correct.** `opts.Policies.AddMiddleware<T>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType))` works perfectly. The interfaces are used in the host registration predicate, NOT in the middleware method signatures.
+- **`Envelope` is the correct broad middleware parameter.** All 6 middleware classes use `Envelope envelope` to access the message — never `ICommand`, `IQuery`, or `object`.
+- **`object` as a middleware parameter = failed.** Wolverine treats it as a service dependency.
+- **Avoid multiple overloaded middleware methods on the same class for different message types.** Wolverine composes all matching methods into the same chain.
+- **`UnitOfWorkMiddleware` uses Wolverine's return-value-threading pattern.** `Before()` returns `TransactionScope?`; Wolverine automatically threads it as the first parameter of `AfterAsync(TransactionScope? tx, ...)`.
+- **`PerformanceMiddleware` uses the same threading pattern.** `Before()` returns `Stopwatch`; `FinallyAsync(Stopwatch stopwatch, ...)` receives it automatically.
+- **`[WolverineOnException]` attribute on `UnhandledExceptionMiddleware.OnException()`** — standard Wolverine exception handling hook; no special return type needed.
 
 ## Implementation Increments
 
@@ -188,10 +200,14 @@ This is intentionally conservative. The goal is to avoid prematurely hiding beha
 - `dotnet build` on the module `.csproj` exits 0
 - Module appears in the Module Builder designer
 
-### Increment 1 — Core CQRS Templates + UseWolverine Startup
-**Goal:** For each modeled Command/Query, SF generates a POCO class and a handler class. `UseWolverine()` appears in the target app's `Program.cs`.
-**Designer prereq:** At least one Command and one Query modeled in the Services designer of the target application.
+### Increment 1 — Core CQRS Templates + ICommand/IQuery Interfaces
+**Goal:** SF generates `ICommand.cs`, `IQuery.cs`, and for each modeled Command/Query: a POCO class implementing the marker interface + a handler skeleton.
+**Designer prereq:** At least one Command and one Query modeled in the Services designer.
 **Files:**
+- [ ] `Templates/CommandInterface/CommandInterfaceTemplatePartial.cs`
+- [ ] `Templates/CommandInterface/CommandInterfaceTemplateRegistration.cs`
+- [ ] `Templates/QueryInterface/QueryInterfaceTemplatePartial.cs`
+- [ ] `Templates/QueryInterface/QueryInterfaceTemplateRegistration.cs`
 - [ ] `Templates/CommandModels/CommandModelsTemplatePartial.cs`
 - [ ] `Templates/CommandModels/CommandModelsTemplateRegistration.cs`
 - [ ] `Templates/CommandHandler/CommandHandlerTemplatePartial.cs`
@@ -200,70 +216,158 @@ This is intentionally conservative. The goal is to avoid prematurely hiding beha
 - [ ] `Templates/QueryModels/QueryModelsTemplateRegistration.cs`
 - [ ] `Templates/QueryHandler/QueryHandlerTemplatePartial.cs`
 - [ ] `Templates/QueryHandler/QueryHandlerTemplateRegistration.cs`
-- [ ] `FactoryExtensions/WolverineRegistrationFactoryExtension.cs`
+
 **Generated shapes:**
 ```csharp
-// Command POCO — fully generated
-public class CreateItemCommand { public string Name { get; set; } }
+// ICommand.cs — Application/Common/Interfaces — single file
+public interface ICommand { }
 
-// Command handler — merge body
-[IntentManaged(Mode.Merge)]
+// IQuery.cs — Application/Common/Interfaces — single file
+public interface IQuery { }
+
+// Command POCO — implements ICommand
+public class CreateItemCommand : ICommand { public string Name { get; set; } = null!; }
+
+// Command handler — Merge+Fully; Handle body = Ignore
+[IntentManaged(Mode.Merge, Signature = Mode.Fully)]
 public class CreateItemCommandHandler
 {
+    [IntentManaged(Mode.Merge)]
+    public CreateItemCommandHandler() { }
+
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public async Task Handle(CreateItemCommand command, CancellationToken cancellationToken)
-        => throw new NotImplementedException();
+        => throw new NotImplementedException("Your implementation here...");
 }
 
-// Query POCO — fully generated
-public class GetItemByIdQuery { public Guid Id { get; set; } }
+// Query POCO — implements IQuery
+public class GetItemByIdQuery : IQuery { public Guid Id { get; set; } }
 
-// Query handler — merge body
-[IntentManaged(Mode.Merge)]
+// Query handler — same pattern; return type from Query.TypeReference
+[IntentManaged(Mode.Merge, Signature = Mode.Fully)]
 public class GetItemByIdQueryHandler
 {
+    [IntentManaged(Mode.Merge)]
+    public GetItemByIdQueryHandler() { }
+
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public async Task<ItemDto> Handle(GetItemByIdQuery query, CancellationToken cancellationToken)
-        => throw new NotImplementedException();
+        => throw new NotImplementedException("Your implementation here...");
 }
-
-// Program.cs addition
-builder.Host.UseWolverine(opts =>
-{
-    opts.Discovery.IncludeAssembly(typeof(Program).Assembly);
-});
 ```
+
+**Handler return type logic:** `model.TypeReference.Element == null` → `Task`; otherwise → `Task<{GetTypeName(model.TypeReference)}>`
+
 **Success criteria:**
-- SF runs with exit code 0
-- 4 files generated per modeled Command + Query pair
-- `WolverineFx` appears in `.csproj`
-- `UseWolverine(...)` present in `Program.cs`
-- `dotnet build` on target app exits 0 (handlers throw `NotImplementedException` — that is correct)
+- `ICommand.cs` and `IQuery.cs` generated in `Application/Common/Interfaces`
+- 4 files per Command + Query pair; all implement the appropriate marker interface
+- `dotnet build` exits 0
 **Skills:** `file-builder-expert`, `intent-module-orchestrator`
 
-### Increment 2 — Controller Dispatch
-**Goal:** Generated ASP.NET Core controllers inject `IMessageBus` (not `IMediator`) and dispatch via `InvokeAsync`.
+### Increment 2 — Middleware Templates + UseWolverine Startup
+**Goal:** Six `Envelope`-based Wolverine middlewares generated; `UseWolverine()` with full middleware policy registration in `Program.cs`.
+**Designer prereq:** Increment 1 complete.
+**Files:**
+- [ ] `Templates/Behaviours/ValidationMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `Templates/Behaviours/UnitOfWorkMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `Templates/Behaviours/LoggingMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `Templates/Behaviours/PerformanceMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `Templates/Behaviours/UnhandledExceptionMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `Templates/Behaviours/AuthorizationMiddleware/...TemplatePartial.cs + ...TemplateRegistration.cs`
+- [ ] `FactoryExtensions/WolverineRegistrationFactoryExtension.cs`
+
+**Key shapes (all verified in reference app):**
+```csharp
+// ValidationMiddleware — Envelope + IValidatorProvider
+public class ValidationMiddleware
+{
+    public async Task BeforeAsync(Envelope envelope, IValidatorProvider validatorProvider, CancellationToken cancellationToken) { ... }
+}
+
+// UnitOfWorkMiddleware — TransactionScope threading pattern (Commands only)
+public class UnitOfWorkMiddleware
+{
+    public static TransactionScope? Before(IUnitOfWork dataSource) { ... }
+    public static async Task AfterAsync(TransactionScope? tx, IUnitOfWork dataSource, CancellationToken cancellationToken) { ... }
+}
+
+// PerformanceMiddleware — Stopwatch threading pattern
+public class PerformanceMiddleware
+{
+    public Stopwatch Before(Envelope envelope) { ... }
+    public async Task FinallyAsync(Stopwatch stopwatch, Envelope envelope, ILogger logger, ...) { ... }
+}
+
+// UnhandledExceptionMiddleware
+public class UnhandledExceptionMiddleware
+{
+    [WolverineOnException]
+    public void OnException(Exception exception, Envelope envelope, ILogger logger) { ... }
+}
+```
+
+**Application-layer DI registration (also required in `AddApplication()`):**
+
+`WolverineRegistrationFactoryExtension` must also inject 6 `AddTransient<>` calls into the Application layer's `AddApplication()` method via `ContainerRegistrationRequest` or direct template mutation:
+
+```csharp
+services.AddTransient<AuthorizationMiddleware>();
+services.AddTransient<LoggingMiddleware>();
+services.AddTransient<PerformanceMiddleware>();
+services.AddTransient<UnhandledExceptionMiddleware>();
+services.AddTransient<UnitOfWorkMiddleware>();
+services.AddTransient<ValidationMiddleware>();
+```
+
+**UseWolverine injection (all 6 AddMiddleware calls):**
+```csharp
+builder.Host.UseWolverine(opts =>
+{
+    // Use typeof(ICommand) as the stable assembly anchor — ICommand is generated by this module
+    // and always lives in the Application project. Do NOT use typeof(CreateItemCommandHandler)
+    // (user type) — FactoryExtensions cannot reference user-generated types directly.
+    opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly);
+    // ICommand/IQuery used in chain.MessageType predicate — NOT as method params
+    opts.Policies.AddMiddleware<AuthorizationMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
+    opts.Policies.AddMiddleware<ValidationMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
+    opts.Policies.AddMiddleware<LoggingMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
+    opts.Policies.AddMiddleware<PerformanceMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
+    opts.Policies.AddMiddleware<UnhandledExceptionMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType) || typeof(IQuery).IsAssignableFrom(chain.MessageType));
+    opts.Policies.AddMiddleware<UnitOfWorkMiddleware>(chain => typeof(ICommand).IsAssignableFrom(chain.MessageType));
+});
+```
+
+**Success criteria:**
+- All 6 middleware files generated
+- `UseWolverine(...)` with all 6 `AddMiddleware` calls in `Program.cs`
+- `WolverineFx` in API project `.csproj`
+- `dotnet build` exits 0
+**Skills:** `file-builder-expert`, `intent-module-orchestrator`
+
+### Increment 3 — Controller Dispatch
+**Goal:** Generated controllers inject `IMessageBus` and dispatch via `InvokeAsync`.
 **Designer prereq:** At least one Command/Query mapped to a controller endpoint.
 **Files:**
 - [ ] `FactoryExtensions/WolverineControllerDispatchExtension.cs`
-**Generated change (per controller):**
+
+**Generated changes (per controller, verified in reference app):**
 ```csharp
-// Field + constructor injection
-private readonly IMessageBus _bus;
-public ItemsController(IMessageBus bus) { _bus = bus; }
+private readonly IMessageBus _messageBus;
+public ItemsController(IMessageBus messageBus) { _messageBus = messageBus; }
 
-// Action — command, no return
-await _bus.InvokeAsync(command, cancellationToken);
-return Ok();
+// Command returning Guid — uses InvokeAsync<T>
+var id = await _messageBus.InvokeAsync<Guid>(command, cancellationToken);
+return CreatedAtAction(nameof(GetItemById), new { id }, id);
 
-// Action — query / command with return
-var result = await _bus.InvokeAsync<ItemDto>(query, cancellationToken);
-return Ok(result);
+// Query with return type
+var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery { Id = id }, cancellationToken);
+return result == null ? NotFound() : Ok(result);
 ```
+
 **Success criteria:**
-- No `IMediator` / `ISender` / MediatR references in any generated controller
-- `using Wolverine;` present in controller files
-- `dotnet build` on target app exits 0
+- No `IMediator`/`ISender`/MediatR references in any generated controller
+- `using Wolverine;` in controller files
+- `dotnet build` exits 0
 **Skills:** `intent-module-orchestrator`, `file-builder-expert`
 
 ### Reference App — Hand-crafted verification
@@ -292,6 +396,7 @@ return Ok(result);
 | Increment | Skills |
 |---|---|
 | Scaffold | `intent-module-builder` |
-| 1 | `file-builder-expert`, `intent-module-orchestrator` |
-| 2 | `intent-module-orchestrator`, `file-builder-expert` |
-| Reference app | `reference-app-builder` |
+| 1 — Core CQRS + interfaces | `file-builder-expert`, `intent-module-orchestrator` |
+| 2 — Middleware + startup | `file-builder-expert`, `intent-module-orchestrator` |
+| 3 — Controller dispatch | `intent-module-orchestrator`, `file-builder-expert` |
+| Reference app | `reference-app-builder` ✅ Complete |

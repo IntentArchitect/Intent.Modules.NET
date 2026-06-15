@@ -3,9 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Items;
-using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
-using Wolverine.CQRS.TestApplication.Application.Items.GetItemById;
-using Wolverine.CQRS.TestApplication.Application.Items.GetItems;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]

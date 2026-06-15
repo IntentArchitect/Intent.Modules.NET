@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f6fee47f-5cd1-48b2-96f5-4f34ce653fa9" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>WolverineRegistrationFactoryExtension</name>
+  <display>WolverineRegistrationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</parentFolderId>
+  <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+  <packageName>Intent.Application.Wolverine</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

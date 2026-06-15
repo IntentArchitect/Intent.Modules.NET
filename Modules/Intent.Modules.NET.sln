@@ -414,6 +414,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.Constants", "Intent.Modules.Infrastructure.Constants\Intent.Modules.Infrastructure.Constants.csproj", "{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Wolverine", "Intent.Modules.Application.Wolverine\Intent.Modules.Application.Wolverine.csproj", "{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1088,6 +1090,10 @@ Global
 		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1274,6 +1280,7 @@ Global
 		{E492480E-7810-4634-83AC-C8E3C16E1CAD} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
 		{69C56294-27F8-4388-B351-2C07BCE835ED} = {DF68BE63-8664-4738-9512-7A8571C650E5}
 		{EACA506B-BEDC-434D-9CFF-9B5D202E4AAE} = {89E0C178-1FD2-4864-887C-C84EE20406B7}
+		{2C954EEB-64A0-4C7E-B0DF-8C5E148EF90B} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
