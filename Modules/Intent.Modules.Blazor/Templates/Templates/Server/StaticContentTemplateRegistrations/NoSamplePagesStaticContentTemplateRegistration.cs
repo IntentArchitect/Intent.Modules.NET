@@ -38,7 +38,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
         };
 
-
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
             return OverwriteBehaviour.OnceOff;

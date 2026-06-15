@@ -32,24 +32,52 @@ description: Creates Blazor add or create entity pages using MudBlazor forms, pr
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"
+  - "**/design.md"
+  - "**/ux-tokens.css"
+  - "**/ux-base.css"
+  - "**/ux-components.css"
 ---
 
 ## MANDATORY: Read Samples Before Implementation
 
-STOP - You MUST read ALL sample files in the SAME folder as this SKILL.md before writing ANY code:
+STOP — you MUST read ALL of the following before writing ANY code:
 
+**Samples** (in the SAME folder as this SKILL.md):
 1. `add-entity-sample.razor`
 2. `add-entity-sample.razor.cs`
 
-Then read the target component `.razor`, `.razor.cs`, and related project files such as models, enums, lookups, services, and shared styles.
+**Target component and project files:**
+3. The target `.razor` and `.razor.cs`
+4. Related project files: models, enums, lookups, services
 
-If any sample file cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+
+---
+
+## MANDATORY: Match Sample Layout (Visual Structure)
+
+When a sample exists, you MUST match the sample's visual structure, not only its data behavior.
+
+Required process:
+
+1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
+2. If the sample uses shared utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`), verify they exist by grepping for the class name as a **substring** across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone. If the class name appears anywhere in any CSS file, it exists and must be used.
+
+Forbidden:
+
+- Replacing the hero header with a different structure unless explicitly requested
+- Dropping the sample's utility classes when they exist in the target project
 
 ---
 
 ## Preserve Existing Implementation
 
-Use for: Add or create entity pages in Blazor with MudBlazor  
+Use for: Add or create entity pages in Blazor with MudBlazor
 Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects  
 Source of truth: Existing `.razor.cs` file defines service calls, navigation, model structure, and save flow
 
@@ -153,15 +181,22 @@ For `for` loops:
 - Never modify existing shared styles, variables, or theme values
 - Match the sample layout closely without introducing unnecessary wrappers
 
-**Design context (if design.md is present)**
+**Design and styling context**
 
-If a `design.md` file exists in the project, read it before choosing MudBlazor component properties. Use it for:
+You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
+
+Use `design.md` for:
 - Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
 - `Color` semantics for primary, secondary, and error actions
 - Card elevation and hover behaviour
 - Form control variant (`Variant.Outlined` / `Variant.Filled` / `Variant.Underline`)
 
-`design.md` informs prop choices only — it does not override the sample's layout structure.
+Use the CSS files for:
+- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
+- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
+- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
+
+These files inform styling choices only — they do not override the sample's layout structure.
 
 ---
 
@@ -176,6 +211,8 @@ If a `design.md` file exists in the project, read it before choosing MudBlazor c
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation is wired and Save is disabled when invalid or loading
 - [ ] Shared styles were preserved and component styling remained minimal
+- [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
+- [ ] Sample utility classes were verified to exist in the target project and reused when available
 
 """);
         }

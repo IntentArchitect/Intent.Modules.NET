@@ -35,7 +35,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             app.AfterBuild(file =>
             {
                 // Add Mudblazor dependencies
-                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "ux-tokens.css"));
+                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "ux-components.css"));
                 if (baseElement != null)
                 {
                     baseElement.AddBelow(

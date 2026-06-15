@@ -61,6 +61,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("href", "ux-tokens.css"));
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-base.css"));
+                            head.AddHtmlElement("link", t => t
+                                .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-components.css"));
+                            head.AddHtmlElement("link", t => t
+                                .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
                             if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
                             {
