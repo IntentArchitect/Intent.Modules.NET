@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4093979c-15bd-43c1-9444-58fca07def8b">
+  <sourceEnd id="34acc7b7-0c6b-49f1-a409-708381873abc" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Items.CreateItemCommand</display>
+    <order>0</order>
+    <typeReference id="2795bea0-a0bc-4f53-a53f-081f3553c5ee">
+      <typeId>073b406f-886f-4643-b4b5-9b951f7e7520</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.CQRS.TestApplication.Services</typePackageName>
+      <typePackageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4093979c-15bd-43c1-9444-58fca07def8b" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>item</name>
+    <display>[create] item: Item</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="23c5b993-5ab2-485a-bcd3-57f590ac88cd">
+      <typeId>5189f549-dd7f-496f-9f34-fa92cfa260be</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.CQRS.TestApplication.Domain</typePackageName>
+      <typePackageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="41ee3259-07cd-468f-b00f-4cdcb26bec14" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="073b406f-886f-4643-b4b5-9b951f7e7520" location="[Wolverine.CQRS.TestApplication].[Services].[CreateItemCommand]" />
+        <target applicationId="41ee3259-07cd-468f-b00f-4cdcb26bec14" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5189f549-dd7f-496f-9f34-fa92cfa260be" location="[Wolverine.CQRS.TestApplication].[Services].[Item]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateItemCommand}</expression>
+            <path>
+              <target id="5189f549-dd7f-496f-9f34-fa92cfa260be" name="Item" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateItemCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="073b406f-886f-4643-b4b5-9b951f7e7520" name="CreateItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="5189f549-dd7f-496f-9f34-fa92cfa260be" name="Item" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="da9eb9be-628e-44e8-bc96-2a62ba884c26" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="073b406f-886f-4643-b4b5-9b951f7e7520" name="CreateItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1405aaae-9936-4dc4-b471-135061e38ec1" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

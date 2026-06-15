@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5189f549-dd7f-496f-9f34-fa92cfa260be" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Simple aggregate root used by the CQRS sample handlers.</comment>
+  <name>Item</name>
+  <display>Item</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>df1d14f7-6b19-4376-b3c9-dc45aa802b25</parentFolderId>
+  <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+  <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="22078710-3e4a-458e-a2fc-a88f25ad478d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="296886af-d8e4-4412-b8c2-b24886450023">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5189f549-dd7f-496f-9f34-fa92cfa260be</parentFolderId>
+      <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+      <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="da9eb9be-628e-44e8-bc96-2a62ba884c26" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="07a127da-0662-451f-b905-7d2344aa9ba1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5189f549-dd7f-496f-9f34-fa92cfa260be</parentFolderId>
+      <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+      <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

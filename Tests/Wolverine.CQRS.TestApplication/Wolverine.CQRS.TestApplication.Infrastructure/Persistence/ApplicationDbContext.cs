@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.CQRS.TestApplication.Domain.Common;
 using Wolverine.CQRS.TestApplication.Domain.Common.Interfaces;
+using Wolverine.CQRS.TestApplication.Domain.Entities.Items;
+using Wolverine.CQRS.TestApplication.Infrastructure.Persistence.Configurations.Items;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -17,6 +19,8 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Persistence
         {
             _domainEventService = domainEventService;
         }
+
+        public DbSet<Item> Items { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -39,6 +43,7 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ItemConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

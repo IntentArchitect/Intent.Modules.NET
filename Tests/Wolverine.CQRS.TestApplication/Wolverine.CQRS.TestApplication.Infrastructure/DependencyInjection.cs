@@ -4,7 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.CQRS.TestApplication.Domain.Common.Interfaces;
+using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 using Wolverine.CQRS.TestApplication.Infrastructure.Persistence;
+using Wolverine.CQRS.TestApplication.Infrastructure.Repositories.Items;
 using Wolverine.CQRS.TestApplication.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,7 +25,7 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddTransient<IItemRepository, ItemRepository>();
             return services;
         }
     }
