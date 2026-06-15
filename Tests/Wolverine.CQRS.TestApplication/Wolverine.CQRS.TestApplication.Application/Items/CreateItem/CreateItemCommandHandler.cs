@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Wolverine.CQRS.TestApplication.Domain.Entities.Items;
 using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 
@@ -9,7 +8,7 @@ using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand>
+    public class CreateItemCommandHandler
     {
         private readonly IItemRepository _itemRepository;
 

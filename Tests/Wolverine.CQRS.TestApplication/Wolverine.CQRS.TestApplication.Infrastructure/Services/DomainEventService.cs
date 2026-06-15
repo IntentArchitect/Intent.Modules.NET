@@ -1,8 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Logging;
+using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
-using Wolverine.CQRS.TestApplication.Application.Common.Models;
 using Wolverine.CQRS.TestApplication.Domain.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,28 +12,18 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Services
     public class DomainEventService : IDomainEventService
     {
         private readonly ILogger<DomainEventService> _logger;
-        private readonly IPublisher _mediator;
+        private readonly IMessageBus _messageBus;
 
-        public DomainEventService(ILogger<DomainEventService> logger, IPublisher mediator)
+        public DomainEventService(ILogger<DomainEventService> logger, IMessageBus messageBus)
         {
             _logger = logger;
-            _mediator = mediator;
+            _messageBus = messageBus;
         }
 
         public async Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Publishing domain event. Event - {event}", domainEvent.GetType().Name);
-            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
-        }
-
-        private static INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)
-        {
-            var result = Activator.CreateInstance(
-                typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
-
-            return result == null
-                ? throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>")
-                : (INotification)result;
+            await _messageBus.PublishAsync(domainEvent);
         }
     }
 }

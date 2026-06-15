@@ -1,7 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Items;
 using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
 using Wolverine.CQRS.TestApplication.Application.Items.GetItemById;
@@ -15,11 +15,11 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly ISender _mediator;
+        private readonly IMessageBus _messageBus;
 
-        public ItemsController(ISender mediator)
+        public ItemsController(IMessageBus messageBus)
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromBody] CreateItemCommand command,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(command, cancellationToken);
+            await _messageBus.InvokeAsync(command, cancellationToken);
             return Created(string.Empty, null);
         }
 
@@ -52,7 +52,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetItemByIdQuery(id: id), cancellationToken);
+            var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery { Id = id }, cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
     }

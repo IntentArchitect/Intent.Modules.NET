@@ -8,7 +8,7 @@
 - **Discovery model:** Assembly scanning by class name suffix (`Handler` or `Consumer`). Static classes require `[WolverineHandler]` attribute or `IWolverineHandler` interface explicitly — but Intent generates instance classes so this does not apply.
 - **Lifecycle:** Built-in. `UseWolverine()` on `IHostBuilder` registers Wolverine as a hosted service — no manual lifecycle management needed.
 - **DI integration:** Native. Supports both constructor injection (on instance handler classes) and method injection (additional parameters on `Handle()` beyond the message type). Intent generates instance classes using constructor injection for consistency with developer expectations.
-- **Key NuGet package:** `WolverineFx` (namespace `Wolverine`). Version must be compatible with .NET 8, 9, and 10 — confirmed during reference-app-builder.
+- **Key NuGet package:** `WolverineFx` (namespace `Wolverine`). `5.39.5` is validated in the reference app and is compatible with .NET 8, 9, and 10.
 - **Application layer contamination:** **Zero.** Handler classes require no Wolverine `using` statements. `IMessageBus` is only referenced in the API layer (controllers). This is architecturally cleaner than MediatR where `IRequestHandler<,>` enters the Application layer.
 
 ---
@@ -46,7 +46,7 @@
 ```csharp
 builder.Host.UseWolverine(opts =>
 {
-    opts.Discovery.IncludeAssembly(typeof(Program).Assembly);
+    opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly);
 });
 ```
 
@@ -79,7 +79,7 @@ None required for the core CQRS module. Transport keys (connection strings, endp
 | `{Command}Handler.cs` | Application | Merge body | Class fully generated; `Handle()` body is developer-owned |
 | `{Query}.cs` | Application | Fully | Plain POCO with properties from designer |
 | `{Query}Handler.cs` | Application | Merge body | Class fully generated; `Handle()` body is developer-owned |
-| `Program.cs` (UseWolverine block) | Infrastructure/Startup | Fully (injected by FactoryExtension) | Added via `ContainerRegistrationRequest` / startup extension |
+| `Program.cs` (UseWolverine block) | Infrastructure/Startup | Fully (injected by FactoryExtension) | Added via `ContainerRegistrationRequest` / startup extension; in split-project apps the Application assembly must be explicitly included for handler discovery |
 | Controller field + dispatch calls | API | Fully (injected by FactoryExtension) | Replaces `IMediator` field and `Send()` calls with `IMessageBus` and `InvokeAsync` |
 
 ---
@@ -177,7 +177,7 @@ public class GetItemByIdQueryHandler
 // Program.cs addition — injected by FactoryExtension
 builder.Host.UseWolverine(opts =>
 {
-    opts.Discovery.IncludeAssembly(typeof(Program).Assembly);
+    opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly);
 });
 ```
 
@@ -227,11 +227,11 @@ public async Task<ActionResult<ItemDto>> GetItemById([FromRoute] Guid id, Cancel
 | 3 | Zero Wolverine usings in Application layer | Standard — Wolverine docs + CA principle | Handler classes discovered by name suffix; no framework type required in Application layer; cleaner than MediatR | Phase 1.2 |
 | 4 | Controller uses constructor injection for `IMessageBus` | Intent Convention — existing controller template pattern | Consistent with all other Intent controller templates; unit-testable | Phase 1.2 |
 | 5 | No appsettings keys in v1 | Standard — in-process CQRS needs no transport config | Transport configuration belongs to future out-of-process Wolverine modules | Phase 1.2 |
-| 6 | `IncludeAssembly(typeof(Program).Assembly)` for discovery | Standard — Wolverine docs example | Scans the entry-point assembly where all generated handlers live; simple and correct for a single-assembly Clean Architecture app | Phase 1.3 |
+| 6 | Explicitly include the Application assembly for discovery in split-project apps | Empirical — reference app (Phase R.3) | `Program` assembly scanning alone is insufficient when handlers live in a separate Application project; `opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly)` successfully discovered and invoked handlers | reference-app-builder |
+| 7 | Pin v1 to Wolverine 5.x | Empirical — reference app (Phase R.3) and NuGet compatibility matrix | Wolverine 5.39.5 supports .NET 8/9/10 and ran successfully in the reference app. Wolverine 6.x drops .NET 8 support and changes service-location defaults in ways that would block the stated module targets | reference-app-builder |
 
 ## Open Questions
 
 | # | Question | Blocking | Raised by |
 |---|---|---|---|
-| 1 | Exact minimum `WolverineFx` NuGet version compatible with .NET 8, 9, and 10 | Increment 1 — needed for `.imodspec` NuGet declaration | Phase 1.1 |
-| 2 | Does `IncludeAssembly(typeof(Program).Assembly)` cover handlers in a separate Application class library (multi-project Clean Architecture), or must each assembly be listed separately? | Increment 1 — affects DI registration template | Phase 1.3 |
+| 1 | Can we eliminate Wolverine 5.x service-location warnings for `DbContext` and AutoMapper-backed repositories without changing the generated Clean Architecture registration style? | Increment 1 — affects whether Wolverine 6.x can be supported later without extra generated registration strategy | Phase R.3 |

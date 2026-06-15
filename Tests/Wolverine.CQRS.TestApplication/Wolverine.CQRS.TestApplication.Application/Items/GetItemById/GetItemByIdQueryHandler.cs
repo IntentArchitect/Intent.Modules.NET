@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Wolverine.CQRS.TestApplication.Domain.Common.Exceptions;
 using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 
@@ -9,7 +8,7 @@ using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 namespace Wolverine.CQRS.TestApplication.Application.Items.GetItemById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetItemByIdQueryHandler : IRequestHandler<GetItemByIdQuery, ItemDto>
+    public class GetItemByIdQueryHandler
     {
         private readonly IItemRepository _itemRepository;
 

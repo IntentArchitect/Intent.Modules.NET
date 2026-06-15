@@ -100,9 +100,9 @@ Package: `WolverineFx` — always registered, no conditional flag.
 Framework-specific minimum versions (to be confirmed by reference-app-builder):
 | Target Framework | WolverineFx version |
 |---|---|
-| net8.0 | 3.x (minimum to confirm) |
-| net9.0 | 3.x (same line — to confirm) |
-| net10.0 | 3.x (same line — to confirm) |
+| net8.0 | 5.39.5 |
+| net9.0 | 5.39.5 |
+| net10.0 | 5.39.5 |
 
 Pattern (from `DependencyInjection.MediatR/NugetPackages.cs`):
 ```csharp
@@ -144,7 +144,7 @@ Intent.Modules.Application.Wolverine/
 | Scaffold | ⬜ Not started | — | — |
 | 1 — Core templates + DI | ⬜ Not started | — | — |
 | 2 — Controller dispatch | ⬜ Not started | — | — |
-| Reference app | ⬜ Not started | — | — |
+| Reference app | ✅ Complete | Reference app builds and dispatches through Wolverine; split-project discovery requires explicit Application assembly include | Pin v1 to Wolverine 5.39.5; use `IncludeAssembly(typeof(CreateItemCommandHandler).Assembly)` |
 
 ---
 
@@ -239,16 +239,24 @@ return Ok(result);
 **Skills:** `intent-module-orchestrator`, `file-builder-expert`
 
 ### Reference App — Hand-crafted verification
-**Goal:** The golden output files from PATTERN-DOCUMENT.md compile, start up cleanly, and a controller → handler round-trip is observable (handler body reached, `NotImplementedException` thrown as proof).
+**Goal:** The golden output files from PATTERN-DOCUMENT.md compile, start up cleanly, and a controller → handler round-trip is observable.
 **Responsibility:** `reference-app-builder` skill
 **Location:** `Tests/Wolverine.CQRS.TestApplication` in `Intent.Modules.NET.Tests.isln`
+**Status:** green ✅
+**Evidence:**
+- `dotnet build` passed for `Wolverine.CQRS.TestApplication.Api`
+- `POST /api/items` returned `201`, proving Wolverine discovered and executed `CreateItemCommandHandler`
+- `GET /api/items/{id}` returned `404` from `GetItemByIdQueryHandler`'s `NotFoundException` path, proving inline query dispatch executed the handler
+**Corrections captured from reference app:**
+- In a split-project Clean Architecture app, Wolverine must explicitly include the Application assembly for handler discovery
+- Wolverine `5.39.5` is the validated package line for .NET 8/9/10 support
 **Steps:**
 1. Scaffold a Clean Architecture application using Intent Architect
 2. Install standard modules (AspNetCore.Controllers, DependencyInjection, etc.)
 3. Run SF — get MediatR baseline output
 4. Swap out MediatR references for Wolverine equivalents manually
 5. Verify `dotnet build` exits 0
-6. Start the app and hit a controller endpoint — confirm `NotImplementedException` is thrown from the handler
+6. Start the app and hit controller endpoints — confirm Wolverine dispatch reaches the generated handlers
 
 ---
 

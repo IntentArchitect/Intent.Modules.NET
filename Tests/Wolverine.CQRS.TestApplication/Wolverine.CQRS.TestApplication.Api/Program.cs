@@ -5,7 +5,9 @@ using Wolverine.CQRS.TestApplication.Api.Configuration;
 using Wolverine.CQRS.TestApplication.Api.Filters;
 using Wolverine.CQRS.TestApplication.Api.Logging;
 using Wolverine.CQRS.TestApplication.Application;
+using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
 using Wolverine.CQRS.TestApplication.Infrastructure;
+using Wolverine;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,6 +33,10 @@ namespace Wolverine.CQRS.TestApplication.Api
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+                builder.Host.UseWolverine(opts =>
+                {
+                    opts.Discovery.IncludeAssembly(typeof(CreateItemCommandHandler).Assembly);
+                });
 
                 builder.Services.AddControllers(
                     opt =>
