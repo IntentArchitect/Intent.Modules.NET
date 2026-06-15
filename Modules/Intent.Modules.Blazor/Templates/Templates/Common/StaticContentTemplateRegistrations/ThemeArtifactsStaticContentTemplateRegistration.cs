@@ -85,6 +85,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
             var fileName = Path.GetFileName(fileRelativePath);
             return fileName.Equals(ThemeStorageScriptFileName, StringComparison.OrdinalIgnoreCase)
                    || fileName.StartsWith(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase)
+                   || fileRelativePath.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)
+                   || fileRelativePath.EndsWith(".razor.css", StringComparison.OrdinalIgnoreCase)
                 ? OverwriteBehaviour.Always
                 : GetDefaultOverrideBehaviour(outputTarget);
         }
