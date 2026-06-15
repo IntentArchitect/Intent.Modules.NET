@@ -13,6 +13,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Filters
 {
     public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
+        [IntentIgnore]
         public void OnException(ExceptionContext context)
         {
             switch (context.Exception)
