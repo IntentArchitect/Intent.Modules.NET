@@ -12,8 +12,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
     public abstract class AuthStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         private const string RazorScopedCssSuffix = ".razor.css";
-        private const string ManageLayoutFileName = "ManageLayout.razor";
-        private const string ManageLayoutCodeBehindFileName = "ManageLayout.razor.cs";
+        private const string RazorCodeBehindSuffix = ".razor.cs";
 
         protected AuthStaticContentTemplateRegistration(string templateId) : base(templateId)
         {
@@ -68,10 +67,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
         private OverwriteBehaviour GetOverwriteBehaviour(IOutputTarget outputTarget, string fileRelativePath)
         {
-            var fileName = Path.GetFileName(fileRelativePath);
-            return fileRelativePath.EndsWith(RazorScopedCssSuffix, StringComparison.OrdinalIgnoreCase)
-                   || fileName.Equals(ManageLayoutFileName, StringComparison.OrdinalIgnoreCase)
-                   || fileName.Equals(ManageLayoutCodeBehindFileName, StringComparison.OrdinalIgnoreCase)
+            return fileRelativePath.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)
+                   || fileRelativePath.EndsWith(RazorScopedCssSuffix, StringComparison.OrdinalIgnoreCase)
+                   || fileRelativePath.EndsWith(RazorCodeBehindSuffix, StringComparison.OrdinalIgnoreCase)
                 ? OverwriteBehaviour.Always
                 : GetDefaultOverrideBehaviour(outputTarget);
         }

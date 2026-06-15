@@ -37,6 +37,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
         {
             // StartsWith covers both ThemeToggle.razor and its co-located ThemeToggle.razor.css.
             var overwriteBehaviour = Path.GetFileName(fileRelativePath).StartsWith(ThemeToggleFileName, StringComparison.OrdinalIgnoreCase)
+                                     || fileRelativePath.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)
+                                     || fileRelativePath.EndsWith(".razor.css", StringComparison.OrdinalIgnoreCase)
                 ? OverwriteBehaviour.Always
                 : defaultOverwriteBehaviour;
 

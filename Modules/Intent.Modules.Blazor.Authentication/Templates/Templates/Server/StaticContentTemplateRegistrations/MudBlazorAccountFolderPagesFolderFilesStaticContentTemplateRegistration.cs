@@ -16,6 +16,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public class MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration : AuthStaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration";

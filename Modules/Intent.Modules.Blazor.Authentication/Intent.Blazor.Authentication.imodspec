@@ -258,6 +258,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="7931ea0d-272b-4c4e-aaea-bfba5357534c">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="9aa987fd-7b3c-45fe-b0d0-ffb2d572c8fa">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Shared</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
