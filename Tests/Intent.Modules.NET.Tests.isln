@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.5" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.7" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="ASP.NET Core" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" solutionFolder="Azure Functions" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -209,5 +209,6 @@
     <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="NServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.SQS/NServiceBus.SQS.application.config" />
     <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="NServiceBus.OutboxPattern.Publish" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Publish/NServiceBus.OutboxPattern.Publish.application.config" />
     <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="NServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Subscribe/NServiceBus.OutboxPattern.Subscribe.application.config" />
+    <application id="41ee3259-07cd-468f-b00f-4cdcb26bec14" name="Wolverine.CQRS.TestApplication" solutionFolder="Architecture" relativePath="Wolverine.CQRS.TestApplication/Wolverine.CQRS.TestApplication.application.config" />
   </applications>
 </solution>

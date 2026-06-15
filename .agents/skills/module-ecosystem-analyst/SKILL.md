@@ -1,6 +1,6 @@
 ---
 name: module-ecosystem-analyst
-description: "Use after tech-pattern-researcher produces a Pattern Document. Scans the Intent Architect ecosystem — what existing modules provide, what designer elements drive generation, what SDK building blocks to use — and produces an Attack Plan: an ordered list of implementation increments with specific files, base classes, and success criteria. TRIGGER: when a Pattern Document is in hand and the next step is planning the implementation."
+description: "Use after reference-app-builder produces a green reference application. Reads the reference app's actual generated code to understand what the Intent ecosystem already provides, then maps the remaining work to SDK building blocks and produces an Attack Plan: an ordered list of implementation increments with specific files, base classes, and success criteria. TRIGGER: when the reference app is green and the next step is planning the module implementation."
 argument-hint: "[Pattern Document or path to it]"
 ---
 
@@ -21,7 +21,7 @@ Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions ar
 ## Musts
 
 1. **Use `search_docs` to verify Intent SDK patterns** before assigning base classes or event types. Do not assume from memory — SDK APIs evolve.
-2. **Use MCP tools to inspect the open Intent solution.** Check what the target application's designer already contains: what modeler elements exist, what packages are configured, what Eventing.Contracts already generates.
+2. **Read the reference app's actual generated output first.** The reference app was scaffolded with real Intent modules installed and SF run. Walk the generated files to discover what the ecosystem already provides — what is already there does not need to be re-generated. Use MCP tools to inspect the designer only to clarify element types or metadata, not as the primary source of what's generated.
 3. **Read the MassTransit module structure as a reference** (`e:/Intent.Modules.NET/Modules/Intent.Modules.Eventing.MassTransit/`) — but only for structural conventions (imodspec shape, folder layout, NugetPackages.cs pattern). Never copy its template logic for a different technology.
 4. **Assign an Intent SDK base class to every template** in the file list before producing the Attack Plan.
 5. **Separate single-file templates from file-per-model templates.** File-per-model templates drive one output file per designer element instance (e.g. one consumer per handler). Single-file templates produce one output regardless of model count (e.g. NServiceBusConfiguration).

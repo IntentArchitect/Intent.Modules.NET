@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F1F00408-C3BA-4795-9B5D-D89EC3D31054}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.CQRS.TestApplication.Api", "Wolverine.CQRS.TestApplication.Api\Wolverine.CQRS.TestApplication.Api.csproj", "{548A70E8-6B65-4427-97CF-41CC1F9A2B4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EFDD035C-2FD9-4A77-8EB0-C0A361D7D501}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.CQRS.TestApplication.Application", "Wolverine.CQRS.TestApplication.Application\Wolverine.CQRS.TestApplication.Application.csproj", "{EFE7879B-333D-45D0-81CB-EB34CE702F74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{5FEFF174-DD7F-41C4-A7EF-3DB757069C85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.CQRS.TestApplication.Domain", "Wolverine.CQRS.TestApplication.Domain\Wolverine.CQRS.TestApplication.Domain.csproj", "{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{9D32D043-94C6-426E-9DC9-010FA79694D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.CQRS.TestApplication.Infrastructure", "Wolverine.CQRS.TestApplication.Infrastructure\Wolverine.CQRS.TestApplication.Infrastructure.csproj", "{4D3FE5CA-127F-4E06-A0B3-1248758262E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{548A70E8-6B65-4427-97CF-41CC1F9A2B4B} = {F1F00408-C3BA-4795-9B5D-D89EC3D31054}
+		{EFE7879B-333D-45D0-81CB-EB34CE702F74} = {EFDD035C-2FD9-4A77-8EB0-C0A361D7D501}
+		{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC} = {5FEFF174-DD7F-41C4-A7EF-3DB757069C85}
+		{4D3FE5CA-127F-4E06-A0B3-1248758262E6} = {9D32D043-94C6-426E-9DC9-010FA79694D0}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{548A70E8-6B65-4427-97CF-41CC1F9A2B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548A70E8-6B65-4427-97CF-41CC1F9A2B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548A70E8-6B65-4427-97CF-41CC1F9A2B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548A70E8-6B65-4427-97CF-41CC1F9A2B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE7879B-333D-45D0-81CB-EB34CE702F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE7879B-333D-45D0-81CB-EB34CE702F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE7879B-333D-45D0-81CB-EB34CE702F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE7879B-333D-45D0-81CB-EB34CE702F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0C58F9-262C-4C0C-8FA9-1CA7A0E8C4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3FE5CA-127F-4E06-A0B3-1248758262E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3FE5CA-127F-4E06-A0B3-1248758262E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3FE5CA-127F-4E06-A0B3-1248758262E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3FE5CA-127F-4E06-A0B3-1248758262E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,6 +1,6 @@
 ---
 name: tech-pattern-researcher
-description: "Use after module-kickoff produces a Requirements Summary. Researches the technology in isolation, maps it to Clean Architecture, and defines exactly what the module must generate. TRIGGER: when a Requirements Summary is in hand and the next step is understanding how to implement it. Produces a Pattern Document — the input to module-ecosystem-analyst."
+description: "Use after module-kickoff produces a Requirements Summary. Researches the technology in isolation, maps it to Clean Architecture, and defines exactly what the module must generate. TRIGGER: when a Requirements Summary is in hand and the next step is understanding how to implement it. Produces a Pattern Document — the input to reference-app-builder."
 argument-hint: "[Requirements Summary or path to it]"
 ---
 
@@ -299,6 +299,6 @@ Unresolved items carried forward — do not proceed past the blocking increment 
 
 ## Handoff
 
-Once the Pattern Document is complete, load **`module-ecosystem-analyst`** and pass the Pattern Document as context.
+Once the Pattern Document is complete, load **`reference-app-builder`** and pass the Pattern Document as context.
 
-> After `module-ecosystem-analyst` produces the Attack Plan, the next step is **`reference-app-builder`** — not `intent-module-builder`. The reference app must be built and verified before any module scaffolding begins.
+> The reference app comes next — not `module-ecosystem-analyst`. The app is scaffolded by Intent Architect with standard modules installed, then the technology-specific files are hand-crafted on top of the real generated output. This gives the ecosystem analyst real code to analyse rather than abstract docs. `module-ecosystem-analyst` runs after the reference app is green.
