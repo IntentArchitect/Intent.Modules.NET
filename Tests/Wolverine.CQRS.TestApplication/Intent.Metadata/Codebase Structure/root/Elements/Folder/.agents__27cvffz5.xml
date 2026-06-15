@@ -132,48 +132,6 @@
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="344a9320-54a8-4217-98e0-682d2bb91660" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</name>
-          <display>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</display>
-          <externalReference>Intent.MediatR.DomainEvents</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>db712a09-d1a8-4ff9-a981-75a11359beb1</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="359a89d6-d0af-488c-8e5c-56a9d7a01ec3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.CommandHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.CommandHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>db712a09-d1a8-4ff9-a981-75a11359beb1</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="35e13b2d-9abf-4ea8-97e7-67e8f26384ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.QueryHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.QueryHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>db712a09-d1a8-4ff9-a981-75a11359beb1</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
         <childElement id="a7962de7-0c7d-43d4-bc70-57362f205e09" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.Entities.DomainEntitySkill</name>
           <display>Intent.Entities.DomainEntitySkill</display>

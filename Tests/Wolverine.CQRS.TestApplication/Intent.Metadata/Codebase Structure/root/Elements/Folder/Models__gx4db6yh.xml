@@ -23,19 +23,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f9e4cd24-5751-49a3-b79a-c8a570b90733" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MediatR.DomainEvents.DomainEventNotification</name>
-      <display>Intent.MediatR.DomainEvents.DomainEventNotification</display>
-      <externalReference>Intent.MediatR.DomainEvents</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7b01b4d7-e3e3-44ac-ad0f-4bded4560013</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

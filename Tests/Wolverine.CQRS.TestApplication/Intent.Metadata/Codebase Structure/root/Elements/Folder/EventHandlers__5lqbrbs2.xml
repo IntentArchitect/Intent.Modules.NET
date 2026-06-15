@@ -8,48 +8,5 @@
   <parentFolderId>efe7879b-333d-45d0-81cb-eb34ce702f74</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="dc19f11b-0c23-4e8a-9bac-b909a7f3de7f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MediatR.DomainEvents.AggregateManager</name>
-      <display>Intent.MediatR.DomainEvents.AggregateManager</display>
-      <externalReference>Intent.MediatR.DomainEvents</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7f681551-bb24-4b0f-8623-e3664ef53072</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="4a84b28f-d5d9-4b0d-b9c9-f7dccb92f09b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</name>
-      <display>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</display>
-      <externalReference>Intent.MediatR.DomainEvents</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7f681551-bb24-4b0f-8623-e3664ef53072</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="9c4372d1-2d1f-471b-81f9-96a739bde6cd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MediatR.DomainEvents.DomainEventHandler</name>
-      <display>Intent.MediatR.DomainEvents.DomainEventHandler</display>
-      <externalReference>Intent.MediatR.DomainEvents</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7f681551-bb24-4b0f-8623-e3664ef53072</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>
