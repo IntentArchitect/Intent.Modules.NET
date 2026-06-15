@@ -33,6 +33,19 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 9. Do not override `TemplateMetadata` or `Migrations` for brand-new templates. Only add them when there is a real `ITemplateMigration`.
 10. When writing new code or changing a specific call site, do not introduce `[Obsolete]` API usage. Leave unrelated existing obsolete code alone.
 
+## Comments
+
+Default to **no comments**. A template's name, `TemplateId`, and fluent calls are self-documenting. Add a comment only when the **why** is non-obvious to a reader who knows the SDK:
+
+- A workaround for a specific SDK or merger bug (reference the bug/issue if possible)
+- A constraint that isn't visible from the code — e.g. "must run after X template because it reads metadata set there"
+- A subtle invariant that looks wrong but is intentional
+
+**Never comment:**
+- What the code does — well-named builder calls already say that (`AddClass`, `WithFileExtension`, `IntentManagedMerge`)
+- Why a template exists or what it pairs with — that belongs in SKILL.md or the Module Builder designer comment field, not the code
+- Cross-template design patterns — a reader navigating templates can see the pairing from the names and the `GetCodeBehind()` call
+
 ## Pattern Index
 
 Read the relevant pattern file **before generating code** for that scenario:

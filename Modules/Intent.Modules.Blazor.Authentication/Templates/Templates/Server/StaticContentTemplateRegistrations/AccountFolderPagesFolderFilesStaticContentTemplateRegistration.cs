@@ -17,6 +17,9 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
+    // Signature = Mode.Merge so the Software Factory preserves the hand-set base class
+    // (AuthStaticContentTemplateRegistration, which provides RegisterAuthStaticContent) on regeneration.
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public class AccountFolderPagesFolderFilesStaticContentTemplateRegistration : AuthStaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration";

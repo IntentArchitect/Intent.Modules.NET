@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayoutCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -63,34 +64,35 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                         AddStandardAccountShell(file);
                     }
 
-                    file.AddCodeBlock(code =>
+                    // Route the @code members into the sibling AccountLayout.razor.cs code-behind (via
+                    // GetCodeBehind), so usings are managed there. Falls back to an inline @code block if
+                    // the code-behind template isn't present.
+                    var code = GetCodeBehind();
+                    code.AddProperty($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext")}?", "HttpContext", httpContext =>
                     {
-                        code.AddProperty("HttpContext?", "HttpContext", httpContext =>
+                        httpContext.Private();
+                        httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute"));
+                    });
+
+                    if (mudBlazorInstalled)
+                    {
+                        // Derive the Mud dark/light mode from the theme cookie on the server so the
+                        // (circuit-free) static-SSR account pages render the correct palette first paint.
+                        code.AddProperty("bool", "IsDarkTheme", isDarkTheme =>
                         {
-                            httpContext.Private();
-                            httpContext.AddAttribute("CascadingParameter");
+                            isDarkTheme.Private();
+                            isDarkTheme.WithoutSetter().Getter.WithExpressionImplementation(
+                                @"!(HttpContext?.Request.Cookies.TryGetValue(""theme"", out var theme) == true && theme == ""light"")");
                         });
+                    }
 
-                        if (mudBlazorInstalled)
+                    code.AddMethod("void", "OnParametersSet", onParametersSet =>
+                    {
+                        onParametersSet.Protected().Override();
+
+                        onParametersSet.AddIfStatement("HttpContext is null", @if =>
                         {
-                            // Derive the Mud dark/light mode from the theme cookie on the server so the
-                            // (circuit-free) static-SSR account pages render the correct palette first paint.
-                            code.AddProperty("bool", "IsDarkTheme", isDarkTheme =>
-                            {
-                                isDarkTheme.Private();
-                                isDarkTheme.WithoutSetter().Getter.WithExpressionImplementation(
-                                    @"!(HttpContext?.Request.Cookies.TryGetValue(""theme"", out var theme) == true && theme == ""light"")");
-                            });
-                        }
-
-                        code.AddMethod("void", "OnParametersSet", onParametersSet =>
-                        {
-                            onParametersSet.Protected().Override();
-
-                            onParametersSet.AddIfStatement("HttpContext is null", @if =>
-                            {
-                                @if.AddStatement("NavigationManager.Refresh(forceReload: true);");
-                            });
+                            @if.AddStatement("NavigationManager.Refresh(forceReload: true);");
                         });
                     });
                 });
@@ -110,6 +112,40 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
         public override string TransformText() => RazorFile.ToString();
+
+        // Code-behind plumbing: routes the @code members into the sibling AccountLayoutCodeBehindTemplate
+        // (.razor.cs) when present, falling back to an inline @code block otherwise. Mirrors the account
+        // pages and Intent.Modules.Blazor's RazorComponentTemplateBase without requiring a model.
+        private IBuildsCSharpMembers _codeBehind;
+
+        public ICSharpFileBuilderTemplate CodeBehindTemplate { get; private set; }
+
+        public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            CodeBehindTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(AccountLayoutCodeBehindTemplate.TemplateId);
+        }
+
+        private IBuildsCSharpMembers GetCodeBehind()
+        {
+            if (_codeBehind != null)
+            {
+                return _codeBehind;
+            }
+
+            if (CodeBehindTemplate != null)
+            {
+                _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                RazorFile.AddCodeBlock(x => _codeBehind = x);
+            }
+
+            return _codeBehind;
+        }
 
         private static void AddMudBlazorAccountShell(IRazorFile file)
         {

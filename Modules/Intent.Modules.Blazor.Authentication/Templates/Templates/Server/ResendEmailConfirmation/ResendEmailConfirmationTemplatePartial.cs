@@ -153,23 +153,23 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
                     }
                     else
                     {
-                    file.AddHtmlElement("h1", element => element.WithText("Resend email confirmation"));
-                    file.AddHtmlElement("h2", element => element.WithText("Enter your email."));
-                    file.AddHtmlElement($"hr");
-                    file.AddHtmlElement($"div", element => element.AddClass("row")
-                        .AddHtmlElement("div", element => element.AddClass("col-md-4")
-                            .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "resend-email-confirmation").AddAttribute("OnValidSubmit", "OnValidSubmitAsync").AddAttribute("method", "post")
-                                .AddHtmlElement("DataAnnotationsValidator")
-                                .AddHtmlElement("ValidationSummary", element => element.AddClass("text-danger").AddAttribute("role", "alert"))
-                                .AddHtmlElement("div", element => element.AddClass("form-floating mb-3")
-                                    .AddHtmlElement("InputText", element => element.AddClass("form-control").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com"))
-                                    .AddHtmlElement("label", element => element.AddClass("form-label").AddAttribute("for", "email").WithText("Email"))
-                                    .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))
-                                .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit").WithText("Resend"))
-                                )
+                        file.AddHtmlElement("h1", element => element.WithText("Resend email confirmation"));
+                        file.AddHtmlElement("h2", element => element.WithText("Enter your email."));
+                        file.AddHtmlElement($"hr");
+                        file.AddHtmlElement($"div", element => element.AddClass("row")
+                            .AddHtmlElement("div", element => element.AddClass("col-md-4")
+                                .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "resend-email-confirmation").AddAttribute("OnValidSubmit", "OnValidSubmitAsync").AddAttribute("method", "post")
+                                    .AddHtmlElement("DataAnnotationsValidator")
+                                    .AddHtmlElement("ValidationSummary", element => element.AddClass("text-danger").AddAttribute("role", "alert"))
+                                    .AddHtmlElement("div", element => element.AddClass("form-floating mb-3")
+                                        .AddHtmlElement("InputText", element => element.AddClass("form-control").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com"))
+                                        .AddHtmlElement("label", element => element.AddClass("form-label").AddAttribute("for", "email").WithText("Email"))
+                                        .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))
+                                    .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit").WithText("Resend"))
+                                    )
+                                 )
                              )
-                         )
-                     );
+                         );
 
                     }
 
@@ -213,10 +213,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Resend
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            var config = RazorFile.GetConfig();
-            // TEMP (verification): force full overwrite so the Software Factory reflects pure template output.
-            config.ConfigureRazorMerger(merger => merger.WithDefaultMode(Intent.RoslynWeaver.Attributes.Mode.Fully));
-            return config;
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

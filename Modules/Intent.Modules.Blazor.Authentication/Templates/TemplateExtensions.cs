@@ -5,6 +5,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.RedirectTo
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayoutCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationDbContext;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNetCoreIdentityAuthServiceConcrete;
@@ -54,6 +55,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetUserInfoTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(UserInfoTemplate.TemplateId);
+        }
+
+        public static string GetAccountLayoutCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AccountLayoutCodeBehindTemplate.TemplateId);
         }
         public static string GetApplicationDbContextTemplateName(this IIntentTemplate template)
         {
