@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Intent.Engine;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
@@ -76,11 +75,25 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
         private string[] GetBinaryFiles(string contentDir)
         {
-            var getBinaryFiles = typeof(StaticContentTemplateRegistration)
-                .GetMethod("GetBinaryFiles", BindingFlags.NonPublic | BindingFlags.Instance);
-            return getBinaryFiles != null
-                ? (string[])getBinaryFiles.Invoke(this, new object[] { contentDir })!
-                : Array.Empty<string>();
+            if (BinaryFileGlobbingPatterns.Length == 0)
+            {
+                return Array.Empty<string>();
+            }
+
+            return Directory.EnumerateFiles(contentDir, "*.*", System.IO.SearchOption.AllDirectories)
+                .Where(IsBinaryFile)
+                .ToArray();
+        }
+
+        // All BinaryFileGlobbingPatterns are simple "*.ext" globs, so a suffix match is sufficient. This
+        // avoids both a Microsoft.Extensions.FileSystemGlobbing dependency and reflecting into the base
+        // class's private binary-file detection.
+        private bool IsBinaryFile(string fileFullPath)
+        {
+            var extension = Path.GetExtension(fileFullPath);
+            return BinaryFileGlobbingPatterns.Any(pattern =>
+                pattern.StartsWith("*.", StringComparison.Ordinal)
+                && extension.Equals(pattern.Substring(1), StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -179,6 +179,10 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="c7e3e3af-11e5-4fc0-b380-50442e0e0587">
+      <role>Blazor.ThemeToggle</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
       <role>Blazor.NoSample</role>
       <location></location>

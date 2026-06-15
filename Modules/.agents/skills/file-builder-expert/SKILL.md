@@ -1,6 +1,6 @@
 ---
 name: file-builder-expert
-description: "Use when converting a standard C# class template or source file into an Intent Architect File Builder template, especially when asked to create a builder for this file, convert TransformText string output to CSharpFile fluent API, or generate matching template registration classes."
+description: "Use when converting a standard C# class template or source file into an Intent Architect File Builder template, especially when asked to create a builder for this file, convert TransformText string output to CSharpFile fluent API, or generate matching template registration classes. Also covers authoring StaticContentTemplateRegistration classes that ship static files (CSS / JS / Razor / images) from a module's content folder."
 argument-hint: "[source file] [target template name] [single-file|file-per-model|custom]"
 ---
 
@@ -174,9 +174,27 @@ public partial class SampleTemplate : CSharpTemplateBase<object>, ICSharpFileBui
 |---------------|-------------------|
 | Single output file | `SingleFileTemplateRegistration` |
 | One file per model | `FilePerModelTemplateRegistration<TModel>` — override `GetModels` |
+| Static files from `content/` folder | `StaticContentTemplateRegistration` — set `ContentSubFolder` (see below) |
 | Event/pipeline driven | `ITemplateRegistration` |
 
 `TemplateId` must be defined as `public const string` in the template and referenced by name from the registration.
+
+## Static Content Templates
+
+A `StaticContentTemplateRegistration` ships every file under `content/<ContentSubFolder>` into the generated app. The base `Register` **already** locates the content folder (relative to the module assembly), enumerates files, splits binary vs text via `BinaryFileGlobbingPatterns`, and registers each one. Your subclass should only **declare** and **gate** — it must never re-implement that enumeration. Reference implementations: `SamplePagesStaticContentTemplateRegistration`, `BlazorSkillSampleFilesStaticContentTemplateRegistration`, `ThemeArtifactsStaticContentTemplateRegistration` (all in `Intent.Modules.Blazor`).
+
+### Musts
+1. Declare `ContentSubFolder` and `BinaryFileGlobbingPatterns`; leave the file walking to `base.Register`.
+2. To ship a folder only under a condition (a setting, an installed module), override `Register`, guard, then call `base.Register(registry, application)` — e.g. `if (!application.GetSettings()....) return; base.Register(registry, application);`.
+3. For **per-file** overwrite behaviour, override `CreateTemplate` / `CreateBinaryTemplate`. They receive `fileRelativePath` and the default `OverwriteBehaviour`, so branch on the path and call `base.CreateTemplate(...)`. For a **whole-registration** default, override `GetDefaultOverrideBehaviour(outputTarget)`.
+4. To emit only a **subset** of a folder's files (e.g. ship the markup from one module and the code-behind from another, or skip a file a sibling module also ships), split the content into separate sub-folders — one `ContentSubFolder` + registration each. Each stays a trivial declare-and-gate class; the gating lives in `Register`.
+5. Model every registration as a **Static Content Template** element in the Module Builder designer so its `.imodspec` `<template>` entry (id, role, location) is generated — never hand-author the imodspec. Protect any hand-added `Register` / `Create*` / `GetDefaultOverrideBehaviour` override against regeneration with `[IntentMerge]` on the class (preferred — matches siblings) or `[IntentIgnore]` on the member.
+
+### Must Nots
+1. **Never re-derive the content path** from `GetType().Assembly.Location` + `Path.Combine(.., "content", ContentSubFolder)`. That copies the framework's own private implementation: it silently drifts when the SDK changes its content resolution, and a wrong assumption emits *nothing* instead of failing. `base.Register` already does this correctly.
+2. **Never reflect into the base class's private members** (e.g. invoking the private `GetBinaryFiles` via `BindingFlags.NonPublic`). If a genuinely custom path needs binary detection, match the simple `*.ext` globs directly (suffix compare) — do not reach into framework internals.
+3. **Never hand-roll `Directory.EnumerateFiles` + a manual `RegisterTemplate` loop** to achieve conditional skipping or per-file overwrite. Use folder splits (Must #4) and the `Create*` hooks (Must #3) instead.
+4. **Never silently `return` when a content folder is "missing"** — if a registration runs, its modelled folder must exist. Swallowing a missing folder hides a modelling/path error.
 
 ## Source of Truth
 
