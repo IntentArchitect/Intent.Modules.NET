@@ -1,152 +1,145 @@
 @page "/templates/pages/customers/view/{CustomerId:guid}"
 @using UI.AI.Samples.Domain
 
-<div class="p-4 mb-4 ux-gradient-primary text-white rounded">
-    <h4 class="fw-bold mb-2">
-        <i class="bi bi-eye me-2"></i>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.Visibility" Class="mr-2" />
         View Customer
-    </h4>
-    <p class="mb-0 opacity-75">
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
         Read-only view of this customer's details.
-    </p>
-</div>
+    </MudText>
+</MudPaper>
 
-<div class="card ux-fade-in-up" style="animation-delay: 0.1s">
-    <div class="card-body">
-        @if (!string.IsNullOrEmpty(_errorMessage))
-        {
-            <div class="alert alert-danger" role="alert">@_errorMessage</div>
-        }
-
+<MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
+    <MudCardContent>
         @if (CustomerByIdModels is null)
         {
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
-                <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
-                <span class="mt-2">Loading customer...</span>
-            </div>
+            <MudStack AlignItems="AlignItems.Center" JustifyContent="Justify.Center" Style="min-height:200px">
+                <MudProgressCircular Indeterminate />
+                <MudText Class="mt-2">Loading customer...</MudText>
+            </MudStack>
         }
         else
         {
-            <div class="row g-3">
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Name</div>
-                    <div>@CustomerByIdModels.Name</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Surname</div>
-                    <div>@CustomerByIdModels.Surname</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Email</div>
-                    <div>@CustomerByIdModels.Email</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Category</div>
-                    <div>@CustomerByIdModels.CategoryName</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Sub Category</div>
-                    <div>@CustomerByIdModels.SubCategoryName</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="text-uppercase small text-muted">Status</div>
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Name</MudText>
+                    <MudText Typo="Typo.body1">@CustomerByIdModels.Name</MudText>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Surname</MudText>
+                    <MudText Typo="Typo.body1">@CustomerByIdModels.Surname</MudText>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Email</MudText>
+                    <MudText Typo="Typo.body1">@CustomerByIdModels.Email</MudText>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Cateogry</MudText>
+                    <MudText Typo="Typo.body1">@CustomerByIdModels.CategoryName</MudText>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Sub Category</MudText>
+                    <MudText Typo="Typo.body1">@CustomerByIdModels.SubCategoryName</MudText>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudText Typo="Typo.overline">Status</MudText>
                     @if (CustomerByIdModels.IsActive)
                     {
-                        <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Active</span>
+                        <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.CheckCircle">Active</MudChip>
                     }
                     else
                     {
-                        <span class="badge border text-secondary"><i class="bi bi-pause-circle me-1"></i>Inactive</span>
+                        <MudChip T="string" Color="Color.Default" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.PauseCircle">Inactive</MudChip>
                     }
-                </div>
+                </MudItem>
 
-                <div class="col-12">
-                    <hr class="my-2" />
-                    <h6>Preferences</h6>
-                    <div class="d-flex gap-2">
-                        <span class="badge @(CustomerByIdModels.Preference.NewsLetter ? "bg-primary" : "border text-secondary")">
-                            <i class="bi bi-mailbox me-1"></i>Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
-                        </span>
-                        <span class="badge @(CustomerByIdModels.Preference.Specials ? "bg-primary" : "border text-secondary")">
-                            <i class="bi bi-tag me-1"></i>Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
-                        </span>
-                    </div>
-                </div>
+                <MudItem xs="12">
+                    <MudDivider Class="my-4" />
+                    <MudText Typo="Typo.h6">Preferences</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Row Spacing="1">
+                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.NewsLetter ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.NewsLetter ? Variant.Filled : Variant.Outlined)" StartIcon="@Icons.Material.Filled.MarkunreadMailbox">
+                            Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
+                        </MudChip>
+                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.Specials ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.Specials ? Variant.Filled : Variant.Outlined)" StartIcon="@Icons.Material.Filled.LocalOffer">
+                            Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
+                        </MudChip>
+                    </MudStack>
+                </MudItem>
 
                 @if (CustomerByIdModels.Loyalty is not null)
                 {
-                    <div class="col-12">
-                        <hr class="my-2" />
-                        <div class="d-flex align-items-center gap-2">
-                            <h6 class="mb-0">Loyalty</h6>
-                            <span class="badge border text-primary"><i class="bi bi-gift me-1"></i>Enabled</span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="text-uppercase small text-muted">Loyalty Number</div>
-                        <div>@CustomerByIdModels.Loyalty!.LoyaltyNo</div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="text-uppercase small text-muted">Points</div>
-                        <div>@CustomerByIdModels.Loyalty!.Points</div>
-                    </div>
+                    <MudItem xs="12">
+                        <MudDivider Class="my-4" />
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                            <MudText Typo="Typo.h6">Loyalty</MudText>
+                            <MudChip T="string" Color="Color.Primary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.CardGiftcard">Enabled</MudChip>
+                        </MudStack>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudText Typo="Typo.overline">Loyalty Number</MudText>
+                        <MudText Typo="Typo.body1">@CustomerByIdModels.Loyalty!.LoyaltyNo</MudText>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudText Typo="Typo.overline">Points</MudText>
+                        <MudText Typo="Typo.body1">@CustomerByIdModels.Loyalty!.Points</MudText>
+                    </MudItem>
                 }
 
-                <div class="col-12">
-                    <hr class="my-2" />
-                    <h6>Addresses</h6>
-                </div>
+                <MudItem xs="12">
+                    <MudDivider Class="my-4" />
+                    <MudText Typo="Typo.h6">Addresses</MudText>
+                </MudItem>
 
                 @if (CustomerByIdModels.Addresses?.Count > 0)
                 {
                     @foreach (var a in CustomerByIdModels.Addresses)
                     {
-                        <div class="col-12 mb-2">
-                            <div class="border rounded p-3">
-                                <div class="row g-3">
-                                    <div class="col-12 col-md-3">
-                                        <div class="text-uppercase small text-muted">Type</div>
-                                        <span class="badge border text-secondary"><i class="bi bi-tag me-1"></i>@((a.AddressType == AddressType.Deliver) ? "Delivery" : "Billing")</span>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <div class="text-uppercase small text-muted">Address line 1</div>
-                                        <div>@a.Line1</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="text-uppercase small text-muted">Address line 2</div>
-                                        <div>@a.Line2</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="text-uppercase small text-muted">City</div>
-                                        <div>@a.City</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="text-uppercase small text-muted">Postal code</div>
-                                        <div>@a.Postal</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <MudItem xs="12" Class="mb-3">
+                            <MudPaper Class="pa-3" Elevation="0" Outlined="true" Style="border-radius:12px;">
+                                <MudGrid>
+                                    <MudItem xs="12" md="3">
+                                        <MudText Typo="Typo.overline">Type</MudText>
+                                        <MudChip T="string" Color="Color.Secondary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Label">@((a.AddressType == AddressType.Deliver) ? "Delivery" : "Billing")</MudChip>
+                                    </MudItem>
+                                    <MudItem xs="12" md="9">
+                                        <MudText Typo="Typo.overline">Address line 1</MudText>
+                                        <MudText Typo="Typo.body1">@a.Line1</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+                                        <MudText Typo="Typo.overline">Address line 2</MudText>
+                                        <MudText Typo="Typo.body1">@a.Line2</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+                                        <MudText Typo="Typo.overline">City</MudText>
+                                        <MudText Typo="Typo.body1">@a.City</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+                                        <MudText Typo="Typo.overline">Postal code</MudText>
+                                        <MudText Typo="Typo.body1">@a.Postal</MudText>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudPaper>
+                        </MudItem>
                     }
                 }
                 else
                 {
-                    <div class="col-12">
-                        <span class="text-muted">No addresses captured.</span>
-                    </div>
+                    <MudItem xs="12">
+                        <MudText Color="Color.Secondary">No addresses captured.</MudText>
+                    </MudItem>
                 }
 
-                <div class="col-12 mt-3">
-                    <div class="d-flex justify-content-end align-items-center gap-2">
-                        <button type="button" class="btn btn-primary" @onclick="@(() => NavigationManager.NavigateTo($"templates/pages/customers/edit/{CustomerByIdModels.Id}"))">
-                            <i class="bi bi-pencil-square me-1"></i>Edit
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">
-                            <i class="bi bi-arrow-left me-1"></i>Back to list
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <MudItem xs="12" Class="mt-4">
+                    <MudStack Row Spacing="2" Justify="Justify.FlexEnd" AlignItems="AlignItems.Center">
+                        <MudButton OnClick="@(() => NavigationManager.NavigateTo($"templates/pages/customers/edit/{CustomerByIdModels.Id}"))" Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit">Edit</MudButton>
+                        <MudButton OnClick="Cancel" Color="Color.Secondary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.ArrowBack">Back to list</MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
         }
-    </div>
-</div>
+    </MudCardContent>
+</MudCard>
