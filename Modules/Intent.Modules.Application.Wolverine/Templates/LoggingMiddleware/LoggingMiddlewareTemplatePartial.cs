@@ -21,12 +21,13 @@ namespace Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public LoggingMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
             var appName = ExecutionContext.GetApplicationConfig().Name;
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass("LoggingMiddleware", @class =>
                 {
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
+
                     @class.AddField("bool", "_logRequestPayload", f => f.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>

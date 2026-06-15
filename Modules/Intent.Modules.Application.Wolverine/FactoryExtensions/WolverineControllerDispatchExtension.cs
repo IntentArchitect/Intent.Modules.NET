@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -27,20 +28,18 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Your custom logic here.
+            Intent.Utils.Logging.Log.Info("WolverineControllerDispatchExtension running!");
+            var controllerTemplates = application.FindTemplateInstances<Intent.Modules.Common.Templates.IntentTemplateBase>(Intent.Modules.Constants.TemplateRoles.Distribution.WebApi.Controller);
+            Intent.Utils.Logging.Log.Info($"WolverineControllerDispatchExtension: found {controllerTemplates.Count()} controller templates.");
+            foreach (var controllerTemplate in controllerTemplates)
+            {
+                controllerTemplate.AddTypeSource(Templates.CommandModels.CommandModelsTemplate.TemplateId);
+                controllerTemplate.AddTypeSource(Templates.QueryModels.QueryModelsTemplate.TemplateId);
+            }
         }
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // Your custom logic here.
         }
     }
 }

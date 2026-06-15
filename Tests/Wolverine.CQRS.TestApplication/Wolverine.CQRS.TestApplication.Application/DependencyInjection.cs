@@ -17,13 +17,13 @@ namespace Wolverine.CQRS.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<AuthorizationMiddleware>();
+            services.AddTransient<ValidationMiddleware>();
             services.AddTransient<LoggingMiddleware>();
             services.AddTransient<PerformanceMiddleware>();
             services.AddTransient<UnhandledExceptionMiddleware>();
             services.AddTransient<UnitOfWorkMiddleware>();
-            services.AddTransient<ValidationMiddleware>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }

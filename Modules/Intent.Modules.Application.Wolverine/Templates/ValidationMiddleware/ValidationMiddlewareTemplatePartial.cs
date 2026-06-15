@@ -21,15 +21,14 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidationMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var validatorProvider = GetTypeName("Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface");
-            var bypassInterface = GetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface");
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Reflection")
                 .AddClass("ValidationMiddleware", @class =>
                 {
+                    var validatorProvider = GetTypeName("Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface");
+                    var hasBypassInterface = TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface", out var bypassInterface);
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "BeforeAsync", method =>
                     {
                         method.Async();
@@ -46,10 +45,13 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
                         method.AddParameter(validatorProvider, "validatorProvider");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
-                        method.AddIfStatement($"request is {bypassInterface}", @if =>
+                        if (hasBypassInterface)
                         {
-                            @if.AddStatement("return;");
-                        });
+                            method.AddIfStatement($"request is {bypassInterface}", @if =>
+                            {
+                                @if.AddStatement("return;");
+                            });
+                        }
 
                         method.AddStatement("var validator = GetValidator(request, validatorProvider);");
                         method.AddIfStatement("validator is null", @if =>

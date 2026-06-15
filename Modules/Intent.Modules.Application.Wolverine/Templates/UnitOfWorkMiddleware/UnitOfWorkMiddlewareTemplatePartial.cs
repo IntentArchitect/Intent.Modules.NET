@@ -21,12 +21,11 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnitOfWorkMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public UnitOfWorkMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var unitOfWork = GetTypeName("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Transactions")
                 .AddClass("UnitOfWorkMiddleware", @class =>
                 {
+                    var unitOfWork = GetTypeName("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
                     @class.AddMethod($"{UseType("System.Transactions.TransactionScope")}?", "Before", method =>
                     {
                         method.Static();

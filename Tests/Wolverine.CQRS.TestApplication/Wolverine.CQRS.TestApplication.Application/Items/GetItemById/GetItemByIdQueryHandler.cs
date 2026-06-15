@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.QueryHandler", Version = "1.0")]
 
-namespace Wolverine.CQRS.TestApplication.Application.Items
+namespace Wolverine.CQRS.TestApplication.Application.Items.GetItemById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetItemByIdQueryHandler

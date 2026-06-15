@@ -11,11 +11,28 @@ namespace Wolverine.CQRS.TestApplication.Application.Common.Behaviours
 {
     public class UnitOfWorkMiddleware
     {
-        private readonly string _exampleParam;
-
-        public UnitOfWorkMiddleware(string exampleParam)
+        public static TransactionScope? Before(IUnitOfWork dataSource)
         {
-            _exampleParam = exampleParam;
+            return new TransactionScope(
+            TransactionScopeOption.Required,
+            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted },
+            TransactionScopeAsyncFlowOption.Enabled);
+        }
+
+        public static async Task AfterAsync(
+            TransactionScope? tx,
+            IUnitOfWork dataSource,
+            CancellationToken cancellationToken)
+        {
+            try
+            {
+                await dataSource.SaveChangesAsync(cancellationToken);
+                tx?.Complete();
+            }
+            finally
+            {
+                tx?.Dispose();
+            }
         }
     }
 }

@@ -21,23 +21,23 @@ namespace Intent.Modules.Application.Wolverine.Templates.AuthorizationMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AuthorizationMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
-            var authorizeAttribute = GetTypeName("Intent.Application.Identity.AuthorizeAttribute");
-            var forbiddenException = GetTypeName("Intent.Application.Identity.ForbiddenAccessException");
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Reflection")
-                .AddClass("AuthorizationMiddleware", @class =>
+                .AddClass("AuthorizationMiddleware", @class => 
                 {
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
+                    var authorizeAttribute = GetTypeName("Intent.Application.Identity.AuthorizeAttribute");
+                    var forbiddenException = GetTypeName("Intent.Application.Identity.ForbiddenAccessException");
+
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "BeforeAsync", method =>
                     {
                         method.Async();
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(currentUserService, "currentUserService");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
-                        method.AddStatement("return AuthorizeAsync(envelope.Message, currentUserService);");
+                        method.AddStatement("await AuthorizeAsync(envelope.Message, currentUserService);");
                     });
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "AuthorizeAsync", method =>

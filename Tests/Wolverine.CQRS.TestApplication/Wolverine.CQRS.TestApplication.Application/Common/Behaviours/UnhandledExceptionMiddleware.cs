@@ -12,11 +12,35 @@ namespace Wolverine.CQRS.TestApplication.Application.Common.Behaviours
 {
     public class UnhandledExceptionMiddleware
     {
-        private readonly string _exampleParam;
+        private readonly bool _logRequestPayload;
 
-        public UnhandledExceptionMiddleware(string exampleParam)
+        public UnhandledExceptionMiddleware(IConfiguration configuration)
         {
-            _exampleParam = exampleParam;
+            _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
+        }
+
+        [WolverineOnException]
+        public void OnException(Exception exception, Envelope envelope, ILogger logger)
+        {
+            LogException(exception, envelope.Message, logger);
+        }
+
+        private void LogException(Exception exception, object request, ILogger logger)
+        {
+            if (exception is ValidationException)
+            {
+                return;
+            }
+            var requestName = request?.GetType().Name;
+
+            if (_logRequestPayload)
+            {
+                logger.LogError(exception, "Wolverine.CQRS.TestApplication Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+            }
+            else
+            {
+                logger.LogError(exception, "Wolverine.CQRS.TestApplication Request: Unhandled Exception for Request {Name}", requestName);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
-namespace Wolverine.CQRS.TestApplication.Application.Items
+namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateItemCommandHandler

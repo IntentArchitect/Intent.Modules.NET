@@ -32,7 +32,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
             AddTypeSource("Application.Contracts.Client.Dto");
             AddTypeSource("Application.Contracts.Client.Enum");
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), this.GetFolderPath(additionalFolders: Model.GetConceptName()))
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")

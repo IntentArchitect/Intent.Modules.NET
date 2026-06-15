@@ -21,12 +21,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.PerformanceMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PerformanceMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
             var appName = ExecutionContext.GetApplicationConfig().Name;
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass("PerformanceMiddleware", @class =>
                 {
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
                     @class.AddField("long", "_longRunningThresholdMilliseconds", f => f.PrivateReadOnly().WithAssignment(new CSharpStatement("500")));
                     @class.AddField("bool", "_logRequestPayload", f => f.PrivateReadOnly());
 
