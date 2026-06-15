@@ -194,7 +194,6 @@
       </childElements>
     </childElement>
     <childElement id="be7c671e-bbef-4d75-b42d-a6547de3ae82" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <comment />
       <name>Data Isolation</name>
       <display>Data Isolation</display>
       <isAbstract>false</isAbstract>
