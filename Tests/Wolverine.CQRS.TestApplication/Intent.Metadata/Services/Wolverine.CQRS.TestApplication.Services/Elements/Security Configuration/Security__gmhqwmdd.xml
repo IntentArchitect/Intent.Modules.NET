@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</parentFolderId>
+  <packageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</packageId>
+  <packageName>Wolverine.CQRS.TestApplication.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements />

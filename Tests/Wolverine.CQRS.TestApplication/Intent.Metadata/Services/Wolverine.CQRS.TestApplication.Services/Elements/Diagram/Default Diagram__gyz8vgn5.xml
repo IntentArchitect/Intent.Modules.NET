@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</parentFolderId>
+  <packageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</packageId>
+  <packageName>Wolverine.CQRS.TestApplication.Services</packageName>
   <diagram>
     <targetPackageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</targetPackageId>
   </diagram>
