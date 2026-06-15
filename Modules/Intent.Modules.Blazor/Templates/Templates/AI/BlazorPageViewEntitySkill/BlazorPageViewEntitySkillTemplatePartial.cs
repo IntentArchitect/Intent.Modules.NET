@@ -28,22 +28,34 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
                 .FromMarkdown("""
 ---
 name: blazor-page-view-entity
-description: Creates standard Blazor read-only view entity pages using Bootstrap 5 layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when implementing view, detail, inspect, or read-only display entity pages in a standard Blazor (non-MudBlazor) app.
+description: Creates Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when implementing view, detail, inspect, or read-only display entity pages in Blazor.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"
+  - "**/design.md"
+  - "**/ux-tokens.css"
+  - "**/ux-base.css"
+  - "**/ux-components.css"
 ---
 
 ## MANDATORY: Read Samples Before Implementation
 
-STOP - You MUST read ALL sample files in the SAME folder as this SKILL.md before writing ANY code:
+STOP — you MUST read ALL of the following before writing ANY code:
 
+**Samples** (in the SAME folder as this SKILL.md):
 1. `EntityViewTemplate.razor`
-2. `EntityViewTemplate.razor.cs`
+2. `EntityViewTemplate.cs`
 
-Then read the target component `.razor`, `.razor.cs`, and related project files such as DTOs, enums, and shared styles (`ux-tokens.css`).
+**Target component and project files:**
+3. The target `.razor` and `.razor.cs`
+4. Related project files: DTOs, enums
 
-If any sample file cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
 ---
 
@@ -54,25 +66,24 @@ When a sample exists, you MUST match the sample's visual structure, not only its
 Required process:
 
 1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (typically under `wwwroot`, such as `ux-tokens.css`) and then reuse them.
+2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
 
 Required baseline layout (when supported by the target app):
 
-- A hero header using a `<div>` with `class="p-4 mb-4 ux-gradient-primary text-white rounded"`
-- A main content card using `<div class="card ux-fade-in-up">` with a `card-body`
+- A hero header using `MudPaper` with `Class="pa-4 mb-4 ux-gradient-primary"` and `Elevation="0"`
+- A main content card using `MudCard` with `Class="ux-fade-in-up"` and `Style="animation-delay: 0.1s"`
 
 Forbidden:
 
-- Replacing the hero header with a different structure unless explicitly requested
+- Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
 - Dropping the sample's utility classes when they exist in the target project
-- Using MudBlazor components, `.mud-*` selectors, or `--mud-*` variables
 
 ---
 
 ## Preserve Existing Implementation
 
-Use for: Read-only view or detail entity pages in standard Blazor with Bootstrap 5
-Do NOT use for: Add or edit forms, search pages, MudBlazor projects, or non-Blazor projects
+Use for: Read-only view or detail entity pages in Blazor with MudBlazor  
+Do NOT use for: Add or edit forms, search pages, dialogs, or non-Blazor projects  
 Source of truth: Existing `.razor.cs` file defines data loading, service calls, navigation, and the DTO structure
 
 ### You MUST NOT:
@@ -90,7 +101,7 @@ Source of truth: Existing `.razor.cs` file defines data loading, service calls, 
 
 Load data through existing lifecycle methods and backing methods such as `OnInitializedAsync()`, `OnParametersSetAsync()`, or explicit load methods already present in `.razor.cs`.
 
-Show a loading indicator while the data object is null, using the same pattern as the sample (a Bootstrap `spinner-border` inside a centered `d-flex`).
+Show a loading indicator while the data object is null, using the same pattern as the sample (`MudProgressCircular` inside a centered `MudStack`).
 
 Do not display entity content until the data object is non-null.
 
@@ -98,19 +109,20 @@ Do not display entity content until the data object is non-null.
 
 ## 2. Map DTO Properties to Read-Only Display
 
-Render all scalar DTO properties as labeled read-only fields:
+Render all scalar DTO properties as labeled read-only fields using `MudText`:
 
 | Property Type | Display |
 |---------------|---------|
-| String / number | Value text with a small muted label above (`text-uppercase small text-muted`) |
-| Boolean / status | Bootstrap `badge` with conditional colour |
-| Enum | Resolved display label (not raw integer) in a `badge` or text |
+| String / number | `MudText Typo="Typo.body1"` with `MudText Typo="Typo.overline"` label above |
+| Boolean / status | `MudChip` with conditional `Color` and `Variant` |
+| Enum | Resolved display label (not raw integer) in `MudChip` or `MudText` |
 | Nullable object | Conditional section rendered only when non-null |
-| Collection | Iterated with `@foreach`, each item in a bordered card (`card` / `border rounded p-3`) |
+| Collection | Iterated with `@foreach`, each item in a `MudPaper` card |
 
-Badge rules:
-- Use semantic colour classes: `bg-success` for positive/active, `bg-secondary` for inactive/neutral, `bg-danger` for negative
-- Use outlined styling (`border` + `text-*`) for neutral/inactive states where the sample does
+Chip rules:
+- Use `T="string"` on every `MudChip`
+- Match `Color` semantics: `Color.Success` for positive/active, `Color.Default` or `Color.Error` for inactive/negative
+- Match `Variant` semantics: `Variant.Filled` for active, `Variant.Outlined` for inactive or neutral
 
 Enum rules:
 - Locate the real enum definition before referencing it
@@ -130,41 +142,51 @@ Do not render nested fields outside their guard block.
 
 Render child collections with `@foreach` inside a guarded `@if` block.
 
-- When the collection has items, render each in a bordered card (`border rounded p-3`) using a Bootstrap `row`
-- When the collection is empty or null, render a muted fallback message (`text-muted`)
+- When the collection has items, render each in a `MudPaper` card (outlined, rounded) using `MudGrid`
+- When the collection is empty or null, render a `MudText` fallback message using `Color.Secondary`
 - Never use `for` loops with index variables for read-only collections — `@foreach` is correct here
 
 ---
 
 ## 5. Navigation Actions
 
-Render navigation buttons at the bottom of the card in a right-aligned `d-flex justify-content-end gap-2`:
+Render navigation buttons at the bottom of the card in a right-aligned `MudStack`:
 
-- Render an **Edit** button only when a matching edit route or method exists in `.razor.cs` (`btn btn-primary`)
-- Always render a **Back** button that calls the existing `Cancel()` or equivalent navigation method (`btn btn-outline-secondary`)
+- Render an **Edit** button only when a matching edit route or method exists in `.razor.cs`
+- Always render a **Back** button that calls the existing `Cancel()` or equivalent navigation method
 - Never invent navigation methods or routes
+
+Button placement:
+- Use `Justify="Justify.FlexEnd"` on `MudStack`
+- `Row="true"`, `Spacing="2"`, `AlignItems="AlignItems.Center"`
 
 ---
 
 ## 6. Styling
 
-- Prefer shared utility styles first (Bootstrap 5 classes and `ux-tokens.css` utilities)
+- Prefer shared utility styles first
 - Keep component-specific styles minimal
 - Never modify existing shared styles, variables, or theme values
-- Do not add, remove, or re-vendor Bootstrap assets or stylesheet links
 - Match the sample layout without introducing unnecessary wrappers
 - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (usually under `wwwroot`) and reuse them
 
-**Design context (if design.md is present)**
+**Design and styling context**
 
-If a `design.md` file exists in the project, read it before choosing Bootstrap classes and utilities. Use it for:
-- Button style preferences (`btn-primary` vs `btn-outline-primary`, gradient vs flat)
-- Colour semantics for primary, secondary, and danger actions
-- Card and panel treatment (border, shadow, hover behaviour)
-- Page header treatment (gradient banner vs plain text, icon badge style)
-- Badge colour semantics for status display
+You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
 
-`design.md` informs class choices only — it does not override the sample's layout structure.
+Use `design.md` for:
+- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
+- `Color` semantics for primary, secondary, and error actions
+- Card elevation and hover behaviour
+- Page header treatment (gradient clip text vs plain text, icon badge style)
+- Chip `Color` and `Variant` semantics for status display
+
+Use the CSS files for:
+- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
+- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
+- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
+
+These files inform styling choices only — they do not override the sample's layout structure.
 
 ---
 
@@ -172,16 +194,16 @@ If a `design.md` file exists in the project, read it before choosing Bootstrap c
 
 - [ ] All properties displayed in `.razor` exist on the DTO returned by the backing class
 - [ ] No `@code` block was introduced in `.razor`
-- [ ] No editable inputs (`InputText`, `InputSelect`, etc.) were rendered
+- [ ] No editable inputs (e.g. `MudTextField`, `MudSelect`) were rendered
 - [ ] Data is loaded through existing lifecycle or backing methods only
 - [ ] A loading state is shown while the data object is null
 - [ ] Nullable object sections are guarded by `@if` matching existing backing logic
 - [ ] Child collections use `@foreach` with an empty-state fallback message
 - [ ] Enum values were verified against the real enum definition before use
 - [ ] Navigation buttons call only existing methods or use existing routes
+- [ ] Shared styles were preserved and component styling remained minimal
 - [ ] Sample visual structure was matched (hero header + main card)
 - [ ] Sample utility classes were verified to exist in the target project and reused when available
-- [ ] No MudBlazor components, `.mud-*` selectors, or `--mud-*` variables were used
 
 """);
         }

@@ -33,7 +33,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
         [IntentIgnore]
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
-            return OverwriteBehaviour.OnceOff;
+            return OverwriteBehaviour.Always;
         }
 
         // The MudBlazor module ships its own Mud-flavoured ThemeToggle (.razor + .razor.css) to the same output

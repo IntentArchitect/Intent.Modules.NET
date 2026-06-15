@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                 .FromMarkdown("""
 # UX Design System
 
-Design tokens and component rules for the AI-themed shell.  
+Design tokens and component rules for the AI-themed shell.
 All values are expressed as CSS custom properties.
 
 ---
@@ -69,23 +69,46 @@ Legacy aliases (`--brand-blue`, `--brand-violet`, `--brand-cyan`) exist for back
 | `--text-secondary` | `#485470` | Disabled / de-emphasised text |
 | `--border` | `rgba(14,165,233,0.12)` | Default border |
 | `--border-light` | `rgba(14,165,233,0.06)` | Subtle dividers |
+| `--border-focus` | `var(--primary)` | Focus ring border |
+| `--hover-overlay` | `rgba(14,165,233,0.07)` | Row / item hover fill |
+| `--hover-overlay-strong` | `rgba(14,165,233,0.14)` | Pressed / selected fill |
 | `--primary` | `var(--brand-sky)` | Interactive accent |
-| `--primary-subtle` | `rgba(14,165,233,0.10)` | Hover fills, row highlights |
+| `--primary-dark` | `var(--brand-sky-dim)` | Hover state of primary |
+| `--primary-subtle` | `rgba(14,165,233,0.10)` | Hover fills, focus rings |
 | `--primary-glow` | `rgba(14,165,233,0.35)` | Glow shadows on buttons |
+| `--primary-contrast` | `#FFFFFF` | Text on primary backgrounds |
+| `--focus` | `rgba(14,165,233,0.30)` | Focus box-shadow colour |
+| `--secondary` | `#19223A` | Secondary surface |
+| `--secondary-dark` | `#0F1728` | Secondary hover |
 
 ### Light Mode (`[data-theme="light"]`)
 
 | Token | Value |
 |---|---|
-| `--bg` | `#F0F7FF` |
-| `--surface` | `#FFFFFF` |
-| `--surface-2` | `#E6F3FD` |
-| `--surface-3` | `#D1E9FA` |
+| `--bg` | `#E8EAED` |
+| `--surface` | `#F4F5F7` |
+| `--surface-2` | `#ECEEF1` |
+| `--surface-3` | `#E2E5E9` |
 | `--text` | `#07111E` |
 | `--text-muted` | `#3D5470` |
+| `--text-secondary` | `#7A93B0` |
+| `--border` | `rgba(2,132,199,0.13)` |
+| `--border-light` | `rgba(2,132,199,0.07)` |
+| `--hover-overlay` | `rgba(2,132,199,0.05)` |
+| `--hover-overlay-strong` | `rgba(2,132,199,0.10)` |
 | `--primary` | `var(--brand-sky-dim)` |
+| `--primary-dark` | `var(--brand-sky-deep)` |
+| `--primary-subtle` | `rgba(2,132,199,0.09)` |
+| `--primary-glow` | `rgba(2,132,199,0.25)` |
+| `--focus` | `rgba(2,132,199,0.22)` |
+| `--gradient-brand` | `linear-gradient(135deg, var(--brand-sky-dim) 0%, var(--brand-cobalt-dim) 100%)` |
+| `--gradient-brand-soft` | `linear-gradient(135deg, rgba(2,132,199,0.10) 0%, rgba(79,70,229,0.08) 100%)` |
+| `--secondary` | `#D1E9FA` |
+| `--secondary-dark` | `#BAD9F5` |
+| `--glow-primary` | `0 0 20px rgba(2,132,199,0.28), 0 0 6px rgba(2,132,199,0.16)` |
+| `--glow-cyan` | `0 0 20px rgba(79,70,229,0.22), 0 0 6px rgba(79,70,229,0.12)` |
 
-The root element carries a fixed ambient radial gradient (sky top-left, cobalt bottom-right) in dark mode. Light mode removes this gradient and shows a subtle dot-grid on the main content area only.
+In dark mode the root element carries a fixed ambient radial gradient (sky top-left, cobalt bottom-right, `background-attachment: fixed`). Light mode removes this gradient and shows a subtle dot-grid on the body, using cyan lines at `rgba(2,132,199,0.06)` and `opacity: 0.55`.
 
 ### Status Colours
 
@@ -96,7 +119,14 @@ The root element carries a fixed ambient radial gradient (sky top-left, cobalt b
 | `--danger` | `#F06080` | `#DC2626` |
 | `--info` | `var(--brand-sky)` | `#0369A1` |
 
-Each status colour has a matching `*-subtle` variant (≈13–14 % opacity) used for tag/badge/notification backgrounds.
+Each status colour has a matching `*-subtle` variant used for badge/notification backgrounds:
+
+| Token | Dark | Light |
+|---|---|---|
+| `--success-subtle` | `rgba(61,214,140,0.14)` | `rgba(22,163,74,0.10)` |
+| `--warning-subtle` | `rgba(245,197,66,0.14)` | `rgba(202,138,4,0.10)` |
+| `--danger-subtle` | `rgba(240,96,128,0.14)` | `rgba(220,38,38,0.10)` |
+| `--info-subtle` | `rgba(14,165,233,0.12)` | `rgba(3,105,161,0.10)` |
 
 ---
 
@@ -118,6 +148,8 @@ Each status colour has a matching `*-subtle` variant (≈13–14 % opacity) used
 
 Headings: `font-weight: 600`, `letter-spacing: -0.02em`, `text-wrap: balance`.
 
+Links: `color: var(--primary)`, `text-decoration: none`; hover uses `var(--primary-dark)`.
+
 ---
 
 ## Spacing
@@ -138,8 +170,8 @@ Headings: `font-weight: 600`, `letter-spacing: -0.02em`, `text-wrap: balance`.
 
 | Token | Value | Usage |
 |---|---|---|
-| `--radius-sm` | `0.5rem` | Inputs, nav links, small elements |
-| `--radius-md` | `0.75rem` | Buttons, popovers, notifications |
+| `--radius-sm` | `0.5rem` | Buttons, inputs, nav links, small elements |
+| `--radius-md` | `0.75rem` | Form controls, popovers, notifications |
 | `--radius-lg` | `1rem` | Cards, tables |
 | `--radius-xl` | `1.375rem` | Dialogs, date pickers |
 | `--radius-full` | `9999px` | Pills, tags, badges, scrollbar |
@@ -158,7 +190,8 @@ Headings: `font-weight: 600`, `letter-spacing: -0.02em`, `text-wrap: balance`.
 
 `prefers-reduced-motion: reduce` globally removes all transitions and animations.
 
-Named keyframes: `fadeInUp` · `fadeIn` · `orb-float` · `shimmer` · `pulse-dot`.  
+Named keyframes in `ux-base.css`: `fadeInUp` (opacity + translateY + blur) · `fadeIn`.
+Additional keyframes used by page-specific CSS: `orb-float` · `shimmer` · `pulse-dot`.
 Utility classes: `.ux-fade-in-up` (`--dur-slow`) · `.ux-fade-in` (`--dur-med`).
 
 ---
@@ -177,7 +210,62 @@ Utility classes: `.ux-fade-in-up` (`--dur-slow`) · `.ux-fade-in` (`--dur-med`).
 
 ---
 
+## Standard HTML Components
+
+These CSS classes are defined in `ux-components.css` and apply to raw HTML elements (no MudBlazor dependency).
+
+### Form Controls
+
+`.form-control` and `.form-select`:
+- Font/colour/background: `var(--font-primary)` · `var(--text)` · `var(--surface)`
+- Border: `var(--border-width) solid var(--border)`, `border-radius: var(--radius-md)`
+- Focus: `border-color: var(--border-focus)`, `box-shadow: 0 0 0 3px var(--primary-subtle)`
+- Disabled: `color: var(--text-muted)`, `background: var(--surface-2)`
+- Placeholder: `color: var(--text-secondary)`
+
+`.form-label`: `font-size: var(--type-body-sm)`, `color: var(--text-muted)`, `margin-bottom: var(--space-1)`.
+
+`.form-floating`: label transitions to `var(--type-label-md)` size and `var(--primary)` colour on focus or when a value is present.
+
+`.form-check` / `.checkbox`: flex row with `gap: var(--space-2)`, `accent-color: var(--primary)`.
+
+`.input-group` / `.input-group-text`: stretch layout; addon uses `var(--surface-2)` background, `var(--border)`, `var(--radius-md)`.
+
+### Buttons
+
+`.btn`: `border-radius: var(--radius-sm)`, `padding: 0.55rem 1.25rem`, `font-size: var(--type-body-sm)`, `font-weight: 600`, `line-height: 1.4`. Transitions `box-shadow` + `transform` at `--dur-fast`. Active state forces `translateY(0)` and `--shadow-1`.
+
+| Variant | Class | Rest | Hover |
+|---|---|---|---|
+| Primary | `.btn-primary` | `--gradient-brand` fill, `--shadow-1` | `--glow-primary` + `--shadow-2`, `translateY(-1px)` |
+| Outline | `.btn-outline` | Transparent, `--text-muted`, `1px solid --border` | `--hover-overlay` fill, `--text`, `color-mix(primary 50%)` border |
+| Danger | `.btn-danger` | `--danger` fill, `--shadow-1` | `--shadow-2`, `translateY(-1px)` |
+| Link | `.btn-link` | Transparent, `--primary`, no padding-inline | `--primary-dark`, underline |
+| Icon | `.btn-icon` | `2rem × 2rem`, `--radius-sm`, `--text-muted` | `--hover-overlay` fill, `--text` |
+| Large | `.btn-lg` | Adds `padding: var(--space-3) var(--space-5)`, `font-size: var(--type-body-lg)` | — |
+
+### Alerts
+
+`.alert`: `var(--surface-2)` background, `var(--border)`, `var(--radius-md)`, `padding: var(--space-3) var(--space-4)`.
+
+| Class | Text | Background | Border |
+|---|---|---|---|
+| `.alert-danger` | `--danger` | `--danger-subtle` | `color-mix(--danger 30%, transparent)` |
+| `.alert-success` | `--success` | `--success-subtle` | `color-mix(--success 30%, transparent)` |
+| `.alert-warning` | `--warning` | `--warning-subtle` | `color-mix(--warning 30%, transparent)` |
+
+### Tables
+
+`.table`: full width, `border-collapse: collapse`, `font-size: var(--type-body-sm)`.
+- `thead th`: `var(--surface-2)` background, `var(--text-muted)`, `var(--type-label-md)`, 600 weight, uppercase, `0.06em` tracking, `--border` bottom divider.
+- `tbody td`: `var(--text)`, `--border-light` bottom divider.
+- Row hover: `background: var(--hover-overlay)`.
+
+---
+
 ## Component Patterns
+
+The following describe design intent for MudBlazor component overrides (implemented in `ux-mudblazor.css`).
 
 ### Top Bar
 Glassmorphism: `rgba(12,18,32,0.82)` + `backdrop-filter: blur(20px) saturate(1.4)` with a 1 px `--border` bottom edge. Light mode uses `rgba(255,255,255,0.82)`. Icon buttons are muted (`--text-muted`) and highlight to `--primary` on hover; no borders or backgrounds at rest.
@@ -196,8 +284,8 @@ Glassmorphism: `rgba(12,18,32,0.82)` + `backdrop-filter: blur(20px) saturate(1.4
 - Card header: `--surface-2` → `--surface` gradient background, `--border` bottom.
 - Card content padding: `--space-5` (shrinks to `--space-4` on mobile).
 
-### Buttons
-All buttons share: `--radius-md`, `height: 36px`, `font-weight: 500`, `letter-spacing: 0.04em`, `text-transform: uppercase`, `--dur-fast` transition. Hover adds `translateY(-1px)`.
+### Buttons (MudBlazor)
+All MudBlazor buttons: `--radius-md`, `height: 36px`, `font-weight: 500`, `letter-spacing: 0.04em`, `text-transform: uppercase`, `--dur-fast` transition. Hover adds `translateY(-1px)`.
 
 | Variant | Rest | Hover |
 |---|---|---|
@@ -209,13 +297,13 @@ All buttons share: `--radius-md`, `height: 36px`, `font-weight: 500`, `letter-sp
 
 Icon buttons use `--radius-sm`, dimmed colour at rest (62 % opacity), full colour + subtle fill on hover.
 
-### Tables
+### Tables (MudBlazor)
 - Container: `--surface`, `--border`, `--radius-lg`, `--shadow-2`, `overflow: hidden`.
 - Header: `--surface-2` → tinted gradient; 12 px, 600 weight, 0.06 em tracking, uppercase, `--text-secondary`.
 - Row height: 44 px; `--border-light` bottom divider; hover: `--primary-subtle` fill + `inset 3px 0 0 var(--primary)` left accent.
 - Pagination: `--surface-2` background, `--border` top.
 
-### Form Controls
+### Form Controls (MudBlazor)
 - Height: `min-height: 44px`; background `--surface-2`; border `--border`; `--radius-sm`.
 - Focus: border becomes `--primary`; box-shadow `0 0 0 3px var(--focus), 0 0 12px var(--primary-glow)`.
 - Focused label: `--primary`, 0.75 rem, 500 weight.
@@ -236,7 +324,7 @@ Icon buttons use `--radius-sm`, dimmed colour at rest (62 % opacity), full colou
 
 ### Notifications / Toasts
 
-`--radius-md`; 1 px border; each severity uses a `color-mix(14%, --surface-2)` tinted background, full status colour for text, and 30 % opacity border.
+`--radius-md`; 1 px border; each severity uses `color-mix(status 14%, transparent)` tinted background with the status colour for text, and `color-mix(status 30%, transparent)` border.
 
 ### Popovers / Menus
 `--surface-2` fill; `--border`; `--radius-md`; `--shadow-4`. List items: `--text-muted` at rest, `--text` + `--hover-overlay` on hover.
@@ -291,6 +379,11 @@ Full-viewport hero section with three blurred ambient orbs (600 px sky, 500 px c
 | `.ux-fade-in` | `fadeIn` entrance animation |
 | `.cursor-pointer` | pointer cursor + 0.80 opacity hover |
 | `.badge-success/danger/warning/info/neutral` | Frosted-glass status badge pill |
+| `.text-danger/success/info` | Status text colour |
+| `.text-white` | `color: var(--primary-contrast)` |
+| `.w-100` / `.h-100` | 100% width / height |
+| `.mb-3` | `margin-bottom: var(--space-3)` |
+| `.font-weight-bold` | `font-weight: 700` |
 | `.nav-brand` / `.nav-brand-icon` / `.nav-brand-name` | Sidebar branding strip |
 | `.nav-section-label` | Nav section group label |
 

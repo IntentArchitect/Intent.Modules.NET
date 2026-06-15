@@ -32,18 +32,30 @@ description: Creates Blazor search and list entity pages using MudBlazor tables 
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"
+  - "**/design.md"
+  - "**/ux-tokens.css"
+  - "**/ux-base.css"
+  - "**/ux-components.css"
 ---
 
 ## MANDATORY: Read Samples Before Implementation
 
-STOP - You MUST read ALL sample files in the SAME folder as this SKILL.md before writing ANY code:
+STOP — you MUST read ALL of the following before writing ANY code:
 
+**Samples** (in the SAME folder as this SKILL.md):
 1. `search-entity-sample.razor`
 2. `search-entity-sample.razor.cs`
 
-Then read the target component `.razor`, `.razor.cs`, and related project files such as request models, DTOs, enums, lookups, services, and shared styles.
+**Target component and project files:**
+3. The target `.razor` and `.razor.cs`
+4. Related project files: request models, DTOs, enums, lookups, services
 
-If any sample file cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
 ---
 
@@ -54,7 +66,7 @@ When a sample exists, you MUST match the sample’s visual structure, not only i
 Required process:
 
 1. Reuse the sample’s top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (typically under `wwwroot`, such as `ux-token.css` or `ux-mudblazor.css`) and then reuse them.
+2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
 
 Required baseline layout (when supported by the target app):
 
@@ -206,15 +218,22 @@ Row actions:
 - Match the sample layout without introducing unnecessary wrappers
 - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (usually under `wwwroot`) and reuse them
 
-**Design context (if design.md is present)**
+**Design and styling context**
 
-If a `design.md` file exists in the project, read it before choosing MudBlazor component properties. Use it for:
+You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
+
+Use `design.md` for:
 - Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
 - `Color` semantics for primary, secondary, and error actions
 - Card elevation and hover behaviour
 - Page header treatment (gradient clip text vs plain text, icon badge style)
 
-`design.md` informs prop choices only — it does not override the sample’s layout structure.
+Use the CSS files for:
+- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
+- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
+- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
+
+These files inform styling choices only — they do not override the sample’s layout structure.
 
 ---
 
