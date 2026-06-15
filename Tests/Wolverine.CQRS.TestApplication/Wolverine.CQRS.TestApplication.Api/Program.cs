@@ -1,13 +1,13 @@
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
+using Wolverine;
 using Wolverine.CQRS.TestApplication.Api.Configuration;
 using Wolverine.CQRS.TestApplication.Api.Filters;
 using Wolverine.CQRS.TestApplication.Api.Logging;
 using Wolverine.CQRS.TestApplication.Application;
 using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
 using Wolverine.CQRS.TestApplication.Infrastructure;
-using Wolverine;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]

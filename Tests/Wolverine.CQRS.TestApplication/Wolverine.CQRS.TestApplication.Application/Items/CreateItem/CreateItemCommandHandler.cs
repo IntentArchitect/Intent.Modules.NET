@@ -19,7 +19,7 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-        public async Task Handle(CreateItemCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateItemCommand request, CancellationToken cancellationToken)
         {
             var item = new Item
             {
@@ -28,6 +28,7 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
 
             _itemRepository.Add(item);
             await _itemRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return item.Id;
         }
     }
 }

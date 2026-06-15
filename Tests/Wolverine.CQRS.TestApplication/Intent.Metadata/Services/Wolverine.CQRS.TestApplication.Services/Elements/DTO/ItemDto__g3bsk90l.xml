@@ -5,7 +5,16 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <isMapped>false</isMapped>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>41ee3259-07cd-468f-b00f-4cdcb26bec14</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="5189f549-dd7f-496f-9f34-fa92cfa260be" name="Item" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
   <parentFolderId>07b2dfc5-5da9-45e1-8646-f8f803e02e89</parentFolderId>
   <packageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</packageId>
   <packageName>Wolverine.CQRS.TestApplication.Services</packageName>

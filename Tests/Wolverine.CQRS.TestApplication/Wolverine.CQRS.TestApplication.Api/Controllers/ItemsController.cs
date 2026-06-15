@@ -5,6 +5,7 @@ using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Items;
 using Wolverine.CQRS.TestApplication.Application.Items.CreateItem;
 using Wolverine.CQRS.TestApplication.Application.Items.GetItemById;
+using Wolverine.CQRS.TestApplication.Application.Items.GetItems;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -34,8 +35,8 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromBody] CreateItemCommand command,
             CancellationToken cancellationToken = default)
         {
-            await _messageBus.InvokeAsync(command, cancellationToken);
-            return Created(string.Empty, null);
+            var id = await _messageBus.InvokeAsync<Guid>(command, cancellationToken);
+            return CreatedAtAction(nameof(GetItemById), new { id }, id);
         }
 
         /// <summary>
@@ -54,6 +55,18 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
         {
             var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery { Id = id }, cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the list of items.</response>
+        [HttpGet("api/items")]
+        [ProducesResponseType(typeof(List<ItemDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ItemDto>>> GetItems(CancellationToken cancellationToken = default)
+        {
+            var result = await _messageBus.InvokeAsync<List<ItemDto>>(new GetItemsQuery(), cancellationToken);
+            return Ok(result);
         }
     }
 }
