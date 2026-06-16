@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9187dd96-ee54-47b5-b63c-c75f2db3f9eb" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4bfb7b56-d360-45d1-86ad-a9a269becbf1</parentFolderId>
+  <packageId>05ad7842-823b-4b20-8961-ffc2eca3b20a</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

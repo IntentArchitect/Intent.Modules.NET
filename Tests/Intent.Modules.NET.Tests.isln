@@ -203,11 +203,11 @@
     <application id="3eb83206-a40a-4eff-b7b6-facd5e6f88c4" name="HttpClientLibrary" solutionFolder="Architecture" relativePath="HttpClientLibrary/HttpClientLibrary.application.config" />
     <application id="46ad474b-c39f-4be9-be67-cca851ffabe0" name="SqlDbProject.Sdk" solutionFolder="Database" relativePath="SqlDbProject.Sdk/SqlDbProject.Sdk.application.config" />
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Eventing" relativePath="EventingSubscribers/EventingSubscribers.application.config" />
-    <application id="d69bfc1f-2e5b-4609-b1da-c715bf152c84" name="NServiceBus.LearnerTransport" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.LearnerTransport/NServiceBus.LearnerTransport.application.config" />
-    <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="NServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.RabbitMQ/NServiceBus.RabbitMQ.application.config" />
-    <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="NServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.AzureServiceBus/NServiceBus.AzureServiceBus.application.config" />
-    <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="NServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.SQS/NServiceBus.SQS.application.config" />
-    <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="NServiceBus.OutboxPattern.Publish" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Publish/NServiceBus.OutboxPattern.Publish.application.config" />
-    <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="NServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="NServiceBus.OutboxPattern.Subscribe/NServiceBus.OutboxPattern.Subscribe.application.config" />
+    <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="N_ServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.AzureServiceBus/N_ServiceBus.AzureServiceBus.application.config" />
+    <application id="d69bfc1f-2e5b-4609-b1da-c715bf152c84" name="N_ServiceBus.LearnerTransport" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.LearnerTransport/N_ServiceBus.LearnerTransport.application.config" />
+    <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="N_ServiceBus.OutboxPattern.Publish" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.OutboxPattern.Publish/N_ServiceBus.OutboxPattern.Publish.application.config" />
+    <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="N_ServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.OutboxPattern.Subscribe/N_ServiceBus.OutboxPattern.Subscribe.application.config" />
+    <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="N_ServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.RabbitMQ/N_ServiceBus.RabbitMQ.application.config" />
+    <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="N_ServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SQS/N_ServiceBus.SQS.application.config" />
   </applications>
 </solution>
