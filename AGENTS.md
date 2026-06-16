@@ -141,6 +141,10 @@ Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.cl
 | **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
 | **intent-module-orchestrator** | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
 | **intent-domain-interactions-expert** | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
+| **add-designer-extension** | Add a context menu item, new element type creation option, or association creation option to an existing element or package type from another module. |
+| **add-association-type** | Define a new association type in a module, including source and target end configuration. |
+| **intent-architect-mcp** | Intent Architect MCP workflow: designer operations, element discovery, model modification, Software Factory execution, compilation verification, and cross-module integration patterns. |
+| **module-docs** | Complete the three release documentation artifacts for an Intent Architect .NET module (release-notes.md, README.md, and .imodspec). |
 
 > **Maintenance:** Use the `refresh-intent-skills` prompt to audit skills against the latest SDK and update any stale patterns or resource files.
 

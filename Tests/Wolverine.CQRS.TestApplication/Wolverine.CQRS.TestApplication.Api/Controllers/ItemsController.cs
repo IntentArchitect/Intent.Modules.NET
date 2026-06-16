@@ -53,7 +53,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery { Id = id }, cancellationToken);
+            var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 

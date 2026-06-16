@@ -6,16 +6,18 @@ argument-hint: "[handler template id or role] [interaction kind]"
 
 # Intent Domain Interactions Expert
 
-> [!IMPORTANT]
-> **Resource Read Constraint:** You are forbidden from reading the resource files under `/resources/` unless a `dotnet build` tool execution fails or an explicit type resolution error occurs.
+> [!TIP]
+> **Read more if you want to know about** built-in interaction strategies, strategy registration, mapping code snippets, or execution phases:
+> *   [Interactions Cheatsheet](./resources/interactions-cheatsheet.md)
+> *(To conserve tokens, avoid reading this file for simple or minor updates.)*
 
 ## Musts
-1. **Implement `IInteractionStrategy`:** Expose `IsMatch(IElement interaction)` and `ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)`.
-2. **Early Registration:** Register strategies in factory extensions' `OnBeforeTemplateRegistrations` via `InteractionStrategyProvider.Instance.Register(new MyStrategy());`. Never register from inside template constructors.
-3. **Cheap Match:** Keep `IsMatch` cheap and side-effect-free (e.g. check `interaction.IsXxxTargetEndModel()`).
-4. **Phased Statements:** Emit statements via `method.AddStatement(...)` with explicit `ExecutionPhases` (`Initialise`, `BusinessLogic`, `IntegrationEvents`, `Return`).
-5. **Mapping Resolution:** Use `method.GetMappingManager()` and add resolvers up-front inside `ImplementInteraction`. Use `csharpMapping.GenerateCreationStatement` / `GenerateUpdateStatement` for mapping-driven statements.
-6. **Register Type Sources:** Call `template.AddTypeSource(...)` for templates producing types the strategy may reference.
+1. **Implement `IInteractionStrategy`:** Expose `IsMatch(IElement interaction)` and `ImplementInteraction(...)`.
+2. **Early Registration:** Register strategies in factory extensions' `OnBeforeTemplateRegistrations` (never inside constructors).
+3. **Cheap Match:** Keep `IsMatch` cheap and side-effect-free (check typed target end models).
+4. **Phased Statements:** Emit statements via `method.AddStatement(...)` with explicit `ExecutionPhases` (e.g. `BusinessLogic`, `Return`).
+5. **Mapping Resolution:** Use `method.GetMappingManager()` and add resolvers up-front inside `ImplementInteraction`.
+6. **Register Type Sources:** Call `template.AddTypeSource(...)` for templates producing referenced types.
 
 ## Must Nots
 1. Never register a strategy from inside a template constructor.

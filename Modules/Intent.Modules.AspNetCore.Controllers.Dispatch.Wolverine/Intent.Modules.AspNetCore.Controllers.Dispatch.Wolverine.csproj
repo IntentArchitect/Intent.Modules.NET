@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.10.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0" />
+    <PackageReference Include="Intent.Modules.AspNetCore.Controllers" Version="7.1.10" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.7" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Application.Wolverine\Intent.Modules.Application.Wolverine.csproj" PrivateAssets="All" />
   </ItemGroup>

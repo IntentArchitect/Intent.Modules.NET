@@ -238,10 +238,32 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.FactoryExtens
                 ? operation.InternalElement.AsTypeReference()
                 : operation.InternalElement.MappedElement;
 
-            if (GetMappedParameters(operation).Any())
+            var mappedParameters = GetMappedParameters(operation);
+            if (mappedParameters.Any())
             {
-                return
-                    $"new {controllerTemplate.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPayloadProperty.Name.ToPascalCase() + " = " + x.Name))} }}";
+                var hasConstructor = false;
+                var targetTemplate = controllerTemplate.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                    operation.InternalElement.IsCommandModel() ? CommandModelsTemplate.TemplateId : QueryModelsTemplate.TemplateId, 
+                    operation.InternalElement.Id);
+                if (targetTemplate != null)
+                {
+                    var targetClass = targetTemplate.CSharpFile.Classes.FirstOrDefault();
+                    if (targetClass != null && targetClass.Constructors.Any(c => c.Parameters.Any()))
+                    {
+                        hasConstructor = true;
+                    }
+                }
+
+                if (hasConstructor)
+                {
+                    return
+                        $"new {controllerTemplate.GetTypeName(requestType)}({string.Join(", ", mappedParameters.Select(x => x.MappedPayloadProperty.Name.ToParameterName() + ": " + x.Name))})";
+                }
+                else
+                {
+                    return
+                        $"new {controllerTemplate.GetTypeName(requestType)} {{ {string.Join(", ", mappedParameters.Select(x => x.MappedPayloadProperty.Name.ToPascalCase() + " = " + x.Name))} }}";
+                }
             }
 
             return $"new {controllerTemplate.GetTypeName(requestType)}()";

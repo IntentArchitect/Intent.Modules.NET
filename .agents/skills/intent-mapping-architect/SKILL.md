@@ -6,17 +6,19 @@ argument-hint: "[mapping type] [source model] [target model]"
 
 # Intent Mapping Architect
 
-> [!IMPORTANT]
-> **Resource Read Constraint:** You are forbidden from reading the resource files under `/resources/` unless a `dotnet build` tool execution fails or an explicit type resolution error occurs.
+> [!TIP]
+> **Read more if you want to know about** mapping managers, custom type resolvers, traversal pipelines, or API signatures:
+> *   [Mapping Cheatsheet](./resources/mapping-cheatsheet.md)
+> *(To conserve tokens, avoid reading this file for simple or minor updates.)*
 
 ## Musts
-1. **Replacement Resolution:** Always configure replacements via `SetFromReplacement(...)` / `SetToReplacement(...)` using model element identities, and generate statements via MappingManager APIs (`GenerateUpdateStatements(...)`, etc.).
-2. **Path Resolution:** Resolve assignments via mapping element IDs and paths, never by hardcoded property names.
-3. **Node Differentiation:** Explicitly handle Terminal Mappings (leaf/scalar) vs Object Mappings (non-leaf/nested/collection).
-4. **Metadata Preservation:** Custom mapping statement types that participate in recursive mapping generation must implement `IHasMapping` to expose their underlying mapping metadata.
-5. **Mapping Options:** Always honor `MappingOptions` from the designer model: Null-Safe (emit null guards) and Validate All.
-6. **Custom Resolver Registration:** Register custom `IMappingTypeResolver` implementations with explicit priority via `AddMappingResolver(...)`.
-7. **Inherit CSharpMappingBase:** Inherit custom mappings from `CSharpMappingBase` to leverage recursive tree traversal (`Children`, parent links, element ID resolution).
+1. **Replacement Resolution:** Configure replacements via `SetFromReplacement(...)`/`SetToReplacement(...)` and generate statements via MappingManager APIs (`GenerateUpdateStatements(...)` etc.).
+2. **Path Resolution:** Resolve assignments via mapping element IDs and paths, never by property names.
+3. **Node Differentiation:** Explicitly handle Terminal Mappings (leaf) vs Object Mappings (nested/collection).
+4. **Metadata Preservation:** Custom mapping statements in recursive generation must implement `IHasMapping`.
+5. **Mapping Options:** Honor designer model `MappingOptions`: Null-Safe (emit guards) and Validate All.
+6. **Custom Resolver Registration:** Register custom `IMappingTypeResolver` implementations with explicit priority.
+7. **Inherit CSharpMappingBase:** Inherit custom mappings from `CSharpMappingBase` to leverage recursive tree traversal.
 
 ## Must Nots
 1. Never hardcode property-to-property assignments.

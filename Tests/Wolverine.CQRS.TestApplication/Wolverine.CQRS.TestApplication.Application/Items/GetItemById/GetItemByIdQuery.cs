@@ -8,6 +8,10 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.GetItemById
 {
     public class GetItemByIdQuery : IQuery
     {
+        public GetItemByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
     }
 }

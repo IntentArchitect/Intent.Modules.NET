@@ -8,6 +8,10 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
 {
     public class CreateItemCommand : ICommand
     {
+        public CreateItemCommand(string name)
+        {
+            Name = name;
+        }
         public string Name { get; set; }
     }
 }

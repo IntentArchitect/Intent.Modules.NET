@@ -8,5 +8,8 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.GetItems
 {
     public class GetItemsQuery : IQuery
     {
+        public GetItemsQuery()
+        {
+        }
     }
 }
