@@ -2,7 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using N_ServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
 using N_ServiceBus.OutboxPattern.Subscribe.Infrastructure.Persistence;
-using NServiceBus;
 using NServiceBus.Persistence.Sql;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

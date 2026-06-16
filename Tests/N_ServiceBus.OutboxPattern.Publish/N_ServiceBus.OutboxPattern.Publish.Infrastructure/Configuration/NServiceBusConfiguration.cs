@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using N_ServiceBus.OutboxPattern.Publish.Application.Common.Eventing;
 using N_ServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using N_ServiceBus.OutboxPattern.Publish.Infrastructure.Eventing;
-using NServiceBus;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

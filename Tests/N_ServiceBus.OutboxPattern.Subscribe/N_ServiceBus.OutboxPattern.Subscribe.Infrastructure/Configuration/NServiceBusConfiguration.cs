@@ -6,7 +6,6 @@ using N_ServiceBus.OutboxPattern.Publish.Eventing.Messages;
 using N_ServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
 using N_ServiceBus.OutboxPattern.Subscribe.Eventing.Messages;
 using N_ServiceBus.OutboxPattern.Subscribe.Infrastructure.Eventing;
-using NServiceBus;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
