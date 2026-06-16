@@ -8,7 +8,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
     {
         string SolutionModelId { get; }
         IFileMetadata GetMetadata();
-        string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions);
+        string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions, string diskContent = null);
     }
 
     internal sealed class SolutionItemAction

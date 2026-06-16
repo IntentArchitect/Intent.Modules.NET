@@ -145,6 +145,63 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnSyncTarget
             result.ShouldContain("docker\\compose.yml");
         }
 
+        // ── Disk item preservation ────────────────────────────────────────────
+
+        [Fact]
+        public void FileAdded_WhenDiskHasManuallyAddedItem_ShouldPreserveIt()
+        {
+            var target = CreateTarget();
+            var intentPath = Path.Combine(SlnDir, "dapr", "config.yaml");
+            var diskContent = SlnWithSolutionItem(Path.Combine(SlnDir, "docs", "readme.md"));
+
+            var result = target.ApplySolutionItems(EmptySln(), [AddAction(intentPath)], diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("dapr\\config.yaml");
+            result.ShouldContain("docs\\readme.md");
+        }
+
+        [Fact]
+        public void FileAdded_WhenDiskHasManualItemBeingExplicitlyRemoved_ShouldRemoveIt()
+        {
+            var target = CreateTarget();
+            var intentPath = Path.Combine(SlnDir, "dapr", "config.yaml");
+            var manualItemPath = Path.Combine(SlnDir, "docs", "readme.md");
+            var diskContent = SlnWithSolutionItem(manualItemPath);
+
+            var result = target.ApplySolutionItems(
+                EmptySln(),
+                [AddAction(intentPath), RemoveAction(manualItemPath)],
+                diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("dapr\\config.yaml");
+            result.ShouldNotContain("docs\\readme.md");
+        }
+
+        [Fact]
+        public void WhenDiskHasManualItem_NoIntentActions_ShouldPreserveItAndReturnUpdatedContent()
+        {
+            var target = CreateTarget();
+            var diskContent = SlnWithSolutionItem(Path.Combine(SlnDir, "docs", "readme.md"));
+
+            var result = target.ApplySolutionItems(EmptySln(), [], diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("docs\\readme.md");
+        }
+
+        [Fact]
+        public void WhenDiskAndTemplateContentMatch_ShouldReturnNull()
+        {
+            var target = CreateTarget();
+            var content = SlnWithSolutionItem(Path.Combine(SlnDir, "docs", "readme.md"));
+
+            var result = target.ApplySolutionItems(content, [], content);
+
+            result.ShouldBeNull();
+        }
+
         // ── FileRemovedEvent ──────────────────────────────────────────────────
 
         [Fact]

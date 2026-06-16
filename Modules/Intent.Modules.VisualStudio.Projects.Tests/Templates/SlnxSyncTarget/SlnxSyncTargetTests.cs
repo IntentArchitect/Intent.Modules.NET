@@ -184,6 +184,66 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxSyncTarget
             result.Split("<Folder").Length.ShouldBe(2, "only one /dapr/ folder should be created");
         }
 
+        // ── Disk item preservation ────────────────────────────────────────────
+
+        [Fact]
+        public void FileAdded_WhenDiskHasManuallyAddedItem_ShouldPreserveIt()
+        {
+            var target = CreateTarget();
+            var intentPath = Path.Combine(SlnxDir, "dapr", "config.yaml");
+            var diskContent = SlnxWithFile("/docs/", "docs/readme.md");
+
+            var result = target.ApplySolutionItems(EmptySlnx(), [AddAction(intentPath, MakeFolderPath("dapr"))], diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("dapr/config.yaml");
+            result.ShouldContain("docs/readme.md");
+        }
+
+        [Fact]
+        public void FileAdded_WhenDiskHasManualItemBeingExplicitlyRemoved_ShouldRemoveIt()
+        {
+            var target = CreateTarget();
+            var intentPath = Path.Combine(SlnxDir, "dapr", "config.yaml");
+            var manualItemPath = Path.Combine(SlnxDir, "docs", "readme.md");
+            var diskContent = SlnxWithFile("/docs/", "docs/readme.md");
+
+            var result = target.ApplySolutionItems(
+                EmptySlnx(),
+                [
+                    AddAction(intentPath, MakeFolderPath("dapr")),
+                    RemoveAction(manualItemPath)
+                ],
+                diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("dapr/config.yaml");
+            result.ShouldNotContain("docs/readme.md");
+        }
+
+        [Fact]
+        public void WhenDiskHasManualItem_NoIntentActions_ShouldPreserveItAndReturnUpdatedContent()
+        {
+            var target = CreateTarget();
+            var diskContent = SlnxWithFile("/docs/", "docs/readme.md");
+
+            var result = target.ApplySolutionItems(EmptySlnx(), [], diskContent);
+
+            result.ShouldNotBeNull();
+            result.ShouldContain("docs/readme.md");
+        }
+
+        [Fact]
+        public void WhenDiskAndTemplateContentMatch_ShouldReturnNull()
+        {
+            var target = CreateTarget();
+            var content = SlnxWithFile("/docs/", "docs/readme.md");
+
+            var result = target.ApplySolutionItems(content, [], content);
+
+            result.ShouldBeNull();
+        }
+
         // ── FileRemovedEvent ──────────────────────────────────────────────────
 
         [Fact]

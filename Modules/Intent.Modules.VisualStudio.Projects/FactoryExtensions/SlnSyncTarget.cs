@@ -23,11 +23,14 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         public string SolutionModelId { get; }
         public IFileMetadata GetMetadata() => _getMetadata();
 
-        public string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions)
+        public string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions, string diskContent = null)
         {
             var filePath = GetMetadata().GetFilePath();
             var slnFile = SlnFile.Read(filePath, currentContent);
             var original = slnFile.Generate();
+
+            if (diskContent != null)
+                PreserveDiskItems(slnFile, filePath, diskContent, actions);
 
             foreach (var action in actions)
             {
@@ -69,6 +72,38 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var updated = slnFile.Generate();
             return original == updated ? null : updated;
+        }
+
+        private void PreserveDiskItems(SlnFile slnFile, string slnFilePath, string diskContent, IReadOnlyList<SolutionItemAction> actions)
+        {
+            var slnDir = Path.GetDirectoryName(slnFilePath) ?? string.Empty;
+
+            var removeSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var action in actions)
+            {
+                if (action.EventIdentifier == SoftwareFactoryEvents.FileRemovedEvent)
+                    removeSet.Add(Path.GetRelativePath(slnDir, action.PhysicalPath).Replace('/', '\\'));
+            }
+
+            var diskSlnFile = SlnFile.Read(slnFilePath, diskContent);
+            foreach (var relativePath in GetSolutionItemRelativePaths(diskSlnFile))
+            {
+                if (removeSet.Contains(relativePath))
+                    continue;
+                var absolutePath = Path.Combine(slnDir, relativePath);
+                if (SolutionItemExists(slnFile, slnFilePath, absolutePath))
+                    continue;
+                slnFile.AddSolutionItem(parentProject: null, solutionItemPhysicalPath: absolutePath,
+                    relativeOutputPathPrefix: null, hasMaterializedFolder: false);
+            }
+        }
+
+        private static IEnumerable<string> GetSolutionItemRelativePaths(SlnFile slnFile)
+        {
+            return slnFile.Projects
+                .SelectMany(p => p.Sections)
+                .Where(s => s.Id == "SolutionItems")
+                .SelectMany(s => s.Properties.Keys);
         }
 
         private static bool SolutionItemExists(SlnFile slnFile, string slnFilePath, string itemPhysicalPath)

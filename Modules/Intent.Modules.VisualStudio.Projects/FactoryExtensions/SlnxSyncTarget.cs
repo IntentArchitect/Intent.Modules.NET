@@ -28,15 +28,39 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         public string SolutionModelId { get; }
         public IFileMetadata GetMetadata() => _getMetadata();
 
-        public string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions)
+        public string ApplySolutionItems(string currentContent, IReadOnlyList<SolutionItemAction> actions, string diskContent = null)
         {
             var filePath = GetMetadata().GetFilePath();
             var solutionDir = Path.GetDirectoryName(filePath) ?? string.Empty;
 
             var existingFiles = GetExistingFiles(currentContent);
-            var addItems = new List<(string RelativePath, string FolderPath)>();
-            var removeRelativePaths = new List<string>();
 
+            // Build remove set first so disk-item preservation can respect explicit removes
+            var removeSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var action in actions)
+            {
+                if (action.EventIdentifier == SoftwareFactoryEvents.FileRemovedEvent)
+                    removeSet.Add(Path.GetRelativePath(solutionDir, action.PhysicalPath).Replace('\\', '/'));
+            }
+
+            // Disk items to preserve are injected via XDocument to avoid SolutionModel.AddFolder
+            // constraints — it rejects certain folder path strings on XML-backed models.
+            var diskAddItems = new List<(string RelativePath, string FolderPath)>();
+            if (diskContent != null)
+            {
+                foreach (var (path, folderPath) in GetExistingFilesWithFolders(diskContent))
+                {
+                    if (!existingFiles.Contains(path) && !removeSet.Contains(path))
+                    {
+                        diskAddItems.Add((path, folderPath));
+                        existingFiles.Add(path);
+                    }
+                }
+            }
+
+            // Intent-driven adds use SolutionModel so folder hierarchy is created correctly.
+            var intentAddItems = new List<(string RelativePath, string FolderPath)>();
+            var removeRelativePaths = new List<string>();
             foreach (var action in actions)
             {
                 var relativePath = Path.GetRelativePath(solutionDir, action.PhysicalPath).Replace('\\', '/');
@@ -46,7 +70,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     case SoftwareFactoryEvents.FileAddedEvent:
                         if (!existingFiles.Contains(relativePath))
                         {
-                            addItems.Add((relativePath, BuildFolderPath(action.FolderPath)));
+                            intentAddItems.Add((relativePath, BuildFolderPath(action.FolderPath)));
                             existingFiles.Add(relativePath);
                         }
                         break;
@@ -63,19 +87,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
             }
 
-            if (addItems.Count == 0 && removeRelativePaths.Count == 0)
+            if (intentAddItems.Count == 0 && diskAddItems.Count == 0 && removeRelativePaths.Count == 0)
                 return null;
 
             var resultContent = currentContent;
 
-            // Adds: use SolutionModel. OpenAsync gives an XML-backed model where the
-            // SolutionFolders collection IS populated, but each folder's Files list is
-            // NOT (it stays null). We only call AddFile for paths not already in the XML,
-            // so SaveAsync writes them from the in-memory list without producing duplicates.
-            if (addItems.Count > 0)
+            // Phase 1 — Intent-driven adds via SolutionModel (handles folder creation).
+            if (intentAddItems.Count > 0)
             {
-                var slnxModel = ParseSlnx(currentContent);
-                foreach (var (relativePath, folderPath) in addItems)
+                var slnxModel = ParseSlnx(resultContent);
+                foreach (var (relativePath, folderPath) in intentAddItems)
                 {
                     var folder = slnxModel.SolutionFolders
                         .FirstOrDefault(f => string.Equals(f.Path, folderPath, StringComparison.OrdinalIgnoreCase))
@@ -85,13 +106,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 resultContent = Serialize(slnxModel);
             }
 
-            // Removes: manipulate the XML document directly. SolutionModel.RemoveFile does
-            // not work on XML-backed models because the Files collection is null and the
-            // underlying XML backing is not modified by RemoveFile.
+            // Phase 2 — Disk item preservation via XDocument (avoids SolutionModel.AddFolder constraints).
+            if (diskAddItems.Count > 0)
+                resultContent = InjectFilesIntoContent(resultContent, diskAddItems);
+
+            // Phase 3 — Explicit removes via XDocument (SolutionModel.RemoveFile is a no-op on XML-backed models).
             if (removeRelativePaths.Count > 0)
-            {
                 resultContent = RemoveFilesFromContent(resultContent, removeRelativePaths);
-            }
 
             return resultContent;
         }
@@ -99,6 +120,32 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         private static string BuildFolderPath(IReadOnlyCollection<IntentSolutionFolderModel> folderPath)
         {
             return "/" + string.Join("/", folderPath.Select(f => f.Name)) + "/";
+        }
+
+        private static IReadOnlyList<(string RelativePath, string FolderPath)> GetExistingFilesWithFolders(string content)
+        {
+            var result = new List<(string, string)>();
+            if (string.IsNullOrWhiteSpace(content))
+                return result;
+            try
+            {
+                var doc = XDocument.Parse(content);
+                foreach (var folderEl in doc.Descendants("Folder"))
+                {
+                    var folderPath = folderEl.Attribute("Path")?.Value ?? "/";
+                    foreach (var fileEl in folderEl.Elements("File"))
+                    {
+                        var path = fileEl.Attribute("Path")?.Value;
+                        if (path != null)
+                            result.Add((path, folderPath));
+                    }
+                }
+            }
+            catch
+            {
+                // Ignore parse errors; treat as empty
+            }
+            return result;
         }
 
         private static HashSet<string> GetExistingFiles(string content)
@@ -121,6 +168,27 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 // Ignore parse errors; treat as empty
             }
             return result;
+        }
+
+        private static string InjectFilesIntoContent(string content, IReadOnlyList<(string RelativePath, string FolderPath)> items)
+        {
+            var doc = XDocument.Parse(content);
+            var root = doc.Root;
+            foreach (var (relativePath, folderPath) in items)
+            {
+                var folderEl = root
+                    .Elements("Folder")
+                    .FirstOrDefault(f => string.Equals(f.Attribute("Path")?.Value, folderPath, StringComparison.OrdinalIgnoreCase));
+                if (folderEl == null)
+                {
+                    folderEl = new XElement("Folder", new XAttribute("Path", folderPath));
+                    root.Add(folderEl);
+                }
+                folderEl.Add(new XElement("File", new XAttribute("Path", relativePath)));
+            }
+            using var stream = new MemoryStream();
+            doc.Save(stream);
+            return Encoding.UTF8.GetString(stream.ToArray());
         }
 
         private static string RemoveFilesFromContent(string content, IReadOnlyList<string> relativePaths)

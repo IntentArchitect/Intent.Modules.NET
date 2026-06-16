@@ -128,7 +128,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     }))
                     .ToList();
 
-                var updated = target.ApplySolutionItems(change.Content, actions);
+                var diskContent = File.Exists(filePath) ? File.ReadAllText(filePath) : null;
+                var updated = target.ApplySolutionItems(change.Content, actions, diskContent);
                 if (updated != null)
                     change.ChangeContent(updated);
             }
