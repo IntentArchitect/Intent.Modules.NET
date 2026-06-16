@@ -2,6 +2,7 @@ using System.Transactions;
 using CompositeMessageBus.Application.Common.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using NServiceBus;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusMessageBus", Version = "1.0")]

@@ -2,6 +2,7 @@ using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using N_ServiceBus.OutboxPattern.Subscribe.Application.Common.Eventing;
+using NServiceBus;
 using NServiceBus.Persistence.Sql;
 using NServiceBus.TransactionalSession;
 
