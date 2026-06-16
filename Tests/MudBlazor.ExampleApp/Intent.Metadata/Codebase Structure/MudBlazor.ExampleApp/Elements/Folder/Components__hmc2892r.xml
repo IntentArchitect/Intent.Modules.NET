@@ -4,6 +4,7 @@
   <display>Components</display>
   <externalReference>6008721e-d891-44af-a711-4159af9f4c10</externalReference>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>034e5ad7-94f5-45b1-a010-3d60bd78514a</parentFolderId>

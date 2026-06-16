@@ -1,4 +1,5 @@
 using FluentValidationTest.Blazor.Client;
+using FluentValidationTest.Blazor.Client.Components.Services;
 using FluentValidationTest.Blazor.Components;
 using FluentValidationTest.Blazor.Configuration;
 using Intent.RoslynWeaver.Attributes;
@@ -27,6 +28,7 @@ namespace FluentValidationTest.Blazor
                 .AddInteractiveWebAssemblyComponents();
 
             builder.Services.AddMudServices();
+            builder.Services.AddScoped<ThemeService>();
 
             var app = builder.Build();
 

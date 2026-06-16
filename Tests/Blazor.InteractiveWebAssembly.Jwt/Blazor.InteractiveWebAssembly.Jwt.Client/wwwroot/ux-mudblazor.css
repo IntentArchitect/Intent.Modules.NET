@@ -1,0 +1,1108 @@
+/* ============================================================================
+   MudBlazor Design System Bridge
+   Requires: ux-tokens.css (from Intent.Blazor module)
+   ============================================================================ */
+
+
+/* ============================================================================
+   SECTION 1: MudBlazor Palette Bridge
+   Maps the design token layer onto MudBlazor's CSS variable namespace.
+   ============================================================================ */
+
+:root {
+    --mud-default-font: var(--font-primary);
+    --mud-palette-primary: var(--primary);
+    --mud-palette-primary-text: var(--primary-contrast);
+    --mud-palette-secondary: var(--text-muted);
+    --mud-palette-background: var(--bg);
+    --mud-palette-surface: var(--surface);
+    --mud-palette-background-grey: var(--surface-2);
+    --mud-palette-text-primary: var(--text);
+    --mud-palette-text-secondary: var(--text-muted);
+    --mud-palette-text-disabled: var(--text-secondary);
+    --mud-palette-divider: var(--border);
+    --mud-palette-divider-light: var(--border-light);
+    --mud-palette-grey-light: var(--border);
+    --mud-palette-grey-lighter: var(--surface-2);
+    --mud-palette-grey-dark: var(--text-secondary);
+    --mud-palette-grey-darker: var(--text-muted);
+    --mud-palette-success: var(--success);
+    --mud-palette-warning: var(--warning);
+    --mud-palette-error: var(--danger);
+    --mud-palette-info: var(--info);
+    --mud-palette-action-default: var(--text-secondary);
+    --mud-palette-action-disabled: color-mix(in srgb, var(--text-secondary) 35%, transparent);
+    --mud-palette-table-hover: var(--primary-subtle);
+    --mud-palette-table-striped: transparent;
+    --mud-palette-table-striped-hover: var(--primary-subtle);
+    --mud-palette-appbar-background: var(--surface);
+    --mud-palette-appbar-text: var(--text);
+    --mud-palette-drawer-background: var(--surface);
+    --mud-palette-drawer-text: var(--text);
+    --mud-palette-drawer-icon: var(--text-muted);
+}
+
+
+/* ============================================================================
+   SECTION 2: MudBlazor Typography Override
+   ============================================================================ */
+
+.mud-typography,
+.mud-typography-h1,
+.mud-typography-h2,
+.mud-typography-h3,
+.mud-typography-h4,
+.mud-typography-h5,
+.mud-typography-h6,
+.mud-typography-subtitle1,
+.mud-typography-subtitle2,
+.mud-typography-body1,
+.mud-typography-body2,
+.mud-typography-button,
+.mud-typography-caption,
+.mud-typography-overline {
+    font-family: var(--font-primary) !important;
+}
+
+
+/* ============================================================================
+   SECTION 3: MudBlazor Component Overrides
+   ============================================================================ */
+
+/* Ensure full-page background is sealed — prevents html corner gradients showing through */
+.mud-layout {
+    background-color: var(--bg) !important;
+    min-height: 100vh !important;
+}
+
+/* --- App Bar — glassmorphism --- */
+.mud-appbar {
+    background: rgba(6, 9, 15, 0.88) !important;
+    backdrop-filter: blur(28px) saturate(1.8) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(1.8) !important;
+    border-bottom: 1px solid rgba(14,165,233,0.18) !important;
+    box-shadow: 0 1px 0 rgba(14,165,233,0.15), 0 8px 40px rgba(0,0,0,0.50) !important;
+}
+
+:root[data-theme="light"] .mud-appbar {
+    background: rgba(244, 245, 247, 0.90) !important;
+    border-bottom: 1px solid rgba(2,132,199,0.15) !important;
+    box-shadow: 0 1px 0 rgba(2,132,199,0.12), 0 4px 24px rgba(0,0,0,0.08) !important;
+}
+
+.mud-appbar .mud-typography {
+    color: var(--text) !important;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.mud-appbar .mud-button-root,
+.mud-appbar .mud-icon-button,
+.mud-appbar .mud-icon-button-root {
+    color: var(--text-muted) !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out) !important;
+}
+
+    .mud-appbar .mud-button-root:hover,
+    .mud-appbar .mud-icon-button:hover,
+    .mud-appbar .mud-icon-button-root:hover {
+        color: var(--primary) !important;
+        background-color: var(--hover-overlay) !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+/* --- Drawer --- */
+.mud-drawer {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 50%) !important;
+    border-right: 1px solid var(--border) !important;
+    box-shadow: 8px 0 32px rgba(0,0,0,0.35), 1px 0 0 rgba(14,165,233,0.08) !important;
+}
+
+:root[data-theme="light"] .mud-drawer {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 50%) !important;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.06), 1px 0 0 rgba(2,132,199,0.08) !important;
+}
+
+/* Branding strip at top of drawer */
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-2);
+}
+
+.drawer-brand-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--glow-primary);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.drawer-brand-name {
+    font-size: var(--type-label-lg) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.drawer-section-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: var(--space-3) var(--space-4) var(--space-1);
+}
+
+.mud-navmenu {
+    padding: var(--space-2) var(--space-2) !important;
+}
+
+    .mud-navmenu .mud-nav-link {
+        color: var(--text-muted) !important;
+        font-family: var(--font-primary) !important;
+        font-size: var(--type-label-lg) !important;
+        font-weight: 400 !important;
+        padding: var(--space-2) var(--space-3) !important;
+        margin: 1px 0 !important;
+        border-radius: var(--radius-sm) !important;
+        transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out) !important;
+        position: relative;
+    }
+
+        .mud-navmenu .mud-nav-link:hover {
+            background-color: var(--hover-overlay) !important;
+            color: var(--text) !important;
+        }
+
+        .mud-navmenu .mud-nav-link.active {
+            background: linear-gradient(90deg, rgba(14,165,233,0.18) 0%, rgba(14,165,233,0.06) 60%, transparent 100%) !important;
+            color: var(--primary) !important;
+            font-weight: 600 !important;
+            box-shadow: inset 0 1px 0 rgba(14,165,233,0.10), inset 0 -1px 0 rgba(14,165,233,0.06) !important;
+        }
+
+            .mud-navmenu .mud-nav-link.active::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 3px;
+                height: 65%;
+                border-radius: 0 var(--radius-full) var(--radius-full) 0;
+                background: var(--gradient-brand);
+                box-shadow: 0 0 8px rgba(14,165,233,0.60);
+            }
+
+/* --- Main Content background ---
+   Dark mode: ambient top glow + line grid.
+   Light mode: line grid only — no tint gradient to avoid visible bands. */
+.mud-main-content {
+    min-height: 100vh !important;
+    background-color: var(--bg) !important;
+    background-image: radial-gradient(ellipse 160% 65% at 50% -15%, rgba(14,165,233,0.10) 0%, transparent 55%), linear-gradient(rgba(14,165,233,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.10) 1px, transparent 1px) !important;
+    background-attachment: fixed, fixed, fixed !important;
+    background-size: auto, 28px 28px, 28px 28px !important;
+    background-repeat: no-repeat, repeat, repeat !important;
+}
+
+:root[data-theme="light"] .mud-main-content {
+    min-height: 100vh !important;
+    background-color: var(--bg) !important;
+    background-image: linear-gradient(rgba(2,132,199,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(2,132,199,0.07) 1px, transparent 1px) !important;
+    background-attachment: fixed, fixed !important;
+    background-size: 28px 28px, 28px 28px !important;
+    background-repeat: repeat, repeat !important;
+}
+
+/* --- Cards --- */
+.mud-card {
+    background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 85%, var(--surface-2)) 100%) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-2), 0 0 0 1px rgba(14,165,233,0.03) inset !important;
+    transition: box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+    .mud-card:hover {
+        border-color: rgba(14, 165, 233, 0.28) !important;
+        box-shadow: var(--shadow-4), 0 0 0 1px rgba(14,165,233,0.10) inset, 0 0 40px rgba(14,165,233,0.08) !important;
+        transform: translateY(-2px);
+    }
+
+    /* List-page content cards: no hover lift */
+    .mud-card.ux-fade-in-up:hover {
+        transform: none !important;
+        border-color: rgba(14, 165, 233, 0.20) !important;
+    }
+
+    /* Center-fading gradient accent line — "lit from within" */
+    .mud-card.ux-fade-in-up::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, var(--brand-sky) 30%, var(--brand-cobalt) 70%, transparent 100%);
+        opacity: 0.9;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Upgraded shadow with brand ambient for list-page cards */
+    .mud-card.ux-fade-in-up {
+        box-shadow: var(--shadow-3), 0 0 60px rgba(14,165,233,0.07), 0 0 0 1px rgba(14,165,233,0.05) inset !important;
+    }
+
+.mud-card-header {
+    background: linear-gradient(135deg, var(--surface-2) 0%, color-mix(in srgb, var(--surface-2) 80%, var(--surface)) 100%) !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+    padding: var(--space-3) var(--space-5) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+}
+
+.mud-card-content {
+    padding: var(--space-5) !important;
+}
+
+.mud-card-header .mud-typography {
+    color: var(--text) !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* --- Buttons — unified outlined-pill system ---
+   ALL button variants share the same base shape. Color determines the
+   border/text tint; hover fills the background and adds a glow.
+   ------------------------------------------------------------------- */
+
+/* Shared base — shape, typography, transition */
+.mud-button-root.mud-button {
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-label-lg) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    border-radius: var(--radius-md) !important;
+    height: 36px !important;
+    min-width: unset !important;
+    padding: 0 var(--space-4) !important;
+    box-shadow: none !important;
+    transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out) !important;
+}
+
+/* --- PRIMARY FILLED — solid gradient (the "Add" / CTA look) --- */
+.mud-button-filled-primary {
+    background: var(--gradient-brand) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 14px var(--primary-glow) !important;
+}
+
+    .mud-button-filled-primary:not(:disabled):hover {
+        background: var(--gradient-brand) !important;
+        border: none !important;
+        color: #ffffff !important;
+        box-shadow: 0 0 24px var(--primary-glow) !important;
+        transform: translateY(-1px) !important;
+        filter: brightness(1.08) !important;
+    }
+
+/* --- PRIMARY OUTLINED / TEXT — sky-blue outlined (the "Refresh" look) --- */
+.mud-button-outlined-primary,
+.mud-button-text-primary {
+    background: transparent !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+    box-shadow: none !important;
+}
+
+    .mud-button-outlined-primary:not(:disabled):hover,
+    .mud-button-text-primary:not(:disabled):hover {
+        background: var(--primary-subtle) !important;
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+        box-shadow: 0 0 18px var(--primary-glow) !important;
+        transform: translateY(-1px) !important;
+    }
+
+/* --- SECONDARY — same sky-blue outlined as primary --- */
+.mud-button-filled-secondary,
+.mud-button-outlined-secondary,
+.mud-button-text-secondary {
+    background: transparent !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+    box-shadow: none !important;
+}
+
+    .mud-button-filled-secondary:not(:disabled):hover,
+    .mud-button-outlined-secondary:not(:disabled):hover,
+    .mud-button-text-secondary:not(:disabled):hover {
+        background: var(--primary-subtle) !important;
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+        box-shadow: 0 0 18px var(--primary-glow) !important;
+        transform: translateY(-1px) !important;
+    }
+
+/* --- DEFAULT / INHERIT — sky-blue outlined as well --- */
+.mud-button-filled-default,
+.mud-button-outlined-default,
+.mud-button-text-default,
+.mud-button-filled-inherit,
+.mud-button-text-inherit {
+    background: transparent !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+    box-shadow: none !important;
+}
+
+    .mud-button-filled-default:not(:disabled):hover,
+    .mud-button-outlined-default:not(:disabled):hover,
+    .mud-button-text-default:not(:disabled):hover,
+    .mud-button-filled-inherit:not(:disabled):hover,
+    .mud-button-text-inherit:not(:disabled):hover {
+        background: var(--primary-subtle) !important;
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+        box-shadow: 0 0 18px var(--primary-glow) !important;
+        transform: translateY(-1px) !important;
+    }
+
+/* --- ERROR — danger outlined --- */
+.mud-button-filled-error,
+.mud-button-outlined-error,
+.mud-button-text-error {
+    background: transparent !important;
+    border: 1px solid var(--danger) !important;
+    color: var(--danger) !important;
+    box-shadow: none !important;
+}
+
+    .mud-button-filled-error:not(:disabled):hover,
+    .mud-button-outlined-error:not(:disabled):hover,
+    .mud-button-text-error:not(:disabled):hover {
+        background: var(--danger-subtle) !important;
+        border-color: var(--danger) !important;
+        color: var(--danger) !important;
+        box-shadow: 0 0 14px rgba(240, 96, 128, 0.30) !important;
+        transform: translateY(-1px) !important;
+    }
+
+/* --- Disabled state --- */
+.mud-button-root.mud-button:disabled {
+    opacity: 0.38 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+}
+
+/* --- MudIconButton (table row actions) --- */
+.mud-icon-button {
+    border-radius: var(--radius-sm) !important;
+    transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out) !important;
+    color: var(--text-secondary) !important;
+}
+
+    .mud-icon-button.mud-icon-button-color-primary {
+        color: color-mix(in srgb, var(--primary) 62%, transparent) !important;
+    }
+
+    .mud-icon-button.mud-icon-button-color-info {
+        color: color-mix(in srgb, var(--info) 62%, transparent) !important;
+    }
+
+    .mud-icon-button.mud-icon-button-color-error {
+        color: color-mix(in srgb, var(--danger) 62%, transparent) !important;
+    }
+
+    .mud-icon-button.mud-icon-button-color-primary:hover {
+        color: var(--primary) !important;
+        background-color: var(--primary-subtle) !important;
+    }
+
+    .mud-icon-button.mud-icon-button-color-info:hover {
+        color: var(--info) !important;
+        background-color: var(--info-subtle) !important;
+    }
+
+    .mud-icon-button.mud-icon-button-color-error:hover {
+        color: var(--danger) !important;
+        background-color: var(--danger-subtle) !important;
+    }
+
+/* --- Tables --- */
+.mud-table {
+    background-color: transparent !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+}
+
+.mud-table-head {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--surface-2) 100%, rgba(14,165,233,0.08)) 0%, color-mix(in srgb, var(--surface-2) 90%, rgba(99,102,241,0.06)) 100%) !important;
+}
+
+    .mud-table-head .mud-table-cell {
+        font-family: var(--font-primary) !important;
+        font-size: var(--type-label-md) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: var(--text-secondary) !important;
+        border-bottom: 1px solid var(--border) !important;
+        padding: 0.65rem var(--space-4) !important;
+        white-space: nowrap;
+    }
+
+    /* Sort label arrow inherits correct colour */
+    .mud-table-head .mud-button-root {
+        color: var(--text-secondary) !important;
+    }
+
+        .mud-table-head .mud-button-root:hover {
+            color: var(--primary) !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+.mud-table-striped .mud-table-body .mud-table-row:nth-child(odd) {
+    background-color: transparent !important;
+}
+
+/* No-records empty state */
+.mud-table-empty-row,
+.mud-table-empty-row td,
+.mud-table-empty-row .mud-table-cell {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    height: auto !important;
+}
+
+.mud-table-body .mud-table-row:hover,
+.mud-table-striped .mud-table-body .mud-table-row:hover,
+.mud-table-striped .mud-table-body .mud-table-row:nth-child(odd):hover {
+    background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(14,165,233,0.04) 60%, transparent 100%) !important;
+    box-shadow: inset 3px 0 0 var(--primary), inset 0 0 0 1px rgba(14,165,233,0.06) !important;
+}
+
+.mud-table-body .mud-table-row {
+    border-bottom: 1px solid var(--border-light) !important;
+    transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out) !important;
+    height: 48px !important;
+}
+
+    .mud-table-body .mud-table-row:last-child {
+        border-bottom: none !important;
+    }
+
+.mud-table-body .mud-table-cell {
+    padding: 0.5rem var(--space-4) !important;
+    color: var(--text) !important;
+    font-size: var(--type-body-sm) !important;
+    line-height: 1.5 !important;
+}
+
+/* Pager */
+.mud-table-pagination-toolbar {
+    border-top: 1px solid var(--border) !important;
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%) !important;
+    font-size: var(--type-body-sm) !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Loading / empty state */
+.mud-progress-circular {
+    color: var(--primary) !important;
+}
+
+
+/* --- Form Controls --- */
+.mud-input-control .mud-input {
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    background-color: var(--surface-2) !important;
+    color: var(--text) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-body-sm) !important;
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out) !important;
+    min-height: 44px !important;
+    padding: 0 var(--space-3) !important;
+    box-shadow: none !important;
+}
+
+.mud-input-adorned-start .mud-input {
+    padding-left: 2.25rem !important;
+}
+
+.mud-input-adorned-end .mud-input {
+    padding-right: 2.25rem !important;
+}
+
+.mud-input-adornment-start,
+.mud-input-adornment-end {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 0.25rem !important;
+    width: 1.5rem !important;
+    box-sizing: content-box;
+}
+
+    .mud-input-adornment-start .mud-svg-icon,
+    .mud-input-adornment-end .mud-svg-icon,
+    .mud-input-adornment-start .mud-icon-root,
+    .mud-input-adornment-end .mud-icon-root {
+        font-size: 1rem;
+        line-height: 1;
+        color: var(--text-secondary);
+    }
+
+    /* Numeric field spin buttons — reset to subtle icon-only; no border or fill */
+    .mud-input-adornment-end .mud-button-root,
+    .mud-input-adornment-end .mud-button-root.mud-button,
+    .mud-input-adornment-end .mud-button-root.mud-icon-button {
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        color: color-mix(in srgb, var(--primary) 55%, transparent) !important;
+        box-shadow: none !important;
+        padding: 1px 2px !important;
+        margin: 0 !important;
+        min-width: unset !important;
+        width: 22px !important;
+        height: 14px !important;
+        min-height: 14px !important;
+        max-height: 14px !important;
+        line-height: 1 !important;
+        filter: none !important;
+        transform: none !important;
+        border-radius: 2px !important;
+    }
+
+        .mud-input-adornment-end .mud-button-root .mud-svg-icon,
+        .mud-input-adornment-end .mud-button-root .mud-icon-root {
+            font-size: 14px !important;
+            width: 14px !important;
+            height: 14px !important;
+        }
+
+        .mud-input-adornment-end .mud-button-root:hover {
+            background: var(--primary-subtle) !important;
+            color: var(--primary) !important;
+            box-shadow: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+/* mud-input-numeric-spin: the real spin button container (absolutely positioned inside input) */
+.mud-input-numeric-spin {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 24px !important;
+    overflow: hidden !important;
+}
+
+    .mud-input-numeric-spin button,
+    .mud-input-numeric-spin .mud-button-root {
+        flex: 1 1 50% !important;
+        height: 50% !important;
+        min-height: unset !important;
+        max-height: 50% !important;
+        width: 100% !important;
+        min-width: unset !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: color-mix(in srgb, var(--primary) 55%, transparent) !important;
+        border-radius: 0 !important;
+        filter: none !important;
+        transform: none !important;
+    }
+
+        .mud-input-numeric-spin button .mud-svg-icon,
+        .mud-input-numeric-spin button .mud-icon-root,
+        .mud-input-numeric-spin .mud-button-root .mud-svg-icon,
+        .mud-input-numeric-spin .mud-button-root .mud-icon-root {
+            font-size: 12px !important;
+            width: 12px !important;
+            height: 12px !important;
+        }
+
+        .mud-input-numeric-spin button:hover,
+        .mud-input-numeric-spin .mud-button-root:hover {
+            background: var(--primary-subtle) !important;
+            color: var(--primary) !important;
+            box-shadow: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+.mud-input-control .mud-input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px var(--focus), 0 0 12px var(--primary-glow) !important;
+}
+
+.mud-input-control.mud-focused .mud-input-label,
+.mud-input-control .mud-input-label.mud-input-label-shrink {
+    color: var(--primary) !important;
+    font-size: var(--type-label-md) !important;
+    font-weight: 500 !important;
+    transform: translate(0, 1.5px) !important;
+}
+
+/* Override MudBlazor's -14px pull to create gap between label and input border */
+.mud-input-control > .mud-input.mud-input-text {
+    margin-top: 4px !important;
+}
+
+.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text.mud-input-text-with-label {
+    margin-top: 23px !important;
+}
+
+.mud-input-label {
+    color: color-mix(in srgb, var(--text) 30%, var(--text-secondary)) !important;
+    overflow: visible !important;
+    line-height: 1.4 !important;
+}
+
+/* --- Dialogs --- */
+.mud-dialog {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-5), 0 0 80px rgba(14,165,233,0.10) !important;
+    width: 70%;
+}
+
+.mud-dialog-title {
+    background-color: var(--surface-2) !important;
+    color: var(--text) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-body-lg) !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+}
+
+    .mud-dialog-title .mud-typography,
+    .mud-dialog-title h6 {
+        background: var(--gradient-brand) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        font-size: var(--type-body-lg) !important;
+        font-weight: 600 !important;
+    }
+
+.mud-dialog-content {
+    padding: var(--space-5) !important;
+    background-color: var(--surface) !important;
+    color: var(--text-muted) !important;
+}
+
+.mud-dialog-actions {
+    padding: var(--space-3) var(--space-5) !important;
+    border-top: 1px solid var(--border) !important;
+    background-color: var(--surface-2) !important;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl) !important;
+}
+
+/* --- Date / Time Pickers --- */
+.mud-picker-container,
+.mud-picker-paper {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-4) !important;
+}
+
+/* Toolbar (header showing selected date / year) */
+.mud-picker-toolbar {
+    background: var(--gradient-brand) !important;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+    padding: 12px 16px !important;
+}
+
+    /* Force all text / buttons inside the toolbar to be white */
+    .mud-picker-toolbar .mud-button-root,
+    .mud-picker-toolbar .mud-icon-button,
+    .mud-picker-toolbar .mud-button-root span,
+    .mud-picker-toolbar .mud-typography,
+    .mud-picker-toolbar p,
+    .mud-picker-toolbar h4,
+    .mud-picker-toolbar h5,
+    .mud-picker-toolbar h6 {
+        color: #ffffff !important;
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+        .mud-picker-toolbar .mud-button-root:hover,
+        .mud-picker-toolbar .mud-icon-button:hover {
+            background: rgba(255,255,255,0.15) !important;
+            color: #ffffff !important;
+            box-shadow: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+/* Calendar content area */
+.mud-picker-content {
+    background: var(--surface) !important;
+}
+
+/* Month / nav header row */
+.mud-picker-calendar-header-switch .mud-button-root,
+.mud-picker-calendar-header-switch .mud-icon-button {
+    color: var(--text-primary) !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+    .mud-picker-calendar-header-switch .mud-button-root:hover,
+    .mud-picker-calendar-header-switch .mud-icon-button:hover {
+        background: var(--primary-subtle) !important;
+        color: var(--primary) !important;
+        box-shadow: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+/* Day-of-week labels */
+.mud-picker-calendar-header-day {
+    color: var(--text-muted) !important;
+    font-size: var(--type-label-sm) !important;
+    font-weight: 600 !important;
+}
+
+/* Individual day buttons */
+.mud-day {
+    color: var(--text-primary) !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+    .mud-day:not(:disabled):hover {
+        background: var(--primary-subtle) !important;
+        color: var(--primary) !important;
+        box-shadow: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    /* Today highlight */
+    .mud-day.mud-today {
+        border: 1px solid var(--primary) !important;
+        color: var(--primary) !important;
+    }
+
+    /* Selected day */
+    .mud-day.mud-selected,
+    .mud-selected .mud-day {
+        background: var(--gradient-brand) !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+
+/* Year picker items */
+.mud-year-button {
+    color: var(--text-primary) !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+    .mud-year-button:hover {
+        background: var(--primary-subtle) !important;
+        color: var(--primary) !important;
+    }
+
+    .mud-year-button.mud-selected {
+        background: var(--gradient-brand) !important;
+        color: #ffffff !important;
+    }
+
+/* --- Snackbars --- */
+.mud-snackbar {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid !important;
+    box-shadow: var(--shadow-4) !important;
+    font-size: var(--type-body-sm) !important;
+    font-family: var(--font-primary) !important;
+}
+
+    .mud-snackbar.mud-snackbar-success {
+        background-color: color-mix(in srgb, var(--success) 14%, var(--surface-2)) !important;
+        color: var(--success) !important;
+        border-color: color-mix(in srgb, var(--success) 30%, transparent) !important;
+    }
+
+    .mud-snackbar.mud-snackbar-error {
+        background-color: color-mix(in srgb, var(--danger) 14%, var(--surface-2)) !important;
+        color: var(--danger) !important;
+        border-color: color-mix(in srgb, var(--danger) 30%, transparent) !important;
+    }
+
+    .mud-snackbar.mud-snackbar-warning {
+        background-color: color-mix(in srgb, var(--warning) 14%, var(--surface-2)) !important;
+        color: var(--warning) !important;
+        border-color: color-mix(in srgb, var(--warning) 30%, transparent) !important;
+    }
+
+    .mud-snackbar.mud-snackbar-info {
+        background-color: color-mix(in srgb, var(--info) 14%, var(--surface-2)) !important;
+        color: var(--info) !important;
+        border-color: color-mix(in srgb, var(--info) 30%, transparent) !important;
+    }
+
+/* --- Popover / Menu --- */
+.mud-popover-paper {
+    background-color: var(--surface-2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-4) !important;
+}
+
+.mud-list-item {
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-body-sm) !important;
+    color: var(--text-muted) !important;
+    border-radius: calc(var(--radius-sm) - 2px) !important;
+    margin: 1px var(--space-1) !important;
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out) !important;
+}
+
+    .mud-list-item:hover {
+        background-color: var(--hover-overlay) !important;
+        color: var(--text) !important;
+    }
+
+/* --- Chips --- */
+.mud-chip {
+    background-color: var(--surface-2) !important;
+    color: var(--text-muted) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-label-md) !important;
+    font-weight: 500 !important;
+    border-radius: var(--radius-full) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: none !important;
+    letter-spacing: 0.02em !important;
+}
+
+    /* Status chips — frosted glass */
+    .mud-chip.mud-chip-color-success {
+        background-color: color-mix(in srgb, var(--success) 13%, transparent) !important;
+        color: var(--success) !important;
+        border-color: color-mix(in srgb, var(--success) 32%, transparent) !important;
+    }
+
+    .mud-chip.mud-chip-color-error {
+        background-color: color-mix(in srgb, var(--danger) 13%, transparent) !important;
+        color: var(--danger) !important;
+        border-color: color-mix(in srgb, var(--danger) 32%, transparent) !important;
+    }
+
+    .mud-chip.mud-chip-color-warning {
+        background-color: color-mix(in srgb, var(--warning) 13%, transparent) !important;
+        color: var(--warning) !important;
+        border-color: color-mix(in srgb, var(--warning) 32%, transparent) !important;
+    }
+
+    .mud-chip.mud-chip-color-info {
+        background-color: color-mix(in srgb, var(--info) 13%, transparent) !important;
+        color: var(--info) !important;
+        border-color: color-mix(in srgb, var(--info) 32%, transparent) !important;
+    }
+
+/* --- Tooltip --- */
+.mud-tooltip {
+    background-color: var(--surface-3) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--type-label-md) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: var(--space-1) var(--space-2) !important;
+    box-shadow: var(--shadow-2) !important;
+}
+
+
+/* ============================================================================
+   SECTION 4: MudBlazor Page Header Utility
+   ============================================================================ */
+
+/* ── Page header — AI SaaS: dramatic hero-scale title with ambient lighting ── */
+.mud-paper.ux-gradient-primary {
+    background: radial-gradient(ellipse 80% 280% at -8% 50%, rgba(14,165,233,0.28) 0%, transparent 55%), radial-gradient(ellipse 50% 220% at 110% 50%, rgba(99,102,241,0.20) 0%, transparent 50%), radial-gradient(ellipse 60% 90% at 50% 130%, rgba(14,165,233,0.08) 0%, transparent 65%), linear-gradient(to bottom, var(--surface) 30%, var(--bg) 100%) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(20px) !important;
+    margin: -1rem -1rem 1.5rem calc(-1rem - var(--mud-drawer-width-left, 240px)) !important;
+    padding: 1.5rem 2.5rem 3rem calc(var(--mud-drawer-width-left, 240px) + 2.5rem) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+    /* Decorative glow orb behind the title */
+    .mud-paper.ux-gradient-primary::before {
+        content: '' !important;
+        display: block !important;
+        position: absolute !important;
+        top: -100px !important;
+        left: calc(var(--mud-drawer-width-left, 240px) - 40px) !important;
+        width: 500px !important;
+        height: 500px !important;
+        background: radial-gradient(circle, rgba(14,165,233,0.14) 0%, transparent 65%) !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+    .mud-paper.ux-gradient-primary::after {
+        display: none !important;
+    }
+
+    /* Title — sky-to-cobalt gradient text, hero scale */
+    .mud-paper.ux-gradient-primary .mud-typography-h4 {
+        font-size: clamp(1.375rem, 2.5vw, 1.75rem) !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.03em !important;
+        line-height: 1.15 !important;
+        background: var(--gradient-brand) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+        /* Icon badge — larger, more prominent */
+        .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
+        .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-svg-icon {
+            background: var(--gradient-brand) !important;
+            border-radius: var(--radius-md) !important;
+            padding: 6px !important;
+            width: 2.125rem !important;
+            height: 2.125rem !important;
+            font-size: 1rem !important;
+            flex-shrink: 0 !important;
+            color: #ffffff !important;
+            -webkit-text-fill-color: initial !important;
+            box-shadow: 0 0 0 1px rgba(14,165,233,0.25), 0 4px 20px rgba(14,165,233,0.50) !important;
+        }
+
+    /* Subtitle — larger, more breathing room */
+    .mud-paper.ux-gradient-primary .mud-typography-body1 {
+        color: var(--text-muted) !important;
+        font-size: var(--type-body-md) !important;
+        position: relative !important;
+        z-index: 1 !important;
+        margin-top: 0.25rem !important;
+        max-width: 560px !important;
+        line-height: 1.5 !important;
+    }
+
+/* Light mode */
+:root[data-theme="light"] .mud-paper.ux-gradient-primary {
+    background: radial-gradient(ellipse 80% 280% at -8% 50%, rgba(2,132,199,0.14) 0%, transparent 55%), radial-gradient(ellipse 50% 220% at 110% 50%, rgba(99,102,241,0.10) 0%, transparent 50%), linear-gradient(to bottom, var(--surface) 30%, var(--bg) 100%) !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+    :root[data-theme="light"] .mud-paper.ux-gradient-primary::before {
+        background: radial-gradient(circle, rgba(2,132,199,0.10) 0%, transparent 65%) !important;
+    }
+
+    :root[data-theme="light"] .mud-paper.ux-gradient-primary::after {
+        display: none !important;
+    }
+
+    :root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
+    :root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-svg-icon {
+        box-shadow: 0 0 0 1px rgba(2,132,199,0.20), 0 4px 16px rgba(2,132,199,0.35) !important;
+    }
+
+
+/* ============================================================================
+   SECTION 5: Home Page — MudBlazor-specific Overrides
+   ============================================================================ */
+
+/* Primary hero CTA — gradient fill overrides the global outlined rule */
+.hero-cta-primary.mud-button-root.mud-button {
+    background: var(--gradient-brand) !important;
+    border: none !important;
+    color: #fff !important;
+    height: 46px !important;
+    padding: 0 2rem !important;
+    font-size: var(--type-body-sm) !important;
+    box-shadow: var(--glow-primary) !important;
+    border-radius: var(--radius-md) !important;
+}
+
+    .hero-cta-primary.mud-button-root.mud-button:hover {
+        opacity: 0.88 !important;
+        box-shadow: 0 0 36px rgba(14,165,233,0.55), 0 0 12px rgba(99,102,241,0.30) !important;
+        transform: translateY(-2px) !important;
+    }
+
+
+/* ============================================================================
+   SECTION 6: Responsive Overrides
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .mud-card-content {
+        padding: var(--space-4) !important;
+    }
+
+    .mud-card-header {
+        padding: var(--space-3) var(--space-4) !important;
+    }
+}

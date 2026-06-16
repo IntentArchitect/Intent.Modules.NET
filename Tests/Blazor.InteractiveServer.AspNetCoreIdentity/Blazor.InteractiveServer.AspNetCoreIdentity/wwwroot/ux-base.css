@@ -1,0 +1,182 @@
+/* ============================================================================
+   ux-base.css
+   Global base styles — resets, bare element rules, global animations.
+   Requires: ux-tokens.css
+   ============================================================================ */
+
+
+/* ============================================================================
+   SECTION 1: Global Reset & Base Elements
+   ============================================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    background-color: var(--bg);
+    background-image: radial-gradient(ellipse 200% 200% at -5% -5%, rgba(14,165,233,0.14) 0%, transparent 50%), radial-gradient(ellipse 130% 130% at 105% 105%, rgba(99,102,241,0.10) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+:root[data-theme="light"] {
+    background-image: none;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    color: var(--text);
+    background: transparent;
+    line-height: var(--lh-body);
+    font-size: var(--type-body-md);
+}
+
+    /* Dot grid is applied by the component library overlay file */
+    body::before {
+        display: none;
+    }
+
+:root[data-theme="light"] body {
+    background: transparent;
+}
+
+    :root[data-theme="light"] body::before {
+        background-image:
+            linear-gradient(rgba(2,132,199,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(2,132,199,0.06) 1px, transparent 1px);
+        opacity: 0.55;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--type-h1);
+    line-height: var(--lh-h1);
+}
+
+h2 {
+    font-size: var(--type-h2);
+    line-height: var(--lh-h2);
+}
+
+h3 {
+    font-size: var(--type-h3);
+    line-height: var(--lh-h3);
+}
+
+h4 {
+    font-size: var(--type-body-lg);
+    line-height: var(--lh-body);
+}
+
+h5 {
+    font-size: var(--type-body-md);
+    line-height: var(--lh-body);
+}
+
+h6 {
+    font-size: var(--type-body-sm);
+    line-height: var(--lh-body);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+    a:hover {
+        color: var(--primary-dark);
+    }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-3);
+    border-radius: var(--radius-full);
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in srgb, var(--primary) 40%, var(--surface-3));
+    }
+
+
+/* ============================================================================
+   SECTION 2: Accessibility & Motion
+   ============================================================================ */
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Headings receive programmatic focus from Blazor's FocusOnNavigate — suppress the ring */
+h1:focus-visible, h2:focus-visible, h3:focus-visible,
+h4:focus-visible, h5:focus-visible, h6:focus-visible {
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ============================================================================
+   SECTION 3: Global Animations
+   Used across all pages — home-page-specific keyframes live in Home.razor.css
+   ============================================================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.ux-fade-in-up {
+    animation: fadeInUp var(--dur-slow) var(--ease-out) both;
+}
+
+.ux-fade-in {
+    animation: fadeIn var(--dur-med) var(--ease-out) both;
+}

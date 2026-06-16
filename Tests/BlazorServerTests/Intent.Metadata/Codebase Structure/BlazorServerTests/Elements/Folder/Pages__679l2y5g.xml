@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7f4395a-387f-44fb-a40f-4a5a88bf9a29" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Pages</name>
+  <display>Pages</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d2816f5c-afe8-4261-8708-24ac1287736e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e0a578a2-1772-4b38-abf2-f662833aac1f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.HomeStyleStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.HomeStyleStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7f4395a-387f-44fb-a40f-4a5a88bf9a29</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

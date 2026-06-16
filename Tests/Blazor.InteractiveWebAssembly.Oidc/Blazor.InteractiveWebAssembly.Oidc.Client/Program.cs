@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Oidc.Client.Common;
+using Blazor.InteractiveWebAssembly.Oidc.Client.Components.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -30,6 +31,8 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Client
 
             builder.Services.AddApiAuthorization();
             builder.Services.AddMudServices();
+
+            builder.Services.AddSingleton<ThemeService>();
 
             await builder.Build().RunAsync();
         }

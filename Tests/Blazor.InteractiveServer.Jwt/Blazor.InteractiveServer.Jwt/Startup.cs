@@ -6,6 +6,7 @@ using Blazor.InteractiveServer.Jwt.Common;
 using Blazor.InteractiveServer.Jwt.Components;
 using Blazor.InteractiveServer.Jwt.Components.Account;
 using Blazor.InteractiveServer.Jwt.Components.Account.Shared;
+using Blazor.InteractiveServer.Jwt.Components.Services;
 using Blazor.InteractiveServer.Jwt.Configuration;
 using Blazor.InteractiveServer.Jwt.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -56,6 +57,7 @@ namespace Blazor.InteractiveServer.Jwt
                 .AddInteractiveServerComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
