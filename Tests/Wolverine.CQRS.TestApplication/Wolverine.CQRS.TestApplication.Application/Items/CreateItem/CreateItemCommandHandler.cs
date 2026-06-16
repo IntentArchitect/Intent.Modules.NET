@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Wolverine.CQRS.TestApplication.Domain.Entities.Items;
 using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
