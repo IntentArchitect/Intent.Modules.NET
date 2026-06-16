@@ -240,7 +240,8 @@ Increment 2: [next step after Increment 1 passes]
 
 ## Pattern Document Format
 
-Write this document to `[ModuleFolder]/PATTERN-DOCUMENT.md`. It is a **living document** — every subsequent skill reads it before working and updates it after concluding. Do not treat it as a one-time handoff.
+Write this document to `[ModuleFolder]/PATTERN-DOCUMENT.md`. It is a **temporary design document** used during the design and implementation phases — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, all durable technical decisions and details are consolidated into `CONTEXT.md`, and `PATTERN-DOCUMENT.md` is deleted.
+
 
 ```markdown
 # Pattern Document: [Module Name]

@@ -20,37 +20,30 @@ constraints; `WORKING.md` tells you how the current branch/task fits inside that
 
 ### `CONTEXT.md`
 
-`CONTEXT.md` is the **durable knowledge layer** for a module or area. It should capture
-important architectural decisions, invariants, technology constraints, accepted patterns,
-rejected approaches worth remembering, test/acceptance expectations, and commit references
-that future AI sessions must not lose.
+`CONTEXT.md` is the **durable knowledge layer** for a module or area. It captures:
+* Important architectural decisions, invariants, technology constraints, and accepted patterns.
+* Which other modules this module affects and how they interact.
+* The design decisions taken during implementation.
+This ensures future AI sessions understand the historical context and architectural implications when modifying a module, especially when `WORKING.md` starts fresh.
 
 Read order:
-
 1. **Repo root** — `CONTEXT.md` (cross-cutting repo knowledge)
-2. **Same directory as files you are about to modify** — e.g.
-   `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
+2. **Same directory as files you are about to modify** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
 
-Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches.
-If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than
-silently "improving" the design.
+Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches. If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than silently "improving" the design.
 
 ### `WORKING.md`
 
-`WORKING.md` is the **temporary in-progress layer**. It captures active branch/task state:
-current goals, known breakages, partial implementations, temporary decisions, and the
-specific path the current work is taking.
+`WORKING.md` is the **temporary in-progress layer** located **only at the repository root** (`/WORKING.md`). It captures:
+* The active task/project state, current goals, known issues, and checklists spanning multiple modules or test apps.
+* **What has been tried**: Specific solutions, approaches, or paths that were attempted and either discarded or selected, along with why. This prevents future AI runs from repeating failed paths.
 
-Read order:
+Both `WORKING.md` and `CONTEXT.md` are **managed and maintained entirely by the AI, for the AI**. 
 
-1. **Repo root** — `WORKING.md` (cross-cutting work spanning multiple modules or test apps)
-2. **Same directory as files you are about to modify** — e.g.
-   `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
+**Lifecycle:** 
+* The root `WORKING.md` file exists only while the overall project work is in progress. When the project is complete, the file is deleted or cleared, and any durable knowledge that should survive is extracted into the relevant `CONTEXT.md` files. Do not create module-specific `WORKING.md` files inside module subdirectories.
+* **Stale File Handler**: If a `WORKING.md` file exists, but you receive a new task/request that is completely unrelated to what is described in the `WORKING.md`, you must prompt the user immediately: *"I see there is a project in progress in WORKING.md. Do you want to discard it and start fresh, or modify the existing plan?"* before taking any actions.
 
-These files are the authoritative record of active design decisions, rejected approaches,
-and current known issues for the current work. Reading them is **mandatory, not optional**.
-If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
-conflict rather than proceeding.
 
 ### Mandatory Pre-Code Verification Gate
 
@@ -58,11 +51,6 @@ Before calling any file modification tool, you must output a single line specify
 `Target: [ClassName.cs] | Lines [Start]-[End]` (e.g., `Target: OrderController.cs | Lines 45-60`).
 
 Do not output any prose, explanations, or additional bullet points.
-
-**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
-is complete, the file is deleted or reduced, and any durable knowledge that should survive
-must be extracted into `CONTEXT.md` (or a proper skill if appropriate). Do not create or
-leave behind `WORKING.md` files for completed work.
 
 ---
 

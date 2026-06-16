@@ -221,7 +221,8 @@ Module ID, imodspec dependency list, NuGet packages table, settings definition, 
 
 ## Attack Plan Format
 
-Write this document to `[ModuleFolder]/ATTACK-PLAN.md`. It is a **living document** — every subsequent skill reads it before working and updates it after concluding.
+Write this document to `[ModuleFolder]/ATTACK-PLAN.md`. It is a **temporary implementation roadmap** used to guide and track increments — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, any durable design patterns are consolidated into `CONTEXT.md`, and `ATTACK-PLAN.md` is deleted.
+
 
 ```markdown
 # Attack Plan: [Module Name]

@@ -170,11 +170,15 @@ This loop terminates when **all** of these are true:
 3. No `NotImplementedException` / `TODO` / placeholder bodies remain in any generated file
 4. SF on the target app produces zero staged changes (the generated output and the model are in sync)
 5. A clean shutdown of the sample doesn't surface any errors or warnings related to the module
+6. A `CONTEXT.md` file has been created or updated in the module folder, consolidating all durable technical decisions, architecture constraints, and findings from `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md`.
+7. The temporary files `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md` are deleted from the module folder.
+8. The project-wide `/WORKING.md` file is deleted or cleared if the entire project/task is now complete.
 
-When all five hold, hand back to the calling agent / user with:
+When all these hold, hand back to the calling agent / user with:
 - The list of increments completed
 - The path to the module `.csproj` and the target sample
-- Any captured learnings worth promoting into the artifact backlog (memory: `project-nservicebus-learnings-for-artifacts.md` is the precedent)
+- The updated `CONTEXT.md` path
+
 
 ---
 
