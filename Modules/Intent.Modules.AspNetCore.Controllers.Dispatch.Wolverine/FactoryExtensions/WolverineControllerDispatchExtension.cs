@@ -8,6 +8,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.Wolverine.Templates.CommandModels;
 using Intent.Modules.Application.Wolverine.Templates.QueryModels;
+using Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.ImplicitControllers;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
@@ -21,7 +22,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.ImplicitControllers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -50,7 +50,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.FactoryExtens
                 controllerTemplate.AddTypeSource(QueryModelsTemplate.TemplateId);
                 controllerTemplate.AddTypeSource(ClassTypeSource.Create(application, "Application.Contract.Dto")
                     .WithCollectionFormatter(CSharpCollectionFormatter.CreateList()));
-                
+
                 controllerTemplate.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("Wolverine");
@@ -221,7 +221,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.FactoryExtens
                 var returnType = template.GetTypeName(operationModel.TypeReference);
                 return $"var result = await _messageBus.InvokeAsync<{returnType}>({payload}, cancellationToken);";
             }
-            
+
             return $"await _messageBus.InvokeAsync({payload}, cancellationToken);";
         }
 
