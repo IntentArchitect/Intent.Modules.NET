@@ -119,8 +119,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
-        public void WhenExisting_WithRemovedFolder_ShouldRemoveStaleFolderAndItsProjects()
+        public void WhenExisting_WithRemovedProject_InFolder_ShouldRemoveProjectButPreserveFolder()
         {
+            // Folders are never removed so that manually-added solution folders survive SF runs.
+            // Only projects absent from the Intent model are removed.
             var model = new SolutionModel();
             var existingFolder = model.AddFolder("/legacy/");
             model.AddProject("legacy/MyApp.Legacy/MyApp.Legacy.csproj", null, existingFolder);
@@ -133,7 +135,28 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
 
-            model.SolutionFolders.ShouldBeEmpty();
+            model.SolutionFolders.Select(f => f.Path).ShouldContain("/legacy/");
+            model.SolutionProjects.Select(p => p.FilePath)
+                .ShouldBe(["MyApp.Api/MyApp.Api.csproj"], ignoreOrder: true);
+        }
+
+        [Fact]
+        public void WhenExisting_WithManuallyAddedFolder_ShouldPreserveFolderAcrossRuns()
+        {
+            // A folder that exists on disk but is not in the Intent model (e.g. added by hand)
+            // must not be removed on subsequent SF runs.
+            var model = new SolutionModel();
+            model.AddFolder("/NewFolder1/");
+            model.AddProject("MyApp.Api/MyApp.Api.csproj");
+
+            var projects = new[]
+            {
+                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
+            };
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
+
+            model.SolutionFolders.Select(f => f.Path).ShouldContain("/NewFolder1/");
             model.SolutionProjects.Select(p => p.FilePath)
                 .ShouldBe(["MyApp.Api/MyApp.Api.csproj"], ignoreOrder: true);
         }

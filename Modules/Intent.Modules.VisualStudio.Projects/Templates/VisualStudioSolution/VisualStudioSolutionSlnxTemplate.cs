@@ -77,12 +77,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                     slnxModel.RemoveProject(existing);
             }
 
-            // Remove folders no longer in the Intent model (leaf-first)
-            foreach (var existing in slnxModel.SolutionFolders.OrderByDescending(f => f.Path.Count(c => c == '/')).ToList())
-            {
-                if (!intentFolderPaths.Contains(existing.Path))
-                    slnxModel.RemoveFolder(existing);
-            }
+            // Folders are NOT removed when absent from the Intent model so that manually-added
+            // solution folders (e.g. empty organiser folders the developer added by hand) are
+            // preserved across SF runs. Developers can remove unwanted folders manually.
 
             // Add root-level projects (no parent folder)
             foreach (var project in allProjects.Where(p => p.ParentFolder == null))
