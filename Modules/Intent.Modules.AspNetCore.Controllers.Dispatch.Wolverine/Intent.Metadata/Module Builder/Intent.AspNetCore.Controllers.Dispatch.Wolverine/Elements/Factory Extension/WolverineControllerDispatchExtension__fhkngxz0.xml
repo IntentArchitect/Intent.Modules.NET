@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6db15dc3-d60e-4472-8ddb-1dba914b5845" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>WolverineControllerDispatchExtension</name>
+  <display>WolverineControllerDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>246b6ba2-c9e6-4a08-8707-2d2b0c44ce69</parentFolderId>
+  <packageId>246b6ba2-c9e6-4a08-8707-2d2b0c44ce69</packageId>
+  <packageName>Intent.AspNetCore.Controllers.Dispatch.Wolverine</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

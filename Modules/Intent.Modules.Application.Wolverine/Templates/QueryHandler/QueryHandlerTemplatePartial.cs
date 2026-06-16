@@ -49,7 +49,9 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                         method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "query");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
-                        method.AddStatement(@"throw new NotImplementedException(""Your implementation here..."");");
+                        method.AddStatement("// IntentInitialGen");
+                        method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
+                        method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                     });
                 });
         }

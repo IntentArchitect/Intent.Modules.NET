@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e8490ecc-63ba-401e-82f6-00d2b8230125" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>API Frameworks</name>
+  <display>API Frameworks</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>999ce4f2-761d-4c6a-90bc-62681678f5af</parentFolderId>
+  <packageId>41f5cbe3-fb39-4d75-9d6b-b1c8c277ca52</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

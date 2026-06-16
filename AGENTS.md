@@ -52,17 +52,12 @@ and current known issues for the current work. Reading them is **mandatory, not 
 If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
 conflict rather than proceeding.
 
-### Mandatory Comprehension Check
+### Mandatory Pre-Code Verification Gate
 
-After reading the relevant `CONTEXT.md` and `WORKING.md` files, and **before making code
-changes**, restate the following in 3-5 concise bullets:
+Before calling any file modification tool, you must output a single line specifying only the target class name and the targeted line numbers:
+`Target: [ClassName.cs] | Lines [Start]-[End]` (e.g., `Target: OrderController.cs | Lines 45-60`).
 
-1. the current goal
-2. the key architectural constraints / non-goals
-3. the primary file(s) you expect to modify
-4. the validation/build steps you will use after the change
-
-If you cannot clearly restate those points, do not proceed with code changes yet.
+Do not output any prose, explanations, or additional bullet points.
 
 **Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
 is complete, the file is deleted or reduced, and any durable knowledge that should survive

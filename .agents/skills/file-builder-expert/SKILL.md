@@ -1,172 +1,34 @@
 ---
 name: file-builder-expert
-description: "Use when converting a standard C# class template or source file into an Intent Architect File Builder template, especially when asked to create a builder for this file, convert TransformText string output to CSharpFile fluent API, or generate matching template registration classes."
-argument-hint: "[source file] [target template name] [single-file|file-per-model|custom]"
+description: Convert C# template files to Fluent CSharpFile builder API.
+argument-hint: "[source file] [target template name]"
 ---
 
 # File Builder Expert
 
+> [!IMPORTANT]
+> **Resource Read Constraint:** You are forbidden from reading the resource files under `/resources/` unless a `dotnet build` fails or a type resolution error occurs.
+
 ## Musts
-1. Inherit from `CSharpTemplateBase<TModel>` and implement `ICSharpFileBuilderTemplate`. Expose a `CSharpFile` property.
-2. Construct `CSharpFile` in the constructor using `this.GetNamespace()` and `this.GetFolderPath()`. All structural fluent calls go here.
-3. Implement `DefineFileConfig()` as `return CSharpFile.GetConfig();` and `TransformText()` as `return CSharpFile.ToString();` — nothing else.
-4. Use specialized control flow builders (`AddIfStatement`, `AddForEachStatement`, `AddTryBlock`, etc.) for all logic. Use `CSharpInvocationStatement` for method calls. `CSharpMethodChainStatement` and `AddMethodChainStatement(...)` are `[Obsolete]` — never use either.
-5. Register all `OnBuild` and `AfterBuild` callbacks during constructor setup. Always supply an explicit priority integer. Use the workspace band convention: **0=Core, 100=Enrichment, 500=Extension, 1000=Final**. `FileBuilderHelper.cs` is the authority on sort order: priority → template-type-name → template-id → model-id → creation order.
-6. When a template must locate an element created by another template (`FindMethod`, `FindClass`, `FindStatement`), its callback **must** use a strictly higher priority number than the source template's callback.
-7. Resolve model-driven types via the Type System APIs, never by guessing: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` when a namespace should be introduced only because a specific concrete type is required. Do not use `UseType(...)` for types represented in the Intent model.
-8. **GetTypeName timing rule:** never call `GetTypeName(...)` or `UseType(...)` directly in the template constructor before the `CSharpFile` structure has been defined. `GetTypeName` internally resolves the type through `UseType`/`NormalizeNamespace`, which may read the referenced template's existing file metadata; at construction time other templates may not be registered yet, causing a `NullReferenceException` inside `FileMetadataExtensions.GetFilePath`. Move these calls into the `AddClass`, `AddMethod`, or other builder lambdas, or into `OnBuild`/`AfterBuild` callbacks, where they execute after all template instances have been created.
-9. Generate members from model metadata when applicable: iterate `Model.Attributes` / `Model.Operations` and call `.AddProperty(...)` / `.AddMethod(...)` with resolved type names.
-10. Advanced member discipline:
-    - Properties: use `.Static()` for static members; use `.WithOptional(bool)` only when the target member API exposes it, otherwise model optionality must come from resolved type/nullability (`GetTypeName(...)`) and explicit property modifiers (for example `.Required()` when needed).
-    - Constructors: DI parameters must call `param.IntroduceReadonlyField()` unless there is a deliberate, documented exception.
-    - Async methods: when generated behavior is async (for example operations returning `Task`/`Task<T>`), call `.Async()` on the method builder.
+1. Inherit from `CSharpTemplateBase<TModel>`, implement `ICSharpFileBuilderTemplate`, and expose `CSharpFile`.
+2. Construct `CSharpFile` in constructor (with all structural fluent calls).
+3. Implement `DefineFileConfig() => CSharpFile.GetConfig();` and `TransformText() => CSharpFile.ToString();`.
+4. Use flow builders (`AddIfStatement`, `AddForEachStatement`, `AddTryBlock`) and `CSharpInvocationStatement` for method calls.
+5. Register `OnBuild`/`AfterBuild` callbacks in constructor: **0=Core, 100=Enrichment, 500=Extension, 1000=Final**.
+6. Target template lookup callbacks must use a strictly higher priority than the target template's priority.
+7. Resolve types via: `GetTypeName(...)` (models), `GetTypeName(templateId, model)` (TemplateId), `UseType("Ns.Type")` (external).
+8. **GetTypeName Timing:** Never call `GetTypeName`/`UseType` directly in the constructor before `CSharpFile` is defined. Execute inside lambdas or callbacks.
+9. Inject DI parameters using `param.IntroduceReadonlyField()`.
+10. When generating a not-implemented handler or method body, always use the following pattern:
+    ```csharp
+    method.AddStatement("// IntentInitialGen");
+    method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
+    method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
+    ```
 
 ## Must Nots
-1. Never emit structural C# (classes, methods, namespaces) as raw strings in `TransformText` or anywhere outside the fluent API.
-2. Never omit `ICSharpFileBuilderTemplate`. Never hardcode namespace or folder paths.
-3. Never mismatch `TemplateId` between the template class and its registration class.
-4. Never use `CSharpMethodChainStatement` or `AddMethodChainStatement(...)` — both are `[Obsolete]`.
-5. Never add `else`, `else if`, `catch`, or `finally` as children of a block. They are sibling statements on the **parent method**.
-6. Never use implicit priority (omitting the second argument, which defaults to 0) for reconciliation logic that depends on the existence of elements from other modules. Always supply an explicit integer.
-7. Never hardcode type strings for types represented in the Intent model. Resolve them via `GetTypeName(...)` / `GetTypeName(templateId, model)` and only use `UseType(...)` for external fully qualified names.
-8. Must not use raw string interpolation for Lambda arrows `=>` or Object Initializer braces `{}`. Use dedicated builder blocks (`CSharpLambdaBlock`, `CSharpObjectInitializerBlock`).
-9. Never call `field.WithAssignment(string)` directly on `CSharpField` — that overload is `[Obsolete]`. Use `field.WithAssignment(new CSharpStatement("value"))` instead. For collection fields that should be initialised to their default empty state, prefer `field.WithInstantiation()`.
-10. Never use `param.IntroduceReadonlyField()` for fields that are not constructor-injected parameters (e.g. nullable state fields like `IEndpointInstance? _endpointInstance`). Those must be declared with an explicit `@class.AddField(type, name, f => f.Private())` call.
-11. Never declare a class called `Constants` (or any other name that collides with `Intent.Modules.Constants`) in a template file that also imports `Intent.Modules.Constants`. The unqualified name resolves to whichever was last imported, silently swapping which `Constants.X` you read. Either rename the local class (e.g. `<ModuleName>Constants`) or use a `using` alias: `using LocalConstants = MyModule.Templates.Constants;`.
-
-## Resolving Other Templates' Namespaces
-
-When one template needs to `AddUsing` for a namespace defined by another template, look the source template up as `IClassProvider` (from `Intent.Modules.Common.Templates`):
-
-```csharp
-var configTemplate = application.FindTemplateInstance<IClassProvider>(NServiceBusConfigurationTemplate.TemplateId);
-if (configTemplate != null)
-{
-    file.AddUsing(configTemplate.Namespace);
-}
-```
-
-This avoids hardcoding namespaces and survives namespace changes driven by the codebase-structure designer.
-12. Do not override `TemplateMetadata` or `Migrations` for brand-new templates. Only add them when there is a real `ITemplateMigration`.
-13. When writing new code or changing a specific call site, do not introduce `[Obsolete]` API usage. Leave unrelated existing obsolete code alone.
-
-## Pattern Index
-
-Read the relevant pattern file **before generating code** for that scenario:
-
-| Scenario | File to read first |
-|----------|--------------------|
-| If/else, foreach, while, using, try/catch, assignments, invocation chains | `resources/patterns/control-flow.cs` |
-| Generics, inheritance, attributes, XML docs, modifiers, nested types, metadata | `resources/patterns/advanced-types.cs` |
-| OnBuild / AfterBuild priority, factory extensions, FindMethod, InsertAbove | `resources/patterns/lifecycle-hooks.cs` |
-| Build errors, timing failures, metadata exceptions, registration mismatches | `resources/troubleshooting.md` |
-| Quick API lookup (file setup, members, type declarations) | `resources/api-cheatsheet.md` |
-
-## Using Directives
-
-1. Use `AddUsing("Namespace")` for file-level namespace imports.
-2. `AddUsing(...)` can be called during `CSharpFile` construction, later in the constructor, in helper methods, or in event/reconciliation logic when namespaces are discovered dynamically.
-3. Prefer `UseType("Namespace.Type")` when the namespace should only appear if that exact concrete type is referenced. This applies to any non-model-resolved type, not only framework/external types.
-4. Prefer `AddUsing(...)` when the namespace is needed independently of a specific type reference, or when it is discovered from dependencies, events, or collections.
-5. `AddUsingBlock(...)` is unrelated to namespace imports. It creates a C# `using (...) { }` statement inside a method body.
-
-### 🔑 Builder inference rule
-The builder can only track type references that go through its type system (`UseType`, `GetTypeName`). When you emit a type name as a **raw string** (e.g. `AddAttribute("DefaultValue(0)")`), the builder sees opaque text and cannot infer the namespace. In that case you must add the namespace manually with `AddUsing(...)`. **The correct fix is always to reach for the typed builder API first** so the namespace is introduced as a side-effect of the type reference:
-
-```csharp
-// BAD — raw string, builder cannot infer System.ComponentModel
-prop.AddAttribute($"DefaultValue({property.Value})");
-// That requires manually calling AddUsing("System.ComponentModel") elsewhere.
-
-// GOOD — typed builder call, UseType introduces System.ComponentModel automatically
-prop.AddAttribute(UseType("System.ComponentModel.DefaultValueAttribute"), attribute =>
-{
-    attribute.AddArgument(property.Value);
-});
-```
-
-Apply this rule to every emitted type reference — attributes, base types, parameter types, generic arguments. Reach for `UseType` / `GetTypeName` before reaching for `AddUsing`.
-
-## Conditional AddUsing Patterns
-
-```csharp
-// Branch-based:
-if (useTopLevelStatements)
-{
-    CSharpFile.AddUsing(this.GetNamespace());
-}
-
-// Dependency-driven:
-foreach (var templateDependency in @event.TemplateDependencies)
-{
-    var template = GetTemplate<IClassProvider>(templateDependency);
-    if (template != null)
-    {
-        AddUsing(template.Namespace);
-    }
-}
-
-// Namespace collection:
-foreach (var ns in @event.RequiredNamespaces)
-{
-    AddUsing(ns);
-}
-
-// Only introduce the namespace when this exact type is needed:
-method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
-```
-
-## Minimal Template Shape
-
-```csharp
-[IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class SampleTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
-{
-    public const string TemplateId = "My.Module.SampleTemplate";
-
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public SampleTemplate(IOutputTarget outputTarget, object model = null)
-        : base(TemplateId, outputTarget, model)
-    {
-        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
-            .AddUsing("System")
-            .AddClass("Sample", @class =>
-            {
-                @class.AddConstructor(ctor =>
-                    ctor.AddParameter("string", "value", p => p.IntroduceReadonlyField()));
-                @class.AddMethod("void", "DoWork", method =>
-                    method.AddStatement("// TODO"));
-            });
-    }
-
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
-    [IntentManaged(Mode.Fully)] protected override CSharpFileConfig DefineFileConfig() => CSharpFile.GetConfig();
-    [IntentManaged(Mode.Fully)] public override string TransformText() => CSharpFile.ToString();
-}
-```
-
-## Registration Quick-Ref
-
-| Template type | Registration base |
-|---------------|-------------------|
-| Single output file | `SingleFileTemplateRegistration` |
-| One file per model | `FilePerModelTemplateRegistration<TModel>` — override `GetModels` |
-| One file for all models | `SingleFileListModelTemplateRegistration<TModel>` — override `GetModels` |
-| Event/pipeline driven | `ITemplateRegistration` |
-
-`TemplateId` must be defined as `public const string` in the template and referenced by name from the registration.
-
-### `SingleFileListModelTemplateRegistration` — Filename
-
-`CSharpFile.GetConfig()` derives the output filename from the **name of the first class added** to the file. Plan class names accordingly.
-
-> Note: `CSharpClass` has `.Internal()` but **not** `.Public()`. Omitting any access modifier produces `public` by default.
-
-## Source of Truth
-
-> **AI:** Read from the `/resources/` folder (pattern files, cheatsheet, troubleshooting guide) for all logic and examples.  
-> **Human reference:** The canonical API lives in the public repo at https://github.com/IntentArchitect/Intent.Modules — see:
-> - `Modules/Intent.Modules.Common.CSharp/Builder/CSharpFile.cs`
-> - `Modules/Intent.Modules.Common/FileBuilders/FileBuilderHelper.cs`
-> - `Modules/Intent.Modules.Common.CSharp/Builder/IHasCSharpStatements.cs`
-> - `Modules/Intent.Modules.Common.CSharp/Builder/` (all individual statement classes)
+1. Never emit structural C# as raw strings outside the fluent API.
+2. Never use `CSharpMethodChainStatement` or `AddMethodChainStatement` (Obsolete).
+3. Never add `else`, `else if`, `catch`, or `finally` as children of a block (must be siblings).
+4. Never use raw string interpolation for lambda arrows `=>` or object initializer braces `{}`. Use `CSharpLambdaBlock` / `CSharpObjectInitializerBlock`.
+5. Never call `field.WithAssignment(string)` directly (Obsolete); use `WithAssignment(new CSharpStatement("value"))`.
