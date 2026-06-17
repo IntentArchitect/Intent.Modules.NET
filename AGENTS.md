@@ -2,6 +2,7 @@
 
 > **Scope:** Applies to all C# module code under `Modules/**`. Loaded automatically by VS Code Copilot.
 > **Directives:** Enforces structural integrity, type safety, and mandatory build validation. These rules are **non-negotiable**.
+> **Ignore:** The `InternalTestModules/` folder — it is unrelated infrastructure and should not be referenced or used as a target for module work.
 
 ---
 
@@ -19,54 +20,37 @@ constraints; `WORKING.md` tells you how the current branch/task fits inside that
 
 ### `CONTEXT.md`
 
-`CONTEXT.md` is the **durable knowledge layer** for a module or area. It should capture
-important architectural decisions, invariants, technology constraints, accepted patterns,
-rejected approaches worth remembering, test/acceptance expectations, and commit references
-that future AI sessions must not lose.
+`CONTEXT.md` is the **durable knowledge layer** for a module or area. It captures:
+* Important architectural decisions, invariants, technology constraints, and accepted patterns.
+* Which other modules this module affects and how they interact.
+* The design decisions taken during implementation.
+This ensures future AI sessions understand the historical context and architectural implications when modifying a module, especially when `WORKING.md` starts fresh.
 
 Read order:
-
 1. **Repo root** — `CONTEXT.md` (cross-cutting repo knowledge)
-2. **Same directory as files you are about to modify** — e.g.
-   `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
+2. **Same directory as files you are about to modify** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
 
-Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches.
-If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than
-silently "improving" the design.
+Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches. If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than silently "improving" the design.
 
 ### `WORKING.md`
 
-`WORKING.md` is the **temporary in-progress layer**. It captures active branch/task state:
-current goals, known breakages, partial implementations, temporary decisions, and the
-specific path the current work is taking.
+`WORKING.md` is the **temporary in-progress layer** located **only at the repository root** (`/WORKING.md`). It captures:
+* The active task/project state, current goals, known issues, and checklists spanning multiple modules or test apps.
+* **What has been tried**: Specific solutions, approaches, or paths that were attempted and either discarded or selected, along with why. This prevents future AI runs from repeating failed paths.
 
-Read order:
+Both `WORKING.md` and `CONTEXT.md` are **managed and maintained entirely by the AI, for the AI**. 
 
-1. **Repo root** — `WORKING.md` (cross-cutting work spanning multiple modules or test apps)
-2. **Same directory as files you are about to modify** — e.g.
-   `Modules/Intent.Modules.Eventing.NServiceBus/WORKING.md`
+**Lifecycle:** 
+* The root `WORKING.md` file exists only while the overall project work is in progress. When the project is complete, the file is deleted or cleared, and any durable knowledge that should survive is extracted into the relevant `CONTEXT.md` files. Do not create module-specific `WORKING.md` files inside module subdirectories.
+* **Stale File Handler**: If a `WORKING.md` file exists, but you receive a new task/request that is completely unrelated to what is described in the `WORKING.md`, you must prompt the user immediately: *"I see there is a project in progress in WORKING.md. Do you want to discard it and start fresh, or modify the existing plan?"* before taking any actions.
 
-These files are the authoritative record of active design decisions, rejected approaches,
-and current known issues for the current work. Reading them is **mandatory, not optional**.
-If what you are about to do contradicts something in a `WORKING.md`, stop and flag the
-conflict rather than proceeding.
 
-### Mandatory Comprehension Check
+### Mandatory Pre-Code Verification Gate
 
-After reading the relevant `CONTEXT.md` and `WORKING.md` files, and **before making code
-changes**, restate the following in 3-5 concise bullets:
+Before calling any file modification tool, you must output a single line specifying only the target class name and the targeted line numbers:
+`Target: [ClassName.cs] | Lines [Start]-[End]` (e.g., `Target: OrderController.cs | Lines 45-60`).
 
-1. the current goal
-2. the key architectural constraints / non-goals
-3. the primary file(s) you expect to modify
-4. the validation/build steps you will use after the change
-
-If you cannot clearly restate those points, do not proceed with code changes yet.
-
-**Lifecycle:** `WORKING.md` files exist only while work is in progress. When a piece of work
-is complete, the file is deleted or reduced, and any durable knowledge that should survive
-must be extracted into `CONTEXT.md` (or a proper skill if appropriate). Do not create or
-leave behind `WORKING.md` files for completed work.
+Do not output any prose, explanations, or additional bullet points.
 
 ---
 
@@ -82,6 +66,19 @@ leave behind `WORKING.md` files for completed work.
 ---
 
 ## 🏗️ Architectural Rules
+
+### 0 — Folder Boundaries (Non-Negotiable)
+
+| Work type | Root folder | Rule |
+| :--- | :--- | :--- |
+| Module code (templates, factory extensions, NuGet declarations, imodspec) | `Modules/` | All module projects live here. Never create or edit module source outside this folder. |
+| Test applications & reference architectures | `Tests/` | All Intent-managed test apps and hand-crafted reference apps live here. Never create test/reference app projects inside `Modules/`. |
+
+**Before creating or editing any file**, confirm its folder:
+- Changing a template, factory extension, or module metadata → `Modules/<ModuleName>/`
+- Creating or running a test app, reference architecture, or SF target → `Tests/<AppName>/`
+
+If a task would place module code in `Tests/` or app code in `Modules/`, **stop and ask** before proceeding.
 
 ### 1 — Engineering Integrity
 * **Scan Before You Name:** Search for existing patterns before creating new classes. `grep_search` → `semantic_search` → then decide. Prefer extending abstractions over parallel ones.
@@ -131,9 +128,9 @@ Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.cl
 | :--- | :--- |
 | **module-kickoff** | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
 | **tech-pattern-researcher** | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
-| **module-ecosystem-analyst** | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
-| **reference-app-builder** | **After module-ecosystem-analyst, before intent-module-builder. Mandatory — never skip.** Finds or creates a test/reference application, hand-crafts the exact files the module will later generate, proves they compile and the handler is hit at runtime. Locks in verified code shapes as the ground truth for all templates. Hard gate — intent-module-builder cannot start until this is green. |
-| **intent-module-builder** | After reference-app-builder. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
+| **reference-app-builder** | **After tech-pattern-researcher, before module-ecosystem-analyst. Mandatory — never skip.** Scaffolds a real Intent-managed Clean Architecture application, installs the standard modules, runs the Software Factory, then hand-crafts the Wolverine/technology-specific files on top of the real generated output. Proves the code shapes compile and the handler is hit at runtime. The running app is the ground truth for all subsequent analysis. Hard gate — module-ecosystem-analyst cannot start until this is green. |
+| **module-ecosystem-analyst** | **After reference-app-builder.** Uses the reference app's actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules already generate, which SDK building blocks to use, which designer elements drive generation. Produces an Attack Plan with ordered implementation increments. |
+| **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
 | **module-increment-loop** | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
 
 ### Implementation Skills (use as needed during module implementation)
@@ -145,6 +142,10 @@ Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.cl
 | **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
 | **intent-module-orchestrator** | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
 | **intent-domain-interactions-expert** | Authoring `IInteractionStrategy` implementations (query/create/update/delete entity, publish/send integration message, processing actions); wiring `method.ImplementInteractions(model)` from handler factory extensions; using `CSharpMapping` resolvers and `ExecutionPhases`. |
+| **add-designer-extension** | Add a context menu item, new element type creation option, or association creation option to an existing element or package type from another module. |
+| **add-association-type** | Define a new association type in a module, including source and target end configuration. |
+| **intent-architect-mcp** | Intent Architect MCP workflow: designer operations, element discovery, model modification, Software Factory execution, compilation verification, and cross-module integration patterns. |
+| **module-docs** | Complete the three release documentation artifacts for an Intent Architect .NET module (release-notes.md, README.md, and .imodspec). |
 
 > **Maintenance:** Use the `refresh-intent-skills` prompt to audit skills against the latest SDK and update any stale patterns or resource files.
 
