@@ -1,0 +1,395 @@
+/* ============================================================================
+   ux-account.css
+   Presentational layer for the Identity (account + manage) pages.
+   Bootstrap-free; built on the ux design system (ux-tokens / ux-base / ux-components)
+   and mirrors the MudBlazor app's carded, icon-led look.
+   Requires: ux-tokens.css. Consumed via the UxIcon / AccountHero / UxField components.
+   ============================================================================ */
+
+
+/* ─── Inline icons (UxIcon) ──────────────────────────────────────────────── */
+.ux-icon {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+
+/* ─── Hero header (AccountHero) ──────────────────────────────────────────────
+   Gradient hero mirroring the Mud app's MudPaper banner. */
+.account-hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+}
+
+.account-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-md);
+    background: var(--gradient-brand);
+    color: #fff;
+    box-shadow: 0 4px 20px var(--primary-glow, rgba(14, 165, 233, 0.5));
+    flex-shrink: 0;
+}
+
+.account-hero-badge .ux-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.account-hero-title {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.account-hero-subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Danger variant — error / status pages (Lockout, AccessDenied, Invalid*) */
+.account-hero-danger .account-hero-badge {
+    background: var(--danger);
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--danger) 45%, transparent);
+}
+
+.account-hero-danger .account-hero-title {
+    background: none;
+    -webkit-text-fill-color: var(--danger);
+    color: var(--danger);
+}
+
+
+/* ─── Layout grids ───────────────────────────────────────────────────────────
+   Replace the Bootstrap .row / .col-md-* grid the Identity scaffold used. */
+.ux-form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-6);
+}
+
+.ux-form-col {
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+/* Single-form pages: one constrained card under the hero.
+   Phase 1A.2 — target 554px (login-column width), centred H + V. */
+.ux-form-narrow {
+    max-width: 554px;
+    margin-inline: auto;
+}
+
+/* Narrow the whole column (hero + card) to match the card, and centre it
+   vertically in the viewport for the sparse single-card pages. */
+.account-layout-main:has(.ux-form-narrow) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-layout-main:has(.ux-form-narrow) .account-layout-content {
+    max-width: 554px;
+}
+
+
+/* ─── Cards ──────────────────────────────────────────────────────────────────
+   Card-frame each form <section> (mirrors the Mud app's MudCard panels). */
+.account-layout-content section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 88%, var(--surface-2)) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2);
+    padding: var(--space-5) var(--space-5) var(--space-4);
+}
+
+.account-layout-content form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* Gradient top-accent line ("lit from within") */
+.account-layout-content section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+    opacity: 0.9;
+}
+
+.account-layout-content section h2,
+.account-layout-content section h3 {
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* ─── Section title + subtitle ───────────────────────────────────────────── */
+.ux-section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ux-section-subtitle {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+/* ─── Form fields (UxField) ───────────────────────────────────────────────────
+   Label above + filled shell with a leading icon (mirrors the Mud app's .login-input-*). */
+.ux-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.ux-field-label {
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.ux-field-shell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: 0 0.875rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.ux-field-shell:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.ux-field-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--text-muted);
+}
+
+.ux-input {
+    flex: 1;
+    min-width: 0;
+    min-height: 42px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+}
+
+.ux-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Inline suffix inside a field shell (e.g. the "verified" tick) */
+.ux-field-suffix {
+    flex-shrink: 0;
+    font-weight: 700;
+}
+
+
+/* ─── Callouts (info / warning / danger notices) ─────────────────────────────── */
+.ux-callout {
+    padding: var(--space-3) var(--space-4);
+    margin-block: var(--space-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+}
+
+.ux-callout p {
+    margin: 0;
+}
+
+/* Icon-led callout (warning / danger notices) — icon beside the text block. */
+.ux-callout:has(.ux-callout-icon) {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+}
+
+.ux-callout-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.ux-callout-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+}
+
+.ux-callout-warning {
+    border-color: color-mix(in srgb, var(--warning) 35%, transparent);
+    background: color-mix(in srgb, var(--warning) 12%, transparent);
+    color: var(--warning);
+}
+
+.ux-callout-danger {
+    border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+    background: color-mix(in srgb, var(--danger) 12%, transparent);
+    color: var(--danger);
+}
+
+.ux-callout-info {
+    border-color: color-mix(in srgb, var(--info) 35%, transparent);
+    background: color-mix(in srgb, var(--info) 12%, transparent);
+    color: var(--info);
+}
+
+
+/* ─── Action links & button rows ─────────────────────────────────────────────── */
+.ux-account-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.ux-account-links a {
+    color: var(--primary);
+    font-size: var(--type-body-sm);
+    text-decoration: none;
+}
+
+.ux-account-links a:hover {
+    text-decoration: underline;
+}
+
+.ux-button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Action buttons — uppercase like the Mud app (base .btn, since btn-lg is no longer used). */
+.account-layout-content .btn:not(.btn-link):not(.btn-icon),
+.ux-manage .btn:not(.btn-link):not(.btn-icon) {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+
+/* ─── Manage section (renders inside the app shell) ──────────────────────────── */
+.ux-manage-grid {
+    display: grid;
+    gap: var(--space-6);
+    padding: var(--space-2) 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .ux-manage-grid {
+        grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    }
+}
+
+.ux-manage-nav,
+.ux-manage-content {
+    min-width: 0;
+}
+
+/* Content card */
+.ux-manage-content {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 88%, var(--surface-2)) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2);
+    padding: var(--space-5);
+}
+
+.ux-manage-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+    opacity: 0.9;
+}
+
+.ux-manage-content > h3 {
+    margin: 0 0 var(--space-4);
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+}
+
+.ux-manage-content h4 {
+    margin: var(--space-4) 0 var(--space-2);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ux-manage-content form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* Action button sits bottom-right of the card, like the Mud app (MudStack FlexEnd).
+   Link-style buttons (e.g. "Send verification email") keep their natural position. */
+.ux-manage-content form > button:not(.btn-link),
+.ux-manage-content .ux-button-row {
+    align-self: flex-end;
+}
+
+.ux-manage-content .ux-button-row {
+    justify-content: flex-end;
+}
+
+/* Manage card section heading + description (mirrors the Mud card's heading/subtitle). */
+.ux-manage-content .ux-section-head {
+    margin-bottom: var(--space-4);
+}
+
+.ux-manage-content .ux-section-head h3 {
+    margin: 0;
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+}
+
+/* Inline action (e.g. "Send verification email") stays left, not bottom-right. */
+.ux-manage-content form > button.ux-inline-action {
+    align-self: flex-start;
+}

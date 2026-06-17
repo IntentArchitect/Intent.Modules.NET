@@ -266,6 +266,10 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountThemeStaticContentTemplateRegistration" externalReference="e732c8dd-113e-435c-bdae-f0558c601d5b">
+      <role>Blazor.ThemeJavascript</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -273,6 +277,7 @@
     <factoryExtension id="Intent.Blazor.Authentication.ClientAddAuthentication" externalReference="472bc746-3023-4cf6-97d7-5f25394e6c38" />
     <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
+    <factoryExtension id="Intent.Blazor.Authentication.WireupAccountCssExtension" externalReference="5d143f25-19e7-4729-9874-4ed876783a01" />
   </factoryExtensions>
   <moduleSettings />
   <dependencies>

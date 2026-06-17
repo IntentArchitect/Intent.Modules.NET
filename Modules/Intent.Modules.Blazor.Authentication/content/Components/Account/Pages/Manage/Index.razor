@@ -9,24 +9,24 @@
 
 <PageTitle>Profile</PageTitle>
 
-<h3>Profile</h3>
+<div class="ux-section-head">
+    <h3>Profile details</h3>
+    <p class="ux-section-subtitle">Update the information associated with your account.</p>
+</div>
 <StatusMessage />
 
-<div class="row">
-    <div class="col-md-6">
-        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <div class="form-floating mb-3">
-                <input type="text" value="@username" class="form-control" placeholder="Please choose your username." disabled />
-                <label for="username" class="form-label">Username</label>
-            </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
-                <label for="phone-number" class="form-label">Phone number</label>
-                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </EditForm>
-    </div>
-</div>
+<EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger" role="alert" />
+    <UxField Label="Username" Icon="user" For="username">
+        <input id="username" type="text" value="@username" class="ux-input" placeholder="Your username" disabled />
+    </UxField>
+    <UxField Label="Phone number" Icon="phone" For="phone-number">
+        <InputText id="phone-number" @bind-Value="Input.PhoneNumber" class="ux-input" placeholder="Your phone number" />
+    </UxField>
+    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+    <button type="submit" class="btn btn-primary">
+        <UxIcon Name="save" />
+        Save
+    </button>
+</EditForm>
