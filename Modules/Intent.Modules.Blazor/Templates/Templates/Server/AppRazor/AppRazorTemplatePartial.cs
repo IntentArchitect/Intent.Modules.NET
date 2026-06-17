@@ -39,8 +39,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                     {
                         html.AddAttribute("lang", "en");
                         html.AddEmptyLine();
-                        // temp mhh todo: marker neutralised so the SF shows the full App.razor delta (the explicit merge region overrides DefaultMode)
-                        //html.AddCodeBlock("@Intent.Merge()");
+                        html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
                         {
                             head.AddHtmlElement("meta", t => t.AddAttribute("charset", "utf-8"));
