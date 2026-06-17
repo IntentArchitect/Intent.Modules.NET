@@ -67,6 +67,19 @@ Do not output any prose, explanations, or additional bullet points.
 
 ## 🏗️ Architectural Rules
 
+### 0 — Folder Boundaries (Non-Negotiable)
+
+| Work type | Root folder | Rule |
+| :--- | :--- | :--- |
+| Module code (templates, factory extensions, NuGet declarations, imodspec) | `Modules/` | All module projects live here. Never create or edit module source outside this folder. |
+| Test applications & reference architectures | `Tests/` | All Intent-managed test apps and hand-crafted reference apps live here. Never create test/reference app projects inside `Modules/`. |
+
+**Before creating or editing any file**, confirm its folder:
+- Changing a template, factory extension, or module metadata → `Modules/<ModuleName>/`
+- Creating or running a test app, reference architecture, or SF target → `Tests/<AppName>/`
+
+If a task would place module code in `Tests/` or app code in `Modules/`, **stop and ask** before proceeding.
+
 ### 1 — Engineering Integrity
 * **Scan Before You Name:** Search for existing patterns before creating new classes. `grep_search` → `semantic_search` → then decide. Prefer extending abstractions over parallel ones.
 * **Access Modifiers:** Define all new types as `internal` by default. Only use `public` if explicitly required for the external API.

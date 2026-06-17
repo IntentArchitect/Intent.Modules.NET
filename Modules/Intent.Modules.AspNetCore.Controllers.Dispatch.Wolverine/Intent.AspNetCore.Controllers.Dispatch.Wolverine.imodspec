@@ -30,5 +30,6 @@
   <tags />
   <moduleSettingsExtensions />
   <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

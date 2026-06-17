@@ -1,5 +1,7 @@
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Wolverine.CQRS.TestApplication.Application.Items;
+using Wolverine.CQRS.TestApplication.Domain.Common.Exceptions;
 using Wolverine.CQRS.TestApplication.Domain.Repositories.Items;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,11 +13,13 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.GetItemById
     public class GetItemByIdQueryHandler
     {
         private readonly IItemRepository _itemRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public GetItemByIdQueryHandler(IItemRepository itemRepository)
+        public GetItemByIdQueryHandler(IItemRepository itemRepository, IMapper mapper)
         {
             _itemRepository = itemRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

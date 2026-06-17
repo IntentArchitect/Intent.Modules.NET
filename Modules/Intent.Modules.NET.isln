@@ -184,5 +184,6 @@
     <application id="7c7bd9b5-382c-47b3-9e8e-de03117144ee" name="Intent.Modules.Infrastructure.Constants" solutionFolder="Infrastructure" relativePath="Intent.Modules.Infrastructure.Constants/Intent.Modules.Infrastructure.Constants.application.config" />
     <application id="2b27db41-cc54-43ad-9e44-7c787b1efd44" name="Intent.Modules.Application.Wolverine" solutionFolder="Application" relativePath="Intent.Modules.Application.Wolverine/Intent.Modules.Application.Wolverine.application.config" />
     <application id="5ccc47b7-4c8e-4a0f-b846-03641defebba" name="Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.application.config" />
+    <application id="25597fb4-3efa-4a28-a536-cb755279028a" name="Intent.Modules.Application.Wolverine.CRUD" solutionFolder="Application" relativePath="Intent.Modules.Application.Wolverine.CRUD/Intent.Modules.Application.Wolverine.CRUD.application.config" />
   </applications>
 </solution>

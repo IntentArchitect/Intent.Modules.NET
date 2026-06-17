@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates;
 using Intent.Modules.Application.Wolverine.Templates.QueryInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -12,7 +13,6 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Application.Wolverine.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

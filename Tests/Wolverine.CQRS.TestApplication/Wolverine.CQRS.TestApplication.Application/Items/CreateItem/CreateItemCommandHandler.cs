@@ -18,7 +18,7 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.CreateItem
             _itemRepository = itemRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateItemCommand command, CancellationToken cancellationToken)
         {
             var item = new Item

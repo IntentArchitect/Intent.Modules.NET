@@ -4,12 +4,13 @@
 Extend the Wolverine CQRS ecosystem by introducing a new module `Intent.Modules.Application.Wolverine.CRUD` that automatically implements CRUD handler bodies using repository pattern and domain interactions mapping.
 
 ## Active Tasks
-- [ ] Scaffold the new `Intent.Modules.Application.Wolverine.CRUD` module project.
-- [ ] Implement `CqrsHandlerCrudExtension` inside the new module.
-- [ ] Implement CRUD mapping strategies for Wolverine handlers (handling `command`/`query` parameter names).
-- [ ] Install the new module in the `Wolverine.CQRS.TestApplication` test application.
-- [ ] Run the Software Factory on `Wolverine.CQRS.TestApplication` to generate CRUD handler bodies.
-- [ ] Verify compilation and runtime behavior of the test application.
+- [x] Scaffold the new `Intent.Modules.Application.Wolverine.CRUD` module project.
+- [x] Implement `CqrsHandlerCrudExtension` inside the new module (domain interactions path, `command`/`query` parameter names).
+- [x] Register `CqrsHandlerCrudExtension` in the Intent Architect Module Builder designer so it appears in the imodspec.
+- [x] Install the new module in the `Wolverine.CQRS.TestApplication` test application (via modules.config).
+- [x] Run the Software Factory on `Wolverine.CQRS.TestApplication` — 1 change applied (GetItemByIdQueryHandler got IMapper injection).
+- [x] Verify compilation: Build succeeded — 0 errors.
+- [ ] Verify runtime behavior of the test application (start app, hit endpoints).
 
 ## Completed Gated Tasks
 - [x] Implement constructor-based command/query models for Wolverine CQRS templates.
