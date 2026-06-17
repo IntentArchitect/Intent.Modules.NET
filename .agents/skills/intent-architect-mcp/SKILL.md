@@ -49,6 +49,7 @@ get_status(workingDirectory)
 - **Prefer `find_designer_elements`** (regex + specialization filter) whenever you know what you're looking for.
 - Use `get_designer_model_structure` only when you genuinely need topology (e.g. all packages and their children). Always pass `specializations` or `packageId` to keep the response small.
 - Use `get_designer_element_details` to inspect full details of a specific element before modifying it.
+- **Before implementing a file-per-model template for a new model type**: call `get_designer_element_details` on the target model element and verify that every type reference the template needs is reachable from that model. For example, `IIntegrationCommandHandler<TCmd, TResponse>` requires both the command type AND the response type — if the model only carries the command, the template cannot generate a correct signature and the designer must be extended first (new stereotype property, new association type, etc.) before any template work begins.
 
 ### 3. Modifying Models
 - Apply changes via `apply_change_model_operations`.
@@ -163,6 +164,21 @@ Calling `install_or_update_modules` unnecessarily can corrupt IA's internal pack
 
 ### `NugetPackages.cs` — Do Not Edit
 This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overwritten by the next SF run. All NuGet package and version changes must go through the **Module Builder designer**.
+
+### Model Type IDs Are Solution-Specific
+The `Model Type` property on a C# Template's `C# Template Settings` stereotype takes a GUID that identifies the element specialization type (e.g. `Integration Event Handler`). This GUID **differs between IA solutions** — the same element type has a different ID in the Module Builder solution vs. the production Modules.NET solution. Never copy a Model Type ID from memory or from another module's XML. Always verify by either:
+- Running `find_designer_elements` on the target solution and inspecting the `specializationTypeId` of a live element of that type, OR
+- Inspecting the installed `.designer.settings` file for the modeler package in the target solution
+
+### `run_designer_script` — Property API Uses `.value`, Not `.getValue()`
+Inside a designer script, accessing a stereotype property value uses the `.value` property directly on the property object:
+```js
+// Correct
+const val = element.getStereotype("C# Template Settings").getProperty("Model Type").value;
+
+// Wrong — throws "getValue is not a function"
+const val = element.getStereotype("C# Template Settings").getProperty("Model Type").getValue();
+```
 
 ---
 

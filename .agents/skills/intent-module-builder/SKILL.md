@@ -81,6 +81,23 @@ All `AddNugetDependency(...)` calls — unconditional and conditional alike — 
 
 **The tell:** If a file in the module's own source has `[assembly: IntentTemplate(...)]`, it is owned by SF. Do not edit it. Period.
 
+### Changing a Template's Registration Type (e.g. `SingleFileNoModel` → `SingleFileListModel`)
+
+Must Not #7 says never edit `*TemplateRegistration.cs` directly for structural changes. Here is the correct designer path when you need to convert a template from single-file to model-driven:
+
+1. In the Module Builder designer, find the **C# Template element** (`find_designer_elements` by name).
+2. Open the element's details (`get_designer_element_details`) and locate its `C# Template Settings` stereotype.
+3. Set (via `apply_change_model_operations` with `kind: updateStereotype`):
+   - **Source** → `Lookup Type`
+   - **Designer** → the designer ID that contains the model (e.g. Services designer GUID)
+   - **Model Type** → the GUID of the element specialization type (e.g. `Integration Event Handler`)
+4. Run SF on the module → `*TemplateRegistration.cs` is regenerated with the correct base class (`SingleFileListModelTemplateRegistration<TModel>`) and `GetModels` override.
+5. The `*TemplatePartial.cs` constructor signature is also regenerated — its `[IntentManaged(Body = Mode.Ignore)]` body must be re-implemented.
+
+> ⚠️ **Model Type GUIDs are solution-specific.** The same element type (`Integration Event Handler`) has a different GUID in different IA solutions. Always read the GUID from the live model — never copy from memory. See the `intent-architect-mcp` skill for how to find them.
+
+---
+
 ## The Iteration Cycle
 
 Any modification to module behaviour — template type, NuGet version, factory extension logic, registration type — follows a fixed designer → SF → install → SF → inspect → build → run sequence. This skill applies it once for the **initial scaffold**. Every subsequent change is owned by `module-increment-loop` — load that skill once this one's scaffold is verified.
