@@ -13,10 +13,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
+	<PackageReference Include="Intent.Modules.Application.DomainInteractions" Version="1.2.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Application.Wolverine\Intent.Modules.Application.Wolverine.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>

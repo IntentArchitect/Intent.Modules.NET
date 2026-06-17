@@ -157,6 +157,12 @@ Before moving to the next increment in the Attack Plan:
 - [ ] Any new decisions added to the Decision Log in `PATTERN-DOCUMENT.md`
 - [ ] Any resolved Open Questions closed in `PATTERN-DOCUMENT.md`
 
+**On the final increment only — documentation health gate (required before declaring the loop done):**
+- [ ] `<authors>` is not `Intent.Modules.NET`
+- [ ] `<summary>` and `<description>` are not `A custom module for Intent.Modules.NET`
+- [ ] `<tags>` is not empty
+- [ ] `release-notes.md` version heading matches the `.imodspec` `<version>` and contains at least one bullet point
+
 If any box can't be ticked, the increment is not done — keep iterating.
 
 ---
@@ -173,6 +179,12 @@ This loop terminates when **all** of these are true:
 6. A `CONTEXT.md` file has been created or updated in the module folder, consolidating all durable technical decisions, architecture constraints, and findings from `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md`.
 7. The temporary files `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md` are deleted from the module folder.
 8. The project-wide `/WORKING.md` file is deleted or cleared if the entire project/task is now complete.
+9. **Documentation health gate** — every `.imodspec` in the module folder passes all of the following (check each field literally, reject any that still contain the scaffold default):
+   - `<authors>` is **not** `Intent.Modules.NET`
+   - `<summary>` is **not** `A custom module for Intent.Modules.NET`
+   - `<description>` is **not** `A custom module for Intent.Modules.NET`
+   - `<tags>` is **not** empty (`<tags />` or `<tags></tags>`)
+   - `release-notes.md` exists, the first heading version matches the `<version>` in the `.imodspec`, and it has at least one bullet point of content
 
 When all these hold, hand back to the calling agent / user with:
 - The list of increments completed
