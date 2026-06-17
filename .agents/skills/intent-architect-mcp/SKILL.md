@@ -121,6 +121,22 @@ These are three distinct operations — each must be its own MCP call:
 ### Stereotype Definition Elements Not in Tree
 `get_designer_model_structure` with `includeChildren: true` does **not** include Stereotype Definition elements — the Stereotypes folder is excluded from traversal. Access them by GUID via `get_designer_element_details`. Find the GUID from generated `.xml` files in the module source.
 
+### `open_solution` — Parameter Is `absolutePath`, Not `solutionPath`
+The required parameter name is `absolutePath`. Passing any other name (e.g. `solutionPath`) causes InputValidationError. When in doubt, fetch the schema via `ToolSearch("select:mcp__intent-architect__open_solution")` before calling.
+
+### `install_or_update_modules` — Target Solution Must Be Open
+This tool only works if the target application is in a currently-open IA solution. If it fails with a SignalR/object error, do **not** retry immediately. Instead:
+1. Call `get_status` to see which solutions are currently open.
+2. If the target app's solution is missing from `openSolutions`, call `open_solution(absolutePath: "<path-to-isln>")`.
+3. Retry `install_or_update_modules` after the solution is confirmed open.
+Fallback when MCP install is still unavailable: manually add the module entry to the app's `modules.config` file.
+
+### `get_staged_file_diffs` — Takes a `filePaths` Array, Not a Glob
+The parameter is `filePaths` (an array of **relative** file paths). There is no glob parameter. To inspect a specific file pass it as an array element: `filePaths: ["Relative/Path/To/File.cs"]`. Passing a glob string will cause InputValidationError.
+
+### Multiple Solutions — Safe, But Never the Same Path Twice
+Intent Architect can have multiple distinct solutions open simultaneously (e.g. Modules solution + Tests solution). `get_status` lists all open solutions — check this before calling `open_solution` to decide which is needed. Do **not** open the same solution path a second time — there is a known IA bug where duplicate registrations cause unpredictable MCP behavior.
+
 ### SF Staged Changes — Diff First
 If SF shows pending staged changes immediately after a designer edit, those may be **carry-over** from before your edit. Always call `get_staged_file_diffs` before `apply_staged_file_changes`. Applying without reviewing can silently revert your work.
 

@@ -45,6 +45,28 @@ All scaffolding decisions must be grounded in Intent's established module patter
 
 ## Learnings
 
+### `supportedClientVersions` — Two-Step Rule
+
+**What went wrong:** After scaffolding, the imodspec kept the wizard default `[4.4.0-a,6.0.0)`. The SF then failed:
+> "The `<supportedClientVersions/>` element value does not support one or more referenced SDK NuGet package versions. Resolved `Intent.SoftwareFactory.SDK` version: 3.14.0. Minimum required Intent Architect version: 5.0.0-a."
+
+**Two-step rule:**
+1. **SDK floor (hard minimum):** The SF error states it directly — e.g. `Minimum required Intent Architect version: 5.0.0-a`. This is the absolute lowest the lower bound can be.
+2. **Dependency floor (may be higher):** Check the module's `modules.config` lockfile. Find the highest lower-bound across all installed modules' `supportedClientVersions` entries. Example: SDK needs `4.5.18-a`, but `Intent.Common 3.11.2` requires `[5.0.0-a, 6.0.0-a)` — use `5.0.0-a`.
+3. **Final lower bound = max(SDK floor, highest dependency floor).** Cross-check with a neighbouring module — the values should align.
+
+Do this check after every SF run that bumps SDK or dependency versions. The Phase 3.7 checklist includes this as a gate item.
+
+---
+
+### All NuGet Dependencies in Constructor Body — Never in `OnBuild`
+
+All `AddNugetDependency(...)` calls — unconditional and conditional alike — belong in the **template constructor body**, before the `CSharpFile` assignment. Conditional ones (e.g. based on a transport setting) use a `switch (settings.AsEnum())` in the constructor with an explicit `default: throw new InvalidOperationException(...)` so unknown values fail loudly.
+
+`OnBuild` is for mutating `CSharpFile` structure (members, statements, usings). The pattern `.OnBuild(file => { AddNugetDependency(...) })` looks like it works but causes dependency-tracking issues in some SF scenarios. Keep all NuGet declarations in the constructor.
+
+---
+
 ### NuGet Packages must go through the designer — not `NugetPackages.cs`
 
 **What happened:** A session added `NServiceBus.Persistence.Sql.TransactionalSession` by directly editing `NugetPackages.cs`, including the registry call and static factory method. The module built successfully. However, `NugetPackages.cs` is `[DefaultIntentManaged(Mode.Fully)]` — the next SF run regenerated it from the designer model and silently dropped the new package entirely.
