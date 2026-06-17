@@ -12,7 +12,10 @@
 
 <PageTitle>Manage email</PageTitle>
 
-<h3>Manage email</h3>
+<div class="ux-section-head">
+    <h3>Email settings</h3>
+    <p class="ux-section-subtitle">Update the email address associated with your account.</p>
+</div>
 
 <StatusMessage Message="@message"/>
 <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
@@ -33,13 +36,13 @@
         <UxField Label="Email" Icon="mail" For="email">
             <input id="email" type="text" value="@email" class="ux-input" placeholder="Your email" disabled />
         </UxField>
-        <button type="submit" class="btn btn-link" form="send-verification-form">Send verification email</button>
+        <button type="submit" class="btn btn-outline-primary ux-inline-action" form="send-verification-form"><UxIcon Name="mail-check" /> Send verification email</button>
     }
     <UxField Label="New email" Icon="mail" For="new-email">
         <InputText id="new-email" @bind-Value="Input.NewEmail" class="ux-input" autocomplete="email" aria-required="true" placeholder="Enter a new email" />
     </UxField>
     <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
-    <button type="submit" class="w-100 btn btn-lg btn-primary">
+    <button type="submit" class="btn btn-primary">
         <UxIcon Name="mail" />
         Change email
     </button>

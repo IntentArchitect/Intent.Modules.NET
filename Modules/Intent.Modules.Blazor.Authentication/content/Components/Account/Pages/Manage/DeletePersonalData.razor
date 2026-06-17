@@ -12,10 +12,16 @@
 
 <StatusMessage Message="@message" />
 
-<h3>Delete personal data</h3>
+<div class="ux-section-head">
+    <h3>Confirm account deletion</h3>
+    <p class="ux-section-subtitle">Review this action carefully before continuing.</p>
+</div>
 
-<div class="ux-callout ux-callout-danger" role="alert">
-    <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+<div class="ux-callout ux-callout-warning" role="alert">
+    <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
+    <div class="ux-callout-body">
+        <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+    </div>
 </div>
 
 <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
@@ -28,7 +34,7 @@
         </UxField>
         <ValidationMessage For="() => Input.Password" class="text-danger" />
     }
-    <button class="w-100 btn btn-lg btn-danger" type="submit">
+    <button class="btn btn-outline-danger" type="submit">
         <UxIcon Name="trash" />
         Delete data and close my account
     </button>

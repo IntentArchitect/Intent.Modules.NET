@@ -159,6 +159,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
 
                         file.AddHtmlElement("div", element => element.AddClass("ux-form-narrow")
                             .AddHtmlElement("section", element => element
+                                .AddHtmlElement("div", sh => sh.AddClass("ux-section-head")
+                                    .AddHtmlElement("h2", h => h.WithText("Reset your password"))
+                                    .AddHtmlElement("p", p => p.AddClass("ux-section-subtitle").WithText("Enter the email address associated with your account.")))
                                 .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "forgot-password").AddAttribute("OnValidSubmit", "OnValidSubmitAsync").AddAttribute("method", "post")
                                     .AddHtmlElement("DataAnnotationsValidator")
                                     .AddHtmlElement("ValidationSummary", element => element.AddClass("text-danger").AddAttribute("role", "alert"))
@@ -166,10 +169,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                                         .AddHtmlElement("InputText", element => element.AddAttribute("id", "email").AddClass("ux-input").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com"))
                                     )
                                     .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))
-                                    .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit")
+                                    .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-primary").AddAttribute("type", "submit")
                                         .AddHtmlElement("UxIcon", element => element.AddAttribute("Name", "mail"))
                                         .WithText("Reset password")
                                     )
+                                    .AddHtmlElement("div", element => element.AddClass("ux-account-links")
+                                        .AddHtmlElement("a", a => a.AddAttribute("href", "Account/Login").WithText("Back to log in")))
                                 )
                             )
                         );
