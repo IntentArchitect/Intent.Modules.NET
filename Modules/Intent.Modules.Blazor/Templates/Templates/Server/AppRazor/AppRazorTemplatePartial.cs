@@ -48,12 +48,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("name", "viewport")
                                 .AddAttribute("content", "width=device-width, initial-scale=1.0"));
                             head.AddHtmlElement("base", t => t.AddAttribute("href", "/"));
-                            if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
-                            {
-                                head.AddHtmlElement("link", t => t
-                                    .AddAttribute("rel", "stylesheet")
-                                    .AddAttribute("href", "bootstrap/bootstrap.min.css"));
-                            }
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", "ux-tokens.css"));

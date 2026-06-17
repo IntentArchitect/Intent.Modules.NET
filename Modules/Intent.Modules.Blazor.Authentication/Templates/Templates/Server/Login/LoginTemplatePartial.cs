@@ -201,64 +201,62 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                     else
                     {
 
-                        file.AddHtmlElement("h1", element => element.WithText("Log in"));
-                        file.AddHtmlElement($"div", element => element.AddClass("row")
-                            .AddHtmlElement("div", element => element.AddClass("col-md-4")
+                        file.AddHtmlElement("AccountHero", hero => hero
+                            .AddAttribute("Icon", "lock-open")
+                            .AddAttribute("Title", "Welcome back")
+                            .AddAttribute("Subtitle", "Sign in with your local account to continue."));
+
+                        file.AddHtmlElement("div", grid =>
+                        {
+                            grid.AddClass("ux-form-grid");
+                            grid.AddHtmlElement("div", element => element.AddClass("ux-form-col")
                                 .AddHtmlElement("section", element => element
                                     .AddHtmlElement("StatusMessage", element => element.AddAttribute("Message", "@errorMessage"))
                                     .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "login").AddAttribute("OnValidSubmit", "LoginUser").AddAttribute("method", "post")
                                         .AddHtmlElement("DataAnnotationsValidator")
-                                        .AddHtmlElement("h2", element => element.WithText("Use a local account to log in."))
-                                        .AddHtmlElement("hr")
+                                        .AddHtmlElement("div", element => element.AddClass("ux-section-head")
+                                            .AddHtmlElement("h2", element => element.WithText("Use a local account to log in"))
+                                            .AddHtmlElement("p", element => element.AddClass("ux-section-subtitle").WithText("Enter your credentials below."))
+                                        )
                                         .AddHtmlElement("ValidationSummary", element => element.AddClass("text-danger").AddAttribute("role", "alert"))
-                                        .AddHtmlElement("div", element => element.AddClass("form-floating mb-3")
-                                            .AddHtmlElement("InputText", element => element.AddClass("form-control").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com"))
-                                            .AddHtmlElement("label", element => element.AddClass("form-label").AddAttribute("for", "email").WithText("Email"))
-                                            .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))
+                                        .AddHtmlElement("UxField", element => element.AddAttribute("Label", "Email").AddAttribute("Icon", "mail").AddAttribute("For", "email")
+                                            .AddHtmlElement("InputText", element => element.AddAttribute("id", "email").AddClass("ux-input").AddAttribute("@bind-Value", "Input.Email").AddAttribute("autocomplete", "username").AddAttribute("aria-required", "true").AddAttribute("placeholder", "name@example.com"))
                                         )
-                                        .AddHtmlElement("div", element => element.AddClass("form-floating mb-3")
-                                            .AddHtmlElement("InputText", element => element.AddClass("form-control").AddAttribute("@bind-Value", "Input.Password").AddAttribute("autocomplete", "current-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "password").AddAttribute("type", "password"))
-                                            .AddHtmlElement("label", element => element.AddClass("form-label").AddAttribute("for", "password").WithText("Password"))
-                                            .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Password"))
+                                        .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Email"))
+                                        .AddHtmlElement("UxField", element => element.AddAttribute("Label", "Password").AddAttribute("Icon", "lock").AddAttribute("For", "password")
+                                            .AddHtmlElement("InputText", element => element.AddAttribute("id", "password").AddClass("ux-input").AddAttribute("type", "password").AddAttribute("@bind-Value", "Input.Password").AddAttribute("autocomplete", "current-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "Enter your password"))
                                         )
-
-                                        .AddHtmlElement("div", element => element.AddClass("form-check mb-3")
-                                                .AddHtmlElement("InputCheckbox", element => element.AddClass("darker-border-checkbox form-check-input").AddAttribute("@bind-Value", "Input.RememberMe"))
-                                                .AddHtmlElement("label", element => element.AddClass("form-check-label").AddAttribute("for", "rememberMe").WithText("Remember me")
-                                                )
+                                        .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Password"))
+                                        .AddHtmlElement("div", element => element.AddClass("form-check")
+                                            .AddHtmlElement("InputCheckbox", element => element.AddAttribute("id", "rememberMe").AddClass("form-check-input").AddAttribute("@bind-Value", "Input.RememberMe"))
+                                            .AddHtmlElement("label", element => element.AddClass("form-check-label").AddAttribute("for", "rememberMe").WithText("Remember me"))
                                         )
-                                        .AddHtmlElement("div", element => element
-                                            .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit").WithText("Login"))
+                                        .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit")
+                                            .AddHtmlElement("UxIcon", element => element.AddAttribute("Name", "log-in"))
+                                            .WithText("Log in")
                                         )
-                                        .AddHtmlElement("div", element => element
-                                            .AddHtmlElement("p", element => element
-                                                .AddHtmlElement("a", element => element.AddAttribute("href", "Account/ForgotPassword").WithText("Forgot your password?"))
-                                                )
-                                        )
-                                        .AddHtmlElement("div", element => element
-                                            .AddHtmlElement("p", element => element
-                                                .AddHtmlElement("a", element => element.AddAttribute("href", "@(NavigationManager.GetUriWithQueryParameters(\"Account/Register\", new Dictionary<string, object?> { [\"ReturnUrl\"] = ReturnUrl }))").WithText("Register as a new user"))
-                                                )
-                                        )
-                                        .AddHtmlElement("div", element => element
-                                            .AddHtmlElement("p", element => element
-                                                .AddHtmlElement("a", element => element.AddAttribute("href", "Account/ResendEmailConfirmation").WithText("Resend email confirmation"))
-                                                )
+                                        .AddHtmlElement("div", element => element.AddClass("ux-account-links")
+                                            .AddHtmlElement("a", element => element.AddAttribute("href", "Account/ForgotPassword").WithText("Forgot your password?"))
+                                            .AddHtmlElement("a", element => element.AddAttribute("href", "@(NavigationManager.GetUriWithQueryParameters(\"Account/Register\", new Dictionary<string, object?> { [\"ReturnUrl\"] = ReturnUrl }))").WithText("Register as a new user"))
+                                            .AddHtmlElement("a", element => element.AddAttribute("href", "Account/ResendEmailConfirmation").WithText("Resend email confirmation"))
                                         )
                                     )
-                                 )
-                             )
-                         );
-                        if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
-                        {
-                            file.AddHtmlElement("div", element => element.AddClass("col-md-6 col-md-offset-2")
+                                )
+                            );
+
+                            if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+                            {
+                                grid.AddHtmlElement("div", element => element.AddClass("ux-form-col")
                                     .AddHtmlElement("section", element => element
-                                        .AddHtmlElement("h3", element => element.WithText("Use another service to log in."))
-                                        .AddHtmlElement("hr")
-                                        .AddHtmlElement("ExternalLoginPicker")
+                                        .AddHtmlElement("div", element => element.AddClass("ux-section-head")
+                                            .AddHtmlElement("h3", element => element.WithText("Use another service to log in"))
+                                            .AddHtmlElement("p", element => element.AddClass("ux-section-subtitle").WithText("Choose an external provider to authenticate."))
                                         )
-                                    );
-                        }
+                                        .AddHtmlElement("ExternalLoginPicker")
+                                    )
+                                );
+                            }
+                        });
 
                     }
 

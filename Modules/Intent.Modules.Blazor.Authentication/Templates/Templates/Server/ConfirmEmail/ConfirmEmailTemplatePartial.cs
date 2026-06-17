@@ -90,8 +90,16 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Confir
                     }
                     else
                     {
-                        file.AddHtmlElement("h1", element => element.WithText("Confirm email"));
-                        file.AddHtmlElement($"StatusMessage Message=\"@statusMessage\"");
+                        file.AddHtmlElement("AccountHero", hero => hero
+                            .AddAttribute("Icon", "check-circle")
+                            .AddAttribute("Title", "Confirm email")
+                            .AddAttribute("Subtitle", "Email confirmation status."));
+
+                        file.AddHtmlElement("div", element => element.AddClass("ux-form-narrow")
+                            .AddHtmlElement("section", element => element
+                                .AddHtmlElement("StatusMessage", element => element.AddAttribute("Message", "@statusMessage"))
+                            )
+                        );
                     }
 
                     var code = GetCodeBehind();

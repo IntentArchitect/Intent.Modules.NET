@@ -12,19 +12,15 @@
 <StatusMessage />
 <h3>Disable two-factor authentication (2FA)</h3>
 
-<div class="alert alert-warning" role="alert">
-    <p>
-        <strong>This action only disables 2FA.</strong>
-    </p>
+<div class="ux-callout ux-callout-warning">
+    <p><strong>This action only disables 2FA.</strong></p>
     <p>
         Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key
         used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
     </p>
 </div>
 
-<div>
-    <form @formname="disable-2fa" @onsubmit="OnSubmitAsync" method="post">
-        <AntiforgeryToken />
-        <button class="btn btn-danger" type="submit">Disable 2FA</button>
-    </form>
-</div>
+<form @formname="disable-2fa" @onsubmit="OnSubmitAsync" method="post">
+    <AntiforgeryToken />
+    <button class="btn btn-danger" type="submit"><UxIcon Name="shield-off" /> Disable 2FA</button>
+</form>

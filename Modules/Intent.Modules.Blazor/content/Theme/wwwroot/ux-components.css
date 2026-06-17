@@ -51,25 +51,6 @@
     color: var(--text-muted);
 }
 
-.form-floating {
-    position: relative;
-}
-
-    .form-floating > .form-control::placeholder {
-        color: transparent;
-    }
-
-    .form-floating > label {
-        color: var(--text-muted);
-    }
-
-    .form-floating > .form-control:focus ~ label,
-    .form-floating > .form-control:not(:placeholder-shown) ~ label,
-    .form-floating > .form-select ~ label {
-        font-size: var(--type-label-md);
-        color: var(--primary);
-    }
-
 .form-check {
     display: flex;
     align-items: center;

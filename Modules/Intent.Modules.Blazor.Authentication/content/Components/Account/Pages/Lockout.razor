@@ -1,8 +1,12 @@
 ﻿@page "/Account/Lockout"
 
 <PageTitle>Locked out</PageTitle>
-
-<header>
-    <h1 class="text-danger">Locked out</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
-</header>
+<AccountHero Icon="alert"
+             Variant="danger"
+             Title="Locked out"
+             Subtitle="Your account is temporarily unavailable." />
+<div class="ux-form-narrow">
+    <section>
+        <p>This account has been locked out, please try again later.</p>
+    </section>
+</div>
