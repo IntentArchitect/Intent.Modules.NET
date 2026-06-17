@@ -21,9 +21,16 @@
                 border-color var(--dur-med) var(--ease-out);
 }
 
-.nav ::deep .nav-link:hover,
-.nav ::deep .nav-link.active {
+.nav ::deep .nav-link:hover {
     color: var(--text);
     background: var(--surface-2);
     border-color: var(--border);
+}
+
+/* Active item — primary-tinted text + subtle fill, matching the MudBlazor manage nav. */
+.nav ::deep .nav-link.active {
+    color: var(--primary);
+    font-weight: 500;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    border-color: transparent;
 }

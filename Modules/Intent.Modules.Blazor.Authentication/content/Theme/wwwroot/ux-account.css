@@ -90,9 +90,23 @@
     min-width: 0;
 }
 
-/* Single-form pages: one constrained card under the hero */
+/* Single-form pages: one constrained card under the hero.
+   Phase 1A.2 — target 554px (login-column width), centred H + V. */
 .ux-form-narrow {
-    max-width: 480px;
+    max-width: 554px;
+    margin-inline: auto;
+}
+
+/* Narrow the whole column (hero + card) to match the card, and centre it
+   vertically in the viewport for the sparse single-card pages. */
+.account-layout-main:has(.ux-form-narrow) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-layout-main:has(.ux-form-narrow) .account-layout-content {
+    max-width: 554px;
 }
 
 
@@ -214,6 +228,7 @@
 /* ─── Callouts (info / warning / danger notices) ─────────────────────────────── */
 .ux-callout {
     padding: var(--space-3) var(--space-4);
+    margin-block: var(--space-3);
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     background: var(--surface-2);
@@ -221,6 +236,26 @@
 
 .ux-callout p {
     margin: 0;
+}
+
+/* Icon-led callout (warning / danger notices) — icon beside the text block. */
+.ux-callout:has(.ux-callout-icon) {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+}
+
+.ux-callout-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.ux-callout-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
 }
 
 .ux-callout-warning {
@@ -266,9 +301,9 @@
     gap: var(--space-3);
 }
 
-/* Submit buttons — uppercase like the Mud app */
-.account-layout-content .btn-lg,
-.ux-manage .btn-lg {
+/* Action buttons — uppercase like the Mud app (base .btn, since btn-lg is no longer used). */
+.account-layout-content .btn:not(.btn-link):not(.btn-icon),
+.ux-manage .btn:not(.btn-link):not(.btn-icon) {
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -330,5 +365,31 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    max-width: 560px;
+}
+
+/* Action button sits bottom-right of the card, like the Mud app (MudStack FlexEnd).
+   Link-style buttons (e.g. "Send verification email") keep their natural position. */
+.ux-manage-content form > button:not(.btn-link),
+.ux-manage-content .ux-button-row {
+    align-self: flex-end;
+}
+
+.ux-manage-content .ux-button-row {
+    justify-content: flex-end;
+}
+
+/* Manage card section heading + description (mirrors the Mud card's heading/subtitle). */
+.ux-manage-content .ux-section-head {
+    margin-bottom: var(--space-4);
+}
+
+.ux-manage-content .ux-section-head h3 {
+    margin: 0;
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+}
+
+/* Inline action (e.g. "Send verification email") stays left, not bottom-right. */
+.ux-manage-content form > button.ux-inline-action {
+    align-self: flex-start;
 }

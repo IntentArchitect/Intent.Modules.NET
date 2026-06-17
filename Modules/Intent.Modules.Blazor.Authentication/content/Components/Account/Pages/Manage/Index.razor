@@ -9,7 +9,10 @@
 
 <PageTitle>Profile</PageTitle>
 
-<h3>Profile</h3>
+<div class="ux-section-head">
+    <h3>Profile details</h3>
+    <p class="ux-section-subtitle">Update the information associated with your account.</p>
+</div>
 <StatusMessage />
 
 <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
@@ -22,7 +25,7 @@
         <InputText id="phone-number" @bind-Value="Input.PhoneNumber" class="ux-input" placeholder="Your phone number" />
     </UxField>
     <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
-    <button type="submit" class="w-100 btn btn-lg btn-primary">
+    <button type="submit" class="btn btn-primary">
         <UxIcon Name="save" />
         Save
     </button>
