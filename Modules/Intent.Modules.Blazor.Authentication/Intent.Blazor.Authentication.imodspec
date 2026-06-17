@@ -258,6 +258,10 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountThemeStaticContentTemplateRegistration" externalReference="e732c8dd-113e-435c-bdae-f0558c601d5b">
+      <role>Blazor.ThemeJavascript</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="7931ea0d-272b-4c4e-aaea-bfba5357534c">
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
@@ -266,7 +270,7 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
-    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountThemeStaticContentTemplateRegistration" externalReference="e732c8dd-113e-435c-bdae-f0558c601d5b">
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration" externalReference="4a148b5d-ad6d-44ac-a4aa-0d1e94058dcc">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
@@ -278,6 +282,7 @@
     <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
     <factoryExtension id="Intent.Blazor.Authentication.WireupAccountCssExtension" externalReference="5d143f25-19e7-4729-9874-4ed876783a01" />
+    <factoryExtension id="Intent.Blazor.Authentication.WireupMudBlazorAccountCss" externalReference="959992f9-0512-4074-b944-32484aeb5d1d" />
   </factoryExtensions>
   <moduleSettings />
   <dependencies>
