@@ -1,0 +1,84 @@
+/* ============================================================================
+   ux-account.css — MudBlazor account/manage presentation layer
+   ----------------------------------------------------------------------------
+   Shipped only for MudBlazor + ASP.NET Core Identity apps and linked AFTER
+   ux-mudblazor.css, so it can override the shared MudBlazor page-header utility
+   for the account area without touching the main-app pages. Counterpart to the
+   non-MudBlazor ux-account.css.
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   1. Page-header (.ux-gradient-primary) is a decorative banner — never let it
+      capture pointer events. On manage pages its full-bleed box overlaps the
+      manage nav column; without this, only the nav-link text is hoverable.
+   ---------------------------------------------------------------------------- */
+.mud-paper.ux-gradient-primary {
+    pointer-events: none;
+}
+
+/* ----------------------------------------------------------------------------
+   2. Account pages: de-full-bleed the hero so it sits as a contained block
+      above the card (matches the non-MudBlazor app). ux-mudblazor.css makes
+      .ux-gradient-primary span 100vw with a negative left margin to clear the
+      main drawer; inside the account layout there is no drawer, so contain it.
+      Higher specificity than the global rule beats its !important declarations.
+   ---------------------------------------------------------------------------- */
+.account-layout-content .mud-paper.ux-gradient-primary {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    padding: 0 0 var(--space-2) 0 !important;
+    overflow: visible !important;
+}
+
+/* ----------------------------------------------------------------------------
+   3. Single-card account pages: centre the hero+card column horizontally and
+      vertically, constrained to the shared 554px form width (matches the
+      non-MudBlazor app). The base AccountLayout.razor.css caps the content at
+      1120px and centres it horizontally; we narrow it and centre vertically.
+      The .mud-layout .mud-main-content ancestor chain outscores the scoped
+      .account-layout-content rule so this wins without !important.
+   ---------------------------------------------------------------------------- */
+.mud-layout .mud-main-content .account-layout-content {
+    max-width: 554px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* RazorBuilder single-card pages (ForgotPassword/ResetPassword/ResendEmail…)
+   wrap their card in a single-column MudGrid sized md=7/lg=6. In a 554px
+   container that lone column would be too narrow — let it fill the container.
+   :only-child scopes this to single-item grids, so the two-column pages
+   (Login/Register) keep their md sizing untouched. */
+.mud-layout .mud-main-content .account-layout-content > .mud-grid > .mud-grid-item:only-child {
+    max-width: 100%;
+    flex-basis: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+   4. Two-column pages (Login, Register) keep the full width + side-by-side
+      columns. They are the only account pages whose content grid has TWO+
+      direct items, so :has() targets exactly them.
+   ---------------------------------------------------------------------------- */
+.mud-layout .mud-main-content .account-layout-content:has(> .mud-grid > .mud-grid-item + .mud-grid-item) {
+    max-width: 1120px;
+    display: block;
+}
+
+/* ----------------------------------------------------------------------------
+   5. Manage drawer is a PUSH drawer (matches the main app's MudDrawer): when the
+      circuit-free nav drawer is open (html.ux-drawer-open, flipped by nav-drawer.js),
+      shift the content right by the drawer width rather than overlaying it. The
+      drawer panel itself slides in (ManageLayout.razor.css); this cross-boundary
+      content shift can't be scoped (.mud-main-content is a child component's markup),
+      so it lives here. Only ManageLayout ever sets the class, so account/login pages
+      are unaffected.
+   ---------------------------------------------------------------------------- */
+.mud-main-content {
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .mud-main-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
+}

@@ -24,22 +24,22 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b1dde391-adec-41d2-a5c8-e4d2bb58db7c</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-06T18:56:33.0327994Z</updatedAt>
-      <deviationsHash>D18CE308028C284BDC7586408A4861CAE081B61275F9081CA6C52DDC7F7ABC65</deviationsHash>
-      <fileHash>782A93ED0CA4BE8B89448225910428A1D1542D875EC3D0C6D9A7F150614D9CA0</fileHash>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-17T19:20:23.0210975Z</updatedAt>
+      <deviationsHash>FB078BB9866E6C6AE7D864D8543C1F84D6B1DEBD26D0759F0634FA7AFE37022C</deviationsHash>
+      <fileHash>3B08B2EF4E940E5BD585170F29F8656824F12EAF77364A1470857E386B066D4C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1145f97b-3ae3-4bc4-8759-87905618b27f</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-06T18:56:33.0328102Z</updatedAt>
-      <deviationsHash>A44FA35597C722271B88C635392F4EF4150BAE331BDCAC62A9C70C1FF947E8DC</deviationsHash>
-      <fileHash>0C373835EE1C3DEBCA475A491F1DC69C11E1F31F76D932113B1C978AE5466E33</fileHash>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-17T19:20:23.0211087Z</updatedAt>
+      <deviationsHash>A47646E105D8BE64E594D2CDDDDC7009DF3FA16C36006954992B12E494563F0C</deviationsHash>
+      <fileHash>CD745E36FD2A68E145C2C15DEF78904FAFDE17F67D0E57F9E290A183B9E8AABA</fileHash>
     </file>
   </files>
 </deviationsLog>

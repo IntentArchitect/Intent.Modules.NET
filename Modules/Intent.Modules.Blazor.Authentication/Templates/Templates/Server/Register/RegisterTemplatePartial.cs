@@ -217,7 +217,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
                                             .AddHtmlElement("InputText", element => element.AddAttribute("id", "confirm-password").AddClass("ux-input").AddAttribute("type", "password").AddAttribute("@bind-Value", "Input.ConfirmPassword").AddAttribute("autocomplete", "new-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "Confirm your password"))
                                         )
                                         .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.ConfirmPassword"))
-                                        .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit")
+                                        .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-primary").AddAttribute("type", "submit")
                                             .AddHtmlElement("UxIcon", element => element.AddAttribute("Name", "user-plus"))
                                             .WithText("Register")
                                         )

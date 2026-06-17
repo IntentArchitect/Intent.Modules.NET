@@ -231,7 +231,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                                             .AddHtmlElement("InputCheckbox", element => element.AddAttribute("id", "rememberMe").AddClass("form-check-input").AddAttribute("@bind-Value", "Input.RememberMe"))
                                             .AddHtmlElement("label", element => element.AddClass("form-check-label").AddAttribute("for", "rememberMe").WithText("Remember me"))
                                         )
-                                        .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit")
+                                        .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-primary").AddAttribute("type", "submit")
                                             .AddHtmlElement("UxIcon", element => element.AddAttribute("Name", "log-in"))
                                             .WithText("Log in")
                                         )

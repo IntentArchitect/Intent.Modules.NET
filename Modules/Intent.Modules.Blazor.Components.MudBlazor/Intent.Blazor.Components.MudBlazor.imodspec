@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>1.1.1-pre.0</version>
+  <version>1.1.2-pre.2</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
@@ -11,6 +11,10 @@
   <tags>blazor mudblazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Components.MudBlazor.AppNav">
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Components.MudBlazor.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -72,7 +76,7 @@
   <dependencies>
     <dependency id="Intent.Blazor" version="1.0.0" />
     <dependency id="Intent.Common" version="3.11.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.3" />
+    <dependency id="Intent.Common.CSharp" version="3.10.7" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.3" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.0" />

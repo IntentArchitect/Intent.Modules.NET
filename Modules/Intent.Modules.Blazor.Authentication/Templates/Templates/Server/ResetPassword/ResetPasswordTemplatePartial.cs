@@ -179,7 +179,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
                         file.AddHtmlElement("div", element => element.AddClass("ux-form-narrow")
                             .AddHtmlElement("section", element => element
-                                .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "resend-email-confirmation").AddAttribute("OnValidSubmit", "OnValidSubmitAsync").AddAttribute("method", "post")
+                                .AddHtmlElement("EditForm", element => element.AddAttribute("Model", "Input").AddAttribute("FormName", "reset-password").AddAttribute("OnValidSubmit", "OnValidSubmitAsync").AddAttribute("method", "post")
                                     .AddHtmlElement("DataAnnotationsValidator")
                                     .AddHtmlElement("ValidationSummary", element => element.AddClass("text-danger").AddAttribute("role", "alert"))
                                     .AddHtmlElement("UxField", element => element.AddAttribute("Label", "Email").AddAttribute("Icon", "mail").AddAttribute("For", "email")
@@ -194,7 +194,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                                         .AddHtmlElement("InputText", element => element.AddAttribute("id", "confirm-password").AddClass("ux-input").AddAttribute("type", "password").AddAttribute("@bind-Value", "Input.ConfirmPassword").AddAttribute("autocomplete", "new-password").AddAttribute("aria-required", "true").AddAttribute("placeholder", "Confirm your new password"))
                                     )
                                     .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.ConfirmPassword"))
-                                    .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-lg btn-primary").AddAttribute("type", "submit")
+                                    .AddHtmlElement("button", element => element.AddClass("w-100 btn btn-primary").AddAttribute("type", "submit")
                                         .AddHtmlElement("UxIcon", element => element.AddAttribute("Name", "lock"))
                                         .WithText("Reset password")
                                     )
@@ -228,7 +228,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
                         onValidSubmitAsync.AddIfStatement("Code is null", @if =>
                         {
-                            @if.AddStatement("RedirectManager.RedirectTo(\"Account/ResetPasswordConfirmation\");");
+                            @if.AddStatement("RedirectManager.RedirectTo(\"Account/InvalidPasswordReset\");");
                         });
 
                         onValidSubmitAsync.AddStatement($"Input.Code = {code.Template.UseType("System.Text.Encoding")}.UTF8.GetString({code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlDecode(Code));");

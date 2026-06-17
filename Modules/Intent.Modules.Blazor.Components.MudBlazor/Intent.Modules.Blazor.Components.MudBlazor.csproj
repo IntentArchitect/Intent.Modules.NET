@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.1.1-pre.0</Version>
+    <Version>1.1.2</Version>
     <Authors>Intent Architect</Authors>
     <Description>MudBlazor components module for Intent Architect.</Description>
     <Copyright>Copyright 2024</Copyright>
@@ -17,7 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.7" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.UI.Core" Version="1.0.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
@@ -32,6 +32,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
+  <ItemGroup>
+    <Compile Remove="content\**\*.cs" />
+    <None Include="content\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
