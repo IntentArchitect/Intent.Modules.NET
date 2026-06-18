@@ -274,6 +274,10 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorLayoutFolderFilesStaticContentTemplateRegistration" externalReference="1f37e217-84f0-414e-b3cc-afcb1215825d">
+      <role>Startup,Blazor</role>
+      <location>Components/Layout</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
