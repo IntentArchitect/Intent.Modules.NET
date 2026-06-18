@@ -65,3 +65,20 @@
     max-width: 1120px;
     display: block;
 }
+
+/* ----------------------------------------------------------------------------
+   5. Manage drawer is a PUSH drawer (matches the main app's MudDrawer): when the
+      circuit-free nav drawer is open (html.ux-drawer-open, flipped by nav-drawer.js),
+      shift the content right by the drawer width rather than overlaying it. The
+      drawer panel itself slides in (ManageLayout.razor.css); this cross-boundary
+      content shift can't be scoped (.mud-main-content is a child component's markup),
+      so it lives here. Only ManageLayout ever sets the class, so account/login pages
+      are unaffected.
+   ---------------------------------------------------------------------------- */
+.mud-main-content {
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .mud-main-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
+}
