@@ -127,11 +127,23 @@ The cycle is:
 2. `dotnet build <module.csproj>` → exit 0
 3. `install_or_update_modules` — reinstall into the target app
 4. `run_software_factory(target_app_id)` — run SF on the target app
+   - **If SF fails with a transient error, retry once immediately.** Do not skip to manual edits. Only escalate to the user if the second attempt also fails.
 5. `get_staged_file_diffs` — **read and confirm the staged output matches intent**
+   - When reviewing `[IntentMerge]` files, diff the entire method body against the prior committed state, not just the new additions. Any line present before but absent from the staged diff is being dropped — confirm this is intentional.
 6. `apply_staged_file_changes` — only after step 5 confirms correctness
 7. `dotnet build <target.sln>` → exit 0
 
 **NEVER edit files in `Tests/` to "fix" what a template generates, then run SF to confirm "0 staged changes."** Zero staged changes after pre-editing proves nothing — it just means the disk matches the template output, not that the output is correct. The staged diff inspection at step 5 is the only valid verification gate.
+
+### Loop Close Gate (Non-Negotiable)
+
+**Before starting any new template-touching work, confirm the previous SF cycle reached step 7.** If the cycle is open — SF was never retried after a failure, or steps 5–7 were skipped — close it first regardless of any other instruction.
+
+If the user instructs you to commit or move on while a cycle is open:
+1. Commit the module-side code only (steps 1–2 are safe to commit).
+2. State explicitly: *"Steps 4–7 are still open. I will not start new template-touching work until the SF cycle is closed."*
+3. Create or update `/WORKING.md` to record the open cycle so the next session can resume it.
+4. Close the cycle before touching any `*TemplatePartial.cs` or `*FactoryExtension.cs` file again.
 
 ## 🤖 Available Skills
 
