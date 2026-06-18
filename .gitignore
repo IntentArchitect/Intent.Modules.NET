@@ -268,6 +268,5 @@ Spikes/
 /.codex/instructions/
 /.codex/skills/
 /Modules/.agents/
-/plans/wolverine-remaining/.plan-url
-/plans/wolverine-remaining/plan.mdx
+/plans/**
 /plan-blocks.md

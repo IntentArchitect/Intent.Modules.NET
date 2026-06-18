@@ -24,7 +24,6 @@
   <metadata />
   <childElements>
     <childElement id="64312cd3-8742-4fa9-b42f-8e27d66407b1" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <comment />
       <name>Authentication</name>
       <display>Authentication</display>
       <isAbstract>false</isAbstract>
