@@ -1,14 +1,12 @@
 using System.Reflection;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using Wolverine;
-using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.CQRS.TestApplication.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.ValidationMiddleware", Version = "1.0")]
 
-namespace Wolverine.CQRS.TestApplication.Application.Common.Behaviours
+namespace Wolverine.CQRS.TestApplication.Infrastructure.Dispatch.Middleware
 {
     public class ValidationMiddleware
     {

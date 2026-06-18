@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolicy;
 using Intent.Modules.Application.Wolverine.Templates.AuthorizationMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.CommandHandler;
 using Intent.Modules.Application.Wolverine.Templates.CommandInterface;
@@ -12,6 +13,7 @@ using Intent.Modules.Application.Wolverine.Templates.QueryModels;
 using Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.UnitOfWorkMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware;
+using Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -23,6 +25,10 @@ namespace Intent.Modules.Application.Wolverine.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetApplicationHandlerPolicyName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ApplicationHandlerPolicyTemplate.TemplateId);
+        }
         public static string GetAuthorizationMiddlewareName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthorizationMiddlewareTemplate.TemplateId);
@@ -101,6 +107,11 @@ namespace Intent.Modules.Application.Wolverine.Templates
         public static string GetValidationMiddlewareName(this IIntentTemplate template)
         {
             return template.GetTypeName(ValidationMiddlewareTemplate.TemplateId);
+        }
+
+        public static string GetWolverineConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(WolverineConfigurationTemplate.TemplateId);
         }
 
     }
