@@ -34,6 +34,12 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
+  <ItemGroup>
+    <Compile Remove="content\**\*.cs" />
+    <None Include="content\**\*.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="docs\images\" />
   </ItemGroup>

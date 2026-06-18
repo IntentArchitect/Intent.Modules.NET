@@ -11,6 +11,10 @@
   <tags>blazor mudblazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Components.MudBlazor.AppNav">
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Components.MudBlazor.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
       <role>AI.Context.Skills</role>
       <location></location>

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -26,6 +28,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
         {
+            // NavLinks.razor.cs ships here and declares `namespace <#= Namespace #>Components.Layout`.
+            { "Namespace", $"{outputTarget.GetNamespace()}." }
         };
     }
 }

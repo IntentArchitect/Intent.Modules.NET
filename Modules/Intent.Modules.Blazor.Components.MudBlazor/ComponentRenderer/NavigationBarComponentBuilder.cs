@@ -3,8 +3,10 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Components.MudBlazor.Templates.AppNav;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using Intent.Modules.Common.CSharp.Templates;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -65,16 +67,76 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             return [htmlElement];
         }
 
-        var navMenu = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
-        if (navigationModel.MenuItems.Any())
+        // Sider nav: render via the shared presentational NavLinks component. The nav items are
+        // resolved here (this builder holds the BindingManager that turns each "Link To" mapping into
+        // an href) and pushed into the generated AppNav.Items list — a single source shared with the
+        // static-SSR ManageLayout drawer.
+        PopulateAppNavItems(component, navigationModel);
+
+        var navLinks = new HtmlElement("NavLinks", _componentTemplate.RazorFile);
+        navLinks.AddAttribute("Items", "AppNav.Items");
+        parentNode.AddChildNode(navLinks);
+        return [navLinks];
+    }
+
+    private void PopulateAppNavItems(IElement navComponent, NavigationMenuModel navigationModel)
+    {
+        var layoutElement = navComponent.GetParentPath()
+            .FirstOrDefault(x => x.SpecializationTypeId == LayoutModel.SpecializationTypeId);
+        if (layoutElement == null)
         {
-            foreach (var menuItemModel in navigationModel.MenuItems)
-            {
-                AddMenuItem(navMenu, menuItemModel);
-            }
+            return;
         }
-        parentNode.AddChildNode(navMenu);
-        return [navMenu];
+
+        var appNav = _componentTemplate.ExecutionContext
+            .FindTemplateInstance<AppNavTemplate>(AppNavTemplate.TemplateId, layoutElement);
+        if (appNav == null)
+        {
+            return;
+        }
+
+        var entries = navigationModel.MenuItems.Select(BuildNavItemExpression).ToList();
+        var initializer = entries.Count == 0
+            ? "[]"
+            : $"[\n            {string.Join(",\n            ", entries)}\n        ]";
+
+        appNav.SetNavItems(initializer);
+    }
+
+    private string BuildNavItemExpression(MenuItemModel menuItemModel)
+    {
+        var label = !string.IsNullOrWhiteSpace(menuItemModel.Value) ? menuItemModel.Value : menuItemModel.Name;
+        var href = ToCSharpHref(_bindingManager.GetHrefRoute(_bindingManager.GetMappedEndsFor(menuItemModel, "Link To")));
+        var icon = menuItemModel.HasIcon()
+            ? $"Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}"
+            : null;
+
+        return icon != null
+            ? $"new(\"{label}\", {href}, {icon})"
+            : $"new(\"{label}\", {href})";
+    }
+
+    private static string ToCSharpHref(string href)
+    {
+        if (string.IsNullOrEmpty(href))
+        {
+            return "\"\"";
+        }
+
+        // GetHrefRoute returns a razor expression `@($"...")` for parameterised routes; unwrap it to a
+        // plain C# expression (`$"..."`) for the AppNav.cs context. A plain route becomes a string literal.
+        if (href.StartsWith("@"))
+        {
+            var expr = href.Substring(1);
+            if (expr.StartsWith("(") && expr.EndsWith(")"))
+            {
+                expr = expr.Substring(1, expr.Length - 2);
+            }
+
+            return expr;
+        }
+
+        return $"\"{href}\"";
     }
 
     private void AddMenuItem(IHtmlElement parent, MenuItemModel menuItemModel)
