@@ -118,6 +118,21 @@ After **every** code change, verify the exit code is `0`:
 dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --nologo
 ```
 
+### Template Body Changes — Mandatory SF Iteration Cycle
+
+**Any edit to a `*TemplatePartial.cs` or `*FactoryExtension.cs` file MUST follow the full iteration cycle from `module-increment-loop`. No exceptions.**
+
+The cycle is:
+1. Edit the template body
+2. `dotnet build <module.csproj>` → exit 0
+3. `install_or_update_modules` — reinstall into the target app
+4. `run_software_factory(target_app_id)` — run SF on the target app
+5. `get_staged_file_diffs` — **read and confirm the staged output matches intent**
+6. `apply_staged_file_changes` — only after step 5 confirms correctness
+7. `dotnet build <target.sln>` → exit 0
+
+**NEVER edit files in `Tests/` to "fix" what a template generates, then run SF to confirm "0 staged changes."** Zero staged changes after pre-editing proves nothing — it just means the disk matches the template output, not that the output is correct. The staged diff inspection at step 5 is the only valid verification gate.
+
 ## 🤖 Available Skills
 
 Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
@@ -131,7 +146,7 @@ Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.cl
 | **reference-app-builder** | **After tech-pattern-researcher, before module-ecosystem-analyst. Mandatory — never skip.** Scaffolds a real Intent-managed Clean Architecture application, installs the standard modules, runs the Software Factory, then hand-crafts the Wolverine/technology-specific files on top of the real generated output. Proves the code shapes compile and the handler is hit at runtime. The running app is the ground truth for all subsequent analysis. Hard gate — module-ecosystem-analyst cannot start until this is green. |
 | **module-ecosystem-analyst** | **After reference-app-builder.** Uses the reference app's actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules already generate, which SDK building blocks to use, which designer elements drive generation. Produces an Attack Plan with ordered implementation increments. |
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
-| **module-increment-loop** | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
+| **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
 
 ### Implementation Skills (use as needed during module implementation)
 
