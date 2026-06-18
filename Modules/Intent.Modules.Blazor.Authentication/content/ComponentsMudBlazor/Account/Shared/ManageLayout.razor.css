@@ -1,0 +1,40 @@
+/* Scoped styles for the static manage shell's own chrome: the circuit-free overlay nav drawer
+   (a plain <aside>, not MudDrawer) and its scrim. The hamburger is a vanilla-JS toggle
+   (nav-drawer.js, mirroring themeStorage) that flips .ux-drawer-open on <html>; these rules do the
+   slide + scrim — no island, no circuit, no reload, no !important. The <aside> is styled to match
+   the Mud drawer surface (Mud palette tokens), so the manage drawer reads like the main shell's. */
+
+.ux-account-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--mud-drawer-width-left, 240px);
+    z-index: 1310;
+    overflow-y: auto;
+    background: var(--mud-palette-drawer-background, var(--mud-palette-surface));
+    color: var(--mud-palette-drawer-text, var(--mud-palette-text-primary));
+    border-right: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+    transform: translateX(-100%);
+    transition: transform 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .ux-account-nav-drawer {
+    transform: translateX(0);
+}
+
+.ux-drawer-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.225s ease;
+    z-index: 1290;
+}
+
+html.ux-drawer-open .ux-drawer-scrim {
+    opacity: 1;
+    pointer-events: auto;
+}
