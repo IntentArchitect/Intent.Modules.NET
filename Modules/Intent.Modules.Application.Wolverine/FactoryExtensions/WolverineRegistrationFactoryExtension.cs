@@ -1,11 +1,8 @@
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -33,7 +30,6 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
-            var infraDiTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
 
             if (programTemplate != null)
             {
@@ -52,31 +48,6 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
                             lambdaBlock.Statements.Clear();
                             lambdaBlock.AddStatement($"{wolverineConfigType}.Configure({opts});");
                         });
-                });
-            }
-
-            if (infraDiTemplate != null)
-            {
-                infraDiTemplate.CSharpFile.OnBuild(file =>
-                {
-                    var @class = file.Classes.First();
-                    var method = @class.FindMethod("AddInfrastructure");
-                    if (method != null)
-                    {
-                        var authMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.AuthorizationMiddleware");
-                        var valMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.ValidationMiddleware");
-                        var logMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.LoggingMiddleware");
-                        var perfMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.PerformanceMiddleware");
-                        var errMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.UnhandledExceptionMiddleware");
-                        var uowMiddleware = infraDiTemplate.GetTypeName("Intent.Application.Wolverine.UnitOfWorkMiddleware");
-
-                        method.AddStatement($"services.AddTransient<{authMiddleware}>();");
-                        method.AddStatement($"services.AddTransient<{valMiddleware}>();");
-                        method.AddStatement($"services.AddTransient<{logMiddleware}>();");
-                        method.AddStatement($"services.AddTransient<{perfMiddleware}>();");
-                        method.AddStatement($"services.AddTransient<{errMiddleware}>();");
-                        method.AddStatement($"services.AddTransient<{uowMiddleware}>();");
-                    }
                 });
             }
         }

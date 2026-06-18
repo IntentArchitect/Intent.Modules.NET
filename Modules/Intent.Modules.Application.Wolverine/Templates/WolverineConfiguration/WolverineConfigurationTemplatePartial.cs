@@ -24,11 +24,18 @@ namespace Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration
             AddNugetDependency(NugetPackages.WolverineFx(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Wolverine")
                 .AddClass("WolverineConfiguration", @class =>
                 {
                     var commandType = GetTypeName("Intent.Application.Wolverine.CommandInterface");
                     var handlerPolicyType = GetTypeName("Intent.Application.Wolverine.ApplicationHandlerPolicy");
+                    var authMiddleware = GetTypeName("Intent.Application.Wolverine.AuthorizationMiddleware");
+                    var valMiddleware = GetTypeName("Intent.Application.Wolverine.ValidationMiddleware");
+                    var logMiddleware = GetTypeName("Intent.Application.Wolverine.LoggingMiddleware");
+                    var perfMiddleware = GetTypeName("Intent.Application.Wolverine.PerformanceMiddleware");
+                    var errMiddleware = GetTypeName("Intent.Application.Wolverine.UnhandledExceptionMiddleware");
+                    var uowMiddleware = GetTypeName("Intent.Application.Wolverine.UnitOfWorkMiddleware");
 
                     @class.Static();
 
@@ -38,6 +45,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration
                         method.AddParameter("WolverineOptions", "opts");
                         method.AddStatement($"opts.Discovery.IncludeAssembly(typeof({commandType}).Assembly);");
                         method.AddStatement($"{handlerPolicyType}.Apply(opts);");
+                        method.AddStatement($"opts.Services.AddTransient<{authMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{valMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{logMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{perfMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{errMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{uowMiddleware}>();");
                     });
                 });
         }
