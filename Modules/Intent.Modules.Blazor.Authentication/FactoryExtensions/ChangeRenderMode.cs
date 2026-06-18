@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -64,6 +65,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
                 var imports = application.FindTemplateInstance<IRazorFileTemplate>(ServerImportsRazorTemplate.TemplateId);
                 imports?.RazorFile.AddUsing("Microsoft.AspNetCore.Components.Authorization");
+
+                // AppUserMenu (and the rest of Components/Account/Shared) is referenced from layouts OUTSIDE
+                // the Account folder (e.g. the main Layout's <AppUserMenu/>). Razor applies a folder's own
+                // _Imports only hierarchically, so contribute the Account/Shared namespace to the ROOT server
+                // _Imports rather than an inline @using on the layout. (An inline using also gets stripped by
+                // the razor weaver when the same namespace appears in any other _Imports.razor — see
+                // .user/Module-Versioning.md notes on the weaver's project-wide _Imports flattening.)
+                var accountShared = application.FindTemplateInstance<IRazorFileTemplate>(AccountLayoutTemplate.TemplateId);
+                if (accountShared is not null)
+                {
+                    imports?.RazorFile.AddUsing(accountShared.Namespace);
+                }
             });
         }
     }
