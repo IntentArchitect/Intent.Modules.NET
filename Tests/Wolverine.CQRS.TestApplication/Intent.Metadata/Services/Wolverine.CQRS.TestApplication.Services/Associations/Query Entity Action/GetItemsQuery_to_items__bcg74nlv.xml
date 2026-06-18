@@ -37,6 +37,13 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="41ee3259-07cd-468f-b00f-4cdcb26bec14" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="826adebd-2f63-4595-8a6d-01197a454f1f" location="[Wolverine.CQRS.TestApplication].[Services].[GetItemsQuery]" />
+        <target applicationId="41ee3259-07cd-468f-b00f-4cdcb26bec14" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5189f549-dd7f-496f-9f34-fa92cfa260be" location="[Wolverine.CQRS.TestApplication].[Services].[Item]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

@@ -22,15 +22,15 @@ namespace Wolverine.CQRS.TestApplication.Application.Items.GetItemById
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ItemDto> Handle(GetItemByIdQuery query, CancellationToken cancellationToken)
         {
-            var item = await _itemRepository.FindByIdProjectToAsync<ItemDto>(query.Id, cancellationToken);
-            if (item == null)
+            var item = await _itemRepository.FindByIdAsync(query.Id, cancellationToken);
+            if (item is null)
             {
-                throw new InvalidOperationException($"Could not find Item '{query.Id}'");
+                throw new NotFoundException($"Could not find Item '{query.Id}'");
             }
-            return item;
+            return item.MapToItemDto(_mapper);
         }
     }
 }
