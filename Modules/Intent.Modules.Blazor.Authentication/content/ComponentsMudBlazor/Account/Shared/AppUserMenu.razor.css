@@ -50,6 +50,7 @@
 .ux-user-menu-item {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* the UA <button> default is `center`; force flex-start so the logout <button> aligns with the <a> items */
     gap: var(--space-3);
     width: 100%;
     padding: var(--space-2) var(--space-4);
