@@ -1,14 +1,14 @@
-@* App-bar user menu as a native <details> dropdown — circuit-free, so it works on the
-   static-SSR Identity pages AND on interactive pages with no island and no Blazor circuit.
-   The browser toggles <details> open/closed natively; navigation/submit closes it. Logout is a
-   real antiforgery-protected form POST to the Identity endpoint (the circuit-free way to log out
-   on a static page). Styled in ux-account.css to match the MudBlazor menu surface. *@
+@using <#= Namespace #>Components.Layout
+@* App-bar user menu — composes the shared presentational UserMenu chrome (shipped by the component
+   module, not Auth) with the Auth-specific items: Profile / Manage links and a real antiforgery
+   logout form POST to the Identity endpoint (the circuit-free way to log out on a static page).
+   MudBlazor (MudIcon) variant; the non-Mud app has the UxIcon counterpart. *@
 
-<details class="ux-user-menu">
-    <summary class="ux-user-menu-trigger" title="Account menu" aria-label="Account menu">
+<UserMenu>
+    <Trigger>
         <MudIcon Icon="@Icons.Material.Filled.MoreVert" />
-    </summary>
-    <div class="ux-user-menu-panel">
+    </Trigger>
+    <ChildContent>
         <a class="ux-user-menu-item" href="Account/Manage">
             <MudIcon Icon="@Icons.Material.Filled.Person" Size="Size.Small" />
             <span>Profile</span>
@@ -25,5 +25,5 @@
                 <span>Logout</span>
             </button>
         </form>
-    </div>
-</details>
+    </ChildContent>
+</UserMenu>

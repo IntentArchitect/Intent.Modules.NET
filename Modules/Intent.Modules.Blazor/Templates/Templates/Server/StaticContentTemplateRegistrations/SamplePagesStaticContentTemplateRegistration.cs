@@ -24,6 +24,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
         {
         }
 
+        private IApplication _application;
+
         public override string ContentSubFolder => "SamplePages";
 
 
@@ -31,12 +33,20 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
+        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget)
         {
-            ["ApplicationName"] = outputTarget.ApplicationName(),
-            ["Namespace"] = outputTarget.GetNamespace()
+            var authInstalled = _application?.InstalledModules
+                .Any(im => im.ModuleId == "Intent.Blazor.Authentication") == true;
 
-        };
+            return new Dictionary<string, string>
+            {
+                ["ApplicationName"] = outputTarget.ApplicationName(),
+                ["Namespace"] = outputTarget.GetNamespace(),
+                // AppUserMenu (Account/Shared, shipped by the Auth module) is only referenced when ASP.NET
+                // Identity auth is installed — the base Blazor module must not couple to Auth for other apps.
+                ["AppUserMenu"] = authInstalled ? "<AppUserMenu />" : ""
+            };
+        }
 
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
@@ -45,6 +55,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
+            _application = application;
             if (TemplateHelper.ComponentLibraryInstalled(application))
                 return;
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
