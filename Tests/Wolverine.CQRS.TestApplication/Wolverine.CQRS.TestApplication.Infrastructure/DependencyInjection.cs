@@ -32,6 +32,7 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddTransient<IItemRepository, ItemRepository>();
             return services;
         }

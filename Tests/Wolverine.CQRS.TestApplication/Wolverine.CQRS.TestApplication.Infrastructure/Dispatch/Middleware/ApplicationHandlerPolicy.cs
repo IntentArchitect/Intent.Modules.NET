@@ -23,7 +23,7 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Dispatch.Middleware
         private static bool IsApplicationMessage(HandlerChain chain)
         {
             return typeof(ICommand).IsAssignableFrom(chain.MessageType) ||
-                typeof(IQuery).IsAssignableFrom(chain.MessageType);
+            typeof(IQuery).IsAssignableFrom(chain.MessageType);
         }
     }
 }
