@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7fe44235-33ee-41ba-b7ef-7181d9e8aecb</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-06-19T17:33:41.7468606Z</updatedAt>
+      <deviationsHash>81279F3C50BAFF0346C4E3B525E0E4C59F98D13DE919530B77C2AE82415F1CD2</deviationsHash>
+      <fileHash>20A5EC28A322CC24C108254FD55AD253F43692B1FCE81CA44496B8D277690375</fileHash>
+    </file>
+  </files>
 </deviationsLog>

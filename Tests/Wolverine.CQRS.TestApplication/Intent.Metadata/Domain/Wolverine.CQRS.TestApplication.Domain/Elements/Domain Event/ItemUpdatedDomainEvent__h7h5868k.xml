@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b66588dc-2973-4890-b8f2-bb4bd1289bb1" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>ItemUpdatedDomainEvent</name>
+  <display>ItemUpdatedDomainEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</parentFolderId>
+  <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+  <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="76c766f5-cd7b-482f-a2f3-3e13fd915080" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Item</name>
+      <display>Item: Item</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="526f7829-134a-4349-9c2d-e3930d4f090a">
+        <typeId>5189f549-dd7f-496f-9f34-fa92cfa260be</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Wolverine.CQRS.TestApplication.Domain</typePackageName>
+        <typePackageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b66588dc-2973-4890-b8f2-bb4bd1289bb1</parentFolderId>
+      <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+      <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

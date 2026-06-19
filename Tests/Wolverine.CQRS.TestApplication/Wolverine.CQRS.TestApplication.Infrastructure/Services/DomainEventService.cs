@@ -5,7 +5,7 @@ using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.CQRS.TestApplication.Domain.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Application.Wolverine.DomainEvents.DomainEventService", Version = "1.0")]
 
 namespace Wolverine.CQRS.TestApplication.Infrastructure.Services
 {

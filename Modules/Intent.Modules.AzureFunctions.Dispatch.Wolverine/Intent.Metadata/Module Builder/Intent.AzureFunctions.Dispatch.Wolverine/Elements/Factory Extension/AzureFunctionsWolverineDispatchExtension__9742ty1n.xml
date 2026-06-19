@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="17178d85-ef10-4704-9bfb-165014ebf2bd" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AzureFunctionsWolverineDispatchExtension</name>
+  <display>AzureFunctionsWolverineDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b7e7b150-25c0-484b-a793-0f28bffc33fd</parentFolderId>
+  <packageId>b7e7b150-25c0-484b-a793-0f28bffc33fd</packageId>
+  <packageName>Intent.AzureFunctions.Dispatch.Wolverine</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

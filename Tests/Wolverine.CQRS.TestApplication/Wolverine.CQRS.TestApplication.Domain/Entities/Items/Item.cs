@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Wolverine.CQRS.TestApplication.Domain.Common;
+using Wolverine.CQRS.TestApplication.Domain.Events;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
@@ -20,5 +21,12 @@ namespace Wolverine.CQRS.TestApplication.Domain.Entities.Items
         public string Name { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
+
+        public void UpdateName(string name)
+        {
+            Name = name;
+            DomainEvents.Add(new ItemUpdatedDomainEvent(
+                item: this));
+        }
     }
 }

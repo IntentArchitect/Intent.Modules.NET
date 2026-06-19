@@ -82,5 +82,68 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="cadcb909-8a85-43d8-9477-77ec9483c0be" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>UpdateName</name>
+      <display>UpdateName(name: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="25c2d5a8-81ab-4721-8957-459577d4c730">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>41ee3259-07cd-468f-b00f-4cdcb26bec14</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="5189f549-dd7f-496f-9f34-fa92cfa260be" name="Item" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5189f549-dd7f-496f-9f34-fa92cfa260be</parentFolderId>
+      <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+      <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="60c5df71-43b0-4722-b5a4-006c3cb8e56d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="da59e34c-bf83-4227-9d3f-26bb52e90b66">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="da9eb9be-628e-44e8-bc96-2a62ba884c26" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>cadcb909-8a85-43d8-9477-77ec9483c0be</parentFolderId>
+          <packageId>8a7b35b9-625a-4064-b979-dee7b13ee4b7</packageId>
+          <packageName>Wolverine.CQRS.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

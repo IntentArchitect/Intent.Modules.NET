@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
             AddNugetDependency(NugetPackages.WolverineFx(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Wolverine")
                 .AddUsing("Wolverine.Runtime.Handlers")
                 .AddClass("ApplicationHandlerPolicy", @class =>
@@ -50,6 +51,13 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         method.AddStatement($"opts.Policies.AddMiddleware<{perfMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{errMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{uowMiddleware}>(c => typeof({commandType}).IsAssignableFrom(c.MessageType));");
+                        method.AddStatement("");
+                        method.AddStatement($"opts.Services.AddTransient<{authMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{valMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{logMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{perfMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{errMiddleware}>();");
+                        method.AddStatement($"opts.Services.AddTransient<{uowMiddleware}>();");
                     });
 
                     @class.AddMethod("bool", "IsApplicationMessage", method =>

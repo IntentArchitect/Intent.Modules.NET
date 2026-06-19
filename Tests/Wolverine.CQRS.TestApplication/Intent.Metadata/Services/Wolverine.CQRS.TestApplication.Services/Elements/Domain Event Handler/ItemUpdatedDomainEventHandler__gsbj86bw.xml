@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4dacedd5-3159-4817-9dbb-ab264e24f29c" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>ItemUpdatedDomainEventHandler</name>
+  <display>ItemUpdatedDomainEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</parentFolderId>
+  <packageId>46dd2236-ff39-46ca-9e7f-8d86e5b2f74d</packageId>
+  <packageName>Wolverine.CQRS.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

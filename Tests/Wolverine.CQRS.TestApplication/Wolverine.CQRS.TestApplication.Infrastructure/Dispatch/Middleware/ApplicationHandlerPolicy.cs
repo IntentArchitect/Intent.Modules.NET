@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
 using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.Runtime.Handlers;
@@ -18,6 +19,13 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Dispatch.Middleware
             opts.Policies.AddMiddleware<PerformanceMiddleware>(IsApplicationMessage);
             opts.Policies.AddMiddleware<UnhandledExceptionMiddleware>(IsApplicationMessage);
             opts.Policies.AddMiddleware<UnitOfWorkMiddleware>(c => typeof(ICommand).IsAssignableFrom(c.MessageType));
+
+            opts.Services.AddTransient<AuthorizationMiddleware>();
+            opts.Services.AddTransient<ValidationMiddleware>();
+            opts.Services.AddTransient<LoggingMiddleware>();
+            opts.Services.AddTransient<PerformanceMiddleware>();
+            opts.Services.AddTransient<UnhandledExceptionMiddleware>();
+            opts.Services.AddTransient<UnitOfWorkMiddleware>();
         }
 
         private static bool IsApplicationMessage(HandlerChain chain)

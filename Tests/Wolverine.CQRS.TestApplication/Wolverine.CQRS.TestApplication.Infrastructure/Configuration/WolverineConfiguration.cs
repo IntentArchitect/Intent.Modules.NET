@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.DependencyInjection;
 using Wolverine;
 using Wolverine.CQRS.TestApplication.Application.Common.Interfaces;
 using Wolverine.CQRS.TestApplication.Infrastructure.Dispatch.Middleware;
@@ -15,12 +14,7 @@ namespace Wolverine.CQRS.TestApplication.Infrastructure.Configuration
         {
             opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly);
             ApplicationHandlerPolicy.Apply(opts);
-            opts.Services.AddTransient<AuthorizationMiddleware>();
-            opts.Services.AddTransient<ValidationMiddleware>();
-            opts.Services.AddTransient<LoggingMiddleware>();
-            opts.Services.AddTransient<PerformanceMiddleware>();
-            opts.Services.AddTransient<UnhandledExceptionMiddleware>();
-            opts.Services.AddTransient<UnitOfWorkMiddleware>();
+
         }
     }
 }
