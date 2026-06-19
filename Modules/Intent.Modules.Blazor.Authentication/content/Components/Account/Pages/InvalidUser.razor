@@ -1,9 +1,10 @@
 ﻿@page "/Account/InvalidUser"
 
 <PageTitle>Invalid user</PageTitle>
-<AccountHero Icon="alert"
-             Title="Invalid user"
-             Subtitle="We couldn't find that account." />
 <div class="ux-form-narrow">
     <StatusMessage />
+    <section>
+        <h2 class="text-danger">Invalid user</h2>
+        <p>The requested user could not be found or is no longer available.</p>
+    </section>
 </div>

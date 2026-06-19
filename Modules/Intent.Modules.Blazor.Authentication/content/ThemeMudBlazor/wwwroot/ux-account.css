@@ -52,18 +52,20 @@
 }
 
 /* ----------------------------------------------------------------------------
-   3. Single-card account pages: centre the hero+card column horizontally and
-      vertically, constrained to the shared 554px form width (matches the
-      non-MudBlazor app). The base AccountLayout.razor.css caps the content at
-      1120px and centres it horizontally; we narrow it and centre vertically.
-      The .mud-layout .mud-main-content ancestor chain outscores the scoped
-      .account-layout-content rule so this wins without !important.
+   3. Single-card account pages: constrain to the shared 554px form width (matches
+      the non-MudBlazor app) and anchor the hero+card column to the upper third.
+      The base AccountLayout.razor.css caps the content at 1120px and centres it
+      horizontally; we narrow it and bias it down by 18vh (true vertical centring
+      left the short forms sitting too low). The .mud-layout .mud-main-content
+      ancestor chain outscores the scoped .account-layout-content rule so this
+      wins without !important.
    ---------------------------------------------------------------------------- */
 .mud-layout .mud-main-content .account-layout-content {
     max-width: 554px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 18vh;
 }
 
 /* RazorBuilder single-card pages (ForgotPassword/ResetPassword/ResendEmail…)
