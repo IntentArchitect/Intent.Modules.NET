@@ -59,7 +59,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.FactoryExtens
 
                     var controllerClass = file.Classes.First();
                     var ctor = controllerClass.Constructors.First();
-                    ctor.AddParameter(controllerTemplate.UseType("Wolverine.IMessageBus"), "messageBus",
+                    ctor.AddParameter(controllerTemplate.UseType("Wolverine.IMessageBus"), "sender",
                         p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
 
                     foreach (var actionMethod in controllerClass.Methods)
@@ -219,10 +219,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.FactoryExtens
             if (operationModel.ReturnType != null)
             {
                 var returnType = template.GetTypeName(operationModel.TypeReference);
-                return $"var result = await _messageBus.InvokeAsync<{returnType}>({payload}, cancellationToken);";
+                return $"var result = await _sender.InvokeAsync<{returnType}>({payload}, cancellationToken);";
             }
 
-            return $"await _messageBus.InvokeAsync({payload}, cancellationToken);";
+            return $"await _sender.InvokeAsync({payload}, cancellationToken);";
         }
 
         private static IControllerParameterModel GetPayloadParameter(IControllerOperationModel operation)

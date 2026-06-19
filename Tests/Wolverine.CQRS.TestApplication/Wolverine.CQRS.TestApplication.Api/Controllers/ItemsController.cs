@@ -16,11 +16,11 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly IMessageBus _messageBus;
+        private readonly IMessageBus _sender;
 
-        public ItemsController(IMessageBus messageBus)
+        public ItemsController(IMessageBus sender)
         {
-            _messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
+            _sender = sender ?? throw new ArgumentNullException(nameof(sender));
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromBody] CreateItemCommand command,
             CancellationToken cancellationToken = default)
         {
-            var result = await _messageBus.InvokeAsync<Guid>(command, cancellationToken);
+            var result = await _sender.InvokeAsync<Guid>(command, cancellationToken);
             return CreatedAtAction(nameof(GetItemById), new { id = result }, result);
         }
 
@@ -53,7 +53,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _messageBus.InvokeAsync<ItemDto>(new GetItemByIdQuery(id: id), cancellationToken);
+            var result = await _sender.InvokeAsync<ItemDto>(new GetItemByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 
@@ -65,7 +65,7 @@ namespace Wolverine.CQRS.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ItemDto>>> GetItems(CancellationToken cancellationToken = default)
         {
-            var result = await _messageBus.InvokeAsync<List<ItemDto>>(new GetItemsQuery(), cancellationToken);
+            var result = await _sender.InvokeAsync<List<ItemDto>>(new GetItemsQuery(), cancellationToken);
             return Ok(result);
         }
     }
