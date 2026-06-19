@@ -155,6 +155,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
             file.AddHtmlElement("MudSnackbarProvider");
             file.AddEmptyLine();
 
+            file.AddHtmlElement("AppBrand", appBrand => appBrand.AddAttribute("Class", "account-brand"));
             file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
             file.AddEmptyLine();
 
@@ -172,6 +173,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
 
         private static void AddStandardAccountShell(IRazorFile file)
         {
+            file.AddHtmlElement("AppBrand", appBrand => appBrand.AddAttribute("Class", "account-brand"));
             file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
             file.AddEmptyLine();
 

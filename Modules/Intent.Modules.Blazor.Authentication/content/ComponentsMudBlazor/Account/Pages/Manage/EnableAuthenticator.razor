@@ -48,45 +48,41 @@ else
                 <li>
                     <MudText Typo="Typo.body1">Scan the QR Code or enter this key <code>@sharedKey</code> into your two factor authenticator app. Spaces and casing do not matter.</MudText>
                     <MudAlert Severity="Severity.Info" Class="mb-3">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</MudAlert>
-                    <MudPaper Class="pa-4 mb-3 auth-qr-panel" Outlined="true">
-                        <div data-url="@authenticatorUri"></div>
-                    </MudPaper>
+                    <div data-url="@authenticatorUri"></div>
                 </li>
                 <li>
                     <MudText Typo="Typo.body1" Class="mb-3">Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below.</MudText>
-                    <MudCard Class="auth-form-shell" Outlined="true">
-                        <MudCardContent>
-                            <EditForm Model="Input" FormName="send-code" OnValidSubmit="OnValidSubmitAsync" method="post">
-                                <DataAnnotationsValidator />
-                                <ValidationSummary class="text-danger" role="alert" />
+                    <div class="auth-form-shell">
+                        <EditForm Model="Input" FormName="send-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger" role="alert" />
 
-                                <MudGrid>
-                                    <MudItem xs="12">
-                                        <MudTextField T="string"
-                                                        @bind-Value="Input.Code"
-                                                        Label="Verification code"
-                                                        Placeholder="Please enter the code."
-                                                        Variant="Variant.Outlined"
-                                                        Adornment="Adornment.Start"
-                                                        AdornmentIcon="@Icons.Material.Filled.Password"
-                                                        Immediate="true"
-                                                        For="@(() => Input.Code)" />
-                                        <ValidationMessage For="() => Input.Code" class="text-danger" />
-                                    </MudItem>
-                                    <MudItem xs="12">
-                                        <MudStack Row="true" Justify="Justify.FlexEnd">
-                                            <MudButton ButtonType="ButtonType.Submit"
-                                                        Variant="Variant.Filled"
-                                                        Color="Color.Primary"
-                                                        StartIcon="@Icons.Material.Filled.VerifiedUser">
-                                                Verify
-                                            </MudButton>
-                                        </MudStack>
-                                    </MudItem>
-                                </MudGrid>
-                            </EditForm>
-                        </MudCardContent>
-                    </MudCard>
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudTextField T="string"
+                                                    @bind-Value="Input.Code"
+                                                    Label="Verification code"
+                                                    Placeholder="Please enter the code."
+                                                    Variant="Variant.Outlined"
+                                                    Adornment="Adornment.Start"
+                                                    AdornmentIcon="@Icons.Material.Filled.Password"
+                                                    Immediate="true"
+                                                    For="@(() => Input.Code)" />
+                                    <ValidationMessage For="() => Input.Code" class="text-danger" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudStack Row="true" Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                    Variant="Variant.Filled"
+                                                    Color="Color.Primary"
+                                                    StartIcon="@Icons.Material.Filled.VerifiedUser">
+                                            Verify
+                                        </MudButton>
+                                    </MudStack>
+                                </MudItem>
+                            </MudGrid>
+                        </EditForm>
+                    </div>
                 </li>
             </ol>
         </MudCardContent>

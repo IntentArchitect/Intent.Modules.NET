@@ -218,6 +218,25 @@
     color: var(--text-muted);
 }
 
+/* Browser autofill: when a value is picked from Chrome's saved-entries list,
+   Chrome paints the input with its own near-white background and dark text,
+   ignoring the theme (normal typing is unaffected). Rather than mask it with an
+   inset box-shadow (which paints a sharp-cornered rectangle inside the rounded
+   .ux-field-shell, leaving a faint inner edge), defeat it with an absurdly long
+   background-color transition: Chrome applies its autofill background via a
+   transition, so a 9999s duration means the visible colour never animates away
+   from the input's own (transparent) background — the rounded shell keeps showing
+   through, no rectangle. -webkit-text-fill-color + caret-color restore the theme
+   text/caret. */
+.ux-input:-webkit-autofill,
+.ux-input:-webkit-autofill:hover,
+.ux-input:-webkit-autofill:focus,
+.ux-input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--text) !important;
+    caret-color: var(--text);
+    transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+}
+
 /* Inline suffix inside a field shell (e.g. the "verified" tick) */
 .ux-field-suffix {
     flex-shrink: 0;
