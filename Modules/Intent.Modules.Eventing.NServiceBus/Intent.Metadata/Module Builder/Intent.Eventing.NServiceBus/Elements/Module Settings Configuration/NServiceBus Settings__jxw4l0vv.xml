@@ -105,6 +105,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="5b249d55-db50-4ed8-82b7-2183e7ac6b68" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SQL Server</name>
+          <display>SQL Server = sql-server</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-server</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
     <childElement id="4060477a-191f-43be-a2c1-f2dd94ff00e2" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">

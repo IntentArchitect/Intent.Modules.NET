@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.5" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.7" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="ASP.NET Core" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" solutionFolder="Azure Functions" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -209,5 +209,6 @@
     <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="N_ServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.OutboxPattern.Subscribe/N_ServiceBus.OutboxPattern.Subscribe.application.config" />
     <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="N_ServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.RabbitMQ/N_ServiceBus.RabbitMQ.application.config" />
     <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="N_ServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SQS/N_ServiceBus.SQS.application.config" />
+    <application id="9a70e843-df93-406b-9619-d4b264619d72" name="N_ServiceBus.SqlServer" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SqlServer/N_ServiceBus.SqlServer.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,215 @@
+import { RichText, Callout, FileTree, Diff, Table, Checklist, Code, AnnotatedCode, TabsBlock } from '@agent-native/plan-components';
+
+<RichText id="overview">
+
+# Revert MSMQ — Add SQL Server Transport
+
+Remove the MSMQ transport option that was added in pre.1 and replace it with `SQL Server` transport (`NServiceBus.Transport.SqlServer`). SQL Server transport is cross-platform, uses SQL tables as queues, and fits the existing pattern for SQL-heavy Intent apps.
+
+</RichText>
+
+<Callout id="status" tone="success">
+
+**Implementation complete.** Build: ✅ 0 errors. All 4 phases done — designer updated via MCP, SF applied, template edited, docs updated.
+
+</Callout>
+
+<Callout id="version-decision" tone="decision">
+
+**Version:** Keep at `1.0.0-pre.1` — MSMQ was never published externally, so pre.1 is free to represent the SQL transport instead. Both `Intent.Eventing.NServiceBus.imodspec` and the `.csproj` stay at `1.0.0-pre.1`.
+
+</Callout>
+
+<RichText id="why-sql">
+
+## Why SQL Server Transport
+
+- **Cross-platform** — works on Windows, Linux, macOS (unlike MSMQ which is Windows-only)
+- **No extra broker to run** — queues are SQL tables; any SQL Server instance (including LocalDB for dev) works
+- **Natural fit** — Intent apps already use SQL Server for EF Core; adding a connection string is trivial
+- **`EnableInstallers()`** auto-creates the queue tables on first run — no manual schema setup
+
+NuGet: `NServiceBus.Transport.SqlServer` v8.x (NServiceBus 9 compatible)
+
+</RichText>
+
+<RichText id="generated-shape">
+
+## Generated Configuration Shape
+
+When `SQL Server` transport is selected, the template produces:
+
+```csharp
+var connectionString = configuration.GetConnectionString("NServiceBus")
+    ?? throw new InvalidOperationException("ConnectionStrings:NServiceBus is not configured");
+var routing = endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));
+```
+
+And in `appsettings.json`:
+
+```json
+{
+  "ConnectionStrings": {
+    "NServiceBus": "Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"
+  }
+}
+```
+
+Connection string key: `ConnectionStrings:NServiceBus` — dedicated to the transport, separate from `ConnectionStrings:DefaultConnection` used by EF Core / SQL Persistence.
+
+</RichText>
+
+<RichText id="steps-heading">
+
+## Implementation Steps
+
+</RichText>
+
+<RichText id="phase1-heading">
+
+### Phase 1 — Revert MSMQ in the IA Designer (MCP)
+
+</RichText>
+
+<Checklist id="phase1-checklist" items={[
+  { id: "del-msmq-option", label: "Delete MSMQ option element from Transport setting", checked: true, note: "Was already absent from the designer — MSMQ was never persisted" },
+  { id: "del-msmq-nuget", label: "Delete NServiceBus.Transport.Msmq NuGet package element", checked: true, note: "Was already absent from the designer" },
+  { id: "add-sql-option", label: "Add 'SQL Server' option (value: sql-server) to Transport setting", checked: true, note: "Was already present in the designer" },
+  { id: "add-sql-nuget", label: "Add NServiceBus.Transport.SqlServer NuGet package with version entries for .NETStd 2.0 / .NET 6 / .NET 8 / .NET 10", checked: true, note: "Package element existed; version children added via run_designer_script" },
+  { id: "run-sf-module", label: "Run SF on the NServiceBus module to regenerate ModuleSettingsExtensions.cs and NugetPackages.cs", checked: true },
+  { id: "apply-sf-module", label: "Inspect diffs and apply staged changes", checked: true }
+]} />
+
+<RichText id="phase2-heading">
+
+### Phase 2 — Edit Template Partial
+
+</RichText>
+
+<RichText id="template-changes-desc">
+
+Three locations in [`NServiceBusConfigurationTemplatePartial.cs`](Modules/Intent.Modules.Eventing.NServiceBus/Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs):
+
+</RichText>
+
+<TabsBlock id="template-diffs" tabs={[
+  {
+    id: "constructor-diff",
+    label: "Constructor (NuGet switch)",
+    blocks: [
+      {
+        id: "constructor-diff-block",
+        type: "diff",
+        data: {
+          filename: "NServiceBusConfigurationTemplatePartial.cs",
+          language: "csharp",
+          mode: "unified",
+          before: "                case NServiceBusSettings.TransportOptionsEnum.Msmq:\n                    if (OutputTarget.GetMaxNetAppVersion().Major >= 10)\n                        Logging.Log.Warning(\n                            \"MSMQ transport is not officially supported on .NET 10 or later. \" +\n                            \"NServiceBus.Transport.Msmq only supports NServiceBus 8 (.NET 6/7/8). \" +\n                            \"Consider selecting a different transport or targeting .NET 8/9.\");\n                    AddNugetDependency(NugetPackages.NServiceBusTransportMsmq(OutputTarget));\n                    break;",
+          after: "                case NServiceBusSettings.TransportOptionsEnum.SqlServer:\n                    AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));\n                    break;"
+        }
+      }
+    ]
+  },
+  {
+    id: "transport-diff",
+    label: "AddTransportStatements",
+    blocks: [
+      {
+        id: "transport-diff-block",
+        type: "diff",
+        data: {
+          filename: "NServiceBusConfigurationTemplatePartial.cs",
+          language: "csharp",
+          mode: "unified",
+          before: "            else if (transport.IsMsmq())\n            {\n                method.AddStatement($\"{varPrefix}endpointConfiguration.UseTransport(new MsmqTransport());\", s => s.SeparatedFromPrevious());\n            }",
+          after: "            else if (transport.IsSqlServer())\n            {\n                method.AddStatement(\n                    @\"var connectionString = configuration.GetConnectionString(\\\"NServiceBus\\\") ?? throw new InvalidOperationException(\\\"ConnectionStrings:NServiceBus is not configured\\\");\",\n                    s => s.SeparatedFromPrevious());\n                method.AddStatement($\"{varPrefix}endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));\");\n            }"
+        }
+      }
+    ]
+  },
+  {
+    id: "appsettings-diff",
+    label: "PublishAppSettings",
+    blocks: [
+      {
+        id: "appsettings-diff-block",
+        type: "diff",
+        data: {
+          filename: "NServiceBusConfigurationTemplatePartial.cs",
+          language: "csharp",
+          mode: "unified",
+          before: "                case NServiceBusSettings.TransportOptionsEnum.Msmq:\n                    // MSMQ uses local Windows message queues — no connection string needed\n                    break;",
+          after: "                case NServiceBusSettings.TransportOptionsEnum.SqlServer:\n                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(\n                        \"ConnectionStrings:NServiceBus\",\n                        \"Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true\"));\n                    break;"
+        }
+      }
+    ]
+  },
+  {
+    id: "using-diff",
+    label: "Remove unused using",
+    blocks: [
+      {
+        id: "using-diff-block",
+        type: "diff",
+        data: {
+          filename: "NServiceBusConfigurationTemplatePartial.cs",
+          language: "csharp",
+          mode: "unified",
+          before: "using Intent.Utils;",
+          after: ""
+        }
+      }
+    ]
+  }
+]} />
+
+<RichText id="phase3-heading">
+
+### Phase 3 — Build & Verify
+
+</RichText>
+
+<Checklist id="phase3-checklist" items={[
+  { id: "build-module", label: "dotnet build → exit 0 (0 errors, 53 pre-existing warnings)", checked: true },
+  { id: "run-sf-target", label: "Run SF on a test app with SQL Server transport selected — inspect generated NServiceBusConfiguration.cs" },
+  { id: "verify-transport", label: "Confirm SqlServerTransport(connectionString) appears and ConnectionStrings:NServiceBus is in appsettings.json" }
+]} />
+
+<RichText id="phase4-heading">
+
+### Phase 4 — Docs (same turn as code changes)
+
+</RichText>
+
+<RichText id="docs-changes-desc">
+
+Two files to update in [`Modules/Intent.Modules.Eventing.NServiceBus/`](Modules/Intent.Modules.Eventing.NServiceBus/):
+
+</RichText>
+
+<Table id="docs-table" columns={["File", "Status", "Change"]} rows={[
+  ["docs/README.md", "✅ Done", "Transport table updated; MSMQ callout and local dev section replaced with SQL Server section."],
+  ["release-notes.md", "✅ Done", "SQL Server bullet added under Version 1.0.0."],
+  ["Intent.Eventing.NServiceBus.imodspec", "⏳ Pending", "releaseNotes field not yet synced — update when ready to publish."]
+]} />
+
+<RichText id="files-touched">
+
+## Files Touched
+
+</RichText>
+
+<FileTree id="files-tree" entries={[
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs", change: "modified", note: "✅ MSMQ → SQL Server in constructor switch, AddTransportStatements, and PublishAppSettings. Removed using Intent.Utils." },
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/Settings/ModuleSettingsExtensions.cs", change: "modified", note: "✅ SF-regenerated: Msmq → SqlServer enum; IsMsmq() → IsSqlServer()" },
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/NugetPackages.cs", change: "modified", note: "✅ SF-regenerated: NServiceBusTransportSqlServer added with 4-tier version table" },
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/Intent.Eventing.NServiceBus.imodspec", change: "modified", note: "✅ SF-regenerated: transport option msmq → sql-server" },
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/docs/README.md", change: "modified", note: "✅ Transport table, appsettings section, Local Development section updated" },
+  { path: "Modules/Intent.Modules.Eventing.NServiceBus/release-notes.md", change: "modified", note: "✅ SQL Server bullet added under Version 1.0.0" }
+]} />
+
+<RichText id="open-questions-heading">
+
+### Open Questions
+
+</RichText>

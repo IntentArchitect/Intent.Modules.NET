@@ -24,10 +24,117 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="d94a5e39-fd8a-470d-b212-fb8bea02395b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.6.5</name>
+      <display>6.6.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bed5c3a2-bdd8-447e-8a3c-c03c96a8bce1</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c70f7d81-85ff-4e89-849c-12161276dc0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.Persistence.Sql</name>
+          <display>NServiceBus.Persistence.Sql (6.6.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.6.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d94a5e39-fd8a-470d-b212-fb8bea02395b</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8e20a757-0648-4432-8c4a-69b2f0b256d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.TransactionalSession</name>
+          <display>NServiceBus.TransactionalSession (1.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d94a5e39-fd8a-470d-b212-fb8bea02395b</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="67a12cb1-b842-48a7-9afc-aed31e030999" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.8</name>
+      <display>7.0.8 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bed5c3a2-bdd8-447e-8a3c-c03c96a8bce1</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="63786b99-a23c-4793-b6cd-915f153b5c91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.Persistence.Sql</name>
+          <display>NServiceBus.Persistence.Sql (7.0.8)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.8</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>67a12cb1-b842-48a7-9afc-aed31e030999</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ad4655a3-2acc-4d63-b03e-48519874ba06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.TransactionalSession</name>
+          <display>NServiceBus.TransactionalSession (2.0.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>67a12cb1-b842-48a7-9afc-aed31e030999</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="6c1fdc1c-4721-4ffe-aa27-affd769d3a94" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.3.1</name>
       <display>8.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bed5c3a2-bdd8-447e-8a3c-c03c96a8bce1</parentFolderId>
@@ -45,12 +152,42 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="7fbb67e8-98df-4ddf-98f9-70fd1d9938c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.Persistence.Sql</name>
+          <display>NServiceBus.Persistence.Sql (8.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6c1fdc1c-4721-4ffe-aa27-affd769d3a94</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a135d83f-73ee-4e3a-82ab-8146e74fc5fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.TransactionalSession</name>
+          <display>NServiceBus.TransactionalSession (3.4.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.4.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6c1fdc1c-4721-4ffe-aa27-affd769d3a94</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="a11b709f-277f-412c-af68-02136e02b167" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.1</name>
       <display>9.0.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bed5c3a2-bdd8-447e-8a3c-c03c96a8bce1</parentFolderId>
@@ -68,7 +205,36 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="473ae22a-b65c-4918-8fa3-6073bb1acd30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.Persistence.Sql</name>
+          <display>NServiceBus.Persistence.Sql (9.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a11b709f-277f-412c-af68-02136e02b167</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2031ba16-c41f-4465-b59f-e53f01f2e1bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus.TransactionalSession</name>
+          <display>NServiceBus.TransactionalSession (4.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a11b709f-277f-412c-af68-02136e02b167</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

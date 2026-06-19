@@ -268,3 +268,4 @@ Spikes/
 /.codex/instructions/
 /.codex/skills/
 /Modules/.agents/
+/plans/**

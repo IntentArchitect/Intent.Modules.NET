@@ -118,6 +118,16 @@ After **every** code change, verify the exit code is `0`:
 dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --nologo
 ```
 
+### Docs Update (Mandatory)
+After **every** change that adds, removes, or modifies user-facing behaviour — a new transport option, a new setting, a new generated file, a changed generated shape — update **both** artifacts in the **same turn** as the code change. Do not defer to a follow-up:
+
+| Artifact | What to update |
+| :--- | :--- |
+| `docs/README.md` | Add/update the relevant section (transport table, settings table, generated code example, etc.) |
+| `release-notes.md` | Add a bullet under the current version using `New Feature:` / `Improvement:` / `Fixed:` prefix |
+
+Use the **`module-docs`** skill for the canonical format rules. A code change without a matching docs update is **incomplete**.
+
 ## 🤖 Available Skills
 
 Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
