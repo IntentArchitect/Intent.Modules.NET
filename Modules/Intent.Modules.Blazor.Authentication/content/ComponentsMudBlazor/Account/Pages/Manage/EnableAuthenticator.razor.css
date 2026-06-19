@@ -1,7 +1,8 @@
+/* Plain styling wrapper (not a card) for the verification form: it scopes the
+   input theming below without drawing a second boxed card inside the page card —
+   so it never picks up the global .mud-card hover lift. */
 .auth-form-shell {
     max-width: 720px;
-    box-shadow: var(--shadow-2);
-    border-radius: var(--radius-xl);
 }
 
 .auth-form-shell ::deep .mud-input-control-input-container,
@@ -33,8 +34,4 @@
 
 .auth-steps li {
     margin-bottom: var(--space-4);
-}
-
-.auth-qr-panel {
-    border-radius: var(--radius-lg);
 }
