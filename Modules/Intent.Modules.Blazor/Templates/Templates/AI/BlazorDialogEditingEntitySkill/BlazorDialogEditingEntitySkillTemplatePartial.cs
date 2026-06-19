@@ -59,20 +59,31 @@ If items 5–6 are not found: note the absence and continue — they are referen
 
 ---
 
-## Preserve Existing Implementation
+## Assess The .razor.cs Before Writing
 
-Use for: Edit or update entity dialogs in Blazor with MudBlazor  
-Do NOT use for: Full pages, search pages, add dialogs, or non-Blazor projects  
-Source of truth: Existing `.razor.cs` file defines data loading, service calls, dialog behavior, and model structure  
+Use for: Edit or update entity dialogs in Blazor with MudBlazor
+Do NOT use for: Full pages, search pages, add dialogs, or non-Blazor projects
 This is a dialog: close or cancel through MudBlazor dialog APIs rather than navigation
 
-### You MUST NOT:
-- Modify existing backend methods such as `UpdateEntity()` or `UpdateEntityAsync()`
-- Change payload shape sent to the backend
-- Add, rename, or remove model properties
-- Invent lookup services
-- Rewrite existing C# functionality
-- Add navigation logic to the dialog flow
+Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
+
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+- Add `[Parameter]` properties needed for the dialog (e.g. entity ID)
+- Add a model field or property matching the sample pattern
+- Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
+- Add `Save()` / `SaveAsync()` that validates the form, calls the existing update service method, and closes the dialog with `MudDialog.Close(DialogResult.Ok(true))` on success
+- Add `Cancel()` that only calls `MudDialog.Cancel()`
+- Add supporting methods only when they exist in the sample and the relevant service methods exist in the project
+
+**If implemented** — preserve all existing logic exactly:
+- Do NOT modify existing methods, service calls, or payload construction
+- Do NOT add, rename, or remove model properties
+- Do NOT rewrite existing C# functionality
+
+**Always forbidden** (skeleton or implemented):
+- Inventing service classes or interfaces that don't exist in the project
+- Calling services directly from the `.razor` file
+- Adding navigation logic to the dialog flow
 
 ---
 
@@ -88,22 +99,21 @@ Dialog rules:
 - For cancel, use `MudDialog.Cancel()`
 
 Data loading:
-- Receive dialog input through `[Parameter]` properties or existing project conventions
-- If an ID is passed, load the entity through existing methods
-- If a model is passed, prepopulate from that existing input structure
-- Do not invent new dialog input contracts
+- Receive dialog input through `[Parameter]` properties — add them if absent in a skeleton
+- If an ID is passed, load the entity via the appropriate service method (implement `OnInitializedAsync()` if it is an empty stub)
+- If a model is passed, prepopulate from that input structure
 
 ---
 
 ## 2. Save And Cancel Methods
 
-`Save()` or `SaveAsync()`:
+`Save()` or `SaveAsync()` — add if absent in a skeleton:
 1. Validate the form
-2. Call the existing update method without modification
+2. Call the existing update service method without modification
 3. On success, close the dialog with a success result
 4. On error, keep the dialog open and set existing error state such as `serviceErrors.*`
 
-`Cancel()`:
+`Cancel()` — add if absent in a skeleton:
 - Only cancel or close the dialog
 - Do not reset model state
 - Do not call services
@@ -185,13 +195,14 @@ These files inform styling choices only — they do not override the sample's la
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` exist in `.razor.cs`
+- [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
 - [ ] Dialog uses `IMudDialogInstance` and modern MudBlazor dialog sections
-- [ ] Entity data is loaded or prepopulated using existing patterns only
+- [ ] Entity data is loaded or prepopulated through lifecycle or backing methods (implemented or added if the skeleton had none)
 - [ ] Save closes with `DialogResult.Ok(true)` on success
 - [ ] Cancel only cancels the dialog
-- [ ] Backend update methods were not modified
-- [ ] Model properties were not added, removed, or renamed
+- [ ] Existing update service methods were not modified
+- [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
+- [ ] No service classes or interfaces were invented that don't exist in the project
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation prevents service calls when invalid
 - [ ] Shared styles were preserved and component styling remained minimal

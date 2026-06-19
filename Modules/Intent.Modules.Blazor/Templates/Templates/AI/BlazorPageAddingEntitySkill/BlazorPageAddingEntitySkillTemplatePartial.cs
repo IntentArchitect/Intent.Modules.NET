@@ -75,26 +75,35 @@ Forbidden:
 
 ---
 
-## Preserve Existing Implementation
+## Assess The .razor.cs Before Writing
 
 Use for: Add or create entity pages in Blazor with MudBlazor
-Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects  
-Source of truth: Existing `.razor.cs` file defines service calls, navigation, model structure, and save flow
+Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects
 
-### You MUST NOT:
-- Modify existing backend methods such as `CreateEntity()` or `CreateEntityAsync()`
-- Change the payload shape sent to the backend
-- Add, rename, or remove model properties
-- Invent lookup services or fake option data
-- Rewrite existing C# functionality
-- Add navigation or CRUD methods that do not already exist in `.razor.cs`
-- Put C# logic in the `.razor` file using `@code`
+Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
+
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+- Add a model field or property (initialized to a new instance) matching the sample pattern
+- Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing create service method, and navigates on success
+- Add supporting lookup loading in `OnInitializedAsync()` if lookups are required and the service exists in the project
+- Add add/remove collection item methods only when they exist in the sample and matching service methods exist
+
+**If implemented** — preserve all existing logic exactly:
+- Do NOT modify existing methods, service calls, or payload construction
+- Do NOT add, rename, or remove model properties
+- Do NOT rewrite existing C# functionality
+
+**Always forbidden** (skeleton or implemented):
+- Inventing service classes or interfaces that don't exist in the project
+- Inventing fake option data or hardcoded list values
+- Calling services directly from the `.razor` file
+- Putting C# logic in `.razor` using `@code`
 
 ---
 
-## 1. Form: Build From Existing Model Only
+## 1. Form: Build From The Model
 
-Bind inputs only to properties that already exist on `model`.
+Bind inputs only to properties that exist on `model` — adding the model field first if it does not yet exist in the skeleton.
 
 Nullable objects:
 - Render a toggle or checkbox section only when the target model supports that nullable object pattern
@@ -142,18 +151,17 @@ Save button state:
 
 ## 4. Save Flow
 
-The Save button must call an existing save orchestration method such as `Save()` or `SaveAsync()`.
+The Save button must call `Save()` or `SaveAsync()`. If neither exists in `.razor.cs`, add it following the sample pattern.
 
 That save flow must:
 1. Validate before saving
-2. Call the existing backend method without modifying it
-3. Navigate on success using an existing navigation method when one exists
+2. Call the existing create service method without modifying it
+3. Navigate on success using an existing or added navigation method
 
 Forbidden:
 - Calling service methods directly from the Razor template
-- Modifying service-calling methods
+- Modifying existing service-calling methods
 - Changing payload construction
-- Inventing post-save navigation methods
 
 ---
 
@@ -202,11 +210,12 @@ These files inform styling choices only — they do not override the sample's la
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` exist in `.razor.cs`
+- [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
 - [ ] No `@code` block was introduced in `.razor`
-- [ ] Save button calls an existing save method, not a service directly
-- [ ] Backend service methods were not modified
-- [ ] Model properties were not added, removed, or renamed
+- [ ] Save button calls `Save()` or `SaveAsync()` in `.razor.cs`, not a service directly
+- [ ] Existing create service methods were not modified
+- [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
+- [ ] No service classes or interfaces were invented that don't exist in the project
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation is wired and Save is disabled when invalid or loading

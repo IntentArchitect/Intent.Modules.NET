@@ -143,6 +143,25 @@ For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `Mud
 - Follow Blazor lifecycle best practices for initialization and parameter-driven loading.
 - Keep Razor templates and code-behind implementations aligned so bindings remain valid and maintainable.
 
+## Global Navigation Modeling (MainLayout + Sider Menu)
+When modeling UI navigation in the Intent User Interface designer:
+
+### Root-level entry pages
+- Treat a page as a root-level entry page when:
+  - Its route is stable and does not require route parameters (e.g. no {id}), and
+  - It represents a top-level capability a user would reasonably access directly from the global application shell (typically list/search/dashboard pages).
+
+### Required modeling steps for root entry pages
+For each root-level entry page, unless stated otherwise, you MUST:
+- Add a Navigation association from MainLayout to the page.
+- Confirm if the MainLayout has a Navigation Menu in the Sider, and if does add a corresponding Menu Item for the page
+
+### Non-root / workflow pages
+- Do not add MainLayout navigations or Navigation Menu items for workflow or subordinate pages (e.g. create/edit/detail/manage pages), or any page requiring route parameters (e.g. /{id} routes), unless the user explicitly confirms they should be directly reachable from global navigation.
+
+### Ambiguity
+If it’s unclear which pages are root-level entry points (or there are multiple plausible candidates), ask the user which screens they want exposed in the global navigation.
+
 ## Validation Checklist
 - [ ] All bindings and event handlers used in `.razor` exist in `.razor.cs`.
 - [ ] No `@code` blocks were added to `.razor` files.
@@ -152,6 +171,7 @@ For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `Mud
 - [ ] Existing global styles and theme values were not changed.
 - [ ] Component styles remain minimal and component-specific.
 - [ ] Forms are validated for create, save, and update flows.
+- [ ] If a Navigation association was added to MainLayout, a corresponding Navigation Menu item was also added under Sider (if the Navigation menu exists)
 
 """);
         }
