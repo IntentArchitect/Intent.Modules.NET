@@ -35,6 +35,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
         public bool IsMatch(OperationModel operationModel)
         {
+            if (!operationModel.GetInteractions().Any())
+            {
+                return false;
+            }
+
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
             return method is not null;
@@ -59,7 +64,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
         public void ApplyStrategy(OperationModel operationModel)
         {
-            // TODO: This can be added to the IsMatch operation, but that needs to be addressed carefully
             var interactions = operationModel.GetInteractions().ToList();
             if (interactions.Count <= 0) return;
 
