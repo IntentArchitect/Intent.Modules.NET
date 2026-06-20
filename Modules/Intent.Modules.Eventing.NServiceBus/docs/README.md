@@ -32,6 +32,7 @@ Selects the underlying message transport. Options:
 | `RabbitMQ` | RabbitMQ (Quorum queues, Conventional routing) | `NServiceBus.RabbitMQ` |
 | `Azure Service Bus` | Azure Service Bus Topics | `NServiceBus.Transport.AzureServiceBus` |
 | `Amazon SQS` | AWS SQS + SNS | `NServiceBus.AmazonSQS` |
+| `SQL Server` | SQL Server tables as queues — cross-platform, no extra broker | `NServiceBus.Transport.SqlServer` |
 
 The default is `Learning Transport`. Change the setting in Intent Architect's application settings and rerun the Software Factory to switch transports.
 
@@ -160,6 +161,20 @@ The module generates default entries. Key sections:
 
 Amazon SQS uses the AWS credential chain — no connection string is needed.
 
+### SQL Server Transport
+
+SQL Server transport uses SQL tables as queues. Add a `ConnectionStrings:NServiceBus` entry pointing to a SQL Server instance:
+
+```json
+{
+  "ConnectionStrings": {
+    "NServiceBus": "Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"
+  }
+}
+```
+
+`EnableInstallers()` automatically creates the queue tables on first run — no manual schema setup is required.
+
 ## Dependency Injection Wiring
 
 The module registers `AddNServiceBusConfiguration` into the Infrastructure DI extension:
@@ -184,6 +199,26 @@ builder.Host.UseNServiceBusHost();
 ### Learning Transport (no infrastructure required)
 
 The Learning Transport stores messages as files on disk. It requires no external service and is the fastest way to verify handler wiring locally. Set Transport to `Learning Transport` in module settings.
+
+### SQL Server Transport (LocalDB or Docker)
+
+For local development, use SQL Server LocalDB (already installed with Visual Studio):
+
+```json
+{
+  "ConnectionStrings": {
+    "NServiceBus": "Server=(localdb)\\MSSQLLocalDB;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"
+  }
+}
+```
+
+Or start SQL Server via Docker:
+
+```bash
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
+`EnableInstallers()` creates the queue tables automatically on first run.
 
 ### RabbitMQ (Docker)
 

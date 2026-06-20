@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="110e5301-213d-4daa-85d6-75487f5804ec" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>TestMessageHandler</name>
+  <display>TestMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</parentFolderId>
+  <packageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</packageId>
+  <packageName>N_ServiceBus.SqlServer.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

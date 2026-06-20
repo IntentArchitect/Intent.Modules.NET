@@ -3,7 +3,7 @@ name: intent-architect-mcp
 description: >
   Intent Architect MCP workflow: designer operations, element discovery, model modification, 
   Software Factory execution, compilation verification, and cross-module integration patterns.
-  If you find yourself wanting to edit `.xml`, `.config` files inside an `intent` folder directly, stop and ask the user to model the change instead. The IA MCP workflow is designed to keep models as the single source of truth — direct file edits are a last resort for truly exceptional cases.
+  If you find yourself wanting to edit `.xml`, `.config`, `.settings` files inside an `intent` metadata folder directly, perform the change via the IA MCP. This workflow is designed to keep models as the single source of truth — direct file edits are a last resort for truly exceptional cases.
 ---
 
 # Skill: intent-architect-mcp
@@ -26,6 +26,8 @@ Direct code editing is allowed only for:
 - Business rules that cannot be expressed in models (rare — ask the user first)
 
 Protect bespoke code from regeneration with `[IntentIgnoreBody]` on the **member** (not the class), or `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. The signature stays generated; only the body is preserved.
+
+If you find that the MCP did not allow you to make a change you needed, rather stop and ask the user to perform it for you. DO NOT alter the `.xml`, `.config`, `.settings` files yourself!
 
 ---
 

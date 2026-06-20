@@ -1,6 +1,6 @@
 ---
 name: reference-app-builder
-description: "Use after module-ecosystem-analyst produces an Attack Plan and before intent-module-builder scaffolds the module. Finds or creates a test/reference application, hand-crafts the exact code the module will later generate, proves it compiles and the handler is hit at runtime, and locks in the verified code shapes as the ground truth for all templates. TRIGGER: mandatory between Attack Plan and module scaffold — never skip. BLOCK on this skill until the reference app is green."
+description: "Use after tech-pattern-researcher produces a Pattern Document and before module-ecosystem-analyst. Scaffolds a real Intent-managed Clean Architecture application with standard modules installed, runs the Software Factory to get the actual generated output, then hand-crafts the technology-specific files on top of that real output. Proves the code shapes compile and the handler is hit at runtime. The running app becomes the ground truth that module-ecosystem-analyst reads to understand what the ecosystem already generates. TRIGGER: mandatory after Pattern Document, before ecosystem analysis — never skip. BLOCK on this skill until the reference app is green."
 argument-hint: "[Attack Plan path or module name]"
 ---
 
@@ -208,6 +208,6 @@ var result = await _messageBus.InvokeAsync<OrderDto>(query, cancellationToken);
 
 ## Handoff
 
-Once the reference app is green and the Pattern Document is updated, load **`intent-module-builder`** and pass the updated Pattern Document + Attack Plan as context. The reference app is now the ground truth the module must reproduce.
+Once the reference app is green and the Pattern Document is updated, load **`module-ecosystem-analyst`** and pass the reference app path + Pattern Document as context. The ecosystem analyst reads the reference app's actual generated code to determine what the Intent ecosystem already provides, which SDK building blocks to use, and how to structure the Attack Plan.
 
-> If at any point the reference app cannot be made to work after 3+ attempts and Pattern Document updates, **stop and escalate to the user.** Do not proceed to template implementation with an unverified pattern.
+> If at any point the reference app cannot be made to work after 3+ attempts and Pattern Document updates, **stop and escalate to the user.** Do not proceed to ecosystem analysis with an unverified pattern.

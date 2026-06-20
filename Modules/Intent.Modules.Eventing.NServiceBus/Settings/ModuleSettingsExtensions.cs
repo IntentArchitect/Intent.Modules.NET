@@ -58,6 +58,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
                     "azure-service-bus" => TransportOptionsEnum.AzureServiceBus,
                     "amazon-sqs" => TransportOptionsEnum.AmazonSqs,
                     "learning-transport" => TransportOptionsEnum.LearningTransport,
+                    "sql-server" => TransportOptionsEnum.SqlServer,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -81,6 +82,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             {
                 return Value == "learning-transport";
             }
+
+            public bool IsSqlServer()
+            {
+                return Value == "sql-server";
+            }
         }
 
         public enum TransportOptionsEnum
@@ -89,6 +95,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             AzureServiceBus,
             AmazonSqs,
             LearningTransport,
+            SqlServer,
         }
         public RecoverabilityPolicyOptions RecoverabilityPolicy() => new RecoverabilityPolicyOptions(_groupSettings.GetSetting("4060477a-191f-43be-a2c1-f2dd94ff00e2")?.Value);
 

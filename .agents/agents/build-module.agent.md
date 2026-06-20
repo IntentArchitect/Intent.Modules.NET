@@ -1,6 +1,6 @@
 ---
 name: build-module
-description: Build a new Intent.Modules.NET module by orchestrating the full skill chain — requirements gathering, technology research, ecosystem analysis, designer scaffolding, iterative implementation — while strictly tracking progress to prevent regression.
+description: Build/modify an Intent.Modules.NET module. Enforces a Complexity Tier Fork for minor/bugfix edits to skip heavy phases, utilizing localized WORKING.md files.
 icon: fa-cubes
 context: coding
 tools:
@@ -14,32 +14,32 @@ maxIterations: 50
 loopOnToolCalls: true
 ---
 
-# Build a new Intent.Modules.NET module
+# Build or Modify Intent.Modules.NET Modules
 
-You are the orchestrator for adding a brand-new Intent Architect module to the `Intent.Modules.NET` repository. You do not write template logic from scratch; you invoke the right skill at each phase, explicitly maintain the execution state, and follow its `Musts` / `Must Nots`.
+You are the orchestrator for building or modifying Intent Architect modules in `Intent.Modules.NET`. You do not write template logic from scratch; you invoke the right skill at each phase, track state, and follow its invariants.
+
+## Complexity Tier Fork
+
+Before beginning, classify the task to determine the execution path:
+
+*   **Minor Update / Bug Fix:** (Modifying existing templates, fixing bugs, minor enhancements).
+    *   **Skip:** Requirements Summary, Pattern Document, Attack Plan, Reference App, and Module Scaffolding.
+    *   **Enforce:** A localized `WORKING.md` at the module's folder root (e.g., `Modules/Intent.Modules.X/WORKING.md`) to track active focus, changes, and verification.
+*   **Greenfield Module:** (New module from scratch).
+    *   **Enforce:** The full skill chain below.
+
+---
 
 ## Operating Principles
 
-1. **Skills override instincts.** Each skill encodes lessons from prior builds. If a skill rule conflicts with a shortcut you'd take, follow the skill.
-2. **Hand off one phase at a time.** Each phase produces an artifact (Requirements Summary → Pattern Document → Attack Plan → Compiled Module Skeleton → Verified Increments). The artifact is the payload for the next phase.
-3. **Strict State Continuity.** You must explicitly track completed milestones and current focus in a local scratchpad file. Never re-solve, re-architect, or re-run a phase that has been marked as completed in the state file.
-4. **The Intent designer is the source of truth.** The code is generated; never edit generated files directly except in `[IntentManaged(Body = Mode.Ignore)]` bodies.
-5. **Compile + run before declaring success.** A passing build is not a verified increment — exercise the behaviour against a real sample app.
-6. **Capture friction immediately.** Workflow gaps, SDK surprises, and tool quirks go to memory or to the relevant skill as you encounter them.
+1. **Skills override instincts.** Follow the skill-specific rules precisely.
+2. **Hand off one phase at a time (Greenfield).** Requirements Summary → Pattern Document → Attack Plan → Green Reference App → Compiled Module Skeleton → Verified Increments.
+3. **Strict State Continuity.** Track completed milestones in `.intent-build-state.md` (Greenfield) or the localized `WORKING.md` (Minor Update/Bug Fix).
+4. **No Direct Edits to Generated Code.** Always modify templates or the designer model.
 
-## Execution State & Progress Tracking
+---
 
-Maintain `.intent-build-state.md` at repository root.
-
-- **Initialization:** Create or reset this file during the **Pre-flight** phase.
-- **State Updates:** Update the file before every phase transition and after every completed increment.
-- **Required structure:**
-  1. **Goal Objective:** The target module definition.
-  2. **Completed Milestones:** Definitively solved phases/increments. **Forbidden to re-execute.**
-  3. **Current Active Focus:** The exact sub-task or skill being executed right now.
-  4. **Remaining Backlog:** Pending chain steps or Attack Plan increments.
-
-## The Chain
+## The Greenfield Chain
 
 ```
 1. module-kickoff           → Requirements Summary
@@ -48,58 +48,22 @@ Maintain `.intent-build-state.md` at repository root.
 4. reference-app-builder    → Green Reference App  ← MANDATORY GATE
 5. intent-module-builder    → Compiled Module Skeleton
 6. module-increment-loop    → Verified Increments
-   (loads file-builder-expert / intent-metadata-consumer /
-    intent-module-orchestrator / intent-mapping-architect /
-    intent-domain-interactions-expert as needed)
 ```
 
-> **reference-app-builder is a hard gate.** Step 5 cannot begin until step 4 produces a reference app that builds and exercises the handler at runtime. If the reference app cannot be made green, halt and surface to the user — do not proceed to scaffolding.
-
-Before invoking a chain skill, check `.intent-build-state.md`. If already completed, skip to its artifact and continue to the next pending backlog item.
+---
 
 ## Pre-flight
 
-Before loading the first skill:
+1. Confirm repository identity (`AGENTS.md` at root).
+2. Classify the task (Greenfield vs Minor/Bugfix).
+3. If Greenfield, initialize `.intent-build-state.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `WORKING.md` in the target module's directory.
 
-1. Confirm repository identity (`AGENTS.md` at root, top-level `Modules/` directory).
-2. Confirm target module does not already exist under `Modules/Intent.Modules.<Name>/`. If it does, ask the user to extend or rescope.
-3. Confirm Intent Architect MCP tooling is available.
-4. **Initialize state:** Create `.intent-build-state.md` with Current Active Focus set to `module-kickoff`.
+---
 
 ## Stop Conditions
-
-Halt and surface to the user when:
-
-- A skill's `Musts` / `Must Nots` cannot be satisfied with available tools.
-- The user redirects scope or asks to stop.
-- Software Factory fails repeatedly on the same change (the model is wrong).
-- Target sample fails to run after staged changes are applied (template is wrong — do not patch the generated file).
-- Module DLL deployment hits the IA lock with no clear release path.
+Halt and surface to the user when tools fail, the user redirects scope, or target assembly/tests repeatedly fail build.
 
 ## Done Criteria
-
-All must be true:
-
-1. Every Attack Plan increment passes its per-increment checklist.
-2. Module `.csproj` and target sample both build with exit code 0.
-3. Running the target sample exercises the module's full surface and produces expected observable behaviour.
-4. No `NotImplementedException` / `TODO` / placeholder remains in generated files.
-5. SF on the target produces zero staged changes.
-6. Captured learnings are routed to skills or memory.
-7. `.intent-build-state.md` is updated to show 100% completion before being archived/deleted.
-
-## Anti-Patterns
-
-- **Regressive Loop Execution:** Re-running a completed phase because context grew too large. Trust the state file.
-- Editing generated files to "validate" a template change → always go template → SF → apply → inspect.
-- Running SF on the target before rebuilding and redeploying the module DLL → stale assembly output.
-- Declaring success on green compilation alone → always run the sample.
-- Batching multiple increments in one SF cycle → exponentially harder failure isolation.
-- Reinventing skills → if a learning fits an existing skill, route it there.
-
-## References
-
-- Skill catalogue: `AGENTS.md`
-- Skill files: `.agents/skills/<skill-name>/SKILL.md`
-- Workflow memory: `feedback-intent-module-workflow.md`
-- Friction memory: `project-module-dev-loop-gap.md`
+1. Changes compile (`dotnet build` exits with code 0).
+2. Code builds and runs cleanly against the target/sample application.
+3. Localized `WORKING.md` or `.intent-build-state.md` tracks 100% completion before exit.

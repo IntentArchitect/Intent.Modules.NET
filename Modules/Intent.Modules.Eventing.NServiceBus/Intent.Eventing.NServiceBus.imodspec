@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.NServiceBus</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</summary>
   <description>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</description>
@@ -48,6 +48,7 @@
             <option value="azure-service-bus" description="Azure Service Bus" />
             <option value="amazon-sqs" description="AmazonSQS" />
             <option value="learning-transport" description="Learning Transport" />
+            <option value="sql-server" description="SQL Server" />
           </options>
         </setting>
         <setting id="4060477a-191f-43be-a2c1-f2dd94ff00e2" title="Recoverability Policy" type="select">
