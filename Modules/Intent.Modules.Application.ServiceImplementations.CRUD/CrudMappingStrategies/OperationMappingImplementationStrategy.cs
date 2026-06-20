@@ -35,11 +35,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
         public bool IsMatch(OperationModel operationModel)
         {
-            if (!operationModel.GetInteractions().Any())
-            {
-                return false;
-            }
-
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
             return method is not null;
