@@ -43,7 +43,7 @@ Translate a design specification (design.md) into a working MudBlazor CSS theme 
 
 ---
 
-## MANDATORY: Read All Three Files Before Changing Anything
+## MANDATORY: Read All Five Files Before Changing Anything
 
 STOP — you MUST read all five files in full before writing a single line:
 
