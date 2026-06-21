@@ -1,3 +1,7 @@
+### Version 5.3.2
+
+- Fixed: When "Separate state from behaviour" is enabled, the state template now uses a live `CSharpClass` reference (instead of a string) for parent class inheritance. This ensures `BaseType` carries metadata, allowing `GetRootEntity()` to correctly walk the inheritance hierarchy and resolve primary keys in downstream modules (e.g. EF Core Repositories).
+
 ### Version 5.3.1
 
 - Improvement: Updated Skill Template to new extensible version.

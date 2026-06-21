@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1b16579b-a593-47e0-bfe3-d05ea4196411">
+  <sourceEnd id="dbae183f-81b1-40e2-8466-9197845820c8" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="e0095321-751b-4a48-bc1d-753b1871cb09">
+      <typeId>d6e35d37-676d-4e56-aed1-d5e23cd24b3a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Services</typePackageName>
+      <typePackageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1b16579b-a593-47e0-bfe3-d05ea4196411" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] TestMessage</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ef2c8bf3-3bd3-4b68-8b96-dd553ea16564">
+      <typeId>f81535ce-5e3b-438b-89a9-92d3cf945691</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Eventing.Messages</typePackageName>
+      <typePackageId>c3f1b826-11c3-4064-89f2-9b67a6ecfc3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="9a70e843-df93-406b-9619-d4b264619d72" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d6e35d37-676d-4e56-aed1-d5e23cd24b3a" location="[N_ServiceBus.SqlServer].[Services].[PublishExternalMessageCommand]" />
+        <target applicationId="9a70e843-df93-406b-9619-d4b264619d72" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f81535ce-5e3b-438b-89a9-92d3cf945691" location="[N_ServiceBus.SqlServer].[Services].[TestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="f81535ce-5e3b-438b-89a9-92d3cf945691" name="TestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1bcc256f-7c3c-4a07-bb8c-22918a0e71ba" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="d6e35d37-676d-4e56-aed1-d5e23cd24b3a" name="PublishExternalMessageCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7f3c9cd4-9395-43bd-b6d6-8184d2ce1713" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

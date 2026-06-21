@@ -56,8 +56,8 @@
       <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.HomeStyleStaticContentTemplateRegistration" externalReference="3e6901d8-7e66-437b-b373-46106219c3c9">
-      <role>Blazor.Client.Component</role>
-      <location></location>
+      <role>Blazor</role>
+      <location>Components/Pages</location>
     </template>
     <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="586ea57e-986e-42e7-857a-6adfb025ed4a">
       <role>Blazor.ThemeJavascript</role>

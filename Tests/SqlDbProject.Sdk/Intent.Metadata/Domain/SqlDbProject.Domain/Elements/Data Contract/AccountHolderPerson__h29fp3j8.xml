@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</parentFolderId>
   <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-  <packageName>SqlDbProject.Domain</packageName>
+  <packageName>SqlDbProject.Sdk.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -55,7 +55,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -79,7 +79,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -103,7 +103,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -127,7 +127,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8775f4d0-7ffd-4678-a6a8-fd7e0c6fbc87" name="Decimal Constraints">
           <addedByDefault>false</addedByDefault>

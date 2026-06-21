@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="145762db-eb5c-41ae-964c-fd852fcd38f2" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment />
   <name>Scalar.AspNetCore</name>
   <display>Scalar.AspNetCore</display>
   <isAbstract>false</isAbstract>

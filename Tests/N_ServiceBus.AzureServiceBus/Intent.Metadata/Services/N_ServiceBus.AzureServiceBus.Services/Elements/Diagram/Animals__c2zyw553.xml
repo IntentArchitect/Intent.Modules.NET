@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a6f8fa0-c669-4dbe-8036-05e9e9cb479a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Animals</name>
+  <display>Animals</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46210188-31bb-4ad1-89d2-ac849b5f8c3b</parentFolderId>
+  <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
+  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <diagram>
+    <targetPackageId>0a6f8fa0-c669-4dbe-8036-05e9e9cb479a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

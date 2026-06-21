@@ -13,6 +13,8 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Persistence
         {
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

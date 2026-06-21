@@ -19,6 +19,8 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Per
 
         public DbSet<BespokeUser> BespokeUsers { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9597d1f9-fd7f-4f71-86f6-74fce94908a6">
+  <sourceEnd id="619ace85-667c-4453-a3e4-858b7d5f5876" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="1dadbe47-cc9a-4493-815b-596f530a98f0">
+      <typeId>becb1ba6-7bb0-4b63-92dd-335973003428</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Services</typePackageName>
+      <typePackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9597d1f9-fd7f-4f71-86f6-74fce94908a6" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] TestMessage</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4b8505d4-e5dd-4819-a29f-f421c477be1e">
+      <typeId>18bcb223-f34b-45f4-ba76-3dd78ed3e7f6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.SQS.Eventing.Messages</typePackageName>
+      <typePackageId>32ae7689-5afc-4176-ba9a-11e09d48564e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d49a4f09-2df2-4b45-8069-7d331a523704" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="becb1ba6-7bb0-4b63-92dd-335973003428" location="[NServiceBus.SQS].[Services].[PublishExternalMessageCommand]" />
+        <target applicationId="d49a4f09-2df2-4b45-8069-7d331a523704" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="18bcb223-f34b-45f4-ba76-3dd78ed3e7f6" location="[NServiceBus.SQS].[Services].[TestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="18bcb223-f34b-45f4-ba76-3dd78ed3e7f6" name="TestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="b77e2cd2-2f22-4fd3-906e-0701d52daf86" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="becb1ba6-7bb0-4b63-92dd-335973003428" name="PublishExternalMessageCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1541d736-63af-407d-8b12-e50f02a54a77" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

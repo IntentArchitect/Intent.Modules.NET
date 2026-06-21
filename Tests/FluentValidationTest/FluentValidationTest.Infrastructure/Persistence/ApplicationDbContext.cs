@@ -42,6 +42,8 @@ namespace FluentValidationTest.Infrastructure.Persistence
         public DbSet<UserAccount> UserAccounts { get; set; }
         public DbSet<TextConstrainedEntity> TextConstrainedEntities { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

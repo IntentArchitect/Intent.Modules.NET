@@ -7,6 +7,7 @@ using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodI
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -63,6 +64,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                         }
                         else if (matchedStrategies.Length > 1)
                         {
+                            // if the operation has no interactions mapped, but one of the strategies is
+                            // the OperationMappingImplementationStrategy
+                            if (!operation.GetInteractions().Any()
+                                && matchedStrategies.Any(s => s is OperationMappingImplementationStrategy))
+                            {
+                                continue;
+                            }
+
                             Logging.Log.Warning($@"Multiple CRUD implementation strategies were found that can implement this service operation [{serviceModel.Name}, {operation.Name}]");
                             Logging.Log.Debug($@"Strategies: {string.Join(", ", matchedStrategies.Select(s => s.GetType().Name))}");
                         }

@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using BlazorStandalone.Client.Components.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,8 @@ namespace BlazorStandalone.Client
             builder.Services.AddAuthorizationCore();
 
             builder.Services.AddMudServices();
+
+            builder.Services.AddSingleton<ThemeService>();
 
             await builder.Build().RunAsync();
         }

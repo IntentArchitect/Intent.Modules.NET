@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="97673633-9236-4dcf-9aae-80d5ef6edf38" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>MakeSoundCommand</name>
+  <display>MakeSoundCommand</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9616aacd-32d9-47fe-ae62-4ec7956deb01</parentFolderId>
+  <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
+  <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="make-sound-command" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="4969a4dc-6073-4b70-a3af-2606bc3d4b98" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4f0f03a9-85b1-4bf1-b4bd-23c746767941">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>97673633-9236-4dcf-9aae-80d5ef6edf38</parentFolderId>
+      <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
+      <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="02de3016-7fd6-4cee-8439-de1afcb81f3f" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Type</name>
+      <display>Type: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="752ce5b6-b66f-4888-9dda-974185ce6342">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>97673633-9236-4dcf-9aae-80d5ef6edf38</parentFolderId>
+      <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
+      <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51f0a500-b7bc-47d3-8963-ed456e90e03d" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>952815d4-6725-4609-a7c0-359692c63029</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="de38ebee-5c08-469b-b283-c7c99b9ca75b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51f0a500-b7bc-47d3-8963-ed456e90e03d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="efcd8fc0-e693-45a3-b99a-508bbbf1b4b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerRegistry</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerRegistry</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51f0a500-b7bc-47d3-8963-ed456e90e03d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="79f813d3-53d5-4b5c-baa1-ac44ca5c03fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51f0a500-b7bc-47d3-8963-ed456e90e03d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f6675957-3e88-490e-8851-5a00270516c7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageBus</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageBus</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51f0a500-b7bc-47d3-8963-ed456e90e03d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a8cdf849-8644-41de-beb2-cbb1fd63ca3f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51f0a500-b7bc-47d3-8963-ed456e90e03d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Subscribe.Domain\N_ServiceBus.OutboxPattern.Subscribe.Domain.csproj" />
+    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Subscribe.Application\N_ServiceBus.OutboxPattern.Subscribe.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.12" />
+    <PackageReference Include="NServiceBus" Version="10.2.6" />
+    <PackageReference Include="NServiceBus.Extensions.Hosting" Version="4.1.0" />
+    <PackageReference Include="NServiceBus.Persistence.Sql" Version="9.0.1" />
+    <PackageReference Include="NServiceBus.Persistence.Sql.TransactionalSession" Version="9.0.1" />
+    <PackageReference Include="NServiceBus.RabbitMQ" Version="11.2.1" />
+  </ItemGroup>
+  </Project>

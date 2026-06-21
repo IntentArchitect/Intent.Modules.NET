@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bbc29237-b0d4-4322-9570-1d1b104f4899" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AISkillGuidanceForServiceImplementations</name>
+  <display>AISkillGuidanceForServiceImplementations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

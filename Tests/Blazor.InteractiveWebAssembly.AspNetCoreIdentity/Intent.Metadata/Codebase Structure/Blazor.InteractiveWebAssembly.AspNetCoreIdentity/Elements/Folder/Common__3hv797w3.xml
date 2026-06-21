@@ -3,12 +3,50 @@
   <name>Common</name>
   <display>Common</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
-  <stereotypes />
+  <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+  <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="765f57dc-47c8-4812-b1cd-214eb49ec5a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="c98c769b-16f5-4200-b602-ce52a17a11ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.HttpClientRequestException</name>
       <display>Intent.Blazor.HttpClients.HttpClientRequestException</display>
@@ -17,7 +55,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
-      <stereotypes />
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -31,7 +81,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
-      <stereotypes />
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -45,7 +107,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
-      <stereotypes />
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -59,21 +133,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="765f57dc-47c8-4812-b1cd-214eb49ec5a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</name>
-      <display>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</display>
-      <externalReference>Intent.Blazor.Authentication</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
-      <stereotypes />
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="95ee88cf-9dba-4b78-a5c9-8647bf6140c4" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Animals</name>
+  <display>Animals</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>891ae5b5-7839-4142-805d-f9152d345959</parentFolderId>
+  <packageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</packageId>
+  <packageName>N_ServiceBus.SqlServer.Services</packageName>
+  <diagram>
+    <targetPackageId>95ee88cf-9dba-4b78-a5c9-8647bf6140c4</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

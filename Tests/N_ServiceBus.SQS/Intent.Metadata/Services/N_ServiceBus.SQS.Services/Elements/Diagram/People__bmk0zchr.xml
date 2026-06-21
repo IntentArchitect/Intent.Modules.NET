@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dae9d099-58f9-4c3f-8e1e-6467564b500d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>People</name>
+  <display>People</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3ec88018-845e-4f12-b5cd-d728536db10a</parentFolderId>
+  <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
+  <packageName>NServiceBus.SQS.Services</packageName>
+  <diagram>
+    <targetPackageId>dae9d099-58f9-4c3f-8e1e-6467564b500d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

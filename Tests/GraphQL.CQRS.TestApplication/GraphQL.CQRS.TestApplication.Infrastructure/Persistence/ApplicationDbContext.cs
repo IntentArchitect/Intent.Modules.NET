@@ -20,6 +20,8 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence
         public DbSet<Product> Products { get; set; }
         public DbSet<ProfitCenter> ProfitCenters { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

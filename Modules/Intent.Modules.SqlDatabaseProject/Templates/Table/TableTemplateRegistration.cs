@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -35,7 +36,10 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels();
+            return _metadataManager.Domain(application)
+                .GetClassModels()
+                .Where(x => !x.HasView())
+                .ToArray();
         }
     }
 }

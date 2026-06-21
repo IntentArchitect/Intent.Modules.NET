@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18bcb223-f34b-45f4-ba76-3dd78ed3e7f6" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>TestMessage</name>
+  <display>TestMessage</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>32ae7689-5afc-4176-ba9a-11e09d48564e</parentFolderId>
+  <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
+  <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b77e2cd2-2f22-4fd3-906e-0701d52daf86" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="063d772c-8c47-47bf-8c66-2731631675d4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>18bcb223-f34b-45f4-ba76-3dd78ed3e7f6</parentFolderId>
+      <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
+      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

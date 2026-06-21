@@ -10,5 +10,6 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain.Common.
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

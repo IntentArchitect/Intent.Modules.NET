@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="97be2f09-cdb6-496c-9ae6-7fd8b66a4b6e" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>TestMessageHandler</name>
+  <display>TestMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>509ec879-9053-4eec-ba0e-2849e66d1797</parentFolderId>
+  <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
+  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

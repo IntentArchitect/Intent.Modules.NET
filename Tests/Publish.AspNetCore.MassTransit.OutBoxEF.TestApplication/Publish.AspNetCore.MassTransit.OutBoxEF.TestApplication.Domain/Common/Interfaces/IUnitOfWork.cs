@@ -10,5 +10,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

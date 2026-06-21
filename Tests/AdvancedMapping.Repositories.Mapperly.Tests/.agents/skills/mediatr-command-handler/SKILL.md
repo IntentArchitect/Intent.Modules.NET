@@ -2,7 +2,7 @@
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 4F6D8DA89D593AB91C9D35936F19E0DBEA1ECCF7BD8F31C367D644C04EBAE260
+contentHash: 4246006AE85352246588CCB871DDCA6087E5CF1C19DAB950BCEA164C2D7373C4
 ---
 # MediatR Command Handler
 
@@ -57,6 +57,14 @@ When a needed repository capability is missing:
 - Prefer expressive methods such as `GetForUpdateAsync`, `ExistsBy...Async`, `FindActive...Async`, or `SaveAsync` over storage-oriented names.
 - Do not add infrastructure comments or instructions to the handler.
 - Do not reference how the repository will be implemented in EF, Dapper, SQL, or similar.
+
+## EF Related Data Loading guidance
+
+- NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
+- Lazy loading with proxies is enabled. 
+- Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
+- You can rely on navigation properties being automatically loaded when accessed.
+- (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
 
 ## Unit of Work guidance
 

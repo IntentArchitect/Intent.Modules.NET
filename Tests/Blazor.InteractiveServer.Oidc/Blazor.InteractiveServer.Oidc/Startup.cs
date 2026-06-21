@@ -6,6 +6,7 @@ using Blazor.InteractiveServer.Oidc.Common;
 using Blazor.InteractiveServer.Oidc.Components;
 using Blazor.InteractiveServer.Oidc.Components.Account;
 using Blazor.InteractiveServer.Oidc.Components.Account.Shared;
+using Blazor.InteractiveServer.Oidc.Components.Services;
 using Blazor.InteractiveServer.Oidc.Configuration;
 using Blazor.InteractiveServer.Oidc.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -58,6 +59,7 @@ namespace Blazor.InteractiveServer.Oidc
                 .AddInteractiveServerComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

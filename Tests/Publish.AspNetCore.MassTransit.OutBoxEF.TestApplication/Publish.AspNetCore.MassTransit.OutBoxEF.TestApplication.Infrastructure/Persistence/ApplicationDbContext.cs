@@ -40,6 +40,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

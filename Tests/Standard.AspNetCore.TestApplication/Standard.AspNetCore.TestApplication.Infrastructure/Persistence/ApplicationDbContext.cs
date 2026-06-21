@@ -20,6 +20,8 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Plurals> Plurals { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

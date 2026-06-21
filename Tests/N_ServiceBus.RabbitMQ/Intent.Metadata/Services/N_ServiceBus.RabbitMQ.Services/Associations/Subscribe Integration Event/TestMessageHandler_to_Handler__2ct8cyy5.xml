@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c3f67322-6f8f-4de0-9b29-30244aa87b69">
+  <sourceEnd id="5c4bd006-618b-4c32-99bf-e5351ce9284c" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NServiceBus.RabbitMQ.Services.TestMessageHandler</display>
+    <order>0</order>
+    <typeReference id="7209fbd3-7ec9-4966-bc33-0de9c7934d8a">
+      <typeId>97be2f09-cdb6-496c-9ae6-7fd8b66a4b6e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c3f67322-6f8f-4de0-9b29-30244aa87b69" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] TestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="5cbfeb24-c8e9-43ce-9e05-3a0ad5cb7154">
+      <typeId>0cb2834c-d4d7-42a1-be23-fec21dce96fa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

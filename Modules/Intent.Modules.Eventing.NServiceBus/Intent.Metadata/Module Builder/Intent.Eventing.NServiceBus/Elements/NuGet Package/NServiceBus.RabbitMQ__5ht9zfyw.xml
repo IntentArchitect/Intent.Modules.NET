@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a6aba4f-2617-4d61-95fd-424f73d069f8" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>NServiceBus.RabbitMQ</name>
+  <display>NServiceBus.RabbitMQ</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>69973e40-ff7e-4e66-999d-fb77c6662a23</parentFolderId>
+  <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+  <packageName>Intent.Eventing.NServiceBus</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="95dae770-47c2-46dc-b259-1be2af1de25a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.1.8</name>
+      <display>10.1.8 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0a6aba4f-2617-4d61-95fd-424f73d069f8</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9f20c59c-3906-4aad-a447-4b4696e34dee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>BitFaster.Caching</name>
+          <display>BitFaster.Caching (2.5.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.5.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>95dae770-47c2-46dc-b259-1be2af1de25a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c08ed2ec-12ea-42c5-b5f9-ac641a06be3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus</name>
+          <display>NServiceBus (9.2.11)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.2.11</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>95dae770-47c2-46dc-b259-1be2af1de25a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3fe6f9fd-0b18-45c7-a36a-51aaeb5884a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>RabbitMQ.Client</name>
+          <display>RabbitMQ.Client (7.1.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.1.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>95dae770-47c2-46dc-b259-1be2af1de25a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d9abbd50-6018-4044-9d0f-0ba47f760004" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.2.1</name>
+      <display>11.2.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0a6aba4f-2617-4d61-95fd-424f73d069f8</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="10f1f21e-a05d-482e-a391-3c73c0baff2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>BitFaster.Caching</name>
+          <display>BitFaster.Caching (2.5.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9abbd50-6018-4044-9d0f-0ba47f760004</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5d7b0437-db38-44f5-a1ae-1a36a4f9fb21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus</name>
+          <display>NServiceBus (10.1.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.1.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9abbd50-6018-4044-9d0f-0ba47f760004</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4e4bd50d-b9ca-4b56-ad9e-564075a63f37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>RabbitMQ.Client</name>
+          <display>RabbitMQ.Client (7.2.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.2.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9abbd50-6018-4044-9d0f-0ba47f760004</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="48bfe9d3-3f65-4cfd-a255-f1c74560ce89" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.7</name>
+      <display>7.0.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0a6aba4f-2617-4d61-95fd-424f73d069f8</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="04c8d139-68d7-4d8b-a1ce-26c024fbdbfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>BitFaster.Caching</name>
+          <display>BitFaster.Caching (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48bfe9d3-3f65-4cfd-a255-f1c74560ce89</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9c3450cd-2d6c-4913-b8ef-6c4126299741" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus</name>
+          <display>NServiceBus (7.7.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.7.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48bfe9d3-3f65-4cfd-a255-f1c74560ce89</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c1fa445f-dcb1-4fa7-8673-9e092cd06107" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>RabbitMQ.Client</name>
+          <display>RabbitMQ.Client (6.4.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48bfe9d3-3f65-4cfd-a255-f1c74560ce89</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8909df00-e099-4d45-bb33-f67918c7cc1c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.10</name>
+      <display>8.0.10 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0a6aba4f-2617-4d61-95fd-424f73d069f8</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3607cde1-2384-4078-8799-df95428d6ab9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>BitFaster.Caching</name>
+          <display>BitFaster.Caching (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8909df00-e099-4d45-bb33-f67918c7cc1c</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="213dc420-ba36-4cf8-b771-80ec0fa41dd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus</name>
+          <display>NServiceBus (8.2.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.2.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8909df00-e099-4d45-bb33-f67918c7cc1c</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b24ce170-ca87-4742-aee8-47b38f690584" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>RabbitMQ.Client</name>
+          <display>RabbitMQ.Client (6.4.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8909df00-e099-4d45-bb33-f67918c7cc1c</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

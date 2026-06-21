@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="50ce8b1c-7542-4b80-850c-4a6a57784c07">
+  <sourceEnd id="df539251-0388-44d3-ae84-ce67127f878c" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: N_ServiceBus.SqlServer.Services.TestMessageHandler</display>
+    <order>0</order>
+    <typeReference id="68c79685-18c6-4d6e-a6c7-3582b5f7b609">
+      <typeId>110e5301-213d-4daa-85d6-75487f5804ec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Services</typePackageName>
+      <typePackageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="50ce8b1c-7542-4b80-850c-4a6a57784c07" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] TestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="607ec8c5-3a91-4e46-a9c3-45cf98c0a675">
+      <typeId>f81535ce-5e3b-438b-89a9-92d3cf945691</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Eventing.Messages</typePackageName>
+      <typePackageId>c3f1b826-11c3-4064-89f2-9b67a6ecfc3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

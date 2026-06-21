@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="19eb5072-96c9-444a-a3eb-94be19a352d7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate</name>
+      <display>Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>70baab1d-0648-46e0-a4ec-1131c1398d84</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

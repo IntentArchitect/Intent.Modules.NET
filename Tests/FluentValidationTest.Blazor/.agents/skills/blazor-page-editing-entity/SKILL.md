@@ -2,39 +2,57 @@
 name: blazor-page-editing-entity
 description: Creates Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when implementing edit, update, or modify entity pages in Blazor.
 paths:
-  - "**/*.razor"
-  - "**/*.razor.cs"
-contentHash: DCDABC5A6D3D19023959F857559C8EE88DCB6B7ABE6A424BC3AABE272C46FB97
+contentHash: 06999B1F4A0007D9DF3047793C764B93921FBF1AAA17CD5088FB67EDE5A45F0C
 ---
-
 ## MANDATORY: Read Samples Before Implementation
 
-STOP - You MUST read ALL sample files in the SAME folder as this SKILL.md before writing ANY code:
+STOP — you MUST read ALL of the following before writing ANY code:
 
+- *Samples** (in the SAME folder as this SKILL.md):
 1. `edit-entity-sample.razor`
 2. `edit-entity-sample.razor.cs`
+- *Target component and project files:**
+1. The target `.razor` and `.razor.cs`
+2. Related project files: models, enums, lookups, services
+- *Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+1. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+2. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
 
-Then read the target component `.razor`, `.razor.cs`, and related project files such as models, enums, lookups, services, and shared styles.
+If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
-If any sample file cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
+- --
 
----
+## MANDATORY: Match Sample Layout (Visual Structure)
+
+When a sample exists, you MUST match the sample's visual structure, not only its data behavior.
+
+Required process:
+
+1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
+2. If the sample uses shared utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`), verify they exist by grepping for the class name as a **substring** across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone. If the class name appears anywhere in any CSS file, it exists and must be used.
+
+Forbidden:
+
+- Replacing the hero header with a different structure unless explicitly requested
+- Dropping the sample's utility classes when they exist in the target project
+- --
 
 ## Preserve Existing Implementation
 
-Use for: Edit or update entity pages in Blazor with MudBlazor  
+Use for: Edit or update entity pages in Blazor with MudBlazor
 Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects  
 Source of truth: Existing `.razor.cs` file defines data loading, service calls, navigation, and model structure
 
 ### You MUST NOT:
+
 - Modify existing backend methods such as `UpdateEntity()` or `UpdateEntityAsync()`
 - Change payload shape sent to the backend
 - Add, rename, or remove model properties
 - Invent fields or lookup services
 - Rewrite existing C# functionality
 - Put C# logic in the `.razor` file using `@code`
-
----
+- --
 
 ## 1. Data Loading And Form
 
@@ -43,12 +61,12 @@ Load data through existing lifecycle methods and backing methods such as `OnInit
 Build the form only from the existing `model` structure.
 
 Nullable objects:
+
 - Render conditional sections only when supported by the existing model and state
 - Toggle OFF should set the object to null when that pattern already exists
 - Toggle ON should initialize it if null
 - Keep the exact conditional logic from `.razor.cs`
-
----
+- --
 
 ## 2. Map Properties To MudBlazor Controls
 
@@ -61,23 +79,25 @@ Nullable objects:
 | Array | Repeatable MudBlazor blocks |
 
 MudBlazor rules:
+
 - Declare `T` explicitly for generic controls when required
 - Add placeholders to `MudSelect`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Keep `Dense`, `Variant`, and `Margin` settings consistent across the form when used
 
 Enum rules:
+
 - Locate and read the real enum definition before using it
 - Use only verified enum members and values
 - Never copy enum members from sample code without verification
-
----
+- --
 
 ## 3. Validation
 
 Use valid Blazor `EditForm` patterns with the project's existing validation approach.
 
 Required fields must have:
+
 - Validation wiring from model annotations or existing validators
 - Visible validation messages when invalid
 - Save disabled when invalid
@@ -86,37 +106,39 @@ If using MudBlazor validation delegates, ensure signatures and nullability are c
 
 If multiple forms are used, they must not be nested.
 
----
+- --
 
 ## 4. Save Flow
 
 The Save button must call `Save()` or `SaveAsync()`.
 
 That flow must:
+
 1. Validate the form
 2. Call the existing update method without modifying it
 3. Navigate on success using an existing navigation method when one exists
 
 Forbidden:
+
 - Calling services directly from the Razor template
 - Modifying existing update methods
 - Changing request payloads
-
----
+- --
 
 ## 5. Child Collections
 
 Render child collections in repeatable MudBlazor UI blocks.
 
 Buttons:
+
 - Add buttons only if matching `AddX()` or `AddXAsync()` methods exist
 - Remove buttons only if matching `RemoveX()` or `RemoveXAsync()` methods exist
 
 Indexed bindings:
+
 - Use `for` loops with `var index = i;`
 - Never reference `i` directly in bindings, `@key`, or callbacks
-
----
+- --
 
 ## 6. Styling
 
@@ -124,8 +146,26 @@ Indexed bindings:
 - Keep component-specific styles minimal
 - Never modify existing shared styles, variables, or theme values
 - Match the sample layout closely
+- *Design and styling context**
 
----
+You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
+
+Use `design.md` for:
+
+- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
+- `Color` semantics for primary, secondary, and error actions
+- Card elevation and hover behaviour
+- Form control variant (`Variant.Outlined` / `Variant.Filled` / `Variant.Underline`)
+
+Use the CSS files for:
+
+- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
+- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
+- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
+
+These files inform styling choices only — they do not override the sample's layout structure.
+
+- --
 
 ## Definition of Done
 
@@ -139,3 +179,5 @@ Indexed bindings:
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation is wired and Save is disabled when invalid or loading
+- [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
+- [ ] Sample utility classes were verified to exist in the target project and reused when available

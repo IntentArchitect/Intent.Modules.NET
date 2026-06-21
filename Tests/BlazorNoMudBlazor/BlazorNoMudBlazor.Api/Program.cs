@@ -1,6 +1,7 @@
 using BlazorNoMudBlazor.Api.Common;
 using BlazorNoMudBlazor.Api.Components;
 using BlazorNoMudBlazor.Api.Components.Account;
+using BlazorNoMudBlazor.Api.Components.Services;
 using BlazorNoMudBlazor.Api.Configuration;
 using BlazorNoMudBlazor.Api.Logging;
 using BlazorNoMudBlazor.Application;
@@ -61,6 +62,7 @@ namespace BlazorNoMudBlazor.Api
 
                 builder.Services.AddRazorComponents()
                     .AddInteractiveServerComponents();
+                builder.Services.AddScoped<ThemeService>();
 
                 var app = builder.Build();
 

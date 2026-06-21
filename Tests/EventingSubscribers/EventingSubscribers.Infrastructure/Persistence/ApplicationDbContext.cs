@@ -24,6 +24,8 @@ namespace EventingSubscribers.Infrastructure.Persistence
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<ShipTask> ShipTasks { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

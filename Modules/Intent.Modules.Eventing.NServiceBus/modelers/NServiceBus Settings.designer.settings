@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>b0319bd7-d378-42db-b58a-beb886c99560</id>
+  <name>NServiceBus Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>const IntegrationCommandStereotype = "c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca";
+
+if (element.specialization === "Integration Command") {
+    element.addStereotype(IntegrationCommandStereotype);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

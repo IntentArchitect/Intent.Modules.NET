@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="38c3867d-310f-4ae4-bf8f-4f667a8c2dff">
+  <sourceEnd id="7d3e1f62-9b84-4f9b-8aee-883fe3701850" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.RabbitMQ.Services.OrderAnimalHandler</display>
+    <order>0</order>
+    <typeReference id="be064acd-ead7-482e-aab4-efa0debfa9f7">
+      <typeId>28cb765f-a610-4733-8fb8-714627f8a707</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="38c3867d-310f-4ae4-bf8f-4f667a8c2dff" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] MakeSoundCommand</display>
+    <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="50a69335-87a1-4132-8138-b8e0fd80efb0">
+      <typeId>87b6a76e-64fa-4630-8721-22caadf2372c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

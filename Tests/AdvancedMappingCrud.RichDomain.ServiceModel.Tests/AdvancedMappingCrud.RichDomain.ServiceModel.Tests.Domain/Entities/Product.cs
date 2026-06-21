@@ -27,9 +27,9 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
             Name = null!;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; protected set; }
 
-        public string Name { get; private set; }
+        public string Name { get; protected set; }
 
         public virtual IReadOnlyCollection<Category> Categories
         {

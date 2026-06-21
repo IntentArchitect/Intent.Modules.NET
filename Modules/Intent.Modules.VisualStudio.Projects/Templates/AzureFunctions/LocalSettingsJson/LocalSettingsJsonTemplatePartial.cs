@@ -16,6 +16,7 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static Intent.Modules.VisualStudio.Projects.Templates.JsonCommentPreserver;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]

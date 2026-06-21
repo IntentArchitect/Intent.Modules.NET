@@ -21,6 +21,32 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="93236582-a457-4d7c-8594-cae071ada6e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f5cefc-c1ce-427d-99b1-e9d0fa002129</parentFolderId>
+      <packageId>98edc616-5f17-4fce-b93f-fe01230d91c6</packageId>
+      <packageName>Standard.AspNetCore.ServiceCallHandlers</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="d5e8fdad-1bf7-4750-a8d2-93d8f623f0cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.MassTransit.MassTransitConfiguration</name>
       <display>Intent.Eventing.MassTransit.MassTransitConfiguration</display>
@@ -31,21 +57,17 @@
       <parentFolderId>31f5cefc-c1ce-427d-99b1-e9d0fa002129</parentFolderId>
       <packageId>98edc616-5f17-4fce-b93f-fe01230d91c6</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="93236582-a457-4d7c-8594-cae071ada6e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
-      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
-      <externalReference>Intent.Eventing.Contracts</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>31f5cefc-c1ce-427d-99b1-e9d0fa002129</parentFolderId>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

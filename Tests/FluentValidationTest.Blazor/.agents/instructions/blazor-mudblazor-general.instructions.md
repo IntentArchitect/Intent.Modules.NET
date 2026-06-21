@@ -1,24 +1,23 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-  - "**/*.razor"
-  - "**/*.razor.cs"
-  - "**/*.razor.css"
-contentHash: 7881CFCB744AD277F57846623D0A8180B341995F09D8075C913872199D9A462A
+contentHash: 0DB248A66CB8EBBDA02B748D0089BF1E363FC895A5B35C2229670009C3C6CA4D
 ---
-
 ## Role and Context
+
 You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, follow best practices, and preserve existing application behavior.
 
 ## Core Rules
 
 ### Styling
+
 - Prefer existing shared or global styles before adding new component styles.
 - Keep component styling minimal and specific to the component.
 - You may add new utility classes, patterns, styles, or theme values when they do not already exist.
 - Do not modify, override, or change existing styles, classes, variables, or theme values.
 
 ### File Safety
+
 - Read all provided files and understand how they work together before editing.
 - Only modify files explicitly allowed for modification.
 - Preserve all `[IntentManaged]` attributes on the file, class, and constructor.
@@ -26,6 +25,7 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 - Use existing services when available.
 
 ### Blazor Code-Behind
+
 - Treat the `.razor.cs` file as the backing class and source of truth for component state, UI actions, service calls, and navigation.
 - Add Razor markup only in `.razor` files.
 - Add C# code only in `.razor.cs` files.
@@ -39,6 +39,7 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 ## UI and Template Rules
 
 ### Actions
+
 - The backing class is the source of truth for page actions, service calls, and navigation.
 - Create page action buttons only from methods defined on the component backing class, never from navigation items.
 - Scan all backing-class instance methods before generating the template.
@@ -49,6 +50,7 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 - If a table row model exposes an ID field and a matching edit method exists, render the Edit row action bound to that existing method.
 
 ### Code-Behind Changes
+
 - You may add helper or orchestration methods in `.razor.cs` when they only update component state or call existing methods in the same class.
 - New helper methods must not directly call services or navigation APIs when an existing wrapper method already exists.
 - Never add new CRUD or navigation action methods such as `AddEntity()`, `EditEntity(id)`, `ViewEntity(id)`, or `DeleteEntity(id)` if they do not already exist.
@@ -57,11 +59,13 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 - Do not create wrapper methods for missing CRUD or navigation actions. If those methods do not already exist, omit the corresponding UI buttons.
 
 ### Lifecycle
+
 - Load required initial data in `OnInitializedAsync()` or `OnParametersSetAsync()` as appropriate.
 - Prefer calling existing load methods such as `LoadCategories()`, `LoadEntityById(Id)`, or `LoadSubCategories(...)`.
 - If required load methods do not exist, add new load methods rather than editing existing service methods.
 
 ### Layout
+
 - Use the provided sample template as the layout blueprint.
 - Preserve the main structure, DOM hierarchy, and CSS class names from the sample when possible.
 - Do not add unnecessary top-level wrappers.
@@ -71,6 +75,7 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 - Use `GridEntityTemplate` for pages that load and display a plain collection without filtering, paging, or sorting.
 
 ### List Page Patterns
+
 - For simple grid pages without a search or filter form, include both Add and Refresh actions in `CardHeaderContent` when matching methods exist.
 - For searchable list pages, keep the Add and Search actions in the card body with the filters and do not move them into `CardHeaderContent`.
 - Keep searchable-page action rows structurally aligned to the sample template and do not replace them with new wrapper patterns.
@@ -82,6 +87,7 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 - In the filtered pattern, do not replace server-data flow with a plain `Items` table.
 
 ### Control Selection
+
 1. MudBlazor component
 2. Native Blazor input component
 3. Native HTML only as a last resort
@@ -90,12 +96,14 @@ Use `MudDatePicker` for dates, `MudSwitch` or `MudCheckBox` for booleans, `MudSe
 For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `MudSwitch`, `MudChipSet`), declare `T` explicitly.
 
 ### MudBlazor Binding Rules
+
 - For enum options in `MudSelect`, bind each option value to the enum's numeric value using an explicit cast rather than a string literal.
 - Prefer `MudSelect T="int"` with `MudSelectItem T="int" Value="@((int)MyEnum.Value)"` for enum selections.
 - Bind MudBlazor component enum properties such as `AlignItems`, `Justify`, `Direction`, `Variant`, `Color`, and `Size` using explicit enum values, not strings.
 - Use values such as `AlignItems="AlignItems.Center"`, `Justify="Justify.SpaceBetween"`, and `Direction="FlexDirection.Row"`.
 
 ### Template Safety
+
 - Ensure all bindings between `.razor` and `.razor.cs` are valid and the code compiles.
 - Ensure lambdas and event callback signatures are valid for the target component.
 - Prefer simpler valid Blazor patterns when uncertain.
@@ -103,6 +111,7 @@ For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `Mud
 - In `for` loops, assign `var index = i;` and use `index` throughout the rendered block.
 
 ## Navigation Rules
+
 - Navigation items are only for navigation drawers or menus, never for page action buttons.
 - Render only the provided navigation items.
 - If a matching navigation method exists in the backing class, bind it with `OnClick`; otherwise use appropriate Blazor navigation markup.
@@ -111,12 +120,14 @@ For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `Mud
 - If a navigation item points to an Add page and the backing class already has a matching action method, create the page button from the method, not from the navigation item.
 
 ## Architecture
+
 - Keep components focused on presentation and orchestration.
 - Delegate business logic and data access to services.
 - Follow Blazor lifecycle best practices for initialization and parameter-driven loading.
 - Keep Razor templates and code-behind implementations aligned so bindings remain valid and maintainable.
 
 ## Validation Checklist
+
 - [ ] All bindings and event handlers used in `.razor` exist in `.razor.cs`.
 - [ ] No `@code` blocks were added to `.razor` files.
 - [ ] `[IntentManaged]` attributes are preserved.

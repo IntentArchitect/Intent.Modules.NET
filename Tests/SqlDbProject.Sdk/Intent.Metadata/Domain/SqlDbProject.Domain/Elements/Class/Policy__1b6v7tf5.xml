@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</parentFolderId>
   <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-  <packageName>SqlDbProject.Domain</packageName>
+  <packageName>SqlDbProject.Sdk.Domain</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c0f17219-ada3-47ac-80c6-7a5750cbd322" name="Schema">
       <addedByDefault>false</addedByDefault>
@@ -40,7 +40,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
           <addedByDefault>false</addedByDefault>
@@ -75,7 +75,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
           <addedByDefault>false</addedByDefault>
@@ -123,7 +123,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
           <addedByDefault>false</addedByDefault>
@@ -171,7 +171,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
           <addedByDefault>false</addedByDefault>
@@ -208,7 +208,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
@@ -243,7 +243,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -267,7 +267,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -291,7 +291,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -315,7 +315,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -339,7 +339,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="f21339bf-9ce6-4584-828f-de82089e3b72" name="Default Constraint">
           <addedByDefault>false</addedByDefault>
@@ -372,7 +372,7 @@
       </mappedClass>
       <parentFolderId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="18a8e9e7-b8db-41ec-976b-2b6ba0cc4e4d" name="Settings">
           <addedByDefault>true</addedByDefault>
@@ -404,7 +404,7 @@
           </mappedClass>
           <parentFolderId>9bbe69e7-fd2d-4aa9-b545-47b7f60714a5</parentFolderId>
           <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-          <packageName>SqlDbProject.Domain</packageName>
+          <packageName>SqlDbProject.Sdk.Domain</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6985a3e9-e139-48ed-a14d-ed1c07867db5">
+  <sourceEnd id="32bddc01-377d-4e5d-91cb-ae8135341002" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="10c28e2e-bdc0-4a09-b705-5e64f94af14b">
+      <typeId>ef65a885-8a0f-414a-b529-3f3285c27c4a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Services</typePackageName>
+      <typePackageId>949bbc79-f237-42b1-ac6b-20b32300f302</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6985a3e9-e139-48ed-a14d-ed1c07867db5" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreatePersonIdentity</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4664e693-61ab-4d74-9f37-53a10663e8af">
+      <typeId>beac2336-8a2d-4062-b97c-bc3ce54e78dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Eventing.Messages</typePackageName>
+      <typePackageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d69bfc1f-2e5b-4609-b1da-c715bf152c84" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ef65a885-8a0f-414a-b529-3f3285c27c4a" location="[NServiceBus.LearnerTransport].[Services].[CreatePersonCommand]" />
+        <target applicationId="d69bfc1f-2e5b-4609-b1da-c715bf152c84" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="beac2336-8a2d-4062-b97c-bc3ce54e78dd" location="[NServiceBus.LearnerTransport].[Services].[CreatePersonIdentity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="beac2336-8a2d-4062-b97c-bc3ce54e78dd" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="d7262585-7722-4790-94a0-bfa0a6327104" name="FirstName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="ef65a885-8a0f-414a-b529-3f3285c27c4a" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="90126a3d-af26-41ad-9bc2-cc0ed9ea6a23" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="beac2336-8a2d-4062-b97c-bc3ce54e78dd" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="bc64f24f-1141-443a-95e1-e1be18495e0b" name="LastName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="ef65a885-8a0f-414a-b529-3f3285c27c4a" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="565a0e43-1e58-422e-8cfc-ead0ee61fa7e" name="LastName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

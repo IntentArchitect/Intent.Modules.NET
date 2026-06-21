@@ -19,6 +19,8 @@ namespace AzureFunctions.NET6.Infrastructure.Persistence
 
         public DbSet<SampleDomain> SampleDomains { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

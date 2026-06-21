@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" version="3.1.0">
+  <name>NServiceBus</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMCAwaDIwMHYyMDBoLTIwMHoiIGZpbGw9IiMwMDcyOWMiLz48cGF0aCBkPSJtMTcyLjM1OTM3NSAzNi4wMzUxNTYtNDQuNTExNzE5IDg4LjcxNDg0NHMtMS4xNjAxNTYgMi4xNDQ1MzEtMy4yMzgyODEgMi45ODgyODFjLTIuMjU3ODEzLjkxNzk2OS00Ljk1MzEyNS4yOTI5NjktNi43NzM0MzctMS4zNzEwOTNsLTM4LjA3NDIxOS0zOC4wNzQyMTktNDAuNjI4OTA3IDgwLjk2ODc1LTExLjE3OTY4Ny01LjYwOTM3NSA0NC41MTU2MjUtODguNzE0ODQ0czEuMTU2MjUtMi4xNDQ1MzEgMy4yMzgyODEtMi45ODgyODFjMi4yNTM5MDctLjkxNzk2OSA0Ljk0OTIxOS0uMjkyOTY5IDYuNzczNDM4IDEuMzcxMDkzbDM4LjA3NDIxOSAzOC4wNzQyMTkgNDAuNjI4OTA2LTgwLjk2ODc1YzMuNzIyNjU2IDEuODY3MTg4IDcuNDQ5MjE4IDMuNzM4MjgxIDExLjE3NTc4MSA1LjYwOTM3NXptMCAwIiBmaWxsPSIjZmZmIi8+PGcgZmlsbD0iIzAwYTNjNCIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJtMjIuMjU3ODEyIDIyLjI1NzgxMmgyMi4yNTc4MTN2MjIuMjU3ODEzaC0yMi4yNTc4MTN6bTAgMCIvPjxwYXRoIGQ9Im02Ni43Njk1MzEgMjIuMjU3ODEyaDIyLjI1NzgxM3YyMi4yNTc4MTNoLTIyLjI1NzgxM3ptMCAwIi8+PHBhdGggZD0ibTExMS4yODUxNTYgMjIuMjU3ODEyaDIyLjI1NzgxM3YyMi4yNTc4MTNoLTIyLjI1NzgxM3ptMCAwIi8+PHBhdGggZD0ibTY2Ljc2OTUzMSA2Ni40NTcwMzFoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMTExLjI4NTE1NiA2Ni40NTcwMzFoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMTU1LjQ4NDM3NSAyMi4yNTc4MTJoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMTU1LjQ4NDM3NSA2Ni40NTcwMzFoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMjIuMjU3ODEyIDY2LjQ1NzAzMWgyMi4yNTc4MTN2MjIuMjU3ODEzaC0yMi4yNTc4MTN6bTAgMCIvPjxwYXRoIGQ9Im0yMi4yNTc4MTIgMTEwLjk3MjY1NmgyMi4yNTc4MTN2MjIuMjU3ODEzaC0yMi4yNTc4MTN6bTAgMCIvPjxwYXRoIGQ9Im02Ni43Njk1MzEgMTEwLjk3MjY1NmgyMi4yNTc4MTN2MjIuMjU3ODEzaC0yMi4yNTc4MTN6bTAgMCIvPjxwYXRoIGQ9Im0xNTUuNDg0Mzc1IDExMC45NzI2NTZoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMjIuMjU3ODEyIDE1NS4xNzE4NzVoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtNjYuNzY5NTMxIDE1NS4xNzE4NzVoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48cGF0aCBkPSJtMTExLjI4NTE1NiAxNTUuMTcxODc1aDIyLjI1NzgxM3YyMi4yNTc4MTNoLTIyLjI1NzgxM3ptMCAwIi8+PHBhdGggZD0ibTExMS4yODUxNTYgMTEwLjk3MjY1NmgyMi4yNTc4MTN2MjIuMjU3ODEzaC0yMi4yNTc4MTN6bTAgMCIvPjxwYXRoIGQ9Im0xNTUuNDg0Mzc1IDE1NS4xNzE4NzVoMjIuMjU3ODEzdjIyLjI1NzgxM2gtMjIuMjU3ODEzem0wIDAiLz48L2c+PC9zdmc+" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>d174aaae-d428-4241-b433-d22329f87a97</parentFolderId>
+  <order>0</order>
+  <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+  <packageName>Intent.Eventing.NServiceBus</packageName>
+  <properties>
+    <property id="7fb26481-5156-4067-ad30-b55b48f2bfbe">
+      <hint>The destination endpoint that handles this command. Must be set for NServiceBus to generate the correct RouteToEndpoint call.</hint>
+      <name>Endpoint Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. my-service-endpoint</placeholder>
+      <isActiveFunction>return element.specialization === "Integration Command";</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

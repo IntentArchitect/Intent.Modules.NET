@@ -69,7 +69,7 @@ internal static class MappingHelper
             || !pathTargets.First().Element.IsAssociationEndModel()
             || !template.GetTypeInfo(field.TypeReference).IsPrimitive)
         {
-            var expressionPath = GetPathForExpression(pathTargets, field.TypeReference.IsNullable);
+            var expressionPath = GetPathForExpression(pathTargets);
             var attributePath = GetPathForAttribute(pathTargets);
 
             return ($"src.{expressionPath}", attributePath);
@@ -105,7 +105,7 @@ internal static class MappingHelper
 
     private static (string Expression, string AttributePath) GetPk(IList<IElementMappingPathTarget> pathTargets)
     {
-        var expressionPath = GetPathForExpression(pathTargets, isTargetNullable: false);
+        var expressionPath = GetPathForExpression(pathTargets);
         var attributePath = GetPathForAttribute(pathTargets);
 
         return ($"src.{expressionPath}.Id", $"{attributePath}.Id");
@@ -115,7 +115,7 @@ internal static class MappingHelper
     {
         template.AddUsing("System.Linq");
 
-        var expressionPath = GetPathForExpression(pathTargets, isTargetNullable: false);
+        var expressionPath = GetPathForExpression(pathTargets);
         var attributePath = GetPathForAttribute(pathTargets);
 
         return ($"src.{expressionPath}.Select(x => x.Id).ToArray()", attributePath);
@@ -155,7 +155,7 @@ internal static class MappingHelper
     /// Uses '!' for nullable navigation when target is non-nullable (null-forgiving operator).
     /// Example: "Preferences?.Newsletter" or "Preferences!.Newsletter"
     /// </summary>
-    private static string GetPathForExpression(IEnumerable<IElementMappingPathTarget> pathTargets, bool isTargetNullable)
+    private static string GetPathForExpression(IEnumerable<IElementMappingPathTarget> pathTargets)
     {
         var targets = pathTargets
             .Where(pathTarget => pathTarget.Specialization != "Generalization Target End" &&
@@ -165,7 +165,7 @@ internal static class MappingHelper
             .ToList();
 
         var parts = new List<string>();
-        
+
         for (int i = 0; i < targets.Count; i++)
         {
             var pathTarget = targets[i];
@@ -173,18 +173,10 @@ internal static class MappingHelper
             var isNullable = pathTarget.Element?.TypeReference.IsNullable == true;
             var isLastInChain = i == targets.Count - 1;
 
-            string nullabilityOperator;
-            if (isNullable && !isLastInChain)
-            {
-                // For intermediate nullable navigation properties:
-                // Use '?' if target is nullable (allows null propagation)
-                // Use '!' if target is non-nullable (asserts non-null)
-                nullabilityOperator = isTargetNullable ? "?" : "!";
-            }
-            else
-            {
-                nullabilityOperator = string.Empty;
-            }
+            // Always use '?' for nullable intermediate navigation properties so that
+            // the generated expression is null-safe at runtime. Callers that need a
+            // non-null assertion should add '!' explicitly after this call if appropriate.
+            var nullabilityOperator = (isNullable && !isLastInChain) ? "?" : string.Empty;
 
             parts.Add($"{pathTarget.Name}{operationCall}{nullabilityOperator}");
         }
@@ -274,57 +266,54 @@ internal static class MappingHelper
     {
         var unmapped = new List<string>();
 
-        // Get the entity element
         var entityElement = dtoModel.Mapping?.Element;
         if (entityElement == null)
         {
             return unmapped;
         }
 
-        // Convert to ClassModel to access all attributes
         var entityClass = entityElement.AsClassModel();
         if (entityClass == null)
         {
             return unmapped;
         }
 
-        // Collect all DTO field's mapped source property paths
-        var mappedSourcePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        // Build the set of source paths that Mapperly actually uses, derived from
+        // GetMappingExpression's attributePath (not the raw Intent mapping path names).
+        // This correctly handles GetLocalFk: attributePath = "CustomerId", not "Customer",
+        // so the FK attribute is not incorrectly suppressed and the navigation property is.
+        var mapperlyMappedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var field in dtoModel.Fields.Where(f => f.Mapping != null))
         {
-            // Get the mapping path (e.g., "Product.Name" or "OrderId")
-            var mappingPath = string.Join(".", field.Mapping.Path
-                .Select(p => p.Name.ToPascalCase()));
+            var (_, attributePath) = GetMappingExpression(template, field);
 
-            mappedSourcePaths.Add(mappingPath);
+            mapperlyMappedPaths.Add(attributePath);
 
-            // Also add variations for nested paths (e.g., "Product" from "Product.Name")
-            if (!mappingPath.Contains("."))
-            {
-                continue;
-            }
-            
-            var parts = mappingPath.Split('.');
+            // Add ancestor segments so a path like "Customer.Id" also marks "Customer" as used.
+            var parts = attributePath.Split('.');
             for (var i = 0; i < parts.Length - 1; i++)
             {
-                mappedSourcePaths.Add(string.Join(".", parts.Take(i + 1)));
+                mapperlyMappedPaths.Add(string.Join(".", parts.Take(i + 1)));
             }
         }
 
-        // Check each entity attribute to see if it's mapped
         foreach (var entityAttr in entityClass.Attributes)
         {
             var attrName = entityAttr.Name.ToPascalCase();
-
-            // Check if this attribute is explicitly mapped
-            if (mappedSourcePaths.Contains(attrName))
+            if (!mapperlyMappedPaths.Contains(attrName))
             {
-                continue;
+                unmapped.Add(attrName);
             }
+        }
 
-            // This property is not mapped - add it to unmapped list
-            unmapped.Add(attrName);
+        foreach (var assocEnd in entityClass.AssociatedClasses.Where(x => x.IsNavigable))
+        {
+            var assocName = assocEnd.Name.ToPascalCase();
+            if (!mapperlyMappedPaths.Contains(assocName))
+            {
+                unmapped.Add(assocName);
+            }
         }
 
         return unmapped;

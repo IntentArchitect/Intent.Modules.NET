@@ -119,6 +119,20 @@
             </childElement>
           </childElements>
         </childElement>
+        <childElement id="879e2d1d-3364-49a6-bdea-59d8631c065a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Infrastructure.Constants.ConstantsTemplate</name>
+          <display>Intent.Infrastructure.Constants.ConstantsTemplate</display>
+          <externalReference>Intent.Infrastructure.Constants</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>13915750-f177-4473-9fe8-0ef549deed61</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

@@ -11,19 +11,31 @@
   <tags>blazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate" externalReference="13297947-0406-4238-bc5f-bee51e6579c6">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate" externalReference="96181a18-37c8-4fab-8adb-475ee677ffe7">
       <role>AI.Context.Instructions</role>
       <location></location>
     </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="be73c60a-3f50-479a-b8bf-8804adaa7308">
+    <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="126d3417-12cf-4743-873a-5d18ed8409ad">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate" externalReference="d10e102d-5a08-425e-aa45-54a5c7787b24">
+    <template id="Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate" externalReference="2bfbd8aa-9f0f-4dc5-b3b0-72de6b8b4234">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
-    <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="a9dc71e3-f44a-4401-b49c-44a0735ee0da">
+    <template id="Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate" externalReference="c84a605a-dc42-44e1-9ad6-354fa56adeec">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="4a16b11d-f73c-4bd8-87f3-7202c891752f">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>

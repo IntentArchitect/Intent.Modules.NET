@@ -81,6 +81,8 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)

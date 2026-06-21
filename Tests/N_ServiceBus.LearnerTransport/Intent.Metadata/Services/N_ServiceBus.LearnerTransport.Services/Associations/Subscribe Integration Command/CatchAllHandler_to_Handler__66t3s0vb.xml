@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fe5bfe59-5703-4e45-a127-74587219c518">
+  <sourceEnd id="6568b755-026d-4a38-9706-8d4f78f26ea6" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.LearnerTransport.Services.CatchAllHandler</display>
+    <order>0</order>
+    <typeReference id="ddfe798f-7dd3-4be1-8d0e-1630f7e23944">
+      <typeId>85a62d36-5836-4d7f-b843-2ad8928a8ac8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Services</typePackageName>
+      <typePackageId>949bbc79-f237-42b1-ac6b-20b32300f302</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fe5bfe59-5703-4e45-a127-74587219c518" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] CreatePersonIdentity</display>
+    <order>3</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="35e74a3c-a4a6-4ad1-bc59-e16537c2ac8e">
+      <typeId>beac2336-8a2d-4062-b97c-bc3ce54e78dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.LearnerTransport.Eventing.Messages</typePackageName>
+      <typePackageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

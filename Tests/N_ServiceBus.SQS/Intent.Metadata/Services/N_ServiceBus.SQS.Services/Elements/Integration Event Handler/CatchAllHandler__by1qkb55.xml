@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="10cc409e-9a54-402f-883b-afb8b9e6011e" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CatchAllHandler</name>
+  <display>CatchAllHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>64af3760-4e7a-48fc-9595-57c84fa57ea7</parentFolderId>
+  <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
+  <packageName>NServiceBus.SQS.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

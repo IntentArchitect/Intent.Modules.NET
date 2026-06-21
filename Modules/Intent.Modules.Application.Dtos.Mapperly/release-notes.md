@@ -1,3 +1,8 @@
+### Version 1.1.3
+
+- Fixed: Issue when ignore attribute was not being added for associations when not mapped.
+- Fixed: Issue when ignore attribute was not being added for properties added by other module (such as DomainEvents)
+
 ### Version 1.1.2
 
 - Improvement: Added AI skill 
