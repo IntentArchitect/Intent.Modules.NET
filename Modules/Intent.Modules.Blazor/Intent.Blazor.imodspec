@@ -195,6 +195,10 @@
       <role>Blazor.ThemeToggle</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="185ee26d-ddf6-431b-8012-9cf6b6c154c4">
+      <role>Blazor.Sample</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
       <role>Blazor.NoSample</role>
       <location></location>
