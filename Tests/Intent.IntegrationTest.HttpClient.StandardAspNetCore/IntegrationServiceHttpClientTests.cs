@@ -195,6 +195,11 @@ public class IntegrationServiceHttpClientTests
 
     public class MockUnitOfWork : IUnitOfWork
     {
+        public bool HasDbTransaction()
+        {
+            return false;
+        }
+
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             return Task.FromResult(0);

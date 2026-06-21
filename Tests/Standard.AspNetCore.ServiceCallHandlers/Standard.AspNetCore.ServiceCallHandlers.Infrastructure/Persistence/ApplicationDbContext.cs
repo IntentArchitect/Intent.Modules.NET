@@ -19,6 +19,8 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence
 
         public DbSet<Person> People { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

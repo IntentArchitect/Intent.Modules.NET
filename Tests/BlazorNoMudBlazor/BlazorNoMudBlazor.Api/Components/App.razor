@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <base href="/" />
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="ux-tokens.css" />
+        <link rel="stylesheet" href="ux-base.css" />
+        <link rel="stylesheet" href="ux-components.css" />
         <link rel="stylesheet" href="app.css" />
         <link rel="stylesheet" href="BlazorNoMudBlazor.Api.styles.css" />
         <link rel="icon" type="image/png" href="favicon.png" />
@@ -15,6 +18,8 @@
     <body>
         <Routes @rendermode="GetRenderModeForPage()" />
         <script src="_framework/blazor.web.js"></script>
+        <script src="theme.js"></script>
+        <script>themeHelper.init();</script>
     </body>
 
 </html>

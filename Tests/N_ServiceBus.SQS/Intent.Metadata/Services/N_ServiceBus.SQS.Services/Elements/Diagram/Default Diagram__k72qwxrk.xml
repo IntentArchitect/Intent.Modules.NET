@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51af48f9-3042-4f84-83f7-8d2dcc9c703d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>64af3760-4e7a-48fc-9595-57c84fa57ea7</parentFolderId>
+  <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
+  <packageName>NServiceBus.SQS.Services</packageName>
+  <diagram>
+    <targetPackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

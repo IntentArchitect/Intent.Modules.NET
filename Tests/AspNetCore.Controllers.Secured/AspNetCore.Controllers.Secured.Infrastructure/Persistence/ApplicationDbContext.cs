@@ -19,6 +19,8 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.Persistence
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

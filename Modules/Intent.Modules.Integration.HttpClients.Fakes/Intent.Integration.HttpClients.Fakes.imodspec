@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients.Fakes</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
   <summary>Generates developer-owned fake implementations for Integration HttpClient service contracts.</summary>
   <description>Generates developer-owned fake implementations for Integration HttpClient service contracts.</description>
@@ -31,7 +31,7 @@
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Integration.HttpClients" version="6.1.2-pre.0" />
+    <dependency id="Intent.Integration.HttpClients" version="6.1.2" />
     <dependency id="Intent.Metadata.Security" version="1.0.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.1" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />

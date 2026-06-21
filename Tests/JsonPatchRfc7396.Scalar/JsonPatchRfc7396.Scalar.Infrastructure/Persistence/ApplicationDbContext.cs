@@ -19,6 +19,8 @@ namespace JsonPatchRfc7396.Scalar.Infrastructure.Persistence
         public DbSet<ConfigurationItem> ConfigurationItems { get; set; }
         public DbSet<ConfigurationStore> ConfigurationStores { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

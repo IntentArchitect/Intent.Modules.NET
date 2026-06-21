@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Oidc.Client;
+using Blazor.InteractiveWebAssembly.Oidc.Client.Components.Services;
 using Blazor.InteractiveWebAssembly.Oidc.Common;
 using Blazor.InteractiveWebAssembly.Oidc.Components;
 using Blazor.InteractiveWebAssembly.Oidc.Components.Account;
@@ -58,6 +59,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

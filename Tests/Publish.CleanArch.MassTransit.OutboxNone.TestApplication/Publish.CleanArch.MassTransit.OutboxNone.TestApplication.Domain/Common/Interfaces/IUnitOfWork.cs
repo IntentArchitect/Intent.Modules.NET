@@ -10,5 +10,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

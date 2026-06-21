@@ -19,6 +19,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
             _orderAddressDtoMapper = orderAddressDtoMapper;
         }
 
+        [MapperIgnoreSource(nameof(Customer.Preferences))]
+        [MapperIgnoreSource(nameof(Customer.CustomerSegments))]
         [MapProperty(nameof(Customer.Addresses), nameof(OrderCustomerDto.Addresses))]
         public partial OrderCustomerDto CustomerToOrderCustomerDto(Customer customer);
 

@@ -62,7 +62,7 @@ namespace EntityFrameworkCore.SqlServer.EF10.Infrastructure
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
+                    configuration.GetConnectionString(EntityFrameworkCoreSqlServerEF10Constants.DefaultConnection),
                     b =>
                     {
                         b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);

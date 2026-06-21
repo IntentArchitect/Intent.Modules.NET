@@ -35,6 +35,13 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (_dataSource.HasDbTransaction())
+            {
+                // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
+                var result = await next(cancellationToken);
+                await _dataSource.SaveChangesAsync(cancellationToken);
+                return result;
+            }
             using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
                 TResponse response;

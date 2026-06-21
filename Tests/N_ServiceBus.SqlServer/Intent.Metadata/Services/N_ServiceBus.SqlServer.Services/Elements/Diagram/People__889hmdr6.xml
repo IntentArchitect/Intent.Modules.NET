@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aa56a177-cdeb-4857-930a-7cb968941ca6" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>People</name>
+  <display>People</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff8300fc-b93d-47de-9f9f-3f22bda73c42</parentFolderId>
+  <packageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</packageId>
+  <packageName>N_ServiceBus.SqlServer.Services</packageName>
+  <diagram>
+    <targetPackageId>aa56a177-cdeb-4857-930a-7cb968941ca6</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

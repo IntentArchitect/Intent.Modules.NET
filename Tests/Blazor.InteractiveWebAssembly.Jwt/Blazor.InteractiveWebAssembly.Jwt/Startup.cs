@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Jwt.Client;
+using Blazor.InteractiveWebAssembly.Jwt.Client.Components.Services;
 using Blazor.InteractiveWebAssembly.Jwt.Common;
 using Blazor.InteractiveWebAssembly.Jwt.Components;
 using Blazor.InteractiveWebAssembly.Jwt.Components.Account;
@@ -56,6 +57,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

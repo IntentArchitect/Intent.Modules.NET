@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence
 
         public DbSet<Order> Orders { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

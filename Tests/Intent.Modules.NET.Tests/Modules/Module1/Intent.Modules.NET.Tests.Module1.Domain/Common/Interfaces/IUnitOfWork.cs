@@ -8,5 +8,6 @@ namespace Intent.Modules.NET.Tests.Module1.Domain.Common.Interfaces
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

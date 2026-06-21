@@ -20,6 +20,8 @@ namespace CleanArchitecture.IdentityService.Infrastructure.Persistence
 
         public DbSet<ApplicationIdentityUser> ApplicationIdentityUsers { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

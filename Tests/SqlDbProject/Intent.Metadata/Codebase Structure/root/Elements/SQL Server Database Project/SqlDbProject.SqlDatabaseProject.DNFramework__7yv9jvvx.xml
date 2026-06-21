@@ -132,5 +132,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="2aac3c3c-3377-45b4-a740-790126eb1c73" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.SqlDatabaseProject.ViewTemplate</name>
+      <display>Intent.SqlDatabaseProject.ViewTemplate</display>
+      <externalReference>Intent.SqlDatabaseProject</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

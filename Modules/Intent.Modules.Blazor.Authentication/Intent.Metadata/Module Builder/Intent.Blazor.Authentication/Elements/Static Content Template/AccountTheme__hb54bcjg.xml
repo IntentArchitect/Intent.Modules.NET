@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.Authentication/Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Elements/Static Content Template/AccountTheme__hb54bcjg.xml
 <class id="e732c8dd-113e-435c-bdae-f0558c601d5b" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
   <name>AccountTheme</name>
   <display>AccountTheme</display>
@@ -8,16 +9,34 @@
   <parentFolderId>19bcb1ad-3c00-4335-9173-4a2387c714c3</parentFolderId>
   <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
   <packageName>Intent.Blazor.Authentication</packageName>
+========
+<class id="3e6901d8-7e66-437b-b373-46106219c3c9" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
+  <name>HomeStyleTemplate</name>
+  <display>HomeStyleTemplate</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+>>>>>>>> development:Modules/Intent.Modules.Blazor.Components.MudBlazor/Intent.Metadata/Module Builder/Intent.Blazor.Components.MudBlazor/Elements/Static Content Template/HomeStyleTemplate__gxsgw6t9.xml
   <stereotypes>
     <stereotype stereotypeDefinitionId="1fd8fd68-ff20-437c-8c00-ac77920d7ff0" name="Template Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
+<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.Authentication/Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Elements/Static Content Template/AccountTheme__hb54bcjg.xml
         <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="Theme" isActive="true" />
         <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
         <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="Blazor.ThemeJavascript" isActive="true" />
         <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" value="" isActive="true" />
+========
+        <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="SamplePages" isActive="true" />
+        <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
+        <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="Blazor" isActive="true" />
+        <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" value="Components/Pages" isActive="true" />
+>>>>>>>> development:Modules/Intent.Modules.Blazor.Components.MudBlazor/Intent.Metadata/Module Builder/Intent.Blazor.Components.MudBlazor/Elements/Static Content Template/HomeStyleTemplate__gxsgw6t9.xml
       </properties>
     </stereotype>
   </stereotypes>

@@ -10,5 +10,6 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain.Common.Interfa
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

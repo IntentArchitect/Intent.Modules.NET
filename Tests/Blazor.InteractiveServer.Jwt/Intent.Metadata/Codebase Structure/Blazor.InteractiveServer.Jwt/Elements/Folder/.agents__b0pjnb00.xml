@@ -8,5 +8,20 @@
   <parentFolderId>0c5e4af4-8313-4842-b49b-e5bdae563c0a</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="56de30b2-a89e-48e8-8534-9cae386cbf1f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.DefaultDesignMdTemplate</name>
+      <display>Intent.Blazor.Templates.AI.DefaultDesignMdTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56060491-677e-49d3-b17c-3296b492f375</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

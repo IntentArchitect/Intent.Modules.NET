@@ -23,5 +23,117 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="7b9c0113-fe26-4af0-8cfb-f6e55a42456b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="869830f2-6a1f-45aa-9674-4ec3f756a9cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a67ee968-c719-4644-b91f-ce2acf3f8b01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="eac85c99-26d3-461c-a4e9-c5cb68b5efd0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorPageEditingEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9b95823f-89aa-4f55-8f29-10a5e5e63fd3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d4a751c3-2bcf-4f4c-b24e-de226c49f2f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0d0afea3-b38a-4607-9f4b-168299eb2aac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="02554fe8-fed5-4974-bb53-e6f89bc05d37" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Components.MudBlazor.MudBlazorUxThemeSyncSkillTemplate</name>
+      <display>Intent.Blazor.Components.MudBlazor.MudBlazorUxThemeSyncSkillTemplate</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>90de5f60-dbcf-4358-9ed9-61b8087ab5ae</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

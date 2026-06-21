@@ -1,6 +1,7 @@
 using BlazorServerTests.Api.Common;
 using BlazorServerTests.Api.Components;
 using BlazorServerTests.Api.Components.Account;
+using BlazorServerTests.Api.Components.Services;
 using BlazorServerTests.Api.Configuration;
 using BlazorServerTests.Api.Logging;
 using BlazorServerTests.Application;
@@ -64,6 +65,7 @@ namespace BlazorServerTests.Api
                     .AddInteractiveServerComponents();
 
                 builder.Services.AddMudServices();
+                builder.Services.AddScoped<ThemeService>();
 
                 var app = builder.Build();
 

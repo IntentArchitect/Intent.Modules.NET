@@ -17,10 +17,8 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Comments = Mode.Ignore)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
-
-#nullable enable
 
 namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 {
@@ -56,7 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 .Where(model => model is not null)
                 .Cast<ICSharpFileBuilderTemplate>()
                 .ToArray();
-            
+
             foreach (var entityTemplate in entityTemplates)
             {
                 entityTemplate.CSharpFile.OnBuild(file =>

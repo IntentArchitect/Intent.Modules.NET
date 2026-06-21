@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: 3CAF806CAD74930B28871CD20D45C275C441AC7D39EA9E8FF7D1285A900F0EAA
+contentHash: D84510014239F14D23E96D389504D7B15203F4ACFFB135AAD31769ECC08B2759
 ---
 # Traditional Service Implementation
 
@@ -83,6 +83,14 @@ When a needed capability is missing:
 - Follow the existing application error/result conventions already used in the solution.
 - Reuse nearby patterns for not found, validation failures, business rule failures, and authorization failures.
 - Do not invent a new exception or result style when the surrounding code already establishes one.
+
+## EF Related Data Loading guidance
+
+- NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
+- Lazy loading with proxies is enabled. 
+- Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
+- You can rely on navigation properties being automatically loaded when accessed.
+- (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
 
 ## Unit of Work guidance
 

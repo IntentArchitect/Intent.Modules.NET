@@ -61,13 +61,19 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 
                     if (Model.ParentClass != null)
                     {
-                        var baseType = this.GetDomainEntityName(Model.ParentClass);
-                        if (Model.ParentClassTypeReference.GenericTypeParameters.Any())
-                        {
-                            baseType = $"{baseType}<{string.Join(", ", Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>";
-                        }
+                        // It's important we use the actual CSharpClass here from the other template
+                        // and not a string because its metadata is checked by other templates and/or
+                        // factory extensions.
+                        var parentRole = ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour()
+                            ? TemplateRoles.Domain.Entity.State
+                            : TemplateRoles.Domain.Entity.Primary;
 
-                        @class.ExtendsClass(baseType);
+                        var baseType = GetTemplate<ICSharpFileBuilderTemplate>(parentRole, Model.ParentClass)
+                            .CSharpFile.Classes.First();
+
+                        @class.ExtendsClass(
+                            @class: baseType,
+                            genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
                     }
 
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())

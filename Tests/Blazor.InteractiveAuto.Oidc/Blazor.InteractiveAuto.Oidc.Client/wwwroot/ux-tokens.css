@@ -1,0 +1,225 @@
+/* ============================================================================
+   SECTION 1: Brand Palette
+   ============================================================================ */
+
+:root {
+    /* Primary — Electric Sky */
+    --brand-sky: #0EA5E9; /* sky-500    — primary on dark   */
+    --brand-sky-dim: #0284C7; /* sky-600    — hover             */
+    --brand-sky-deep: #0369A1; /* sky-700    — pressed           */
+    /* Secondary — Cobalt / Indigo */
+    --brand-cobalt: #6366F1; /* indigo-500 — gradient endpoint */
+    --brand-cobalt-dim: #4F46E5; /* indigo-600 — hover             */
+    /* Legacy alias */
+    --brand-blue: var(--brand-sky);
+    --brand-blue-dim: var(--brand-sky-dim);
+    --brand-blue-deep: var(--brand-sky-deep);
+    /* keep any old violet refs pointing to cobalt */
+    --brand-violet: var(--brand-cobalt);
+    --brand-violet-dim: var(--brand-cobalt-dim);
+    --brand-cyan: var(--brand-sky);
+    --brand-cyan-dim: var(--brand-sky-dim);
+}
+
+
+/* ============================================================================
+   SECTION 2: Typography Scale
+   ============================================================================ */
+
+:root {
+    --font-primary: 'Geist', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+    --type-display: 2.75rem;
+    --type-h1: 2.1875rem;
+    --type-h2: 1.75rem;
+    --type-h3: 1.4375rem;
+    --type-body-lg: 1.125rem;
+    --type-body-md: 1rem;
+    --type-body-sm: 0.875rem;
+    --type-label-lg: 0.875rem;
+    --type-label-md: 0.75rem;
+    --type-label-sm: 0.75rem;
+    --lh-display: 1.15;
+    --lh-h1: 1.2;
+    --lh-h2: 1.5;
+    --lh-h3: 1.3;
+    --lh-body: 1.6;
+    --lh-label: 1.4;
+}
+
+
+/* ============================================================================
+   SECTION 3: Spacing, Radius & Motion
+   ============================================================================ */
+
+:root {
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.375rem;
+    --radius-full: 9999px;
+    --border-width: 1px;
+    --ease-out: cubic-bezier(0, 0, .2, 1);
+    --ease-standard: cubic-bezier(.2, .8, .2, 1);
+    --dur-fast: 100ms;
+    --dur-med: 200ms;
+    --dur-slow: 350ms;
+}
+
+
+/* ============================================================================
+   SECTION 4: Semantic Tokens — Dark (default)
+   Deep purple-black surfaces — the AI startup aesthetic.
+   ============================================================================ */
+
+:root {
+    /* Surfaces — deep navy-black */
+    --bg: #06090F;
+    --surface: #0C1220;
+    --surface-2: #121A2E;
+    --surface-3: #19223A;
+    /* Text */
+    --text: #E8F0FC;
+    --text-muted: #7D8EAD;
+    --text-secondary: #485470;
+    /* Borders */
+    --border: rgba(14, 165, 233, 0.12);
+    --border-light: rgba(14, 165, 233, 0.06);
+    --border-focus: var(--primary);
+    /* Hover overlays */
+    --hover-overlay: rgba(14, 165, 233, 0.07);
+    --hover-overlay-strong: rgba(14, 165, 233, 0.14);
+    /* Primary accent — sky */
+    --primary: var(--brand-sky);
+    --primary-dark: var(--brand-sky-dim);
+    --primary-subtle: rgba(14, 165, 233, 0.10);
+    --primary-glow: rgba(14, 165, 233, 0.35);
+    --primary-contrast: #FFFFFF;
+    /* Dual-accent gradient: sky → cobalt */
+    --gradient-brand: linear-gradient(135deg, var(--brand-sky) 0%, var(--brand-cobalt) 100%);
+    --gradient-brand-soft: linear-gradient(135deg, rgba(14,165,233,0.14) 0%, rgba(99,102,241,0.10) 100%);
+    /* Secondary */
+    --secondary: #19223A;
+    --secondary-dark: #0F1728;
+    /* Status */
+    --danger: #F06080;
+    --success: #3DD68C;
+    --warning: #F5C542;
+    --info: var(--brand-sky);
+    --success-subtle: rgba(61, 214, 140, 0.14);
+    --warning-subtle: rgba(245, 197, 66, 0.14);
+    --danger-subtle: rgba(240, 96, 128, 0.14);
+    --info-subtle: rgba(14, 165, 233, 0.12);
+    /* Shadows — strong on dark surfaces */
+    --shadow-1: 0 1px 3px rgba(0,0,0,.50);
+    --shadow-2: 0 4px 16px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.40);
+    --shadow-3: 0 8px 32px rgba(0,0,0,.65), 0 2px 8px rgba(0,0,0,.50);
+    --shadow-4: 0 16px 48px rgba(0,0,0,.70), 0 4px 16px rgba(0,0,0,.55);
+    --shadow-5: 0 24px 64px rgba(0,0,0,.75), 0 8px 24px rgba(0,0,0,.60);
+    /* Glow shadows */
+    --glow-primary: 0 0 24px rgba(14,165,233,0.45), 0 0 8px rgba(14,165,233,0.28);
+    --glow-cyan: 0 0 24px rgba(99,102,241,0.35), 0 0 8px rgba(99,102,241,0.20);
+    --focus: rgba(14, 165, 233, 0.30);
+}
+
+
+    /* ============================================================================
+   SECTION 5: Semantic Tokens — Light Override  [data-theme="light"]
+   ============================================================================ */
+
+    :root[data-theme="light"] {
+        --bg: #E8EAED;
+        --surface: #F4F5F7;
+        --surface-2: #ECEEF1;
+        --surface-3: #E2E5E9;
+        --text: #07111E;
+        --text-muted: #3D5470;
+        --text-secondary: #7A93B0;
+        --border: rgba(2, 132, 199, 0.13);
+        --border-light: rgba(2, 132, 199, 0.07);
+        --hover-overlay: rgba(2, 132, 199, 0.05);
+        --hover-overlay-strong: rgba(2, 132, 199, 0.10);
+        --primary: var(--brand-sky-dim);
+        --primary-dark: var(--brand-sky-deep);
+        --primary-subtle: rgba(2, 132, 199, 0.09);
+        --primary-glow: rgba(2, 132, 199, 0.25);
+        --gradient-brand: linear-gradient(135deg, var(--brand-sky-dim) 0%, var(--brand-cobalt-dim) 100%);
+        --gradient-brand-soft: linear-gradient(135deg, rgba(2,132,199,0.10) 0%, rgba(79,70,229,0.08) 100%);
+        --secondary: #D1E9FA;
+        --secondary-dark: #BAD9F5;
+        --danger: #DC2626;
+        --success: #16A34A;
+        --warning: #CA8A04;
+        --info: #0369A1;
+        --success-subtle: rgba(22, 163, 74, 0.10);
+        --warning-subtle: rgba(202, 138, 4, 0.10);
+        --danger-subtle: rgba(220, 38, 38, 0.10);
+        --info-subtle: rgba(3, 105, 161, 0.10);
+        --shadow-1: 0 1px 3px rgba(7,17,30,.07);
+        --shadow-2: 0 2px 10px rgba(7,17,30,.09), 0 1px 2px rgba(7,17,30,.06);
+        --shadow-3: 0 4px 20px rgba(7,17,30,.10), 0 2px 4px rgba(7,17,30,.07);
+        --shadow-4: 0 8px 32px rgba(7,17,30,.12), 0 3px 8px rgba(7,17,30,.08);
+        --shadow-5: 0 16px 48px rgba(7,17,30,.14), 0 6px 16px rgba(7,17,30,.09);
+        --glow-primary: 0 0 20px rgba(2,132,199,0.28), 0 0 6px rgba(2,132,199,0.16);
+        --glow-cyan: 0 0 20px rgba(79,70,229,0.22), 0 0 6px rgba(79,70,229,0.12);
+        --focus: rgba(2, 132, 199, 0.22);
+    }
+
+
+/* ============================================================================
+   SECTION 6: Backward-compat Aliases
+   ============================================================================ */
+
+:root {
+    --ux-primary: var(--primary);
+    --ux-primary-dark: var(--primary-dark);
+    --ux-primary-light: var(--brand-violet);
+    --ux-primary-subtle: var(--primary-subtle);
+    --ux-border-color: var(--border);
+    --ux-border-radius: var(--radius-sm);
+    --ux-border-radius-lg: var(--radius-md);
+    --ux-border-radius-xl: var(--radius-lg);
+    --ux-shadow-sm: var(--shadow-1);
+    --ux-shadow: var(--shadow-2);
+    --ux-shadow-lg: var(--shadow-4);
+    --ux-font-family: var(--font-primary);
+    --ux-font-size-xs: var(--type-label-sm);
+    --ux-font-size-sm: var(--type-body-sm);
+    --ux-font-size-base: var(--type-body-md);
+    --ux-font-size-lg: var(--type-body-lg);
+    --ux-font-size-xl: var(--type-h3);
+    --ux-font-size-2xl: var(--type-h2);
+    --ux-font-size-3xl: var(--type-h1);
+    --ux-font-size-4xl: var(--type-display);
+    --ux-spacing-xs: var(--space-1);
+    --ux-spacing-sm: var(--space-2);
+    --ux-spacing-md: var(--space-4);
+    --ux-spacing-lg: var(--space-5);
+    --ux-spacing-xl: var(--space-6);
+    --ux-spacing-2xl: var(--space-7);
+    --ux-success: var(--success);
+    --ux-success-light: var(--success-subtle);
+    --ux-warning: var(--warning);
+    --ux-warning-light: var(--warning-subtle);
+    --ux-error: var(--danger);
+    --ux-error-light: var(--danger-subtle);
+    --ux-info: var(--info);
+    --ux-info-light: var(--info-subtle);
+    --ux-white: var(--text);
+    --ux-gray-900: var(--text);
+    --ux-gray-800: var(--text-muted);
+    --ux-gray-700: var(--text-secondary);
+    --ux-gray-600: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+    --ux-gray-500: var(--border);
+    --ux-gray-400: var(--surface-3);
+    --ux-gray-300: var(--surface-2);
+    --ux-gray-200: var(--surface);
+    --ux-gray-100: var(--bg);
+}

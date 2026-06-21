@@ -34,18 +34,18 @@
             </MudItem>
             <MudItem xs="12">
                 <MudButton Variant="Variant.Filled"
+                        StartIcon="@Icons.Material.Filled.Add"
+                        Color="Color.Primary"
+                        OnClick="@NavigateToCustomerAddPage"
+                        Class="mb-4 ml-md-4">
+                    <MudText>Add Customer</MudText>
+                </MudButton>
+                <MudButton Variant="Variant.Outlined"
                            StartIcon="@Icons.Material.Filled.Search"
                            Color="Color.Primary"
                            OnClick="@(async () => { if (_table != null) await _table.ReloadServerData(); })"
                            Class="mb-4 ml-md-4">
                     <MudText>Search</MudText>
-                </MudButton>
-                <MudButton Variant="Variant.Filled"
-                        StartIcon="@Icons.Material.Filled.Add"
-                        Color="Color.Secondary"
-                        OnClick="@NavigateToCustomerAddPage"
-                        Class="mb-4 ml-md-4">
-                    <MudText>Add Customer</MudText>
                 </MudButton>
             </MudItem>
             <MudItem xs="12">

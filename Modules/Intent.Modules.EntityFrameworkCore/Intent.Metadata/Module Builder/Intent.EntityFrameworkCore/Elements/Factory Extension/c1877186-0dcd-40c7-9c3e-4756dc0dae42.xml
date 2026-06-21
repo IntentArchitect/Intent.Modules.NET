@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c1877186-0dcd-40c7-9c3e-4756dc0dae42" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>When the EF DbContext and MediatR UnitOfWorkBehaviour are both present, this extension:
+1. Adds HasDbTransaction() to the IUnitOfWork interface so the behavior can detect an externally-managed EF transaction.
+2. Implements HasDbTransaction() on ApplicationDbContext (Database.CurrentTransaction != null).
+3. Modifies UnitOfWorkBehaviour.Handle to skip TransactionScope when HasDbTransaction() is true — prevents MSDTC escalation when an external party (e.g. NServiceBus ITransactionalSession) already owns the EF connection.
+
+This is an EF concern — not an NServiceBus concern. NServiceBus simply happens to be one caller that externally manages the EF connection.</comment>
+  <name>UnitOfWorkExternalTransactionExtension</name>
+  <display>UnitOfWorkExternalTransactionExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

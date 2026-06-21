@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -10,7 +10,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates;
 /// Comments are anchored to the property key that immediately follows them.
 /// Inline end-of-line comments are anchored to the property key on the same line.
 /// </summary>
-internal static class JsonCommentPreserver
+internal static partial class JsonCommentPreserver
 {
     internal sealed record CommentBlock(
         IReadOnlyList<string> Lines,
@@ -23,32 +23,62 @@ internal static class JsonCommentPreserver
         var cleanLines = new List<string>(rawLines.Length);
         var blocks = new List<CommentBlock>();
         var pending = new List<string>();
+        var inBlockComment = false;
+        var trailingBlockAnchorKey = (string?)null;
+        var keyCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        string QualifyKey(string k)
+        {
+            keyCounts.TryGetValue(k, out var n);
+            keyCounts[k] = n + 1;
+            return $"{k}\x00{n}";
+        }
 
         foreach (var rawLine in rawLines)
         {
             var trimmed = rawLine.Trim();
 
+            if (inBlockComment)
+            {
+                pending.Add(rawLine);
+                if (trimmed.Contains("*/"))
+                {
+                    inBlockComment = false;
+                    if (trailingBlockAnchorKey != null)
+                    {
+                        blocks.Add(new CommentBlock([.. pending], trailingBlockAnchorKey, IsInline: true));
+                        pending.Clear();
+                        trailingBlockAnchorKey = null;
+                    }
+                }
+                continue;
+            }
+
             if (IsPureCommentLine(trimmed))
             {
                 pending.Add(rawLine);
+                if (trimmed.StartsWith("/*") && !trimmed.Contains("*/"))
+                    inBlockComment = true;
                 continue;
             }
 
             var key = TryExtractPropertyKey(trimmed);
+            // Qualify the key with its occurrence index so duplicate key names across
+            // different JSON paths get distinct anchors.
+            var qualifiedKey = key != null ? QualifyKey(key) : null;
 
             if (key != null && TryStripInlineComment(rawLine, out var cleanedLine, out var inlineComment))
             {
                 if (pending.Count > 0)
                 {
-                    blocks.Add(new CommentBlock(pending.ToArray(), key, IsInline: false));
+                    blocks.Add(new CommentBlock([.. pending], qualifiedKey!, IsInline: false));
                     pending.Clear();
                 }
-                blocks.Add(new CommentBlock(new[] { inlineComment }, key, IsInline: true));
+                blocks.Add(new CommentBlock([inlineComment], qualifiedKey!, IsInline: true));
                 cleanLines.Add(cleanedLine);
             }
             else if (key != null && pending.Count > 0)
             {
-                blocks.Add(new CommentBlock(pending.ToArray(), key, IsInline: false));
+                blocks.Add(new CommentBlock([.. pending], qualifiedKey!, IsInline: false));
                 pending.Clear();
                 cleanLines.Add(rawLine);
             }
@@ -57,8 +87,23 @@ internal static class JsonCommentPreserver
                 // Inline comment on a non-property line (e.g. an array element)
                 var valueAnchor = cleanedLine2.Trim().TrimEnd(',');
                 pending.Clear();
-                blocks.Add(new CommentBlock(new[] { inlineComment2 }, valueAnchor, IsInline: true));
+                blocks.Add(new CommentBlock([inlineComment2], valueAnchor, IsInline: true));
                 cleanLines.Add(cleanedLine2);
+            }
+            else if (TryStripTrailingBlockOpener(rawLine, out var strippedLine, out var opener))
+            {
+                // /* opens at end of line with no closing */ — flush any preceding pending to this
+                // key, strip the opener, buffer it, and anchor the whole block back to this same
+                // property line (IsInline) so it gets re-appended when restored.
+                if (qualifiedKey != null && pending.Count > 0)
+                {
+                    blocks.Add(new CommentBlock([.. pending], qualifiedKey, IsInline: false));
+                }
+                pending.Clear();
+                pending.Add(opener);
+                cleanLines.Add(strippedLine);
+                inBlockComment = true;
+                trailingBlockAnchorKey = qualifiedKey;
             }
             else
             {
@@ -87,23 +132,37 @@ internal static class JsonCommentPreserver
             q.Enqueue(block);
         }
 
+        var keyCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        string QualifyKey(string k)
+        {
+            keyCounts.TryGetValue(k, out var n);
+            keyCounts[k] = n + 1;
+            return $"{k}\x00{n}";
+        }
+
         foreach (var line in lines)
         {
             var key = TryExtractPropertyKey(line.Trim());
+            var qualifiedKey = key != null ? QualifyKey(key) : null;
 
-            if (key != null && queues.TryGetValue(key, out var queue))
+            if (qualifiedKey != null && queues.TryGetValue(qualifiedKey, out var queue))
             {
                 while (queue.Count > 0 && !queue.Peek().IsInline)
                     foreach (var commentLine in queue.Dequeue().Lines)
                         result.Add(commentLine);
 
                 if (queue.Count > 0 && queue.Peek().IsInline)
-                    result.Add(line.TrimEnd() + " " + queue.Dequeue().Lines[0]);
+                {
+                    var inlineBlock = queue.Dequeue();
+                    result.Add(line.TrimEnd() + " " + inlineBlock.Lines[0]);
+                    for (var i = 1; i < inlineBlock.Lines.Count; i++)
+                        result.Add(inlineBlock.Lines[i]);
+                }
                 else
                     result.Add(line);
 
                 if (queue.Count == 0)
-                    queues.Remove(key);
+                    queues.Remove(qualifiedKey);
             }
             else
             {
@@ -111,7 +170,10 @@ internal static class JsonCommentPreserver
                 var valueAnchor = line.Trim().TrimEnd(',');
                 if (queues.TryGetValue(valueAnchor, out var valueQueue) && valueQueue.Peek().IsInline)
                 {
-                    result.Add(line.TrimEnd() + " " + valueQueue.Dequeue().Lines[0]);
+                    var inlineBlock = valueQueue.Dequeue();
+                    result.Add(line.TrimEnd() + " " + inlineBlock.Lines[0]);
+                    for (var i = 1; i < inlineBlock.Lines.Count; i++)
+                        result.Add(inlineBlock.Lines[i]);
                     if (valueQueue.Count == 0)
                         queues.Remove(valueAnchor);
                 }
@@ -133,8 +195,39 @@ internal static class JsonCommentPreserver
 
     private static string? TryExtractPropertyKey(string trimmed)
     {
-        var m = Regex.Match(trimmed, @"^""((?:[^""\\]|\\.)*)""\s*:");
+        var m = PropertyKeyRegex().Match(trimmed);
         return m.Success ? m.Groups[1].Value : null;
+    }
+
+    private static bool TryStripTrailingBlockOpener(string line, out string cleanedLine, out string opener)
+    {
+        var inString = false;
+        for (var i = 0; i < line.Length - 1; i++)
+        {
+            var c = line[i];
+            if (inString)
+            {
+                if (c == '\\') { i++; continue; }
+                if (c == '"') inString = false;
+                continue;
+            }
+            if (c == '"') { inString = true; continue; }
+
+            if (c == '/' && line[i + 1] == '*')
+            {
+                var end = line.IndexOf("*/", i + 2, StringComparison.Ordinal);
+                if (end < 0)
+                {
+                    cleanedLine = line[..i].TrimEnd();
+                    opener = line[i..].Trim();
+                    return true;
+                }
+            }
+        }
+
+        cleanedLine = line;
+        opener = string.Empty;
+        return false;
     }
 
     private static bool TryStripInlineComment(string line, out string cleanedLine, out string comment)
@@ -174,4 +267,7 @@ internal static class JsonCommentPreserver
         comment = string.Empty;
         return false;
     }
+
+    [GeneratedRegex(@"^""((?:[^""\\]|\\.)*)""\s*:")]
+    private static partial Regex PropertyKeyRegex();
 }

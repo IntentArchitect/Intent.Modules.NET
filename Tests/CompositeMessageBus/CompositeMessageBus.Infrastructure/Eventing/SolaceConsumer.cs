@@ -1,6 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using SolaceSystems.Solclient.Messaging;
+using IMessage = SolaceSystems.Solclient.Messaging.IMessage;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Solace.SolaceConsumer", Version = "1.0")]

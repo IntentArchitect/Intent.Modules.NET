@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/0 - Solution Items/" />
+  <Folder Name="/0 - Solution Items/dapr/">
+    <File Path="dapr/config.yaml" />
+  </Folder>
+  <Folder Name="/0 - Solution Items/dapr/components/">
+    <File Path="dapr/components/bindings.cron.api-scheduled-daily.yml" />
+    <File Path="dapr/components/bindings.cron.api-scheduled-hourly.yml" />
+    <File Path="dapr/components/configuration-store.yaml" />
+    <File Path="dapr/components/pubsub.yaml" />
+    <File Path="dapr/components/secret-store.yaml" />
+    <File Path="dapr/components/statestore.yaml" />
+  </Folder>
+  <Folder Name="/1 - Api/">
+    <Project Path="CleanArchitecture.Dapr.Api/CleanArchitecture.Dapr.Api.csproj" />
+  </Folder>
+  <Folder Name="/2 - Application/">
+    <Project Path="CleanArchitecture.Dapr.Application/CleanArchitecture.Dapr.Application.csproj" />
+  </Folder>
+  <Folder Name="/3 - Domain/">
+    <Project Path="CleanArchitecture.Dapr.Domain/CleanArchitecture.Dapr.Domain.csproj" />
+  </Folder>
+  <Folder Name="/4 - Infrastructure/">
+    <Project Path="CleanArchitecture.Dapr.Infrastructure/CleanArchitecture.Dapr.Infrastructure.csproj" />
+  </Folder>
+</Solution>

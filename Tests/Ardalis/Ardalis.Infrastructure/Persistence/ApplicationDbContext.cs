@@ -17,6 +17,8 @@ namespace Ardalis.Infrastructure.Persistence
 
         public DbSet<Client> Clients { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

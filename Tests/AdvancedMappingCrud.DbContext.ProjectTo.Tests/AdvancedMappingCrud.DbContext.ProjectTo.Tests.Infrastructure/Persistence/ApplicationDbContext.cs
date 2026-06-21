@@ -73,6 +73,8 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure.Persisten
             */
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
             while (true)

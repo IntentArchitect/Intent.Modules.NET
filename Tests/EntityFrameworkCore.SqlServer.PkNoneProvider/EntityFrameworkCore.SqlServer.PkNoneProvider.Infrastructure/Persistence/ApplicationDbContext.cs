@@ -232,6 +232,8 @@ namespace EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Persistenc
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         public void PreventMaskedDataSave()
         {
             var properties = ChangeTracker.Entries()
