@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayoutCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
@@ -41,7 +42,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                     // Manage pages). Account pages are static SSR, so the toggle is circuit-free and the
                     // Mud theme is derived from the cookie via HttpContext rather than a JS/theme service.
                     var rootNamespace = outputTarget.GetNamespace().Replace("Components.Account.Shared", "");
-                    var layoutNamespace = $"{rootNamespace}Components.Layout";
+                    // AppBrand/ThemeToggle live in the layout namespace — the .Client project for the
+                    // Wasm/Auto render modes, the server project for InteractiveServer. (The dynamic
+                    // lookup below wins when it resolves; this is the correct fallback for Wasm, where
+                    // it can't find the client-project layout from the server template's context.)
+                    var layoutNamespace = outputTarget.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
+                        ? $"{rootNamespace}Components.Layout"
+                        : $"{rootNamespace}Client.Components.Layout";
                     if (TryGetTemplate<RazorLayoutTemplate>("Intent.Blazor.Templates.Client.RazorLayoutTemplate", out var layoutTemplate))
                     {
                         layoutNamespace = layoutTemplate.Namespace;

@@ -26,8 +26,9 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // ux-account.css only ships for the non-MudBlazor, ASP.NET Core Identity account pages.
-            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+            // ux-account.css ships for the non-MudBlazor account pages with a local login — ASP.NET
+            // Core Identity OR JWT (the !IsOidc() account-UI gate); OIDC redirects to an external IdP.
+            if (application.GetSettings().GetBlazor().Authentication().IsOidc())
             {
                 return;
             }

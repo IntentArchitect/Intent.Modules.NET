@@ -47,8 +47,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
             // The account skin (ux-account.css + nav-drawer.js) is mode-independent — it tames the
             // shared page-header banner for account pages and drives centering. Ship it for any
-            // MudBlazor app with a local account UI (ASP.NET Core Identity OR JWT), not Identity-only.
-            if (mudBlazorInstalled && (auth.IsAspnetcoreIdentity() || auth.IsJwt()))
+            // MudBlazor app with a local account UI (Identity or JWT). OIDC redirects to an external
+            // IdP (no local account UI) — the same !IsOidc() gate the account pages use.
+            if (mudBlazorInstalled && !auth.IsOidc())
             {
                 RegisterAuthStaticContent(registry, application);
             }

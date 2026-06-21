@@ -47,8 +47,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data");
-                replacements.Add("IdentityClassNamespace", $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data");
+                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data`. Non-Identity setups that still have a Data namespace keep it.
+                var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data";
+                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+                replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else
             {
@@ -65,20 +69,28 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
-            {
-                return;
-            }
-
+            var auth = application.GetSettings().GetBlazor().Authentication();
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
-            if (!mudBlazorInstalled)
+            if (auth.IsAspnetcoreIdentity())
             {
-                RegisterAuthStaticContent(registry, application);
+                if (!mudBlazorInstalled)
+                {
+                    RegisterAuthStaticContent(registry, application);
+                    return;
+                }
+
+                RegisterAuthStaticContent(registry, application, ext => ext == ".cs");
                 return;
             }
 
-            RegisterAuthStaticContent(registry, application, ext => ext == ".cs");
+            if (auth.IsJwt() && !mudBlazorInstalled)
+            {
+                // Non-MudBlazor JWT: only the account-pages layout wiring (_Imports → @layout AccountLayout).
+                // JWT's real pages are RazorBuilder templates; the Identity-only static pages stay out.
+                RegisterAuthStaticContent(registry, application,
+                    pathFilter: rel => rel == "_Imports.razor");
+            }
         }
     }
 }

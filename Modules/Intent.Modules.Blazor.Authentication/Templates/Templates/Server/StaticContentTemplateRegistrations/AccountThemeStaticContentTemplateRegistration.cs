@@ -40,7 +40,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+            // OIDC redirects to an external IdP — no local account UI. The account skin ships for
+            // the modes with a local login (ASP.NET Core Identity + JWT), mirroring the !IsOidc()
+            // gate the account pages use.
+            if (application.GetSettings().GetBlazor().Authentication().IsOidc())
             {
                 return;
             }

@@ -194,7 +194,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
 
                         file.AddHtmlElement("div", grid =>
                         {
-                            grid.AddClass("ux-form-grid");
+                            // Single-column register (no external-login picker → not Identity) gets the
+                            // narrow 554px card; the two-column Identity register keeps the full grid.
+                            grid.AddClass(ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity()
+                                ? "ux-form-grid"
+                                : "ux-form-grid ux-form-narrow");
                             grid.AddHtmlElement("div", element => element.AddClass("ux-form-col")
                                 .AddHtmlElement("section", element => element
                                     .AddHtmlElement("StatusMessage", element => element.AddAttribute("Message", "@Message"))
