@@ -47,8 +47,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
-                replacements.Add("IdentityClassNamespace", $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
+                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data`. Non-Identity setups that still have a Data namespace keep it.
+                var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data";
+                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+                replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else
             {
@@ -81,11 +85,20 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 return;
             }
 
-            if (auth.IsJwt() && mudBlazorInstalled)
+            if (auth.IsJwt())
             {
-                // JWT shell: only StatusMessage's code-behind (its .razor ships from the Mud shared
-                // registration). The Identity-only shared components (ManageLayout/NavMenu,
-                // ExternalLoginPicker, ShowRecoveryCodes) are not shipped to JWT.
+                // JWT ships only the Identity-free account shell — the SignInManager-dependent
+                // ExternalLoginPicker/ManageNavMenu and the Manage components stay Identity-only.
+                if (!mudBlazorInstalled)
+                {
+                    // Non-MudBlazor: the shared UX primitives + layout css/wiring (their code-behind included).
+                    RegisterAuthStaticContent(registry, application,
+                        pathFilter: rel => rel is "AccountHero.razor" or "UxField.razor" or "UxIcon.razor"
+                            or "StatusMessage.razor" or "StatusMessage.razor.cs" or "AccountLayout.razor.css" or "_Imports.razor");
+                    return;
+                }
+
+                // MudBlazor ships the shell .razor itself; here we add only StatusMessage's code-behind.
                 RegisterAuthStaticContent(registry, application,
                     pathFilter: rel => rel == "StatusMessage.razor.cs");
             }
