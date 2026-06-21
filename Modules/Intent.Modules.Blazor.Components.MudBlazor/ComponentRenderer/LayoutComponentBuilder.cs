@@ -74,6 +74,10 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     _componentResolver.BuildComponent(child, appBar);
                 }
 
+                // User-menu slot — always appended last so it stays right of the spacer; the injected
+                // ThemeToggle (below) slots in just before it.
+                AddUserMenuSlot(appBar);
+
                 if (enableThemeToggle)
                 {
                     var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
@@ -115,6 +119,16 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
         return [layoutHtml];
 
+    }
+
+    private void AddUserMenuSlot(IHtmlElement appBar)
+    {
+        // Always render <AppUserMenu/>. The Authentication module ships the real one (Profile / My Account /
+        // antiforgery-POST Logout) into Components/Account/Shared — its namespace reaches this layout via the
+        // root Components/_Imports.razor (contributed by Auth's ChangeRenderMode factory extension). When Auth
+        // isn't installed, the component module ships a no-op scaffold AppUserMenu in its place (see the
+        // AppUserMenu static-content registration), so the reference always resolves.
+        appBar.AddHtmlElement("AppUserMenu");
     }
 
     private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition)

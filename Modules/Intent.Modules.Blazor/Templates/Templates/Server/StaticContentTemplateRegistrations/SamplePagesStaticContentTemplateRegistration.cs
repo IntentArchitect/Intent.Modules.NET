@@ -24,8 +24,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
         {
         }
 
-        private IApplication _application;
-
         public override string ContentSubFolder => "SamplePages";
 
 
@@ -35,16 +33,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget)
         {
-            var authInstalled = _application?.InstalledModules
-                .Any(im => im.ModuleId == "Intent.Blazor.Authentication") == true;
-
             return new Dictionary<string, string>
             {
                 ["ApplicationName"] = outputTarget.ApplicationName(),
                 ["Namespace"] = outputTarget.GetNamespace(),
-                // AppUserMenu (Account/Shared, shipped by the Auth module) is only referenced when ASP.NET
-                // Identity auth is installed — the base Blazor module must not couple to Auth for other apps.
-                ["AppUserMenu"] = authInstalled ? "<AppUserMenu />" : ""
+                // The top-row user menu is always rendered. AppUserMenu is shipped by the Authentication
+                // module (real account actions) or, when Auth isn't installed, by the base module as a no-op
+                // scaffold (see the AppUserMenu static-content registrations) — so the reference always
+                // resolves and this token is unconditional.
+                ["AppUserMenu"] = "<AppUserMenu />"
             };
         }
 
@@ -55,7 +52,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            _application = application;
             if (TemplateHelper.ComponentLibraryInstalled(application))
                 return;
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
