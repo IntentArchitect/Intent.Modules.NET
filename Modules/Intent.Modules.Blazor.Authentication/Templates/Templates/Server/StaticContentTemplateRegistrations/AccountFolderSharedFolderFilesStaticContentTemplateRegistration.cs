@@ -65,20 +65,30 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
-            {
-                return;
-            }
-
+            var auth = application.GetSettings().GetBlazor().Authentication();
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
-            if (!mudBlazorInstalled)
+            if (auth.IsAspnetcoreIdentity())
             {
-                RegisterAuthStaticContent(registry, application);
+                if (!mudBlazorInstalled)
+                {
+                    RegisterAuthStaticContent(registry, application);
+                    return;
+                }
+
+                // MudBlazor ships the shared .razor markup; this registration ships the .cs code-behind.
+                RegisterAuthStaticContent(registry, application, ext => ext == ".cs");
                 return;
             }
 
-            RegisterAuthStaticContent(registry, application, ext => ext == ".cs");
+            if (auth.IsJwt() && mudBlazorInstalled)
+            {
+                // JWT shell: only StatusMessage's code-behind (its .razor ships from the Mud shared
+                // registration). The Identity-only shared components (ManageLayout/NavMenu,
+                // ExternalLoginPicker, ShowRecoveryCodes) are not shipped to JWT.
+                RegisterAuthStaticContent(registry, application,
+                    pathFilter: rel => rel == "StatusMessage.razor.cs");
+            }
         }
     }
 }

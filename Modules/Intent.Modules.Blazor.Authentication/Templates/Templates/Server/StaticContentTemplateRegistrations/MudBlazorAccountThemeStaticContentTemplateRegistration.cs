@@ -42,8 +42,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity()
-                && application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            var auth = application.GetSettings().GetBlazor().Authentication();
+            var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
+
+            // The account skin (ux-account.css + nav-drawer.js) is mode-independent — it tames the
+            // shared page-header banner for account pages and drives centering. Ship it for any
+            // MudBlazor app with a local account UI (ASP.NET Core Identity OR JWT), not Identity-only.
+            if (mudBlazorInstalled && (auth.IsAspnetcoreIdentity() || auth.IsJwt()))
             {
                 RegisterAuthStaticContent(registry, application);
             }

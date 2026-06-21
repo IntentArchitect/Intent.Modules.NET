@@ -16,7 +16,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         {
         }
 
-        protected void RegisterAuthStaticContent(ITemplateInstanceRegistry registry, IApplication application, Func<string, bool> extensionFilter = null)
+        protected void RegisterAuthStaticContent(ITemplateInstanceRegistry registry, IApplication application, Func<string, bool> extensionFilter = null, Func<string, bool> pathFilter = null)
         {
             var assemblyDir = Path.GetDirectoryName(GetType().Assembly.Location)!;
             var contentDir = Path.GetFullPath(Path.Combine(assemblyDir, "..", "content", ContentSubFolder));
@@ -35,6 +35,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 }
 
                 var fileRelativePath = Path.GetRelativePath(contentDir, fileFullPath);
+                // pathFilter receives the forward-slash relative path (e.g. "_Imports.razor",
+                // "Manage/Index.razor"), letting a registration ship only a subset of its folder —
+                // used to give JWT-mode apps just the mode-independent account shell (layout
+                // wiring + skin) without the Identity-only pages.
+                if (pathFilter != null && !pathFilter(fileRelativePath.Replace('\\', '/')))
+                {
+                    continue;
+                }
+
                 var capturedPath = fileFullPath;
                 var capturedRel = fileRelativePath;
                 RegisterTemplate(registry, application,

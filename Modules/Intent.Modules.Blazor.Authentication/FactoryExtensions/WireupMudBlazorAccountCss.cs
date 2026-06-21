@@ -25,9 +25,11 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // The MudBlazor variant of ux-account.css only ships for the MudBlazor, ASP.NET Core
-            // Identity account pages (the non-MudBlazor case is handled by WireupAccountCssExtension).
-            if (!application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+            // The MudBlazor variant of ux-account.css ships for MudBlazor apps with a local account
+            // UI — ASP.NET Core Identity OR JWT (the non-MudBlazor case is handled by
+            // WireupAccountCssExtension).
+            var auth = application.GetSettings().GetBlazor().Authentication();
+            if (!auth.IsAspnetcoreIdentity() && !auth.IsJwt())
             {
                 return;
             }
