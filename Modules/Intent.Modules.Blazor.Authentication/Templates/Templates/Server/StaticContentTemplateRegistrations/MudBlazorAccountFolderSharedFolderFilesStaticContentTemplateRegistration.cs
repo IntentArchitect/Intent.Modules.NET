@@ -44,8 +44,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
-                replacements.Add("IdentityClassNamespace", $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
+                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data` (a compile error). Non-Identity setups that still have a
+                // Data namespace keep the using.
+                var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data";
+                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+                replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else
             {
@@ -62,10 +67,27 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity()
-                && application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            var auth = application.GetSettings().GetBlazor().Authentication();
+            var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            if (!mudBlazorInstalled)
             {
+                return;
+            }
+
+            if (auth.IsAspnetcoreIdentity())
+            {
+                // Identity: the full shared set (Manage layouts, ExternalLoginPicker, recovery codes,
+                // AppUserMenu, StatusMessage, AccountLayout skin, _Imports…).
                 RegisterAuthStaticContent(registry, application);
+            }
+            else if (auth.IsJwt())
+            {
+                // JWT: only the mode-independent account shell — the AccountLayout skin, StatusMessage
+                // (used by the RazorBuilder login/register), and the _Imports wiring. The Identity-only
+                // shared components (ManageLayout/NavMenu, ExternalLoginPicker, ShowRecoveryCodes,
+                // AppUserMenu) are not relevant to JWT and stay out.
+                RegisterAuthStaticContent(registry, application,
+                    pathFilter: rel => rel is "AccountLayout.razor.css" or "StatusMessage.razor" or "_Imports.razor");
             }
         }
     }
