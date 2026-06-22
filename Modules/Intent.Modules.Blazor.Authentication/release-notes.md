@@ -1,3 +1,8 @@
+### Version 1.2.0
+
+- Improvement: Default UI theming
+- Fixed: Navbar icons did not work due to coupling with main Blazor modules running `Interactive` modes which is not supported by Blazor's ASP.NET Identity 
+
 ### Version 1.1.1
 
 - Improvement: Updated NuGet package versions.

@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` mode due to ASP.NET identity requiring static no render mode
+
 ### Version 1.1.1
 
 - Improvement: Added support for Design.md.
