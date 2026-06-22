@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4ec7644c-ece6-4021-8ba6-7aa17bdb066f" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ec475b15-706f-4ccb-96ee-53f045153c81</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

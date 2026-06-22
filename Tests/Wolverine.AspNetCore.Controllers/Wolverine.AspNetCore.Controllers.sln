@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{6EFCFFFB-C1EE-431D-8FF6-04BD6E685F04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.Controllers.Api", "Wolverine.AspNetCore.Controllers.Api\Wolverine.AspNetCore.Controllers.Api.csproj", "{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{890CF8B3-6980-45A1-9797-BE233E6E76EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.Controllers.Application", "Wolverine.AspNetCore.Controllers.Application\Wolverine.AspNetCore.Controllers.Application.csproj", "{C4956529-9C05-41A1-B37C-BC9298FDBFE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{A97763F9-EC45-4274-96D3-87A2981C20EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.Controllers.Domain", "Wolverine.AspNetCore.Controllers.Domain\Wolverine.AspNetCore.Controllers.Domain.csproj", "{CCC5B7FC-95AE-439B-9404-9BBBC844FB55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{AA6D058C-A237-4C02-AF96-82E2A10F8B83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.Controllers.Infrastructure", "Wolverine.AspNetCore.Controllers.Infrastructure\Wolverine.AspNetCore.Controllers.Infrastructure.csproj", "{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6} = {6EFCFFFB-C1EE-431D-8FF6-04BD6E685F04}
+		{C4956529-9C05-41A1-B37C-BC9298FDBFE2} = {890CF8B3-6980-45A1-9797-BE233E6E76EC}
+		{CCC5B7FC-95AE-439B-9404-9BBBC844FB55} = {A97763F9-EC45-4274-96D3-87A2981C20EB}
+		{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A} = {AA6D058C-A237-4C02-AF96-82E2A10F8B83}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC4FDEDF-E47E-48DD-9859-AF1BFC7CA1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4956529-9C05-41A1-B37C-BC9298FDBFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4956529-9C05-41A1-B37C-BC9298FDBFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4956529-9C05-41A1-B37C-BC9298FDBFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4956529-9C05-41A1-B37C-BC9298FDBFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC5B7FC-95AE-439B-9404-9BBBC844FB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC5B7FC-95AE-439B-9404-9BBBC844FB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC5B7FC-95AE-439B-9404-9BBBC844FB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC5B7FC-95AE-439B-9404-9BBBC844FB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57775CD-B6E4-4586-AC6B-9BE96DFD8E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

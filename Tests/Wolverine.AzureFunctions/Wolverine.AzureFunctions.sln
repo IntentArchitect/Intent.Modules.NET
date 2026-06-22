@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{BC2F66F1-ED44-40E0-B3DC-EEBA186A4B40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AzureFunctions.Api", "Wolverine.AzureFunctions.Api\Wolverine.AzureFunctions.Api.csproj", "{2906DB3E-F6B8-4778-9247-3DF3FD3B224C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{72D39D8E-F771-4936-99A0-3EB9B6798D70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AzureFunctions.Application", "Wolverine.AzureFunctions.Application\Wolverine.AzureFunctions.Application.csproj", "{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{4EACD174-293D-46AB-B2D3-E154EA37C1E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AzureFunctions.Domain", "Wolverine.AzureFunctions.Domain\Wolverine.AzureFunctions.Domain.csproj", "{7E358B6C-7E60-4C25-8380-9535FE65A90B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5B4EC7EA-44A1-49CF-906F-976D62E7B0C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AzureFunctions.Infrastructure", "Wolverine.AzureFunctions.Infrastructure\Wolverine.AzureFunctions.Infrastructure.csproj", "{5106B54A-0A87-4902-BFE5-C1895AA14ED0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2906DB3E-F6B8-4778-9247-3DF3FD3B224C} = {BC2F66F1-ED44-40E0-B3DC-EEBA186A4B40}
+		{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F} = {72D39D8E-F771-4936-99A0-3EB9B6798D70}
+		{7E358B6C-7E60-4C25-8380-9535FE65A90B} = {4EACD174-293D-46AB-B2D3-E154EA37C1E9}
+		{5106B54A-0A87-4902-BFE5-C1895AA14ED0} = {5B4EC7EA-44A1-49CF-906F-976D62E7B0C0}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2906DB3E-F6B8-4778-9247-3DF3FD3B224C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2906DB3E-F6B8-4778-9247-3DF3FD3B224C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2906DB3E-F6B8-4778-9247-3DF3FD3B224C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2906DB3E-F6B8-4778-9247-3DF3FD3B224C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4415F9F8-3AC1-46D5-A04B-E97BF3CE3B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E358B6C-7E60-4C25-8380-9535FE65A90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E358B6C-7E60-4C25-8380-9535FE65A90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E358B6C-7E60-4C25-8380-9535FE65A90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E358B6C-7E60-4C25-8380-9535FE65A90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5106B54A-0A87-4902-BFE5-C1895AA14ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5106B54A-0A87-4902-BFE5-C1895AA14ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5106B54A-0A87-4902-BFE5-C1895AA14ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5106B54A-0A87-4902-BFE5-C1895AA14ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
