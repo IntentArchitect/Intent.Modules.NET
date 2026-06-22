@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>d062af63-7b0b-4d5e-9760-1f625aa90f6d</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>69ef59a9-b25a-4bfa-8a9b-8735808cb3f3</parentFolderId>
+  <packageId>69ef59a9-b25a-4bfa-8a9b-8735808cb3f3</packageId>
+  <packageName>Wolverine.AwsLambdaFunctions.Domain</packageName>
   <diagram>
     <targetPackageId>69ef59a9-b25a-4bfa-8a9b-8735808cb3f3</targetPackageId>
   </diagram>

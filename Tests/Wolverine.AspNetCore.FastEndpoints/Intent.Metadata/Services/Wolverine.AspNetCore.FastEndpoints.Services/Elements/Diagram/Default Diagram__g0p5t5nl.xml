@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</parentFolderId>
+  <packageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</packageId>
+  <packageName>Wolverine.AspNetCore.FastEndpoints.Services</packageName>
   <diagram>
     <targetPackageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</targetPackageId>
   </diagram>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</parentFolderId>
+  <packageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</packageId>
+  <packageName>Wolverine.AspNetCore.FastEndpoints.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements />
