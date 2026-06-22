@@ -66,20 +66,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 allProjects.Select(GetProjectRelativePath),
                 StringComparer.OrdinalIgnoreCase);
 
-            var intentFolderPaths = new HashSet<string>(
-                GetAllFolderPaths(intentFolders, parentPath: ""),
-                StringComparer.OrdinalIgnoreCase);
-
-            // Remove projects no longer in the Intent model
-            foreach (var existing in slnxModel.SolutionProjects.ToList())
-            {
-                if (!intentProjectPaths.Contains(existing.FilePath))
-                    slnxModel.RemoveProject(existing);
-            }
-
-            // Folders are NOT removed when absent from the Intent model so that manually-added
-            // solution folders (e.g. empty organiser folders the developer added by hand) are
-            // preserved across SF runs. Developers can remove unwanted folders manually.
+            // Projects and folders are NOT removed when absent from the Intent model so that
+            // manually-added projects and solution folders are preserved across SF runs.
 
             // Add root-level projects (no parent folder)
             foreach (var project in allProjects.Where(p => p.ParentFolder == null))
@@ -109,7 +97,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
             foreach (var project in allProjects.Where(p => p.ParentFolder?.Id == intentFolder.Id))
             {
                 var path = GetProjectRelativePath(project);
-                if (slnxModel.SolutionProjects.All(p => !string.Equals(p.FilePath, path, StringComparison.OrdinalIgnoreCase)))
+                var alreadyExists = slnxModel.SolutionProjects.Any(p =>
+                    string.Equals(p.FilePath, path, StringComparison.OrdinalIgnoreCase) ||
+                    (p.Parent == slnxFolder && string.Equals(
+                        Path.GetFileNameWithoutExtension(p.FilePath),
+                        project.Name,
+                        StringComparison.OrdinalIgnoreCase)));
+                if (!alreadyExists)
                     slnxModel.AddProject(path, null, slnxFolder);
             }
 
