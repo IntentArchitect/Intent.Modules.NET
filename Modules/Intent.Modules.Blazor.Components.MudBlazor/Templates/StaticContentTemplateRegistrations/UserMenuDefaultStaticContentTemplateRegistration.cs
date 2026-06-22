@@ -32,9 +32,15 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
             // The Authentication module ships the real Mud AppUserMenu (account actions) to
-            // Components/Account/Shared; defer to it. When Auth isn't installed, ship this no-op scaffold so
-            // the model-generated Mud layout's injected <AppUserMenu/> still resolves.
-            if (application.InstalledModules.Any(module => module.ModuleId == "Intent.Blazor.Authentication"))
+            // Components/Account/Shared ONLY in ASP.NET Core Identity mode (which installs
+            // Intent.AspNetCore.Identity). In JWT/OIDC mode Auth is installed but ships NO AppUserMenu, so
+            // the model-generated Mud layout's always-injected <AppUserMenu/> would dangle. Defer to Auth
+            // only when it actually provides the menu (Identity); otherwise (JWT/OIDC, or Auth absent) ship
+            // this no-op scaffold so the injected <AppUserMenu/> always resolves.
+            var authProvidesUserMenu =
+                application.InstalledModules.Any(module => module.ModuleId == "Intent.Blazor.Authentication")
+                && application.InstalledModules.Any(module => module.ModuleId == "Intent.AspNetCore.Identity");
+            if (authProvidesUserMenu)
             {
                 return;
             }

@@ -44,6 +44,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
             replacements.Add("Namespace", outputTarget.GetNamespace().Replace("Components.Account.Shared", ""));
 
+            // The shared layout lives in the server project for InteractiveServer, but in the .Client
+            // project for InteractiveAuto / InteractiveWebAssembly. Emit the render-mode-correct layout
+            // namespace so these components' @layout / @using resolve (otherwise Auto/Wasm hit CS0234).
+            var layoutRoot = outputTarget.GetNamespace().Replace("Components.Account.Shared", "");
+            replacements.Add("LayoutNamespace", outputTarget.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
+                ? layoutRoot
+                : $"{layoutRoot.TrimEnd('.')}.Client.");
+
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
