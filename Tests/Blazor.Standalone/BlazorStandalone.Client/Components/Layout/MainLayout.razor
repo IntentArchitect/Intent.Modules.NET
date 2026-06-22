@@ -36,11 +36,14 @@
                 Logout
             </MudMenuItem>
         </MudMenu>
+        <ThemeToggle OnToggle="ToggleTheme" />
+        <AppUserMenu />
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen"
                ClipMode="DrawerClipMode.Always"
                Elevation="0"
                Class="pt-2">
+        <NavLinks Items="AppNav.Items" />
         <MudNavMenu>
             <MudNavLink Icon="@Icons.Material.Filled.AddCircle"
                         Href="/example-page/{Title}">

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      data-theme="@_theme"
+      data-theme-storage="cookie">
 
     @Intent.Merge    <head>
         <meta charset="utf-8" />
@@ -22,6 +24,9 @@
     <body>
         <Routes @rendermode="GetRenderModeForPage()" />
         <script src="_framework/blazor.web.js"></script>
+        <script src="theme-storage.js"></script>
+        <script src="nav-drawer.js"></script>
+        <script>themeStorage.init();</script>
         <script src="theme.js"></script>
         <script>themeHelper.init();</script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
@@ -41,4 +46,6 @@
         }
         return new InteractiveAutoRenderMode(prerender: false);
     }
+
+    private string _theme => HttpContext.Request.Cookies.TryGetValue("theme", out var t) && t == "light" ? "light" : "dark";
 }

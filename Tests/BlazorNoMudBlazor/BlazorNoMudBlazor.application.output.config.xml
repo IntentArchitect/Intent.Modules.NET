@@ -8,7 +8,7 @@
     <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Counter.razor" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Error.razor" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Home.razor" state="ignored;once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Home.razor.css" state="once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Home.razor.css" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Weather.razor" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/wwwroot/app.css" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css" state="ignored;once-off-generated" />

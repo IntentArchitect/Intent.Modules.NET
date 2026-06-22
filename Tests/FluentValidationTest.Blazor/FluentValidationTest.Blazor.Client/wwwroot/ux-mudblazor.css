@@ -9,7 +9,7 @@
    Maps the design token layer onto MudBlazor's CSS variable namespace.
    ============================================================================ */
 
-:root {
+:root[data-theme] {
     --mud-default-font: var(--font-primary);
     --mud-palette-primary: var(--primary);
     --mud-palette-primary-text: var(--primary-contrast);

@@ -51,25 +51,6 @@
     color: var(--text-muted);
 }
 
-.form-floating {
-    position: relative;
-}
-
-    .form-floating > .form-control::placeholder {
-        color: transparent;
-    }
-
-    .form-floating > label {
-        color: var(--text-muted);
-    }
-
-    .form-floating > .form-control:focus ~ label,
-    .form-floating > .form-control:not(:placeholder-shown) ~ label,
-    .form-floating > .form-select ~ label {
-        font-size: var(--type-label-md);
-        color: var(--primary);
-    }
-
 .form-check {
     display: flex;
     align-items: center;
@@ -182,6 +163,36 @@
         background: var(--hover-overlay);
         color: var(--text);
         border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+/* Coloured outline / "inverted" variants — transparent fill + coloured border + text.
+   Mirrors how the MudBlazor app renders its outlined action buttons. */
+.btn-outline-primary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+    .btn-outline-primary:hover {
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+.btn-outline-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+    .btn-outline-danger:hover {
+        background: color-mix(in srgb, var(--danger) 10%, transparent);
+        color: var(--danger);
+        border-color: var(--danger);
         transform: translateY(-1px);
         text-decoration: none;
     }

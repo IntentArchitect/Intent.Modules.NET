@@ -1,6 +1,30 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 
+@using Blazor.InteractiveAuto.Oidc.Client.Layout
+
+<MudThemeProvider IsDarkMode="@IsDarkTheme" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<AppBrand Class="account-brand" />
+<ThemeToggle Class="account-theme-toggle" />
+
+<MudLayout>
+    <MudMainContent Class="pa-4">
+        <div class="account-layout-content">
+            @if (HttpContext is null)
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                @Body
+            }
+        </div>
+    </MudMainContent>
+</MudLayout>
 @layout Blazor.InteractiveAuto.Oidc.Client.Layout.MainLayout
 @if(HttpContext is null)
 {

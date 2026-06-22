@@ -95,5 +95,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="df0d6ece-9997-4249-b8d4-4443d0d2ee91" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6c58835-bada-42d8-87b0-e86d241bf0be</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

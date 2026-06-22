@@ -229,5 +229,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="569f2178-965a-415a-b64c-d41f47ee4508" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Components.MudBlazor.AppNav</name>
+      <display>Intent.Blazor.Components.MudBlazor.AppNav</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>123af4ec-788d-465e-8257-6c101f8da87c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

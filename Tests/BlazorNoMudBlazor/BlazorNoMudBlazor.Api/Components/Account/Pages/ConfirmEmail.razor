@@ -4,6 +4,14 @@
 @inject IAuthService AuthService
 
 <PageTitle>Confirm email</PageTitle>
+<AccountHero Icon="check-circle"
+             Title="Confirm email"
+             Subtitle="Email confirmation status." />
+<div class="ux-form-narrow">
+    <section>
+        <StatusMessage Message="@statusMessage" />
+    </section>
+</div>
 <h1>Confirm email</h1>
 <StatusMessage Message="@statusMessage" />
 @code {

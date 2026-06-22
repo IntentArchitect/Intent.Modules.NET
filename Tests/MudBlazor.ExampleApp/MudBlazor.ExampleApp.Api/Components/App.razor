@@ -19,6 +19,8 @@
     <body>
         <Routes @rendermode="GetRenderModeForPage()" />
         <script src="_framework/blazor.web.js"></script>
+        <script src="theme-storage.js"></script>
+        <script>themeStorage.init();</script>
         <script src="theme.js"></script>
         <script>themeHelper.init();</script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
