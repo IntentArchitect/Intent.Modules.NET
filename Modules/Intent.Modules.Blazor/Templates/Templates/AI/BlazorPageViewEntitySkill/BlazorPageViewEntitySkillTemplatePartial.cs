@@ -43,8 +43,8 @@ paths:
 STOP — you MUST read ALL of the following before writing ANY code:
 
 **Samples** (in the SAME folder as this SKILL.md):
-1. `EntityViewTemplate.razor`
-2. `EntityViewTemplate.cs`
+1. `view-entity-sample.razor`
+2. `view-entity-sample.cs`
 
 **Target component and project files:**
 3. The target `.razor` and `.razor.cs`
@@ -142,7 +142,7 @@ Do not render nested fields outside their guard block.
 
 Render child collections with `@foreach` inside a guarded `@if` block.
 
-- When the collection has items, render each in a `MudPaper` card (outlined, rounded) using `MudGrid`
+- When the collection has items, render each in a `MudPaper` with `Class="pa-3 ux-inner-panel"` and `Elevation="0"` using `MudGrid` — do not use `Outlined="true"` or hardcode a `Style` border-radius
 - When the collection is empty or null, render a `MudText` fallback message using `Color.Secondary`
 - Never use `for` loops with index variables for read-only collections — `@foreach` is correct here
 

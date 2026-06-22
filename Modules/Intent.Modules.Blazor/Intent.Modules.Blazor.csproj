@@ -20,7 +20,7 @@
     <Compile Remove="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
     <Compile Remove="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
     <Compile Remove="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
-    <Compile Remove="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
+    <Compile Remove="content\SkillSamples\blazor-page-view-entity\view-entity-sample.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,7 +51,7 @@
     <None Include="content\SkillSamples\blazor-page-adding-entity\add-entity-sample.razor.cs" />
     <None Include="content\SkillSamples\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
     <None Include="content\SkillSamples\blazor-page-search-entity\search-entity-sample.razor.cs" />
-    <None Include="content\SkillSamples\blazor-page-view-entity\EntityViewTemplate.cs" />
+    <None Include="content\SkillSamples\blazor-page-view-entity\view-entity-sample.cs" />
   </ItemGroup>
 
   <ItemGroup>
