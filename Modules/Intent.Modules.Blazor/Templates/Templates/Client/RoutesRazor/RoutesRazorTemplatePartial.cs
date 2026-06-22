@@ -106,9 +106,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             {
                 html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
             }
+            else if (this.TryGetTemplate<IClassProvider>(TemplateRoles.Blazor.Client.Program, out var clientProgram))
+            {
+                // No modeled layout, and there is a separate WebAssembly .Client project. The sample MainLayout
+                // seed lands at the .Client root (flat Layout/ folder), while this Routes.razor is generated under
+                // Components/, so a relative "Layout.MainLayout" would wrongly bind to Components.Layout (CS0234).
+                // Reference the layout by its absolute client-root namespace so it resolves regardless of folder.
+                html.AddAttribute("DefaultLayout", $"typeof({clientProgram.Namespace}.Layout.MainLayout)");
+            }
             else
             {
-                //This could be better, need a better way 
+                // Blazor Server (single project): Routes.razor and the MainLayout seed are both under Components/,
+                // so the relative reference resolves to Components.Layout.MainLayout.
                 html.AddAttribute("DefaultLayout", $"typeof(Layout.MainLayout)");
             }
         }
