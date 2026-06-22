@@ -1,11 +1,13 @@
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
+using Wolverine;
 using Wolverine.AspNetCore.Controllers.Api.Configuration;
 using Wolverine.AspNetCore.Controllers.Api.Filters;
 using Wolverine.AspNetCore.Controllers.Api.Logging;
 using Wolverine.AspNetCore.Controllers.Application;
 using Wolverine.AspNetCore.Controllers.Infrastructure;
+using Wolverine.AspNetCore.Controllers.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -26,12 +28,6 @@ namespace Wolverine.AspNetCore.Controllers.Api
             {
                 var builder = WebApplication.CreateBuilder(args);
 
-                // Add services to the container.
-                builder.Host.UseSerilog((context, services, configuration) => configuration
-                    .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-
                 builder.Services.AddControllers(
                     opt =>
                     {
@@ -44,6 +40,16 @@ namespace Wolverine.AspNetCore.Controllers.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+
+                builder.Host.UseWolverine(opts =>
+                {
+                    WolverineConfiguration.Configure(opts);
+                });
+
+                builder.Host.UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 var app = builder.Build();
 

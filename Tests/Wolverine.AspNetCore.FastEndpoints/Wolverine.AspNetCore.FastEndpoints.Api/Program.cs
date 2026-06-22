@@ -2,11 +2,13 @@ using FastEndpoints;
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
+using Wolverine;
 using Wolverine.AspNetCore.FastEndpoints.Api.Configuration;
 using Wolverine.AspNetCore.FastEndpoints.Api.FastEndpoints;
 using Wolverine.AspNetCore.FastEndpoints.Api.Logging;
 using Wolverine.AspNetCore.FastEndpoints.Application;
 using Wolverine.AspNetCore.FastEndpoints.Infrastructure;
+using Wolverine.AspNetCore.FastEndpoints.Infrastructure.Configuration;
 using Mode = Intent.RoslynWeaver.Attributes.Mode;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -36,15 +38,20 @@ namespace Wolverine.AspNetCore.FastEndpoints.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
 
-                builder.Host.UseSerilog((context, services, configuration) => configuration
-                    .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-
                 builder.Services.AddFastEndpoints(opt =>
                 {
                     opt.Assemblies = [typeof(Program).Assembly];
                 });
+
+                builder.Host.UseWolverine(opts =>
+                {
+                    WolverineConfiguration.Configure(opts);
+                });
+
+                builder.Host.UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 var app = builder.Build();
 

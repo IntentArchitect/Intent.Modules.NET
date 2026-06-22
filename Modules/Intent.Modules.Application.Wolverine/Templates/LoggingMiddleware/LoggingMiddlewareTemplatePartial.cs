@@ -26,7 +26,8 @@ namespace Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass("LoggingMiddleware", @class =>
                 {
-                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface", TemplateDiscoveryOptions.DoNotThrow);
+                    var hasIdentity = !string.IsNullOrEmpty(currentUserService);
 
                     @class.AddField("bool", "_logRequestPayload", f => f.PrivateReadOnly());
 
@@ -41,9 +42,14 @@ namespace Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware
                         method.Async();
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
-                        method.AddParameter(currentUserService, "currentUserService");
+                        if (hasIdentity)
+                        {
+                            method.AddParameter(currentUserService, "currentUserService");
+                        }
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
-                        method.AddStatement("await LogAsync(envelope.Message, logger, currentUserService);");
+                        method.AddStatement(hasIdentity
+                            ? "await LogAsync(envelope.Message, logger, currentUserService);"
+                            : "await LogAsync(envelope.Message, logger);");
                     });
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "LogAsync", method =>
@@ -51,18 +57,35 @@ namespace Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware
                         method.Async().Private();
                         method.AddParameter("object", "request");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
-                        method.AddParameter(currentUserService, "currentUserService");
+                        if (hasIdentity)
+                        {
+                            method.AddParameter(currentUserService, "currentUserService");
+                        }
 
                         method.AddStatement("var requestName = request.GetType().Name;");
-                        method.AddStatement("var user = await currentUserService.GetAsync();");
-                        method.AddIfStatement("_logRequestPayload", @if =>
+                        if (hasIdentity)
                         {
-                            @if.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}} {{@UserId}} {{@UserName}} {{@Request}}"", requestName, user?.Id, user?.Name, request);");
-                        });
-                        method.AddElseStatement(@else =>
+                            method.AddStatement("var user = await currentUserService.GetAsync();");
+                            method.AddIfStatement("_logRequestPayload", @if =>
+                            {
+                                @if.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}} {{@UserId}} {{@UserName}} {{@Request}}"", requestName, user?.Id, user?.Name, request);");
+                            });
+                            method.AddElseStatement(@else =>
+                            {
+                                @else.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}} {{@UserId}} {{@UserName}}"", requestName, user?.Id, user?.Name);");
+                            });
+                        }
+                        else
                         {
-                            @else.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}} {{@UserId}} {{@UserName}}"", requestName, user?.Id, user?.Name);");
-                        });
+                            method.AddIfStatement("_logRequestPayload", @if =>
+                            {
+                                @if.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}} {{@Request}}"", requestName, request);");
+                            });
+                            method.AddElseStatement(@else =>
+                            {
+                                @else.AddStatement($@"logger.LogInformation(""{appName} Request: {{Name}}"", requestName);");
+                            });
+                        }
                     });
                 });
         }

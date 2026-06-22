@@ -399,6 +399,62 @@
               </metadata>
               <childElements />
             </childElement>
+            <childElement id="abcad09e-7088-4fc7-93df-cd58cf042d73" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Application.Wolverine.CommandHandler</name>
+              <display>Intent.Application.Wolverine.CommandHandler</display>
+              <externalReference>Intent.Application.Wolverine</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>e0530d5c-2c11-49c8-bb37-a1484ee4384d</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="35deea33-28f3-4b8b-ae5e-253ff7e26369" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Application.Wolverine.CommandModels</name>
+              <display>Intent.Application.Wolverine.CommandModels</display>
+              <externalReference>Intent.Application.Wolverine</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>e0530d5c-2c11-49c8-bb37-a1484ee4384d</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="f370769d-f09f-4214-89d0-08bce29f9f44" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Application.Wolverine.QueryHandler</name>
+              <display>Intent.Application.Wolverine.QueryHandler</display>
+              <externalReference>Intent.Application.Wolverine</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>e0530d5c-2c11-49c8-bb37-a1484ee4384d</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="5e170f20-af47-4711-8830-816734949863" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Application.Wolverine.QueryModels</name>
+              <display>Intent.Application.Wolverine.QueryModels</display>
+              <externalReference>Intent.Application.Wolverine</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>e0530d5c-2c11-49c8-bb37-a1484ee4384d</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
           </childElements>
         </childElement>
       </childElements>

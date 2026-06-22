@@ -37,6 +37,8 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                     var perfMiddleware = GetTypeName("Intent.Application.Wolverine.PerformanceMiddleware");
                     var errMiddleware = GetTypeName("Intent.Application.Wolverine.UnhandledExceptionMiddleware");
                     var uowMiddleware = GetTypeName("Intent.Application.Wolverine.UnitOfWorkMiddleware");
+                    var hasIdentity = !string.IsNullOrEmpty(
+                        GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface", TemplateDiscoveryOptions.DoNotThrow));
 
                     @class.Internal().Static();
 
@@ -45,14 +47,20 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         method.Internal().Static();
                         method.AddParameter("WolverineOptions", "opts");
 
-                        method.AddStatement($"opts.Policies.AddMiddleware<{authMiddleware}>(IsApplicationMessage);");
+                        if (hasIdentity)
+                        {
+                            method.AddStatement($"opts.Policies.AddMiddleware<{authMiddleware}>(IsApplicationMessage);");
+                        }
                         method.AddStatement($"opts.Policies.AddMiddleware<{valMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{logMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{perfMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{errMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{uowMiddleware}>(c => typeof({commandType}).IsAssignableFrom(c.MessageType));");
                         method.AddStatement("");
-                        method.AddStatement($"opts.Services.AddTransient<{authMiddleware}>();");
+                        if (hasIdentity)
+                        {
+                            method.AddStatement($"opts.Services.AddTransient<{authMiddleware}>();");
+                        }
                         method.AddStatement($"opts.Services.AddTransient<{valMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{logMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{perfMiddleware}>();");

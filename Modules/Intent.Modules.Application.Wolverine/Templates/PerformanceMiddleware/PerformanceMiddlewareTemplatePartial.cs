@@ -26,7 +26,9 @@ namespace Intent.Modules.Application.Wolverine.Templates.PerformanceMiddleware
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass("PerformanceMiddleware", @class =>
                 {
-                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface", TemplateDiscoveryOptions.DoNotThrow);
+                    var hasIdentity = !string.IsNullOrEmpty(currentUserService);
+
                     @class.AddField("long", "_longRunningThresholdMilliseconds", f => f.PrivateReadOnly().WithAssignment(new CSharpStatement("500")));
                     @class.AddField("bool", "_logRequestPayload", f => f.PrivateReadOnly());
 
@@ -50,7 +52,10 @@ namespace Intent.Modules.Application.Wolverine.Templates.PerformanceMiddleware
                         method.AddParameter(UseType("System.Diagnostics.Stopwatch"), "stopwatch");
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
-                        method.AddParameter(currentUserService, "currentUserService");
+                        if (hasIdentity)
+                        {
+                            method.AddParameter(currentUserService, "currentUserService");
+                        }
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddStatement("stopwatch.Stop();");
@@ -60,15 +65,29 @@ namespace Intent.Modules.Application.Wolverine.Templates.PerformanceMiddleware
                         });
 
                         method.AddStatement("var requestName = envelope.Message?.GetType().Name;");
-                        method.AddStatement("var user = await currentUserService.GetAsync();");
-                        method.AddIfStatement("_logRequestPayload", @if =>
+                        if (hasIdentity)
                         {
-                            @if.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}} {{@Request}}"", requestName, stopwatch.ElapsedMilliseconds, user?.Id, user?.Name, envelope.Message);");
-                        });
-                        method.AddElseStatement(@else =>
+                            method.AddStatement("var user = await currentUserService.GetAsync();");
+                            method.AddIfStatement("_logRequestPayload", @if =>
+                            {
+                                @if.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}} {{@Request}}"", requestName, stopwatch.ElapsedMilliseconds, user?.Id, user?.Name, envelope.Message);");
+                            });
+                            method.AddElseStatement(@else =>
+                            {
+                                @else.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}}"", requestName, stopwatch.ElapsedMilliseconds, user?.Id, user?.Name);");
+                            });
+                        }
+                        else
                         {
-                            @else.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}}"", requestName, stopwatch.ElapsedMilliseconds, user?.Id, user?.Name);");
-                        });
+                            method.AddIfStatement("_logRequestPayload", @if =>
+                            {
+                                @if.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@Request}}"", requestName, stopwatch.ElapsedMilliseconds, envelope.Message);");
+                            });
+                            method.AddElseStatement(@else =>
+                            {
+                                @else.AddStatement($@"logger.LogWarning(""{appName} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds)"", requestName, stopwatch.ElapsedMilliseconds);");
+                            });
+                        }
                     });
                 });
         }

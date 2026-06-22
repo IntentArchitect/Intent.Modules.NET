@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</parentFolderId>
+  <packageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</packageId>
+  <packageName>Wolverine.AspNetCore.Controllers.Services</packageName>
   <diagram>
     <targetPackageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</targetPackageId>
   </diagram>

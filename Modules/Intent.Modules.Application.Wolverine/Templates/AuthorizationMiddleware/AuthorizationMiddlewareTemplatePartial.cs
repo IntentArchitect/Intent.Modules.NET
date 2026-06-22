@@ -25,11 +25,16 @@ namespace Intent.Modules.Application.Wolverine.Templates.AuthorizationMiddleware
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Reflection")
-                .AddClass("AuthorizationMiddleware", @class => 
+                .AddClass("AuthorizationMiddleware", @class =>
                 {
-                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface");
-                    var authorizeAttribute = GetTypeName("Intent.Application.Identity.AuthorizeAttribute");
-                    var forbiddenException = GetTypeName("Intent.Application.Identity.ForbiddenAccessException");
+                    var currentUserService = GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface", TemplateDiscoveryOptions.DoNotThrow);
+                    var authorizeAttribute = GetTypeName("Intent.Application.Identity.AuthorizeAttribute", TemplateDiscoveryOptions.DoNotThrow);
+                    var forbiddenException = GetTypeName("Intent.Application.Identity.ForbiddenAccessException", TemplateDiscoveryOptions.DoNotThrow);
+
+                    if (string.IsNullOrEmpty(currentUserService))
+                    {
+                        return; // Identity module not installed — no-op middleware
+                    }
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "BeforeAsync", method =>
                     {

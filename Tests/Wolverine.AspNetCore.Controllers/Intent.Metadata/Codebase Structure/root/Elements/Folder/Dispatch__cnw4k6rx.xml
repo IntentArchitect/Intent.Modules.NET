@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="947de7a8-4ef3-4bdb-86b2-d16403023680" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Dispatch</name>
+  <display>Dispatch</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a57775cd-b6e4-4586-ac6b-9be96dfd8e8a</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

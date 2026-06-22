@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Wolverine.AzureFunctions.Application\Wolverine.AzureFunctions.Application.csproj" />
     <ProjectReference Include="..\Wolverine.AzureFunctions.Infrastructure\Wolverine.AzureFunctions.Infrastructure.csproj" />
+    <ProjectReference Include="..\Wolverine.AzureFunctions.Domain\Wolverine.AzureFunctions.Domain.csproj" />
   </ItemGroup>
     <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -32,6 +33,7 @@
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.0" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.6.0" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.7" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.2" />
     </ItemGroup>
 
 </Project>

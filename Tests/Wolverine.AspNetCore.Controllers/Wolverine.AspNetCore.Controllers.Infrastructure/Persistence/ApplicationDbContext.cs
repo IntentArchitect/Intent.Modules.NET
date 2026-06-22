@@ -1,6 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Wolverine.AspNetCore.Controllers.Domain.Common.Interfaces;
+using Wolverine.AspNetCore.Controllers.Domain.Entities;
+using Wolverine.AspNetCore.Controllers.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -13,11 +15,14 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Product> Products { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

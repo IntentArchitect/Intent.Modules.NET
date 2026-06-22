@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84ac0bfd-6a67-41cc-be52-30a0850b93c9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Middleware</name>
+  <display>Middleware</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4880016a-b11b-4c1f-9c63-1fc41a8a0c0f</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2133eb46-8d88-4615-b510-65eb76316d6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.ApplicationHandlerPolicy</name>
+      <display>Intent.Application.Wolverine.ApplicationHandlerPolicy</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="310a5d0b-cbe4-44d1-8581-875f4505a1f3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.AuthorizationMiddleware</name>
+      <display>Intent.Application.Wolverine.AuthorizationMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="88af49a1-8ad3-4e5c-b9b9-f7ff7b0e85fa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.LoggingMiddleware</name>
+      <display>Intent.Application.Wolverine.LoggingMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="710a5e98-9028-46f1-8c27-9c98139f9d53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.PerformanceMiddleware</name>
+      <display>Intent.Application.Wolverine.PerformanceMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8c35ab6f-1c78-4f37-9ccc-560f834b63c1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.UnhandledExceptionMiddleware</name>
+      <display>Intent.Application.Wolverine.UnhandledExceptionMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f569a066-2174-4f96-9ffd-ea9087a4c3bc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.UnitOfWorkMiddleware</name>
+      <display>Intent.Application.Wolverine.UnitOfWorkMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e525ad5f-3830-4660-96d4-1f6d27f9fdce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.ValidationMiddleware</name>
+      <display>Intent.Application.Wolverine.ValidationMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84ac0bfd-6a67-41cc-be52-30a0850b93c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

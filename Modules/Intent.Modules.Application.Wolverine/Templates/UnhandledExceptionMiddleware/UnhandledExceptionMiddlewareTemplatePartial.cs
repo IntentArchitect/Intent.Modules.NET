@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddl
                     @class.AddMethod("void", "OnException", method =>
                     {
                         method.AddAttribute($"[{UseType("Wolverine.Attributes.WolverineOnException")}]");
-                        method.AddParameter("Exception", "exception");
+                        method.AddParameter(UseType("System.Exception"), "exception");
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
                         method.AddStatement("LogException(exception, envelope.Message, logger);");
@@ -46,7 +46,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddl
                     @class.AddMethod("void", "LogException", method =>
                     {
                         method.Private();
-                        method.AddParameter("Exception", "exception");
+                        method.AddParameter(UseType("System.Exception"), "exception");
                         method.AddParameter("object", "request");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
 

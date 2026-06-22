@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>31c0984f-263d-49da-b0e1-cc9d6be94ebe</parentFolderId>
+  <packageId>31c0984f-263d-49da-b0e1-cc9d6be94ebe</packageId>
+  <packageName>Wolverine.AzureFunctions.Domain</packageName>
   <diagram>
     <targetPackageId>31c0984f-263d-49da-b0e1-cc9d6be94ebe</targetPackageId>
   </diagram>

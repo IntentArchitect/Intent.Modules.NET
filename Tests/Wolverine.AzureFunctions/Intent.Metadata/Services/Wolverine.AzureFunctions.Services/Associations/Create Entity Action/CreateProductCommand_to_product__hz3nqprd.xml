@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7f4518e7-420c-4a43-99ef-71cf2bee9158">
+  <sourceEnd id="747f5105-67f3-4def-a308-8d73fd7eb8c3" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Products.CreateProductCommand</display>
+    <order>0</order>
+    <typeReference id="08d489f7-eb9f-437b-97d3-60a19c7fd2f7">
+      <typeId>437d909e-1c22-4c67-b50c-4174cd6335b5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AzureFunctions.Services</typePackageName>
+      <typePackageId>ec475b15-706f-4ccb-96ee-53f045153c81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7f4518e7-420c-4a43-99ef-71cf2bee9158" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>product</name>
+    <display>[create] product: Product</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="015a6447-08fb-4fa1-b32d-03be62432a49">
+      <typeId>bc9f8651-b663-46d3-b7c6-9e83585ec4c8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AzureFunctions.Domain</typePackageName>
+      <typePackageId>31c0984f-263d-49da-b0e1-cc9d6be94ebe</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>
