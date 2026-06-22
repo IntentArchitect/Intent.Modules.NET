@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bf7b4323-5896-42a7-aa6e-07b00f179b74">
+  <sourceEnd id="962f0d20-5930-4b53-9880-38f1f01d7d26" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: N_ServiceBus.SqlServer.Services.OrderAnimalHandler</display>
+    <order>0</order>
+    <typeReference id="a83cfca7-b80b-492f-9f91-54ce74ae0a29">
+      <typeId>23a6cede-916c-4b95-b314-04afa1b4a940</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Services</typePackageName>
+      <typePackageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bf7b4323-5896-42a7-aa6e-07b00f179b74" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] MakeSoundCommand</display>
+    <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="a961cbab-cee9-45ed-b2ff-dafbe46bf90a">
+      <typeId>06ef3904-2f81-4d04-883e-e0e6be0689b4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.SqlServer.Eventing.Messages</typePackageName>
+      <typePackageId>c3f1b826-11c3-4064-89f2-9b67a6ecfc3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

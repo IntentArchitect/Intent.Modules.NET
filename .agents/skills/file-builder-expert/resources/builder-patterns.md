@@ -107,6 +107,7 @@ The key behaviour of `Mode.Ignore` on a **generated output method**:
 
 **Caution:** Once the developer has customised the body, the template's model-driven generation no longer fires for that file. If the model changes (e.g. a new event subscription is added in the designer), the developer must update Configure manually.
 
+
 ## Conditional AddUsing Patterns
 
 ```csharp

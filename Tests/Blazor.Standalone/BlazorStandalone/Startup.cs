@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlazorStandalone.Client;
+using BlazorStandalone.Client.Components.Services;
 using BlazorStandalone.Components;
 using BlazorStandalone.Configuration;
 using Intent.RoslynWeaver.Attributes;
@@ -40,6 +41,7 @@ namespace BlazorStandalone
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

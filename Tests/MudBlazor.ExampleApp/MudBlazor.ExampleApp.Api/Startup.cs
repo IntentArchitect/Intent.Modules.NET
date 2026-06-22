@@ -5,6 +5,7 @@ using MudBlazor.ExampleApp.Api.Configuration;
 using MudBlazor.ExampleApp.Api.Filters;
 using MudBlazor.ExampleApp.Application;
 using MudBlazor.ExampleApp.Client;
+using MudBlazor.ExampleApp.Client.Components.Services;
 using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Infrastructure;
 using MudBlazor.Services;
@@ -48,6 +49,7 @@ namespace MudBlazor.ExampleApp.Api
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cdfa2128-cc5d-4fba-a736-f60d7c446179</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/WireupCssExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-04T09:03:07.7917731Z</updatedAt>
+      <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
+      <fileHash>F7052CAA8FD0E35223D1A8B7C5BA4D46E3D9B067C5BD1A7631E23FFBE4FCCB2A</fileHash>
+    </file>
+  </files>
 </deviationsLog>

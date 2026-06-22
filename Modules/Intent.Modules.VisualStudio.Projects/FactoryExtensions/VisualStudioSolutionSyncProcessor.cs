@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
@@ -15,10 +12,6 @@ using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Microsoft.DotNet.Cli.Sln.Internal;
-using Microsoft.VisualStudio.SolutionPersistence.Serializer;
-using SlnxFolderModel = Microsoft.VisualStudio.SolutionPersistence.Model.SolutionFolderModel;
-using SlnxSolutionModel = Microsoft.VisualStudio.SolutionPersistence.Model.SolutionModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -28,12 +21,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
     [IntentManaged(Mode.Merge)]
     public class VisualStudioSolutionSyncProcessor : FactoryExtensionBase, IExecutionLifeCycle, ITemplateLifeCycle
     {
-        private delegate void UpdateChanges(string filename, string content);
-
         private readonly ISoftwareFactoryEventDispatcher _sfEventDispatcher;
         private readonly IChanges _changes;
         private readonly Dictionary<string, List<SoftwareFactoryEvent>> _actions = new();
-        private readonly Dictionary<string, Func<IFileMetadata>> _vsSolutionsById = new();
+        private readonly Dictionary<string, IVsSolutionSyncTarget> _vsSolutionsById = new();
         private IApplication _application;
 
         public VisualStudioSolutionSyncProcessor(
@@ -46,12 +37,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.FileRemovedEvent, Handle);
         }
 
-        private (string Content, Action<string> ChangeContent) GetChange(string filePath)
+        private (string Content, System.Action<string> ChangeContent) GetChange(string filePath)
         {
             var change = _changes.FindChange(filePath);
             if (change != null)
             {
-                return (change.Content, change.ChangeContent);
+                return (change.Content, content => change.ChangeContent(content, content));
             }
 
             var content = File.ReadAllText(filePath);
@@ -118,108 +109,29 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             foreach (var solution in byVsSolutionId)
             {
-                var filePath = _vsSolutionsById[solution.Key]().GetFilePath();
+                var target = _vsSolutionsById[solution.Key];
+                var filePath = target.GetMetadata().GetFilePath();
                 var change = GetChange(filePath);
 
-                if (filePath.EndsWith(".slnx", StringComparison.OrdinalIgnoreCase))
-                {
-                    var slnxModel = ParseSlnx(change.Content);
-                    var slnxOriginal = SerializeSlnx(slnxModel);
-                    var solutionDir = Path.GetDirectoryName(filePath) ?? string.Empty;
-
-                    foreach (var item in solution)
+                var actions = solution
+                    .SelectMany(item => item.Events.Select(e =>
                     {
-                        foreach (var @event in item.Events)
+                        e.AdditionalInfo.TryGetValue("RelativeOutputPathPrefix", out var prefix);
+                        return new SolutionItemAction
                         {
-                            var physicalPath = @event.GetValue("Path");
-                            var solutionFolderPath = GetPath(item.Model);
-                            var relativePath = Path.GetRelativePath(solutionDir, physicalPath).Replace('\\', '/');
+                            EventIdentifier = e.EventIdentifier,
+                            PhysicalPath = e.GetValue("Path"),
+                            FolderPath = GetPath(item.Model),
+                            RelativeOutputPathPrefix = prefix,
+                            HasMaterializedFolder = HasMaterializedFolder(item.Model)
+                        };
+                    }))
+                    .ToList();
 
-                            switch (@event.EventIdentifier)
-                            {
-                                case SoftwareFactoryEvents.FileAddedEvent:
-                                    var slnxFolderPath = BuildSlnxFolderPath(solutionFolderPath);
-                                    var slnxFolder = slnxModel.SolutionFolders
-                                        .FirstOrDefault(f => string.Equals(f.Path, slnxFolderPath, StringComparison.OrdinalIgnoreCase))
-                                        ?? slnxModel.AddFolder(slnxFolderPath);
-                                    if (slnxFolder.Files?.Any(f => string.Equals(f, relativePath, StringComparison.OrdinalIgnoreCase)) != true)
-                                        slnxFolder.AddFile(relativePath);
-                                    break;
-                                case SoftwareFactoryEvents.FileRemovedEvent:
-                                    foreach (var folder in slnxModel.SolutionFolders.ToList())
-                                    {
-                                        if (folder.Files?.Any(f => string.Equals(f, relativePath, StringComparison.OrdinalIgnoreCase)) == true)
-                                            folder.RemoveFile(relativePath);
-                                    }
-                                    break;
-                            }
-                        }
-                    }
-
-                    var slnxUpdated = SerializeSlnx(slnxModel);
-                    if (slnxOriginal != slnxUpdated)
-                        change.ChangeContent(slnxUpdated);
-
-                    continue;
-                }
-
-                var slnFile = SlnFile.Read(filePath, change.Content);
-                var original = slnFile.Generate();
-
-                foreach (var item in solution)
-                {
-                    var hasMaterializedFolder = HasMaterializedFolder(item.Model);
-                    foreach (var @event in item.Events)
-                    {
-                        var physicalPath = @event.GetValue("Path");
-
-                        if (!@event.AdditionalInfo.TryGetValue("RelativeOutputPathPrefix", out var relativeOutputPathPrefix))
-                        {
-                            relativeOutputPathPrefix = null;
-                        }
-
-                        switch (@event.EventIdentifier)
-                        {
-                            case SoftwareFactoryEvents.FileAddedEvent:
-                                var solutionFolderPath = GetPath(item.Model);
-                                if (solutionFolderPath.Count == 0)
-                                {
-                                    slnFile.AddSolutionItem(
-                                        parentProject: null,
-                                        solutionItemPhysicalPath: physicalPath,
-                                        relativeOutputPathPrefix: relativeOutputPathPrefix,
-                                        hasMaterializedFolder: hasMaterializedFolder);
-                                    break;
-                                }
-
-                                var solutionFolderProject = solutionFolderPath
-                                    .Aggregate(
-                                        seed: default(SlnProject),
-                                        func: (current, solutionFolder) => current?.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name) ??
-                                                                           slnFile.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name));
-
-                                slnFile.AddSolutionItem(
-                                    parentProject: solutionFolderProject,
-                                    solutionItemPhysicalPath: physicalPath,
-                                    relativeOutputPathPrefix: relativeOutputPathPrefix,
-                                    hasMaterializedFolder: hasMaterializedFolder);
-                                break;
-                            case SoftwareFactoryEvents.FileRemovedEvent:
-                                slnFile.RemoveSolutionItem(physicalPath);
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-
-                var updated = slnFile.Generate();
-                if (original == updated)
-                {
-                    continue;
-                }
-
-                change.ChangeContent(updated);
+                var diskContent = File.Exists(filePath) ? File.ReadAllText(filePath) : null;
+                var updated = target.ApplySolutionItems(change.Content, actions, diskContent);
+                if (updated != null)
+                    change.ChangeContent(updated);
             }
         }
 
@@ -229,7 +141,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             return path.Any(x => x.GetFolderOptions()?.MaterializeFolder() == true);
         }
 
-        private IReadOnlyCollection<SolutionFolderModel> GetPath(SolutionFolderModel solutionFolderModel)
+        private static IReadOnlyCollection<SolutionFolderModel> GetPath(SolutionFolderModel solutionFolderModel)
         {
             var stack = new Stack<SolutionFolderModel>();
 
@@ -242,32 +154,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             return stack;
         }
 
-        private static string BuildSlnxFolderPath(IReadOnlyCollection<SolutionFolderModel> solutionFolderPath)
-        {
-            return "/" + string.Join("/", solutionFolderPath.Select(f => f.Name)) + "/";
-        }
-
-        private static SlnxSolutionModel ParseSlnx(string content)
-        {
-            if (string.IsNullOrWhiteSpace(content))
-                return new SlnxSolutionModel();
-            using var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-            return SolutionSerializers.SlnXml.OpenAsync(stream, CancellationToken.None).GetAwaiter().GetResult();
-        }
-
-        private static string SerializeSlnx(SlnxSolutionModel model)
-        {
-            using var stream = new MemoryStream();
-            SolutionSerializers.SlnXml.SaveAsync(stream, model, CancellationToken.None).GetAwaiter().GetResult();
-            return Encoding.UTF8.GetString(stream.ToArray());
-        }
-
         public void Handle(SoftwareFactoryEvent @event)
         {
             var outputTargetId = @event.GetValue("OutputTargetId");
             if (!_actions.ContainsKey(outputTargetId))
             {
-                _actions[outputTargetId] = new List<SoftwareFactoryEvent>();
+                _actions[outputTargetId] = [];
             }
             _actions[outputTargetId].Add(@event);
         }
@@ -276,14 +168,15 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         public void PostCreation(ITemplate template)
         {
-            if (template is VisualStudioSolutionTemplate vsSolutionTemplate)
+            IVsSolutionSyncTarget target = template switch
             {
-                _vsSolutionsById.Add(vsSolutionTemplate.Model.Id, vsSolutionTemplate.GetMetadata);
-            }
-            else if (template is VisualStudioSolutionSlnxTemplate slnxTemplate)
-            {
-                _vsSolutionsById.Add(slnxTemplate.Model.Id, slnxTemplate.GetMetadata);
-            }
+                VisualStudioSolutionTemplate sln => new SlnSyncTarget(sln.Model.Id, sln.GetMetadata),
+                VisualStudioSolutionSlnxTemplate slnx => new SlnxSyncTarget(slnx.Model.Id, slnx.GetMetadata),
+                _ => null
+            };
+
+            if (target != null)
+                _vsSolutionsById.Add(target.SolutionModelId, target);
         }
     }
 }

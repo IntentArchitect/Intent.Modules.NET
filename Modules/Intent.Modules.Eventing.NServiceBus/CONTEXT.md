@@ -262,6 +262,20 @@ failures such as:
 
 Rejected because NServiceBus explicitly skips open generic type definitions during scanning.
 
+### NServiceBus Source-Generated Handler Registration (`AddHandler<T>()`)
+
+NServiceBus provides a source-generated `AddHandler<T>()` API that registers handlers generically
+without manual registry manipulation. This was rejected because:
+
+- The source generator emits code that requires an experimental C# language feature to compile
+- Enabling experimental features in user-generated code is unacceptable
+- The internal registration logic it generates was safe to copy and reproduce directly
+
+Instead, Intent generates the handler registrations explicitly — mirroring what the source generator
+would have emitted, but without the experimental dependency. This is the correct long-term approach.
+
+Do not revisit `AddHandler<T>()` unless the experimental requirement is removed upstream.
+
 ---
 
 ## Acceptance Matrix

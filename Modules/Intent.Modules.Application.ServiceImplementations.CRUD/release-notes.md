@@ -1,3 +1,6 @@
+### Version 5.3.5
+
+- Fixed: Issue where multiple implementation strategies were qualifying in certain conditions
 
 ### Version 5.3.4
 

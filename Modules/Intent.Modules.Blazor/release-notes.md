@@ -1,3 +1,9 @@
+### Version 1.1.1
+
+- Improvement: Added support for Design.md.
+- Improvement: Updated out of the box styling.
+- Improvement: Support for light and dark modes.
+
 ### Version 1.1.0
 
 - Improvement: Converted Blazor AI to use skills for Page implementation, and align with new AI implementation.

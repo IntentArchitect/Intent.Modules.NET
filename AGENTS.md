@@ -145,6 +145,16 @@ If the user instructs you to commit or move on while a cycle is open:
 3. Create or update `/WORKING.md` to record the open cycle so the next session can resume it.
 4. Close the cycle before touching any `*TemplatePartial.cs` or `*FactoryExtension.cs` file again.
 
+### Docs Update (Mandatory)
+After **every** change that adds, removes, or modifies user-facing behaviour — a new transport option, a new setting, a new generated file, a changed generated shape — update **both** artifacts in the **same turn** as the code change. Do not defer to a follow-up:
+
+| Artifact | What to update |
+| :--- | :--- |
+| `docs/README.md` | Add/update the relevant section (transport table, settings table, generated code example, etc.) |
+| `release-notes.md` | Add a bullet under the current version using `New Feature:` / `Improvement:` / `Fixed:` prefix |
+
+Use the **`module-docs`** skill for the canonical format rules. A code change without a matching docs update is **incomplete**.
+
 ## 🤖 Available Skills
 
 Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.

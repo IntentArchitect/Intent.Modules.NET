@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client;
+using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client.Components.Services;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Common;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account;
@@ -67,6 +68,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

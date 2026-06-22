@@ -1,6 +1,6 @@
 @inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider IsDarkMode="@_themeService.IsDark" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -17,6 +17,11 @@
             <MudText Typo="Typo.h5">Application</MudText>
         </MudButton>
         <MudSpacer />
+        <MudTooltip Text="@(_themeService.IsDark ? "Switch to light mode" : "Switch to dark mode")">
+            <MudIconButton Icon="@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
+                           Color="Color.Inherit"
+                           OnClick="ToggleTheme" />
+        </MudTooltip>
         <MudMenu Icon="@Icons.Material.Filled.MoreVert">
             <MudMenuItem Href="/example-page/{Title}"
                          Icon="@Icons.Material.Filled.Person">
@@ -34,7 +39,7 @@
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen"
                ClipMode="DrawerClipMode.Always"
-               Elevation="2"
+               Elevation="0"
                Class="pt-2">
         <MudNavMenu>
             <MudNavLink Icon="@Icons.Material.Filled.AddCircle"

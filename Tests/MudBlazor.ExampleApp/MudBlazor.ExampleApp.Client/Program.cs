@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.ExampleApp.Client.Components.Services;
 using MudBlazor.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,6 +20,8 @@ namespace MudBlazor.ExampleApp.Client
             builder.Services.AddAuthorizationCore();
 
             builder.Services.AddMudServices();
+
+            builder.Services.AddSingleton<ThemeService>();
 
             await builder.Build().RunAsync();
         }

@@ -17,8 +17,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
     [IntentMerge]
     public class WasmNoSampleStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        [IntentIgnore]
-        public new const string TemplateId = "Intent.Blazor.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration";
 
         public WasmNoSampleStaticContentTemplateRegistration() : base(TemplateId)
         {

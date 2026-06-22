@@ -68,6 +68,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                 case NServiceBusSettings.TransportOptionsEnum.LearningTransport:
                     // Learning Transport is included in NServiceBus.Core — no extra package needed
                     break;
+                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
+                    AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));
+                    break;
                 default:
                     throw new InvalidOperationException($"Unsupported transport type: {transport.Value}");
             }
@@ -390,6 +393,13 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         @"Path.Combine(Path.GetTempPath(), ""nservicebus-learning"")")).WithSemicolon().SeparatedFromPrevious());
                 method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new LearningTransport {{ StorageDirectory = storageDirectory }});");
             }
+            else if (transport.IsSqlServer())
+            {
+                method.AddStatement(
+                    @"var connectionString = configuration.GetConnectionString(""NServiceBus"") ?? throw new InvalidOperationException(""ConnectionStrings:NServiceBus is not configured"");",
+                    s => s.SeparatedFromPrevious());
+                method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));");
+            }
         }
 
         private void AddPersistenceStatements(CSharpClassMethod method)
@@ -453,6 +463,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     break;
                 case NServiceBusSettings.TransportOptionsEnum.AmazonSqs:
                     // Amazon SQS uses AWS credentials/environment — no connection string needed
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                        "ConnectionStrings:NServiceBus",
+                        "Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"));
                     break;
             }
 
