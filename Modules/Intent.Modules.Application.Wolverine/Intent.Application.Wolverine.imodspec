@@ -134,6 +134,38 @@
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Dispatch.Wolverine" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.AzureFunctions">
+      <install>
+        <package id="Intent.AzureFunctions.Dispatch.Wolverine" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.FastEndpoints">
+      <install>
+        <package id="Intent.FastEndpoints.Dispatch.Wolverine" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Aws.Lambda.Functions">
+      <install>
+        <package id="Intent.Aws.Lambda.Functions.Dispatch.Wolverine" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.FluentValidation">
+      <install>
+        <package id="Intent.Application.Wolverine.FluentValidation" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.DomainEvents">
+      <install>
+        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
