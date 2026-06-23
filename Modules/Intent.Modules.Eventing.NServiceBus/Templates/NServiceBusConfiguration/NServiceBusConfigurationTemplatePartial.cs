@@ -52,8 +52,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
             AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
-            var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
-            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
+            var nsbSettings = ExecutionContext.Settings.GetNServiceBusSettings();
+            var transport = nsbSettings.Transport();
+            var persistence = nsbSettings.Persistence();
             switch (transport.AsEnum())
             {
                 case NServiceBusSettings.TransportOptionsEnum.Rabbitmq:
@@ -75,17 +76,28 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     throw new InvalidOperationException($"Unsupported transport type: {transport.Value}");
             }
 
-            if (outboxPattern.IsSqlPersistence())
+            if (persistence.IsSqlPersistence())
             {
                 if (!ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
                     throw new FriendlyException(
-                        "OutboxPattern is set to SqlPersistence but the Intent.EntityFrameworkCore module is not installed. " +
+                        "Persistence is set to SqlPersistence but the Intent.EntityFrameworkCore module is not installed. " +
                         "The NServiceBus transactional outbox shares the EF Core DbConnection/DbTransaction to ensure " +
                         "exactly-once message dispatch alongside your database writes. " +
-                        "Install Intent.EntityFrameworkCore, or change the OutboxPattern module setting to None.");
-                
+                        "Install Intent.EntityFrameworkCore, or change the Persistence module setting to None.");
+
                 AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+            }
+
+            if (persistence.IsNhibernate())
+            {
+                AddNugetDependency(NugetPackages.NServiceBusNHibernate(OutputTarget));
+                // NHibernate uses MicrosoftDataSqlClientDriver (see AddPersistenceStatements); the
+                // driver is loaded reflectively and is not brought in transitively by
+                // NServiceBus.NHibernate, so Microsoft.Data.SqlClient must be declared explicitly.
+                AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+                if (nsbSettings.EnableOutbox())
+                    AddNugetDependency(NugetPackages.NServiceBusNHibernateTransactionalSession(OutputTarget));
             }
 
             if (_isLegacyFramework)
@@ -113,10 +125,17 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             if (_isLegacyFramework)
                 CSharpFile.AddUsing("Microsoft.Extensions.Hosting");
 
-            if (outboxPattern.IsSqlPersistence())
+            if (persistence.IsSqlPersistence())
             {
                 CSharpFile.AddUsing("Microsoft.Data.SqlClient");
                 CSharpFile.AddUsing("NServiceBus.TransactionalSession");
+            }
+
+            if (persistence.IsNhibernate())
+            {
+                CSharpFile.AddUsing("NServiceBus.Persistence");
+                if (nsbSettings.EnableOutbox())
+                    CSharpFile.AddUsing("NServiceBus.TransactionalSession");
             }
 
             CSharpFile.AddClass("NServiceBusConfiguration", @class =>
@@ -225,12 +244,17 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
                     method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
                     method.AddStatement("var endpointConfiguration = new EndpointConfiguration(endpointName);");
+                    AddLicenseStatements(method);
 
                     var needsRouting = sentCommandTemplates.Count > 0 || commandSubscriptions.Count > 0;
                     AddTransportStatements(method, captureVar: needsRouting);
                     AddPersistenceStatements(method);
 
-                    method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
+                    method.AddIfStatement(@"configuration.GetValue<bool>(""NServiceBus:EnableInstallers"")", b =>
+                    {
+                        b.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
+                        b.AddStatement("endpointConfiguration.EnableInstallers();");
+                    });
                     method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
 
                     AddRecoverabilityStatements(method);
@@ -270,6 +294,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                                 s => { if (isFirst) s.SeparatedFromPrevious(); });
                         }
                     }
+
+                    AddAuditStatements(method);
+                    AddInstanceIdentificationStatements(method);
 
                     method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                 });
@@ -404,17 +431,42 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
         private void AddPersistenceStatements(CSharpClassMethod method)
         {
-            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
-            if (!outboxPattern.IsSqlPersistence()) return;
+            var nsbSettings = ExecutionContext.Settings.GetNServiceBusSettings();
+            var persistence = nsbSettings.Persistence();
+            var enableOutbox = nsbSettings.EnableOutbox();
 
-            method.AddStatement(
-                @"var persistenceConnectionString = configuration.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""ConnectionStrings:DefaultConnection is not configured"");",
-                s => s.SeparatedFromPrevious());
-            method.AddStatement("var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();");
-            method.AddStatement("persistence.SqlDialect<SqlDialect.MsSqlServer>();");
-            method.AddStatement("persistence.ConnectionBuilder(connectionBuilder: () => new SqlConnection(persistenceConnectionString));");
-            method.AddStatement("persistence.EnableTransactionalSession();");
-            method.AddStatement("endpointConfiguration.EnableOutbox();");
+            if (persistence.IsSqlPersistence())
+            {
+                method.AddStatement(
+                    @"var persistenceConnectionString = configuration.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""ConnectionStrings:DefaultConnection is not configured"");",
+                    s => s.SeparatedFromPrevious());
+                method.AddStatement("var sqlPersistence = endpointConfiguration.UsePersistence<SqlPersistence>();");
+                method.AddStatement("sqlPersistence.SqlDialect<SqlDialect.MsSqlServer>();");
+                method.AddStatement("sqlPersistence.ConnectionBuilder(connectionBuilder: () => new SqlConnection(persistenceConnectionString));");
+                if (enableOutbox)
+                {
+                    method.AddStatement("sqlPersistence.EnableTransactionalSession();");
+                    method.AddStatement("endpointConfiguration.EnableOutbox();");
+                }
+            }
+            else if (persistence.IsNhibernate())
+            {
+                method.AddStatement(
+                    @"var nhibernateConnectionString = configuration.GetConnectionString(""NServiceBus"") ?? throw new InvalidOperationException(""ConnectionStrings:NServiceBus is not configured"");",
+                    s => s.SeparatedFromPrevious());
+                method.AddStatement("var nhibernateConfig = new global::NHibernate.Cfg.Configuration();");
+                method.AddStatement(@"nhibernateConfig.SetProperty(global::NHibernate.Cfg.Environment.ConnectionProvider, ""NHibernate.Connection.DriverConnectionProvider"");");
+                method.AddStatement(@"nhibernateConfig.SetProperty(global::NHibernate.Cfg.Environment.ConnectionDriver, ""NHibernate.Driver.MicrosoftDataSqlClientDriver"");");
+                method.AddStatement(@"nhibernateConfig.SetProperty(global::NHibernate.Cfg.Environment.Dialect, ""NHibernate.Dialect.MsSql2012Dialect"");");
+                method.AddStatement("nhibernateConfig.SetProperty(global::NHibernate.Cfg.Environment.ConnectionString, nhibernateConnectionString);");
+                method.AddStatement("var nhibPersistence = endpointConfiguration.UsePersistence<NHibernatePersistence>();");
+                method.AddStatement("nhibPersistence.UseConfiguration(nhibernateConfig);");
+                if (enableOutbox)
+                {
+                    method.AddStatement("nhibPersistence.EnableTransactionalSession();");
+                    method.AddStatement("endpointConfiguration.EnableOutbox();");
+                }
+            }
         }
 
         private void AddRecoverabilityStatements(CSharpClassMethod method)
@@ -438,10 +490,46 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             method.AddStatement("""endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");""");
         }
 
+        private void AddLicenseStatements(CSharpClassMethod method)
+        {
+            method.AddStatement(
+                @"var licensePath = configuration[""NServiceBus:LicensePath""];",
+                s => s.SeparatedFromPrevious());
+            method.AddIfStatement("licensePath is not null",
+                b => b.AddStatement("endpointConfiguration.LicensePath(licensePath);"));
+        }
+
+        private void AddAuditStatements(CSharpClassMethod method)
+        {
+            if (!ExecutionContext.Settings.GetNServiceBusSettings().EnableAuditQueue()) return;
+
+            method.AddStatement(
+                @"var auditQueue = configuration[""NServiceBus:AuditQueue""] ?? throw new InvalidOperationException(""NServiceBus:AuditQueue is not configured"");",
+                s => s.SeparatedFromPrevious());
+            method.AddStatement(@"var auditTtbrRaw = configuration[""NServiceBus:AuditTimeToBeReceived""];");
+            method.AddStatement(
+                "if (auditTtbrRaw is not null)\n" +
+                "    endpointConfiguration.AuditProcessedMessagesTo(auditQueue, TimeSpan.Parse(auditTtbrRaw));\n" +
+                "else\n" +
+                "    endpointConfiguration.AuditProcessedMessagesTo(auditQueue);");
+        }
+
+        private void AddInstanceIdentificationStatements(CSharpClassMethod method)
+        {
+            if (!ExecutionContext.Settings.GetNServiceBusSettings().EnableInstanceIdentification()) return;
+
+            method.AddStatement(
+                @"var instanceId = configuration[""NServiceBus:InstanceId""] ?? throw new InvalidOperationException(""NServiceBus:InstanceId is not configured"");",
+                s => s.SeparatedFromPrevious());
+            method.AddStatement("endpointConfiguration.UniquelyIdentifyRunningInstance().UsingNames(instanceId, endpointName);");
+        }
+
         private void PublishAppSettings()
         {
-            var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
-            var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
+            var nsbSettings = ExecutionContext.Settings.GetNServiceBusSettings();
+            var transport = nsbSettings.Transport();
+            var persistence = nsbSettings.Persistence();
+            var recoverabilityPolicy = nsbSettings.RecoverabilityPolicy();
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                 "NServiceBus:EndpointName", OutputTarget.ApplicationName()));
@@ -489,6 +577,25 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                         "NServiceBus:Recoverability:DelayIncreaseSeconds", 10));
                 }
+            }
+
+            if (persistence.IsNhibernate())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                    "ConnectionStrings:NServiceBus",
+                    "Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"));
+            }
+
+            if (nsbSettings.EnableAuditQueue())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                    "NServiceBus:AuditQueue", "audit"));
+            }
+
+            if (nsbSettings.EnableInstanceIdentification())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
+                    "NServiceBus:InstanceId", $"{OutputTarget.ApplicationName()}-1"));
             }
         }
 

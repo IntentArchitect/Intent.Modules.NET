@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5453c4b5-b63c-4ec8-ad42-1a6f5b7dfd3a" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>AnotherTestMessageHandler</name>
+  <display>AnotherTestMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</parentFolderId>
+  <packageId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</packageId>
+  <packageName>N_ServiceBus.Persistence.NHibernate.Subscribe.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

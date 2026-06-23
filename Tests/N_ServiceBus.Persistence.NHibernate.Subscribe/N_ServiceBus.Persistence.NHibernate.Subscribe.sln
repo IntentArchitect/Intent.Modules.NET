@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{56C3B2C3-5DA2-4F9C-88D4-A06EE4C62CB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N_ServiceBus.Persistence.NHibernate.Subscribe.Api", "N_ServiceBus.Persistence.NHibernate.Subscribe.Api\N_ServiceBus.Persistence.NHibernate.Subscribe.Api.csproj", "{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{380D74BA-4297-4755-8C6F-6F792DBD1AE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N_ServiceBus.Persistence.NHibernate.Subscribe.Application", "N_ServiceBus.Persistence.NHibernate.Subscribe.Application\N_ServiceBus.Persistence.NHibernate.Subscribe.Application.csproj", "{D78069E2-2C82-42DA-8A76-7607F692F216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{E0B87524-25F0-4443-9800-08F387948C45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N_ServiceBus.Persistence.NHibernate.Subscribe.Domain", "N_ServiceBus.Persistence.NHibernate.Subscribe.Domain\N_ServiceBus.Persistence.NHibernate.Subscribe.Domain.csproj", "{D31379A4-64A6-4A75-AFC4-3C8A6D46E229}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5D4CA5C8-1FAD-4A4E-A1C8-9835BBD20FAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure", "N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure\N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure.csproj", "{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2} = {56C3B2C3-5DA2-4F9C-88D4-A06EE4C62CB7}
+		{D78069E2-2C82-42DA-8A76-7607F692F216} = {380D74BA-4297-4755-8C6F-6F792DBD1AE6}
+		{D31379A4-64A6-4A75-AFC4-3C8A6D46E229} = {E0B87524-25F0-4443-9800-08F387948C45}
+		{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7} = {5D4CA5C8-1FAD-4A4E-A1C8-9835BBD20FAF}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94FDC7C6-CFB1-4E4B-BF74-8608D0DD37F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78069E2-2C82-42DA-8A76-7607F692F216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78069E2-2C82-42DA-8A76-7607F692F216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78069E2-2C82-42DA-8A76-7607F692F216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78069E2-2C82-42DA-8A76-7607F692F216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31379A4-64A6-4A75-AFC4-3C8A6D46E229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31379A4-64A6-4A75-AFC4-3C8A6D46E229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31379A4-64A6-4A75-AFC4-3C8A6D46E229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31379A4-64A6-4A75-AFC4-3C8A6D46E229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F345A1F3-469F-4AB0-B0DC-A6C8A726F3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

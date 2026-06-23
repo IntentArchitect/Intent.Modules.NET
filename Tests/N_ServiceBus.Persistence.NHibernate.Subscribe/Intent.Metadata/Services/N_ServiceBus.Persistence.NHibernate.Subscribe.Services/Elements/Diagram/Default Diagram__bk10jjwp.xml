@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8736a498-d82d-4bdd-9000-3c930e52ca68" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</parentFolderId>
+  <packageId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</packageId>
+  <packageName>N_ServiceBus.Persistence.NHibernate.Subscribe.Services</packageName>
+  <diagram>
+    <targetPackageId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -29,6 +29,13 @@ namespace N_ServiceBus.RabbitMQ.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
+            var licensePath = configuration["NServiceBus:LicensePath"];
+
+            if (licensePath is not null)
+            {
+                endpointConfiguration.LicensePath(licensePath);
+            }
+
             var connectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("ConnectionStrings:RabbitMQ is not configured");
             var routing = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));
 

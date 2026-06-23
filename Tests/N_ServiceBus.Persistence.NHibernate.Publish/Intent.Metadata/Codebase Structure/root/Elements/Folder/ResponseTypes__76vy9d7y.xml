@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="297d7d68-4eec-4050-867e-c7f9d38b843a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ResponseTypes</name>
+  <display>ResponseTypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c4ca2c7e-6cc1-4ac7-8174-9204849a5802</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1d5eb630-c864-4b44-8b7d-a77c69b0bfa6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.JsonResponse</name>
+      <display>Intent.AspNetCore.Controllers.JsonResponse</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>297d7d68-4eec-4050-867e-c7f9d38b843a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

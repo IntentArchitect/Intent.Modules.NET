@@ -36,18 +36,44 @@ Selects the underlying message transport. Options:
 
 The default is `Learning Transport`. Change the setting in Intent Architect's application settings and rerun the Software Factory to switch transports.
 
-### Outbox Pattern
+### License Path
 
-Enables the NServiceBus transactional outbox, which ensures messages are only dispatched after the database transaction commits.
+Optional. When `NServiceBus:LicensePath` is present in `appsettings.json`, the generated configuration calls `endpointConfiguration.LicensePath(path)`. Omit the key entirely to use the default NServiceBus license discovery (environment variable, XML file, etc.).
+
+### Persistence
+
+Selects the persistence provider for saga storage, subscription storage, and (when the outbox is enabled) exactly-once message dispatch.
 
 | Setting | Behaviour |
 |---|---|
-| `None` | No outbox. Messages are dispatched inline. |
-| `Sql Persistence` | Uses `NServiceBus.Persistence.Sql` with a shared EF Core `DbConnection`/`DbTransaction`. Requires `Intent.EntityFrameworkCore`. |
+| `None` | No persistence configured. |
+| `SQL Persistence` | Uses `NServiceBus.Persistence.Sql` with a shared EF Core `DbConnection`/`DbTransaction`. Requires `Intent.EntityFrameworkCore`. |
+| `NHibernate` | Uses `NServiceBus.NHibernate` for persistence. |
+
+### Enable Outbox
+
+Enables the NServiceBus transactional outbox, which ensures messages are only dispatched after the database transaction commits. Requires `Persistence` to be set to `SQL Persistence` or `NHibernate`.
 
 > [!IMPORTANT]
 >
-> Setting OutboxPattern to `Sql Persistence` without the `Intent.EntityFrameworkCore` module installed will cause the Software Factory to fail with a descriptive error.
+> Enabling the outbox with `SQL Persistence` requires the `Intent.EntityFrameworkCore` module. The Software Factory will fail with a descriptive error if it is not installed.
+
+### Enable Audit Queue
+
+When enabled, generates audit queue configuration that forwards processed messages to an audit queue. Set the following keys in `appsettings.json`:
+
+| Key | Required | Description |
+|---|---|---|
+| `NServiceBus:AuditQueue` | Yes | Name of the audit queue (e.g. `audit`). |
+| `NServiceBus:AuditTimeToBeReceived` | No | TimeSpan string (e.g. `00:10:00`). Omit to use NServiceBus defaults. |
+
+### Enable Instance Identification
+
+When enabled, generates `UniquelyIdentifyRunningInstance().UsingNames(instanceId, endpointName)` for use with the Particular Service Platform monitoring tools. Set the following key in `appsettings.json`:
+
+| Key | Required | Description |
+|---|---|---|
+| `NServiceBus:InstanceId` | Yes | Unique identifier for this running instance (e.g. `MyApp-1`). |
 
 ### Recoverability Policy
 
@@ -138,6 +164,10 @@ The module generates default entries. Key sections:
   "NServiceBus": {
     "EndpointName": "MyApplication",
     "ErrorQueue": "error",
+    "LicensePath": "C:\\path\\to\\license.xml",
+    "AuditQueue": "audit",
+    "AuditTimeToBeReceived": "00:10:00",
+    "InstanceId": "MyApplication-1",
     "Recoverability": {
       "ImmediateRetries": 5,
       "DelayedRetries": 3,
@@ -158,6 +188,8 @@ The module generates default entries. Key sections:
   }
 }
 ```
+
+`LicensePath`, `AuditQueue`, `AuditTimeToBeReceived`, and `InstanceId` are optional — omit any key that is not needed.
 
 Amazon SQS uses the AWS credential chain — no connection string is needed.
 
