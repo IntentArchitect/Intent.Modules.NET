@@ -4,6 +4,7 @@ using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -106,18 +107,22 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             {
                 html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
             }
-            else if (this.TryGetTemplate<IClassProvider>(TemplateRoles.Blazor.Client.Program, out var clientProgram))
+            else if (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
+                     && this.TryGetTemplate<IClassProvider>(TemplateRoles.Blazor.Client.Program, out var clientProgram))
             {
-                // No modeled layout, and there is a separate WebAssembly .Client project. The sample MainLayout
-                // seed lands at the .Client root (flat Layout/ folder), while this Routes.razor is generated under
-                // Components/, so a relative "Layout.MainLayout" would wrongly bind to Components.Layout (CS0234).
-                // Reference the layout by its absolute client-root namespace so it resolves regardless of folder.
+                // Two-project modes (InteractiveAuto / InteractiveWebAssembly) with no modeled layout: the sample
+                // MainLayout seed lands at the .Client root (flat Layout/ folder), while this Routes.razor is
+                // generated under Components/, so a relative "Layout.MainLayout" would wrongly bind to
+                // Components.Layout (CS0234). Reference the layout by its absolute client-root namespace.
+                // Gate on render mode: single-project (InteractiveServer) non-Mud apps ALSO fulfil the
+                // Blazor.Client.Program role but keep MainLayout under Components/Layout, so they must fall through
+                // to the relative reference below (otherwise they'd emit typeof(<root>.Layout.MainLayout) → CS0234).
                 html.AddAttribute("DefaultLayout", $"typeof({clientProgram.Namespace}.Layout.MainLayout)");
             }
             else
             {
-                // Blazor Server (single project): Routes.razor and the MainLayout seed are both under Components/,
-                // so the relative reference resolves to Components.Layout.MainLayout.
+                // Single-project (InteractiveServer), Mud or non-Mud: Routes.razor and the MainLayout seed are both
+                // under Components/, so the relative reference resolves to Components.Layout.MainLayout.
                 html.AddAttribute("DefaultLayout", $"typeof(Layout.MainLayout)");
             }
         }

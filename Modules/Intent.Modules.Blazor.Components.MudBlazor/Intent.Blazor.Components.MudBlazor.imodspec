@@ -39,11 +39,11 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="1cc30ee8-4c1a-4019-acf2-9b8886094775">
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration">
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="1cc30ee8-4c1a-4019-acf2-9b8886094775">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>

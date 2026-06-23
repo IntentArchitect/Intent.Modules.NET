@@ -73,22 +73,3 @@
         </EditForm>
     </div>
 </div>
-@code {
-
-    private string? message;
-    [SupplyParameterFromForm]
-    private InputModel Input { get; set; } = new();
-
-    private async Task OnValidSubmitAsync()
-    {
-        await AuthService.ResendEmailConfirmation(Input.Email);
-        message = "Verification email sent. Please check your email.";
-    }
-
-    private sealed class InputModel
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; } = "";
-    }
-}

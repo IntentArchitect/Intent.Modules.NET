@@ -1,8 +1,8 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common;

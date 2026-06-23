@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.0-pre.7</version>
+  <version>2.0.0-pre.11</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -212,6 +212,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.AITasksFactoryExtension" externalReference="5629f5e2-99c2-4d40-aec6-e52e0ada2663" />
     <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
+    <factoryExtension id="Intent.Blazor.StyledSeedWinsScaffoldExtension" externalReference="23a6100f-c1b4-45e2-899a-d397f6428f37" />
   </factoryExtensions>
   <moduleSettings>
     <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor Settings" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
