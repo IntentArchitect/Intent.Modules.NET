@@ -17,6 +17,8 @@
 - Improvement: Added support for Design.md.
 - Improvement: Updated out of the box styling.
 - Improvement: Support for light and dark modes.
+- Improvement: Refinement of AI context
+- Improvement: Ensure @page directive starts with a forward-slash in razor pages
 
 ### Version 1.1.0
 

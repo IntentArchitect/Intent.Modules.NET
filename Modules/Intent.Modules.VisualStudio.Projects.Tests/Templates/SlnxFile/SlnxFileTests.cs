@@ -98,8 +98,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
-        public void WhenExisting_WithRemovedProject_ShouldRemoveStaleProject()
+        public void WhenExisting_WithProjectRemovedFromIntentModel_ShouldPreserveIt()
         {
+            // Projects are never removed (additive-only, same as .sln) so that manually-added
+            // or previously-managed projects survive SF runs. Remove them manually in the designer.
             var model = new SolutionModel();
             model.AddProject("MyApp.Api/MyApp.Api.csproj");
             model.AddProject("MyApp.Domain/MyApp.Domain.csproj");
@@ -114,15 +116,34 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
 
             model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
-                ["MyApp.Api/MyApp.Api.csproj", "MyApp.Domain/MyApp.Domain.csproj"],
+                ["MyApp.Api/MyApp.Api.csproj", "MyApp.Domain/MyApp.Domain.csproj", "MyApp.OldService/MyApp.OldService.csproj"],
                 ignoreOrder: true);
         }
 
         [Fact]
-        public void WhenExisting_WithRemovedProject_InFolder_ShouldRemoveProjectButPreserveFolder()
+        public void WhenExisting_WithManuallyAddedProject_ShouldPreserveIt()
         {
-            // Folders are never removed so that manually-added solution folders survive SF runs.
-            // Only projects absent from the Intent model are removed.
+            var model = new SolutionModel();
+            model.AddProject("MyApp.Api/MyApp.Api.csproj");
+            model.AddProject("MyApp.External/MyApp.External.csproj");
+
+            var projects = new[]
+            {
+                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
+            };
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
+
+            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
+                ["MyApp.Api/MyApp.Api.csproj", "MyApp.External/MyApp.External.csproj"],
+                ignoreOrder: true);
+        }
+
+        [Fact]
+        public void WhenExisting_WithRemovedProject_InFolder_ShouldPreserveBothProjectAndFolder()
+        {
+            // Neither projects nor folders are removed (additive-only). A project inside a
+            // manually-added or previously-managed solution folder must survive SF runs.
             var model = new SolutionModel();
             var existingFolder = model.AddFolder("/legacy/");
             model.AddProject("legacy/MyApp.Legacy/MyApp.Legacy.csproj", null, existingFolder);
@@ -136,8 +157,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
 
             model.SolutionFolders.Select(f => f.Path).ShouldContain("/legacy/");
-            model.SolutionProjects.Select(p => p.FilePath)
-                .ShouldBe(["MyApp.Api/MyApp.Api.csproj"], ignoreOrder: true);
+            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
+                ["MyApp.Api/MyApp.Api.csproj", "legacy/MyApp.Legacy/MyApp.Legacy.csproj"],
+                ignoreOrder: true);
         }
 
         [Fact]
@@ -159,6 +181,36 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             model.SolutionFolders.Select(f => f.Path).ShouldContain("/NewFolder1/");
             model.SolutionProjects.Select(p => p.FilePath)
                 .ShouldBe(["MyApp.Api/MyApp.Api.csproj"], ignoreOrder: true);
+        }
+
+        [Fact]
+        public void WhenAlreadySynced_ShouldBeIdempotent_AfterFileRoundTrip()
+        {
+            // Simulates the real RunTemplate() flow: sync → serialize to stream → deserialize → sync again.
+            // The slnx serializer may normalize paths, so the second sync must not throw or duplicate projects.
+            var srcFolder = CreateFolder("src");
+            var projects = new[]
+            {
+                CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder),
+                CreateProject("MyApp.Domain", relativeLocation: "src/MyApp.Domain", parentFolder: srcFolder),
+            };
+
+            var model = new SolutionModel();
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], projects);
+
+            // Round-trip through the serializer (same as writing and reading the .slnx file)
+            using var stream = new System.IO.MemoryStream();
+            Microsoft.VisualStudio.SolutionPersistence.Serializer.SolutionSerializers.SlnXml
+                .SaveAsync(stream, model, System.Threading.CancellationToken.None).GetAwaiter().GetResult();
+            stream.Position = 0;
+            var reloaded = Microsoft.VisualStudio.SolutionPersistence.Serializer.SolutionSerializers.SlnXml
+                .OpenAsync(stream, System.Threading.CancellationToken.None).GetAwaiter().GetResult();
+
+            // Second sync on the reloaded model must not throw and must not duplicate projects
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(reloaded, [srcFolder], projects);
+
+            reloaded.SolutionProjects.Count().ShouldBe(2);
+            reloaded.SolutionFolders.Select(f => f.Path).ShouldContain("/src/");
         }
 
         [Fact]

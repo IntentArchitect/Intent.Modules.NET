@@ -6,24 +6,40 @@ argument-hint: "[module name or description]"
 
 # Module Kickoff
 
+## Entry Mode
+
+Determine the input type before asking any questions:
+
+**PRD provided** — developer has attached or pasted a requirements document:
+1. Parse the document and map every section against the U1–U9 and type-specific questions below.
+2. Mark each field `[from PRD]` if answered, `[MISSING]` if not.
+3. Batch all `[MISSING]` gaps into a single targeted follow-up — do not ask one question at a time.
+4. The Requirements Summary annotates each field with its source (`[from PRD]` or `[confirmed by developer]`).
+
+**No PRD** — proceed directly to the Universal Questions below.
+
+Both paths produce an identical Requirements Summary. All downstream skills are unaffected by which path was taken.
+
+---
+
 ## Purpose
 
 Gather enough information upfront so that every subsequent step (pattern research, ecosystem analysis, implementation) can proceed without stopping to ask the developer for clarification. If requirements are insufficient, ask follow-up questions before moving on.
 
 ## Musts
 
-1. **Ask all universal questions first.** Do not skip any — they apply to every module regardless of type.
-2. **Determine the module type** from the developer's answers, then ask the applicable type-specific questions.
-3. **Validate sufficiency** using the checklist at the end of this skill. If any item cannot be answered from what the developer has provided, ask targeted follow-up questions.
-4. **Produce a Requirements Summary** as a structured output before handing off. This document is the input to `tech-pattern-researcher`.
-5. **Ask follow-ups in one batch**, not one question at a time. Group all gaps into a single message.
+1. Ask all universal questions (U1–U9) first — applies to every module.
+2. Determine module type from answers, then ask type-specific questions.
+3. Validate using the sufficiency checklist. Ask targeted follow-ups for any gap.
+4. Produce a Requirements Summary before handing off to `tech-pattern-researcher`.
+5. Batch all follow-ups into one message — never one question at a time.
 
 ## Must Nots
 
-1. Never proceed to ecosystem analysis or implementation without a completed Requirements Summary.
-2. Never assume a transport, library version, or architectural layer — always confirm.
-3. Never accept "standard" or "the usual" as an answer — ask what that means in this context.
-4. Never skip the sufficiency check even if answers seem complete at first read.
+1. Never proceed without a completed Requirements Summary.
+2. Never assume transport, library version, or architectural layer — always confirm.
+3. Never accept "standard" or "the usual" — ask specifically what that means.
+4. Never skip the sufficiency check.
 
 ---
 
@@ -148,4 +164,4 @@ Produce this document as the output of this skill. It becomes the input to `tech
 
 Once the Requirements Summary is complete, load **`tech-pattern-researcher`** and pass the summary as context.
 
-> **Note on reference app:** The Requirements Summary records the reference app status (U9) but does not build it. `reference-app-builder` is invoked after `module-ecosystem-analyst` produces the Attack Plan — at that point the code shapes are fully defined and the reference app can be hand-crafted with precision. Do not attempt to build the reference app during kickoff.
+> **Note on reference app:** The Requirements Summary records the reference app status (U9) but does not build it. `reference-app-builder` is invoked immediately after `tech-pattern-researcher` produces the Pattern Document — before `module-ecosystem-analyst`. The ecosystem analyst reads the reference app's actual generated output to produce the Attack Plan; it cannot run until the reference app is green. Do not attempt to build the reference app during kickoff.

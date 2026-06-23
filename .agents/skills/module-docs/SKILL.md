@@ -17,6 +17,24 @@ Invoke before releasing or publishing an Intent Architect module. Produces or co
 
 ---
 
+## Version Numbering
+
+Before writing any artifact, determine and apply the correct version bump. State the impact assessment and reasoning.
+
+| Situation | Rule | Example |
+|---|---|---|
+| New module | `1.0.0-pre.0` | — |
+| Already on a prerelease | Increment pre component only | `1.0.0-pre.4` → `1.0.0-pre.5` |
+| Release version, patch change | `X.Y.(Z+1)-pre.0` | `1.0.2` → `1.0.3-pre.0` |
+| Release version, minor change | `X.(Y+1).0-pre.0` | `1.0.2` → `1.1.0-pre.0` |
+| Release version, major change | `(X+1).0.0-pre.0` | `1.0.2` → `2.0.0-pre.0` |
+
+**Impact is assessed from the requirements** — what changed, how much of the public surface moved, whether existing users need to change their designer models or generated code.
+
+Align version in three places: `.imodspec`, `.csproj`, and the designer Module Settings (designer wins if already higher).
+
+---
+
 ## Step 1 — Gather Source Material
 
 Before writing anything, read these files from the target module directory:

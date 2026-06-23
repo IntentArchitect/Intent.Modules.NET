@@ -468,3 +468,9 @@
     color: var(--text-muted);
     border: 1px solid var(--border);
 }
+
+.ux-inner-panel {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}

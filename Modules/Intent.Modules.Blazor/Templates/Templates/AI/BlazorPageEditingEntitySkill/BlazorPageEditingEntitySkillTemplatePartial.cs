@@ -75,27 +75,37 @@ Forbidden:
 
 ---
 
-## Preserve Existing Implementation
+## Assess The .razor.cs Before Writing
 
 Use for: Edit or update entity pages in Blazor with MudBlazor
-Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects  
-Source of truth: Existing `.razor.cs` file defines data loading, service calls, navigation, and model structure
+Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects
 
-### You MUST NOT:
-- Modify existing backend methods such as `UpdateEntity()` or `UpdateEntityAsync()`
-- Change payload shape sent to the backend
-- Add, rename, or remove model properties
-- Invent fields or lookup services
-- Rewrite existing C# functionality
-- Put C# logic in the `.razor` file using `@code`
+Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
+
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+- Add `[Parameter]` properties needed for the page (e.g. entity ID)
+- Add a model field or property matching the sample pattern
+- Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
+- Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing update service method, and navigates on success using an existing or added navigation method
+- Add supporting methods (cancel, add/remove collection items) only when they exist in the sample and the relevant service methods exist in the project
+
+**If implemented** — preserve all existing logic exactly:
+- Do NOT modify existing methods, service calls, or payload construction
+- Do NOT add, rename, or remove model properties
+- Do NOT rewrite existing C# functionality
+
+**Always forbidden** (skeleton or implemented):
+- Inventing service classes or interfaces that don't exist in the project
+- Calling services directly from the `.razor` file
+- Putting C# logic in `.razor` using `@code`
 
 ---
 
 ## 1. Data Loading And Form
 
-Load data through existing lifecycle methods and backing methods such as `OnInitializedAsync()`, `OnParametersSetAsync()`, or existing load methods.
+If `OnInitializedAsync()` is empty or a stub, implement it to load the entity via the appropriate service method. If the method already has a body, leave it unchanged.
 
-Build the form only from the existing `model` structure.
+Build the form from the model structure — adding the model field if it does not yet exist in the skeleton.
 
 Nullable objects:
 - Render conditional sections only when supported by the existing model and state
@@ -145,16 +155,16 @@ If multiple forms are used, they must not be nested.
 
 ## 4. Save Flow
 
-The Save button must call `Save()` or `SaveAsync()`.
+The Save button must call `Save()` or `SaveAsync()`. If neither exists in `.razor.cs`, add it following the sample pattern.
 
 That flow must:
 1. Validate the form
-2. Call the existing update method without modifying it
-3. Navigate on success using an existing navigation method when one exists
+2. Call the existing update service method without modifying it
+3. Navigate on success using an existing or added navigation method
 
 Forbidden:
 - Calling services directly from the Razor template
-- Modifying existing update methods
+- Modifying existing update service methods
 - Changing request payloads
 
 ---
@@ -182,32 +192,20 @@ Indexed bindings:
 
 **Design and styling context**
 
-You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
-
-Use `design.md` for:
-- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
-- `Color` semantics for primary, secondary, and error actions
-- Card elevation and hover behaviour
-- Form control variant (`Variant.Outlined` / `Variant.Filled` / `Variant.Underline`)
-
-Use the CSS files for:
-- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
-- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
-- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
-
-These files inform styling choices only — they do not override the sample's layout structure.
+Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
 ---
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` exist in `.razor.cs`
+- [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
 - [ ] No `@code` block was introduced in `.razor`
-- [ ] Data is loaded through existing lifecycle or backing methods
-- [ ] Save button calls an existing save method, not a service directly
-- [ ] Backend update methods were not modified
-- [ ] Model properties were not added, removed, or renamed
-- [ ] Conditional sections follow existing backing logic
+- [ ] Data is loaded through lifecycle or backing methods (implemented or added if the skeleton had none)
+- [ ] Save button calls `Save()` or `SaveAsync()` in `.razor.cs`, not a service directly
+- [ ] Existing update service methods were not modified
+- [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
+- [ ] No service classes or interfaces were invented that don't exist in the project
+- [ ] Conditional sections follow the backing logic
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
 - [ ] Validation is wired and Save is disabled when invalid or loading

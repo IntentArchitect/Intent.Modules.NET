@@ -276,7 +276,7 @@
     </detect>
     <detect id="Intent.Modules.Blazor.Components.MudBlazor">
       <install>
-        <package id="Intent.Modules.Blazor.Components.MudBlazor" version="1.1.1-pre.0" />
+        <package id="Intent.Modules.Blazor.Components.MudBlazor" version="1.1.1-pre.1" />
       </install>
     </detect>
   </interoperability>

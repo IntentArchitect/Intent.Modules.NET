@@ -49,6 +49,7 @@ get_status(workingDirectory)
 - **Prefer `find_designer_elements`** (regex + specialization filter) whenever you know what you're looking for.
 - Use `get_designer_model_structure` only when you genuinely need topology (e.g. all packages and their children). Always pass `specializations` or `packageId` to keep the response small.
 - Use `get_designer_element_details` to inspect full details of a specific element before modifying it.
+- **Before implementing a file-per-model template for a new model type**: call `get_designer_element_details` on the target model element and verify that every type reference the template needs is reachable from that model. For example, `IIntegrationCommandHandler<TCmd, TResponse>` requires both the command type AND the response type — if the model only carries the command, the template cannot generate a correct signature and the designer must be extended first (new stereotype property, new association type, etc.) before any template work begins.
 
 ### 3. Modifying Models
 - Apply changes via `apply_change_model_operations`.
@@ -121,6 +122,22 @@ These are three distinct operations — each must be its own MCP call:
 ### Stereotype Definition Elements Not in Tree
 `get_designer_model_structure` with `includeChildren: true` does **not** include Stereotype Definition elements — the Stereotypes folder is excluded from traversal. Access them by GUID via `get_designer_element_details`. Find the GUID from generated `.xml` files in the module source.
 
+### `open_solution` — Parameter Is `absolutePath`, Not `solutionPath`
+The required parameter name is `absolutePath`. Passing any other name (e.g. `solutionPath`) causes InputValidationError. When in doubt, fetch the schema via `ToolSearch("select:mcp__intent-architect__open_solution")` before calling.
+
+### `install_or_update_modules` — Target Solution Must Be Open
+This tool only works if the target application is in a currently-open IA solution. If it fails with a SignalR/object error, do **not** retry immediately. Instead:
+1. Call `get_status` to see which solutions are currently open.
+2. If the target app's solution is missing from `openSolutions`, call `open_solution(absolutePath: "<path-to-isln>")`.
+3. Retry `install_or_update_modules` after the solution is confirmed open.
+Fallback when MCP install is still unavailable: manually add the module entry to the app's `modules.config` file.
+
+### `get_staged_file_diffs` — Takes a `filePaths` Array, Not a Glob
+The parameter is `filePaths` (an array of **relative** file paths). There is no glob parameter. To inspect a specific file pass it as an array element: `filePaths: ["Relative/Path/To/File.cs"]`. Passing a glob string will cause InputValidationError.
+
+### Multiple Solutions — Safe, But Never the Same Path Twice
+Intent Architect can have multiple distinct solutions open simultaneously (e.g. Modules solution + Tests solution). `get_status` lists all open solutions — check this before calling `open_solution` to decide which is needed. Do **not** open the same solution path a second time — there is a known IA bug where duplicate registrations cause unpredictable MCP behavior.
+
 ### SF Staged Changes — Diff First
 If SF shows pending staged changes immediately after a designer edit, those may be **carry-over** from before your edit. Always call `get_staged_file_diffs` before `apply_staged_file_changes`. Applying without reviewing can silently revert your work.
 
@@ -147,6 +164,21 @@ Calling `install_or_update_modules` unnecessarily can corrupt IA's internal pack
 
 ### `NugetPackages.cs` — Do Not Edit
 This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overwritten by the next SF run. All NuGet package and version changes must go through the **Module Builder designer**.
+
+### Model Type IDs Are Solution-Specific
+The `Model Type` property on a C# Template's `C# Template Settings` stereotype takes a GUID that identifies the element specialization type (e.g. `Integration Event Handler`). This GUID **differs between IA solutions** — the same element type has a different ID in the Module Builder solution vs. the production Modules.NET solution. Never copy a Model Type ID from memory or from another module's XML. Always verify by either:
+- Running `find_designer_elements` on the target solution and inspecting the `specializationTypeId` of a live element of that type, OR
+- Inspecting the installed `.designer.settings` file for the modeler package in the target solution
+
+### `run_designer_script` — Property API Uses `.value`, Not `.getValue()`
+Inside a designer script, accessing a stereotype property value uses the `.value` property directly on the property object:
+```js
+// Correct
+const val = element.getStereotype("C# Template Settings").getProperty("Model Type").value;
+
+// Wrong — throws "getValue is not a function"
+const val = element.getStereotype("C# Template Settings").getProperty("Model Type").getValue();
+```
 
 ---
 
