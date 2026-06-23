@@ -38,7 +38,10 @@ namespace N_ServiceBus.SQS.Infrastructure.Configuration
 
             var routing = endpointConfiguration.UseTransport(new SqsTransport());
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()

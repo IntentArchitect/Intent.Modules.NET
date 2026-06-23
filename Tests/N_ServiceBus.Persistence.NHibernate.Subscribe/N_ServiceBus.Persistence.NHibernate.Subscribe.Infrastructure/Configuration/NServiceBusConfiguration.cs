@@ -52,7 +52,10 @@ namespace N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure.Configura
             nhibPersistence.EnableTransactionalSession();
             endpointConfiguration.EnableOutbox();
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()

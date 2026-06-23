@@ -38,7 +38,10 @@ namespace N_ServiceBus.SqlServer.Infrastructure.Configuration
             var connectionString = configuration.GetConnectionString("NServiceBus") ?? throw new InvalidOperationException("ConnectionStrings:NServiceBus is not configured");
             var routing = endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()

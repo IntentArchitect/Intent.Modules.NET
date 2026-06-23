@@ -48,7 +48,10 @@ namespace CompositeMessageBus.Infrastructure.Configuration
 
             endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()

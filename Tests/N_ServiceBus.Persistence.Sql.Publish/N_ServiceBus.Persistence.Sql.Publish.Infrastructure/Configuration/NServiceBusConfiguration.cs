@@ -48,7 +48,10 @@ namespace N_ServiceBus.Persistence.Sql.Publish.Infrastructure.Configuration
             sqlPersistence.EnableTransactionalSession();
             endpointConfiguration.EnableOutbox();
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()

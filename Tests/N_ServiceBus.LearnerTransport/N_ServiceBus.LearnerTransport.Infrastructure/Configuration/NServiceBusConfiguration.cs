@@ -42,7 +42,10 @@ namespace N_ServiceBus.LearnerTransport.Infrastructure.Configuration
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
             var routing = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()
