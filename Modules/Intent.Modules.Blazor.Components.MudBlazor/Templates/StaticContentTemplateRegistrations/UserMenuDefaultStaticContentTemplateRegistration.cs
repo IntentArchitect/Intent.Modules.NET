@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
@@ -31,16 +32,26 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            // The Authentication module ships the real Mud AppUserMenu (account actions) to
-            // Components/Account/Shared ONLY in ASP.NET Core Identity mode (which installs
-            // Intent.AspNetCore.Identity). In JWT/OIDC mode Auth is installed but ships NO AppUserMenu, so
-            // the model-generated Mud layout's always-injected <AppUserMenu/> would dangle. Defer to Auth
-            // only when it actually provides the menu (Identity); otherwise (JWT/OIDC, or Auth absent) ship
-            // this no-op scaffold so the injected <AppUserMenu/> always resolves.
-            var authProvidesUserMenu =
-                application.InstalledModules.Any(module => module.ModuleId == "Intent.Blazor.Authentication")
-                && application.InstalledModules.Any(module => module.ModuleId == "Intent.AspNetCore.Identity");
-            if (authProvidesUserMenu)
+            // Single-project (InteractiveServer) only: this no-op scaffold ships beside MainLayout in
+            // Components/Layout so the model-generated Mud layout's injected <AppUserMenu/> resolves. Two-project
+            // render modes (InteractiveAuto / InteractiveWebAssembly) are handled by
+            // UserMenuDefaultClientStaticContentTemplateRegistration, which ships the flat Layout/ variant to the
+            // .Client (beside the .Client MainLayout) and keeps the shared-atoms namespace (Components/Layout)
+            // free of an AppUserMenu so the server static-SSR shells don't collide.
+            if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+            {
+                return;
+            }
+
+            // ASP.NET Core Identity: the Authentication module ships the real AppUserMenu to
+            // Components/Account/Shared and the server _Imports surfaces it to MainLayout, so this no-op scaffold
+            // must NOT also ship — it would make <AppUserMenu/> ambiguous in MainLayout and ManageLayout (RZ9985).
+            // JWT/OIDC (Auth installed but ships no real menu) and non-Auth still get the scaffold so
+            // <AppUserMenu/> resolves. The "Authentication Type" setting lives on the base Blazor settings group
+            // (id from Intent.Blazor.Authentication's BlazorSettingsExtensions.Authentication()), so it is
+            // readable here WITHOUT a reference to the Authentication module.
+            var authenticationType = application.GetSettings().GetBlazor().GetSetting("5ec4a775-6208-405b-b66f-0dd5c6e591bb")?.Value;
+            if (authenticationType == "aspnetcore-identity")
             {
                 return;
             }

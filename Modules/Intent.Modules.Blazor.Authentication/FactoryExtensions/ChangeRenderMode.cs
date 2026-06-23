@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
@@ -86,6 +87,17 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 if (accountShared is not null)
                 {
                     imports?.RazorFile.AddUsing(accountShared.Namespace);
+
+                    // Two-project (InteractiveAuto / InteractiveWebAssembly): the static-SSR Account shells
+                    // (ManageLayout, AccountLayout) reuse the shared atoms (NavLinks/ThemeToggle/AppBrand) which
+                    // live in the .Client's Components/Layout. Contribute that namespace to the server root
+                    // _Imports so those shells resolve the atoms (otherwise RZ10012 — inert HTML). The .Client
+                    // placeholder AppUserMenu ships to the .Client's Layout/ (not Components/Layout), so this
+                    // import carries no competing AppUserMenu to collide with the server's own Account/Shared one.
+                    if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                    {
+                        imports?.RazorFile.AddUsing(accountShared.Namespace.Replace(".Components.Account.Shared", ".Client.Components.Layout"));
+                    }
                 }
             });
         }
