@@ -34,16 +34,3 @@ else
 {
 @Body
 }
-@code {
-
-    [CascadingParameter]
-    private HttpContext? HttpContext { get; set; }
-
-    protected override void OnParametersSet()
-    {
-        if (HttpContext is null)
-        {
-            NavigationManager.Refresh(forceReload: true);
-        }
-    }
-}
