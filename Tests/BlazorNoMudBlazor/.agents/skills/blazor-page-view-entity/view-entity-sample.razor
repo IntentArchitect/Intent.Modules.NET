@@ -15,7 +15,7 @@
     <MudCardContent>
         @if (CustomerByIdModels is null)
         {
-            <MudStack AlignItems="AlignItems.Center" JustifyContent="Justify.Center" Style="min-height:200px">
+            <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center" Style="min-height:200px">
                 <MudProgressCircular Indeterminate />
                 <MudText Class="mt-2">Loading customer...</MudText>
             </MudStack>
@@ -47,11 +47,11 @@
                     <MudText Typo="Typo.overline">Status</MudText>
                     @if (CustomerByIdModels.IsActive)
                     {
-                        <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.CheckCircle">Active</MudChip>
+                        <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" Icon="@Icons.Material.Filled.CheckCircle">Active</MudChip>
                     }
                     else
                     {
-                        <MudChip T="string" Color="Color.Default" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.PauseCircle">Inactive</MudChip>
+                        <MudChip T="string" Color="Color.Default" Variant="Variant.Outlined" Icon="@Icons.Material.Filled.PauseCircle">Inactive</MudChip>
                     }
                 </MudItem>
 
@@ -61,10 +61,10 @@
                 </MudItem>
                 <MudItem xs="12">
                     <MudStack Row Spacing="1">
-                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.NewsLetter ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.NewsLetter ? Variant.Filled : Variant.Outlined)" StartIcon="@Icons.Material.Filled.MarkunreadMailbox">
+                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.NewsLetter ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.NewsLetter ? Variant.Filled : Variant.Outlined)" Icon="@Icons.Material.Filled.MarkunreadMailbox">
                             Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
                         </MudChip>
-                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.Specials ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.Specials ? Variant.Filled : Variant.Outlined)" StartIcon="@Icons.Material.Filled.LocalOffer">
+                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.Specials ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.Specials ? Variant.Filled : Variant.Outlined)" Icon="@Icons.Material.Filled.LocalOffer">
                             Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
                         </MudChip>
                     </MudStack>
@@ -76,7 +76,7 @@
                         <MudDivider Class="my-4" />
                         <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
                             <MudText Typo="Typo.h6">Loyalty</MudText>
-                            <MudChip T="string" Color="Color.Primary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.CardGiftcard">Enabled</MudChip>
+                            <MudChip T="string" Color="Color.Primary" Variant="Variant.Outlined" Icon="@Icons.Material.Filled.CardGiftcard">Enabled</MudChip>
                         </MudStack>
                     </MudItem>
                     <MudItem xs="12" md="6">
@@ -99,11 +99,11 @@
                     @foreach (var a in CustomerByIdModels.Addresses)
                     {
                         <MudItem xs="12" Class="mb-3">
-                            <MudPaper Class="pa-3" Elevation="0" Outlined="true" Style="border-radius:12px;">
+                            <MudPaper Class="pa-3 ux-inner-panel" Elevation="0">
                                 <MudGrid>
                                     <MudItem xs="12" md="3">
                                         <MudText Typo="Typo.overline">Type</MudText>
-                                        <MudChip T="string" Color="Color.Secondary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Label">@((a.AddressType == AddressType.Deliver) ? "Delivery" : "Billing")</MudChip>
+                                        <MudChip T="string" Color="Color.Secondary" Variant="Variant.Outlined" Icon="@Icons.Material.Filled.Label">@((a.AddressType == AddressType.Deliver) ? "Delivery" : "Billing")</MudChip>
                                     </MudItem>
                                     <MudItem xs="12" md="9">
                                         <MudText Typo="Typo.overline">Address line 1</MudText>

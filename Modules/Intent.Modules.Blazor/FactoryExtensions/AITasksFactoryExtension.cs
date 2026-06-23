@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -14,9 +17,6 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -56,7 +56,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
             foreach (var change in handlerChanges)
             {
-                if(change.Template is null)
+                if (change.Template is null)
                 {
                     continue;
                 }
@@ -161,7 +161,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                 if (change.ChangeType == ChangeType.Create)
                 {
                     var layoutTemplate = template.ExecutionContext.FindTemplateInstance(RazorLayoutTemplate.TemplateId, associationEnd.TypeReference.Element.Id);
-                    if(layoutTemplate is null)
+                    if (layoutTemplate is null)
                     {
                         continue;
                     }

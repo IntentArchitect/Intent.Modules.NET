@@ -1069,6 +1069,12 @@
         box-shadow: 0 0 0 1px rgba(2,132,199,0.20), 0 4px 16px rgba(2,132,199,0.35) !important;
     }
 
+.mud-paper.ux-inner-panel {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
 
 /* ============================================================================
    SECTION 5: Home Page — MudBlazor-specific Overrides
