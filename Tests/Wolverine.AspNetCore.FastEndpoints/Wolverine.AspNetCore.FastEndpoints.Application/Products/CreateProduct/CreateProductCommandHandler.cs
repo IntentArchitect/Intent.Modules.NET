@@ -11,6 +11,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.CreateProduct
     public class CreateProductCommandHandler
     {
         private readonly IProductRepository _productRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateProductCommandHandler(IProductRepository productRepository)
         {
@@ -20,8 +21,16 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.CreateProduct
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (CreateProductCommandHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            var product = new Product
+            {
+                Name = command.Name,
+                Price = command.Price,
+                IsActive = command.IsActive
+            };
+
+            _productRepository.Add(product);
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return product.Id;
         }
     }
 }

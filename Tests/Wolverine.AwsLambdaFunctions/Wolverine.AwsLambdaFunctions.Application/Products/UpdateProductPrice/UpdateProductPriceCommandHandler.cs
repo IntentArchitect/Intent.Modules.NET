@@ -14,6 +14,7 @@ namespace Wolverine.AwsLambdaFunctions.Application.Products.UpdateProductPrice
     public class UpdateProductPriceCommandHandler
     {
         private readonly IProductRepository _productRepository;
+
         [IntentManaged(Mode.Merge)]
         public UpdateProductPriceCommandHandler(IProductRepository productRepository)
         {
@@ -23,8 +24,13 @@ namespace Wolverine.AwsLambdaFunctions.Application.Products.UpdateProductPrice
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateProductPriceCommand command, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (UpdateProductPriceCommandHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            var product = await _productRepository.FindByIdAsync(command.Id, cancellationToken);
+            if (product is null)
+            {
+                throw new NotFoundException($"Could not find Product '{command.Id}'");
+            }
+
+            product.Price = command.NewPrice;
         }
     }
 }

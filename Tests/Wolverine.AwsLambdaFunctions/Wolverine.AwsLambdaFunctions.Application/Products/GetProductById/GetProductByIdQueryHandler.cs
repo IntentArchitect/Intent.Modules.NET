@@ -16,6 +16,7 @@ namespace Wolverine.AwsLambdaFunctions.Application.Products.GetProductById
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
+
         [IntentManaged(Mode.Merge)]
         public GetProductByIdQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
@@ -26,8 +27,12 @@ namespace Wolverine.AwsLambdaFunctions.Application.Products.GetProductById
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
         public async Task<ProductDto> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (GetProductByIdQueryHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            var product = await _productRepository.FindByIdAsync(query.Id, cancellationToken);
+            if (product is null)
+            {
+                throw new NotFoundException($"Could not find Product '{query.Id}'");
+            }
+            return product.MapToProductDto(_mapper);
         }
     }
 }
