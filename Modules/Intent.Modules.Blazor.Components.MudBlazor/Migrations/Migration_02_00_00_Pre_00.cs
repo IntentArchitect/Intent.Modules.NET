@@ -21,7 +21,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Migrations
     /// name + icon, and each item navigating to the seeded ExamplePage via its "Link To"). Any
     /// customisation breaks the match and the menu is left untouched.
     /// </summary>
-    public class Migration_02_00_00_Pre_01 : IModuleMigration
+    public class Migration_02_00_00_Pre_00 : IModuleMigration
     {
         // User Interface designer (constant across applications).
         private const string UserInterfaceDesignerId = "f492faed-0665-4513-9853-5a230721786f";
@@ -49,7 +49,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Migrations
 
         private readonly IPersistenceLoader _persistenceLoader;
 
-        public Migration_02_00_00_Pre_01(IPersistenceLoader persistenceLoader)
+        public Migration_02_00_00_Pre_00(IPersistenceLoader persistenceLoader)
         {
             _persistenceLoader = persistenceLoader;
         }
@@ -57,7 +57,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Migrations
         [IntentFully]
         public string ModuleId => "Intent.Blazor.Components.MudBlazor";
         [IntentFully]
-        public string ModuleVersion => "2.0.0-pre.1";
+        public string ModuleVersion => "2.0.0-pre.0";
 
         public void Up()
         {

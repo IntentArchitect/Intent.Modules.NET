@@ -1,16 +1,16 @@
 ### Version 2.0.0
 
-- Improvement: Component code-behind and styles are now emitted as separate `razor.cs` and `razor.css` files, allowing cleaner separation of C# logic and scoped CSS.
+- Improvement: Component code-behind and styles are now emitted as separate `razor.cs` and `razor.css` files, allowing improved separation of concerns of C# logic and scoped CSS.
 
 > **NOTE**
 >
-> This is a breaking change for any component where you previously customized the generated code.
+> This is a breaking change for some components where you previously customized the generated code.
 >
-> **For `razor.cs`:** if your `@code { }` block was unchanged from what Intent generated, delete the block — Intent will now manage the code-behind in the separate `razor.cs` file. If you had customizations, migrate them into the newly generated `razor.cs`.
+> **For `razor.cs`:** if your `@code { }` block was unchanged from what Intent generated, delete the block — Intent will now manage the code-behind in the separate `razor.cs` file. If you had customizations, migrate them into the newly generated `razor.cs` and appropriately use `[IntentIgnore]` to continue managing your own code
 >
-> **For `razor.css`:** there are no build failures, however any custom styles should be reconciled with the content of the newly generated `razor.css` file.
+> **For `razor.css`:** there are no build failures. If your `<style>` block was unchanged from what Intent generated, you can safely delete it. If you had customizations, copy the content into the `*.razor.css` file. Intent will not interfere with your modifications to this file 
 
-- Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` due to ASP.NET identity requiring static no render mode
+- Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` due to ASP.NET identity requiring static `no render` mode
 
 ### Version 1.1.1
 
