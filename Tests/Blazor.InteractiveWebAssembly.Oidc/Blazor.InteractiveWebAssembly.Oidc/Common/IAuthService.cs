@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

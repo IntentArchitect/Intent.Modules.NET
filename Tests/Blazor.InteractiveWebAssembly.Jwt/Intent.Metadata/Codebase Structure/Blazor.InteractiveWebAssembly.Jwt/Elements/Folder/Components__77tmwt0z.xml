@@ -29,7 +29,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bdf3ef68-f6d0-4dee-8d83-2158d05f800b</parentFolderId>
-      <stereotypes />
+      <packageId>c29b67eb-386e-4877-99db-2bb3d9c281c8</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.Jwt</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

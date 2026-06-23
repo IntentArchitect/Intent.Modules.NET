@@ -460,6 +460,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="b385b9ef-3065-4fd1-b759-10321ac545a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</name>
+          <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</display>
+          <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

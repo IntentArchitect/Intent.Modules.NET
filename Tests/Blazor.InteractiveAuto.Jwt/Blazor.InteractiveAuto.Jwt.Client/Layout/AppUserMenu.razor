@@ -1,0 +1,20 @@
+@* Default user menu (two-project / .Client variant) — shipped to the .Client's Layout/ folder (beside
+   MainLayout) for InteractiveAuto / InteractiveWebAssembly apps, so the model-generated Mud layout's
+   injected <AppUserMenu/> resolves locally. It ships to Layout/ (NOT Components/Layout/) on purpose: that
+   keeps the shared-atoms namespace (Components/Layout) free of an AppUserMenu, so the server static-SSR
+   shells (e.g. ManageLayout) that import it for the atoms don't collide with the server's own real
+   Components/Account/Shared AppUserMenu. The Authentication module ships its real AppUserMenu to the
+   server only (it can't target the .Client), so this no-op scaffold fills the interactive .Client slot. *@
+
+<UserMenu>
+    <Trigger>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="5" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="12" cy="19" r="2" />
+        </svg>
+    </Trigger>
+    <ChildContent>
+        <span class="ux-user-menu-item ux-user-menu-placeholder">Add menu items</span>
+    </ChildContent>
+</UserMenu>

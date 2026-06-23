@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client.Components.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;

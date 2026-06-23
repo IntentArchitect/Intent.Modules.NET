@@ -1,7 +1,5 @@
-using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Authentication.Templates.Server.ConfirmEmailCodeBehindTemplate", Version = "1.0")]

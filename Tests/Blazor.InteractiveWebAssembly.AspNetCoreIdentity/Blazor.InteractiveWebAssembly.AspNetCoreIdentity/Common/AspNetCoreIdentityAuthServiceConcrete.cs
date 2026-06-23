@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account;
 using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;

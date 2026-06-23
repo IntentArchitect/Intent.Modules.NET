@@ -622,5 +622,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="95095f7b-c1f6-4e20-b3ff-a51735ef41f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

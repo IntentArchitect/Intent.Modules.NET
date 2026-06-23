@@ -21,6 +21,32 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="7fb27e7d-45e2-46c7-9cfa-cb516f862d60" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b049fca6-a956-41da-a693-86ca483a4a01</parentFolderId>
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="be8a13e8-225d-40bf-a98e-f9c3817552ec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</display>
@@ -73,20 +99,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7fb27e7d-45e2-46c7-9cfa-cb516f862d60" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</name>
-      <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</display>
-      <externalReference>Intent.Blazor.Authentication</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b049fca6-a956-41da-a693-86ca483a4a01</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="692df1ec-e517-4061-9844-9185b1a3d2ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration</display>
@@ -95,7 +107,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b049fca6-a956-41da-a693-86ca483a4a01</parentFolderId>
-      <stereotypes />
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

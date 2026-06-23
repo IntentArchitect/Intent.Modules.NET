@@ -1,8 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

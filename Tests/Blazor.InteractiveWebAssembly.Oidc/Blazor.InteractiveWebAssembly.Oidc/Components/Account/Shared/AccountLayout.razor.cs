@@ -1,6 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate", Version = "1.0")]

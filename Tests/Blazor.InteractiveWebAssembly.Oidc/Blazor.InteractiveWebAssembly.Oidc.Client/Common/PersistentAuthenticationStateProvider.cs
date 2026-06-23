@@ -1,8 +1,5 @@
-using System;
-using System.Net.Http;
 using System.Net.Http.Json;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Oidc.Client.Components.Account;
 using Blazor.InteractiveWebAssembly.Oidc.Client.Components.Account.Shared;
 using Intent.RoslynWeaver.Attributes;
