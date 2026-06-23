@@ -5,7 +5,16 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <isMapped>false</isMapped>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>9638be46-71c3-4481-9342-2b25bc56baaa</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="7cb3466c-9b65-42a5-b908-5174fea6bfb3" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
   <parentFolderId>64294b80-1f92-4809-8dc9-5741c81e5cb6</parentFolderId>
   <packageId>5fde83f4-bea0-46a7-b4fc-fd9480ccebd9</packageId>
   <packageName>Wolverine.AwsLambdaFunctions.Services</packageName>

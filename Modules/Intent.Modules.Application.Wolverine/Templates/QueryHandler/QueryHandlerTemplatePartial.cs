@@ -46,7 +46,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                         method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "query");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                         method.AddStatement("// IntentInitialGen");

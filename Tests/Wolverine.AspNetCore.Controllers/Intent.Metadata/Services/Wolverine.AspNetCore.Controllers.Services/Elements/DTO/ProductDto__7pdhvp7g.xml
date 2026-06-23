@@ -5,7 +5,16 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <isMapped>false</isMapped>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>31f3d32d-2ed8-435d-a8e4-39120b18b177</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="89413c7e-383f-4b9b-842f-9247ed383fdf" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
   <parentFolderId>a1438c84-6871-42b6-80c6-0bc25c1c4fd7</parentFolderId>
   <packageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</packageId>
   <packageName>Wolverine.AspNetCore.Controllers.Services</packageName>

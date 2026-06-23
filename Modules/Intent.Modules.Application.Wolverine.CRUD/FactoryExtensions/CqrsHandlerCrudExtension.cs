@@ -90,6 +90,9 @@ public class CqrsHandlerCrudExtension : FactoryExtensionBase
             var interactions = model.GetInteractions().ToList();
             if (interactions.Count == 0)
             {
+                // No modelled interactions: fall back to convention-based "get all" generation
+                // (collection of a domain-mapped DTO), mirroring the MediatR CRUD module.
+                CrudStrategies.ConventionGetAllStrategy.TryApply(template);
                 continue;
             }
 

@@ -37,6 +37,29 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a8134664-0a1f-4a68-8ea1-fb7b7e5a466f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="700df3fb-eed0-4741-82f3-226c201580a6" location="[Wolverine.AzureFunctions].[Services].[GetProductByIdQuery]" />
+        <target applicationId="a8134664-0a1f-4a68-8ea1-fb7b7e5a466f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc9f8651-b663-46d3-b7c6-9e83585ec4c8" location="[Wolverine.AzureFunctions].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bc9f8651-b663-46d3-b7c6-9e83585ec4c8" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ce2109c4-57b2-4e7d-8720-5ea7cb625c89" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="700df3fb-eed0-4741-82f3-226c201580a6" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="b9584bf8-2ae9-4058-a31c-741cd152e2d8" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

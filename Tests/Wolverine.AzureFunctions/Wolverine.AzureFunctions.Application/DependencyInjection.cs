@@ -18,7 +18,6 @@ namespace Wolverine.AzureFunctions.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
-            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }

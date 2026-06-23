@@ -45,3 +45,30 @@ Append-only log of gaps, workarounds, and lessons encountered during module buil
 **Symptom:** After rebuilding a module, assistant attempted to find and manually copy the DLL to the IA module cache.  
 **Root cause:** Assistant was not aware that `install_or_update_modules` MCP tool handles cache refresh. CLAUDE.md prohibits reading/writing `.intent` folders but the rule wasn't linked clearly to reinstall workflow.  
 **Fix applied:** Added to `module-increment-loop` SKILL.md.  
+
+---
+
+## 2026-06-23 | Intent.Application.Wolverine — Post-build validation
+
+### Intent Gaps
+- No `Intent.Application.Wolverine.CRUD` module exists → handler stubs remain `throw new NotImplementedException()` even after entity mappings are configured in the Services designer. The IA team should evaluate a Wolverine CRUD module analogous to `Intent.Application.MediatR.CRUD`, or consider a shared CRUD generation abstraction that can target both dispatchers.
+
+### Process Gaps
+- Test apps were built with Commands/Queries modeled in the Services designer but no entity mappings created → CRUD handler bodies are untestable stubs. The `reference-app-builder` skill should explicitly ask: "Do any commands/queries require entity mappings? If so, set them up in the Services designer before closing the reference app." This is distinct from route/HTTP settings, which were already covered.
+
+### PRD / User Gaps
+- module-kickoff does not ask whether CRUD implementations (entity create/read/update/delete) are required → the build produced only stub handlers. Add U-question: "Do handlers need full CRUD implementations backed by entity mappings, or are stub bodies acceptable for this module's scope? If CRUD is required, confirm whether an existing CRUD module covers the dispatch pattern or whether a new one is needed."
+- module-kickoff does not ask about interoperability with sibling/platform modules early enough → the `<interoperability>` block was missing from the imodspec and only caught post-build. Add U-question: "Which other installed modules should trigger auto-installation of bridging modules from this one? Cross-check the MediatR equivalent's `<interoperability>` section."
+
+---
+
+## 2026-06-23 | Intent.Application.Wolverine.CRUD — Convention-based GetAll parity
+
+**Bucket:** Process gap (module parity)
+**Symptom:** Unfiltered "get all" query handlers generated empty bodies. Earlier RETROSPECTIVE entry assumed "no Wolverine CRUD module exists" — inaccurate. The module did exist but only supported the Domain Interactions path (`Query Entity Action` + `Query Entity Mapping`). `QueryInteractionStrategy.IsMatch` silently no-ops when an action has no mapping, so an unfiltered get-all produced a stub with no warning.
+**Root cause:** `Intent.Application.MediatR.CRUD` ships convention-based legacy strategies (`GetAllImplementationStrategy`, `GetByIdImplementationStrategy`, etc., wired via `StrategyFactory`) that generate CRUD from a domain-mapped DTO with no association. The Wolverine CRUD module was built with only the Domain Interactions path and none of these convention strategies.
+**Fix applied:** Ported a focused `ConventionGetAllStrategy` into `Intent.Application.Wolverine.CRUD/CrudStrategies/`, invoked from `CqrsHandlerCrudExtension.InstallOnQueryHandlers` where it previously `continue`d on zero interactions. Verified across all 4 Wolverine test apps (Controllers fresh-create + the other 3 regenerating identical output), all solutions build green.
+**Skill/process update needed:**
+- `module-ecosystem-analyst` / `tech-pattern-researcher`: when a CRUD companion module is in scope, explicitly diff the reference dispatcher's CRUD module (e.g. MediatR.CRUD) for BOTH generation paths — Domain Interactions AND convention-based legacy strategies — and decide per-path whether to port. A CRUD module that only implements the Domain Interactions path silently drops conventionally-modelled CRUD.
+- Verification: ground-truth a "does the module work" claim against a real reference-dispatcher test app's modeling (e.g. `RichDomain` get-all uses no association), not just one metadata sample. The first sample (`TrainingModel.Tests`) used an empty mapping and led to the wrong conclusion that the empty mapping was the only canonical approach.
+- Remaining gap (deferred per scope = "GetAll only"): convention-based `GetById`, `Create`, `Update`, `Delete` strategies are still absent from the Wolverine CRUD module. Apps modelled conventionally (no entity actions) will still stub those. Track for a future parity pass.

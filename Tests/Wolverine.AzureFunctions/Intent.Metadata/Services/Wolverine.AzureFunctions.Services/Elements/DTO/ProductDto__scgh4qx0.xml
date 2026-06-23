@@ -5,7 +5,16 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <isMapped>false</isMapped>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a8134664-0a1f-4a68-8ea1-fb7b7e5a466f</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="bc9f8651-b663-46d3-b7c6-9e83585ec4c8" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
   <parentFolderId>78318e1b-3cf2-422e-a19d-7c0e82a86359</parentFolderId>
   <packageId>ec475b15-706f-4ccb-96ee-53f045153c81</packageId>
   <packageName>Wolverine.AzureFunctions.Services</packageName>

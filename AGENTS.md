@@ -176,13 +176,6 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
 | **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
 | **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md`, clear `WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
-
-### Internal Skills (Intent.Modules.NET team only — exclude when packaging for external distribution)
-
-These skills live under `.agents/skills/internal/`. Do not expose them to external module consumers.
-
-| Skill | When to use |
-| :--- | :--- |
 | **module-retrospective** | Runs automatically throughout every build. Appends findings to `RETROSPECTIVE.md` (append-only, repo root) whenever a workaround, skill gap, or missing requirement is encountered. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Three buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), PRD/user gaps (strengthen kickoff questions). |
 
 ---

@@ -5,7 +5,16 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <isMapped>false</isMapped>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>d2358d26-abb4-4969-a778-b3fdfd0defc7</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="b1698db1-9a8a-4b62-8a12-227f17699b0c" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
   <parentFolderId>0e9ae9af-f9ce-40f3-b07f-c07463d2c132</parentFolderId>
   <packageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</packageId>
   <packageName>Wolverine.AspNetCore.FastEndpoints.Services</packageName>

@@ -46,7 +46,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.CommandHandler
                     @class.AddMethod(GetReturnType(), "Handle", method =>
                     {
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                         method.AddParameter(GetTypeName(CommandModelsTemplate.TemplateId, Model), "command");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                         method.AddStatement("// IntentInitialGen");

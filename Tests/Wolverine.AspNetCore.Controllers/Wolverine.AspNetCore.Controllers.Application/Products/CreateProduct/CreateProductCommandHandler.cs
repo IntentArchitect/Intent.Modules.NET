@@ -1,4 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
+using Wolverine.AspNetCore.Controllers.Domain.Entities;
+using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
@@ -8,16 +10,26 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateProductCommandHandler
     {
+        private readonly IProductRepository _productRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateProductCommandHandler()
+        public CreateProductCommandHandler(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (CreateProductCommandHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            var product = new Product
+            {
+                Name = command.Name,
+                Price = command.Price,
+                IsActive = command.IsActive
+            };
+
+            _productRepository.Add(product);
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return product.Id;
         }
     }
 }
