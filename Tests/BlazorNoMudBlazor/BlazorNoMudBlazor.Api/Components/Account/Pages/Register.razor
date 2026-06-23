@@ -53,8 +53,6 @@
                 </UxField>
                 <h2>Create a new account.</h2>
                 <hr />
-                <ValidationSummary class="text-danger"
-                                   role="alert" />
                 <UxField Label="Confirm Password"
                          Icon="lock"
                          For="confirm-password">
@@ -86,6 +84,8 @@
                     <ValidationMessage class="text-danger"
                                        For="() => Input.Email" />
                 </div>
+                <ValidationSummary class="text-danger"
+                                   role="alert" />
                 <div class="form-floating mb-3">
                     <InputText class="form-control"
                                @bind-Value="Input.Password"
