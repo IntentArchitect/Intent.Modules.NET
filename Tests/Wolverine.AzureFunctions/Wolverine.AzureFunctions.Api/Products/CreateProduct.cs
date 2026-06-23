@@ -5,6 +5,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,10 @@ namespace Wolverine.AzureFunctions.Api.Products
                 var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateProductCommand>(req.Body, cancellationToken);
                 var result = await _sender.InvokeAsync<Guid>(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

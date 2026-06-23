@@ -1,10 +1,11 @@
 using Intent.RoslynWeaver.Attributes;
+using Wolverine.AspNetCore.Controllers.Domain.Common;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace Wolverine.AspNetCore.Controllers.Domain.Entities
 {
-    public class Product
+    public class Product : IHasDomainEvent
     {
         public Product()
         {
@@ -18,5 +19,7 @@ namespace Wolverine.AspNetCore.Controllers.Domain.Entities
         public decimal Price { get; set; }
 
         public bool IsActive { get; set; }
+
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

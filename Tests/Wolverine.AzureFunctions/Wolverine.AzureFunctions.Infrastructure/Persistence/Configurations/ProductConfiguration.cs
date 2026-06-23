@@ -22,6 +22,8 @@ namespace Wolverine.AzureFunctions.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.IsActive)
                 .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

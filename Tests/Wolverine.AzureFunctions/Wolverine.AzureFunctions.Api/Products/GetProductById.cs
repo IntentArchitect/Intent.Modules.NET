@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,10 @@ namespace Wolverine.AzureFunctions.Api.Products
             {
                 var result = await _sender.InvokeAsync<ProductDto>(new GetProductByIdQuery(id: id), cancellationToken);
                 return result != null ? new OkObjectResult(result) : new NotFoundResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

@@ -2,10 +2,12 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wolverine.AspNetCore.FastEndpoints.Application.Common.Interfaces;
 using Wolverine.AspNetCore.FastEndpoints.Domain.Common.Interfaces;
 using Wolverine.AspNetCore.FastEndpoints.Domain.Repositories;
 using Wolverine.AspNetCore.FastEndpoints.Infrastructure.Persistence;
 using Wolverine.AspNetCore.FastEndpoints.Infrastructure.Repositories;
+using Wolverine.AspNetCore.FastEndpoints.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -23,6 +25,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddTransient<IProductRepository, ProductRepository>();
             return services;
         }

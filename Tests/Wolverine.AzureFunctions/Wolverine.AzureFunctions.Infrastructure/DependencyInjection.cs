@@ -2,10 +2,12 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wolverine.AzureFunctions.Application.Common.Interfaces;
 using Wolverine.AzureFunctions.Domain.Common.Interfaces;
 using Wolverine.AzureFunctions.Domain.Repositories;
 using Wolverine.AzureFunctions.Infrastructure.Persistence;
 using Wolverine.AzureFunctions.Infrastructure.Repositories;
+using Wolverine.AzureFunctions.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -23,6 +25,7 @@ namespace Wolverine.AzureFunctions.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddTransient<IProductRepository, ProductRepository>();
             return services;
         }

@@ -22,6 +22,8 @@ namespace Wolverine.AspNetCore.FastEndpoints.Infrastructure.Persistence.Configur
 
             builder.Property(x => x.IsActive)
                 .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

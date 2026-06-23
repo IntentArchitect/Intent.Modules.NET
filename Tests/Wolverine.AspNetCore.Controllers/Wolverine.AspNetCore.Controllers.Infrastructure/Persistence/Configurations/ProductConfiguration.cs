@@ -22,6 +22,8 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence.Configurat
 
             builder.Property(x => x.IsActive)
                 .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

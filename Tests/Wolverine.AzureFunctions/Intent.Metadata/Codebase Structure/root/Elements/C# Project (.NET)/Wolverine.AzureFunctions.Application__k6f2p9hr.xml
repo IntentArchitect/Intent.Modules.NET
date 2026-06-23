@@ -336,5 +336,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="60690854-773e-4397-8d29-dd7619e2d065" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.FluentValidation.CommandValidator</name>
+      <display>Intent.Application.Wolverine.FluentValidation.CommandValidator</display>
+      <externalReference>Intent.Application.Wolverine.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4415f9f8-3ac1-46d5-a04b-e97bf3ce3b9f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1b871c9b-ce8c-437a-9654-2f1026f3cd63" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.FluentValidation.QueryValidator</name>
+      <display>Intent.Application.Wolverine.FluentValidation.QueryValidator</display>
+      <externalReference>Intent.Application.Wolverine.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4415f9f8-3ac1-46d5-a04b-e97bf3ce3b9f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
