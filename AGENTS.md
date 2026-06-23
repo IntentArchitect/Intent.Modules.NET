@@ -118,6 +118,33 @@ After **every** code change, verify the exit code is `0`:
 dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --nologo
 ```
 
+### Template Body Changes — Mandatory SF Iteration Cycle
+
+**Any edit to a `*TemplatePartial.cs` or `*FactoryExtension.cs` file MUST follow the full iteration cycle from `module-increment-loop`. No exceptions.**
+
+The cycle is:
+1. Edit the template body
+2. `dotnet build <module.csproj>` → exit 0
+3. `install_or_update_modules` — reinstall into the target app
+4. `run_software_factory(target_app_id)` — run SF on the target app
+   - **If SF fails with a transient error, retry once immediately.** Do not skip to manual edits. Only escalate to the user if the second attempt also fails.
+5. `get_staged_file_diffs` — **read and confirm the staged output matches intent**
+   - When reviewing `[IntentMerge]` files, diff the entire method body against the prior committed state, not just the new additions. Any line present before but absent from the staged diff is being dropped — confirm this is intentional.
+6. `apply_staged_file_changes` — only after step 5 confirms correctness
+7. `dotnet build <target.sln>` → exit 0
+
+**NEVER edit files in `Tests/` to "fix" what a template generates, then run SF to confirm "0 staged changes."** Zero staged changes after pre-editing proves nothing — it just means the disk matches the template output, not that the output is correct. The staged diff inspection at step 5 is the only valid verification gate.
+
+### Loop Close Gate (Non-Negotiable)
+
+**Before starting any new template-touching work, confirm the previous SF cycle reached step 7.** If the cycle is open — SF was never retried after a failure, or steps 5–7 were skipped — close it first regardless of any other instruction.
+
+If the user instructs you to commit or move on while a cycle is open:
+1. Commit the module-side code only (steps 1–2 are safe to commit).
+2. State explicitly: *"Steps 4–7 are still open. I will not start new template-touching work until the SF cycle is closed."*
+3. Create or update `/WORKING.md` to record the open cycle so the next session can resume it.
+4. Close the cycle before touching any `*TemplatePartial.cs` or `*FactoryExtension.cs` file again.
+
 ### Docs Update (Mandatory)
 After **every** change that adds, removes, or modifies user-facing behaviour — a new transport option, a new setting, a new generated file, a changed generated shape — update **both** artifacts in the **same turn** as the code change. Do not defer to a follow-up:
 
@@ -130,18 +157,35 @@ Use the **`module-docs`** skill for the canonical format rules. A code change wi
 
 ## 🤖 Available Skills
 
-Specialized skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code, via the symlink created by `.agents/setup.ps1`). Use the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
+Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/` (Claude Code). Use the relevant skill **before** generating code — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
 
 ### Module Building Skills (use in sequence when building a new module)
+
+> **Principle — Reference App First:** No module code (templates, factory extensions, NuGet
+> declarations) may be written or modified until `reference-app-builder` has produced a
+> reference application that builds with exit code 0 and exercises the handler at runtime.
+> This is the single most important sequencing rule in this framework. It is non-negotiable
+> and cannot be skipped under any circumstance.
 
 | Skill | When to use |
 | :--- | :--- |
 | **module-kickoff** | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
 | **tech-pattern-researcher** | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
-| **reference-app-builder** | **After tech-pattern-researcher, before module-ecosystem-analyst. Mandatory — never skip.** Scaffolds a real Intent-managed Clean Architecture application, installs the standard modules, runs the Software Factory, then hand-crafts the Wolverine/technology-specific files on top of the real generated output. Proves the code shapes compile and the handler is hit at runtime. The running app is the ground truth for all subsequent analysis. Hard gate — module-ecosystem-analyst cannot start until this is green. |
-| **module-ecosystem-analyst** | **After reference-app-builder.** Uses the reference app's actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules already generate, which SDK building blocks to use, which designer elements drive generation. Produces an Attack Plan with ordered implementation increments. |
+| **reference-app-builder** | **HARD GATE — runs BEFORE `module-ecosystem-analyst` without exception. May loop for multiple scenarios.** Classifies runtime dependencies (AI-spinnable via Docker vs developer-provided), scaffolds a real Intent-managed Clean Architecture application, proves code shapes compile and the handler is hit at runtime. Additional scenarios and pivots are handled here before proceeding. The running app(s) are the ground truth that `module-ecosystem-analyst` reads. |
+| **module-ecosystem-analyst** | **After all reference apps are green.** Uses the actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules generate, which SDK building blocks to use, which designer elements drive generation. Synthesizes across all reference app scenarios. Produces an Attack Plan. |
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
-| **module-increment-loop** | After intent-module-builder. Drives the iterative loop of implementing template bodies one increment at a time: change → SF on module → DLL deploy → SF on target → inspect → build → run → verify behaviour. Loops until the Attack Plan's increments are all verified. |
+| **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
+| **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md`, clear `WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
+
+### Internal Skills (Intent.Modules.NET team only — exclude when packaging for external distribution)
+
+These skills live under `.agents/skills/internal/`. Do not expose them to external module consumers.
+
+| Skill | When to use |
+| :--- | :--- |
+| **module-retrospective** | Runs automatically throughout every build. Appends findings to `RETROSPECTIVE.md` (append-only, repo root) whenever a workaround, skill gap, or missing requirement is encountered. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Three buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), PRD/user gaps (strengthen kickoff questions). |
+
+---
 
 ### Implementation Skills (use as needed during module implementation)
 

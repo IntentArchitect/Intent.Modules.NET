@@ -269,3 +269,5 @@ Spikes/
 /.codex/skills/
 /Modules/.agents/
 /plans/**
+.agent-native/
+/plan-blocks.md

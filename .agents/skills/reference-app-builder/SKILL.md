@@ -8,27 +8,42 @@ argument-hint: "[Attack Plan path or module name]"
 
 ## Purpose
 
-Prove — with running code — that every file shape in the Pattern Document is correct before a single template is written. If the reference app cannot be made to work, the Pattern Document has an error. Fix the pattern, not the code.
+Prove with running code that every file shape in the Pattern Document is correct before a single template is written. If the reference app cannot be made to work, the Pattern Document has an error — fix the pattern, not the code.
 
-This is the **most important gate in the module-building chain.** Template work done against an unverified pattern produces bugs that are expensive to diagnose inside the slow module-building loop. This skill moves that discovery cost to its cheapest possible point.
+This is the most important gate in the chain. Template bugs from unverified patterns are expensive to diagnose in the increment loop. This skill moves that discovery cost to its cheapest point.
 
 ## Musts
 
-1. **Locate or create a test application first.** Check the Requirements Summary for a reference app (question U9). If none exists, scaffold one using `dotnet new webapi` (or the appropriate template) and configure it as a minimal Intent-managed application. If scaffolding requires IA designer setup you cannot do unattended, ask the user.
-2. **Hand-craft every file in the Pattern Document's "Files to Generate" table.** Write them exactly as the templates will eventually output them — same class names, same method signatures, same namespace conventions. Use the Pattern Document shapes verbatim.
-3. **Wire up DI registration exactly as the factory extension will emit it.** Copy the DI block from the Pattern Document's "Full DI registration shape" section word for word.
-4. **Run `dotnet build` on the test app and confirm exit code 0.** Do not proceed past this point on a red build.
-5. **Exercise the behaviour at runtime.** Call at least one endpoint (or run a test) that dispatches through the generated handler. Confirm the handler body is reached (log statement, breakpoint evidence, or return value).
-6. **Update the Pattern Document immediately if any shape needed correction.** Write the change to `PATTERN-DOCUMENT.md` before marking this skill complete. Add a Decision Log entry explaining the correction.
-7. **Record the reference app location in the Attack Plan** under a new "Reference App" section.
+1. Locate or create a test app (check U9). Scaffold with `dotnet new webapi` if needed. If scaffolding requires unattended IA designer setup, ask the user.
+2. Hand-craft every file in the Pattern Document's "Files to Generate" table — exact class names, signatures, namespace conventions, IntentManaged attributes.
+3. Wire DI registration exactly as the factory extension will emit it (word-for-word from Pattern Document).
+4. `dotnet build` → exit 0 before proceeding.
+5. Exercise at runtime: call an endpoint or run a test that dispatches through the handler. Confirm the handler body is reached.
+6. Update `PATTERN-DOCUMENT.md` immediately if any shape needed correction. Add a Decision Log entry.
+7. Record the reference app path in the Attack Plan under "Reference App".
 
 ## Must Nots
 
-1. **Never proceed to `intent-module-builder` without a green reference app.** A failing or untested reference app means the module templates will be wrong.
-2. **Never diverge from the Pattern Document shapes without updating the Pattern Document first.** The reference app is proof of the pattern, not an alternative to it.
-3. **Never accept compilation success as sufficient.** Green build + unexercised handler = unknown runtime behaviour. Always trigger the handler.
-4. **Never hand-craft the reference app using shortcuts the template won't use** (e.g. `dynamic`, reflection, `var` casts that hide type errors). The code must be exactly what Intent would generate.
-5. **Never skip this skill because "the technology is well-documented."** Documentation describes the API. Running code proves the wiring.
+1. Never proceed without a green reference app — a failing app means templates will be wrong.
+2. Never diverge from Pattern Document shapes without updating the document first.
+3. Never accept green build alone — an unexercised handler means unknown runtime behaviour.
+4. Never use shortcuts the template won't use (`dynamic`, reflection, hiding casts).
+5. Never skip because "the technology is well-documented" — documentation describes the API; running code proves the wiring.
+
+---
+
+## Phase R.0 — Runtime Dependency Classification
+
+Before writing any code, enumerate every runtime dependency the app will need and classify each:
+
+| Class | Examples | AI action |
+|---|---|---|
+| **AI-spinnable** | RabbitMQ, SQL Server, PostgreSQL, Redis, MongoDB, Seq | Generate `docker-compose.yml` and bring them up before the run phase. |
+| **Developer-provided** | Azure Service Bus, AWS SQS/SNS, Cosmos DB, licensed cloud services | Surface immediately with exactly what is needed. Block until developer confirms availability. |
+
+**If developer-provided dependencies cannot be confirmed, halt.** Do not proceed to R.1 — a reference app that cannot be run proves nothing.
+
+Generate the docker-compose before R.1 so infrastructure is ready when the app first starts. Include health checks so the app does not race the broker/database on startup.
 
 ---
 
@@ -206,8 +221,25 @@ var result = await _messageBus.InvokeAsync<OrderDto>(query, cancellationToken);
 
 ---
 
+## Phase R.5 — Multi-Scenario Loop
+
+After the initial reference app is green, check whether additional scenarios are needed before handing off to `module-ecosystem-analyst`.
+
+**Either the developer or the AI may trigger an additional scenario:**
+- **Developer-initiated** — "I also need a scenario for X" → build a new reference app for that scenario now.
+- **AI-initiated** — AI identifies a scenario material to the module design not covered by the current app → propose it; developer confirms or rejects.
+- **PRD-driven** — multiple scenarios described in the PRD are each built as separate reference apps.
+
+Each additional scenario follows the same R.0–R.4 cycle. Record all reference app paths in `.intent-build-state.md`. `module-ecosystem-analyst` synthesizes across all of them.
+
+**Pivots are also handled here.** If new information requires reworking an existing reference app (Level 2+ pivot per the agent Pivot Scale), do so before proceeding. A pivot triggered after a PRD was provided is valid — new runtime evidence supersedes the original document.
+
+Only proceed to `module-ecosystem-analyst` when all required scenarios are green and no pending pivots remain.
+
+---
+
 ## Handoff
 
-Once the reference app is green and the Pattern Document is updated, load **`module-ecosystem-analyst`** and pass the reference app path + Pattern Document as context. The ecosystem analyst reads the reference app's actual generated code to determine what the Intent ecosystem already provides, which SDK building blocks to use, and how to structure the Attack Plan.
+Once all reference apps are green and the Pattern Document is updated, load **`module-ecosystem-analyst`** and pass all reference app paths + Pattern Document as context. The ecosystem analyst reads the actual generated code across all scenarios to determine what the Intent ecosystem already provides, which SDK building blocks to use, and how to structure the Attack Plan.
 
-> If at any point the reference app cannot be made to work after 3+ attempts and Pattern Document updates, **stop and escalate to the user.** Do not proceed to ecosystem analysis with an unverified pattern.
+> If at any point a reference app cannot be made to work after 3+ attempts and Pattern Document updates, **stop and escalate to the user.** Do not proceed to ecosystem analysis with an unverified pattern.

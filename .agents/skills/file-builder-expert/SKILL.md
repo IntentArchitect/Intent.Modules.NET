@@ -33,3 +33,4 @@ argument-hint: "[source file] [target template name]"
 3. Never add `else`/`catch`/`finally` as children of a block (must be siblings).
 4. Never use raw string interpolation for lambda arrows `=>` or object initializer braces `{}`.
 5. Never call obsolete `field.WithAssignment(string)` directly (use `WithAssignment(new CSharpStatement(...))`).
+6. **`AddTypeSource(templateId)` is not sufficient for single-file templates.** `AddTypeSource` enables `GetTypeName(model)` resolution for *file-per-model* templates — it looks up the template instance by model. For *single-file* templates (one output, no model) like `IIntegrationEventHandler`, there is no model to pass, so `GetTypeName` cannot resolve the type and the using is never injected. Use the pattern in `builder-patterns.md` § "Resolving Single-File Template Namespaces" instead.

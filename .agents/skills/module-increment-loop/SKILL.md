@@ -63,6 +63,8 @@ Every implementation decision must be grounded in the technology's documented pa
 4. **Never silently work around a friction point.** If the loop hits a tool gap (e.g. DLL lock during reinstall), capture it in memory and surface it. These gaps are exactly what this skill is here to eliminate over time.
 5. **Never batch multiple increments into a single SF cycle "to save time".** One increment, one cycle, one verification. Batched failures are exponentially harder to isolate.
 6. **Never add NuGet packages by editing `NugetPackages.cs` directly.** That file is `[DefaultIntentManaged(Mode.Fully)]` — the next SF run will silently regenerate it and drop your change. All NuGet declarations must go through the Module Builder designer via MCP. See `intent-module-builder` Learnings for the full story.
+7. **Never skip steps 5–7 because the user said "commit" or "move on".** A user instruction to commit does not close the cycle. Commit the module-side code only, state that steps 4–7 remain open, record the open cycle in `/WORKING.md`, and close it before touching any template file again.
+8. **Never treat a transient SF failure as a dead end.** If `run_software_factory` exits with an error before reaching staging, retry once immediately. Only escalate to the user if the second attempt also fails.
 
 ---
 
@@ -80,7 +82,13 @@ Every implementation decision must be grounded in the technology's documented pa
    └─ See "Dev-Loop Friction" below — the live IA process locks the DLL
 
 4. run_software_factory(target_app_id)                → review staged change count
+   └─ If SF exits with an error before staging: retry once immediately.
+      Only escalate to the user if the second attempt also fails.
+      Never accept manual file edits as a substitute for a failed SF run.
 5. Read the staged diff for the affected file(s)      → confirm shape
+   └─ For [IntentMerge] files: diff the entire method body against the
+      prior committed state. Any line dropped that was there before must
+      be intentional — the merge may be silently removing user content.
 6. apply_staged_file_changes(target_app_id)
 7. dotnet build <target_sample.sln>                   → must exit 0
 8. Run the target sample
@@ -157,6 +165,12 @@ Before moving to the next increment in the Attack Plan:
 - [ ] Any new decisions added to the Decision Log in `PATTERN-DOCUMENT.md`
 - [ ] Any resolved Open Questions closed in `PATTERN-DOCUMENT.md`
 
+**On the final increment only — documentation health gate (required before declaring the loop done):**
+- [ ] `<authors>` is not `Intent.Modules.NET`
+- [ ] `<summary>` and `<description>` are not `A custom module for Intent.Modules.NET`
+- [ ] `<tags>` is not empty
+- [ ] `release-notes.md` version heading matches the `.imodspec` `<version>` and contains at least one bullet point
+
 If any box can't be ticked, the increment is not done — keep iterating.
 
 ---
@@ -173,6 +187,12 @@ This loop terminates when **all** of these are true:
 6. A `CONTEXT.md` file has been created or updated in the module folder, consolidating all durable technical decisions, architecture constraints, and findings from `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md`.
 7. The temporary files `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md` are deleted from the module folder.
 8. The project-wide `/WORKING.md` file is deleted or cleared if the entire project/task is now complete.
+9. **Documentation health gate** — every `.imodspec` in the module folder passes all of the following (check each field literally, reject any that still contain the scaffold default):
+   - `<authors>` is **not** `Intent.Modules.NET`
+   - `<summary>` is **not** `A custom module for Intent.Modules.NET`
+   - `<description>` is **not** `A custom module for Intent.Modules.NET`
+   - `<tags>` is **not** empty (`<tags />` or `<tags></tags>`)
+   - `release-notes.md` exists, the first heading version matches the `<version>` in the `.imodspec`, and it has at least one bullet point of content
 
 When all these hold, hand back to the calling agent / user with:
 - The list of increments completed
