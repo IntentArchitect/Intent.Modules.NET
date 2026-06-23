@@ -138,7 +138,8 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <tags>wolverine cqrs command query handler middleware</tags>
+  <tags>wolverine cqrs application handlers middleware dotnet</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md</projectUrl>
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>
