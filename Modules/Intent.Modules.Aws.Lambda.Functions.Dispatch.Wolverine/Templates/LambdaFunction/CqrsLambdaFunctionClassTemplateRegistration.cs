@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine.Templates.LambdaFunction;
 
 [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-internal class CqrsLambdaFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<ILambdaFunctionContainerModel>
+public class CqrsLambdaFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<ILambdaFunctionContainerModel>
 {
     private readonly IMetadataManager _metadataManager;
 
