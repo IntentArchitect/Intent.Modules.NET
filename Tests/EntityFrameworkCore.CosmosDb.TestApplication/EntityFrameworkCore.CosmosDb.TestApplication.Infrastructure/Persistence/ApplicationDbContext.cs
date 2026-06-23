@@ -217,6 +217,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             await Database.EnsureCreatedAsync();
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
             while (true)

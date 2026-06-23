@@ -51,5 +51,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Persistence
         {
             await Database.EnsureCreatedAsync();
         }
+
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
     }
 }

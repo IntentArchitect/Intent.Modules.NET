@@ -11,5 +11,6 @@ namespace CleanArchitecture.IdentityService.Application.Common.Interfaces
     {
         DbSet<ApplicationIdentityUser> ApplicationIdentityUsers { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        bool HasDbTransaction();
     }
 }

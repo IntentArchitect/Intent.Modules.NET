@@ -18,6 +18,8 @@ namespace ProxyServiceTests.OriginalServices.Infrastructure.Persistence
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Client> Clients { get; set; }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

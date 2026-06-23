@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
-using Intent.Metadata.Models;
+﻿using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Templates;
+using System.Collections.Generic;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -23,7 +28,14 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
-        parentNode.AddChildNode(new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile));
+
+        if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+        {
+            var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
+            themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
+            parentNode.AddChildNode(themeProvider);
+        }
+
         var popoverProvider = new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile);
         //popoverProvider.AddAttribute("@rendermode", "InteractiveServer"); // throws exception. Check with Dom
         parentNode.AddChildNode(popoverProvider);
@@ -61,6 +73,11 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     _componentResolver.BuildComponent(child, appBar);
                 }
 
+                if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                {
+                    var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
+                    ConfigureThemeSelection(appBar, code, insertPosition);
+                }
             });
         }
         //layoutHtml.AddHtmlElement("Layout", layoutHtml =>
@@ -75,8 +92,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 }
 
                 mudDrawer.AddAttribute("ClipMode", "DrawerClipMode.Always");
-                mudDrawer.AddAttribute("Elevation", "2");
-                mudDrawer.AddAttribute("Class", "pt-2");
+                mudDrawer.AddAttribute("Elevation", "0");
 
                 foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
                 {
@@ -97,5 +113,87 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         //});
         return [layoutHtml];
 
+    }
+
+    private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition)
+    {
+        // add the button
+        appBar.InsertHtmlElement(insertPosition, "MudTooltip", themeToggle =>
+        {
+            themeToggle.AddAttribute("Text", "@(_themeService.IsDark ? \"Switch to light mode\" : \"Switch to dark mode\")");
+
+            themeToggle.AddHtmlElement("MudIconButton", themeButton =>
+            {
+                themeButton.AddAttribute("Icon", "@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)");
+                themeButton.AddAttribute("Color", "Color.Inherit");
+                themeButton.AddAttribute("OnClick", "ToggleTheme");
+            });
+        });
+
+        var themeTemplate = code.File.Template.OutputTarget.FindTemplateInstance("Intent.Blazor.Templates.Common.ThemeServiceTemplate");
+        // Really should never be null
+        if (themeTemplate != null)
+        {
+            ((IntentTemplateBase)code.Template).AddTemplateDependency(themeTemplate.Id);
+
+            // Ensure the correct namespace is imported for ThemeService.
+            var themeServiceType = code.Template.UseType(code.Template.GetTypeName("Intent.Blazor.Templates.Common.ThemeServiceTemplate"));
+
+            // add the services to support the switching
+            code.AddProperty(themeServiceType, "_themeService", ts =>
+            {
+                ts.WithInitialValue("default!");
+                ts.AddAttribute(code.File.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+            });
+            code.AddProperty(code.Template.UseType("Microsoft.JSInterop.IJSRuntime"), "JS", ts =>
+            {
+                ts.WithInitialValue("default!");
+                ts.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+            });
+
+            code.AddMethod(code.File.Template.UseType("System.Threading.Tasks.Task"), "OnAfterRenderAsync", rm =>
+            {
+                rm.Protected().Override().Async();
+                rm.AddParameter("bool", "firstRender");
+
+                rm.AddIfStatement("firstRender", @if =>
+                {
+                    @if.AddStatement("_themeService.OnChange += StateHasChanged;");
+
+                    @if.AddAssignmentStatement("var saved",
+                        new CSharpStatement(@"await JS.InvokeAsync<string>(""themeHelper.get"");"));
+
+                    @if.AddIfStatement(@"saved == ""dark""", innerIf =>
+                    {
+                        innerIf.AddInvocationStatement("_themeService.SetDark", inv => inv.AddArgument("true"));
+                    });
+                    @if.AddElseIfStatement("saved == \"light\"", elseIf =>
+                    {
+                        elseIf.AddInvocationStatement("_themeService.SetDark", inv => inv.AddArgument("false"));
+                    });
+
+                    @if.AddIfStatement("!string.IsNullOrEmpty(saved)", stateIf =>
+                    {
+                        stateIf.AddInvocationStatement("StateHasChanged");
+                    });
+                });
+            });
+
+            code.AddMethod(code.File.Template.UseType("System.Threading.Tasks.Task"), "ToggleTheme", method =>
+            {
+                method.Async();
+                method.AddInvocationStatement("_themeService.Toggle");
+                method.AddInvocationStatement("await JS.InvokeVoidAsync", invoc =>
+                {
+                    invoc.AddArgument(@"""themeHelper.set""");
+                    invoc.AddArgument(@"_themeService.IsDark ? ""dark"" : ""light""");
+                });
+            });
+
+            code.AddMethod("void", "Dispose", method =>
+            {
+                method.AddStatement("_themeService.OnChange -= StateHasChanged;");
+            });
+        }
     }
 }

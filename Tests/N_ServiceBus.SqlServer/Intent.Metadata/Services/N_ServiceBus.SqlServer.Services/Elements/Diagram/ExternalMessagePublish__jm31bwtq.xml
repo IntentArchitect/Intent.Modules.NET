@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b89a6bf0-8baa-407b-8e26-6a684889246c" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExternalMessagePublish</name>
+  <display>ExternalMessagePublish</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>44dee5ac-10eb-4ac8-a4e2-662c3842fcef</parentFolderId>
+  <packageId>4a2eb622-611b-4eb6-b0c6-dc21275002a8</packageId>
+  <packageName>N_ServiceBus.SqlServer.Services</packageName>
+  <diagram>
+    <targetPackageId>b89a6bf0-8baa-407b-8e26-6a684889246c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

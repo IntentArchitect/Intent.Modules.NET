@@ -63,6 +63,8 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
             */
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
             while (true)

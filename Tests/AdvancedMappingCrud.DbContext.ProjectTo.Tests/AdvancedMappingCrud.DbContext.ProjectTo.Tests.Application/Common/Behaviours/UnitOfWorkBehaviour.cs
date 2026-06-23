@@ -32,6 +32,13 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Common.Behav
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (_dataSource.HasDbTransaction())
+            {
+                // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
+                var result = await next(cancellationToken);
+                await _dataSource.SaveChangesAsync(cancellationToken);
+                return result;
+            }
             // The execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
             // transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-

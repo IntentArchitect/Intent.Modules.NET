@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="69973e40-ff7e-4e66-999d-fb77c6662a23" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</parentFolderId>
+  <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+  <packageName>Intent.Eventing.NServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

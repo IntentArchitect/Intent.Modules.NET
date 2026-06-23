@@ -16,5 +16,6 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.Comm
         DbSet<DefaultDomainPackageAuditLog> DefaultDomainPackageAuditLogs { get; }
         DbSet<DefaultEntity> DefaultEntities { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        bool HasDbTransaction();
     }
 }

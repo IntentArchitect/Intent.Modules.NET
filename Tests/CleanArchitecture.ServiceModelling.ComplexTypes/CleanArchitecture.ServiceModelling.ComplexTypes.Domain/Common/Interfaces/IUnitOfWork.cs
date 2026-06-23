@@ -10,5 +10,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common.Interfac
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        bool HasDbTransaction();
     }
 }

@@ -133,13 +133,45 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     // Generate custom mapping methods
                     foreach (var config in mappingConfigurations.Where(x => x.UseCustomMethod))
                     {
-                        @class.AddMethod(GetTypeName(config.Field.TypeReference), config.CustomMethodName, method =>
+                        var returnTypeName = GetTypeName(config.Field.TypeReference);
+                        if (config.SourceExpression.Contains("?."))
+                            returnTypeName = returnTypeName.EndsWith("?") ? returnTypeName : returnTypeName + "?";
+
+                        var isStatic = !CustomMethodUsesInstanceField(config, mapperDependencies);
+
+                        @class.AddMethod(returnTypeName, config.CustomMethodName, method =>
                         {
                             method.Private();
+                            if (isStatic) method.Static();
                             method.AddParameter(entityTypeName, "source");
                             method.WithExpressionBody(BuildCustomMappingExpression(config, mapperDependencies));
                         });
                     }
+
+                    // Deferred: add [MapperIgnoreSource] for properties injected by other modules
+                    // (e.g. DomainEvents) that are marked "non-persistent" but absent from the model.
+                    // Must run at Final priority (1000) so the entity's OnBuild (500) has already fired.
+                    entityTemplate.CSharpFile.AfterBuild(entityFile =>
+                    {
+                        var entityClass = entityFile.Classes.FirstOrDefault();
+                        if (entityClass == null) return;
+
+                        var mappingMethod = CSharpFile.Classes.First()
+                            .FindMethod($"{entityClassName}To{dtoModelName}");
+                        if (mappingMethod == null) return;
+
+                        foreach (var property in entityClass.Properties)
+                        {
+                            if (!property.TryGetMetadata<bool>("non-persistent", out var isNonPersistent)
+                                || !isNonPersistent)
+                            {
+                                continue;
+                            }
+
+                            mappingMethod.AddAttribute("MapperIgnoreSource", attr =>
+                                attr.AddArgument(GetSafeMapperlyNameof(entityTypeName, property.Name)));
+                        }
+                    }, 1000);
                 });
         }
 
@@ -301,6 +333,18 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             }
 
             return expression;
+        }
+
+        private static bool CustomMethodUsesInstanceField(
+            MappingConfiguration config,
+            IReadOnlyCollection<ICSharpFileBuilderTemplate> mapperDependencies)
+        {
+            if (!config.Field.TypeReference.IsCollection)
+                return false;
+
+            var targetClassName = config.Field.TypeReference.Element?.Name;
+            return mapperDependencies.Any(x =>
+                x.TryGetModel<DTOModel>(out var dto) && dto.Name == targetClassName);
         }
     }
 }

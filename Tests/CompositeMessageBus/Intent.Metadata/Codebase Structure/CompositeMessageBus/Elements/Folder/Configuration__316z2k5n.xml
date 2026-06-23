@@ -515,5 +515,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="a6bd44e0-26e6-4397-95a3-50fc9f3b8823" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusConfiguration</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusConfiguration</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

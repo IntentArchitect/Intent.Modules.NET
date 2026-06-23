@@ -55,6 +55,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             }
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-tokens.css"));
+                            head.AddHtmlElement("link", t => t
+                                .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-base.css"));
+                            head.AddHtmlElement("link", t => t
+                                .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-components.css"));
+                            head.AddHtmlElement("link", t => t
+                                .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", "app.css"));
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
@@ -75,6 +84,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme.js"));
+                            body.AddHtmlElement("script", t => t.WithText("themeHelper.init();"));
                         });
 
                         html.AddEmptyLine();

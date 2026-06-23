@@ -15,6 +15,9 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
         [MapperIgnoreSource(nameof(Customer.IsVip))]
         [MapperIgnoreSource(nameof(Customer.BirthDate))]
         [MapperIgnoreSource(nameof(Customer.MetadataJson))]
+        [MapperIgnoreSource(nameof(Customer.Addresses))]
+        [MapperIgnoreSource(nameof(Customer.Preferences))]
+        [MapperIgnoreSource(nameof(Customer.CustomerSegments))]
         public partial CustomerLeanDto CustomerToCustomerLeanDto(Customer customer);
 
         public partial List<CustomerLeanDto> CustomerToCustomerLeanDtoList(IEnumerable<Customer> customers);

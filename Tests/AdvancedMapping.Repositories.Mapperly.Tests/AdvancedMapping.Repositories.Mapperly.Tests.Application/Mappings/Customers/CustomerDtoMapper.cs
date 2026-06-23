@@ -13,6 +13,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
     public partial class CustomerDtoMapper
     {
 
+        [MapperIgnoreSource(nameof(Customer.Addresses))]
+        [MapperIgnoreSource(nameof(Customer.CustomerSegments))]
         [MapPropertyFromSource(nameof(CustomerDto.PreferencesNewsletter), Use = nameof(MapPreferencesNewsletter))]
         [MapPropertyFromSource(nameof(CustomerDto.PreferencesSpecials), Use = nameof(MapPreferencesSpecials))]
         [MapPropertyFromSource(nameof(CustomerDto.PreferencesTheme), Use = nameof(MapPreferencesTheme))]
@@ -20,10 +22,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
 
         public partial List<CustomerDto> CustomerToCustomerDtoList(IEnumerable<Customer> customers);
 
-        private bool? MapPreferencesNewsletter(Customer source) => (bool?)source.Preferences?.Newsletter;
+        private static bool? MapPreferencesNewsletter(Customer source) => (bool?)source.Preferences?.Newsletter;
 
-        private bool? MapPreferencesSpecials(Customer source) => (bool?)source.Preferences?.Specials;
+        private static bool? MapPreferencesSpecials(Customer source) => (bool?)source.Preferences?.Specials;
 
-        private Theme MapPreferencesTheme(Customer source) => source.Preferences!.Theme;
+        private static Theme? MapPreferencesTheme(Customer source) => source.Preferences?.Theme;
     }
 }

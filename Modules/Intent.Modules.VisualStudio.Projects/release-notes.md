@@ -1,3 +1,8 @@
+### Version 4.1.3
+
+- Improvement: Comments in the appsettings are preserved when running the Software Factory.
+- Improvement: Added support for the `.slnx` (XML Solution) solution format. Apply the `Visual Studio Solution Options` stereotype to a solution and set `Solution File Format` to `XML Solution (.slnx)` to generate an `.slnx` file instead of the classic `.sln`. Switching format automatically removes the old file via the Software Factory's staged changes.
+
 ### Version 4.1.2
 
 - Improvement: Migration to correct `.agent` folder location when required in certain scenarios.

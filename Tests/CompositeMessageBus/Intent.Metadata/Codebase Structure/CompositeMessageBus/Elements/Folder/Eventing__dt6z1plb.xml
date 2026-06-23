@@ -1165,5 +1165,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="71b2acf7-a31c-4c72-a0a7-10eedffc433f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageBus</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageBus</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>414167b9-fb45-4456-aae2-f410a89ba2be</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6a42d0be-2f65-4c8b-b1f0-506ee5128f6e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>414167b9-fb45-4456-aae2-f410a89ba2be</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

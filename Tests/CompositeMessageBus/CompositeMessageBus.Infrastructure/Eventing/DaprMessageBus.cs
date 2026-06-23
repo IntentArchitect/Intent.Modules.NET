@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using CompositeMessageBus.Application.Common.Eventing;
 using Dapr.Client;
 using Intent.RoslynWeaver.Attributes;
+using IEvent = CompositeMessageBus.Application.Common.Eventing.IEvent;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus", Version = "1.0")]

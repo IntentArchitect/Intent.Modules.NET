@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="183a6e27-5893-43a1-acaa-cf5d68d2f997">
+  <sourceEnd id="c89f3e81-fcfa-4403-8350-c87fea28759d" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NServiceBus.OutboxPattern.Subscribe.Services.TestEventHandler</display>
+    <order>0</order>
+    <typeReference id="9666bda8-5ab6-4f02-a7ab-05037f51d59b">
+      <typeId>c14b4b90-fe3c-4482-bbb7-a7947c41967d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Subscribe.Services</typePackageName>
+      <typePackageId>73a1688a-1f05-4b66-8921-2b9b767f3d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="183a6e27-5893-43a1-acaa-cf5d68d2f997" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] TestEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="7b82f439-ef95-4c85-b544-1f6481eafb45">
+      <typeId>66fb56d2-4efd-45d1-b026-893772561c69</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.OutboxPattern.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>4b31a225-80ee-4c5a-ab82-16b57da74155</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

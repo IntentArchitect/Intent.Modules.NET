@@ -13,6 +13,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     {
         [MapperIgnoreSource(nameof(Shipment.OrderId))]
         [MapperIgnoreSource(nameof(Shipment.ContainerId))]
+        [MapperIgnoreSource(nameof(Shipment.Container))]
         [MapProperty(nameof(@Shipment.Dispatch.Document.DocumentNumber), nameof(OrderShipmentDto.DispatchDocumentNumber))]
         [MapProperty(nameof(@Shipment.Manifest.Document.DocumentNumber), nameof(OrderShipmentDto.ManifestDocumentNumber))]
         public partial OrderShipmentDto ShipmentToOrderShipmentDto(Shipment shipment);

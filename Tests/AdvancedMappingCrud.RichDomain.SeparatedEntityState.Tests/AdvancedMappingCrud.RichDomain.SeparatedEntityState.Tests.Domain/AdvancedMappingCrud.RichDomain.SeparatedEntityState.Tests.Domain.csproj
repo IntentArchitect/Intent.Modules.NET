@@ -105,6 +105,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AddressDetails.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\SpecializedProductState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SpecializedProduct.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

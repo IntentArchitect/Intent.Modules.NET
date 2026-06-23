@@ -47,6 +47,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

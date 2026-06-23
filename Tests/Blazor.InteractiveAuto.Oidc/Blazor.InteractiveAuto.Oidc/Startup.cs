@@ -1,4 +1,5 @@
 using Blazor.InteractiveAuto.Oidc.Client;
+using Blazor.InteractiveAuto.Oidc.Client.Components.Services;
 using Blazor.InteractiveAuto.Oidc.Common;
 using Blazor.InteractiveAuto.Oidc.Components;
 using Blazor.InteractiveAuto.Oidc.Components.Account;
@@ -49,6 +50,7 @@ namespace Blazor.InteractiveAuto.Oidc
                 .AddInteractiveServerComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

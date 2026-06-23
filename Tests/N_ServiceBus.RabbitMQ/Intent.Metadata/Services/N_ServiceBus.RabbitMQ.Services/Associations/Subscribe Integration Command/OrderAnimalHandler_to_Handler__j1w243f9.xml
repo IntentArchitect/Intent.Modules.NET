@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="747061e8-1ece-48de-beb0-af32c8f1e10f">
+  <sourceEnd id="ce5e366f-3e7b-4ad6-b630-923e0c7617e3" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: NServiceBus.RabbitMQ.Services.OrderAnimalHandler</display>
+    <order>0</order>
+    <typeReference id="c11f1417-7260-45a8-b4d0-62f5a15e5bff">
+      <typeId>28cb765f-a610-4733-8fb8-714627f8a707</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="747061e8-1ece-48de-beb0-af32c8f1e10f" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] CreatePersonIdentity</display>
+    <order>3</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="242241ae-7cf0-4a58-8860-27d4004cf115">
+      <typeId>63125168-faee-4eff-b28f-f68b73180ab8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

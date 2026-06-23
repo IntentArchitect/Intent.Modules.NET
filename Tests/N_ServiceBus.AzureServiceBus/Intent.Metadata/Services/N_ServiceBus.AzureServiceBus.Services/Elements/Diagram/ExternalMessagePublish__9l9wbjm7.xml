@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74c4c58a-b87c-4fe5-b7b8-f70a0f474681" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExternalMessagePublish</name>
+  <display>ExternalMessagePublish</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ed53a72-34b7-4f3e-ab34-d3532be85e0d</parentFolderId>
+  <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
+  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <diagram>
+    <targetPackageId>74c4c58a-b87c-4fe5-b7b8-f70a0f474681</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

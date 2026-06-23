@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Moved out functionality to Blazor and Mudblazor modules. This module is no longer required.
+
 ### Version 1.1.0
 
 - Improvement: Converted use skills for AI implementation, and aligned with Angular modules.

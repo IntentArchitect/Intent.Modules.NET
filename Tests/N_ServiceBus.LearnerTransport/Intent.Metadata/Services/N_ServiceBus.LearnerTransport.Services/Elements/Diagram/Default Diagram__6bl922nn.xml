@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23fcc15b-44d8-40d0-8c9e-868a84a7a530" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>949bbc79-f237-42b1-ac6b-20b32300f302</parentFolderId>
+  <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
+  <packageName>NServiceBus.LearnerTransport.Services</packageName>
+  <diagram>
+    <targetPackageId>949bbc79-f237-42b1-ac6b-20b32300f302</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

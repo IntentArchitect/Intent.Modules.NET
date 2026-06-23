@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/0 - Frontend/">
+    <Project Path="MinimalHostingModel.BlazorClient/MinimalHostingModel.BlazorClient.csproj" />
+  </Folder>
+  <Folder Name="/1 - Api/">
+    <Project Path="MinimalHostingModel.Api/MinimalHostingModel.Api.csproj" />
+  </Folder>
+  <Folder Name="/2 - Application/">
+    <Project Path="MinimalHostingModel.Application/MinimalHostingModel.Application.csproj" />
+  </Folder>
+  <Folder Name="/3 - Domain/">
+    <Project Path="MinimalHostingModel.Domain/MinimalHostingModel.Domain.csproj" />
+  </Folder>
+  <Folder Name="/4 - Infrastructure/">
+    <Project Path="MinimalHostingModel.Infrastructure/MinimalHostingModel.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/5 - Tests/">
+    <Project Path="MinimalHostingModel.Tests/MinimalHostingModel.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,4 +1,5 @@
 using Blazor.InteractiveAuto.Jwt.Client;
+using Blazor.InteractiveAuto.Jwt.Client.Components.Services;
 using Blazor.InteractiveAuto.Jwt.Common;
 using Blazor.InteractiveAuto.Jwt.Components;
 using Blazor.InteractiveAuto.Jwt.Components.Account;
@@ -47,6 +48,7 @@ namespace Blazor.InteractiveAuto.Jwt
                 .AddInteractiveServerComponents();
 
             services.AddMudServices();
+            services.AddScoped<ThemeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

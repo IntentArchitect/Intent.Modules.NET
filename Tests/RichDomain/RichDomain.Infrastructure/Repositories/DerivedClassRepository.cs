@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.EntityFrameworkCore;
 using RichDomain.Domain.Entities;
 using RichDomain.Domain.Repositories;
 using RichDomain.Infrastructure.Persistence;
@@ -18,10 +17,8 @@ namespace RichDomain.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DerivedClassRepository : RepositoryBase<IDerivedClass, DerivedClass, ApplicationDbContext>, IDerivedClassRepository
     {
-        private readonly ApplicationDbContext _dbContext;
         public DerivedClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
-            _dbContext = dbContext;
         }
 
         public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
@@ -31,9 +28,24 @@ namespace RichDomain.Infrastructure.Repositories
             return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
         }
 
-        public void Add(IDerivedClass entity)
+        public async Task<IDerivedClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            _dbContext.Database.ExecuteSqlInterpolated($"INSERT INTO DerivedClasses (DerivedAttribute) VALUES({entity.DerivedAttribute})");
+            return await FindAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<IDerivedClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<DerivedClass>, IQueryable<DerivedClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
+        public async Task<List<IDerivedClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        {
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = ids.ToList();
+            return await FindAllAsync(x => idList.Contains(x.Id), cancellationToken);
         }
     }
 }

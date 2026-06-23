@@ -16,6 +16,7 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static Intent.Modules.VisualStudio.Projects.Templates.JsonCommentPreserver;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -119,7 +120,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 content = TransformText();
             }
 
-            var json = JsonConvert.DeserializeObject<JObject>(content);
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
             var valuesObj = (JObject)(json["Values"] ??= new JObject());
 
             var preExisting = valuesObj.Properties().Select(x => x.Name).ToArray();
@@ -159,7 +161,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 valuesObj[key] ??= JToken.FromObject(request.ConnectionString);
             }
 
-            return JsonConvert.SerializeObject(json, Formatting.Indented);
+            var serialized = JsonConvert.SerializeObject(json, Formatting.Indented);
+            return JsonCommentPreserver.Restore(serialized, commentBlocks);
         }
 
         private static IEnumerable<(string Key, object Value)> Deconstruct(string key, object value)

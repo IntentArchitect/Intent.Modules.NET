@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6b285392-644a-4fb7-8e8f-3962db89e28e">
+  <sourceEnd id="86972fbd-2d41-42de-9da3-c8aa87bcb027" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="a26a5fb0-1f6a-4618-855e-a5e1cb906b55">
+      <typeId>b45a9b0a-a91e-4d50-9c2c-9a29259c2347</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Services</typePackageName>
+      <typePackageId>509ec879-9053-4eec-ba0e-2849e66d1797</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6b285392-644a-4fb7-8e8f-3962db89e28e" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] TestMessage</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="518ed11c-59e5-4f2f-8af5-fb9f1afc94f2">
+      <typeId>0cb2834c-d4d7-42a1-be23-fec21dce96fa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>NServiceBus.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b45a9b0a-a91e-4d50-9c2c-9a29259c2347" location="[NServiceBus.RabbitMQ].[Services].[PublishExternalMessageCommand]" />
+        <target applicationId="d5971438-3fe8-4d7b-abb3-01978c0f447b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0cb2834c-d4d7-42a1-be23-fec21dce96fa" location="[NServiceBus.RabbitMQ].[Services].[TestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="0cb2834c-d4d7-42a1-be23-fec21dce96fa" name="TestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="63493449-4857-41ca-aeed-0bcfc55b378e" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b45a9b0a-a91e-4d50-9c2c-9a29259c2347" name="PublishExternalMessageCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fe875560-f5fc-4fe4-99fb-25c1f3c3e99b" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>
