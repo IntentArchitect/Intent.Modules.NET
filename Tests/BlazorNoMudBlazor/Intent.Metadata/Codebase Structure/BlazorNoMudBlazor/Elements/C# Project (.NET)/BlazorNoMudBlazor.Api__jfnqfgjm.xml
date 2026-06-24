@@ -415,7 +415,7 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="f44b97c2-b7c6-433b-b460-5e1a1a8ce089" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="bbf54a63-8f5c-48fd-a3c8-790b66743d98" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor</externalReference>
@@ -429,7 +429,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a5098c18-2cb0-4e7d-b0bb-5b10169c18a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="8b2693ff-e91f-44f8-8e8c-9d66680e3398" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor</externalReference>
@@ -443,7 +443,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="480ad00a-4b7e-4142-baf8-2c948ba3e44b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6a31ff08-9acf-4fdc-a7ad-9977be99b45e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountThemeStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountThemeStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -457,7 +457,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0b904de7-425c-419e-8d02-aa202216830f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="d3207102-f668-4a32-9c2d-67b63203fb5e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>

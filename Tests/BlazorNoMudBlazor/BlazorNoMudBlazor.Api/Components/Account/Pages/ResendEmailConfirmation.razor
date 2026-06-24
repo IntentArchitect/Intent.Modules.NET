@@ -1,5 +1,5 @@
 @page "/Account/ResendEmailConfirmation"
-@using System.ComponentModel.DataAnnotations
+
 @using BlazorNoMudBlazor.Api.Common
 @inject IAuthService AuthService
 
@@ -7,10 +7,7 @@
 <AccountHero Icon="mail"
              Title="Resend email confirmation"
              Subtitle="Enter your email to receive a new confirmation link." />
-<h1>Resend email confirmation</h1>
-<h2>Enter your email.</h2>
-<hr />
-<div class="row ux-form-narrow">
+<div class="ux-form-narrow">
     <section>
         <div class="ux-section-head">
             <h2>Send another confirmation email</h2>
@@ -45,31 +42,4 @@
             </div>
         </EditForm>
     </section>
-    <div class="col-md-4">
-        <EditForm Model="Input"
-                  FormName="resend-email-confirmation"
-                  OnValidSubmit="OnValidSubmitAsync"
-                  method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger"
-                               role="alert" />
-            <div class="form-floating mb-3">
-                <InputText class="form-control"
-                           @bind-Value="Input.Email"
-                           autocomplete="username"
-                           aria-required="true"
-                           placeholder="name@example.com" />
-                <label class="form-label"
-                       for="email">
-                    Email
-                </label>
-                <ValidationMessage class="text-danger"
-                                   For="() => Input.Email" />
-                <button class="w-100 btn btn-lg btn-primary"
-                        type="submit">
-                    Resend
-                </button>
-            </div>
-        </EditForm>
-    </div>
 </div>
