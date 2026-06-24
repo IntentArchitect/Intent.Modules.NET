@@ -17,6 +17,10 @@
                       method="post"
                       asp-route-returnUrl="@ReturnUrl">
                 <DataAnnotationsValidator />
+                <div class="ux-section-head">
+                    <h2>Create a new account</h2>
+                    <p class="ux-section-subtitle">It only takes a moment.</p>
+                </div>
                 <ValidationSummary class="text-danger"
                                    role="alert" />
                 <UxField Label="Email"
@@ -62,10 +66,6 @@
                     <UxIcon Name="user-plus" />
                     Register
                 </button>
-                <div class="ux-section-head">
-                    <h2>Create a new account</h2>
-                    <p class="ux-section-subtitle">It only takes a moment.</p>
-                </div>
             </EditForm>
         </section>
     </div>
