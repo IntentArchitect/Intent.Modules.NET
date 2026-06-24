@@ -20,6 +20,7 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
     using Intent.Blazor.Api;
+    using Intent.Templates;
 
     /// <summary>
     /// A Razor template.
@@ -71,7 +72,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 
                     file.AfterBuild(_ =>
                     {
-                        ComponentBuilderProvider.BuildComponent(Model.View.InternalElement, file);
+                        if (Model.View is not null)
+                        {
+                            ComponentBuilderProvider.BuildComponent(Model.View.InternalElement, file);
+                        }
                     });
 
 
@@ -99,11 +103,17 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+
+            return new RazorFileConfig(config.ClassName, config.Namespace, 
+                config.LocationInProject,
+                OverwriteBehaviour.OverwriteDisabled);
         }
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public override string TransformText() => RazorFile.ToString();
+        public override string TransformText() => !string.IsNullOrWhiteSpace(RazorFile.ToString())
+            ? RazorFile.ToString()
+            : "@* To be replaced with your razor content *@";
     }
 }

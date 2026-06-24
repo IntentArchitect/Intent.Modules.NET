@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
                 .FromMarkdown("""
 ---
 name: blazor-page-view-entity
-description: Creates Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when implementing view, detail, inspect, or read-only display entity pages in Blazor.
+description: Implements Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when creating or implementing view, detail, inspect, or read-only display entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"

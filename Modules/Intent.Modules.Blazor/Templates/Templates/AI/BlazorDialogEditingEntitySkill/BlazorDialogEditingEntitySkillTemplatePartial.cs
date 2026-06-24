@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
                 .FromMarkdown("""
 ---
 name: blazor-dialog-editing-entity
-description: Creates Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when implementing edit or update entity dialogs in Blazor.
+description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"

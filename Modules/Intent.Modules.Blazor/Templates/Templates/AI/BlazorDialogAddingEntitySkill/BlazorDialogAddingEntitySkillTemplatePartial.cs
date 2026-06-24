@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogAddingEntityS
                 .FromMarkdown("""
 ---
 name: blazor-dialog-adding-entity
-description: Creates Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when implementing add or create entity dialogs in Blazor.
+description: Implements Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when creating or implementing add or create entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"

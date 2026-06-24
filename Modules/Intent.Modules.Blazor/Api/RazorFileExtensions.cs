@@ -163,7 +163,7 @@ public static class RazorFileExtensions
                             mappingManager.SetFromReplacement(parameter, parameter.Name.ToParameterName());
                         }
 
-                        var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
+                        var mappings = template.BindingManager.ViewBinding?.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
                         //var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
 
                         foreach (var action in operation.GetProcessingActions())

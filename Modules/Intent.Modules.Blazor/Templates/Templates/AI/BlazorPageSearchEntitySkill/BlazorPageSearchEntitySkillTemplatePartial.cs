@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
                 .FromMarkdown("""
 ---
 name: blazor-page-search-entity
-description: Creates Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when implementing search, list, filter, lookup, or query entity pages in Blazor.
+description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"

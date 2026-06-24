@@ -13,8 +13,8 @@
   <stereotypes />
   <mappings>
     <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
-      <source applicationId="7d1e1684-93a5-43e0-825c-601fece85c07" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a178d0e7-8bc2-47a2-9724-fc672ce37c13" location="[Webinar.Blazor].[User Interface].[MainLayout]" />
-      <target applicationId="7d1e1684-93a5-43e0-825c-601fece85c07" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a178d0e7-8bc2-47a2-9724-fc672ce37c13" location="[Webinar.Blazor].[User Interface].[MainLayout]" />
+      <source applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a178d0e7-8bc2-47a2-9724-fc672ce37c13" location="[Blazor.Components.MudBlazor.Metadata].[User Interface].[MainLayout]" />
+      <target applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a178d0e7-8bc2-47a2-9724-fc672ce37c13" location="[Blazor.Components.MudBlazor.Metadata].[User Interface].[MainLayout]" />
       <mappedEnds>
         <mappedEnd>
           <expression>{NavigateToHome}</expression>

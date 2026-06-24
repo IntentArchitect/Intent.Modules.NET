@@ -24,9 +24,11 @@ namespace Intent.Modules.Blazor.Migrations
         private const string VisualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
         private const string UIDesignerId = "f492faed-0665-4513-9853-5a230721786f";
         private const string ServicesDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
+        private const string DomainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
 
         private const string VisualStudioSolutionPackageSpecializationId = "07e7b690-a59d-4b72-8440-4308a121d32c";
         private const string ServicePackageSpecializationId = "df45eaf6-9202-4c25-8dd5-677e9ba1e906";
+        private const string DomainPackageSpecializationId = "1a824508-4623-45d9-accc-f572091ade5a";
         private const string UIPackageSpecializationId = "911c35b4-4ba3-404c-a0c6-e5258e53333a";
         private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
 
@@ -50,6 +52,7 @@ namespace Intent.Modules.Blazor.Migrations
             changes |= EnsureBlazorRoleInVSDesigner(app);
             changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");            
             changes |= AddServicePackageReferenceToUIPackages(app);
+            changes |= AddDomainPackageReferenceToUIPackages(app);
             if (changes)
             {
                 app.SaveAllChanges();
@@ -76,6 +79,31 @@ namespace Intent.Modules.Blazor.Migrations
                 foreach (var servicePacakge in servicePackages)
                 {
                     uiPackage.AddReference(PackageReferenceModel.Create(servicePacakge, true));
+                    result = true;
+                }
+            }
+            return result;
+        }
+
+        private bool AddDomainPackageReferenceToUIPackages(ApplicationPersistable app)
+        {
+            bool result = false;
+            var designerDomain = app.TryGetDesigner(DomainDesignerId);
+            if (designerDomain == null)
+                return result;
+            var domainPackages = designerDomain.GetPackages().Where(x => x.SpecializationTypeId == DomainPackageSpecializationId);
+            if (!domainPackages.Any())
+            {
+                return result;
+            }
+            var designerUI = app.GetDesigner(UIDesignerId);
+            var uipackages = designerUI.GetPackages().Where(x => x.SpecializationTypeId == UIPackageSpecializationId);
+
+            foreach (var uiPackage in uipackages)
+            {
+                foreach (var domainPackage in domainPackages)
+                {
+                    uiPackage.AddReference(PackageReferenceModel.Create(domainPackage, true));
                     result = true;
                 }
             }

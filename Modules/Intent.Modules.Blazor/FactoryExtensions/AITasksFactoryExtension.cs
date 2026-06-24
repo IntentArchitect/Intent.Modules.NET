@@ -81,6 +81,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             AddNavigatesToContext(model, intention);
             AddShowDialogContext(model, intention);
             AddCallServiceOperationContext(model, intention);
+            AddCompositionContext(model, intention);
 
             var componenRazorTemplate = template.ExecutionContext.FindTemplateInstance(RazorComponentTemplate.TemplateId, model.Id);
 
@@ -134,6 +135,22 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     var dialogTargetEnd = association.AsShowDialogTargetEndModel();
                     intention.AppendLine($"- The {operation.Name} operation opens a dialog to show the {dialogTargetEnd.TypeReference.Element.Name} component");
                 }
+            }
+
+            foreach (var association in model.InternalElement.AssociatedElements.Where(e => e.IsShowDialogTargetEndModel()))
+            {
+                var dialogTargetEnd = association.AsShowDialogTargetEndModel();
+                intention.AppendLine($"- {model.Name} opens a dialog to show the {dialogTargetEnd.TypeReference.Element.Name} component");
+            }
+        }
+
+        // Add context about which components the current component is composed of (composition relationships)
+        private static void AddCompositionContext(ComponentModel model, StringBuilder intention)
+        {
+            foreach (var association in model.InternalElement.AssociatedElements.Where(e => e.IsCompositionTargetEndModel()))
+            {
+                var compositionTargetEnd = association.AsCompositionTargetEndModel();
+                intention.AppendLine($"- {model.Name} is composed of the {compositionTargetEnd.TypeReference.Element.Name} component.");
             }
         }
 

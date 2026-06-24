@@ -25,6 +25,7 @@
 - Improvement: Added support for Design.md.
 - Improvement: Updated out of the box styling.
 - Improvement: Support for light and dark modes.
+- Improvement: Domain package reference automatically added to UI designer.
 
 ### Version 1.1.0
 

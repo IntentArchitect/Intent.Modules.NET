@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageEditingEntitySk
                 .FromMarkdown("""
 ---
 name: blazor-page-editing-entity
-description: Creates Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when implementing edit, update, or modify entity pages in Blazor.
+description: Implements Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing edit, update, or modify entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
   - "**/*.razor"
   - "**/*.razor.cs"
