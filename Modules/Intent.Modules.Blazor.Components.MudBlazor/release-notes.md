@@ -4,19 +4,21 @@
 
 > **NOTE**
 >
-> This is a breaking change for some components where you previously customized the generated code.
+> This is a breaking change **where you had customized the generated code** — on a normal upgrade the Software Factory reconciles the split for you, so no action is required.
 >
-> **For `razor.cs`:** if your `@code { }` block was unchanged from what Intent generated, delete the block — Intent will now manage the code-behind in the separate `razor.cs` file. If you had customizations, migrate them into the newly generated `razor.cs` and appropriately use `[IntentIgnore]` to continue managing your own code
+> **For `razor.cs`:** if your `@code { }` block was unchanged from what Intent generated, the Software Factory removes the inline block and moves the code into the separate `razor.cs` automatically — nothing to do. **Only if you customized the `@code`** (or took ownership of it with `[IntentIgnore]`) is your inline block preserved, where it then clashes with the generated `razor.cs` (CS0102 / CS0111 duplicate-definition errors); in that case migrate your changes into the `razor.cs`, keep them with `[IntentIgnore]`, and remove the inline block.
 >
-> **For `razor.css`:** there are no build failures. If your `<style>` block was unchanged from what Intent generated, you can safely delete it. If you had customizations, copy the content into the `*.razor.css` file. Intent will not interfere with your modifications to this file 
+> **For `razor.css`:** there are no build failures. An unchanged `<style>` block is superseded by the generated `*.razor.css` and can be removed; if you had customizations, copy them into the `*.razor.css` file — Intent will not interfere with your modifications there.
 
 - Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` due to ASP.NET identity requiring static `no render` mode
 
 > **NOTE**
 >
-> As part of this layout refactor the app bar and drawer now inject dedicated `ThemeToggle`, `AppUserMenu` and `NavLinks` components. `MainLayout.razor` is **merged** on regeneration (it is not fully overwritten, so your customizations are preserved), which means that when you upgrade an **existing** app the Software Factory keeps your previous layout markup and adds the new components on top. You may therefore see **duplicated controls** in the app bar or drawer — e.g. two theme toggles, an old user menu next to the new `AppUserMenu`, or a doubled navigation list.
+> As part of this layout refactor the app bar and drawer now inject dedicated `ThemeToggle`, `AppUserMenu` and `NavLinks` components in place of the previously inlined controls. On a normal upgrade the Software Factory reconciles `MainLayout.razor` for you — the old controls are removed and the new components added — so **no action is required**.
 >
-> **To fix:** delete your generated `MainLayout.razor` and re-run the Software Factory — it will be regenerated cleanly with only the new components. The file is at `Components/Layout/MainLayout.razor` for single-project (`InteractiveServer`) apps, or `<YourApp>.Client/Components/Layout/MainLayout.razor` for two-project (`InteractiveAuto` / `InteractiveWebAssembly`) apps. The seeded sample user-menu (a `Menu` element with Profile / My Account / Logout) is removed from your application model by the upgrade migration, so once that has run and you have regenerated `MainLayout.razor`, the old menu no longer renders either.
+> **If you have taken ownership of `MainLayout.razor`** — e.g. added an `@Intent.Ignore` instruction or otherwise hand-edited the generated markup so Intent no longer manages it — the merge preserves your version, and you may then see **duplicated controls** in the app bar or drawer (two theme toggles, an old user menu next to the new `AppUserMenu`, or a doubled navigation list).
+>
+> **In that case:** delete your `MainLayout.razor` and re-run the Software Factory to regenerate it cleanly with only the new components, then re-apply any customizations you want to keep. The file is at `Components/Layout/MainLayout.razor` for single-project (`InteractiveServer`) apps, or `<YourApp>.Client/Components/Layout/MainLayout.razor` for two-project (`InteractiveAuto` / `InteractiveWebAssembly`) apps. (The seeded sample user-menu — a `Menu` element with Profile / My Account / Logout — is removed from your application model by the upgrade migration regardless.)
 
 ### Version 1.1.1
 
