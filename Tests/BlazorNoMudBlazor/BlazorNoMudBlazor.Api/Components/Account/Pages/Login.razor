@@ -1,8 +1,6 @@
 @page "/Account/Login"
-@using System.ComponentModel.DataAnnotations
+
 @using BlazorNoMudBlazor.Api.Common
-@using Microsoft.AspNetCore.Authentication
-@using Microsoft.AspNetCore.Mvc
 @inject IAuthService AuthService
 @inject NavigationManager NavigationManager
 
@@ -10,23 +8,32 @@
 <AccountHero Icon="lock-open"
              Title="Welcome back"
              Subtitle="Sign in with your local account to continue." />
-<h1>Log in</h1>
-<div class="row ux-form-grid">
-    <div class="col-md-4 ux-form-col">
+<div class="ux-form-grid">
+    <div class="ux-form-col">
         <section>
             <StatusMessage Message="@errorMessage" />
             <EditForm Model="Input"
                       FormName="login"
                       OnValidSubmit="LoginUser"
                       method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                                   role="alert" />
                 <UxField Label="Email"
                          Icon="mail"
                          For="email">
-                    <InputText id="email" class="form-control ux-input"
+                    <InputText id="email"
+                               class="ux-input"
                                @bind-Value="Input.Email"
                                autocomplete="username"
                                aria-required="true"
                                placeholder="name@example.com" />
+                </UxField>
+                <ValidationMessage class="text-danger"
+                                   For="() => Input.Email" />
+                <UxField Label="Password"
+                         Icon="lock"
+                         For="password">
                     <InputText id="password"
                                class="ux-input"
                                type="password"
@@ -35,98 +42,29 @@
                                aria-required="true"
                                placeholder="Enter your password" />
                 </UxField>
-                <DataAnnotationsValidator />
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <ValidationSummary class="text-danger"
-                                   role="alert" />
-                <UxField Label="Password"
-                         Icon="lock"
-                         For="password">
-                    <InputText id="password" class="form-control ux-input"
-                               type="password"
-                               @bind-Value="Input.Password"
-                               autocomplete="current-password"
-                               aria-required="true"
-                               placeholder="Enter your password" />
-                    <InputText id="email"
-                               class="ux-input"
-                               @bind-Value="Input.Email"
-                               autocomplete="username"
-                               aria-required="true"
-                               placeholder="name@example.com" />
-                </UxField>
-                <div class="form-floating mb-3 ux-section-head">
+                <ValidationMessage class="text-danger"
+                                   For="() => Input.Password" />
+                <div class="ux-section-head">
                     <h2>Use a local account to log in</h2>
                     <p class="ux-section-subtitle">Enter your credentials below.</p>
-                    <InputText class="form-control"
-                               @bind-Value="Input.Email"
-                               autocomplete="username"
-                               aria-required="true"
-                               placeholder="name@example.com" />
-                    <label class="form-label"
-                           for="email">
-                        Email
-                    </label>
-                    <ValidationMessage class="text-danger"
-                                       For="() => Input.Email" />
                 </div>
-                <div class="form-floating mb-3 form-check">
+                <div class="form-check">
                     <InputCheckbox id="rememberMe" class="darker-border-checkbox form-check-input"
                                    @bind-Value="Input.RememberMe" />
                     <label class="form-check-label"
                            for="rememberMe">
                         Remember me
                     </label>
-                    <InputText class="form-control"
-                               @bind-Value="Input.Password"
-                               autocomplete="current-password"
-                               aria-required="true"
-                               placeholder="password"
-                               type="password" />
-                    <label class="form-label"
-                           for="password">
-                        Password
-                    </label>
-                    <ValidationMessage class="text-danger"
-                                       For="() => Input.Password" />
                 </div>
                 <button class="w-100 btn btn-primary"
                         type="submit">
                     <UxIcon Name="log-in" />
                     Log in
                 </button>
-                <div class="form-check mb-3 ux-account-links">
+                <div class="ux-account-links">
                     <a href="Account/ForgotPassword">Forgot your password?</a>
                     <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
                     <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
-                    <InputCheckbox class="darker-border-checkbox form-check-input"
-                                   @bind-Value="Input.RememberMe" />
-                    <label class="form-check-label"
-                           for="rememberMe">
-                        Remember me
-                    </label>
-                </div>
-                <div>
-                    <button class="w-100 btn btn-lg btn-primary"
-                            type="submit">
-                        Login
-                    </button>
-                </div>
-                <div>
-                    <p>
-                        <a href="Account/ForgotPassword">Forgot your password?</a>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
                 </div>
             </EditForm>
         </section>
@@ -140,11 +78,4 @@
             <ExternalLoginPicker />
         </section>
     </div>
-</div>
-<div class="col-md-6 col-md-offset-2">
-    <section>
-        <h3>Use another service to log in.</h3>
-        <hr />
-        <ExternalLoginPicker />
-    </section>
 </div>
