@@ -21,7 +21,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="e79226be-327a-43a3-a647-5a90c2901033" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="7500f188-56b2-47a9-88f0-83907e67f5ae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -73,7 +73,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0337a698-0f69-415c-982f-1a2c1aa76e0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="57999090-88af-4f98-9bb5-13eda9524bc6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -125,7 +125,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b50aa59d-bc4f-4326-89d2-3d880efb4cd9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="0907d094-c88d-48b3-afc1-29ae28f20cf3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.LoginCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.LoginCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -177,7 +177,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="11021ad1-13ff-4e68-93be-a43944c0a48b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="25a68305-d5ff-42d2-b094-1f6292d55bba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.RegisterCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.RegisterCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -229,7 +229,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bb28a75b-4db0-49b0-877f-04f01f5a70b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6a3e582e-58d3-491e-8669-9190e8276f65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -281,7 +281,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="be47e6a2-1bfa-47b7-8b57-97a57acea283" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="52c60bd2-c611-41cd-9d24-6618021c10d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.ResetPasswordCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.ResetPasswordCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -359,7 +359,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="21ea5979-2005-4f90-b8d6-80d431a04fc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="708d4ccf-4f56-40ab-912b-325cb1b558df" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>

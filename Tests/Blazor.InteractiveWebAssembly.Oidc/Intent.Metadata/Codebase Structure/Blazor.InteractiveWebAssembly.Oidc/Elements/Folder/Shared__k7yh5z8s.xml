@@ -21,7 +21,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="6ae1f855-c7f9-4bd6-b049-c011735e376a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="2225aaa7-3089-4afc-a7fe-a78c1496f082" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>
@@ -99,7 +99,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a6b00798-100d-47d7-b3b3-a22103a8bd06" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="39a29a17-fe68-4bcd-8d65-9b8cdf0c29b6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Authentication</externalReference>

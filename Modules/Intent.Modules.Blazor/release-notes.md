@@ -12,6 +12,13 @@
 
 - Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` mode due to ASP.NET identity requiring static `no render` mode
 
+> **NOTE**
+>
+> As part of this layout refactor the app bar and drawer now inject dedicated `ThemeToggle`, `AppUserMenu` and `NavLinks` components. `MainLayout.razor` is **merged** on regeneration (it is not fully overwritten, so your customizations are preserved), which means that when you upgrade an **existing** app the Software Factory keeps your previous layout markup and adds the new components on top. You may therefore see **duplicated controls** in the app bar or drawer — e.g. two theme toggles, an old user menu next to the new `AppUserMenu`, or a doubled navigation list.
+>
+> **To fix:** delete your generated `MainLayout.razor` and re-run the Software Factory — it will be regenerated cleanly with only the new components. The file is at `Components/Layout/MainLayout.razor` for single-project (`InteractiveServer`) apps, or `<YourApp>.Client/Components/Layout/MainLayout.razor` for two-project (`InteractiveAuto` / `InteractiveWebAssembly`) apps. The seeded sample user-menu (a `Menu` element with Profile / My Account / Logout) is removed from your application model by the upgrade migration, so once that has run and you have regenerated `MainLayout.razor`, the old menu no longer renders either.
+
+
 ### Version 1.1.1
 
 - Improvement: Added support for Design.md.

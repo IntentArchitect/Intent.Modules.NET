@@ -121,7 +121,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f226c371-98a7-4a62-bd12-a52d82119fa2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="2f123282-7ac8-4541-a329-ddd656bc3796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate</name>
       <display>Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate</display>
       <externalReference>Intent.Blazor</externalReference>

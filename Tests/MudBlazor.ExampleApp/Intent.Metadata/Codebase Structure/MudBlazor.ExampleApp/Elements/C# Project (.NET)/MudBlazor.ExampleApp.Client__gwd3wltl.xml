@@ -500,7 +500,7 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="6a7ba0dc-ef29-475d-b983-6a09afbcda47" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4bfbd603-e9bd-4eee-9654-7a30f10cb808" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor</externalReference>
@@ -514,7 +514,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="59c8ef0f-ef6b-458b-94d5-e3c0c1f2342e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="03303a84-4f1d-4d1e-a72d-d5367b05934e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor</externalReference>
@@ -528,9 +528,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ec873347-0f45-4582-bc73-9973f4ed5228" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</display>
+    <childElement id="1d7631ec-93f7-47b5-9fc2-bda29bcef45a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -542,9 +542,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8a56d834-d038-429a-a1d0-2cdd1ea0f110" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration</display>
+    <childElement id="1690a78e-bad9-4dc6-8189-09e28bceafe4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

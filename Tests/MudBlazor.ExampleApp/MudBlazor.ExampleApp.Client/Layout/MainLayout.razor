@@ -1,5 +1,5 @@
 @inherits LayoutComponentBase
-@using Microsoft.AspNetCore.Components.Authorization
+
 
 <MudThemeProvider IsDarkMode="@_themeService.IsDark" />
 <MudPopoverProvider />
@@ -18,11 +18,6 @@
             <MudText Typo="Typo.h5">Application</MudText>
         </MudButton>
         <MudSpacer />
-        <MudTooltip Text="@(_themeService.IsDark ? "Switch to light mode" : "Switch to dark mode")">
-            <MudIconButton Icon="@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
-                           Color="Color.Inherit"
-                           OnClick="ToggleTheme" />
-        </MudTooltip>
         <MudMenu Icon="@Icons.Material.Filled.MoreVert">
             <MudMenuItem Icon="@Icons.Material.Filled.Person">Profile</MudMenuItem>
             <MudMenuItem Icon="@Icons.Material.Filled.ManageAccounts">My Account</MudMenuItem>
@@ -35,49 +30,6 @@
                ClipMode="DrawerClipMode.Always"
                Elevation="0">
         <NavLinks Items="AppNav.Items" />
-        <MudNavMenu>
-            <MudNavLink Icon="@Icons.Material.Filled.Receipt"
-                        IconColor="Color.Info"
-                        Href="/invoices">
-                Manage Invoices
-            </MudNavLink>
-            <MudNavLink Icon="@Icons.Material.Filled.Person"
-                        IconColor="Color.Success"
-                        Href="/customers">
-                Manage Customers
-            </MudNavLink>
-            <MudNavLink Icon="@Icons.Material.Filled.ShoppingCart"
-                        IconColor="Color.Warning"
-                        Href="/products">
-                Manage Products
-            </MudNavLink>
-            <MudNavGroup Icon="@Icons.Material.Filled.AddCircle"
-                         IconColor="Color.Info"
-                         Title="Products">
-                <MudNavLink Icon="@Icons.Material.Filled.AddBox"
-                            IconColor="Color.Default"
-                            Href="/products">
-                    Manage Products
-                </MudNavLink>
-            </MudNavGroup>
-            <MudNavGroup Title="Group1">
-                <MudNavGroup Title="Group2">
-                    <MudNavLink Href="/">Child1</MudNavLink>
-                    <MudNavLink Href="/">Child2</MudNavLink>
-                </MudNavGroup>
-                <MudNavGroup Title="Group3">
-                    <MudNavLink Href="/">Child 3</MudNavLink>
-                    <MudNavLink Href="/">Child4</MudNavLink>
-                </MudNavGroup>
-            </MudNavGroup>
-            <MudNavLink Href="/invoices/paged-invoice-table">Paged Invoice List</MudNavLink>
-            <AuthorizeView Policy="Admin">
-                <AuthorizeView Policy="SuperAdmin"
-                               Context="superAdminContext">
-                    <MudNavLink>Admin</MudNavLink>
-                </AuthorizeView>
-            </AuthorizeView>
-        </MudNavMenu>
     </MudDrawer>
     <MudMainContent Class="mt-16 pa-4">@Body</MudMainContent>
 </MudLayout>

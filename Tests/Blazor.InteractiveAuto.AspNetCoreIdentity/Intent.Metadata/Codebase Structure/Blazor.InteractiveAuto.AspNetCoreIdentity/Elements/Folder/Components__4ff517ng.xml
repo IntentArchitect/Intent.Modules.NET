@@ -21,7 +21,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2929d754-d44a-4799-b0b4-dbca06bb8419" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="8fe7c630-d842-4bbf-9862-06733c2d151b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Components.MudBlazor.AppNav</name>
       <display>Intent.Blazor.Components.MudBlazor.AppNav</display>
       <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>

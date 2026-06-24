@@ -25,12 +25,3 @@
         </div>
     </MudMainContent>
 </MudLayout>
-@layout Blazor.InteractiveAuto.Oidc.Client.Layout.MainLayout
-@if(HttpContext is null)
-{
-<p>Loading...</p>
-}
-else
-{
-@Body
-}

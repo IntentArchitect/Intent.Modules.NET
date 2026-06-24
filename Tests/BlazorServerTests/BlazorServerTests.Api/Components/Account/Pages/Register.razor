@@ -1,7 +1,6 @@
 @page "/Account/Register"
-@using System.ComponentModel.DataAnnotations
+
 @using BlazorServerTests.Api.Common
-@using Microsoft.AspNetCore.Authentication
 @inject IAuthService AuthService
 
 <PageTitle>Register</PageTitle>
@@ -193,76 +192,3 @@
         color: var(--text-muted);
     }
 </style>
-<h1>Register</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <StatusMessage Message="@Message" />
-            <EditForm Model="Input"
-                      FormName="register"
-                      OnValidSubmit="RegisterUser"
-                      method="post"
-                      asp-route-returnUrl="@ReturnUrl">
-                <DataAnnotationsValidator />
-                <h2>Create a new account.</h2>
-                <hr />
-                <ValidationSummary class="text-danger"
-                                   role="alert" />
-                <div class="form-floating mb-3">
-                    <InputText class="form-control"
-                               @bind-Value="Input.Email"
-                               autocomplete="username"
-                               aria-required="true"
-                               placeholder="name@example.com" />
-                    <label class="form-label"
-                           for="email">
-                        Email
-                    </label>
-                    <ValidationMessage class="text-danger"
-                                       For="() => Input.Email" />
-                </div>
-                <div class="form-floating mb-3">
-                    <InputText class="form-control"
-                               @bind-Value="Input.Password"
-                               autocomplete="current-password"
-                               aria-required="true"
-                               placeholder="password"
-                               type="password" />
-                    <label class="form-label"
-                           for="password">
-                        Password
-                    </label>
-                    <ValidationMessage class="text-danger"
-                                       For="() => Input.Password" />
-                </div>
-                <div class="form-floating mb-3">
-                    <InputText class="form-control"
-                               @bind-Value="Input.ConfirmPassword"
-                               autocomplete="current-password"
-                               aria-required="true"
-                               placeholder="password"
-                               type="password" />
-                    <label class="form-label"
-                           for="confirm-password">
-                        Confirm Password
-                    </label>
-                    <ValidationMessage class="text-danger"
-                                       For="() => Input.ConfirmPassword" />
-                </div>
-                <div>
-                    <button class="w-100 btn btn-lg btn-primary"
-                            type="submit">
-                        Register
-                    </button>
-                </div>
-            </EditForm>
-        </section>
-    </div>
-</div>
-<div class="col-md-6 col-md-offset-2">
-    <section>
-        <h3>Use another service to log in.</h3>
-        <hr />
-        <ExternalLoginPicker />
-    </section>
-</div>

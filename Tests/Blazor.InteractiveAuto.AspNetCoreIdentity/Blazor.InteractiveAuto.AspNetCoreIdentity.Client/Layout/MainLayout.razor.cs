@@ -25,7 +25,6 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Client.Layout
         {
             _themeService.Toggle();
             await JS.InvokeVoidAsync("themeStorage.set", _themeService.IsDark ? "dark" : "light");
-            await JS.InvokeVoidAsync("themeHelper.set", _themeService.IsDark ? "dark" : "light");
         }
 
         public void Dispose()

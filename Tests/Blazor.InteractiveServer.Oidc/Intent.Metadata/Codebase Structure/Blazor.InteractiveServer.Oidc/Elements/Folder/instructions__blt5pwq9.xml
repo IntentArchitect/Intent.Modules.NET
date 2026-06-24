@@ -37,7 +37,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0c43bfe7-f115-40bc-9d17-480ee4d6e914" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="42ed445b-eba3-4f36-82b2-717d3cf5d00c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate</name>
       <display>Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate</display>
       <externalReference>Intent.Blazor</externalReference>

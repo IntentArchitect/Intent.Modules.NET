@@ -93,7 +93,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="699dcec9-dc97-456e-adc9-8e44ce1b353d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="dbba571b-27a4-42d0-b43a-67b4d8d71283" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Components.MudBlazor.AppNav</name>
       <display>Intent.Blazor.Components.MudBlazor.AppNav</display>
       <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
