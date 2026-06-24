@@ -74,6 +74,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.CommandModels
 
                             @class.AddProperty(GetTypeName(property), property.Name.ToPropertyName(), prop =>
                             {
+                                prop.AddMetadata("model", property);
                                 prop.RepresentsModel(property);
 
                                 // Do the assignment in the constructor

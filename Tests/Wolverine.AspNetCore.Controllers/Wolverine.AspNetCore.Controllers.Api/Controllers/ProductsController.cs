@@ -55,6 +55,10 @@ namespace Wolverine.AspNetCore.Controllers.Api.Controllers
             [FromBody] UpdateProductPriceCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.Id == Guid.Empty)
+            {
+                command.Id = id;
+            }
             if (id != command.Id)
             {
                 return BadRequest();
