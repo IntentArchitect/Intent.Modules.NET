@@ -4,11 +4,17 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolicy;
+using Intent.Modules.Application.Wolverine.Templates.CommandHandler;
 using Intent.Modules.Application.Wolverine.Templates.CommandModels;
+using Intent.Modules.Application.Wolverine.Templates.QueryHandler;
 using Intent.Modules.Application.Wolverine.Templates.QueryModels;
+using Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration;
 using Intent.Modules.Aws.Lambda.Functions.Api;
+using Intent.Templates;
 using Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine.Templates.LambdaFunction;
 using Intent.Modules.Aws.Lambda.Functions.Templates.LambdaFunctionClass;
+using Intent.Modules.Aws.Lambda.Functions.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -78,6 +84,82 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine.FactoryExtensio
                     }
                 }, 10);
             }
+
+            RegisterWolverineOnLambdaStartup(application.FindTemplateInstance<StartupTemplate>(StartupTemplate.TemplateId));
+            ApplyServerlessDiscovery(application);
+        }
+
+        private static void RegisterWolverineOnLambdaStartup(StartupTemplate startupTemplate)
+        {
+            if (startupTemplate == null)
+            {
+                return;
+            }
+
+            startupTemplate.AddNugetDependency(Intent.Modules.Application.Wolverine.NugetPackages.WolverineFx(startupTemplate.OutputTarget));
+
+            startupTemplate.CSharpFile.AfterBuild(file =>
+            {
+                file.AddUsing("Wolverine");
+
+                var wolverineConfigType = startupTemplate.GetTypeName(WolverineConfigurationTemplate.TemplateId);
+                var configureMethod = file.Classes.First().FindMethod("ConfigureHostBuilder");
+                var returnStatement = configureMethod.FindStatement(s => s.GetText(string.Empty).TrimStart().StartsWith("return "));
+
+                var statement = $"hostBuilder.UseWolverine(opts => {{ {wolverineConfigType}.Configure(opts); }});";
+
+                if (returnStatement != null)
+                {
+                    returnStatement.InsertAbove(statement);
+                }
+                else
+                {
+                    configureMethod.AddStatement(statement);
+                }
+            }, 500);
+        }
+
+        private static void ApplyServerlessDiscovery(IApplication application)
+        {
+            var wolverineConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(WolverineConfigurationTemplate.TemplateId);
+            if (wolverineConfigTemplate == null)
+            {
+                return;
+            }
+
+            var commandHandlerTemplates = application.FindTemplateInstances<IIntentTemplate<CommandModel>>(CommandHandlerTemplate.TemplateId);
+            var queryHandlerTemplates = application.FindTemplateInstances<IIntentTemplate<QueryModel>>(QueryHandlerTemplate.TemplateId);
+
+            wolverineConfigTemplate.CSharpFile.AfterBuild(file =>
+            {
+                file.AddUsing("JasperFx.CodeGeneration");
+
+                var configureMethod = file.Classes.First().FindMethod("Configure");
+                configureMethod.Statements.Clear();
+
+                configureMethod.AddStatement("opts.Discovery.DisableConventionalDiscovery();");
+                configureMethod.AddStatement("");
+
+                foreach (var t in commandHandlerTemplates)
+                {
+                    var handlerType = wolverineConfigTemplate.GetTypeName(CommandHandlerTemplate.TemplateId, t.Model);
+                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                }
+
+                foreach (var t in queryHandlerTemplates)
+                {
+                    var handlerType = wolverineConfigTemplate.GetTypeName(QueryHandlerTemplate.TemplateId, t.Model);
+                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                }
+
+                configureMethod.AddStatement("");
+                configureMethod.AddStatement("opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;");
+                configureMethod.AddStatement("opts.Durability.Mode = DurabilityMode.Serverless;");
+                configureMethod.AddStatement("");
+
+                var handlerPolicyType = wolverineConfigTemplate.GetTypeName(ApplicationHandlerPolicyTemplate.TemplateId);
+                configureMethod.AddStatement($"{handlerPolicyType}.Apply(opts);");
+            }, 500);
         }
 
         private static void AddCqrsParameterToFieldAssignments(

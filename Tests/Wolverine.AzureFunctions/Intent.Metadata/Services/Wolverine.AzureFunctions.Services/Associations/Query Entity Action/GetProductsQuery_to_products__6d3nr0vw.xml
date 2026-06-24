@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3298785c-04d7-4153-a61b-021afd6441a9">
+  <sourceEnd id="23328387-3ceb-4e6f-b900-a29d7d2e1542" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductsQuery</display>
+    <order>0</order>
+    <typeReference id="e37d2504-3ba9-4ae3-b13b-f88350b37d90">
+      <typeId>6c268a1a-8717-4e96-b5f7-0318d92e5938</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AzureFunctions.Services</typePackageName>
+      <typePackageId>ec475b15-706f-4ccb-96ee-53f045153c81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3298785c-04d7-4153-a61b-021afd6441a9" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c9d3eaa9-26c1-40b3-9e06-8aa38f0e05bd">
+      <typeId>bc9f8651-b663-46d3-b7c6-9e83585ec4c8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AzureFunctions.Domain</typePackageName>
+      <typePackageId>31c0984f-263d-49da-b0e1-cc9d6be94ebe</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a8134664-0a1f-4a68-8ea1-fb7b7e5a466f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6c268a1a-8717-4e96-b5f7-0318d92e5938" location="[Wolverine.AzureFunctions].[Services].[GetProductsQuery]" />
+        <target applicationId="a8134664-0a1f-4a68-8ea1-fb7b7e5a466f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc9f8651-b663-46d3-b7c6-9e83585ec4c8" location="[Wolverine.AzureFunctions].[Services].[Product]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

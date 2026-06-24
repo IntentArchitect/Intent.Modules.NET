@@ -98,6 +98,36 @@ The generated response shape is derived from the HTTP verb on each command or qu
 
 When route parameters are present in the function trigger, the generated code validates that those parameters match the corresponding properties on the command or query payload before dispatching.
 
+## Serverless Discovery Configuration
+
+Azure Functions runs in an isolated worker process. Wolverine's default convention-based handler scanning sweeps the bin directory, which loads host-process DLLs that are absent from the isolated worker and causes a `FileNotFoundException` at startup.
+
+This module configures `WolverineConfiguration` to be safe for the isolated worker by disabling the bin sweep and registering handlers explicitly:
+
+```csharp
+public static class WolverineConfiguration
+{
+    public static void Configure(WolverineOptions opts)
+    {
+        opts.Discovery.DisableConventionalDiscovery();
+
+        opts.Discovery.IncludeType<CreateProductCommandHandler>();
+        opts.Discovery.IncludeType<GetProductByIdQueryHandler>();
+        // ... one entry per generated handler
+
+        opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;
+        opts.Durability.Mode = DurabilityMode.Serverless;
+
+        ApplicationHandlerPolicy.Apply(opts);
+    }
+}
+```
+
+- `DisableConventionalDiscovery()` — turns off the bin-directory sweep.
+- `IncludeType<T>()` — registers each command and query handler explicitly.
+- `TypeLoadMode.Static` — disables JasperFx dynamic code generation, which is not compatible with the isolated worker.
+- `DurabilityMode.Serverless` — disables Wolverine's inbox/outbox background workers, which are not needed in a serverless execution model.
+
 ## Related Modules
 
 - `Intent.Application.Wolverine` — registers Wolverine in the DI container and provides the `IMessageBus` service that this module dispatches through.

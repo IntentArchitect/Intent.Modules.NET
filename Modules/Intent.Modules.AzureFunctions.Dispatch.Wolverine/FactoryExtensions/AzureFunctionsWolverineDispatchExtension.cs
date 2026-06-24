@@ -5,8 +5,13 @@ using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolicy;
+using Intent.Modules.Application.Wolverine.Templates.CommandHandler;
 using Intent.Modules.Application.Wolverine.Templates.CommandModels;
+using Intent.Modules.Application.Wolverine.Templates.QueryHandler;
 using Intent.Modules.Application.Wolverine.Templates.QueryModels;
+using Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration;
+using Intent.Templates;
 using Intent.Modules.AzureFunctions.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
@@ -59,6 +64,51 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Wolverine.FactoryExtensions
                     });
                 }
             }
+
+            ApplyServerlessDiscovery(application);
+        }
+
+        private static void ApplyServerlessDiscovery(IApplication application)
+        {
+            var wolverineConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(WolverineConfigurationTemplate.TemplateId);
+            if (wolverineConfigTemplate == null)
+            {
+                return;
+            }
+
+            var commandHandlerTemplates = application.FindTemplateInstances<IIntentTemplate<CommandModel>>(CommandHandlerTemplate.TemplateId);
+            var queryHandlerTemplates = application.FindTemplateInstances<IIntentTemplate<QueryModel>>(QueryHandlerTemplate.TemplateId);
+
+            wolverineConfigTemplate.CSharpFile.AfterBuild(file =>
+            {
+                file.AddUsing("JasperFx.CodeGeneration");
+
+                var configureMethod = file.Classes.First().FindMethod("Configure");
+                configureMethod.Statements.Clear();
+
+                configureMethod.AddStatement("opts.Discovery.DisableConventionalDiscovery();");
+                configureMethod.AddStatement("");
+
+                foreach (var t in commandHandlerTemplates)
+                {
+                    var handlerType = wolverineConfigTemplate.GetTypeName(CommandHandlerTemplate.TemplateId, t.Model);
+                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                }
+
+                foreach (var t in queryHandlerTemplates)
+                {
+                    var handlerType = wolverineConfigTemplate.GetTypeName(QueryHandlerTemplate.TemplateId, t.Model);
+                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                }
+
+                configureMethod.AddStatement("");
+                configureMethod.AddStatement("opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;");
+                configureMethod.AddStatement("opts.Durability.Mode = DurabilityMode.Serverless;");
+                configureMethod.AddStatement("");
+
+                var handlerPolicyType = wolverineConfigTemplate.GetTypeName(ApplicationHandlerPolicyTemplate.TemplateId);
+                configureMethod.AddStatement($"{handlerPolicyType}.Apply(opts);");
+            }, 500);
         }
 
         private IHasCSharpStatements FindServiceInvokePoint(CSharpClass @class)

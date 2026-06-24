@@ -29,27 +29,36 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
+            // Register Wolverine on every supported host program. The ASP.NET host uses the
+            // "App.Program" role; the Azure Functions isolated worker uses its own program template
+            // id. Both expose IProgramTemplate/IProgramFile, so the same registration applies.
+            RegisterWolverineOnHost(application.FindTemplateInstance<IProgramTemplate>("App.Program"));
+            RegisterWolverineOnHost(application.FindTemplateInstance<IProgramTemplate>("Intent.AzureFunctions.Isolated.Program"));
+        }
 
-            if (programTemplate != null)
+        private static void RegisterWolverineOnHost(IProgramTemplate programTemplate)
+        {
+            if (programTemplate == null)
             {
-                programTemplate.AddNugetDependency(NugetPackages.WolverineFx(programTemplate.OutputTarget));
-
-                programTemplate.CSharpFile.OnBuild(file =>
-                {
-                    file.AddUsing("Wolverine");
-
-                    var wolverineConfigType = programTemplate.GetTypeName("Intent.Application.Wolverine.WolverineConfiguration");
-
-                    programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
-                        (lambdaBlock, parameters) =>
-                        {
-                            var opts = parameters[0];
-                            lambdaBlock.Statements.Clear();
-                            lambdaBlock.AddStatement($"{wolverineConfigType}.Configure({opts});");
-                        });
-                });
+                return;
             }
+
+            programTemplate.AddNugetDependency(NugetPackages.WolverineFx(programTemplate.OutputTarget));
+
+            programTemplate.CSharpFile.OnBuild(file =>
+            {
+                file.AddUsing("Wolverine");
+
+                var wolverineConfigType = programTemplate.GetTypeName("Intent.Application.Wolverine.WolverineConfiguration");
+
+                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
+                    (lambdaBlock, parameters) =>
+                    {
+                        var opts = parameters[0];
+                        lambdaBlock.Statements.Clear();
+                        lambdaBlock.AddStatement($"{wolverineConfigType}.Configure({opts});");
+                    });
+            });
         }
 
         /// <summary>

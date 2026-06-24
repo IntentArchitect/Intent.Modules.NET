@@ -6,8 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Wolverine;
 using Wolverine.AwsLambdaFunctions.Application;
 using Wolverine.AwsLambdaFunctions.Infrastructure;
+using Wolverine.AwsLambdaFunctions.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.StartupTemplate", Version = "1.0")]
@@ -29,6 +31,7 @@ namespace Wolverine.AwsLambdaFunctions.Api
             hostBuilder.Services.AddApplication(configuration);
             hostBuilder.Services.AddInfrastructure(configuration);
             hostBuilder.Logging.AddLambdaLogger();
+            hostBuilder.UseWolverine(opts => { WolverineConfiguration.Configure(opts); });
             return hostBuilder;
         }
     }

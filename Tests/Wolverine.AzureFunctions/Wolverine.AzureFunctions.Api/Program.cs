@@ -5,8 +5,10 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Wolverine;
 using Wolverine.AzureFunctions.Application;
 using Wolverine.AzureFunctions.Infrastructure;
+using Wolverine.AzureFunctions.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.Isolated.Program", Version = "1.0")]
@@ -34,6 +36,10 @@ var host = new HostBuilder()
         });
         services.AddApplication(configuration);
         services.AddInfrastructure(configuration);
+    })
+    .UseWolverine(opts =>
+    {
+        WolverineConfiguration.Configure(opts);
     })
     .Build();
 

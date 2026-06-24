@@ -60,6 +60,54 @@ public class ProductsFunctions
 
 Note: `Guid` route parameters are received as `string` and parsed manually inside the handler because the AWS Lambda Annotations framework does not reliably convert route segment strings to `Guid`.
 
+## Startup Wiring
+
+AWS Lambda Annotation Functions use a `[LambdaStartup]` class to configure the host. This module registers Wolverine into that startup by adding `UseWolverine` to `ConfigureHostBuilder`:
+
+```csharp
+[LambdaStartup]
+public class Startup
+{
+    public HostApplicationBuilder ConfigureHostBuilder()
+    {
+        var hostBuilder = new HostApplicationBuilder();
+        // ... existing service registrations ...
+        hostBuilder.UseWolverine(opts => { WolverineConfiguration.Configure(opts); });
+        return hostBuilder;
+    }
+}
+```
+
+`HostApplicationBuilder` (used by Lambda) does not expose a `.Host` property. The `UseWolverine` extension targets `IHostApplicationBuilder` directly and is called on the builder itself.
+
+## Serverless Discovery Configuration
+
+AWS Lambda runs in a serverless environment. Wolverine's default convention-based handler scanning sweeps the bin directory, which loads DLLs that may not be compatible with the Lambda runtime. This module configures `WolverineConfiguration` to be safe for Lambda by disabling the bin sweep and registering handlers explicitly:
+
+```csharp
+public static class WolverineConfiguration
+{
+    public static void Configure(WolverineOptions opts)
+    {
+        opts.Discovery.DisableConventionalDiscovery();
+
+        opts.Discovery.IncludeType<CreateProductCommandHandler>();
+        opts.Discovery.IncludeType<GetProductByIdQueryHandler>();
+        // ... one entry per generated handler
+
+        opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;
+        opts.Durability.Mode = DurabilityMode.Serverless;
+
+        ApplicationHandlerPolicy.Apply(opts);
+    }
+}
+```
+
+- `DisableConventionalDiscovery()` — turns off the bin-directory sweep.
+- `IncludeType<T>()` — registers each command and query handler explicitly.
+- `TypeLoadMode.Static` — disables JasperFx dynamic code generation.
+- `DurabilityMode.Serverless` — disables Wolverine's inbox/outbox background workers.
+
 ## Prerequisites
 
 This module requires the following modules to be installed:

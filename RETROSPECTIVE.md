@@ -85,3 +85,51 @@ Append-only log of gaps, workarounds, and lessons encountered during module buil
 **Defect 2 (Intent gap) — Azure Functions host never registers Wolverine.** The Azure Functions isolated app (`Intent.AzureFunctions.Isolated.Program` template) fails to start: DI validation throws `Unable to resolve service for type 'Wolverine.IMessageBus' while attempting to activate 'DomainEventService'`. Root cause: `Intent.Application.Wolverine`'s `WolverineRegistrationFactoryExtension` only injects `UseWolverine(...)` into templates with the `App.Program` role (the ASP.NET host). The Azure Functions Program uses a `new HostBuilder()...ConfigureServices(...)` chain that the extension does not target, so `IMessageBus` is never registered — breaking both command/query dispatch and the DomainEvents service. The generated `WolverineConfiguration.Configure` exists but is never called. Fix needed (separate task): extend the Wolverine host-registration so the isolated Functions `HostBuilder` gets `UseWolverine(opts => WolverineConfiguration.Configure(opts))`. Open question for the IA team: is running Wolverine's runtime inside an Azure Functions isolated worker an intended/supported scenario, and if so how should `IMessageBus` be hosted there (mediator-only vs full messaging runtime)?
 
 **Verified working at runtime:** Controllers (full CRUD incl. convention GetAll) and FastEndpoints (full CRUD incl. convention GetAll), both against EF Core InMemory. AwsLambdaFunctions not runtime-tested (environment not yet set up). AzureFunctions blocked by Defect 2.
+
+---
+
+## 2026-06-24 | Serverless dispatch fix — AzureFunctions + AwsLambdaFunctions
+
+**Bucket:** Process gap + Intent gap  
+**Context:** Followed up on Defect 2 above. Implemented `ApplyServerlessDiscovery` in both dispatch bridge modules and `RegisterWolverineOnLambdaStartup` in the Lambda bridge.
+
+### Learnings
+
+**1 — Cross-module `FindTemplateInstance<T>` requires interface types, not concrete types (Intent gap)**  
+Using a concrete template class (e.g. `FindTemplateInstance<WolverineConfigurationTemplate>`) across module boundaries returns `null` even when the template is registered. IA may load each module's DLL in an isolated `AssemblyLoadContext`, so the concrete type from module A's context does not match the type registered by module B in its context. Fix: use interface types from shared NuGet packages.  
+- `ICSharpFileBuilderTemplate` (from `Intent.Modules.Common.CSharp.Templates`) — for templates with `CSharpFile`  
+- `IIntentTemplate<TModel>` (from `Intent.Templates`) — for templates with a typed model; `CommandModel`/`QueryModel` implement `IMetadataModel`, matching the `GetTypeName(templateId, model)` overload  
+**Skill update needed:** `intent-module-orchestrator` and `module-increment-loop` — add explicit rule: cross-module `FindTemplateInstance` MUST use an interface type, not the concrete template class.
+
+**2 — `TypeLoadMode` is in `JasperFx.CodeGeneration`, not `JasperFx` (PRD gap)**  
+`TypeLoadMode.Static` is defined in the `JasperFx.CodeGeneration` namespace. Using `file.AddUsing("JasperFx")` alone produces `CS0103`. Fix: `file.AddUsing("JasperFx.CodeGeneration")`.  
+**Kickoff update needed:** When using `TypeLoadMode`, document that the `using` must be `JasperFx.CodeGeneration`.
+
+**3 — `HostApplicationBuilder` has no `.Host` property (PRD/process gap)**  
+`WebApplicationBuilder.Host` exists; `HostApplicationBuilder` (used by Lambda and generic-host apps) does not. The correct call is `hostBuilder.UseWolverine(...)` directly — Wolverine's `UseWolverine` extension targets `IHostApplicationBuilder`, which `HostApplicationBuilder` implements.  
+**Kickoff update needed:** When wiring Wolverine into a `HostApplicationBuilder` context (Lambda, worker services), document that `UseWolverine` is called directly on the builder, not on `.Host`.
+
+**4 — Do not reinstall a module when the version is unchanged (Process gap)**  
+When a module's version matches what is installed in the application, IA reloads the local compiled DLL automatically on every SF run. Calling `install_or_update_modules` when the version has not changed causes cache file lock contention, can trigger `Exceeded maximum retries to save module` failures, and has caused catastrophic staged-change cascades (mass deletions of template outputs). Only reinstall when: (a) the version number changes, or (b) the cache is confirmed corrupt and a fresh install is the only path forward.  
+**Skill update needed:** `module-increment-loop` — add explicit rule and call out the distinction between "rebuild DLL" (safe, needed every time) and "reinstall module" (only on version change or confirmed cache corruption).
+
+**5 — IA session state corruption produces `hasErrors: true, errors: []` with mass deletion staging (Intent gap)**  
+After repeated rapid install→SF→install sequences, the Lambda app SF began proposing to delete 8 files and revert all generated changes, with `hasErrors: true` and an empty `errors` array. The root cause was stale IA session state accumulated across multiple conflicting operations. Fix: close and reopen Intent Architect in a fresh instance. On the fresh instance, SF ran correctly with 1 clean change and 0 errors.  
+**Skill update needed:** `module-increment-loop` — add: "If SF produces mass deletions or `hasErrors: true` with `errors: []`, close IA completely and reopen the solution in a new instance before investigating further. Do not apply the bad staged changes."
+
+**6 — `JasperFx.AssemblyFinder.FindAssemblies()` bin sweep crashes isolated-worker hosts (Intent gap)**  
+Wolverine's default convention discovery sweeps the bin directory with `JasperFx.AssemblyFinder.FindAssemblies()`. In Azure Functions isolated worker and AWS Lambda environments, this loads host-process DLLs (e.g. `Microsoft.Azure.WebJobs.Host`) that are not present in the isolated worker process, causing `FileNotFoundException` at startup. The fix pattern is:
+```
+opts.Discovery.DisableConventionalDiscovery();
+// one per generated handler:
+opts.Discovery.IncludeType<SomeCommandHandler>();
+opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;
+opts.Durability.Mode = DurabilityMode.Serverless;
+```
+**For IA team:** The dispatch bridge module's factory extension must generate this pattern at priority 500 into `WolverineConfiguration.Configure`. It should not be left to the user to add manually. The `Intent.Application.Wolverine.WolverineConfiguration` template generates a base form that assumes a full server host; serverless dispatch bridges must override it.
+
+**Status after fix:**
+- `Wolverine.AzureFunctions.sln` — builds 0 errors, serverless shape applied ✓  
+- `Wolverine.AwsLambdaFunctions.sln` — builds 0 errors, serverless shape applied, `hostBuilder.UseWolverine(...)` wired ✓  
+- `Wolverine.AspNetCore.Controllers.sln` — builds 0 errors ✓  
+- `Wolverine.AspNetCore.FastEndpoints.sln` — builds 0 errors ✓

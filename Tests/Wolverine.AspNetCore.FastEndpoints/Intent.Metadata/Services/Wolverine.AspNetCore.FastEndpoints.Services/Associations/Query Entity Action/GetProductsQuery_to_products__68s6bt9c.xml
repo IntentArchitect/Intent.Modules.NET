@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="98cce95a-fdc5-418b-b1d9-8c9e8bdf52b7">
+  <sourceEnd id="2075029b-36c7-412c-93e8-bb3c042578cb" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductsQuery</display>
+    <order>0</order>
+    <typeReference id="ac7c0c5d-08f9-4afe-865e-be11964a9cb7">
+      <typeId>149034a9-79b2-42e6-8638-db70725488d8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.FastEndpoints.Services</typePackageName>
+      <typePackageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="98cce95a-fdc5-418b-b1d9-8c9e8bdf52b7" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3ed1559b-3881-4896-9931-cea0d414fab1">
+      <typeId>b1698db1-9a8a-4b62-8a12-227f17699b0c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.FastEndpoints.Domain</typePackageName>
+      <typePackageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d2358d26-abb4-4969-a778-b3fdfd0defc7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="149034a9-79b2-42e6-8638-db70725488d8" location="[Wolverine.AspNetCore.FastEndpoints].[Services].[GetProductsQuery]" />
+        <target applicationId="d2358d26-abb4-4969-a778-b3fdfd0defc7" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b1698db1-9a8a-4b62-8a12-227f17699b0c" location="[Wolverine.AspNetCore.FastEndpoints].[Services].[Product]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

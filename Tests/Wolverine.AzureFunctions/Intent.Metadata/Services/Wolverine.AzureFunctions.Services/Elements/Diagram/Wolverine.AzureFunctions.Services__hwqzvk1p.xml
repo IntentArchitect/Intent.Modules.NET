@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8c4dfce5-aa26-4ce0-8273-b3e888c0d7b4" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Wolverine.AzureFunctions.Services</name>
+  <display>Wolverine.AzureFunctions.Services</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ec475b15-706f-4ccb-96ee-53f045153c81</parentFolderId>
+  <packageId>ec475b15-706f-4ccb-96ee-53f045153c81</packageId>
+  <packageName>Wolverine.AzureFunctions.Services</packageName>
+  <diagram>
+    <targetPackageId>8c4dfce5-aa26-4ce0-8273-b3e888c0d7b4</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
