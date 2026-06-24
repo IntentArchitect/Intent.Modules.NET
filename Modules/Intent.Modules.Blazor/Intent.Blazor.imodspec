@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.1.1-pre.0</version>
+  <version>2.0.0-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -19,6 +19,10 @@
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorGeneralInstructionsTemplate" externalReference="96181a18-37c8-4fab-8adb-475ee677ffe7">
+      <role>AI.Context.Instructions</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate" externalReference="126d3417-12cf-4743-873a-5d18ed8409ad">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -32,6 +36,10 @@
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="4a16b11d-f73c-4bd8-87f3-7202c891752f">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate" externalReference="29e609f7-7153-49e3-9275-64d6ef358462">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
@@ -183,6 +191,14 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="c7e3e3af-11e5-4fc0-b380-50442e0e0587">
+      <role>Blazor.ThemeToggle</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="185ee26d-ddf6-431b-8012-9cf6b6c154c4">
+      <role>Blazor.Sample</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
       <role>Blazor.NoSample</role>
       <location></location>
@@ -229,7 +245,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Code.Weaving.Razor" version="2.0.2" />
+    <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
     <dependency id="Intent.Common" version="3.11.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.3" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
@@ -259,7 +275,7 @@
     </detect>
     <detect id="Intent.Modules.Blazor.Components.MudBlazor">
       <install>
-        <package id="Intent.Modules.Blazor.Components.MudBlazor" version="1.1.1-pre.0" />
+        <package id="Intent.Modules.Blazor.Components.MudBlazor" version="1.1.1-pre.1" />
       </install>
     </detect>
   </interoperability>

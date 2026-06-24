@@ -1,0 +1,20 @@
+@* Gradient hero header for the account/identity pages (mirrors the MudBlazor app's MudPaper hero). *@
+<div class="account-hero ux-fade-in @(Variant == "danger" ? "account-hero-danger" : null)">
+    <span class="account-hero-badge">
+        <UxIcon Name="@Icon" />
+    </span>
+    <div class="account-hero-text">
+        <h1 class="account-hero-title">@Title</h1>
+        @if (!string.IsNullOrEmpty(Subtitle))
+        {
+            <p class="account-hero-subtitle">@Subtitle</p>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Icon { get; set; } = "lock";
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string? Subtitle { get; set; }
+    [Parameter] public string? Variant { get; set; }
+}

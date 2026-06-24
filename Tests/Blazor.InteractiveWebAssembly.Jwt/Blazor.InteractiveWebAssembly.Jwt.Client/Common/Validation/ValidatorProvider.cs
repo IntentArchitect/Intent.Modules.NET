@@ -1,7 +1,5 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.FluentValidation.ValidatorProvider", Version = "1.0")]

@@ -1,0 +1,16 @@
+/* Brand wordmark for the pre-login account pages — mirrors the .account-theme-toggle
+   on the opposite side: same 0.75rem inset and 2.5rem height so the two line up. */
+.account-brand {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    height: 2.5rem;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--text);
+    text-decoration: none;
+}

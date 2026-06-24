@@ -1,0 +1,20 @@
+/* Scoped styles for the default (no-Auth) AppUserMenu's placeholder item. The dropdown chrome
+   (.ux-user-menu / -trigger / -panel) is UserMenu's own markup and lives in UserMenu.razor.css, so no
+   ::deep is needed here. Uses the ux design tokens shipped alongside the theme (works with or without
+   MudBlazor). */
+
+.ux-user-menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--type-body-sm);
+    color: var(--text);
+}
+
+.ux-user-menu-placeholder {
+    font-style: italic;
+    opacity: 0.7;
+    cursor: default;
+}

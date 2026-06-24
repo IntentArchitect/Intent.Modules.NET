@@ -1,0 +1,28 @@
+.auth-form-shell {
+    max-width: 720px;
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-xl);
+}
+
+.auth-form-shell ::deep .mud-input-control-input-container,
+.auth-form-shell ::deep .mud-input-slot {
+    background: var(--surface-2);
+}
+
+.auth-form-shell ::deep .mud-input-outlined-border {
+    border-color: var(--border);
+}
+
+.auth-form-shell ::deep .mud-input-label {
+    color: var(--text-muted);
+}
+
+.auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
+.auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
+    border-color: var(--primary);
+}
+
+.auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
+    box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+    border-radius: var(--radius-sm);
+}

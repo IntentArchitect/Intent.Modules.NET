@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Jwt.Client.Components.Account;
 using Blazor.InteractiveWebAssembly.Jwt.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate", Version = "1.0")]

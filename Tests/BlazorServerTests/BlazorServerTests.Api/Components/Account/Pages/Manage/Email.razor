@@ -1,6 +1,5 @@
 @page "/Account/Manage/Email"
 
-@using System.ComponentModel.DataAnnotations
 @using System.Text
 @using System.Text.Encodings.Web
 @using Microsoft.AspNetCore.Identity
@@ -13,110 +12,79 @@
 
 <PageTitle>Manage email</PageTitle>
 
-<h3>Manage email</h3>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.AlternateEmail" Class="mr-2" />
+        Manage email
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Review your current email address and request an email change.
+    </MudText>
+</MudPaper>
 
-<StatusMessage Message="@message"/>
-<div class="row">
-    <div class="col-md-6">
+<StatusMessage Message="@message" />
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
         <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
             <AntiforgeryToken />
         </form>
         <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert" />
-            @if (isEmailConfirmed)
-            {
-                <div class="form-floating mb-3 input-group">
-                    <input type="text" value="@email" class="form-control" placeholder="Please enter your email." disabled />
-                    <div class="input-group-append">
-                        <span class="h-100 input-group-text text-success font-weight-bold">✓</span>
-                    </div>
-                    <label for="email" class="form-label">Email</label>
-                </div>
-            }
-            else
-            {
-                <div class="form-floating mb-3">
-                    <input type="text" value="@email" class="form-control" placeholder="Please enter your email." disabled />
-                    <label for="email" class="form-label">Email</label>
-                    <button type="submit" class="btn btn-link" form="send-verification-form">Send verification email</button>
-                </div>
-            }
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" placeholder="Please enter new email." />
-                <label for="new-email" class="form-label">New email</label>
-                <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Change email</button>
+
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h5">Email settings</MudText>
+                    <MudText Typo="Typo.body2" Class="mb-4">Update the email address associated with your account.</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                Value="@email"
+                                Label="Email"
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.Email"
+                                Disabled="true" />
+                    @if (isEmailConfirmed)
+                    {
+                        <MudChip T="string" Color="Color.Success" Variant="Variant.Outlined" Class="mt-2">Verified</MudChip>
+                    }
+                    else
+                    {
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Text"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.MarkEmailRead"
+                                    form="send-verification-form"
+                                    Class="mt-2">
+                            Send verification email
+                        </MudButton>
+                    }
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                @bind-Value="Input.NewEmail"
+                                Label="New email"
+                                Placeholder="Please enter new email."
+                                Variant="Variant.Outlined"
+                                Adornment="Adornment.Start"
+                                AdornmentIcon="@Icons.Material.Filled.ForwardToInbox"
+                                Immediate="true"
+                                For="@(() => Input.NewEmail)" />
+                    <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Row="true" Justify="Justify.FlexEnd">
+                        <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.SaveAs">
+                            Change email
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
         </EditForm>
-    </div>
-</div>
-
-@code {
-    private string? message;
-    private IdentityUser user = default!;
-    private string? email;
-    private bool isEmailConfirmed;
-
-    [CascadingParameter]
-    private HttpContext HttpContext { get; set; } = default!;
-
-    [SupplyParameterFromForm(FormName = "change-email")]
-    private InputModel Input { get; set; } = new();
-
-    protected override async Task OnInitializedAsync()
-    {
-        user = await UserAccessor.GetRequiredUserAsync(HttpContext);
-        email = await UserManager.GetEmailAsync(user);
-        isEmailConfirmed = await UserManager.IsEmailConfirmedAsync(user);
-
-        Input.NewEmail ??= email;
-    }
-
-    private async Task OnValidSubmitAsync()
-    {
-        if (Input.NewEmail is null || Input.NewEmail == email)
-        {
-            message = "Your email is unchanged.";
-            return;
-        }
-
-        var userId = await UserManager.GetUserIdAsync(user);
-        var code = await UserManager.GenerateChangeEmailTokenAsync(user, Input.NewEmail);
-        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-        var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-            NavigationManager.ToAbsoluteUri("Account/ConfirmEmailChange").AbsoluteUri,
-            new Dictionary<string, object?> { ["userId"] = userId, ["email"] = Input.NewEmail, ["code"] = code });
-
-        await EmailSender.SendConfirmationLinkAsync(user, Input.NewEmail, HtmlEncoder.Default.Encode(callbackUrl));
-
-        message = "Confirmation link to change email sent. Please check your email.";
-    }
-
-    private async Task OnSendEmailVerificationAsync()
-    {
-        if (email is null)
-        {
-            return;
-        }
-
-        var userId = await UserManager.GetUserIdAsync(user);
-        var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
-        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-        var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-            NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
-            new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
-
-        await EmailSender.SendConfirmationLinkAsync(user, email, HtmlEncoder.Default.Encode(callbackUrl));
-
-        message = "Verification email sent. Please check your email.";
-    }
-
-    private sealed class InputModel
-    {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "New email")]
-        public string? NewEmail { get; set; }
-    }
-}
+    </MudCardContent>
+</MudCard>

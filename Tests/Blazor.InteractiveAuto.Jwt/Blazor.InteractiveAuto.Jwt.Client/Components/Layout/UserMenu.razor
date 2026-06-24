@@ -1,0 +1,14 @@
+@* Shared presentational user-menu chrome — a native <details> dropdown, circuit-free (works on the
+   static-SSR Identity pages AND interactive pages alike, no Blazor circuit). A "dumb" atom: the trigger
+   icon and the menu items come in as @Trigger / @ChildContent, so it carries no auth knowledge and is
+   shipped from the component module (NOT Auth) — reusable by any app, auth or not, the same way NavLinks
+   shares the drawer's nav look. AppUserMenu (Auth) composes this with the account items + logout POST. *@
+
+<details class="ux-user-menu">
+    <summary class="ux-user-menu-trigger" title="@Title" aria-label="@Title">
+        @Trigger
+    </summary>
+    <div class="ux-user-menu-panel">
+        @ChildContent
+    </div>
+</details>

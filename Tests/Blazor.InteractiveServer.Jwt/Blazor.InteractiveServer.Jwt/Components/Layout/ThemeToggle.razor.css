@@ -1,0 +1,21 @@
+.account-theme-toggle {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 1100;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    background: var(--surface-2);
+    box-shadow: var(--ux-shadow-sm);
+    cursor: pointer;
+}
+
+.account-theme-toggle:hover {
+    background: color-mix(in srgb, var(--surface-2) 86%, var(--hover-overlay));
+}

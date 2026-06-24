@@ -99,23 +99,22 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
         }
         public RecoverabilityPolicyOptions RecoverabilityPolicy() => new RecoverabilityPolicyOptions(_groupSettings.GetSetting("4060477a-191f-43be-a2c1-f2dd94ff00e2")?.Value);
 
-        public OutboxPatternOptions OutboxPattern() => new OutboxPatternOptions(_groupSettings.GetSetting("61e27361-13e1-46ad-834f-3c98088c3947")?.Value);
-
-        public class OutboxPatternOptions
+        public class PersistenceOptions
         {
             public readonly string Value;
 
-            public OutboxPatternOptions(string value)
+            public PersistenceOptions(string value)
             {
                 Value = value;
             }
 
-            public OutboxPatternOptionsEnum AsEnum()
+            public PersistenceOptionsEnum AsEnum()
             {
                 return Value switch
                 {
-                    "none" => OutboxPatternOptionsEnum.None,
-                    "sql-persistence" => OutboxPatternOptionsEnum.SqlPersistence,
+                    "none" => PersistenceOptionsEnum.None,
+                    "sql-persistence" => PersistenceOptionsEnum.SqlPersistence,
+                    "nhibernate" => PersistenceOptionsEnum.Nhibernate,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -129,13 +128,25 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             {
                 return Value == "sql-persistence";
             }
+
+            public bool IsNhibernate()
+            {
+                return Value == "nhibernate";
+            }
         }
 
-        public enum OutboxPatternOptionsEnum
+        public enum PersistenceOptionsEnum
         {
             None,
             SqlPersistence,
+            Nhibernate,
         }
+
+        public bool EnableOutbox() => bool.TryParse(_groupSettings.GetSetting("a249c7a3-2d67-4973-83ab-3f4873fe35ab")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool EnableAuditQueue() => bool.TryParse(_groupSettings.GetSetting("40a8127e-e253-47c9-aa90-ec93a4fca0fa")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool EnableInstanceIdentification() => bool.TryParse(_groupSettings.GetSetting("6321cb9f-0357-440f-99da-b8ab01e37914")?.Value.ToPascalCase(), out var result) && result;
         public class RecoverabilityPolicyOptions
         {
             public readonly string Value;
@@ -185,5 +196,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             DelayedOnly,
             ImmediateAndDelayed,
         }
+        public PersistenceOptions Persistence() => new PersistenceOptions(_groupSettings.GetSetting("61e27361-13e1-46ad-834f-3c98088c3947")?.Value);
     }
 }

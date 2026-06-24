@@ -6,9 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.12.4" />
-    <PackageReference Include="Intent.Packager" Version="3.6.0">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.6" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.13.0" />
+    <PackageReference Include="Intent.Packager" Version="3.6.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -18,6 +18,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
+  </ItemGroup>
+
+  <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
+  <ItemGroup>
+    <Compile Remove="content\**\*.cs" />
+    <None Include="content\**\*.cs" />
   </ItemGroup>
 
 </Project>

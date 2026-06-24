@@ -1,0 +1,49 @@
+/* Scoped styles for the UserMenu chrome's own elements (the <details> trigger + dropdown panel). Uses
+   ux design tokens so the same atom works with or without MudBlazor. The menu items themselves are
+   child content authored by the consumer (AppUserMenu), so their `.ux-user-menu-item` styling lives in
+   that consumer's scoped sheet — each component styles its own markup, no ::deep needed. */
+
+.ux-user-menu {
+    position: relative;
+    display: inline-flex;
+}
+
+.ux-user-menu-trigger {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    color: inherit;
+    user-select: none;
+    transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.ux-user-menu-trigger::-webkit-details-marker {
+    display: none;
+}
+
+.ux-user-menu-trigger::marker {
+    content: "";
+}
+
+.ux-user-menu-trigger:hover {
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.ux-user-menu-panel {
+    position: absolute;
+    top: calc(100% + 0.375rem);
+    right: 0;
+    min-width: 12rem;
+    padding: var(--space-2) 0;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-2);
+    z-index: 1320;
+}

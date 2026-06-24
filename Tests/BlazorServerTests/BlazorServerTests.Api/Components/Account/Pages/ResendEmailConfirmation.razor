@@ -1,57 +1,136 @@
 @page "/Account/ResendEmailConfirmation"
-@using System.ComponentModel.DataAnnotations
+
 @using BlazorServerTests.Api.Common
 @inject IAuthService AuthService
 
 <PageTitle>Resend email confirmation</PageTitle>
-<h1>Resend email confirmation</h1>
-<h2>Enter your email.</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <EditForm Model="Input"
-                  FormName="resend-email-confirmation"
-                  OnValidSubmit="OnValidSubmitAsync"
-                  method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger"
-                               role="alert" />
-            <div class="form-floating mb-3">
-                <InputText class="form-control"
-                           @bind-Value="Input.Email"
-                           autocomplete="username"
-                           aria-required="true"
-                           placeholder="name@example.com" />
-                <label class="form-label"
-                       for="email">
-                    Email
-                </label>
-                <ValidationMessage class="text-danger"
-                                   For="() => Input.Email" />
-                <button class="w-100 btn btn-lg btn-primary"
-                        type="submit">
-                    Resend
-                </button>
-            </div>
-        </EditForm>
-    </div>
-</div>
-@code {
-
-    private string? message;
-    [SupplyParameterFromForm]
-    private InputModel Input { get; set; } = new();
-
-    private async Task OnValidSubmitAsync()
-    {
-        await AuthService.ResendEmailConfirmation(Input.Email);
-        message = "Verification email sent. Please check your email.";
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+          Elevation="0">
+    <MudText Typo="Typo.h4"
+             Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.Mail"
+                 Class="mr-2" />
+        Resend email confirmation
+    </MudText>
+    <MudText Typo="Typo.body1"
+             Class="text-white opacity-90">
+        Enter your email address and we will send you another confirmation email.
+    </MudText>
+</MudPaper>
+<MudGrid Spacing="3">
+    <MudItem xs="12"
+             md="7"
+             lg="6">
+        <MudCard Class="ux-fade-in-up"
+                 Style="animation-delay: 0.1s">
+            <MudCardContent>
+                <StatusMessage Message="@message" />
+                <EditForm Model="Input"
+                          FormName="resend-email-confirmation"
+                          OnValidSubmit="OnValidSubmitAsync"
+                          method="post">
+                    <DataAnnotationsValidator />
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudText Typo="Typo.h5">Send another confirmation email</MudText>
+                            <MudText Typo="Typo.body2"
+                                     Class="mb-2">
+                                Enter the email address you used when registering.
+                            </MudText>
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
+                        </MudItem>
+                        <MudItem xs="12">
+                            <div class="resend-email-input-field">
+                                <label class="resend-email-input-label"
+                                       for="email">
+                                    Email
+                                </label>
+                                <div class="resend-email-input-shell">
+                                    <MudIcon Icon="@Icons.Material.Filled.Email"
+                                             Class="resend-email-input-icon" />
+                                    <InputText id="email"
+                                               class="resend-email-input-control"
+                                               @bind-Value="Input.Email"
+                                               autocomplete="username"
+                                               aria-required="true"
+                                               placeholder="name@example.com"
+                                               type="email" />
+                                </div>
+                                <ValidationMessage class="text-danger"
+                                                   For="() => Input.Email" />
+                            </div>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudStack Row="true"
+                                      Spacing="2"
+                                      Justify="Justify.FlexEnd"
+                                      AlignItems="AlignItems.Center">
+                                <MudButton ButtonType="ButtonType.Submit"
+                                           Color="Color.Primary"
+                                           Variant="Variant.Filled"
+                                           FullWidth="true"
+                                           StartIcon="@Icons.Material.Filled.Send">
+                                    Resend
+                                </MudButton>
+                            </MudStack>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudStack Spacing="1">
+                                <MudLink Href="Account/Login">Back to log in</MudLink>
+                            </MudStack>
+                        </MudItem>
+                    </MudGrid>
+                </EditForm>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+<style>
+    .resend-email-input-field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
     }
 
-    private sealed class InputModel
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; } = "";
+    .resend-email-input-label {
+        color: var(--text);
+        font-size: var(--type-label-lg);
+        font-weight: 500;
     }
-}
+
+    .resend-email-input-shell {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        min-height: 44px;
+        padding: 0 0.875rem;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-1);
+    }
+
+    .resend-email-input-shell:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+    }
+
+    .resend-email-input-icon {
+        color: var(--text-muted);
+        flex-shrink: 0;
+    }
+
+    .resend-email-input-control {
+        width: 100%;
+        min-height: 42px;
+        color: var(--text);
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .resend-email-input-control::placeholder {
+        color: var(--text-muted);
+    }
+</style>

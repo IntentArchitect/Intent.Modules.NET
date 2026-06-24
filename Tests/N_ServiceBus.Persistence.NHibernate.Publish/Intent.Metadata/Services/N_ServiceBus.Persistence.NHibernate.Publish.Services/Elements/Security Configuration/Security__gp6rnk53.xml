@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="beb678d4-31b3-4e54-ad2a-4005893164d8" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65ca4d53-bdf6-4b19-9681-349518fab670</parentFolderId>
+  <packageId>65ca4d53-bdf6-4b19-9681-349518fab670</packageId>
+  <packageName>N_ServiceBus.Persistence.NHibernate.Publish.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

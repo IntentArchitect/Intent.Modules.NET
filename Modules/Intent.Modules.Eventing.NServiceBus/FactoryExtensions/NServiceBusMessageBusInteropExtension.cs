@@ -162,7 +162,10 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
         private static bool IsTransactionalOutboxPatternSelected(IApplication application)
         {
-            return application.Settings.GetNServiceBusSettings()?.OutboxPattern()?.IsSqlPersistence() == true;
+            var nsbSettings = application.Settings.GetNServiceBusSettings();
+            if (nsbSettings == null) return false;
+            var persistence = nsbSettings.Persistence();
+            return nsbSettings.EnableOutbox() && (persistence.IsSqlPersistence() || persistence.IsNhibernate());
         }
     }
 }

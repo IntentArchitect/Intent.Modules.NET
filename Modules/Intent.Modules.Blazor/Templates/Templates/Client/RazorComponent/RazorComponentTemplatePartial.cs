@@ -50,7 +50,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                 {
                     if (Model.HasPage())
                     {
-                        file.AddPageDirective(Model.GetPage().Route());
+                        var route = Model.GetPage().Route();
+                        file.AddPageDirective(route.StartsWith('/') ? route : "/" + route);
                         if (!string.IsNullOrWhiteSpace(Model.GetPage().Title()))
                         {
                             file.AddHtmlElement("PageTitle", x => x.WithText(Model.GetPage().Title()));

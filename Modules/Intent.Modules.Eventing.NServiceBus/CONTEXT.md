@@ -215,15 +215,41 @@ See `.agents/instructions/exception-guidelines.md` for the general rule on when 
 
 ---
 
+## Module Settings — Current Set
+
+| Setting ID | Title | Type | Notes |
+|---|---|---|---|
+| `537d4def-...` | Transport | select | learning-transport, rabbitmq, azure-service-bus, amazon-sqs, sql-server |
+| `4060477a-...` | Recoverability Policy | select | none, immediate-only, delayed-only, immediate-and-delayed |
+| `61e27361-...` | Persistence | select | none, sql-persistence, nhibernate |
+| `a249c7a3-...` | Enable Outbox | checkbox | Default false. Requires Persistence = sql-persistence or nhibernate |
+| `40a8127e-...` | Enable Audit Queue | checkbox | Default false. Reads `NServiceBus:AuditQueue` (required) and `NServiceBus:AuditTimeToBeReceived` (optional) |
+| `6321cb9f-...` | Enable Instance Identification | checkbox | Default false. Reads `NServiceBus:InstanceId` (required) |
+
+`License Path` is not a module setting — it is always read from `NServiceBus:LicensePath` in `appsettings.json` and applied when present.
+
+**Known MCP limitation**: `update_application_settings` fails with a NullReferenceException for `checkbox`-type settings. These must be set manually in the Intent Architect UI. `select`-type and `switch`-type settings work fine via MCP.
+
+**Known `install_or_update_modules` footgun**: calling with the default `installApplicationSettings: true` when reinstalling to refresh the settings schema resets all checkbox values to their defaults. Always use `installApplicationSettings: false` when the only goal is to pick up a new module DLL without changing application settings.
+
 ## Outbox and Persistence
 
-The outbox path is expected to use SQL Persistence:
+The outbox supports two persistence backends:
 
-- `NServiceBus.Persistence.Sql`
-- shared EF Core `DbConnection` / `DbTransaction`
-- asynchronous dispatch through NServiceBus after durable persistence
+### SQL Persistence
+- `NServiceBus.Persistence.Sql` + `NServiceBus.TransactionalSession`
+- Shares the EF Core `DbConnection`/`DbTransaction` for exactly-once dispatch
+- Requires `Intent.EntityFrameworkCore` (enforced with SF-time `FriendlyException`)
+- `NServiceBusMessageBusInteropExtension` injects `IMessageBus.FlushAllAsync()` into `DbContext.SaveChanges/SaveChangesAsync` when `Enable Outbox = true && Persistence = sql-persistence`
 
-This is an important supported scenario, not an optional edge case.
+### NHibernate
+- `NServiceBus.NHibernate` + `NServiceBus.NHibernate.TransactionalSession`
+- NHibernate manages its own session/connection — no EF Core dependency
+- The `Intent.EntityFrameworkCore` guard is **not** applied for NHibernate
+- `NServiceBusMessageBusInteropExtension` also fires for NHibernate when `Enable Outbox = true && Persistence = nhibernate`
+- Two NHibernate test apps exist as of v1.0.0-pre.3: `Tests/N_ServiceBus.Persistence.NHibernate.Publish` and `Tests/N_ServiceBus.Persistence.NHibernate.Subscribe` (Learning Transport + RabbitMQ, NServiceBus 10.x / net10.0)
+
+Both outbox paths are important supported scenarios.
 
 ---
 

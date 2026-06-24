@@ -1,3 +1,25 @@
+### Version 2.0.0
+
+- Improvement: Component code-behind and styles are now emitted as separate `razor.cs` and `razor.css` files, allowing improved separation of concerns of C# logic and scoped CSS.
+
+> **NOTE**
+>
+> This is a breaking change **where you had customized the generated code** — on a normal upgrade the Software Factory reconciles the split for you, so no action is required.
+>
+> **For `razor.cs`:** if your `@code { }` block was unchanged from what Intent generated, the Software Factory removes the inline block and moves the code into the separate `razor.cs` automatically — nothing to do. **Only if you customized the `@code`** (or took ownership of it with `[IntentIgnore]`) is your inline block preserved, where it then clashes with the generated `razor.cs` (CS0102 / CS0111 duplicate-definition errors); in that case migrate your changes into the `razor.cs`, keep them with `[IntentIgnore]`, and remove the inline block.
+>
+> **For `razor.css`:** there are no build failures. An unchanged `<style>` block is superseded by the generated `*.razor.css` and can be removed; if you had customizations, copy them into the `*.razor.css` file — Intent will not interfere with your modifications there.
+
+- Improvement: Decouples layout from `Intent.Modules.Blazor.Authentication` which necessarily cannot run in `InteractiveServer` nor `InteractiveWebAssembly` due to ASP.NET identity requiring static `no render` mode
+
+> **NOTE**
+>
+> As part of this layout refactor the app bar and drawer now inject dedicated `ThemeToggle`, `AppUserMenu` and `NavLinks` components in place of the previously inlined controls. On a normal upgrade the Software Factory reconciles `MainLayout.razor` for you — the old controls are removed and the new components added — so **no action is required**.
+>
+> **If you have taken ownership of `MainLayout.razor`** — e.g. added an `@Intent.Ignore` instruction or otherwise hand-edited the generated markup so Intent no longer manages it — the merge preserves your version, and you may then see **duplicated controls** in the app bar or drawer (two theme toggles, an old user menu next to the new `AppUserMenu`, or a doubled navigation list).
+>
+> **In that case:** delete your `MainLayout.razor` and re-run the Software Factory to regenerate it cleanly with only the new components, then re-apply any customizations you want to keep. The file is at `Components/Layout/MainLayout.razor` for single-project (`InteractiveServer`) apps, or `<YourApp>.Client/Components/Layout/MainLayout.razor` for two-project (`InteractiveAuto` / `InteractiveWebAssembly`) apps. (The seeded sample user-menu — a `Menu` element with Profile / My Account / Logout — is removed from your application model by the upgrade migration regardless.)
+
 ### Version 1.1.1
 
 - Improvement: Added support for Design.md.

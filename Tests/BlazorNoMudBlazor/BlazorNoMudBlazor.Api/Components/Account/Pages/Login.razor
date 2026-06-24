@@ -7,21 +7,58 @@
 @inject NavigationManager NavigationManager
 
 <PageTitle>Log in</PageTitle>
+<AccountHero Icon="lock-open"
+             Title="Welcome back"
+             Subtitle="Sign in with your local account to continue." />
 <h1>Log in</h1>
-<div class="row">
-    <div class="col-md-4">
+<div class="row ux-form-grid">
+    <div class="col-md-4 ux-form-col">
         <section>
             <StatusMessage Message="@errorMessage" />
             <EditForm Model="Input"
                       FormName="login"
                       OnValidSubmit="LoginUser"
                       method="post">
+                <UxField Label="Email"
+                         Icon="mail"
+                         For="email">
+                    <InputText id="email" class="form-control ux-input"
+                               @bind-Value="Input.Email"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                    <InputText id="password"
+                               class="ux-input"
+                               type="password"
+                               @bind-Value="Input.Password"
+                               autocomplete="current-password"
+                               aria-required="true"
+                               placeholder="Enter your password" />
+                </UxField>
                 <DataAnnotationsValidator />
                 <h2>Use a local account to log in.</h2>
                 <hr />
                 <ValidationSummary class="text-danger"
                                    role="alert" />
-                <div class="form-floating mb-3">
+                <UxField Label="Password"
+                         Icon="lock"
+                         For="password">
+                    <InputText id="password" class="form-control ux-input"
+                               type="password"
+                               @bind-Value="Input.Password"
+                               autocomplete="current-password"
+                               aria-required="true"
+                               placeholder="Enter your password" />
+                    <InputText id="email"
+                               class="ux-input"
+                               @bind-Value="Input.Email"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                </UxField>
+                <div class="form-floating mb-3 ux-section-head">
+                    <h2>Use a local account to log in</h2>
+                    <p class="ux-section-subtitle">Enter your credentials below.</p>
                     <InputText class="form-control"
                                @bind-Value="Input.Email"
                                autocomplete="username"
@@ -34,7 +71,13 @@
                     <ValidationMessage class="text-danger"
                                        For="() => Input.Email" />
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3 form-check">
+                    <InputCheckbox id="rememberMe" class="darker-border-checkbox form-check-input"
+                                   @bind-Value="Input.RememberMe" />
+                    <label class="form-check-label"
+                           for="rememberMe">
+                        Remember me
+                    </label>
                     <InputText class="form-control"
                                @bind-Value="Input.Password"
                                autocomplete="current-password"
@@ -48,7 +91,15 @@
                     <ValidationMessage class="text-danger"
                                        For="() => Input.Password" />
                 </div>
-                <div class="form-check mb-3">
+                <button class="w-100 btn btn-primary"
+                        type="submit">
+                    <UxIcon Name="log-in" />
+                    Log in
+                </button>
+                <div class="form-check mb-3 ux-account-links">
+                    <a href="Account/ForgotPassword">Forgot your password?</a>
+                    <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
+                    <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
                     <InputCheckbox class="darker-border-checkbox form-check-input"
                                    @bind-Value="Input.RememberMe" />
                     <label class="form-check-label"
@@ -80,6 +131,15 @@
             </EditForm>
         </section>
     </div>
+    <div class="ux-form-col">
+        <section>
+            <div class="ux-section-head">
+                <h3>Use another service to log in</h3>
+                <p class="ux-section-subtitle">Choose an external provider to authenticate.</p>
+            </div>
+            <ExternalLoginPicker />
+        </section>
+    </div>
 </div>
 <div class="col-md-6 col-md-offset-2">
     <section>
@@ -88,31 +148,3 @@
         <ExternalLoginPicker />
     </section>
 </div>
-@code {
-
-    private string? errorMessage;
-    [CascadingParameter]
-    private HttpContext HttpContext { get; set; } = default!;
-    [SupplyParameterFromForm]
-    private InputModel Input { get; set; } = new();
-    [SupplyParameterFromQuery]
-    private string? ReturnUrl { get; set; }
-
-    [IgnoreAntiforgeryToken]
-    public async Task LoginUser()
-    {
-        await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);
-    }
-
-    private sealed class InputModel
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; } = "";
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; } = "";
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
-    }
-}

@@ -12,34 +12,84 @@
       <fileHash>A4B7F84F4544650248BA34EF41D96C2B8C41C7AC6CC98647555FF21038B46454</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d143f25-19e7-4729-9874-4ed876783a01</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/FactoryExtensions/WireupAccountCssExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-22T04:41:04.249068Z</updatedAt>
+      <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
+      <fileHash>5DD617372865C244E91E9704CEAAC78AD1B50CBC701B4ACD61268320002CB8B3</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#b9d38f7c-7a8d-4007-b33d-7f386ccf119a</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Settings/ModuleSettingsExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:53:10.2466295Z</updatedAt>
-      <deviationsHash>8DC58534C92E1A17299D2A8806B7E41CC0B3638506ED9583A690FCCE7A50A935</deviationsHash>
-      <fileHash>C464B897F303EE231C9BAD6EB5F2E3DBB29DF3B30663DFFA64078EF076667BD0</fileHash>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-05T12:51:20.2671577Z</updatedAt>
+      <deviationsHash>39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A</deviationsHash>
+      <fileHash>309CD7A0BFE9FA88C2363915D25A8AE5E3B0266F7E3F9B6022B25B39E18FB25E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b1dde391-adec-41d2-a5c8-e4d2bb58db7c</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-06T18:56:33.0327994Z</updatedAt>
-      <deviationsHash>D18CE308028C284BDC7586408A4861CAE081B61275F9081CA6C52DDC7F7ABC65</deviationsHash>
-      <fileHash>B071A7806CC413F147443C7D2B85CC316E8FDD05F33C5560E74331653728C8E9</fileHash>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-17T19:20:23.0210975Z</updatedAt>
+      <deviationsHash>FB078BB9866E6C6AE7D864D8543C1F84D6B1DEBD26D0759F0634FA7AFE37022C</deviationsHash>
+      <fileHash>CDC927350887760FA9DD4AFF5D04502627069ABA476D5EC23B28264EE37285E6</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1145f97b-3ae3-4bc4-8759-87905618b27f</correlationId>
       <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-17T19:20:23.0211087Z</updatedAt>
+      <deviationsHash>A47646E105D8BE64E594D2CDDDDC7009DF3FA16C36006954992B12E494563F0C</deviationsHash>
+      <fileHash>B977E4676ECCD0AD54A63C58D1A04690476ACE6BF9FA8CC878301B0E7557C1B4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e732c8dd-113e-435c-bdae-f0558c601d5b</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-06T18:56:33.0328102Z</updatedAt>
-      <deviationsHash>A44FA35597C722271B88C635392F4EF4150BAE331BDCAC62A9C70C1FF947E8DC</deviationsHash>
-      <fileHash>15B2C9FE9BEF1686996368C90F69F84B4EF00E7A20D782175D4DA71EEC478BB1</fileHash>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-22T04:41:04.2493788Z</updatedAt>
+      <deviationsHash>E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47</deviationsHash>
+      <fileHash>F64F6FFCD58445B4D1D0097BD2E70645369CDBEB78754FE022ED861CEB0DEE45</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7931ea0d-272b-4c4e-aaea-bfba5357534c</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-22T04:41:04.2493935Z</updatedAt>
+      <deviationsHash>B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69</deviationsHash>
+      <fileHash>EDC626871B8FB82EA14168630D5F7290DD5D2EFA82E104225DCEA3FA8E30D23B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#9aa987fd-7b3c-45fe-b0d0-ffb2d572c8fa</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-22T04:41:04.2494073Z</updatedAt>
+      <deviationsHash>818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55</deviationsHash>
+      <fileHash>22700B097E665314270BEC995B74DA1656709BC82DFC846E49D5379BA299B9F6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#4a148b5d-ad6d-44ac-a4aa-0d1e94058dcc</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-22T04:41:04.2494228Z</updatedAt>
+      <deviationsHash>38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C</deviationsHash>
+      <fileHash>2CAD5D3AF01E85C906C0CB0FC66DDD38E57946BFA621783419E720CF4606909B</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -2,7 +2,7 @@
 name: blazor-dialog-adding-entity
 description: Creates Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when implementing add or create entity dialogs in Blazor.
 paths:
-contentHash: 4800F4863A1AB4CFFCA289BE8E12197022B7A78CAD1DFEA07E0F930E10565687
+contentHash: 1E96DFA2374CAEE20B6D771E999F0C8F7EB4C5401D2F4BC26B82C7E23E2B8588
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -38,6 +38,22 @@ This is a dialog: close or cancel through MudBlazor dialog APIs rather than navi
 - Invent lookup services
 - Rewrite existing C# functionality
 - Add page navigation logic to the dialog flow
+- Put C# logic in `.razor` using `@code`
+- --
+
+## Assess The .razor.cs Before Writing
+
+Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
+
+- *If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+- Add a model field or property (initialized to a new instance) matching the sample pattern
+- Add `Save()` / `SaveAsync()` that validates the form, calls the existing create service method, and closes the dialog with `MudDialog.Close(DialogResult.Ok(true))` on success
+- Add `Cancel()` that only calls `MudDialog.Cancel()`
+- Add lookup loading in `OnInitializedAsync()` only if lookups are required by the model and a matching service exists in the project
+- *If implemented** — preserve all existing logic exactly:
+- Do NOT modify existing methods, service calls, or payload construction
+- Do NOT add, rename, or remove model properties
+- Do NOT rewrite existing C# functionality
 - --
 
 ## 1. Dialog Structure
@@ -128,29 +144,18 @@ Enum rules:
 - Keep component-specific styles minimal
 - Never modify existing shared styles or theme values
 - Match the sample dialog layout closely
+- Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
+- Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
 - *Design and styling context**
 
-You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
-
-Use `design.md` for:
-
-- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
-- `Color` semantics for primary and error actions
-- Dialog title treatment (gradient clip text vs plain text)
-
-Use the CSS files for:
-
-- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
-- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
-- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
-
-These files inform styling choices only — they do not override the sample's layout structure.
+Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
 - --
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` exist in `.razor.cs`
+- [ ] All bindings used in `.razor` exist in `.razor.cs` (including any members just scaffolded)
+- [ ] No `@code` block was introduced in `.razor`
 - [ ] Dialog uses `IMudDialogInstance` and modern MudBlazor dialog sections
 - [ ] Save closes with `DialogResult.Ok(true)` on success
 - [ ] Cancel only cancels the dialog

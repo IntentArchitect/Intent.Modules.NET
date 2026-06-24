@@ -205,8 +205,6 @@
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Eventing" relativePath="EventingSubscribers/EventingSubscribers.application.config" />
     <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="N_ServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.AzureServiceBus/N_ServiceBus.AzureServiceBus.application.config" />
     <application id="d69bfc1f-2e5b-4609-b1da-c715bf152c84" name="N_ServiceBus.LearnerTransport" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.LearnerTransport/N_ServiceBus.LearnerTransport.application.config" />
-    <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="N_ServiceBus.OutboxPattern.Publish" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.OutboxPattern.Publish/N_ServiceBus.OutboxPattern.Publish.application.config" />
-    <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="N_ServiceBus.OutboxPattern.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.OutboxPattern.Subscribe/N_ServiceBus.OutboxPattern.Subscribe.application.config" />
     <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="N_ServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.RabbitMQ/N_ServiceBus.RabbitMQ.application.config" />
     <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="N_ServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SQS/N_ServiceBus.SQS.application.config" />
     <application id="9a70e843-df93-406b-9619-d4b264619d72" name="N_ServiceBus.SqlServer" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SqlServer/N_ServiceBus.SqlServer.application.config" />
@@ -214,5 +212,9 @@
     <application id="9638be46-71c3-4481-9342-2b25bc56baaa" name="Wolverine.AwsLambdaFunctions" solutionFolder="Wolverine Dispatch" relativePath="Wolverine.AwsLambdaFunctions/Wolverine.AwsLambdaFunctions.application.config" />
     <application id="d2358d26-abb4-4969-a778-b3fdfd0defc7" name="Wolverine.AspNetCore.FastEndpoints" solutionFolder="Wolverine Dispatch" relativePath="Wolverine.AspNetCore.FastEndpoints/Wolverine.AspNetCore.FastEndpoints.application.config" />
     <application id="31f3d32d-2ed8-435d-a8e4-39120b18b177" name="Wolverine.AspNetCore.Controllers" solutionFolder="Wolverine Dispatch" relativePath="Wolverine.AspNetCore.Controllers/Wolverine.AspNetCore.Controllers.application.config" />
+    <application id="3ea966d0-b6c8-4478-82b7-27652ec1cb89" name="N_ServiceBus.Persistence.Sql.Publish" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.Sql.Publish/N_ServiceBus.Persistence.Sql.Publish.application.config" />
+    <application id="e82d01d3-006c-431b-8f3d-8f6d823c14ec" name="N_ServiceBus.Persistence.Sql.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.Sql.Subscribe/N_ServiceBus.Persistence.Sql.Subscribe.application.config" />
+    <application id="82822186-8d93-43fa-902f-d9df61307077" name="N_ServiceBus.Persistence.NHibernate.Publish" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.NHibernate.Publish/N_ServiceBus.Persistence.NHibernate.Publish.application.config" />
+    <application id="b4fb5e18-a007-4d13-a2dd-492d6c393dc7" name="N_ServiceBus.Persistence.NHibernate.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.NHibernate.Subscribe/N_ServiceBus.Persistence.NHibernate.Subscribe.application.config" />
   </applications>
 </solution>

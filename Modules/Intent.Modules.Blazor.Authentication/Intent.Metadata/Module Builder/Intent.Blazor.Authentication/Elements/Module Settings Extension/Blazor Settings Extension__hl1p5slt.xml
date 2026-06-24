@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="07c676e1-b7dc-48aa-bf7a-41653e793cd0" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
   <name>Blazor Settings Extension</name>
-  <display>Blazor Settings Extension: Blazor</display>
+  <display>Blazor Settings Extension: Blazor Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />

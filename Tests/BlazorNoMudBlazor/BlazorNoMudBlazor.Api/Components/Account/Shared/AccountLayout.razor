@@ -1,6 +1,23 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 
+@using BlazorNoMudBlazor.Api.Components.Layout
+
+<AppBrand Class="account-brand" />
+<ThemeToggle Class="account-theme-toggle" />
+
+<main class="account-layout-main">
+    <div class="account-layout-content">
+        @if (HttpContext is null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            @Body
+        }
+    </div>
+</main>
 @layout Layout.MainLayout
 @if(HttpContext is null)
 {
@@ -9,17 +26,4 @@
 else
 {
 @Body
-}
-@code {
-
-    [CascadingParameter]
-    private HttpContext? HttpContext { get; set; }
-
-    protected override void OnParametersSet()
-    {
-        if (HttpContext is null)
-        {
-            NavigationManager.Refresh(forceReload: true);
-        }
-    }
 }

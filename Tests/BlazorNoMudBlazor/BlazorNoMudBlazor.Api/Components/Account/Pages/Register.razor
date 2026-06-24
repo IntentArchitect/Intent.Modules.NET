@@ -5,9 +5,12 @@
 @inject IAuthService AuthService
 
 <PageTitle>Register</PageTitle>
+<AccountHero Icon="user-plus"
+             Title="Create your account"
+             Subtitle="Get started with a new local account." />
 <h1>Register</h1>
-<div class="row">
-    <div class="col-md-4">
+<div class="row ux-form-grid">
+    <div class="col-md-4 ux-form-col">
         <section>
             <StatusMessage Message="@Message" />
             <EditForm Model="Input"
@@ -16,11 +19,59 @@
                       method="post"
                       asp-route-returnUrl="@ReturnUrl">
                 <DataAnnotationsValidator />
+                <button class="w-100 btn btn-primary"
+                        type="submit">
+                    <UxIcon Name="user-plus" />
+                    Register
+                </button>
+                <UxField Label="Email"
+                         Icon="mail"
+                         For="email">
+                    <InputText id="email" class="form-control ux-input"
+                               @bind-Value="Input.Email"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                    <InputText id="confirm-password"
+                               class="ux-input"
+                               type="password"
+                               @bind-Value="Input.ConfirmPassword"
+                               autocomplete="new-password"
+                               aria-required="true"
+                               placeholder="Confirm your password" />
+                </UxField>
+                <UxField Label="Password"
+                         Icon="lock"
+                         For="password">
+                    <InputText id="password"
+                               class="ux-input"
+                               type="password"
+                               @bind-Value="Input.Password"
+                               autocomplete="new-password"
+                               aria-required="true"
+                               placeholder="Create a password" />
+                </UxField>
                 <h2>Create a new account.</h2>
                 <hr />
-                <ValidationSummary class="text-danger"
-                                   role="alert" />
-                <div class="form-floating mb-3">
+                <UxField Label="Confirm Password"
+                         Icon="lock"
+                         For="confirm-password">
+                    <InputText id="confirm-password" class="form-control ux-input"
+                               type="password"
+                               @bind-Value="Input.ConfirmPassword"
+                               autocomplete="new-password"
+                               aria-required="true"
+                               placeholder="Confirm your password" />
+                    <InputText id="email"
+                               class="ux-input"
+                               @bind-Value="Input.Email"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                </UxField>
+                <div class="form-floating mb-3 ux-section-head">
+                    <h2>Create a new account</h2>
+                    <p class="ux-section-subtitle">It only takes a moment.</p>
                     <InputText class="form-control"
                                @bind-Value="Input.Email"
                                autocomplete="username"
@@ -33,6 +84,8 @@
                     <ValidationMessage class="text-danger"
                                        For="() => Input.Email" />
                 </div>
+                <ValidationSummary class="text-danger"
+                                   role="alert" />
                 <div class="form-floating mb-3">
                     <InputText class="form-control"
                                @bind-Value="Input.Password"
@@ -70,6 +123,15 @@
             </EditForm>
         </section>
     </div>
+    <div class="ux-form-col">
+        <section>
+            <div class="ux-section-head">
+                <h3>Use another service to register</h3>
+                <p class="ux-section-subtitle">Sign up with an external provider.</p>
+            </div>
+            <ExternalLoginPicker />
+        </section>
+    </div>
 </div>
 <div class="col-md-6 col-md-offset-2">
     <section>
@@ -78,32 +140,4 @@
         <ExternalLoginPicker />
     </section>
 </div>
-@code {
 
-    private IEnumerable<IdentityError>? identityErrors;
-    [SupplyParameterFromForm]
-    private InputModel Input { get; set; } = new();
-    [SupplyParameterFromQuery]
-    private string? ReturnUrl { get; set; }
-    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
-
-    public async Task RegisterUser()
-    {
-        await AuthService.Register(Input.Email, Input.Password, ReturnUrl);
-    }
-
-    private sealed class InputModel
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; } = "";
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        public string Password { get; set; } = "";
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; } = "";
-    }
-}

@@ -31,12 +31,19 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
+        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget)
         {
-            ["ApplicationName"] = outputTarget.ApplicationName(),
-            ["Namespace"] = outputTarget.GetNamespace()
-
-        };
+            return new Dictionary<string, string>
+            {
+                ["ApplicationName"] = outputTarget.ApplicationName(),
+                ["Namespace"] = outputTarget.GetNamespace(),
+                // The top-row user menu is always rendered. AppUserMenu is shipped by the Authentication
+                // module (real account actions) or, when Auth isn't installed, by the base module as a no-op
+                // scaffold (see the AppUserMenu static-content registrations) — so the reference always
+                // resolves and this token is unconditional.
+                ["AppUserMenu"] = "<AppUserMenu />"
+            };
+        }
 
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {

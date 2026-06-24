@@ -2,7 +2,7 @@
 name: mudblazor-ux-theme-sync
 description: Updates ux-tokens.css and ux-mudblazor.css to match a new or replaced design.md. Use when a design specification (any format or structure) has changed and the MudBlazor theme needs to reflect the new colours, typography, spacing, radii, or component styles.
 paths:
-contentHash: B67E87D944EB138AB52F60C986CE09F6F47FFF8D629B76C13AC3D2885C852E72
+contentHash: 42A1B0BB8660D5B5A979A01580AB0EDC3D06D051EA8E3829ADFE7F2CFAE07C3D
 ---
 ## Purpose
 
@@ -10,7 +10,7 @@ Translate a design specification (design.md) into a working MudBlazor CSS theme 
 
 - --
 
-## MANDATORY: Read All Three Files Before Changing Anything
+## MANDATORY: Read All Five Files Before Changing Anything
 
 STOP — you MUST read all five files in full before writing a single line:
 

@@ -121,5 +121,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="2f123282-7ac8-4541-a329-ddd656bc3796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate</name>
+      <display>Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7e08727a-cbbf-433a-acf8-e9d5984d8f8a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

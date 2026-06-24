@@ -29,13 +29,23 @@ namespace N_ServiceBus.LearnerTransport.Infrastructure.Configuration
             var endpointName = configuration["NServiceBus:EndpointName"] ?? throw new InvalidOperationException("NServiceBus:EndpointName is not configured");
             var endpointConfiguration = new EndpointConfiguration(endpointName);
 
+            var licensePath = configuration["NServiceBus:LicensePath"];
+
+            if (licensePath is not null)
+            {
+                endpointConfiguration.LicensePath(licensePath);
+            }
+
             var rawStoragePath = configuration["NServiceBus:LearningTransport:StorageDirectory"];
             var storageDirectory = rawStoragePath is not null
                 ? Environment.ExpandEnvironmentVariables(rawStoragePath)
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
             var routing = endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
-            endpointConfiguration.EnableInstallers();
+            if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))
+            {
+                endpointConfiguration.EnableInstallers();
+            }
             endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
             endpointConfiguration.Recoverability()
@@ -50,6 +60,16 @@ namespace N_ServiceBus.LearnerTransport.Infrastructure.Configuration
             routing.RouteToEndpoint(typeof(MakeSoundCommand), endpointName);
             routing.RouteToEndpoint(typeof(TalkToPersonCommand), endpointName);
             routing.RouteToEndpoint(typeof(CreatePersonIdentity), endpointName);
+
+            var auditQueue = configuration["NServiceBus:AuditQueue"] ?? throw new InvalidOperationException("NServiceBus:AuditQueue is not configured");
+            var auditTtbrRaw = configuration["NServiceBus:AuditTimeToBeReceived"];
+            if (auditTtbrRaw is not null)
+                endpointConfiguration.AuditProcessedMessagesTo(auditQueue, TimeSpan.Parse(auditTtbrRaw));
+            else
+                endpointConfiguration.AuditProcessedMessagesTo(auditQueue);
+
+            var instanceId = configuration["NServiceBus:InstanceId"] ?? throw new InvalidOperationException("NServiceBus:InstanceId is not configured");
+            endpointConfiguration.UniquelyIdentifyRunningInstance().UsingNames(instanceId, endpointName);
 
             return endpointConfiguration;
         }

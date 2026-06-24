@@ -14,6 +14,8 @@ namespace Intent.Modules.Eventing.NServiceBus
         public const string NServiceBusPackageName = "NServiceBus";
         public const string NServiceBusAmazonSQSPackageName = "NServiceBus.AmazonSQS";
         public const string NServiceBusExtensionsHostingPackageName = "NServiceBus.Extensions.Hosting";
+        public const string NServiceBusNHibernatePackageName = "NServiceBus.NHibernate";
+        public const string NServiceBusNHibernateTransactionalSessionPackageName = "NServiceBus.NHibernate.TransactionalSession";
         public const string NServiceBusRabbitMQPackageName = "NServiceBus.RabbitMQ";
         public const string NServiceBusTransportAzureServiceBusPackageName = "NServiceBus.Transport.AzureServiceBus";
         public const string NServiceBusTransportSqlServerPackageName = "NServiceBus.Transport.SqlServer";
@@ -137,6 +139,30 @@ namespace Intent.Modules.Eventing.NServiceBus
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(NServiceBusNHibernatePackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("11.1.0")
+                            .WithNugetDependency("NServiceBus", "10.1.4"),
+                        ( >= 8, >= 0) => new PackageVersion("10.1.2")
+                            .WithNugetDependency("NServiceBus", "9.2.11"),
+                        ( >= 6, >= 0) => new PackageVersion("9.0.6")
+                            .WithNugetDependency("NServiceBus", "8.2.7"),
+                        ( >= 0, >= 0) => new PackageVersion("8.6.4")
+                            .WithNugetDependency("NServiceBus", "7.8.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusNHibernatePackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(NServiceBusNHibernateTransactionalSessionPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("11.1.0")
+                            .WithNugetDependency("NServiceBus.NHibernate", "11.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("10.1.2")
+                            .WithNugetDependency("NServiceBus.NHibernate", "10.1.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusNHibernateTransactionalSessionPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(NServiceBusPersistenceSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -247,6 +273,10 @@ namespace Intent.Modules.Eventing.NServiceBus
         public static NugetPackageInfo NServiceBusAmazonSQS(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusAmazonSQSPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusExtensionsHosting(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusExtensionsHostingPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo NServiceBusNHibernate(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusNHibernatePackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo NServiceBusNHibernateTransactionalSession(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusNHibernateTransactionalSessionPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusPersistenceSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPersistenceSqlPackageName, outputTarget.GetMaxNetAppVersion());
 

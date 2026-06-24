@@ -245,6 +245,13 @@ ModelManifest.xml
 # Git extensions
 *.orig
 
+# Git merge-tool temp files
+.merge_file_*
+*.LOCAL
+*.REMOTE
+*.BASE
+*.BACKUP
+
 # INTENT FILES:
 *.imod
 *.iat

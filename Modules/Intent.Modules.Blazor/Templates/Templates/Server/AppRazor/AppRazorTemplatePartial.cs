@@ -47,12 +47,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("name", "viewport")
                                 .AddAttribute("content", "width=device-width, initial-scale=1.0"));
                             head.AddHtmlElement("base", t => t.AddAttribute("href", "/"));
-                            if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
-                            {
-                                head.AddHtmlElement("link", t => t
-                                    .AddAttribute("rel", "stylesheet")
-                                    .AddAttribute("href", "bootstrap/bootstrap.min.css"));
-                            }
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", "ux-tokens.css"));
@@ -84,8 +78,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
-                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme.js"));
-                            body.AddHtmlElement("script", t => t.WithText("themeHelper.init();"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
                         });
 
                         html.AddEmptyLine();

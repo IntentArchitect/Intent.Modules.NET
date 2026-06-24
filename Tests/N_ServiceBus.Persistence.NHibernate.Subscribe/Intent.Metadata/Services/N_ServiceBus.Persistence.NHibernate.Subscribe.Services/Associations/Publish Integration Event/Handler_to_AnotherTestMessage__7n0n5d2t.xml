@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6bf5a06e-a624-462f-af9a-f39f98e8d00f">
+  <sourceEnd id="7809e8e0-5557-4ce3-8d93-64dca57ac2f9" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : TestEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="62343ea6-da14-4b73-b8b0-614f888bd686">
+      <typeId>847607f2-bf68-4c06-bc23-532c393e7073</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Subscribe.Services</typePackageName>
+      <typePackageId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6bf5a06e-a624-462f-af9a-f39f98e8d00f" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] AnotherTestMessage</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7ad7fe3e-5011-46da-99a8-28e58074116a">
+      <typeId>8c874730-6ea7-458b-abf2-69631b625478</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Subscribe.Eventing.Messages</typePackageName>
+      <typePackageId>1b174d34-85bb-4e70-abfc-0656df606daf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="b4fb5e18-a007-4d13-a2dd-492d6c393dc7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="847607f2-bf68-4c06-bc23-532c393e7073" location="[N_ServiceBus.Persistence.NHibernate.Subscribe].[Services].[Handler]" />
+        <target applicationId="b4fb5e18-a007-4d13-a2dd-492d6c393dc7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8c874730-6ea7-458b-abf2-69631b625478" location="[N_ServiceBus.Persistence.NHibernate.Subscribe].[Services].[AnotherTestMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="8c874730-6ea7-458b-abf2-69631b625478" name="AnotherTestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="63a9412f-2b06-4d21-9c89-d46a111d4992" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="847607f2-bf68-4c06-bc23-532c393e7073" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="6ce959bd-0a0c-4ae0-abff-a8023fd0b8ae" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,29 @@
+@using BlazorServerTests.Api.Components.Layout
+@* App-bar user menu — composes the shared presentational UserMenu chrome (shipped by the component
+   module, not Auth) with the Auth-specific items: Profile / Manage links and a real antiforgery
+   logout form POST to the Identity endpoint (the circuit-free way to log out on a static page).
+   MudBlazor (MudIcon) variant; the non-Mud app has the UxIcon counterpart. *@
+
+<UserMenu>
+    <Trigger>
+        <MudIcon Icon="@Icons.Material.Filled.MoreVert" />
+    </Trigger>
+    <ChildContent>
+        <a class="ux-user-menu-item" href="Account/Manage">
+            <MudIcon Icon="@Icons.Material.Filled.Person" Size="Size.Small" />
+            <span>Profile</span>
+        </a>
+        <a class="ux-user-menu-item" href="Account/Manage">
+            <MudIcon Icon="@Icons.Material.Filled.ManageAccounts" Size="Size.Small" />
+            <span>My Account</span>
+        </a>
+        <form class="ux-user-menu-logout-form" action="Account/Logout" method="post">
+            <AntiforgeryToken />
+            <input type="hidden" name="returnUrl" value="" />
+            <button type="submit" class="ux-user-menu-item">
+                <MudIcon Icon="@Icons.Material.Filled.Logout" Size="Size.Small" />
+                <span>Logout</span>
+            </button>
+        </form>
+    </ChildContent>
+</UserMenu>

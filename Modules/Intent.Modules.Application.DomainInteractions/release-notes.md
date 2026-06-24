@@ -1,3 +1,7 @@
+### Version 1.2.8
+
+- Improvement: Better error handling in SF around Update Entity Actions with Update Mappings but missing Query Mapping.
+
 ### Version 1.2.7
 - Fixed: When a user-supplied primary key is used, use its name in the `return` statement instead of always assuming it is "id" 
 
