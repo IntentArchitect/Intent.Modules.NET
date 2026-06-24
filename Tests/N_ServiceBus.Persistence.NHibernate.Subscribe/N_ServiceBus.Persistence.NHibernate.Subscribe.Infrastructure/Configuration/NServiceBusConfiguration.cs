@@ -15,7 +15,6 @@ namespace N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure.Configura
 {
     public static class NServiceBusConfiguration
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
             IConfiguration configuration)
