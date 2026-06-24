@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="02a5b6b4-a71f-407e-9ba7-4560eca65ee1">
+  <sourceEnd id="6b300a70-f5ed-4d15-85ff-8c9c5db27f37" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: N_ServiceBus.Persistence.NHibernate.Subscribe.Services.TestCommandHandler</display>
+    <order>0</order>
+    <typeReference id="641b1e78-6031-466f-a215-b48a3cd5c324">
+      <typeId>51e11c37-3012-4da2-8818-cb511ee78388</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Subscribe.Services</typePackageName>
+      <typePackageId>458addf8-6aab-4b04-90a5-f3e1aa810aaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="02a5b6b4-a71f-407e-9ba7-4560eca65ee1" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] TestCommand</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="4aae7060-f565-48ed-9799-641b199094db">
+      <typeId>071e5b6d-d05b-456f-85a6-c2759746a92e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>50670304-98d4-4bab-a0e6-e5b028230864</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>
