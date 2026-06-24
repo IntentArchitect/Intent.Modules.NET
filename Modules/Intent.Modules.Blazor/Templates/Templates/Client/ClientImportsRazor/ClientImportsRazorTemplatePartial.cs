@@ -43,13 +43,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
                 file.AddUsing("Microsoft.JSInterop");
                 file.AddUsing("static Microsoft.AspNetCore.Components.Web.RenderMode");
 
-                // Two-project (Auto/Wasm): MainLayout lives in this .Client (Layout/) but the shared atoms
-                // (NavLinks/ThemeToggle/AppUserMenu) live in .Client/Components/Layout. Import that namespace so
-                // the model-generated MainLayout resolves them as components (otherwise RZ10012 = inert HTML).
-                // Gated on MudBlazor (which ships those atoms to Components/Layout); the namespace must exist.
+                // Two-project (Auto/Wasm): the model-generated MainLayout lives in .Client/Components/Layout and
+                // resolves the co-located atoms (NavLinks/ThemeToggle) natively, but also injects <AppUserMenu/>.
+                // The no-op AppUserMenu scaffold ships to a SIBLING .Client/Layout folder (kept out of
+                // Components/Layout on purpose, so the server's real AppUserMenu atoms-import doesn't collide), so
+                // BOTH namespaces must be imported here or <AppUserMenu/> is RZ10012 = inert HTML (menu missing).
+                // Gated on MudBlazor (which ships these); the namespaces must exist.
                 if (ExecutionContext.GetInstalledModules().Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                 {
                     file.AddUsing($"{OutputTarget.GetNamespace()}.Components.Layout");
+                    file.AddUsing($"{OutputTarget.GetNamespace()}.Layout");
                 }
             });
         }
