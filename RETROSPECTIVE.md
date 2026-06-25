@@ -171,3 +171,11 @@ opts.Durability.Mode = DurabilityMode.Serverless;
 
 - A transient SF glitch produced a config missing the (correctly-modelled) `RegisterHandlers` block; this was misdiagnosed as a stale-DLL / model bug and triggered a long wrong-path investigation, including changing module versions and reinstalling. → Add to `module-increment-loop`: "If SF output is missing content you expect from the model, re-run SF once (failures are usually transient from concurrent IA work) before investigating. Never change module version numbers or reinstall different versions to 'fix' generated output — the install state is usually already correct."
 - Runtime verification caught a real module bug that compile + code-review did not: `Microsoft.Data.SqlClient` was never declared for the NHibernate path even though the generated config hardcodes `MicrosoftDataSqlClientDriver` (loaded reflectively, fails only at startup). → Reinforce in `reference-app-builder`: "Each persistence/driver path must be exercised at runtime, not just compiled — reflectively-loaded providers (NHibernate drivers, etc.) fail at startup with no compile-time signal."
+
+---
+
+## 2026-06-25 | module-wrap-up skill — Version bump step is wrong for unreleased modules
+
+### Process Gaps
+
+- `module-wrap-up` specifies "Version bump" as the first mandatory step of wrap-up. For modules that are at `1.0.0-pre.0` and have never been published to the feed, there is nothing to bump — all changes accumulate in `pre.0` until first publish. The wrap-up skill has no gate for this case and will incorrectly bump `pre.0` → `pre.1` if followed literally. → Remove the version bump from `module-wrap-up` or add an explicit gate: "Only bump if `pre.0` has been published to the feed. If the module has never been published, skip the version bump entirely."
