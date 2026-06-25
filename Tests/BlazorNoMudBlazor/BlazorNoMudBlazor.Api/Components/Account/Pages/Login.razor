@@ -44,9 +44,16 @@
                 </UxField>
                 <ValidationMessage class="text-danger"
                                    For="() => Input.Password" />
-                <div class="ux-section-head">
+                <div class="form-check ux-section-head">
                     <h2>Use a local account to log in</h2>
                     <p class="ux-section-subtitle">Enter your credentials below.</p>
+                    <InputCheckbox id="rememberMe"
+                                   class="form-check-input"
+                                   @bind-Value="Input.RememberMe" />
+                    <label class="form-check-label"
+                           for="rememberMe">
+                        Remember me
+                    </label>
                 </div>
                 <div class="form-check">
                     <InputCheckbox id="rememberMe" class="darker-border-checkbox form-check-input"
