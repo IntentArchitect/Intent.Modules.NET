@@ -174,6 +174,23 @@ opts.Durability.Mode = DurabilityMode.Serverless;
 
 ---
 
+## 2026-06-25 | Intent.AzureFunctions/Lambda.Dispatch.Wolverine — Serverless TypeLoadMode incompatibility (modules removed)
+
+### Intent Gaps
+
+- Wolverine's `TypeLoadMode.Static` requires `wolverine codegen write` (Oakton CLI routing via `WolverineApplication.RunAsync(args)`). Azure Functions and Lambda override the startup entry point before Oakton runs, so `dotnet run -- wolverine codegen write` silently launches the host instead of the codegen command — pre-built types are never written. → IA team: if a module targets a serverless host, it cannot rely on `wolverine codegen write`; Wolverine needs a serverless-compatible codegen path (MSBuild target, companion runner, or built-in startup hook) before `TypeLoadMode.Static` is usable in that context.
+- `TypeLoadMode.Auto` writes `.cs` files to `bin/Debug/Internal/Generated/WolverineHandlers/` at runtime. Azure Functions file watcher detects these new files and restarts the isolated worker, causing "function already exists" conflicts. `TypeLoadMode.Dynamic` was investigated as a possible fix but abandoned before confirming whether it also writes to disk. → IA team: WolverineFx needs clear documentation or a dedicated mode for serverless environments where runtime disk writes are not permitted.
+
+### Process Gaps
+
+- `reference-app-builder` does not ask whether the target host is serverless (Azure Functions isolated worker, Lambda). If it did, the codegen incompatibility would have been discovered during the reference app phase rather than after the modules were fully built and tested. → Add to `reference-app-builder`: "If the target is a serverless host (Azure Functions, Lambda), verify that Wolverine's `TypeLoadMode` and code generation mechanism are compatible with the host's startup model before proceeding. `wolverine codegen write` requires Oakton command routing which serverless hosts bypass."
+
+### PRD / User Gaps
+
+- `module-kickoff` does not ask "does the target host allow runtime disk writes?" or "does the target host support Oakton CLI command routing?" For serverless hosts, both answers are no, and neither `TypeLoadMode.Static` nor `TypeLoadMode.Auto` is viable without a workaround. → Add U-question to `module-kickoff`: "Does any target deployment environment restrict runtime disk writes or override the application startup entry point (e.g. Azure Functions isolated worker, AWS Lambda)? If yes, confirm that the chosen dispatch/messaging framework supports that environment before committing to building a dispatch bridge module."
+
+---
+
 ## 2026-06-25 | module-wrap-up skill — Version bump step is wrong for unreleased modules
 
 ### Process Gaps
