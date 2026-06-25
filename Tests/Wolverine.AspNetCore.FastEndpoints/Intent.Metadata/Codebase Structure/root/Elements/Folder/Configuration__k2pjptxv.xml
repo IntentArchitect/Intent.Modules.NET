@@ -79,5 +79,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="7c98696e-d55e-4931-9e0d-c16dff6e462b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Scalar.OpenApiConfiguration</name>
+      <display>Intent.AspNetCore.Scalar.OpenApiConfiguration</display>
+      <externalReference>Intent.AspNetCore.Scalar</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>78b63bf7-b948-479f-85fe-e3bac6ecf321</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

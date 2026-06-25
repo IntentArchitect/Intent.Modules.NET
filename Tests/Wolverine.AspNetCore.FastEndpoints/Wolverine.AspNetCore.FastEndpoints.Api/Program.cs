@@ -1,5 +1,6 @@
 using FastEndpoints;
 using Intent.RoslynWeaver.Attributes;
+using Scalar.AspNetCore;
 using Serilog;
 using Serilog.Events;
 using Wolverine;
@@ -43,6 +44,8 @@ namespace Wolverine.AspNetCore.FastEndpoints.Api
                     opt.Assemblies = [typeof(Program).Assembly];
                 });
 
+                builder.Services.ConfigureOpenApi();
+
                 builder.Host.UseWolverine(opts =>
                 {
                     WolverineConfiguration.Configure(opts);
@@ -62,6 +65,8 @@ namespace Wolverine.AspNetCore.FastEndpoints.Api
                 app.UseRouting();
                 app.UseAuthentication();
                 app.UseAuthorization();
+                app.MapScalarApiReference();
+                app.MapOpenApi();
                 app.MapDefaultHealthChecks();
                 app.MapFastEndpoints(c => c.Endpoints.Configurator = ep =>
                 {
