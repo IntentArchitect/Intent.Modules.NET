@@ -140,19 +140,9 @@
         <package id="Intent.AspNetCore.Controllers.Dispatch.Wolverine" version="1.0.0-pre.0" />
       </install>
     </detect>
-    <detect id="Intent.AzureFunctions">
-      <install>
-        <package id="Intent.AzureFunctions.Dispatch.Wolverine" version="1.0.0-pre.0" />
-      </install>
-    </detect>
     <detect id="Intent.FastEndpoints">
       <install>
         <package id="Intent.FastEndpoints.Dispatch.Wolverine" version="1.0.0-pre.0" />
-      </install>
-    </detect>
-    <detect id="Intent.Aws.Lambda.Functions">
-      <install>
-        <package id="Intent.Aws.Lambda.Functions.Dispatch.Wolverine" version="1.0.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.FluentValidation">

@@ -424,11 +424,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Wolverine.DomainEvents", "Intent.Modules.Application.Wolverine.DomainEvents\Intent.Modules.Application.Wolverine.DomainEvents.csproj", "{86427358-6BFB-4430-B462-E7DD6E140FD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Dispatch.Wolverine", "Intent.Modules.AzureFunctions.Dispatch.Wolverine\Intent.Modules.AzureFunctions.Dispatch.Wolverine.csproj", "{F6F53C74-3FE0-4695-AF0E-5679927F0F9A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.Wolverine", "Intent.Modules.FastEndpoints.Dispatch.Wolverine\Intent.Modules.FastEndpoints.Dispatch.Wolverine.csproj", "{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine", "Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine\Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine.csproj", "{FE712244-F9B1-4307-B345-3656457ECD15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1124,18 +1120,10 @@ Global
 		{86427358-6BFB-4430-B462-E7DD6E140FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86427358-6BFB-4430-B462-E7DD6E140FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86427358-6BFB-4430-B462-E7DD6E140FD4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6F53C74-3FE0-4695-AF0E-5679927F0F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F53C74-3FE0-4695-AF0E-5679927F0F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6F53C74-3FE0-4695-AF0E-5679927F0F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6F53C74-3FE0-4695-AF0E-5679927F0F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE712244-F9B1-4307-B345-3656457ECD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE712244-F9B1-4307-B345-3656457ECD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE712244-F9B1-4307-B345-3656457ECD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE712244-F9B1-4307-B345-3656457ECD15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1327,9 +1315,7 @@ Global
 		{BC1556BB-7192-4E2E-81C6-9BBC1F5BE287} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{A4A99B90-4769-4AF6-9E58-A4F2791E5B08} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{86427358-6BFB-4430-B462-E7DD6E140FD4} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
-		{F6F53C74-3FE0-4695-AF0E-5679927F0F9A} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
-		{FE712244-F9B1-4307-B345-3656457ECD15} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

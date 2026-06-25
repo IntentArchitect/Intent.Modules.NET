@@ -56,4 +56,4 @@ This module requires the following modules to be installed:
 
 - [Intent.FastEndpoints](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.FastEndpoints/README.md) — generates the FastEndpoints endpoint classes that this module extends.
 - [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md) — registers Wolverine and generates handler classes that receive the dispatched messages.
-- [Intent.Aws.Lambda.Functions.Dispatch.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Aws.Lambda.Functions.Dispatch.Wolverine/README.md) — equivalent dispatch wiring for AWS Lambda Annotation Functions.
+- [Intent.AspNetCore.Controllers.Dispatch.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/README.md) — equivalent dispatch wiring for ASP.NET Core controllers.

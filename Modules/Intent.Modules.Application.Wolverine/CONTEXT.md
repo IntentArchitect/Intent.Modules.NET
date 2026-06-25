@@ -52,3 +52,37 @@ This document contains durable architectural decisions, constraints, and pattern
 2. **No Handler Contamination**: Do not import `using Wolverine;` in application handler classes (only middlewares import it for `Envelope` manipulation).
 3. **No MediatR Coupling**: Do not copy MediatR's `IRequest<T>` or `IRequestHandler<,>` interfaces.
 4. **No Action-Method Service Injection**: Do not use `[FromServices] IMessageBus bus` in action methods; use controller constructor injection.
+
+---
+
+## ⚠️ Known Unresolved Problem — Wolverine in Serverless Hosts (Azure Functions / AWS Lambda)
+
+**Status: Investigation abandoned. Do not attempt to build serverless dispatch modules until this is resolved.**
+
+### What was tried
+
+Wolverine dispatch modules for Azure Functions isolated worker and AWS Lambda Annotation Functions were built and tested. The modules correctly configure:
+- `opts.Discovery.DisableConventionalDiscovery()` — prevents bin-sweep from loading incompatible host DLLs
+- `opts.Discovery.IncludeType<T>()` — registers each handler explicitly
+- `opts.Durability.Mode = DurabilityMode.Serverless` — disables background inbox/outbox workers
+
+These three settings work correctly. The **unresolved problem** is `TypeLoadMode`:
+
+### Why every TypeLoadMode fails in Azure Functions
+
+| Mode | What it does | Why it fails |
+|---|---|---|
+| `Auto` | Generates handler executor types dynamically; writes `.cs` files to `bin/Debug/Internal/Generated/WolverineHandlers/` at runtime | Azure Functions file watcher detects the new files and restarts the isolated worker process. Worker 2 tries to re-register already-loaded functions → "function already exists" conflict. |
+| `Static` | Loads pre-built handler executor types from the assembly; throws `ExpectedTypeMissingException` if not found | Requires `wolverine codegen write` CLI (Oakton command routing via `WolverineApplication.RunAsync(args)`). Azure Functions overrides the startup entry point — `dotnet run -- wolverine codegen write` launches the Functions host instead of routing the command. Pre-built types are never generated. |
+| `Dynamic` | Compiles handler types in-memory via Roslyn | Not fully investigated; may behave similarly to `Auto` regarding disk writes. User halted investigation. |
+
+### Root cause
+
+Wolverine's code generation mechanism (`JasperFx.CodeGeneration`) was designed for hosted ASP.NET Core / console apps where Oakton controls the startup command routing. Serverless hosts (Azure Functions, Lambda) override or bypass that entry point entirely.
+
+### Possible future paths (not yet pursued)
+
+1. A separate companion console app referencing the same handlers, used only to run `wolverine codegen write` and write executor `.cs` files into the serverless project before publish.
+2. A pre-publish MSBuild target that runs codegen as a build step.
+3. Wait for WolverineFx to provide native serverless startup hooks in a future version.
+4. Investigate whether `TypeLoadMode.Dynamic` actually avoids disk writes (JasperFx source review needed).
