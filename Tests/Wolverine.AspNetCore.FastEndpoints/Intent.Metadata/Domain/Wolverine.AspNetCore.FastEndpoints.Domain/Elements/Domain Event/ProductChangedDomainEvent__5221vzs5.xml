@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d36b4f49-3b98-43bd-a6af-c216275a176f" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>ProductChangedDomainEvent</name>
+  <display>ProductChangedDomainEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10a7688b-d7c4-4873-8550-05ef83e8c9be</parentFolderId>
+  <packageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</packageId>
+  <packageName>Wolverine.AspNetCore.FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a5c753fe-9a3f-4e8a-9064-e115d04adaa6" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Product</name>
+      <display>Product: Product</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="052c966c-6edb-47df-ae18-41c4a43b4cd5">
+        <typeId>b1698db1-9a8a-4b62-8a12-227f17699b0c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Wolverine.AspNetCore.FastEndpoints.Domain</typePackageName>
+        <typePackageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d36b4f49-3b98-43bd-a6af-c216275a176f</parentFolderId>
+      <packageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</packageId>
+      <packageName>Wolverine.AspNetCore.FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

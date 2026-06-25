@@ -129,5 +129,99 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="8a1bdc73-2f5a-44f7-b0a6-2757e62bff56" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ChangeProduct</name>
+      <display>ChangeProduct(name: string, price: decimal): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a2577fe2-c5c9-46ca-8c4b-3bb92e36c0bb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>d2358d26-abb4-4969-a778-b3fdfd0defc7</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b1698db1-9a8a-4b62-8a12-227f17699b0c" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>b1698db1-9a8a-4b62-8a12-227f17699b0c</parentFolderId>
+      <packageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</packageId>
+      <packageName>Wolverine.AspNetCore.FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b9a32f9d-b52d-467f-a1f2-376e399c717f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a4c8fe61-f37e-4a38-bd4f-5f4fe8664693">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="857b68e0-644e-44b1-98e9-4642fa05f164" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8a1bdc73-2f5a-44f7-b0a6-2757e62bff56</parentFolderId>
+          <packageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</packageId>
+          <packageName>Wolverine.AspNetCore.FastEndpoints.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9ce1936f-d871-4fd3-9c01-06548ab32ed8" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>price</name>
+          <display>in : price: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="90d7bb0c-2782-401f-9c55-973d16aa84ef">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="2360f8d1-e461-431c-9353-5e004ed125cd" name="Price" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8a1bdc73-2f5a-44f7-b0a6-2757e62bff56</parentFolderId>
+          <packageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</packageId>
+          <packageName>Wolverine.AspNetCore.FastEndpoints.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

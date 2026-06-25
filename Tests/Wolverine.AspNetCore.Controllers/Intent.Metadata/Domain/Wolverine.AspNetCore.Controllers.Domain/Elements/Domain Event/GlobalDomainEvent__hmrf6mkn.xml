@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="b7e4a1d2-3c5f-4e8b-9a1c-2d4e6f8a0b3c" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
-  <name>ProductCreated</name>
-  <display>ProductCreated</display>
+<class id="111142e2-e0d4-462f-8c48-bec131af4e22" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>GlobalDomainEvent</name>
+  <display>GlobalDomainEvent</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

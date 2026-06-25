@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
 using Wolverine.AspNetCore.Controllers.Domain.Events;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,18 +8,20 @@ using Wolverine.AspNetCore.Controllers.Domain.Events;
 namespace Wolverine.AspNetCore.Controllers.Application.EventHandlers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class ProductCreatedHandler
+    public class GlobalDomainEventHandler
     {
+        private readonly ILogger<GlobalDomainEventHandler> _logger;
+
         [IntentManaged(Mode.Merge)]
-        public ProductCreatedHandler()
+        public GlobalDomainEventHandler(ILogger<GlobalDomainEventHandler> logger)
         {
+            _logger = logger;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-        public async Task Handle(ProductCreated domainEvent, CancellationToken cancellationToken)
+        public async Task Handle(GlobalDomainEvent domainEvent, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (ProductCreatedHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            _logger.LogInformation("Handling global domain event: {Event}", domainEvent);
         }
     }
 }

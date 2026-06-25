@@ -26,7 +26,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Api.FastEndpoints
                     context.MarkExceptionAsHandled();
                     await context.HttpContext.Response.SendResultAsync(new ProblemDetails(exception.Errors.ToList(), context.HttpContext.Request.Path, Activity.Current?.Id ?? context.HttpContext.TraceIdentifier, StatusCodes.Status400BadRequest));
                     break;
-                case Application.Common.Exceptions.ForbiddenAccessException:
+                case ForbiddenAccessException:
                     context.MarkExceptionAsHandled();
                     await context.HttpContext.Response.SendResultAsync(Results.Forbid());
                     break;

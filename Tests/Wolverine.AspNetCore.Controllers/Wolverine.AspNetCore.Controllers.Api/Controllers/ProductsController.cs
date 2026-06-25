@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Wolverine;
 using Wolverine.AspNetCore.Controllers.Application.Products;
+using Wolverine.AspNetCore.Controllers.Application.Products.ChangeProductProduct;
 using Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct;
 using Wolverine.AspNetCore.Controllers.Application.Products.GetProductById;
 using Wolverine.AspNetCore.Controllers.Application.Products.GetProducts;
@@ -22,6 +23,35 @@ namespace Wolverine.AspNetCore.Controllers.Api.Controllers
         public ProductsController(IMessageBus sender)
         {
             _sender = sender ?? throw new ArgumentNullException(nameof(sender));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPut("api/products/{id}/change-product")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> ChangeProductProduct(
+            [FromRoute] Guid id,
+            [FromBody] ChangeProductProductCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            if (command.Id == Guid.Empty)
+            {
+                command.Id = id;
+            }
+
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await _sender.InvokeAsync(command, cancellationToken);
+            return NoContent();
         }
 
         /// <summary>
