@@ -35,6 +35,8 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public bool HasDbTransaction() => Database.CurrentTransaction != null;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -62,8 +64,7 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)

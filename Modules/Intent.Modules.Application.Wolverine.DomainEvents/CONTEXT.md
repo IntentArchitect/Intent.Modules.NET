@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Generates the `DomainEventService` (dispatches domain events via Wolverine's `IMessageBus`) and `DomainEventHandler` stubs (handler classes discovered by Wolverine's naming convention).
+Generates the `DomainEventService` (dispatches domain events via Wolverine's `IMessageBus`), implicit `{EventName}Handler` stubs for every domain event in the Domain designer, and explicit `DomainEventHandler` classes for handlers modeled in the Services designer.
 
 ---
 
@@ -27,9 +27,17 @@ If you are tempted to add `Intent.DomainEvents` as a convenience (e.g. to avoid 
 
 Do not change the dispatch method.
 
+### Two handler generation modes
+
+**Implicit (`DefaultDomainEventHandler` template):** Iterates `Domain.GetDomainEventModels()` and generates `{EventName}Handler` for every domain event that is NOT already covered by an explicit `DomainEventHandlerModel` in the Services designer. This matches MediatR's default auto-generation behaviour. No Services designer modeling required.
+
+**Explicit (`DomainEventHandler` template):** Iterates `Services.GetDomainEventHandlerModels()` — handler elements explicitly modeled in the Services designer. Supports one handler class with multiple `Handle` overloads for different event types.
+
+The implicit handler is suppressed for any event that has an explicit handler, preventing duplicate handler classes.
+
 ### Handler discovery via naming convention
 
-`DomainEventHandler` classes are discovered by Wolverine's naming convention (class ending in `Handler` or `Consumer`, or method named `Handle`). No `[WolverineHandler]` attribute is needed. This is Wolverine's native pattern — match it exactly.
+Generated handler classes are discovered by Wolverine's naming convention (class ending in `Handler` or `Consumer`, or method named `Handle`). No `[WolverineHandler]` attribute is needed. This is Wolverine's native pattern — match it exactly.
 
 ### Handler stubs use `NotImplementedException` and `[IntentManaged(Body = Mode.Ignore)]`
 

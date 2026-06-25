@@ -1,11 +1,12 @@
 # Intent.Application.Wolverine.DomainEvents
 
-Wires domain event dispatching through Wolverine's `IMessageBus`, generating a scoped `DomainEventService` and one handler stub per domain event type modeled in the Domain Events designer.
+Wires domain event dispatching through Wolverine's `IMessageBus`, generating a scoped `DomainEventService` and handler stubs for every domain event type modeled in the Domain designer.
 
 ## What This Module Generates
 
 - `DomainEventService` — implements `IDomainEventService`; injects `IMessageBus` and dispatches domain events via `PublishAsync`. Registered as scoped in DI.
-- `DomainEventHandler` — one handler class per domain event type in the Domain Events designer, with a `Handle` method stub discovered by Wolverine naming convention.
+- `{EventName}Handler` (implicit) — one handler stub per domain event type in the Domain designer that does not already have an explicit handler. Generated automatically; no Services designer modeling required.
+- `DomainEventHandler` (explicit) — handler class for domain events explicitly modeled as `Domain Event Handler` elements in the Services designer. Supports multiple handled events per class.
 
 ## DomainEventService
 
@@ -30,23 +31,51 @@ public class DomainEventService : IDomainEventService
 
 The service is registered as scoped in the DI container so it shares the same lifetime as the handler and unit-of-work scope.
 
-## DomainEventHandler
+## Implicit Handler Generation
 
-One handler class is generated per domain event type. Wolverine discovers each handler by the `Handle` method name — no interface is required:
+For every domain event modeled in the Domain designer that does not already have an explicit handler, this module automatically generates a `{EventName}Handler` stub. Wolverine discovers it by the `Handle` method name — no interface is required:
 
 ```csharp
-[IntentManaged(Mode.Merge)]
-public class OrderPlacedDomainEventHandler
+[IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+public class ProductCreatedHandler
 {
     [IntentManaged(Mode.Merge)]
-    public async Task Handle(OrderPlacedDomainEvent domainEvent, CancellationToken cancellationToken)
+    public ProductCreatedHandler() { }
+
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public async Task Handle(ProductCreated domainEvent, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException("Implement your domain event handler here.");
+        // TODO: Implement Handle (ProductCreatedHandler) functionality
+        throw new NotImplementedException("Implement your handler logic here...");
     }
 }
 ```
 
-Add the event-specific logic inside the `Handle` method. The `[IntentManaged(Mode.Merge)]` attribute preserves custom code across Software Factory runs.
+Add your business logic inside the `Handle` method. The `Body = Mode.Merge` attribute preserves your implementation across Software Factory runs.
+
+## Explicit DomainEventHandler
+
+When you need one class to handle multiple domain events, model a `Domain Event Handler` element in the Services designer and associate multiple domain event types to it. The module generates a handler class with one `Handle` overload per associated event:
+
+```csharp
+[IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+public class OrderDomainEventHandler
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public async Task Handle(OrderPlacedDomainEvent domainEvent, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException("Implement your handler logic here...");
+    }
+
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public async Task Handle(OrderCancelledDomainEvent domainEvent, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException("Implement your handler logic here...");
+    }
+}
+```
+
+Once an explicit handler is modeled for a domain event, the implicit handler for that event is suppressed to avoid duplicates.
 
 ## Designer Dependency
 
