@@ -19,14 +19,19 @@ namespace Wolverine.AwsLambdaFunctions.Infrastructure.Configuration
         {
             opts.Discovery.DisableConventionalDiscovery();
 
-            opts.Discovery.IncludeType<CreateProductCommandHandler>();
-            opts.Discovery.IncludeType<UpdateProductPriceCommandHandler>();
-            opts.Discovery.IncludeType<GetProductByIdQueryHandler>();
-            opts.Discovery.IncludeType<GetProductsQueryHandler>();
+            RegisterHandlers(opts);
 
             opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;
             opts.Durability.Mode = DurabilityMode.Serverless;
             ApplicationHandlerPolicy.Apply(opts);
+        }
+
+        private static void RegisterHandlers(WolverineOptions opts)
+        {
+            opts.Discovery.IncludeType<CreateProductCommandHandler>();
+            opts.Discovery.IncludeType<UpdateProductPriceCommandHandler>();
+            opts.Discovery.IncludeType<GetProductByIdQueryHandler>();
+            opts.Discovery.IncludeType<GetProductsQueryHandler>();
         }
     }
 }

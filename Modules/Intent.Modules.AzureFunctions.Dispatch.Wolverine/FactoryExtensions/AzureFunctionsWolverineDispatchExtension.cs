@@ -83,24 +83,13 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Wolverine.FactoryExtensions
             {
                 file.AddUsing("JasperFx.CodeGeneration");
 
-                var configureMethod = file.Classes.First().FindMethod("Configure");
+                var @class = file.Classes.First();
+                var configureMethod = @class.FindMethod("Configure");
                 configureMethod.Statements.Clear();
 
                 configureMethod.AddStatement("opts.Discovery.DisableConventionalDiscovery();");
                 configureMethod.AddStatement("");
-
-                foreach (var t in commandHandlerTemplates)
-                {
-                    var handlerType = wolverineConfigTemplate.GetTypeName(CommandHandlerTemplate.TemplateId, t.Model);
-                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
-                }
-
-                foreach (var t in queryHandlerTemplates)
-                {
-                    var handlerType = wolverineConfigTemplate.GetTypeName(QueryHandlerTemplate.TemplateId, t.Model);
-                    configureMethod.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
-                }
-
+                configureMethod.AddStatement("RegisterHandlers(opts);");
                 configureMethod.AddStatement("");
                 configureMethod.AddStatement("opts.CodeGeneration.TypeLoadMode = TypeLoadMode.Static;");
                 configureMethod.AddStatement("opts.Durability.Mode = DurabilityMode.Serverless;");
@@ -108,6 +97,25 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Wolverine.FactoryExtensions
 
                 var handlerPolicyType = wolverineConfigTemplate.GetTypeName(ApplicationHandlerPolicyTemplate.TemplateId);
                 configureMethod.AddStatement($"{handlerPolicyType}.Apply(opts);");
+
+                @class.AddMethod("void", "RegisterHandlers", method =>
+                {
+                    method.Static();
+                    method.Private();
+                    method.AddParameter("WolverineOptions", "opts");
+
+                    foreach (var t in commandHandlerTemplates)
+                    {
+                        var handlerType = wolverineConfigTemplate.GetTypeName(CommandHandlerTemplate.TemplateId, t.Model);
+                        method.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                    }
+
+                    foreach (var t in queryHandlerTemplates)
+                    {
+                        var handlerType = wolverineConfigTemplate.GetTypeName(QueryHandlerTemplate.TemplateId, t.Model);
+                        method.AddStatement($"opts.Discovery.IncludeType<{handlerType}>();");
+                    }
+                });
             }, 500);
         }
 
