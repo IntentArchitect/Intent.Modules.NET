@@ -154,6 +154,7 @@ Different module categories need different verification at step 9. The minimum c
 ## Modifying an Existing Module — Regression Safety
 
 When the increment changes an existing module (not a greenfield build):
+- **Reproduce first — before reading or editing any template/factory-extension source.** For a bug in generated output, stand up (or extend) a test app that exhibits the exact broken output for the scenario, capture it, and trace it to the generating method. Analyzing module source without a live repro is guessing and leads to drift. For an incremental-scenario bug, model the base case → generate → apply the increment → capture the broken output. (See `reference-app-builder` → "Greenfield vs Modification".)
 - Run the **existing** scenarios as well as the new one — a green build on the new path does not prove the old paths still generate correctly.
 - For `[IntentMerge]` files, diff the **entire** method body against the prior committed state; confirm no previously-present line was silently dropped.
 - The from-scratch (Phase 2) verification must cover the existing behaviour too, not only the modification.

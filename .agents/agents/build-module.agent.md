@@ -23,10 +23,15 @@ Orchestrate building or modifying Intent Architect modules in `Intent.Modules.NE
 Before beginning, classify the task to determine the execution path:
 
 *   **Minor Update / Bug Fix:** (Modifying existing templates, fixing bugs, minor enhancements).
-    *   **Skip:** Requirements Summary, Pattern Document, Attack Plan, Reference App, and Module Scaffolding.
+    *   **Skip:** Requirements Summary, Pattern Document, Attack Plan, and Module Scaffolding.
+    *   **Triage by output impact — this decides the reproduction gate:**
+        *   **Affects generated output** (template / factory-extension change, or a generation bug): **REQUIRED — reproduce first.** Before reading or editing *any* module source, stand up (or extend) a test app that exhibits the exact current/broken output for the scenario, capture it, and trace it to the generating method. **Do not skip the reference/test app for output-affecting bugs.** Then proceed via `module-increment-loop`.
+        *   **Designer-only, no output impact** (dialog/menu behaviour, designer-extension UX): no reproduction needed — verify the designer change works.
     *   **Enforce:** A localized `WORKING.md` under `.module-builder/<ModuleName>/WORKING.md` (e.g., `.module-builder/Intent.Modules.X/WORKING.md`) to track active focus, changes, and verification. Never place it inside the module's own source folder.
 *   **Greenfield Module:** (New module from scratch).
     *   **Enforce:** The full skill chain below.
+
+> **Reproduce before you fix.** For any change that affects generated output, a running test app that exhibits the current/target output is the prerequisite — never theorize from module source first. Source analysis without a live repro is guessing, and it drifts. The repro *is* the work-anchor: for an incremental-scenario bug, model the base case, generate, then apply the increment and capture the broken output.
 
 ---
 
