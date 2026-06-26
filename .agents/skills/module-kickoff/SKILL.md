@@ -181,12 +181,12 @@ Produce this document as the output of this skill. It becomes the input to `tech
 
 Before diving into research and build, give the developer a short, scannable charter so there are no surprises. Cover:
 
-- **Artifacts I'll produce** — Requirements Summary, Pattern Document, Attack Plan, CONTEXT.md (durable), plus temporary working files (`PATTERN-DOCUMENT.md`, `ATTACK-PLAN.md`, `WORKING.md`) that get cleaned up at the end. CONTEXT.md / WORKING.md are AI-managed.
+- **Artifacts I'll produce** — Requirements Summary, Pattern Document, Attack Plan, and a durable `CONTEXT.md` that stays in the module folder. All transitory build files live under `.module-builder/` (`WORKING.md` for build state, `RETROSPECTIVE.md`, and per-module `PATTERN-DOCUMENT.md` / `ATTACK-PLAN.md`) and are cleaned up at the end. All of these are AI-managed.
 - **The plan & the gates ahead** — a high-level playback of the phases and where I'll need a decision from you.
 - **What I'll need from you** — especially any **developer-provided infrastructure or credentials** (cloud services, licensed brokers), surfaced now, not mid-build.
 - **Why the test app comes first** — the reference/test app is the ground truth; without it the module is built blind, and it's the cheapest place to catch errors. If you can't supply one, I'll obtain or build one — **this step is never skipped**.
 - **Review preference** — do you want to approve each staged diff, or only at checkpoints? Set once, here.
-- **Resumability** — long runs can span sessions; I checkpoint to `WORKING.md`, so you can stop or redirect anytime without losing progress.
+- **Resumability** — long runs can span sessions; I checkpoint to `.module-builder/WORKING.md`, so you can stop or redirect anytime without losing progress.
 
 Keep it concise (a short list or table), confirm, then proceed.
 

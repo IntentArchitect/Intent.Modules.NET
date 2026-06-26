@@ -257,7 +257,7 @@ After the initial (typically in-memory / simplest) reference app is green, build
 - **AI-initiated** — AI finds a distinct shape the stress-test missed → propose it; developer confirms or rejects before building.
 - **PRD-driven** — scenarios described in the PRD are each built as part of the set.
 
-Each scenario follows the same R.0–R.4 cycle. Record all reference app paths and every deferral in `.intent-build-state.md`. `module-ecosystem-analyst` synthesizes across all of them.
+Each scenario follows the same R.0–R.4 cycle. Record all reference app paths and every deferral in `.module-builder/WORKING.md`. `module-ecosystem-analyst` synthesizes across all of them.
 
 **Pivots are also handled here.** If new information requires reworking an existing reference app (Level 2+ pivot per the agent Pivot Scale), do so before proceeding. A pivot triggered after a PRD was provided is valid — new runtime evidence supersedes the original document.
 

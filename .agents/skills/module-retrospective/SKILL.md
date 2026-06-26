@@ -1,6 +1,6 @@
 ---
 name: module-retrospective
-description: "INTERNAL — Intent.Modules.NET team only. Omit when packaging for external distribution. Appends findings to RETROSPECTIVE.md as the build progresses. Three buckets: Intent gaps, Process gaps, PRD/user gaps. Runs automatically; no developer action required."
+description: "INTERNAL — Intent.Modules.NET team only. Omit when packaging for external distribution. Appends findings to .module-builder/RETROSPECTIVE.md as the build progresses. Buckets: Intent gaps, Process gaps, Module Architecture gaps, PRD/user gaps. Runs automatically; no developer action required."
 ---
 
 # Module Retrospective
@@ -20,9 +20,9 @@ Write an entry for: missing/insufficient IA SDK features, wrong or incomplete sk
 
 ---
 
-## Output: `RETROSPECTIVE.md`
+## Output: `.module-builder/RETROSPECTIVE.md`
 
-Located at repo root. **Append-only — never overwrite or reformat existing entries.**
+Located under `.module-builder/` (gitignored). **Append-only — never overwrite or reformat existing entries.**
 
 ### Entry format
 

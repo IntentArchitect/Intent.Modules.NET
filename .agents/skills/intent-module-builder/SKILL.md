@@ -14,7 +14,7 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 
 All scaffolding decisions must be grounded in Intent's established module patterns (the standard for this layer). Improvise only where the SDK provides no pattern — and log every improvisation in the Pattern Document Decision Log.
 
-**Before doing any work:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md`. Check the Decision Log — do not re-derive any closed decision. Check the Progress Tracker — if the Scaffold row is ✅ Complete, this skill has already run; do not re-scaffold.
+**Before doing any work:** read `.module-builder/[ModuleName]/PATTERN-DOCUMENT.md` and `.module-builder/[ModuleName]/ATTACK-PLAN.md`. Check the Decision Log — do not re-derive any closed decision. Check the Progress Tracker — if the Scaffold row is ✅ Complete, this skill has already run; do not re-scaffold.
 
 **After completing the scaffold:** update the Progress Tracker row for "Scaffold" to ✅ Complete, noting the module `.csproj` path and any new decisions made.
 

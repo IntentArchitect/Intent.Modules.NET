@@ -16,7 +16,7 @@ Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions ar
 
 **Load `module-building-strategies` before planning.** The decomposition calls in this skill (does this need its own module? root vs bridging vs common? template vs factory extension? file cardinality? managed mode?) are governed by that strategic playbook — apply its rules rather than deciding ad hoc.
 
-**Before doing any work:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md` (if they exist). Check the Decision Log — do not re-derive any closed decision. Check Open Questions — close any that are now answerable. Check the Progress Tracker — do not re-implement work already marked ✅ Complete.
+**Before doing any work:** read `.module-builder/[ModuleName]/PATTERN-DOCUMENT.md` and `.module-builder/[ModuleName]/ATTACK-PLAN.md` (if they exist). Check the Decision Log — do not re-derive any closed decision. Check Open Questions — close any that are now answerable. Check the Progress Tracker — do not re-implement work already marked ✅ Complete.
 
 **After completing work:** update the Decision Log with new decisions, close resolved Open Questions, and update the Progress Tracker in `ATTACK-PLAN.md`.
 
@@ -224,7 +224,7 @@ Module ID, imodspec dependency list, NuGet packages table, settings definition, 
 
 ## Attack Plan Format
 
-Write this document to `[ModuleFolder]/ATTACK-PLAN.md`. It is a **temporary implementation roadmap** used to guide and track increments — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, any durable design patterns are consolidated into `CONTEXT.md`, and `ATTACK-PLAN.md` is deleted.
+Write this document to `.module-builder/[ModuleName]/ATTACK-PLAN.md`. It is a **temporary implementation roadmap** used to guide and track increments — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, any durable design patterns are consolidated into `CONTEXT.md`, and `ATTACK-PLAN.md` is deleted.
 
 
 ```markdown

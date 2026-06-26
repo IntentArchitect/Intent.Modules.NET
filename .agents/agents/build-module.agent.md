@@ -1,6 +1,6 @@
 ---
 name: build-module
-description: Build/modify an Intent.Modules.NET module. Enforces a Complexity Tier Fork for minor/bugfix edits to skip heavy phases, utilizing localized WORKING.md files.
+description: Build/modify an Intent.Modules.NET module. Enforces a Complexity Tier Fork for minor/bugfix edits to skip heavy phases, utilizing localized .module-builder/<ModuleName>/WORKING.md files.
 icon: fa-cubes
 context: coding
 tools:
@@ -24,7 +24,7 @@ Before beginning, classify the task to determine the execution path:
 
 *   **Minor Update / Bug Fix:** (Modifying existing templates, fixing bugs, minor enhancements).
     *   **Skip:** Requirements Summary, Pattern Document, Attack Plan, Reference App, and Module Scaffolding.
-    *   **Enforce:** A localized `WORKING.md` at the module's folder root (e.g., `Modules/Intent.Modules.X/WORKING.md`) to track active focus, changes, and verification.
+    *   **Enforce:** A localized `WORKING.md` under `.module-builder/<ModuleName>/WORKING.md` (e.g., `.module-builder/Intent.Modules.X/WORKING.md`) to track active focus, changes, and verification. Never place it inside the module's own source folder.
 *   **Greenfield Module:** (New module from scratch).
     *   **Enforce:** The full skill chain below.
 
@@ -34,7 +34,7 @@ Before beginning, classify the task to determine the execution path:
 
 1. **Skills override instincts.** Follow the skill-specific rules precisely.
 2. **Hand off one phase at a time (Greenfield).** Requirements Summary → Pattern Document → Green Reference App → Attack Plan → Compiled Module Skeleton → Verified Increments.
-3. **Strict State Continuity.** Track completed milestones in `.intent-build-state.md` (Greenfield) or the localized `WORKING.md` (Minor Update/Bug Fix).
+3. **Strict State Continuity.** Track completed milestones in `.module-builder/WORKING.md` (Greenfield — global build state) or the localized `.module-builder/<ModuleName>/WORKING.md` (Minor Update/Bug Fix).
 4. **No Direct Edits to Generated Code.** Always modify templates or the designer model.
 
 ---
@@ -50,7 +50,7 @@ Before beginning, classify the task to determine the execution path:
 5. intent-module-builder    → Compiled Module Skeleton
 6. module-increment-loop    → Verified Increments
 7. module-wrap-up           → Release-ready module
-8. module-retrospective     → RETROSPECTIVE.md  (internal — omit when packaging)
+8. module-retrospective     → .module-builder/RETROSPECTIVE.md  (internal — omit when packaging)
 ```
 
 ## REFERENCE APP — NON-NEGOTIABLE HARD GATE
@@ -77,14 +77,14 @@ failure to the user. Do not proceed to any later step.
 
 1. Confirm repository identity (`AGENTS.md` at root).
 2. Classify the task (Greenfield vs Minor/Bugfix).
-3. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
-4. If Greenfield, initialize `.intent-build-state.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `WORKING.md` in the target module's directory.
+3. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
+4. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
 
 ---
 
 ## Autonomy Mode
 
-Set at pre-flight. Stored in `WORKING.md` under `autonomy_mode`. Applies to Greenfield builds only.
+Set at pre-flight. Stored in `.module-builder/WORKING.md` under `autonomy_mode`. Applies to Greenfield builds only.
 
 | Mode | Behaviour | Stops at |
 |---|---|---|
@@ -119,7 +119,7 @@ Mandatory final phase after all increments pass.
    Align imodspec + csproj + designer.
 2. **Invoke `module-docs`** — README.md and release-notes.md in same turn. Header uses non-pre version.
 3. **Write `CONTEXT.md`** — architectural decisions, generated files, cross-module interactions.
-4. **Clear `/WORKING.md`** (or localized WORKING.md for bug-fix path).
+4. **Clear `.module-builder/WORKING.md`** (or the localized `.module-builder/<ModuleName>/WORKING.md` for the bug-fix path).
 5. **Confirm SF yields zero staged changes.**
 6. **Mark state file 100% complete.**
 
@@ -130,4 +130,4 @@ Halt and surface to the user when tools fail, the user redirects scope, target a
 1. Changes compile (`dotnet build` exits with code 0).
 2. Code builds and runs cleanly against the target/sample application.
 3. Wrap-up complete: version bumped, docs updated, CONTEXT.md written.
-4. Localized `WORKING.md` or `.intent-build-state.md` tracks 100% completion before exit.
+4. The `.module-builder/WORKING.md` (Greenfield) or localized `.module-builder/<ModuleName>/WORKING.md` (Minor/Bugfix) tracks 100% completion before exit.
