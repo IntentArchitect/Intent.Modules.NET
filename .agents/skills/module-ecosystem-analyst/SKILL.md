@@ -106,7 +106,7 @@ If friction persists after 3+ "what if?" attempts, escalate: the Intent design n
    
    Confirm module IDs and minimum versions for the `.imodspec` dependencies block.
 
-3. **Check the target application's designer via MCP.** Call `get_applications`, `get_designers`, then `get_designer_model_snapshot` on the relevant designer to see:
+3. **Check the target application's designer via MCP.** Call `get_applications`, `get_designers`, then `get_designer_model_structure` (or `find_designer_elements` for a targeted lookup) on the relevant designer to see:
    - Are Message elements modeled in the Eventing Package?
    - Are Subscribe/Publish Integration Event associations present in the Services designer?
    - Are handler elements already modeled (and thus ready for the consumer adapter template to fire)?

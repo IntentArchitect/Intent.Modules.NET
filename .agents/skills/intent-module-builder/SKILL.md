@@ -20,10 +20,10 @@ All scaffolding decisions must be grounded in Intent's established module patter
 
 ## Musts
 
-1. **Call `get_full_instructions` first, every time.** MCP instructions are authoritative — read them before taking any action.
-2. **Call `find_solution_files` on the working directory before opening anything.** Locate the correct `.isln` before any MCP interaction.
-3. **Explore before mutating.** Use `get_designer_model_snapshot` or `find_designer_elements` to understand the current designer state before calling `apply_change_model_operations`. Never guess IDs — always read them from the model.
-4. **Create one element at a time, verify, then continue.** Don't batch all `apply_change_model_operations` calls into one step before checking results. After each meaningful group of changes, call `get_designer_model_snapshot` to confirm the model reflects what was intended.
+1. **Call `get_full_instructions` first, every time** — plus the `*_rules` pre-call tools once per session (`get_tool_call_rules`, `get_designer_schema_rules`, `run_designer_script_rules`). MCP instructions are authoritative.
+2. **Call `get_status` on the working directory before opening anything.** It reports the Intent solution(s) and the suggested application; open with `open_solution(absolutePath)` if needed. (There is no `find_solution_files` tool.)
+3. **Explore before mutating.** Use `get_designer_model_structure` / `find_designer_elements` / `get_designer_element_details` to understand the current designer state. Never guess IDs — resolve by name in-script (`lookupByName` / `lookupByPath`).
+4. **Mutate via `run_designer_script`** — there is no `apply_change_model_operations` tool. **Statement order is operation order.** After each run, read the returned `errors[]` (and `changes[]`) before continuing: a mid-script throw still commits prior steps, so continue from `changes` rather than blindly re-creating elements.
 5. **Run Software Factory after all module elements are declared** (not before). Apply staged file changes only after reviewing the diff.
 6. **Verify compilation** after applying staged changes. Run `dotnet build` on the generated `.csproj` before marking this skill complete.
 7. **Follow the full iteration cycle for every change** — including post-scaffold changes. The cycle is always: designer change → SF on module → apply staged changes → compile module → SF on target app → inspect output. Never shortcut it.
@@ -35,7 +35,7 @@ All scaffolding decisions must be grounded in Intent's established module patter
 2. Never create a template element without configuring its "C# Template Settings" stereotype (Templating Method, Model Type, Role, Default Location at minimum).
 3. Never create a template element without also setting its **type reference**. For single-file templates, set the type reference to the Single File element (typeId: `f65d2904-88c9-4501-873a-a4eec8303b1d`). If left as `<type not set>`, the Template Settings stereotype becomes invalid and SF will report errors.
 4. Never skip the Software Factory run. The scaffold only exists after SF generates it from the Module Builder metadata — hand-creating files bypasses the designer and breaks synchronization.
-5. Never apply staged file changes without reviewing them first. Use `get_designer_model_snapshot` or read the diff before calling `apply_staged_file_changes`.
+5. Never apply staged file changes without reviewing them first. Read the diff with `get_staged_file_diffs` (absolute paths) before calling `apply_staged_file_changes`.
 6. Never run SF on the target application (the sample app) before compiling the module — the target app must pick up the updated module first.
 7. **Never directly edit `*TemplateRegistration.cs` files** for structural changes (base class, method signatures, registration type). These files carry `[assembly: IntentTemplate(...)]` and are SF-owned. To change a template's registration type (e.g. `FilePerModel` → `SingleFileListModel`), change it in the Module Builder designer and let SF regenerate the file. Only `[IntentManaged(Body = Mode.Ignore)]` bodies (e.g. `GetModels`) are editable directly.
 8. **Never manually look up NuGet versions for existing packages.** Use the **"Get latest from NuGet.org"** context menu action in the Intent Architect Module Builder designer — right-click the NuGet Packages element to update all versions at once. Only look up versions manually when creating a brand-new package that doesn't yet exist in the designer.
@@ -87,10 +87,13 @@ Must Not #7 says never edit `*TemplateRegistration.cs` directly for structural c
 
 1. In the Module Builder designer, find the **C# Template element** (`find_designer_elements` by name).
 2. Open the element's details (`get_designer_element_details`) and locate its `C# Template Settings` stereotype.
-3. Set (via `apply_change_model_operations` with `kind: updateStereotype`):
-   - **Source** → `Lookup Type`
-   - **Designer** → the designer ID that contains the model (e.g. Services designer GUID)
-   - **Model Type** → the GUID of the element specialization type (e.g. `Integration Event Handler`)
+3. Set in a `run_designer_script` (idempotent — `ensureStereotype` + `setProperty`):
+   ```js
+   const s = lookupByName("MyTemplate").ensureStereotype("C# Template Settings");
+   s.setProperty("Source", "Lookup Type");
+   s.setProperty("Designer", "<designer that contains the model>");
+   s.setProperty("Model Type", "<Integration Event Handler specialization id>");
+   ```
 4. Run SF on the module → `*TemplateRegistration.cs` is regenerated with the correct base class (`SingleFileListModelTemplateRegistration<TModel>`) and `GetModels` override.
 5. The `*TemplatePartial.cs` constructor signature is also regenerated — its `[IntentManaged(Body = Mode.Ignore)]` body must be re-implemented.
 
@@ -106,7 +109,7 @@ Any modification to module behaviour — template type, NuGet version, factory e
 
 ## Key Module Builder Element Types
 
-These typeIds are stable across solutions — use them when calling `apply_change_model_operations` with `kind: "createElement"`:
+Create these via `run_designer_script` with `createElementUnder(parent, "<Specialization Name>", "<name>")` — **pass the specialization NAME** (left column), confirmed from `get_designer_schema`'s "Element types" block. The Module Builder specialization names are stable across solutions; the typeId GUIDs (right column) are rarely needed with the script API:
 
 | Element | typeId |
 |---|---|
@@ -138,11 +141,11 @@ For **single-file templates** (no model): omit `Source`, `Designer`, and `Model 
 
 ### Tasks
 
-1. **Find the solution file:**
+1. **Get workspace status:**
    ```
-   find_solution_files(working_directory)
+   get_status(working_directory)
    ```
-   Identify the `.isln` file for the Intent.Modules.NET repository (not a sample app solution).
+   It reports the Intent solution(s) and the suggested application. Identify the Intent.Modules.NET `.isln` (the Modules solution, not a sample app).
 
 2. **Open the solution:**
    ```
@@ -161,11 +164,11 @@ For **single-file templates** (no model): omit `Source`, `Designer`, and `Model 
    ```
    Identify the Module Builder designer ID.
 
-5. **Snapshot the current model:**
+5. **Inspect the current model:**
    ```
-   get_designer_model_snapshot(application_id, designer_id)
+   get_designer_model_structure(application_id, designer_id)   // or find_designer_elements for a targeted lookup
    ```
-   Find existing module packages to understand the naming/structure convention. Identify the parent package ID where the new module package will be created.
+   Find existing module packages to understand the naming/structure convention. Identify the parent package where the new module package will be created.
 
 ---
 
@@ -175,19 +178,14 @@ For **single-file templates** (no model): omit `Source`, `Designer`, and `Model 
 
 Using the parent package ID discovered in Phase 3.1, create the module package:
 
-```
-apply_change_model_operations([
-  {
-    kind: "createElement",
-    specializationId: "<package typeId — read from existing packages>",
-    parentId: "<parent package ID from snapshot>",
-    name: "<Module ID from Attack Plan — e.g. Intent.Eventing.NServiceBus>",
-    newElementId: "<generate a GUID>"
-  }
-])
+Run a `run_designer_script` (resolve the parent by name; never hand-write GUIDs):
+```js
+// parent: a package name, a package-rooted path, or a handle from getPackages()/lookupPackage
+const modulePkg = createElementUnder("<parent package name>", "<Package specialization>", "Intent.Eventing.NServiceBus");
+console.log(modulePkg.getId());   // only echo ids you actually need downstream
 ```
 
-After creating, snapshot again to confirm the package exists and retrieve its ID for use in subsequent steps.
+Read the returned `errors[]`, then confirm with `find_designer_elements` / `get_designer_model_structure` before subsequent steps.
 
 ---
 
@@ -199,25 +197,14 @@ For each Intent module dependency in the Attack Plan's Module Blueprint, add a d
 
 ### Task B — NuGet Packages
 
-NuGet packages follow a 3-level hierarchy: **NuGet Package → Package Version → NuGet Dependency**
+NuGet packages follow a 3-level hierarchy: **NuGet Package → Package Version → NuGet Dependency**. Create them in one `run_designer_script` (parent before child — statement order is operation order):
 
-For each NuGet package in the Attack Plan:
-
+```js
+const pkg = createElementUnder(modulePkg, "NuGet Package", "NServiceBus");  // friendly name
+const ver = createElementUnder(pkg, "Package Version", "10.1.4");           // version string
+createElementUnder(ver, "NuGet Dependency", "NServiceBus");                 // actual NuGet package id
+pkg.ensureStereotype("Package Settings").setProperty("Locked", false);      // Intent-managed, not version-locked
 ```
-Step 1: Create NuGet Package element (typeId: f747cc37-29ee-488a-8dbe-755e856a842d)
-  - name: friendly name (e.g. "NServiceBus")
-  - parent: the module package
-
-Step 2: Create Package Version element (typeId: 231f8cf8-517b-4801-9682-991d22f4e662)  
-  - name: version string (e.g. "10.1.4")
-  - parent: the NuGet Package element
-
-Step 3: Create NuGet Dependency element (typeId: 3097322a-a058-4058-beed-4fcd6272f61d)
-  - name: actual NuGet package ID (e.g. "NServiceBus")
-  - parent: the Package Version element
-```
-
-Add the "Package Settings" stereotype to the NuGet Package element with Locked = false (packages managed by Intent, not locked to a single version).
 
 ### Task C — Module Settings (if needed)
 
@@ -229,20 +216,19 @@ If the Attack Plan defines module settings (e.g. transport choice, endpoint name
 
 For each row in the Attack Plan's Template Inventory, create a C# Template element:
 
+```js
+// one run_designer_script per template (or batch several — statement order is operation order)
+const tmpl = createElementUnder(modulePkg, "C# Template", "NServiceBusConsumer"); // or pass a Folder handle as the parent
+const s = tmpl.ensureStereotype("C# Template Settings");          // idempotent, by name
+s.setProperty("Templating Method", "C# File Builder");
+s.setProperty("Role", "Infrastructure.Eventing.NServiceBus.Consumer");
+s.setProperty("Default Location", "Infrastructure/Eventing");
+// file-per-model only:
+s.setProperty("Source", "Lookup Type");
+s.setProperty("Designer", "<Services designer>");
+s.setProperty("Model Type", "<model specialization id>");
 ```
-Step 1: Create C# Template element (typeId: f6456232-0f1b-4235-b5f8-b4cce548ca59)
-  - name: template name (e.g. "NServiceBusConsumer")
-  - parent: module package (or a Folder element for organisation)
-  - newElementId: generate a GUID
-
-Step 2: Apply "C# Template Settings" stereotype
-  - kind: "addStereotype"
-  - Use the typeId for "C# Template Settings" (read from an existing template's snapshot)
-  - Set properties: Templating Method, Role, Default Location
-  - For file-per-model: also set Source, Designer, Model Type
-
-Step 3: Verify by snapshotting the package again
-```
+Then read `errors[]` and confirm with `find_designer_elements`.
 
 **File-per-model template checklist (e.g. `*NServiceBusConsumer` per handler):**
 - Source: `Lookup Type`
@@ -259,16 +245,9 @@ Step 3: Verify by snapshotting the package again
 
 For each FactoryExtension in the Attack Plan, create a Factory Extension element:
 
-```
-apply_change_model_operations([
-  {
-    kind: "createElement",
-    specializationId: "7d008e84-bb28-4b10-ba28-7439202fca76",
-    parentId: "<module package ID>",
-    name: "<FactoryExtension name — e.g. NServiceBusRegistrationExtension>",
-    newElementId: "<generate a GUID>"
-  }
-])
+```js
+// in a run_designer_script; resolve the package by name/path or reuse a handle
+createElementUnder(modulePkg, "Factory Extension", "NServiceBusRegistrationExtension");
 ```
 
 ---
