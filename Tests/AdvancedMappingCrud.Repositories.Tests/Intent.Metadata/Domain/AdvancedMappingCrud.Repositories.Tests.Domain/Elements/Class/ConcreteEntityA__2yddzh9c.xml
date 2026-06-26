@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="4a32a92a-9592-4515-8fab-00246ac64d95" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ConcreteEntityA</name>
-  <display>ConcreteEntityA : BaseEntityA</display>
+  <display>ConcreteEntityA</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
