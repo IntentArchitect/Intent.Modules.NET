@@ -208,6 +208,8 @@ The stress-test above is where the module's distinct code shapes first become vi
 3. **Propose the spanning set.** Include a scenario when it is **both** shape-distinct **and** its dependency is AI-spinnable or none. Defer a scenario (with a recorded reason) when it only re-proves an existing shape, or its dependency is developer-provided and unconfirmed.
 4. **Present the proposal to the developer for confirmation** before handoff. The developer may add or defer scenarios. Record the confirmed set.
 
+**Structural model shapes are distinct shapes too.** When the module generates from domain / DTO / entity models, the model's OOP structure is its own shape axis — **composition, aggregates (independent relationships), inheritance, nullability, collections, operations, parameter lists, parameterized constructors.** Include the ones the target domain exercises in the spanning set; a module proven only against flat 2–3-property models silently breaks on richer ones. Model comprehensively, then let the developer cut.
+
 Example (Wolverine eventing, transports = in-memory, RabbitMQ, Azure Service Bus):
 
 | Scenario / variant | New shape or variation? | Dependency | Spanning set |

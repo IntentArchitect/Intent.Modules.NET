@@ -22,6 +22,7 @@ This is the most important gate in the chain. Template bugs from unverified patt
 6. Update `PATTERN-DOCUMENT.md` immediately if any shape needed correction. Add a Decision Log entry.
 7. Record the reference app path in the Attack Plan under "Reference App".
 8. Exercise every runtime dependency path — including reflectively-loaded providers (e.g. NHibernate drivers, EF Core providers, serialization adapters). These fail only at startup with no compile-time signal; compilation alone does not verify them.
+9. **Model a comprehensive test domain when the module generates from domain / DTO / entity models.** Do not settle for one trivial DTO/entity with 2–3 scalar properties — deliberately exercise the OOP aspects the domain actually has: composition, aggregates (independent relationships), inheritance, nullability, collections, operations (where relevant), parameter lists, and parameterized constructors. A module verified only against a toy model silently fails on the variations developers really use. Expand to the domain's real shapes, then let the developer cut what's out of scope (don't pad artificially beyond what the domain has).
 
 ## Must Nots
 

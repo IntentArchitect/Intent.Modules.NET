@@ -158,6 +158,17 @@ Phase 1's comparison is only valid if SF genuinely regenerates the template-owne
 
 Cover the **spanning set** of distinct shapes (see `tech-pattern-researcher`'s spanning-set principle), not just the simplest case. Module-type-specific scenario intuition matters — e.g. **eventing modules must be tested with both a single app (publisher + subscriber in-process) AND two apps (publisher in A, subscriber in B)**, because a pattern that holds in one can break in the other (shared contracts, explicit topology, subscriber-side discovery surface only across a process boundary).
 
+### Comprehensive test models — not toy ones
+
+When a module generates **from domain / DTO / entity models**, the *model's structure* is itself a coverage axis. Do not model one flat DTO/entity with 2–3 scalar properties and call it done — deliberately exercise the OOP aspects the target domain actually has:
+
+- **composition** and **aggregates** (independent relationships)
+- **inheritance**
+- **nullability** and **collections**
+- **operations** (where relevant), **parameter lists**, and **parameterized constructors**
+
+A module verified only against a toy model silently fails on the variations developers really use — the same spanning-set failure, at the *model-structure* level (the incremental-mapping Mapperly bug surfaced exactly because relationships weren't exercised). **Expand to the domain's real shapes, then let the developer cut** what's out of scope — don't start minimal, and don't pad artificially beyond what the domain has.
+
 ### App/solution creation tooling
 
 The AI should **attempt to create the app/solution itself** via the MCP creation tools (`create_application` / `create_solution`). Only if those tools are missing or fail should it **ask the user** to perform the step.
