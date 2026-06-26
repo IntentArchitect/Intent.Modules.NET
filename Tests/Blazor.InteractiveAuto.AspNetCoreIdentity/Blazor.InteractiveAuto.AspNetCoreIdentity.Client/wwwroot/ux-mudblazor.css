@@ -9,7 +9,7 @@
    Maps the design token layer onto MudBlazor's CSS variable namespace.
    ============================================================================ */
 
-:root {
+:root[data-theme] {
     --mud-default-font: var(--font-primary);
     --mud-palette-primary: var(--primary);
     --mud-palette-primary-text: var(--primary-contrast);
@@ -1068,6 +1068,12 @@
     :root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-svg-icon {
         box-shadow: 0 0 0 1px rgba(2,132,199,0.20), 0 4px 16px rgba(2,132,199,0.35) !important;
     }
+
+.mud-paper.ux-inner-panel {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
 
 
 /* ============================================================================

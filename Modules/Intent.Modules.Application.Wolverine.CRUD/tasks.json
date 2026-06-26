@@ -1,0 +1,14 @@
+{
+    "tasks": {
+      "build": {
+        "label": "Build",
+        "command": "dotnet build",
+        "icon": "fa-cogs",
+        "workingDirectory": "./Intent.Modules.Application.Wolverine.CRUD",
+        "aiAutoFix": {
+          "enabled": false,
+          "errorParser": "dotnet"
+        }
+      }
+    }
+}

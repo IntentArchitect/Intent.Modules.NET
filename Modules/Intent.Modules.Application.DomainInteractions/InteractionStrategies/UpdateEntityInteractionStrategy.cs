@@ -52,8 +52,16 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
-
             var updateAction = interaction.AsUpdateEntityActionTargetEndModel();
+            if (interaction.Mappings.GetQueryEntityMapping() == null 
+                && interaction.Mappings.GetUpdateEntityMapping() != null
+                && !dataAccess.MustAccessEntityThroughAggregate())
+            {
+                throw new ElementException(updateAction.InternalAssociationEnd,
+                    $"Update Entity Action for '{entityName}' has an Update mapping but is missing a Query Entity mapping. " +
+                    "Add a Query Entity mapping to specify how to find the entity to update.");
+            }
+
             try
             {
                 method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd00a3d0-946f-40a7-94e8-5158a77f6bfd" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</parentFolderId>
+  <packageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</packageId>
+  <packageName>Wolverine.AspNetCore.FastEndpoints.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

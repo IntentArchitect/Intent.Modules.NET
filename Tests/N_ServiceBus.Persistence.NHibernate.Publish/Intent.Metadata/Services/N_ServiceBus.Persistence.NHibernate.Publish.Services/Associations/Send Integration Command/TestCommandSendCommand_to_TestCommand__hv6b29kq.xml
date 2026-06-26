@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a18f44e5-4462-49f4-a34b-28a977c6d08c">
+  <sourceEnd id="e09eff1b-3e52-4615-9310-c8468b12b67f" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : N_ServiceBus.Persistence.NHibernate.Publish.Services.TestCommandSendCommand</display>
+    <order>0</order>
+    <typeReference id="40b7f959-d0b8-470c-a065-5e852ea6013e">
+      <typeId>8bf06ec1-7b28-485f-94f5-83fc7f1db727</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Publish.Services</typePackageName>
+      <typePackageId>65ca4d53-bdf6-4b19-9681-349518fab670</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a18f44e5-4462-49f4-a34b-28a977c6d08c" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] TestCommand</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="f48ba103-8801-4260-863f-228839d83c75">
+      <typeId>071e5b6d-d05b-456f-85a6-c2759746a92e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>N_ServiceBus.Persistence.NHibernate.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>50670304-98d4-4bab-a0e6-e5b028230864</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="82822186-8d93-43fa-902f-d9df61307077" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8bf06ec1-7b28-485f-94f5-83fc7f1db727" location="[N_ServiceBus.Persistence.NHibernate.Publish].[Services].[TestCommandSendCommand]" />
+        <target applicationId="82822186-8d93-43fa-902f-d9df61307077" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="071e5b6d-d05b-456f-85a6-c2759746a92e" location="[N_ServiceBus.Persistence.NHibernate.Publish].[Services].[TestCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="071e5b6d-d05b-456f-85a6-c2759746a92e" name="TestCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="f0f5fece-bdeb-4667-9dae-d8ae0f9c1826" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="8bf06ec1-7b28-485f-94f5-83fc7f1db727" name="TestCommandSendCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="dc65ec86-a2dc-4355-be03-8f9ebb912418" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

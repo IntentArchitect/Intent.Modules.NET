@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="31c799d1-baae-4a5c-a9a3-882cf2dc1623">
+  <sourceEnd id="f4dbfb7b-e27b-41fa-9679-a3f11ba2f464" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Product.ChangeProduct</display>
+    <order>0</order>
+    <typeReference id="fd71b29d-92e0-49d4-bed9-cfcb0ecf9057">
+      <typeId>bda0de80-4dc4-4d62-a28b-ca4a8f270924</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="31c799d1-baae-4a5c-a9a3-882cf2dc1623" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : ProductChangedDomainEvent</display>
+    <order>2</order>
+    <typeReference id="878d1ea5-17d3-46cc-8152-9b4433d91cad">
+      <typeId>8b83b583-e4f1-4daf-8326-c7c4138cd094</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="89413c7e-383f-4b9b-842f-9247ed383fdf" location="[Wolverine.AspNetCore.Controllers].[Domain].[Product]" />
+        <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8b83b583-e4f1-4daf-8326-c7c4138cd094" location="[Wolverine.AspNetCore.Controllers].[Domain].[ProductChangedDomainEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Product}</expression>
+            <path>
+              <target id="8b83b583-e4f1-4daf-8326-c7c4138cd094" name="ProductChangedDomainEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="79ed407d-94c9-4107-8428-3f96d169b8c7" name="Product" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Product" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="89413c7e-383f-4b9b-842f-9247ed383fdf" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

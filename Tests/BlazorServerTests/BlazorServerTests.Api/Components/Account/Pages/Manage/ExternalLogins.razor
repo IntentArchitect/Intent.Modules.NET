@@ -11,129 +11,63 @@
 
 <PageTitle>Manage your external logins</PageTitle>
 
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.Link" Class="mr-2" />
+        External logins
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Manage the external identity providers linked to your account.
+    </MudText>
+</MudPaper>
+
 <StatusMessage />
 @if (currentLogins?.Count > 0)
 {
-    <h3>Registered Logins</h3>
-    <table class="table">
-        <tbody>
-            @foreach (var login in currentLogins)
-            {
-                <tr>
-                    <td>@login.ProviderDisplayName</td>
-                    <td>
+    <MudCard Class="ux-fade-in-up mb-4" Style="animation-delay: 0.1s" Outlined="true">
+        <MudCardContent>
+            <MudText Typo="Typo.h5" Class="mb-3">Registered logins</MudText>
+            <MudTable Items="currentLogins" Hover="true" Dense="true" Class="mb-3">
+                <HeaderContent>
+                    <MudTh>Provider</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Provider">@context.ProviderDisplayName</MudTd>
+                    <MudTd DataLabel="Actions">
                         @if (showRemoveButton)
                         {
-                            <form @formname="@($"remove-login-{login.LoginProvider}")" @onsubmit="OnSubmitAsync" method="post">
+                            <form @formname="@($"remove-login-{context.LoginProvider}")" @onsubmit="OnSubmitAsync" method="post">
                                 <AntiforgeryToken />
-                                <div>
-                                    <input type="hidden" name="@nameof(LoginProvider)" value="@login.LoginProvider" />
-                                    <input type="hidden" name="@nameof(ProviderKey)" value="@login.ProviderKey" />
-                                    <button type="submit" class="btn btn-primary" title="Remove this @login.ProviderDisplayName login from your account">Remove</button>
-                                </div>
+                                <input type="hidden" name="@nameof(LoginProvider)" value="@context.LoginProvider" />
+                                <input type="hidden" name="@nameof(ProviderKey)" value="@context.ProviderKey" />
+                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small"
+                                            Title="@($"Remove this {context.ProviderDisplayName} login from your account")">Remove</MudButton>
                             </form>
                         }
-                        else
-                        {
-                            @: &nbsp;
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudCardContent>
+    </MudCard>
 }
 @if (otherLogins?.Count > 0)
 {
-    <h4>Add another service to log in.</h4>
-    <hr />
-    <form class="form-horizontal" action="Account/Manage/LinkExternalLogin" method="post">
-        <AntiforgeryToken />
-        <div>
-            <p>
-                @foreach (var provider in otherLogins)
-                {
-                    <button type="submit" class="btn btn-primary" name="Provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
-                        @provider.DisplayName
-                    </button>
-                }
-            </p>
-        </div>
-    </form>
-}
-
-@code {
-    public const string LinkLoginCallbackAction = "LinkLoginCallback";
-
-    private IdentityUser user = default!;
-    private IList<UserLoginInfo>? currentLogins;
-    private IList<AuthenticationScheme>? otherLogins;
-    private bool showRemoveButton;
-
-    [CascadingParameter]
-    private HttpContext HttpContext { get; set; } = default!;
-
-    [SupplyParameterFromForm]
-    private string? LoginProvider { get; set; }
-
-    [SupplyParameterFromForm]
-    private string? ProviderKey { get; set; }
-
-    [SupplyParameterFromQuery]
-    private string? Action { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        user = await UserAccessor.GetRequiredUserAsync(HttpContext);
-        currentLogins = await UserManager.GetLoginsAsync(user);
-        otherLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync())
-            .Where(auth => currentLogins.All(ul => auth.Name != ul.LoginProvider))
-            .ToList();
-
-        string? passwordHash = null;
-        if (UserStore is IUserPasswordStore<IdentityUser> userPasswordStore)
-        {
-            passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
-        }
-
-        showRemoveButton = passwordHash is not null || currentLogins.Count > 1;
-
-        if (HttpMethods.IsGet(HttpContext.Request.Method) && Action == LinkLoginCallbackAction)
-        {
-            await OnGetLinkLoginCallbackAsync();
-        }
-    }
-
-    private async Task OnSubmitAsync()
-    {
-        var result = await UserManager.RemoveLoginAsync(user, LoginProvider!, ProviderKey!);
-        if (!result.Succeeded)
-        {
-            RedirectManager.RedirectToCurrentPageWithStatus("Error: The external login was not removed.", HttpContext);
-        }
-
-        await SignInManager.RefreshSignInAsync(user);
-        RedirectManager.RedirectToCurrentPageWithStatus("The external login was removed.", HttpContext);
-    }
-
-    private async Task OnGetLinkLoginCallbackAsync()
-    {
-        var userId = await UserManager.GetUserIdAsync(user);
-        var info = await SignInManager.GetExternalLoginInfoAsync(userId);
-        if (info is null)
-        {
-            RedirectManager.RedirectToCurrentPageWithStatus("Error: Could not load external login info.", HttpContext);
-        }
-
-        var result = await UserManager.AddLoginAsync(user, info);
-        if (!result.Succeeded)
-        {
-            RedirectManager.RedirectToCurrentPageWithStatus("Error: The external login was not added. External logins can only be associated with one account.", HttpContext);
-        }
-
-        // Clear the existing external cookie to ensure a clean login process
-        await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-
-        RedirectManager.RedirectToCurrentPageWithStatus("The external login was added.", HttpContext);
-    }
+    <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.2s" Outlined="true">
+        <MudCardContent>
+            <MudText Typo="Typo.h6" Class="mb-3">Add another service to log in</MudText>
+            <MudText Typo="Typo.body2" Class="mb-4">Connect another external provider for sign-in convenience.</MudText>
+            <form action="Account/Manage/LinkExternalLogin" method="post">
+                <AntiforgeryToken />
+                <div class="external-login-buttons">
+                    @foreach (var provider in otherLogins)
+                    {
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
+                                    Name="Provider" Value="@provider.Name"
+                                    Title="@($"Log in using your {provider.DisplayName} account")">@provider.DisplayName</MudButton>
+                    }
+                </div>
+            </form>
+        </MudCardContent>
+    </MudCard>
 }

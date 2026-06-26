@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      data-theme="@_theme"
+      data-theme-storage="cookie">
 
     @Intent.Merge    <head>
         <meta charset="utf-8" />
@@ -11,10 +13,10 @@
         <link rel="stylesheet" href="ux-mudblazor.css" />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        <link rel="stylesheet" href="AccountForms.css" />
         <link rel="stylesheet" href="_content/MudBlazor/MudBlazor.min.css" />
 
         <link rel="stylesheet" href="app.css" />
+        <link rel="stylesheet" href="ux-account.css" />
         <link rel="stylesheet" href="Blazor.InteractiveAuto.AspNetCoreIdentity.styles.css" />
         <HeadOutlet @rendermode="GetRenderModeForPage()" />
     </head>
@@ -22,8 +24,9 @@
     <body>
         <Routes @rendermode="GetRenderModeForPage()" />
         <script src="_framework/blazor.web.js"></script>
-        <script src="theme.js"></script>
-        <script>themeHelper.init();</script>
+        <script src="theme-storage.js"></script>
+        <script src="nav-drawer.js"></script>
+        <script>themeStorage.init();</script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     </body>
 
@@ -41,4 +44,6 @@
         }
         return new InteractiveAutoRenderMode(prerender: false);
     }
+
+    private string _theme => HttpContext.Request.Cookies.TryGetValue("theme", out var t) && t == "light" ? "light" : "dark";
 }

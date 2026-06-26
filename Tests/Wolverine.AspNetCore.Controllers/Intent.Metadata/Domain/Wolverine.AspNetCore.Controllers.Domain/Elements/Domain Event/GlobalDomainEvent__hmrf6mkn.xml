@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="111142e2-e0d4-462f-8c48-bec131af4e22" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>GlobalDomainEvent</name>
+  <display>GlobalDomainEvent</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</parentFolderId>
+  <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+  <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

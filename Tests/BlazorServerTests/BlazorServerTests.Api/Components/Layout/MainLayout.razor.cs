@@ -24,7 +24,7 @@ namespace BlazorServerTests.Api.Components.Layout
         public async Task ToggleTheme()
         {
             _themeService.Toggle();
-            await JS.InvokeVoidAsync("themeHelper.set", _themeService.IsDark ? "dark" : "light");
+            await JS.InvokeVoidAsync("themeStorage.set", _themeService.IsDark ? "dark" : "light");
         }
 
         public void Dispose()
@@ -37,7 +37,7 @@ namespace BlazorServerTests.Api.Components.Layout
             if (firstRender)
             {
                 _themeService.OnChange += StateHasChanged;
-                var saved = await JS.InvokeAsync<string>("themeHelper.get");
+                var saved = await JS.InvokeAsync<string>("themeStorage.get");
 
                 if (saved == "dark")
                 {

@@ -1,0 +1,33 @@
+@using Microsoft.AspNetCore.Components.Web
+
+<span class="@Class"
+      onclick="themeStorage.toggle()"
+      style="@Style">
+    <MudTooltip Text="Toggle light/dark mode">
+        <MudIconButton Icon="@Icons.Material.Filled.LightMode"
+                       Color="Color.Inherit"
+                       Class="theme-toggle-to-light"
+                       OnClick="OnToggle" />
+        <MudIconButton Icon="@Icons.Material.Filled.DarkMode"
+                       Color="Color.Inherit"
+                       Class="theme-toggle-to-dark"
+                       OnClick="OnToggle" />
+    </MudTooltip>
+</span>
+
+<style>
+    .theme-toggle-to-dark { display: none; }
+    :root[data-theme="light"] .theme-toggle-to-light { display: none; }
+    :root[data-theme="light"] .theme-toggle-to-dark { display: inline-flex; }
+</style>
+
+@code {
+    [Parameter]
+    public string? Class { get; set; }
+
+    [Parameter]
+    public string Style { get; set; } = "cursor:pointer";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnToggle { get; set; }
+}

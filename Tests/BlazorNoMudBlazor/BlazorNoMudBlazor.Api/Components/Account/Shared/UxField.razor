@@ -1,0 +1,23 @@
+@* Form field: label above + filled shell with an optional leading icon.
+   Bootstrap-free; mirrors the MudBlazor app's .login-input-* fields.
+   ChildContent is the input (placed inside the shell); Validation renders below. *@
+<div class="ux-field">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="ux-field-label" for="@For">@Label</label>
+    }
+    <div class="ux-field-shell">
+        @if (!string.IsNullOrEmpty(Icon))
+        {
+            <UxIcon Name="@Icon" Class="ux-field-icon" />
+        }
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Icon { get; set; }
+    [Parameter] public string? For { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

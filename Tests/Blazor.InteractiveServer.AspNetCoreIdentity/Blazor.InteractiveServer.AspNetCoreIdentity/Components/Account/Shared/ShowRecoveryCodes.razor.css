@@ -1,0 +1,16 @@
+.recovery-codes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.recovery-codes-container ::deep .recovery-code {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    color: var(--text);
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--type-body-sm);
+}

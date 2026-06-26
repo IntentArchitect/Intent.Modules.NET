@@ -245,6 +245,13 @@ ModelManifest.xml
 # Git extensions
 *.orig
 
+# Git merge-tool temp files
+.merge_file_*
+*.LOCAL
+*.REMOTE
+*.BASE
+*.BACKUP
+
 # INTENT FILES:
 *.imod
 *.iat
@@ -271,3 +278,6 @@ Spikes/
 /plans/**
 .agent-native/
 /plan-blocks.md
+
+RETROSPECTIVE.md
+WORKING.md

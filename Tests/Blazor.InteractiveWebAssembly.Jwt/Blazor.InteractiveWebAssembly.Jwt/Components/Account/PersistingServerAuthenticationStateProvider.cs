@@ -1,9 +1,6 @@
-using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
 using Blazor.InteractiveWebAssembly.Jwt.Client.Components.Account.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
@@ -12,9 +9,6 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

@@ -34,8 +34,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
             AddTypeSource(IntegrationCommandTemplate.TemplateId);
             AddTypeSource(NServiceBusMessageBus.NServiceBusMessageBusTemplate.TemplateId);
 
-            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
-            var hasOutbox = outboxPattern.IsSqlPersistence();
+            var nsbSettings = ExecutionContext.Settings.GetNServiceBusSettings();
+            var isSqlOutbox = nsbSettings.EnableOutbox() && nsbSettings.Persistence().IsSqlPersistence();
+            var isNhibernateOutbox = nsbSettings.EnableOutbox() && nsbSettings.Persistence().IsNhibernate();
 
             SubscribedMessageModels = model
                 .SelectMany(h => h.IntegrationEventSubscriptions()
@@ -55,7 +56,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("NServiceBus");
 
-            if (hasOutbox)
+            if (isSqlOutbox)
             {
                 CSharpFile
                     .AddUsing("Microsoft.EntityFrameworkCore")
@@ -75,7 +76,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                 @class.AddConstructor(ctor =>
                 {
                     ctor.AddParameter(this.GetIntegrationEventHandlerInterfaceName() + "<TMessage>", "handler", p => p.IntroduceReadonlyField());
-                    if (hasOutbox)
+                    if (isSqlOutbox)
                     {
                         ctor.AddParameter(this.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext), "dbContext", p => p.IntroduceReadonlyField());
                     }
@@ -90,13 +91,18 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
 
                     method.AddStatement("_messageBus.ActiveContext = context;");
 
-                    if (hasOutbox)
+                    if (isSqlOutbox)
                     {
                         method.AddStatement("var sqlSession = context.SynchronizedStorageSession.SqlPersistenceSession();", s => s.SeparatedFromPrevious());
                         method.AddStatement("_dbContext.Database.SetDbConnection(sqlSession.Connection);");
                         method.AddStatement("await _dbContext.Database.UseTransactionAsync((System.Data.Common.DbTransaction)sqlSession.Transaction, context.CancellationToken);");
                         method.AddStatement("await _handler.HandleAsync(message, context.CancellationToken);", s => s.SeparatedFromPrevious());
                         method.AddStatement("await _dbContext.SaveChangesAsync(context.CancellationToken);");
+                        method.AddStatement("await _messageBus.FlushAllAsync(context.CancellationToken);");
+                    }
+                    else if (isNhibernateOutbox)
+                    {
+                        method.AddStatement("await _handler.HandleAsync(message, context.CancellationToken);", s => s.SeparatedFromPrevious());
                         method.AddStatement("await _messageBus.FlushAllAsync(context.CancellationToken);");
                     }
                     else

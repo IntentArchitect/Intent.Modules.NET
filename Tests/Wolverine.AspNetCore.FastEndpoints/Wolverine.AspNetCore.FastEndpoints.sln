@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0BDB92B1-C189-428C-9E6D-B037849D0D00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.FastEndpoints.Api", "Wolverine.AspNetCore.FastEndpoints.Api\Wolverine.AspNetCore.FastEndpoints.Api.csproj", "{D97872EC-FB35-4D66-AD11-00BCD40EECB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3C3A04CC-E489-4D36-B2F7-6D07AA9E220B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.FastEndpoints.Application", "Wolverine.AspNetCore.FastEndpoints.Application\Wolverine.AspNetCore.FastEndpoints.Application.csproj", "{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{9B1BB8C6-D984-4B09-B780-D8F6D24A21D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.FastEndpoints.Domain", "Wolverine.AspNetCore.FastEndpoints.Domain\Wolverine.AspNetCore.FastEndpoints.Domain.csproj", "{12483A45-75BE-47C8-B21A-5F08CE3A1B3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{89EE06DE-1471-4A9F-90AE-53F8A37E9D8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.AspNetCore.FastEndpoints.Infrastructure", "Wolverine.AspNetCore.FastEndpoints.Infrastructure\Wolverine.AspNetCore.FastEndpoints.Infrastructure.csproj", "{2A497152-9952-41F8-A7D7-27DD38022884}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D97872EC-FB35-4D66-AD11-00BCD40EECB0} = {0BDB92B1-C189-428C-9E6D-B037849D0D00}
+		{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC} = {3C3A04CC-E489-4D36-B2F7-6D07AA9E220B}
+		{12483A45-75BE-47C8-B21A-5F08CE3A1B3A} = {9B1BB8C6-D984-4B09-B780-D8F6D24A21D6}
+		{2A497152-9952-41F8-A7D7-27DD38022884} = {89EE06DE-1471-4A9F-90AE-53F8A37E9D8A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D97872EC-FB35-4D66-AD11-00BCD40EECB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97872EC-FB35-4D66-AD11-00BCD40EECB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97872EC-FB35-4D66-AD11-00BCD40EECB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97872EC-FB35-4D66-AD11-00BCD40EECB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349F0752-F6D0-4E1A-8049-7B0B26E3F5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12483A45-75BE-47C8-B21A-5F08CE3A1B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12483A45-75BE-47C8-B21A-5F08CE3A1B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12483A45-75BE-47C8-B21A-5F08CE3A1B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12483A45-75BE-47C8-B21A-5F08CE3A1B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A497152-9952-41F8-A7D7-27DD38022884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A497152-9952-41F8-A7D7-27DD38022884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A497152-9952-41F8-A7D7-27DD38022884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A497152-9952-41F8-A7D7-27DD38022884}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

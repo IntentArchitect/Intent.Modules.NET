@@ -28,8 +28,9 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
+        var enableThemeToggle = _componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
 
-        if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+        if (enableThemeToggle)
         {
             var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
             themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
@@ -73,7 +74,11 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     _componentResolver.BuildComponent(child, appBar);
                 }
 
-                if (_componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                // User-menu slot — always appended last so it stays right of the spacer; the injected
+                // ThemeToggle (below) slots in just before it.
+                AddUserMenuSlot(appBar);
+
+                if (enableThemeToggle)
                 {
                     var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
                     ConfigureThemeSelection(appBar, code, insertPosition);
@@ -111,23 +116,28 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
             layoutContent.WithText("@Body");
         });
         //});
+
         return [layoutHtml];
 
     }
 
+    private void AddUserMenuSlot(IHtmlElement appBar)
+    {
+        // Always render <AppUserMenu/>. The Authentication module ships the real one (Profile / My Account /
+        // antiforgery-POST Logout) into Components/Account/Shared — its namespace reaches this layout via the
+        // root Components/_Imports.razor (contributed by Auth's ChangeRenderMode factory extension). When Auth
+        // isn't installed, the component module ships a no-op scaffold AppUserMenu in its place (see the
+        // AppUserMenu static-content registration), so the reference always resolves.
+        appBar.AddHtmlElement("AppUserMenu");
+    }
+
     private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition)
     {
-        // add the button
-        appBar.InsertHtmlElement(insertPosition, "MudTooltip", themeToggle =>
+        // ThemeToggle wraps the native themeStorage.toggle() call so it is still usable on
+        // static SSR account pages, which ASP.NET Core Identity requires for auth cookies.
+        appBar.InsertHtmlElement(insertPosition, "ThemeToggle", themeToggle =>
         {
-            themeToggle.AddAttribute("Text", "@(_themeService.IsDark ? \"Switch to light mode\" : \"Switch to dark mode\")");
-
-            themeToggle.AddHtmlElement("MudIconButton", themeButton =>
-            {
-                themeButton.AddAttribute("Icon", "@(_themeService.IsDark ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)");
-                themeButton.AddAttribute("Color", "Color.Inherit");
-                themeButton.AddAttribute("OnClick", "ToggleTheme");
-            });
+            themeToggle.AddAttribute("OnToggle", "ToggleTheme");
         });
 
         var themeTemplate = code.File.Template.OutputTarget.FindTemplateInstance("Intent.Blazor.Templates.Common.ThemeServiceTemplate");
@@ -161,7 +171,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                     @if.AddStatement("_themeService.OnChange += StateHasChanged;");
 
                     @if.AddAssignmentStatement("var saved",
-                        new CSharpStatement(@"await JS.InvokeAsync<string>(""themeHelper.get"");"));
+                        new CSharpStatement(@"await JS.InvokeAsync<string>(""themeStorage.get"");"));
 
                     @if.AddIfStatement(@"saved == ""dark""", innerIf =>
                     {
@@ -185,7 +195,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 method.AddInvocationStatement("_themeService.Toggle");
                 method.AddInvocationStatement("await JS.InvokeVoidAsync", invoc =>
                 {
-                    invoc.AddArgument(@"""themeHelper.set""");
+                    invoc.AddArgument(@"""themeStorage.set""");
                     invoc.AddArgument(@"_themeService.IsDark ? ""dark"" : ""light""");
                 });
             });

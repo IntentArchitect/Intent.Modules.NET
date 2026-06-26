@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="57b0b593-686c-4c0a-9be8-127267e843a9" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>WolverineEndpointExtension</name>
+  <display>WolverineEndpointExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5f3fd705-3548-4851-9532-b39d543c7d3c</parentFolderId>
+  <packageId>5f3fd705-3548-4851-9532-b39d543c7d3c</packageId>
+  <packageName>Intent.FastEndpoints.Dispatch.Wolverine</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

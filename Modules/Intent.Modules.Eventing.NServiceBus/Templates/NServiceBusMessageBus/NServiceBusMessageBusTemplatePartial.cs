@@ -26,15 +26,24 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
         {
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
 
-            var outboxPattern = ExecutionContext.Settings.GetNServiceBusSettings().OutboxPattern();
-            var hasOutbox = outboxPattern.IsSqlPersistence();
+            var nsbSettings = ExecutionContext.Settings.GetNServiceBusSettings();
+            var persistence = nsbSettings.Persistence();
+            var hasOutbox = nsbSettings.EnableOutbox() && (persistence.IsSqlPersistence() || persistence.IsNhibernate());
 
             AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
             if (hasOutbox)
             {
-                AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
-                AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
-                AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+                if (persistence.IsSqlPersistence())
+                {
+                    AddNugetDependency(NugetPackages.NServiceBusPersistenceSql(OutputTarget));
+                    AddNugetDependency(NugetPackages.NServiceBusPersistenceSqlTransactionalSession(OutputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+                }
+                else if (persistence.IsNhibernate())
+                {
+                    AddNugetDependency(NugetPackages.NServiceBusNHibernate(OutputTarget));
+                    AddNugetDependency(NugetPackages.NServiceBusNHibernateTransactionalSession(OutputTarget));
+                }
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -47,9 +56,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
 
             if (hasOutbox)
             {
-                CSharpFile
-                    .AddUsing("NServiceBus.Persistence.Sql")
-                    .AddUsing("NServiceBus.TransactionalSession");
+                if (persistence.IsSqlPersistence())
+                    CSharpFile.AddUsing("NServiceBus.Persistence.Sql");
+                CSharpFile.AddUsing("NServiceBus.TransactionalSession");
             }
 
             CSharpFile.AddClass("NServiceBusMessageBus", @class =>
@@ -114,7 +123,10 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                             if (hasOutbox)
                             {
                                 usingBlock.AddStatement("var transactionalSession = _serviceProvider.GetRequiredService<ITransactionalSession>();");
-                                usingBlock.AddStatement("await transactionalSession.Open(new SqlPersistenceOpenSessionOptions(), cancellationToken);", s => s.SeparatedFromPrevious());
+                                var openOptions = persistence.IsSqlPersistence()
+                                    ? "new SqlPersistenceOpenSessionOptions()"
+                                    : "new NHibernateOpenSessionOptions()";
+                                usingBlock.AddStatement($"await transactionalSession.Open({openOptions}, cancellationToken);", s => s.SeparatedFromPrevious());
                                 usingBlock.AddStatement("await DispatchAsync(m => transactionalSession.Publish(m, cancellationToken), m => transactionalSession.Send(m, cancellationToken));");
                                 usingBlock.AddStatement("await transactionalSession.Commit(cancellationToken);", s => s.SeparatedFromPrevious());
                             }

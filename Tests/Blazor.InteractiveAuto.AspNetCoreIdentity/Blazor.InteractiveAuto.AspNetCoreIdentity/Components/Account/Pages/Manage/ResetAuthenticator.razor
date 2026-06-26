@@ -10,42 +10,29 @@
 
 <PageTitle>Reset authenticator key</PageTitle>
 
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.RestartAlt" Class="mr-2" />
+        Reset authenticator key
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Reset the key used by your authenticator app and reconfigure your 2FA setup.
+    </MudText>
+</MudPaper>
+
 <StatusMessage />
-<h3>Reset authenticator key</h3>
-<div class="alert alert-warning" role="alert">
-    <p>
-        <span class="glyphicon glyphicon-warning-sign"></span>
-        <strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong>
-    </p>
-    <p>
-        This process disables 2FA until you verify your authenticator app.
-        If you do not complete your authenticator app configuration you may lose access to your account.
-    </p>
-</div>
-<div>
-    <form @formname="reset-authenticator" @onsubmit="OnSubmitAsync" method="post">
-        <AntiforgeryToken />
-        <button class="btn btn-danger" type="submit">Reset authenticator key</button>
-    </form>
-</div>
-
-@code {
-    [CascadingParameter]
-    private HttpContext HttpContext { get; set; } = default!;
-
-    private async Task OnSubmitAsync()
-    {
-        var user = await UserAccessor.GetRequiredUserAsync(HttpContext);
-        await UserManager.SetTwoFactorEnabledAsync(user, false);
-        await UserManager.ResetAuthenticatorKeyAsync(user);
-        var userId = await UserManager.GetUserIdAsync(user);
-        Logger.LogInformation("User with ID '{UserId}' has reset their authentication app key.", userId);
-
-        await SignInManager.RefreshSignInAsync(user);
-
-        RedirectManager.RedirectToWithStatus(
-            "Account/Manage/EnableAuthenticator",
-            "Your authenticator app key has been reset, you will need to configure your authenticator app using the new key.",
-            HttpContext);
-    }
-}
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Class="mb-3">Reset authenticator key</MudText>
+        <MudAlert Severity="Severity.Warning" Class="mb-4">
+            <MudText Typo="Typo.body1"><strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong></MudText>
+            <MudText Typo="Typo.body1">This process disables 2FA until you verify your authenticator app. If you do not complete your authenticator app configuration you may lose access to your account.</MudText>
+        </MudAlert>
+        <form @formname="reset-authenticator" @onsubmit="OnSubmitAsync" method="post">
+            <AntiforgeryToken />
+            <MudStack Row="true" Justify="Justify.FlexEnd">
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.RestartAlt">Reset authenticator key</MudButton>
+            </MudStack>
+        </form>
+    </MudCardContent>
+</MudCard>

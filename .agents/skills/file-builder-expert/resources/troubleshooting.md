@@ -93,3 +93,13 @@ public class MyTemplateRegistration : SingleFileTemplateRegistration<MyTemplate>
 | One output file | `SingleFileTemplateRegistration` |
 | One file per model element | `FilePerModelTemplateRegistration<TModel>` — must also override `GetModels` |
 | Event/pipeline-driven | `ITemplateRegistration` directly |
+
+---
+
+## 9. Usings don't follow members relocated to another file
+
+**Principle:** usings belong to the **file that emits the member**, and the builder only adds them for type references it can *track* — i.e. ones resolved through the type system (`UseType` / `GetTypeName`) against **that file's** template. So whenever generated members are emitted into a file other than the current template's own (code-behind, an aggregating/partial file, a sibling template, a file authored via `OnBuild`/`FindClass` on another template), the relevant usings only follow if you resolve types against the *destination* template.
+
+**Symptom:** A relocated/extracted member fails to compile — types or attributes (`Task`, `[SupplyParameterFromForm]`, `[Required]`, `IEnumerable<>`, …) not found — even though the same code compiled in its original file.
+**Cause:** (a) members were added with **raw type strings** the builder can't track; and/or (b) the destination file doesn't inherit the source's implicit imports (e.g. a plain `.cs` gets none of Razor's `_Imports`; global usings differ per project); and/or (c) the type was resolved against the **wrong** template, so the using landed on the source file, not the destination.
+**Fix:** Resolve every type/return/attribute through the **destination block's** template — `targetBlock.Template.UseType("Namespace.Type")` (e.g. `code.Template.UseType(...)` where `code` is the destination class) — so the using lands on the file that holds the members. Add `.RemoveSuffix("Attribute")` for attribute names. Ensure the destination template exposes the right context, e.g. `public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();`. Types referenced only inside **raw statement/expression strings** are never tracked — interpolate a `UseType(...)` into the string, or add the namespace explicitly with `CSharpFile.AddUsing(...)`. See *Split-file / code-behind usings* in `SKILL.md`.

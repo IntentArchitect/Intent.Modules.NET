@@ -1,4 +1,3 @@
-using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Intent.RoslynWeaver.Attributes;
@@ -65,8 +64,8 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Client.Components.Account
                 }
 
                 var utc = value.Value.Kind == DateTimeKind.Utc
-                    ? value.Value
-                    : value.Value.ToUniversalTime();
+                                    ? value.Value
+                                    : value.Value.ToUniversalTime();
 
                 long seconds = (long)Math.Max(
                     0,

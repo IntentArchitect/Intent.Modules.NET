@@ -5,12 +5,15 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.RedirectTo
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayoutCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationDbContext;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNetCoreIdentityAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ConfirmEmail;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ConfirmEmailCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ForgotPassword;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ForgotPasswordCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityComponentsEndpointRouteBuilderExtensions;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityNoOpEmailSender;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
@@ -18,13 +21,17 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRe
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityUserAccessor;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.LoginCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthenticationOptions;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingServerAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Register;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.RegisterCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResendEmailConfirmation;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResendEmailConfirmationCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetPassword;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetPasswordCodeBehind;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.SetUserContextInterface;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -49,6 +56,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         {
             return template.GetTypeName(UserInfoTemplate.TemplateId);
         }
+
+        public static string GetAccountLayoutCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AccountLayoutCodeBehindTemplate.TemplateId);
+        }
         public static string GetApplicationDbContextTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ApplicationDbContextTemplate.TemplateId);
@@ -67,6 +79,16 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetAuthServiceInterfaceTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthServiceInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetConfirmEmailCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ConfirmEmailCodeBehindTemplate.TemplateId);
+        }
+
+        public static string GetForgotPasswordCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ForgotPasswordCodeBehindTemplate.TemplateId);
         }
 
         public static string GetIdentityComponentsEndpointRouteBuilderExtensionsTemplateName(this IIntentTemplate template)
@@ -99,6 +121,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
             return template.GetTypeName(JwtAuthServiceConcreteTemplate.TemplateId);
         }
 
+        public static string GetLoginCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(LoginCodeBehindTemplate.TemplateId);
+        }
+
         public static string GetOidcAuthenticationOptionsTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId);
@@ -117,6 +144,21 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetPersistingServerAuthenticationStateProviderTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(PersistingServerAuthenticationStateProviderTemplate.TemplateId);
+        }
+
+        public static string GetRegisterCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(RegisterCodeBehindTemplate.TemplateId);
+        }
+
+        public static string GetResendEmailConfirmationCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ResendEmailConfirmationCodeBehindTemplate.TemplateId);
+        }
+
+        public static string GetResetPasswordCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ResetPasswordCodeBehindTemplate.TemplateId);
         }
 
         public static string GetSetUserContextInterfaceName(this IIntentTemplate template)

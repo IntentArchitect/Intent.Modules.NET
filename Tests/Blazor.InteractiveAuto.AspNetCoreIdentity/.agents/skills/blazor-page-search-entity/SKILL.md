@@ -2,7 +2,7 @@
 name: blazor-page-search-entity
 description: Creates Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when implementing search, list, filter, lookup, or query entity pages in Blazor.
 paths:
-contentHash: 9E736D8C4037D2FEBE57DDD13AC641C5D874FA67ACA5899F8879B32B5DF5B193
+contentHash: 0662A014507BF7E15785F5A3698B51B8EA8FAE7F0348152D3FEDADAF97F05CEB
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -177,22 +177,7 @@ Row actions:
 - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (usually under `wwwroot`) and reuse them
 - *Design and styling context**
 
-You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
-
-Use `design.md` for:
-
-- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
-- `Color` semantics for primary, secondary, and error actions
-- Card elevation and hover behaviour
-- Page header treatment (gradient clip text vs plain text, icon badge style)
-
-Use the CSS files for:
-
-- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
-- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
-- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
-
-These files inform styling choices only — they do not override the sample’s layout structure.
+Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
 - --
 

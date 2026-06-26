@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e1c9f55-6b2d-455b-910c-662f7aed4053" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CqrsHandlerCrudExtension</name>
+  <display>CqrsHandlerCrudExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>69e04900-db23-4c63-aca9-5903cfede3b3</parentFolderId>
+  <packageId>69e04900-db23-4c63-aca9-5903cfede3b3</packageId>
+  <packageName>Intent.Application.Wolverine.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

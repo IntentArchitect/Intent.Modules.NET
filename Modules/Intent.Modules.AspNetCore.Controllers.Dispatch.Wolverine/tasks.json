@@ -1,0 +1,14 @@
+{
+    "tasks": {
+      "build": {
+        "label": "Build",
+        "command": "dotnet build",
+        "icon": "fa-cogs",
+        "workingDirectory": "./Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine",
+        "aiAutoFix": {
+          "enabled": false,
+          "errorParser": "dotnet"
+        }
+      }
+    }
+}

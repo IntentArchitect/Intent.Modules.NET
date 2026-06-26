@@ -43,8 +43,8 @@ paths:
 STOP — you MUST read ALL of the following before writing ANY code:
 
 **Samples** (in the SAME folder as this SKILL.md):
-1. `EntityViewTemplate.razor`
-2. `EntityViewTemplate.cs`
+1. `view-entity-sample.razor`
+2. `view-entity-sample.cs`
 
 **Target component and project files:**
 3. The target `.razor` and `.razor.cs`
@@ -142,7 +142,7 @@ Do not render nested fields outside their guard block.
 
 Render child collections with `@foreach` inside a guarded `@if` block.
 
-- When the collection has items, render each in a `MudPaper` card (outlined, rounded) using `MudGrid`
+- When the collection has items, render each in a `MudPaper` with `Class="pa-3 ux-inner-panel"` and `Elevation="0"` using `MudGrid` — do not use `Outlined="true"` or hardcode a `Style` border-radius
 - When the collection is empty or null, render a `MudText` fallback message using `Color.Secondary`
 - Never use `for` loops with index variables for read-only collections — `@foreach` is correct here
 
@@ -172,21 +172,7 @@ Button placement:
 
 **Design and styling context**
 
-You have already read `design.md` and the CSS files in the mandatory phase above. Apply what you found:
-
-Use `design.md` for:
-- Button variant and fill preferences (`Variant.Filled` / `Variant.Outlined`, gradient vs flat)
-- `Color` semantics for primary, secondary, and error actions
-- Card elevation and hover behaviour
-- Page header treatment (gradient clip text vs plain text, icon badge style)
-- Chip `Color` and `Variant` semantics for status display
-
-Use the CSS files for:
-- **Tokens** — use `var(--primary)`, `var(--surface-2)`, `var(--text-muted)` etc. in any inline `Style=` attributes; never hardcode hex values
-- **Animation utilities** from `ux-base.css` — `.ux-fade-in-up` (`--dur-slow`) and `.ux-fade-in` (`--dur-med`) are available; verify they exist in the project before applying
-- **Component and badge utilities** from `ux-components.css` — `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-neutral`, `.alert-danger`, `.alert-success`, `.alert-warning`, and `.btn-*` variants; verify existence before use
-
-These files inform styling choices only — they do not override the sample's layout structure.
+Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
 ---
 

@@ -19,8 +19,10 @@ argument-hint: "[source file] [target template name]"
 5. Register `OnBuild`/`AfterBuild` callbacks in constructor (**Core=0, Enrichment=100, Extension=500, Final=1000**).
 6. Lookup callbacks must use higher priority than target template.
 7. Resolve types inside callbacks/lambdas, never directly in constructor.
-8. Inject DI parameters using `param.IntroduceReadonlyField()`.
-9. For not-implemented handlers/method bodies, use:
+8. Resolve emitted type positions through the Type System APIs: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` for framework/external types — **including method return/parameter types** (e.g. `method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken")`). Do not use `UseType(...)` for types represented in the Intent model.
+9. For generated type declarations, put the final class/interface name on the template model/provider (for example `IHasName.Name`) and use the same model when resolving references via `GetTypeName(templateId, model)`; handle name collisions before `AddClass(...)`.
+10. Inject DI parameters using `param.IntroduceReadonlyField()`.
+11. For not-implemented handlers/method bodies, use:
     ```csharp
     method.AddStatement("// IntentInitialGen");
     method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");

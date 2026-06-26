@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="da2779fb-280b-4813-9de6-a607d5025778">
+  <sourceEnd id="7924c430-c127-45ed-b927-4f92fd06c1cb" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: ProductChangedDomainEventHandler</display>
+    <order>0</order>
+    <typeReference id="0cf300a8-8f27-4bb0-9b65-48064183e0da">
+      <typeId>aa615da3-0001-4599-bdd3-6df8654364d9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.FastEndpoints.Services</typePackageName>
+      <typePackageId>e2a87c9f-5bb5-45c1-ac41-aebd1218f6a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="da2779fb-280b-4813-9de6-a607d5025778" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>[handles] ProductChangedDomainEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="31102d62-068d-412d-a904-539d2c751d3a">
+      <typeId>d36b4f49-3b98-43bd-a6af-c216275a176f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.FastEndpoints.Domain</typePackageName>
+      <typePackageId>10a7688b-d7c4-4873-8550-05ef83e8c9be</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>
