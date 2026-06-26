@@ -176,7 +176,7 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
 | **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
 | **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md`, clear `WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
-| **module-retrospective** | Runs automatically throughout every build. Appends findings to `RETROSPECTIVE.md` (append-only, repo root) whenever a workaround, skill gap, or missing requirement is encountered. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Three buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), PRD/user gaps (strengthen kickoff questions). |
+| **module-retrospective** | Runs automatically throughout every build. Appends findings to `RETROSPECTIVE.md` (append-only, repo root) whenever a workaround, skill gap, missing requirement, or architecture problem is encountered — even when the task still completed. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Four buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), Module Architecture gaps (flag for architecture owners / `module-building-strategies`), PRD/user gaps (strengthen kickoff questions). |
 
 ---
 
@@ -184,6 +184,7 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 
 | Skill | When to use |
 | :--- | :--- |
+| **module-building-strategies** | The accumulated strategic playbook — load at every design decision across the whole chain: module decomposition (root/bridging/common, shared-project avoidance, DLL-skew), template vs factory extension, file cardinality, managed modes, design-time config (setting vs stereotype), convention-vs-explicit, and two-phase (reproduce + from-scratch) verification. |
 | **file-builder-expert** | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
 | **intent-mapping-architect** | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
 | **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |

@@ -3,6 +3,8 @@
 Quick-reference snippets for the `intent-module-orchestrator` skill.  
 Source of truth: <https://github.com/IntentArchitect/Intent.Modules>
 
+> **Strategy — broadcast over direct coupling.** Recurring cross-module integration is done by *broadcasting* a request that a responsible module *handles* — never by wiring modules together directly. DI registration (`ContainerRegistrationRequest`) and app settings (`AppSettingRegistrationRequest`) below are the documented examples. **Infrastructure-resource registration** (resources other modules consume — e.g. for health checks) follows the same broadcast pattern; confirm the exact request type via `search_docs` before use rather than assuming. See `module-building-strategies` §1.
+
 ---
 
 ## §DI Registration — ContainerRegistrationRequest
@@ -170,6 +172,30 @@ bool resolved =
 if (!resolved) return;
 ```
 
+### ⚠ Cross-Module Boundary Rule — Use Interface Types, Not Concrete Types
+
+When calling `FindTemplateInstance<T>` or `FindTemplateInstances<T>` **from a different module** (i.e. a factory extension in module B looking up a template registered by module A), always use an interface type for `T` — never a concrete template class.
+
+IA may load each module's assembly in an isolated `AssemblyLoadContext`. When it does, the concrete `MyTemplate` type in module B's context is a different `Type` object from the one registered by module A in its context — the lookup silently returns `null` with no error.
+
+**Template ID is the primary lookup key** — always use the correct `TemplateId` constant. The interface type is the secondary filter that crosses ALC boundaries safely.
+
+```csharp
+// ❌ Wrong — returns null when called from a different module's factory extension
+var t = application.FindTemplateInstance<WolverineConfigurationTemplate>(
+    WolverineConfigurationTemplate.TemplateId);
+
+// ✅ Correct — interface types from shared packages cross ALC boundaries safely
+var t = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+    WolverineConfigurationTemplate.TemplateId);
+```
+
+| Scenario | Interface to use |
+|---|---|
+| Template exposes a `CSharpFile` property | `ICSharpFileBuilderTemplate` (from `Intent.Modules.Common.CSharp`) |
+| Template has a typed model | `IIntentTemplate<TModel>` (from `Intent.Templates`) |
+| Role lookup only, no CSharpFile needed | `ICSharpTemplate` (from `Intent.Modules.Common.CSharp`) |
+
 ### Null-conditional shorthand (optional single-template enrichment)
 
 ```csharp
@@ -182,6 +208,8 @@ application
 ---
 
 ## §Factory Extension — Full FactoryExtensionBase Skeleton
+
+> **Required using:** `FindTemplateInstance<T>` and `FindTemplateInstances<T>` are generic extension methods defined in `Intent.Modules.Common`. Add `using Intent.Modules.Common;` to the factory extension file — its absence produces `CS0308: The non-generic method cannot be used with type arguments`, which is a misleading error.
 
 ```csharp
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]

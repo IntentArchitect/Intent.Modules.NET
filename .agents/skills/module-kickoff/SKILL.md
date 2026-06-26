@@ -28,7 +28,7 @@ Gather enough information upfront so that every subsequent step (pattern researc
 
 ## Musts
 
-1. Ask all universal questions (U1–U9) first — applies to every module.
+1. Ask all universal questions (U1–U10) first — applies to every module.
 2. Determine module type from answers, then ask type-specific questions.
 3. Validate using the sufficiency checklist. Ask targeted follow-ups for any gap.
 4. Produce a Requirements Summary before handing off to `tech-pattern-researcher`.
@@ -58,6 +58,7 @@ Ask these regardless of module type:
 | U7 | What Clean Architecture layer(s) does the generated code belong in? (Domain / Application / Infrastructure / API) | Constrains where templates output and what they reference |
 | U8 | What is the target .NET version? | Affects API choices and generated code |
 | U9 | Is there an existing test/reference application the module can be verified against, or does one need to be created? If it exists, where is it? | **Mandatory for `reference-app-builder`.** The reference app is built or identified before any templates are written — without it there is no ground truth to verify against. |
+| U10 | What platform modules, host types, and deployment environments must this module integrate with or support? For each integration target: (a) are bridging or companion modules needed? (b) are there known constraints with the chosen framework in that environment (e.g. serverless disk restrictions, startup entry-point overrides, codegen prerequisites)? Verify against current online documentation — do not rely on training data. | Drives the `<interoperability>` block in the `.imodspec` and the integration compatibility check in `reference-app-builder`. Framework–environment incompatibilities discovered after a full module build cost complete rework cycles. |
 
 ---
 
@@ -115,6 +116,7 @@ Before producing the Requirements Summary, verify you can answer YES to every it
 - [ ] I know how to test a working output (what does success look like?).
 - [ ] I know the target .NET version.
 - [ ] I know whether a test/reference application already exists (U9). If not, I have confirmed with the user whether to scaffold one or whether they will provide it. **This item cannot be skipped — `reference-app-builder` is a mandatory chain step.**
+- [ ] I know which platform modules, host types, and deployment environments the module must integrate with (U10), and I have verified online whether the chosen technology has known limitations in any of those environments.
 
 If any item is NO — ask a targeted follow-up before proceeding.
 

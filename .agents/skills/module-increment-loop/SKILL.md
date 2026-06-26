@@ -27,6 +27,7 @@ module-kickoff → tech-pattern-researcher → module-ecosystem-analyst → inte
 ```
 
 Inside this loop, load **implementation-tier skills** as needed:
+- `module-building-strategies` — for every design decision (decomposition, template vs factory extension, managed modes, verification strategy)
 - `file-builder-expert` — for CSharpFile fluent API work
 - `intent-metadata-consumer` — for reading stereotypes / model properties
 - `intent-module-orchestrator` — for ContainerRegistrationRequest, factory extensions, cross-template wiring
@@ -54,6 +55,8 @@ Every implementation decision must be grounded in the technology's documented pa
 6. **For eventing/messaging modules, exercise the publish + subscribe path against a running sample before declaring an increment done.** Compilation alone is not sufficient.
 7. **Read the diagnostics file (if the tech emits one) before assuming the runtime is wired correctly.** NServiceBus writes `[AppBin]/.diagnostics/[EndpointName]-configuration.txt` — check the `Manifest-MessageTypes[*].IsEvent` flag, `Receiving.MessageHandlers` list, and `AssemblyScanning.Assemblies` before debugging the template.
 8. **Capture every non-obvious learning to memory or to the relevant implementation skill** before closing the increment. A learning lost between increments compounds: by increment 5 the next agent walks into a wall the first agent already documented.
+9. **Reset the regeneration baseline before trusting any staged diff.** The reference app is the Phase-1 SF target, and its files were hand-crafted. Before relying on a staged diff (or a "0 changes" result): delete-to-regenerate every 100%-Intent-managed template-owned file, and strip any hand-added `Ignore`/merge-protected stub on a template-owned region. Otherwise SF reproduces the hand-craft and the diff proves nothing. See `module-building-strategies` §4.
+10. **Verify in two phases — reproduce, then from scratch.** Phase 1: confirm the module reproduces the reference app's existing code exactly. Phase 2 (mandatory): build a brand-new app, install the module with no code pre-written, and confirm everything generates correctly and is fully wired. Phase 2 is the only test that exposes a forgotten wiring step. Attempt app creation via the `create_application`/`create_solution` MCP tools; if they're unavailable, ask the user to scaffold the from-scratch app.
 
 ## Must Nots
 
@@ -65,6 +68,8 @@ Every implementation decision must be grounded in the technology's documented pa
 6. **Never add NuGet packages by editing `NugetPackages.cs` directly.** That file is `[DefaultIntentManaged(Mode.Fully)]` — the next SF run will silently regenerate it and drop your change. All NuGet declarations must go through the Module Builder designer via MCP. See `intent-module-builder` Learnings for the full story.
 7. **Never skip steps 5–7 because the user said "commit" or "move on".** A user instruction to commit does not close the cycle. Commit the module-side code only, state that steps 4–7 remain open, record the open cycle in `/WORKING.md`, and close it before touching any template file again.
 8. **Never treat a transient SF failure as a dead end.** If `run_software_factory` exits with an error before reaching staging, retry once immediately. Only escalate to the user if the second attempt also fails.
+9. **Never call `install_or_update_modules` when the module version has not changed.** When the module is already installed at the correct version, IA hot-reloads the recompiled DLL automatically — no reinstall is needed. Calling `install_or_update_modules` unnecessarily causes file-lock contention (`Exceeded maximum retries to save module`) and can trigger catastrophic staged-change cascades where SF proposes mass deletion of all template outputs. Valid reasons to reinstall: (a) the module is not yet installed in the target application, or (b) the imodspec version has been bumped.
+10. **Never investigate or apply staged changes when SF proposes mass deletions or reports `hasErrors: true` with an empty `errors` list.** This pattern indicates IA session state corruption — typically from repeated rapid install→SF sequences. The staged changes are artifacts of corrupted state, not real proposals. Close Intent Architect completely, reopen the solution in a fresh instance, and re-run SF before taking any further action.
 
 ---
 
@@ -148,6 +153,9 @@ Different module categories need different verification at step 9. The minimum c
 
 ## Per-Increment Checklist
 
+**Pre-increment version check (run before starting each increment):**
+- [ ] The module's imodspec/csproj version matches the agreed release version for this task. If the version was bumped in a prior increment, do not bump it again. Version numbers reflect intent — never change the version number to resolve a build or SF failure.
+
 Before moving to the next increment in the Attack Plan:
 
 - [ ] Template body implemented using the right implementation-tier skill (file-builder-expert / orchestrator / metadata-consumer / mapping-architect / domain-interactions-expert)
@@ -164,12 +172,18 @@ Before moving to the next increment in the Attack Plan:
 - [ ] Progress Tracker in `ATTACK-PLAN.md` updated (✅ Complete or ❌ Blocked with reason)
 - [ ] Any new decisions added to the Decision Log in `PATTERN-DOCUMENT.md`
 - [ ] Any resolved Open Questions closed in `PATTERN-DOCUMENT.md`
+- [ ] Every template or factory extension implemented in this increment calls `AddNugetDependency(...)` in its constructor for each framework type it references in generated output. This applies to factory extensions too — an extension that enriches another module's template with library-dependent code must declare the NuGet dependency, since the consuming project will not have the library installed.
+- [ ] Every factory extension that emits a `services.AddXxx(configuration)` call has a corresponding `AppSettingRegistrationRequest` published in `OnBeforeTemplateExecution` to seed the required configuration section in `appsettings.json`. Without this, `configuration.GetSection(...)` returns null at startup with no helpful error.
+- [ ] The reference app exercises more than the minimum path: at least one scenario covers an edge case or multi-instance variant (e.g. two handlers, multiple subscriptions, a cross-service scenario). A module verified only against a single basic case will silently fail in real applications.
 
 **On the final increment only — documentation health gate (required before declaring the loop done):**
 - [ ] `<authors>` is not `Intent.Modules.NET`
 - [ ] `<summary>` and `<description>` are not `A custom module for Intent.Modules.NET`
 - [ ] `<tags>` is not empty
 - [ ] `release-notes.md` version heading matches the `.imodspec` `<version>` and contains at least one bullet point
+
+**On the final increment only — interoperability gate (modules with companion or bridging modules):**
+- [ ] If this module auto-installs companion or bridging modules when specific platform or feature modules are already present (identified at kickoff U10 or recorded in `CONTEXT.md`/`WORKING.md`), the `.imodspec` contains an `<interoperability>` block declaring which installed platform/feature module triggers auto-installation of each bridging module. Use the MediatR module's `<interoperability>` section as the reference pattern.
 
 If any box can't be ticked, the increment is not done — keep iterating.
 
@@ -182,12 +196,13 @@ This loop terminates when **all** of these are true:
 1. Every increment in the Attack Plan has passed its per-increment checklist
 2. The module's full surface (every template, every factory extension) has been exercised at least once against a real running sample
 3. No `NotImplementedException` / `TODO` / placeholder bodies remain in any generated file
-4. SF on the target app produces zero staged changes (the generated output and the model are in sync)
-5. A clean shutdown of the sample doesn't surface any errors or warnings related to the module
-6. A `CONTEXT.md` file has been created or updated in the module folder, consolidating all durable technical decisions, architecture constraints, and findings from `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md`.
-7. The temporary files `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md` are deleted from the module folder.
-8. The project-wide `/WORKING.md` file is deleted or cleared if the entire project/task is now complete.
-9. **Documentation health gate** — every `.imodspec` in the module folder passes all of the following (check each field literally, reject any that still contain the scaffold default):
+4. SF on the target app produces zero staged changes (the generated output and the model are in sync) — verified *after* the regeneration baseline was reset (Must #9), so the result is real and not a hand-craft echo
+5. **From-scratch verification passed (Must #10):** a brand-new app with no pre-written code, with the module installed, generates correct and fully-wired output that builds and runs
+6. A clean shutdown of the sample doesn't surface any errors or warnings related to the module
+7. A `CONTEXT.md` file has been created or updated in the module folder, consolidating all durable technical decisions, architecture constraints, and findings from `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md`.
+8. The temporary files `PATTERN-DOCUMENT.md` and `ATTACK-PLAN.md` are deleted from the module folder.
+9. The project-wide `/WORKING.md` file is deleted or cleared if the entire project/task is now complete.
+10. **Documentation health gate** — every `.imodspec` in the module folder passes all of the following (check each field literally, reject any that still contain the scaffold default):
    - `<authors>` is **not** `Intent.Modules.NET`
    - `<summary>` is **not** `A custom module for Intent.Modules.NET`
    - `<description>` is **not** `A custom module for Intent.Modules.NET`

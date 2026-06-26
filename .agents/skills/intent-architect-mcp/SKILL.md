@@ -130,13 +130,17 @@ This tool only works if the target application is in a currently-open IA solutio
 1. Call `get_status` to see which solutions are currently open.
 2. If the target app's solution is missing from `openSolutions`, call `open_solution(absolutePath: "<path-to-isln>")`.
 3. Retry `install_or_update_modules` after the solution is confirmed open.
-Fallback when MCP install is still unavailable: manually add the module entry to the app's `modules.config` file.
 
-### `get_staged_file_diffs` — Takes a `filePaths` Array, Not a Glob
-The parameter is `filePaths` (an array of **relative** file paths). There is no glob parameter. To inspect a specific file pass it as an array element: `filePaths: ["Relative/Path/To/File.cs"]`. Passing a glob string will cause InputValidationError.
+Fallback when MCP install is still unavailable after two attempts and a solution re-open: **stop and ask the developer to update the module from the Intent Architect UI Modules panel**. Do NOT attempt to hand-edit `modules.config` — the file format requires precise XML and a bad edit corrupts the application's module state.
+
+### `get_staged_file_diffs` — Takes a `filePaths` Array of Absolute Paths
+The parameter is `filePaths` (an array of **absolute** file paths). There is no glob parameter. Passing relative paths (as returned by `run_software_factory`) silently produces "Absolute file path required" per-file errors and shows 0 staged changes — no InputValidationError is raised, making the failure invisible. Passing a glob string will cause InputValidationError.
 
 ### Multiple Solutions — Safe, But Never the Same Path Twice
 Intent Architect can have multiple distinct solutions open simultaneously (e.g. Modules solution + Tests solution). `get_status` lists all open solutions — check this before calling `open_solution` to decide which is needed. Do **not** open the same solution path a second time — there is a known IA bug where duplicate registrations cause unpredictable MCP behavior.
+
+### Opening a Second Solution Mid-Session — Stale Context After Close
+If you open a second IA solution during a session and then close it, the MCP server may retain stale staged-changes state for it. Subsequent `run_software_factory` calls on any application then fail with "solution no longer open" errors even for the original solution. The only reliable recovery is a full IA restart with only the target solution open. **Do not open reference solutions or sibling modules in the same IA instance during a session.** If you need to inspect a reference module's generated files, ask the user to check them on disk instead.
 
 ### SF Staged Changes — Diff First
 If SF shows pending staged changes immediately after a designer edit, those may be **carry-over** from before your edit. Always call `get_staged_file_diffs` before `apply_staged_file_changes`. Applying without reviewing can silently revert your work.
@@ -169,6 +173,9 @@ This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overw
 The `Model Type` property on a C# Template's `C# Template Settings` stereotype takes a GUID that identifies the element specialization type (e.g. `Integration Event Handler`). This GUID **differs between IA solutions** — the same element type has a different ID in the Module Builder solution vs. the production Modules.NET solution. Never copy a Model Type ID from memory or from another module's XML. Always verify by either:
 - Running `find_designer_elements` on the target solution and inspecting the `specializationTypeId` of a live element of that type, OR
 - Inspecting the installed `.designer.settings` file for the modeler package in the target solution
+
+### `run_designer_script` — `lookupById(id)`, Not `getElementById(id)`
+Inside a designer script, find an element by GUID with `lookupById(id)`. Do not use `getElementById` — that is a browser DOM API and does not exist in the IA designer script context; calling it throws `ReferenceError`.
 
 ### `run_designer_script` — Property API Uses `.value`, Not `.getValue()`
 Inside a designer script, accessing a stereotype property value uses the `.value` property directly on the property object:
