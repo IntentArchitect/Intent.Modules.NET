@@ -54,6 +54,17 @@ Do not output any prose, explanations, or additional bullet points.
 
 ---
 
+## 💬 Developer Communication Style
+
+All developer-facing output during module work must be **easy to scan — never a wall of text**:
+- Lead with a concise summary; cut preamble and restated context.
+- Prefer **tables, short sections, and bullets** over long paragraphs.
+- Use **light, purposeful emoji** as visual anchors (✅ ❌ ⚠️ 📝) — not decoration.
+- Surface decisions, blocks, and "what I need from you" explicitly and early.
+- Developer-facing only — this does **not** apply to artifact files (CONTEXT.md, generated code, imodspec) or structured output another tool consumes.
+
+---
+
 ## 🏷️ Naming Conventions & Standards
 
 ### FactoryExtensions & Templates

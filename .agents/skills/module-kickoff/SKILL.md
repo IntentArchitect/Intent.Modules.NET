@@ -22,6 +22,21 @@ Both paths produce an identical Requirements Summary. All downstream skills are 
 
 ---
 
+## Build Type — New vs Modify
+
+Determine early whether this is a **new module** or a **modification of something existing** — a fix, an improvement, or a pivot on a prior decision. For a modification, read the existing module's `CONTEXT.md` first to establish current state and scope the *delta*.
+
+Then triage a modification by **output impact** — this decides whether the reference-architecture gate applies downstream:
+
+| Change | Example | Reference-output gate (`reference-app-builder`) |
+|---|---|---|
+| **Designer-only, no output impact** | Dialog/menu behaviour, designer-extension UX, validation message | ❌ Skip — verify the designer change works; no test-app proof needed |
+| **Affects generated output** | Template / factory-extension change, new generated file, changed shape | ✅ Required — prove the output in a reference architecture *before* changing the module |
+
+When output impact is genuinely ambiguous, **default to treating it as output-affecting** — verifying an unneeded change is cheaper than shipping an unverified one.
+
+---
+
 ## Purpose
 
 Gather enough information upfront so that every subsequent step (pattern research, ecosystem analysis, implementation) can proceed without stopping to ask the developer for clarification. If requirements are insufficient, ask follow-up questions before moving on.
@@ -159,6 +174,21 @@ Produce this document as the output of this skill. It becomes the input to `tech
 ## Definition of Done (First Increment)
 [What a working first increment looks like — how we know it works]
 ```
+
+---
+
+## Expectations Charter — present before handoff
+
+Before diving into research and build, give the developer a short, scannable charter so there are no surprises. Cover:
+
+- **Artifacts I'll produce** — Requirements Summary, Pattern Document, Attack Plan, CONTEXT.md (durable), plus temporary working files (`PATTERN-DOCUMENT.md`, `ATTACK-PLAN.md`, `WORKING.md`) that get cleaned up at the end. CONTEXT.md / WORKING.md are AI-managed.
+- **The plan & the gates ahead** — a high-level playback of the phases and where I'll need a decision from you.
+- **What I'll need from you** — especially any **developer-provided infrastructure or credentials** (cloud services, licensed brokers), surfaced now, not mid-build.
+- **Why the test app comes first** — the reference/test app is the ground truth; without it the module is built blind, and it's the cheapest place to catch errors. If you can't supply one, I'll obtain or build one — **this step is never skipped**.
+- **Review preference** — do you want to approve each staged diff, or only at checkpoints? Set once, here.
+- **Resumability** — long runs can span sessions; I checkpoint to `WORKING.md`, so you can stop or redirect anytime without losing progress.
+
+Keep it concise (a short list or table), confirm, then proceed.
 
 ---
 

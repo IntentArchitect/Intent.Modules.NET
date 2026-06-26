@@ -33,6 +33,16 @@ This is the most important gate in the chain. Template bugs from unverified patt
 
 ---
 
+## Greenfield vs Modification
+
+This skill applies to **any change that affects generated output** — a new module *or* a modification (fix / improvement / pivot). The gate is **output impact, not novelty** (see `module-kickoff` Build Type triage):
+
+- **Designer-only changes with no output impact** (dialog behaviour, designer-extension UX) **do not enter this skill** — there is nothing to prove in generated code.
+- **Modifications that affect output** must **prove the *changed* output shape in a reference architecture before the module is changed.** Locate the existing reference architecture (or stand one up) and show "this is what the new/changed output will look like" first.
+- **Don't break what works:** when modifying, the reference app must still exercise the **existing** scenarios alongside the change, so a regression in current output/behaviour is caught — not just the new shape.
+
+---
+
 ## Phase R.0 — Runtime Dependency Classification
 
 ### Step R.0.0 — Integration Target Verification (run before anything else)
