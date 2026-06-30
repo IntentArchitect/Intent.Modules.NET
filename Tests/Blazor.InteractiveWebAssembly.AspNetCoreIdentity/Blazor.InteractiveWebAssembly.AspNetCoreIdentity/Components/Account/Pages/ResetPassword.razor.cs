@@ -21,6 +21,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
 
         protected override void OnInitialized()
         {
+            Input ??= new();
             if (Code is null)
             {
                 RedirectManager.RedirectTo("Account/InvalidPasswordReset");

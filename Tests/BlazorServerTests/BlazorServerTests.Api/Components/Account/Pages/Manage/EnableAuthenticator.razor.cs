@@ -25,10 +25,11 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
         private HttpContext HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
+            Input ??= new();
             user = await UserAccessor.GetRequiredUserAsync(HttpContext);
 
             await LoadSharedKeyAndQrCodeUriAsync(user);

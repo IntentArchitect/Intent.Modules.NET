@@ -25,7 +25,7 @@ namespace BlazorNoMudBlazor.Api.Components.Account.Pages
         private HttpContext HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         [SupplyParameterFromQuery]
         private string? RemoteError { get; set; }
@@ -40,6 +40,7 @@ namespace BlazorNoMudBlazor.Api.Components.Account.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            Input ??= new();
             if (RemoteError is not null)
             {
                 RedirectManager.RedirectToWithStatus("Account/Login", $"Error from external provider: {RemoteError}", HttpContext);

@@ -19,7 +19,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.M
         private HttpContext HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {

@@ -14,6 +14,11 @@ namespace Blazor.InteractiveServer.Jwt.Components.Account.Pages
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = new();
 
+        protected override void OnInitialized()
+        {
+            Input ??= new();
+        }
+
         private async Task OnValidSubmitAsync()
         {
             await AuthService.ResendEmailConfirmation(Input.Email);
