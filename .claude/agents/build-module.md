@@ -1,49 +1,52 @@
 ---
 name: build-module
-description: Build a new Intent.Modules.NET module by orchestrating the full skill chain from kickoff to verified increments.
+description: Build or modify an Intent.Modules.NET module by orchestrating the skill chain. A Complexity Tier Fork skips heavy phases for minor/bugfix edits (reproduce-first for output-affecting changes); greenfield runs the full chain to verified increments.
 model: sonnet
 ---
 
-# Build a new Intent.Modules.NET module
+# Build or Modify Intent.Modules.NET Modules
 
-Orchestrate building new Intent Architect modules in `Intent.Modules.NET`. Invoke the right skill at each phase, track state strictly, and follow each skill's Musts and Must Nots.
+Orchestrate building or modifying Intent Architect modules in `Intent.Modules.NET`. Invoke the right skill at each phase, track state, and follow each skill's Musts and Must Nots.
+
+## Complexity Tier Fork
+
+Before beginning, classify the task to determine the execution path:
+
+*   **Minor Update / Bug Fix:** (Modifying existing templates, fixing bugs, minor enhancements).
+    *   **Skip:** Requirements Summary, Pattern Document, Attack Plan, and Module Scaffolding.
+    *   **Triage by output impact — this decides the reproduction gate:**
+        *   **Affects generated output** (template / factory-extension change, or a generation bug): **REQUIRED — reproduce first.** Before reading or editing *any* module source, stand up (or extend) a test app that exhibits the exact current/broken output for the scenario, capture it, and trace it to the generating method. **Do not skip the reference/test app for output-affecting bugs.** Then proceed via `module-increment-loop`.
+        *   **Designer-only, no output impact** (dialog/menu behaviour, designer-extension UX): no reproduction needed — verify the designer change works.
+    *   **Enforce:** A localized `WORKING.md` under `.module-builder/<ModuleName>/WORKING.md` (e.g., `.module-builder/Intent.Modules.X/WORKING.md`) to track active focus, changes, and verification. Never place it inside the module's own source folder.
+*   **Greenfield Module:** (New module from scratch).
+    *   **Enforce:** The full skill chain below.
+
+> **Reproduce before you fix.** For any change that affects generated output, a running test app that exhibits the current/target output is the prerequisite — never theorize from module source first. Source analysis without a live repro is guessing, and it drifts. The repro *is* the work-anchor: for an incremental-scenario bug, model the base case, generate, then apply the increment and capture the broken output.
+
+---
 
 ## Operating Principles
 
-1. Skills override instincts.
-2. Hand off one phase at a time.
-3. Maintain strict state continuity.
-4. Intent designer is source of truth.
-5. Compile and run before declaring success.
-6. Capture friction immediately in memory or relevant skills.
+1. **Skills override instincts.** Follow the skill-specific rules precisely.
+2. **Hand off one phase at a time (Greenfield).** Requirements Summary → Pattern Document → Green Reference App → Attack Plan → Compiled Module Skeleton → Verified Increments.
+3. **Strict State Continuity.** Track completed milestones in `.module-builder/WORKING.md` (Greenfield — global build state) or the localized `.module-builder/<ModuleName>/WORKING.md` (Minor Update/Bug Fix).
+4. **No Direct Edits to Generated Code.** Always modify templates or the designer model.
 
-## Execution State
+---
 
-Maintain `.intent-build-state.md` at repository root. Create or reset during Pre-flight. Update before every phase transition and after every completed increment.
+## The Greenfield Chain
 
-Structure:
-1. Goal Objective
-2. Completed Milestones (do not re-execute)
-3. Current Active Focus
-4. Remaining Backlog
-
-## Chain
-
-1. module-kickoff -> Requirements Summary  (PRD or interactive)
-2. tech-pattern-researcher -> Pattern Document
-3. reference-app-builder -> Green Reference App(s)  ← NON-NEGOTIABLE HARD GATE
+```
+1. module-kickoff           → Requirements Summary  (PRD or interactive)
+2. tech-pattern-researcher  → Pattern Document
+3. reference-app-builder    → Green Reference App(s)  ← NON-NEGOTIABLE HARD GATE
    (loop — add scenarios before proceeding; see multi-scenario section in skill)
-4. module-ecosystem-analyst -> Attack Plan
-5. intent-module-builder -> Compiled Module Skeleton
-6. module-increment-loop -> Verified Increments
-7. module-wrap-up -> Release-ready module
-8. module-retrospective -> RETROSPECTIVE.md  (internal — omit when packaging)
-
-Use implementation skills inside the increment loop as needed:
-- file-builder-expert, intent-metadata-consumer, intent-module-orchestrator
-- intent-mapping-architect, intent-domain-interactions-expert
-
-Before invoking a chain skill, check `.intent-build-state.md`. If completed, skip to its artifact and continue.
+4. module-ecosystem-analyst → Attack Plan
+5. intent-module-builder    → Compiled Module Skeleton
+6. module-increment-loop    → Verified Increments
+7. module-wrap-up           → Release-ready module
+8. module-retrospective     → .module-builder/RETROSPECTIVE.md  (internal — omit when packaging)
+```
 
 ## REFERENCE APP — NON-NEGOTIABLE HARD GATE
 
@@ -63,19 +66,20 @@ The reference app is the ground truth for the entire module build:
 If `reference-app-builder` cannot produce a green app, halt the entire build and surface the
 failure to the user. Do not proceed to any later step.
 
+---
+
 ## Pre-flight
 
-Before loading the first skill:
+1. Confirm repository identity (`AGENTS.md` at root).
+2. Classify the task (Greenfield vs Minor/Bugfix).
+3. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
+4. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
 
-1. Confirm repository identity (`AGENTS.md` exists, top-level `Modules/` exists).
-2. Confirm target module does not already exist under `Modules/Intent.Modules.<Name>/`.
-3. Confirm Intent Architect MCP tooling is available.
-4. **Ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
-5. Initialize `.intent-build-state.md` with Current Active Focus set to `module-kickoff`.
+---
 
 ## Autonomy Mode
 
-Set at pre-flight. Stored in `WORKING.md` under `autonomy_mode`.
+Set at pre-flight. Stored in `.module-builder/WORKING.md` under `autonomy_mode`. Applies to Greenfield builds only.
 
 | Mode | Behaviour | Stops at |
 |---|---|---|
@@ -83,80 +87,42 @@ Set at pre-flight. Stored in `WORKING.md` under `autonomy_mode`.
 | `checkpointed` | Pauses at Gate 1, 2, and 3 for developer confirmation. | Same hard stops as autonomous, plus each gate. |
 
 **Checkpoint gates (checkpointed mode only):**
-- **Gate 1** — after kickoff/PRD analysis: presents Requirements Summary, waits before tech research.
-- **Gate 2** — after reference app is green: presents what was built and scenarios covered, waits before ecosystem analysis.
-- **Gate 3** — after all increments pass: presents full generated surface, waits before wrap-up.
+- **Gate 1** — after kickoff/PRD: presents Requirements Summary, waits before tech research.
+- **Gate 2** — after reference app is green: presents what was built, waits before ecosystem analysis.
+- **Gate 3** — after all increments: presents full generated surface, waits before wrap-up.
 
 ## Pivot Scale
 
-When the AI uncovers something that differs from what was described, it classifies the delta and acts accordingly. Always name the level and state what was described vs. uncovered.
+When the AI uncovers something that differs from what was described. Always name the level.
 
 | Level | Name | Definition | Action |
 |---|---|---|---|
-| 0 — Micro | In-scope | Fits within current increment. No prior artifact needs revision. | Silent. One-line retrospective entry. |
-| 1 — Local | Increment adjustment | 1–2 increments affected. Pattern Document and Attack Plan remain valid. | Adjust plan, notify: "Adjusting increment N due to [finding]. Continuing." |
-| 2 — Moderate | Scenario gap | 3+ increments affected, OR new reference app scenario needed, OR Pattern Document needs minor revision. | Stop. Present gap and proposed adjustment. Wait for acknowledgement before continuing. |
-| 3 — Significant | Plan invalidation | Attack Plan partially invalid, OR reference app needs substantial rework, OR cross-module dependency discovered. | Halt chain step. Present what is invalidated and what input is needed. Do not resume until developer provides direction. |
-| 4 — Major | Foundation change | Pattern Document substantially wrong, OR module scope must be redesigned, OR new/revised PRD needed. | Halt entirely. State: "This delta exceeds what I can resolve unilaterally." Wait for developer to restart or revise. |
-
-At levels 2–4: never continue with a degraded assumption.
+| 0 — Micro | In-scope | Fits within current increment. No prior artifact needs revision. | Silent. Retrospective entry. |
+| 1 — Local | Increment adjustment | 1–2 increments affected. Pattern Document and Attack Plan valid. | Adjust, notify and continue. |
+| 2 — Moderate | Scenario gap | 3+ increments affected, OR new reference app needed, OR Pattern Document needs minor revision. | Stop. Present gap, wait for acknowledgement. |
+| 3 — Significant | Plan invalidation | Attack Plan partially invalid, OR reference app needs rework, OR cross-module dependency found. | Halt. Present what is invalidated, wait for direction. |
+| 4 — Major | Foundation change | Pattern Document wrong, OR scope must be redesigned, OR new PRD needed. | Halt entirely. State the delta. Wait for restart or revised input. |
 
 ## Module Wrap-up (Step 7)
 
-Mandatory final phase after all increments pass. Not part of `module-increment-loop` exit criteria.
+Mandatory final phase after all increments pass.
 
-1. **Version bump** — state impact assessment (patch / minor / major) and apply:
-
-| Situation | Rule |
-|---|---|
-| New module | `1.0.0-pre.0` |
-| Already on a prerelease | Increment pre only: `1.0.0-pre.4` → `1.0.0-pre.5` |
-| Release version, patch change | `X.Y.(Z+1)-pre.0` |
-| Release version, minor change | `X.(Y+1).0-pre.0` |
-| Release version, major change | `(X+1).0.0-pre.0` |
-
-Align imodspec + csproj + designer (designer version wins if higher).
-
-2. **Invoke `module-docs` skill** — README.md and release-notes.md in the same turn. Release notes header uses the non-pre version (e.g. `### Version 1.0.0`, not `1.0.0-pre.5`).
-3. **Write `CONTEXT.md`** — durable architectural decisions, what the module generates, cross-module interactions.
-4. **Clear `/WORKING.md`**.
-5. **Confirm SF on target yields zero staged changes.**
-6. **Mark `.intent-build-state.md` 100% complete.**
+1. **Version bump** — state impact (patch / minor / major) and apply rule:
+   - New module → `1.0.0-pre.0`
+   - Already on prerelease → increment pre only
+   - Release version → bump + add `-pre.0`
+   Align imodspec + csproj + designer.
+2. **Invoke `module-docs`** — README.md and release-notes.md in same turn. Header uses non-pre version.
+3. **Write `CONTEXT.md`** — architectural decisions, generated files, cross-module interactions.
+4. **Clear `.module-builder/WORKING.md`** (or the localized `.module-builder/<ModuleName>/WORKING.md` for the bug-fix path).
+5. **Confirm SF yields zero staged changes.**
+6. **Mark state file 100% complete.**
 
 ## Stop Conditions
-
-Stop and surface to the user when:
-- A skill's Musts or Must Nots cannot be satisfied.
-- The user redirects scope or asks to stop.
-- Software Factory fails repeatedly on the same change.
-- Target sample fails to run after staged changes are applied.
-- Module DLL deployment remains blocked by an IA lock.
-- Pivot reaches Level 3 or Level 4 (see Pivot Scale above).
+Halt and surface to the user when tools fail, the user redirects scope, target assembly/tests repeatedly fail build, or a Level 3/4 pivot is reached.
 
 ## Done Criteria
-
-All must be true:
-1. Every Attack Plan increment passes its checklist.
-2. Module `.csproj` and target sample both build with exit code 0.
-3. Target sample run verifies expected behavior.
-4. No placeholders remain (`NotImplementedException`, `TODO`, etc.).
-5. SF on target yields zero staged changes.
-6. Wrap-up complete: version bumped, module-docs invoked, CONTEXT.md written, WORKING.md cleared.
-7. Retrospective entries written to `RETROSPECTIVE.md`; session-end proposals reviewed.
-8. `.intent-build-state.md` shows 100 percent completion before archive or deletion.
-
-## Anti-patterns
-
-- Re-running completed phases instead of trusting state.
-- Editing generated files directly for validation.
-- Running SF on target before rebuilding and redeploying module DLL.
-- Declaring success from compile only without runtime verification.
-- Batching multiple increments in one SF cycle.
-- Reinventing skill logic instead of invoking the right skill.
-
-## References
-
-- `AGENTS.md`
-- `.agents/skills/<skill-name>/SKILL.md`
-- workflow memory: `feedback-intent-module-workflow.md`
-- friction memory: `project-module-dev-loop-gap.md`
+1. Changes compile (`dotnet build` exits with code 0).
+2. Code builds and runs cleanly against the target/sample application.
+3. Wrap-up complete: version bumped, docs updated, CONTEXT.md written.
+4. The `.module-builder/WORKING.md` (Greenfield) or localized `.module-builder/<ModuleName>/WORKING.md` (Minor/Bugfix) tracks 100% completion before exit.
