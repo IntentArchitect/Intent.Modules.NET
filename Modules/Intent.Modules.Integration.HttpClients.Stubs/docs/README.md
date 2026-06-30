@@ -24,12 +24,12 @@ The migration is idempotent: if an `<App>.Infrastructure.Stubs` project already 
 
 ## Stub Implementations
 
-For each HTTP client, the module generates a stub class implementing the service contract. Every endpoint method returns a default value so the application can run without the downstream service:
+For each HTTP client, the module generates a stub class implementing the service contract. Every endpoint method returns a default value so the application can run without the downstream service, and the body is yours to customize:
 
 ```csharp
 public class CustomersServiceHttpClientStub : ICustomersService
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await Task.FromResult(new CustomerDto
@@ -45,7 +45,7 @@ public class CustomersServiceHttpClientStub : ICustomersService
 }
 ```
 
-By default each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Fully)]`, so the Software Factory keeps it returning the generated defaults on every run. To give a stub meaningful canned behaviour, set the method's `Body` to `Mode.Ignore` (i.e. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`) and write your own implementation — the Software Factory will then preserve your hand-written body while still keeping the method signature in sync with the contract.
+Each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`: the Software Factory writes the safe default body once, then leaves it untouched on subsequent runs while keeping the method signature in sync with the contract. Edit a stub's body to give it meaningful canned behaviour — your implementation is preserved across regenerations, with no attribute change needed.
 
 ### Paged results
 

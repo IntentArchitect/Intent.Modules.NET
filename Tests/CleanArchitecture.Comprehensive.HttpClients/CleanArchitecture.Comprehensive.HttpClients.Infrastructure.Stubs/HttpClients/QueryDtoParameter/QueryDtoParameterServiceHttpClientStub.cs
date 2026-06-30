@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.HttpC
 {
     public class QueryDtoParameterServiceHttpClientStub : IQueryDtoParameterService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<int> HasDtoParameterAsync(
             QueryDtoParameterCriteria arg,
             CancellationToken cancellationToken = default)

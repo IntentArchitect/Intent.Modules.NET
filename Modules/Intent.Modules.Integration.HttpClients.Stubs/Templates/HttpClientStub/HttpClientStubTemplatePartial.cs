@@ -60,7 +60,7 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
                         {
                             method
                                 .Async()
-                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
 
                             if (Model.UnderlyingModel is ServiceProxyModel serviceProxyModel && serviceProxyModel.Operations.Any())
                             {
