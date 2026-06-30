@@ -24,7 +24,7 @@ The migration is idempotent: if an `<App>.Infrastructure.Stubs` project already 
 
 ## Stub Implementations
 
-For each HTTP client, the module generates a stub class implementing the service contract. Every endpoint method returns a default value so the application can run without the downstream service, and the body is yours to customize:
+For each HTTP client, the module generates a stub class implementing the service contract, with a body you own and customize. A method that **returns data** is scaffolded with a default value so the application can run without the downstream service:
 
 ```csharp
 public class CustomersServiceHttpClientStub : ICustomersService
@@ -45,7 +45,16 @@ public class CustomersServiceHttpClientStub : ICustomersService
 }
 ```
 
-Each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`: the Software Factory writes the safe default body once, then leaves it untouched on subsequent runs while keeping the method signature in sync with the contract. Edit a stub's body to give it meaningful canned behaviour — your implementation is preserved across regenerations, with no attribute change needed.
+A method that **returns nothing** (`void` / `Task`) has no value to fabricate, so it is scaffolded to throw instead of silently doing nothing — an explicit prompt to implement it:
+
+```csharp
+public async Task SetOrderRiskAsync(SetOrderRiskCommand command, CancellationToken cancellationToken = default)
+{
+    throw new NotImplementedException();
+}
+```
+
+Each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`: the Software Factory writes the scaffold body once, then leaves it untouched on subsequent runs while keeping the method signature in sync with the contract. Edit a stub's body to give it meaningful canned behaviour — your implementation is preserved across regenerations, with no attribute change needed.
 
 ### Paged results
 

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b8c1ef43-3669-4e36-bd75-b4853e467c24</correlationId>
+      <path>Intent.Modules.Integration.HttpClients.Stubs/Templates/HttpClientStub/HttpClientStubTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-06-30T15:34:11.4057098Z</updatedAt>
+      <deviationsHash>4E14793F67A268E8EC85AF128F55FB5F77C29467EAF48631FFDBC8F921E93C2D</deviationsHash>
+      <fileHash>018B190229E12595DD84059C3CB636A094522B93A9C65634CAE67336835A22B8</fileHash>
+    </file>
+  </files>
 </deviationsLog>

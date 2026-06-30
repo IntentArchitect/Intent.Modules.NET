@@ -144,7 +144,9 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
         {
             if (endpoint.ReturnType?.Element == null)
             {
-                method.AddStatement($"await {UseType("System.Threading.Tasks.Task")}.CompletedTask;");
+                // A void/Task endpoint has no value to fabricate, so the stub is an explicit "implement me"
+                // rather than a silent no-op (data-returning methods still get a default value below).
+                method.AddStatement($"throw new {UseType("System.NotImplementedException")}();");
                 return;
             }
 

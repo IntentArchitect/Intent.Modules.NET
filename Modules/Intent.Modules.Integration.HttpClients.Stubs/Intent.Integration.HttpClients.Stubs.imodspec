@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients.Stubs</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates developer-owned stub implementations for Integration HttpClient service contracts.</summary>
   <description>Generates developer-owned stub implementations for Integration HttpClient service contracts.</description>
