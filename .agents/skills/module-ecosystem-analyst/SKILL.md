@@ -14,7 +14,9 @@ Turn the Pattern Document from `tech-pattern-researcher` into a concrete Attack 
 
 Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions are the standard for this layer. Only where the SDK is silent do we improvise — and every improvisation must be logged in the Pattern Document Decision Log with basis and rationale.
 
-**Before doing any work:** read `[ModuleFolder]/PATTERN-DOCUMENT.md` and `[ModuleFolder]/ATTACK-PLAN.md` (if they exist). Check the Decision Log — do not re-derive any closed decision. Check Open Questions — close any that are now answerable. Check the Progress Tracker — do not re-implement work already marked ✅ Complete.
+**Load `module-building-strategies` before planning.** The decomposition calls in this skill (does this need its own module? root vs bridging vs common? template vs factory extension? file cardinality? managed mode?) are governed by that strategic playbook — apply its rules rather than deciding ad hoc.
+
+**Before doing any work:** read `.module-builder/[ModuleName]/PATTERN-DOCUMENT.md` and `.module-builder/[ModuleName]/ATTACK-PLAN.md` (if they exist). Check the Decision Log — do not re-derive any closed decision. Check Open Questions — close any that are now answerable. Check the Progress Tracker — do not re-implement work already marked ✅ Complete.
 
 **After completing work:** update the Decision Log with new decisions, close resolved Open Questions, and update the Progress Tracker in `ATTACK-PLAN.md`.
 
@@ -27,6 +29,7 @@ Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions ar
 5. **Separate single-file templates from file-per-model templates.** File-per-model templates drive one output file per designer element instance (e.g. one consumer per handler). Single-file templates produce one output regardless of model count (e.g. NServiceBusConfiguration).
 6. **Identify every Intent event** the module needs to subscribe to (e.g. `ContainerRegistrationRequest`, `AppSettingRegistrationRequest`, `TemplateDependancyRegistrationRequest`). These drive which FactoryExtensions to create.
 7. **Order increments by dependency.** An increment that depends on a template from a previous increment must come after it. Increment 1 must be independently buildable and runnable.
+8. **Read every reference app in the confirmed spanning set, and give each shape-distinct scenario its own increment.** The Pattern Document's **Spanning Set** section lists the scenarios that were built (see **Scope Batching — The Spanning Set Principle** in `tech-pattern-researcher`). Walk the generated output of *all* of them, not just the first. Each distinct shape proven by a spanning-set scenario (e.g. a transport-specific configuration block) becomes its own increment, sequenced after the core wiring — so it is planned upfront, never discovered mid-loop. For any **deferred** scenario, add an explicit note that its shape is unverified and plan it as a later runtime-only verification, not a fully-covered increment.
 
 ## Must Nots
 
@@ -103,7 +106,7 @@ If friction persists after 3+ "what if?" attempts, escalate: the Intent design n
    
    Confirm module IDs and minimum versions for the `.imodspec` dependencies block.
 
-3. **Check the target application's designer via MCP.** Call `get_applications`, `get_designers`, then `get_designer_model_snapshot` on the relevant designer to see:
+3. **Check the target application's designer via MCP.** Call `get_applications`, `get_designers`, then `get_designer_model_structure` (or `find_designer_elements` for a targeted lookup) on the relevant designer to see:
    - Are Message elements modeled in the Eventing Package?
    - Are Subscribe/Publish Integration Event associations present in the Services designer?
    - Are handler elements already modeled (and thus ready for the consumer adapter template to fire)?
@@ -221,7 +224,7 @@ Module ID, imodspec dependency list, NuGet packages table, settings definition, 
 
 ## Attack Plan Format
 
-Write this document to `[ModuleFolder]/ATTACK-PLAN.md`. It is a **temporary implementation roadmap** used to guide and track increments — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, any durable design patterns are consolidated into `CONTEXT.md`, and `ATTACK-PLAN.md` is deleted.
+Write this document to `.module-builder/[ModuleName]/ATTACK-PLAN.md`. It is a **temporary implementation roadmap** used to guide and track increments — every subsequent skill reads it before working and updates it after concluding. Once the module's implementation is fully completed, any durable design patterns are consolidated into `CONTEXT.md`, and `ATTACK-PLAN.md` is deleted.
 
 
 ```markdown

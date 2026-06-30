@@ -22,13 +22,28 @@ Both paths produce an identical Requirements Summary. All downstream skills are 
 
 ---
 
+## Build Type — New vs Modify
+
+Determine early whether this is a **new module** or a **modification of something existing** — a fix, an improvement, or a pivot on a prior decision. For a modification, read the existing module's `CONTEXT.md` first to establish current state and scope the *delta*.
+
+Then triage a modification by **output impact** — this decides whether the reference-architecture gate applies downstream:
+
+| Change | Example | Reference-output gate (`reference-app-builder`) |
+|---|---|---|
+| **Designer-only, no output impact** | Dialog/menu behaviour, designer-extension UX, validation message | ❌ Skip — verify the designer change works; no test-app proof needed |
+| **Affects generated output** | Template / factory-extension change, new generated file, changed shape | ✅ Required — prove the output in a reference architecture *before* changing the module |
+
+When output impact is genuinely ambiguous, **default to treating it as output-affecting** — verifying an unneeded change is cheaper than shipping an unverified one.
+
+---
+
 ## Purpose
 
 Gather enough information upfront so that every subsequent step (pattern research, ecosystem analysis, implementation) can proceed without stopping to ask the developer for clarification. If requirements are insufficient, ask follow-up questions before moving on.
 
 ## Musts
 
-1. Ask all universal questions (U1–U9) first — applies to every module.
+1. Ask all universal questions (U1–U10) first — applies to every module.
 2. Determine module type from answers, then ask type-specific questions.
 3. Validate using the sufficiency checklist. Ask targeted follow-ups for any gap.
 4. Produce a Requirements Summary before handing off to `tech-pattern-researcher`.
@@ -58,6 +73,7 @@ Ask these regardless of module type:
 | U7 | What Clean Architecture layer(s) does the generated code belong in? (Domain / Application / Infrastructure / API) | Constrains where templates output and what they reference |
 | U8 | What is the target .NET version? | Affects API choices and generated code |
 | U9 | Is there an existing test/reference application the module can be verified against, or does one need to be created? If it exists, where is it? | **Mandatory for `reference-app-builder`.** The reference app is built or identified before any templates are written — without it there is no ground truth to verify against. |
+| U10 | What platform modules, host types, and deployment environments must this module integrate with or support? For each integration target: (a) are bridging or companion modules needed? (b) are there known constraints with the chosen framework in that environment (e.g. serverless disk restrictions, startup entry-point overrides, codegen prerequisites)? Verify against current online documentation — do not rely on training data. | Drives the `<interoperability>` block in the `.imodspec` and the integration compatibility check in `reference-app-builder`. Framework–environment incompatibilities discovered after a full module build cost complete rework cycles. |
 
 ---
 
@@ -115,6 +131,7 @@ Before producing the Requirements Summary, verify you can answer YES to every it
 - [ ] I know how to test a working output (what does success look like?).
 - [ ] I know the target .NET version.
 - [ ] I know whether a test/reference application already exists (U9). If not, I have confirmed with the user whether to scaffold one or whether they will provide it. **This item cannot be skipped — `reference-app-builder` is a mandatory chain step.**
+- [ ] I know which platform modules, host types, and deployment environments the module must integrate with (U10), and I have verified online whether the chosen technology has known limitations in any of those environments.
 
 If any item is NO — ask a targeted follow-up before proceeding.
 
@@ -157,6 +174,21 @@ Produce this document as the output of this skill. It becomes the input to `tech
 ## Definition of Done (First Increment)
 [What a working first increment looks like — how we know it works]
 ```
+
+---
+
+## Expectations Charter — present before handoff
+
+Before diving into research and build, give the developer a short, scannable charter so there are no surprises. Cover:
+
+- **Artifacts I'll produce** — Requirements Summary, Pattern Document, Attack Plan, and a durable `CONTEXT.md` that stays in the module folder. All transitory build files live under `.module-builder/` (`WORKING.md` for build state, `RETROSPECTIVE.md`, and per-module `PATTERN-DOCUMENT.md` / `ATTACK-PLAN.md`) and are cleaned up at the end. All of these are AI-managed.
+- **The plan & the gates ahead** — a high-level playback of the phases and where I'll need a decision from you.
+- **What I'll need from you** — especially any **developer-provided infrastructure or credentials** (cloud services, licensed brokers), surfaced now, not mid-build.
+- **Why the test app comes first** — the reference/test app is the ground truth; without it the module is built blind, and it's the cheapest place to catch errors. If you can't supply one, I'll obtain or build one — **this step is never skipped**.
+- **Review preference** — do you want to approve each staged diff, or only at checkpoints? Set once, here.
+- **Resumability** — long runs can span sessions; I checkpoint to `.module-builder/WORKING.md`, so you can stop or redirect anytime without losing progress.
+
+Keep it concise (a short list or table), confirm, then proceed.
 
 ---
 

@@ -18,6 +18,17 @@ The required order is:
 Do not treat them as interchangeable. `CONTEXT.md` establishes the durable architecture and
 constraints; `WORKING.md` tells you how the current branch/task fits inside that context.
 
+### Where these live — `.module-builder/`
+
+All **transitory** build artifacts live under **`.module-builder/`** at the repository root (gitignored — never committed):
+
+| Artifact | Path | Scope |
+|---|---|---|
+| `WORKING.md` (global build state), `RETROSPECTIVE.md` | `.module-builder/<file>` | global — one each |
+| `PATTERN-DOCUMENT.md`, `ATTACK-PLAN.md`, localized `WORKING.md` | `.module-builder/<ModuleName>/<file>` | per module being built |
+
+`CONTEXT.md` is the **only durable** artifact and the **exception**: it stays in the **module project folder** (e.g. `Modules/Intent.Modules.X/CONTEXT.md`) — never under `.module-builder/`, never at the repo root.
+
 ### `CONTEXT.md`
 
 `CONTEXT.md` is the **durable knowledge layer** for a module or area. It captures:
@@ -26,22 +37,20 @@ constraints; `WORKING.md` tells you how the current branch/task fits inside that
 * The design decisions taken during implementation.
 This ensures future AI sessions understand the historical context and architectural implications when modifying a module, especially when `WORKING.md` starts fresh.
 
-Read order:
-1. **Repo root** — `CONTEXT.md` (cross-cutting repo knowledge)
-2. **Same directory as files you are about to modify** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`
+Location: `CONTEXT.md` lives **only inside module projects** — e.g. `Modules/Intent.Modules.Eventing.NServiceBus/CONTEXT.md`. **There is no root `CONTEXT.md`.** Read the `CONTEXT.md` of every module you are about to modify. (Cross-cutting, in-progress state lives in `.module-builder/WORKING.md` instead — never in a root `CONTEXT.md`.)
 
 Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches. If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than silently "improving" the design.
 
 ### `WORKING.md`
 
-`WORKING.md` is the **temporary in-progress layer** located **only at the repository root** (`/WORKING.md`). It captures:
+`WORKING.md` is the **temporary in-progress layer** located at **`.module-builder/WORKING.md`** (with per-module `.module-builder/<ModuleName>/WORKING.md` for minor/bugfix work). It captures:
 * The active task/project state, current goals, known issues, and checklists spanning multiple modules or test apps.
 * **What has been tried**: Specific solutions, approaches, or paths that were attempted and either discarded or selected, along with why. This prevents future AI runs from repeating failed paths.
 
 Both `WORKING.md` and `CONTEXT.md` are **managed and maintained entirely by the AI, for the AI**. 
 
 **Lifecycle:** 
-* The root `WORKING.md` file exists only while the overall project work is in progress. When the project is complete, the file is deleted or cleared, and any durable knowledge that should survive is extracted into the relevant `CONTEXT.md` files. Do not create module-specific `WORKING.md` files inside module subdirectories.
+* The `.module-builder/WORKING.md` file exists only while the overall project work is in progress. When the project is complete, the file is deleted or cleared, and any durable knowledge that should survive is extracted into the relevant `CONTEXT.md` files (which live in their module project folders). Per-module WORKING.md for minor/bugfix work goes under `.module-builder/<ModuleName>/WORKING.md` — never inside the module's own source folder.
 * **Stale File Handler**: If a `WORKING.md` file exists, but you receive a new task/request that is completely unrelated to what is described in the `WORKING.md`, you must prompt the user immediately: *"I see there is a project in progress in WORKING.md. Do you want to discard it and start fresh, or modify the existing plan?"* before taking any actions.
 
 
@@ -51,6 +60,17 @@ Before calling any file modification tool, you must output a single line specify
 `Target: [ClassName.cs] | Lines [Start]-[End]` (e.g., `Target: OrderController.cs | Lines 45-60`).
 
 Do not output any prose, explanations, or additional bullet points.
+
+---
+
+## 💬 Developer Communication Style
+
+All developer-facing output during module work must be **easy to scan — never a wall of text**:
+- Lead with a concise summary; cut preamble and restated context.
+- Prefer **tables, short sections, and bullets** over long paragraphs.
+- Use **light, purposeful emoji** as visual anchors (✅ ❌ ⚠️ 📝) — not decoration.
+- Surface decisions, blocks, and "what I need from you" explicitly and early.
+- Developer-facing only — this does **not** apply to artifact files (CONTEXT.md, generated code, imodspec) or structured output another tool consumes.
 
 ---
 
@@ -142,7 +162,7 @@ The cycle is:
 If the user instructs you to commit or move on while a cycle is open:
 1. Commit the module-side code only (steps 1–2 are safe to commit).
 2. State explicitly: *"Steps 4–7 are still open. I will not start new template-touching work until the SF cycle is closed."*
-3. Create or update `/WORKING.md` to record the open cycle so the next session can resume it.
+3. Create or update `.module-builder/WORKING.md` to record the open cycle so the next session can resume it.
 4. Close the cycle before touching any `*TemplatePartial.cs` or `*FactoryExtension.cs` file again.
 
 ### Docs Update (Mandatory)
@@ -175,8 +195,8 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 | **module-ecosystem-analyst** | **After all reference apps are green.** Uses the actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules generate, which SDK building blocks to use, which designer elements drive generation. Synthesizes across all reference app scenarios. Produces an Attack Plan. |
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
 | **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
-| **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md`, clear `WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
-| **module-retrospective** | Runs automatically throughout every build. Appends findings to `RETROSPECTIVE.md` (append-only, repo root) whenever a workaround, skill gap, or missing requirement is encountered. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Three buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), PRD/user gaps (strengthen kickoff questions). |
+| **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md` (in the module folder), clear `.module-builder/WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
+| **module-retrospective** | Runs automatically throughout every build. Appends findings to `.module-builder/RETROSPECTIVE.md` (append-only) whenever a workaround, skill gap, missing requirement, or architecture problem is encountered — even when the task still completed. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Four buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), Module Architecture gaps (flag for architecture owners / `module-building-strategies`), PRD/user gaps (strengthen kickoff questions). |
 
 ---
 
@@ -184,6 +204,7 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 
 | Skill | When to use |
 | :--- | :--- |
+| **module-building-strategies** | The accumulated strategic playbook — load at every design decision across the whole chain: module decomposition (root/bridging/common, shared-project avoidance, DLL-skew), template vs factory extension, file cardinality, managed modes, design-time config (setting vs stereotype), convention-vs-explicit, and two-phase (reproduce + from-scratch) verification. |
 | **file-builder-expert** | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
 | **intent-mapping-architect** | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
 | **intent-metadata-consumer** | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |

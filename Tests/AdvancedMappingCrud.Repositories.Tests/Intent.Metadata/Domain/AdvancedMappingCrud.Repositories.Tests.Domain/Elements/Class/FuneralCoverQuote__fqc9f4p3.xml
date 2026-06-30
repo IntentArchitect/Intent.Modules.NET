@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>FuneralCoverQuote</name>
-  <display>FuneralCoverQuote : Quote</display>
+  <display>FuneralCoverQuote</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

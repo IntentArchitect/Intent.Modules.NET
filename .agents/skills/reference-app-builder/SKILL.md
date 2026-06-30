@@ -14,13 +14,15 @@ This is the most important gate in the chain. Template bugs from unverified patt
 
 ## Musts
 
-1. Locate or create a test app (check U9). Scaffold with `dotnet new webapi` if needed. If scaffolding requires unattended IA designer setup, ask the user.
+1. Locate or create a test app (check U9). For Intent-managed apps, attempt scaffolding via the `create_application`/`create_solution` MCP tools first; fall back to `dotnet new webapi` for a plain app, or ask the user if the tools are unavailable or IA designer setup must be done by hand.
 2. Hand-craft every file in the Pattern Document's "Files to Generate" table — exact class names, signatures, namespace conventions, IntentManaged attributes.
 3. Wire DI registration exactly as the factory extension will emit it (word-for-word from Pattern Document).
 4. `dotnet build` → exit 0 before proceeding.
 5. Exercise at runtime: call an endpoint or run a test that dispatches through the handler. Confirm the handler body is reached.
 6. Update `PATTERN-DOCUMENT.md` immediately if any shape needed correction. Add a Decision Log entry.
 7. Record the reference app path in the Attack Plan under "Reference App".
+8. Exercise every runtime dependency path — including reflectively-loaded providers (e.g. NHibernate drivers, EF Core providers, serialization adapters). These fail only at startup with no compile-time signal; compilation alone does not verify them.
+9. **Model a comprehensive test domain when the module generates from domain / DTO / entity models.** Do not settle for one trivial DTO/entity with 2–3 scalar properties — deliberately exercise the OOP aspects the domain actually has: composition, aggregates (independent relationships), inheritance, nullability, collections, operations (where relevant), parameter lists, and parameterized constructors. A module verified only against a toy model silently fails on the variations developers really use. Expand to the domain's real shapes, then let the developer cut what's out of scope (don't pad artificially beyond what the domain has).
 
 ## Must Nots
 
@@ -32,7 +34,29 @@ This is the most important gate in the chain. Template bugs from unverified patt
 
 ---
 
+## Greenfield vs Modification
+
+This skill applies to **any change that affects generated output** — a new module *or* a modification (fix / improvement / pivot). The gate is **output impact, not novelty** (see `module-kickoff` Build Type triage):
+
+- **Designer-only changes with no output impact** (dialog behaviour, designer-extension UX) **do not enter this skill** — there is nothing to prove in generated code.
+- **Modifications that affect output** must **prove the *changed* output shape in a reference architecture before the module is changed.** Locate the existing reference architecture (or stand one up) and show "this is what the new/changed output will look like" first.
+- **Don't break what works:** when modifying, the reference app must still exercise the **existing** scenarios alongside the change, so a regression in current output/behaviour is caught — not just the new shape.
+
+---
+
 ## Phase R.0 — Runtime Dependency Classification
+
+### Step R.0.0 — Integration Target Verification (run before anything else)
+
+Review the Requirements Summary (U10) for all platform modules, host types, and deployment environments the module must integrate with. For each one, **verify online** whether the chosen framework has known constraints in that environment before writing any code:
+
+- **Serverless hosts** (Azure Functions isolated worker, AWS Lambda): Does the framework support this environment? Does it require Oakton CLI command routing or runtime disk writes for codegen that serverless hosts bypass or block?
+- **Transport bridges / integration modules**: Are there known compatibility issues between this framework version and the integration target?
+- **Runtime-only drivers** (NHibernate drivers, EF Core providers, serialization adapters): These are reflectively loaded and fail only at startup — they produce no compile-time signal. Verify each path at runtime, not just in a build.
+
+**If a known blocker is found, stop and escalate before proceeding.** A reference app built against an incompatible framework/environment combination proves nothing and produces wasted increment cycles.
+
+### Step R.0.1 — Enumerate and Classify Runtime Dependencies
 
 Before writing any code, enumerate every runtime dependency the app will need and classify each:
 
@@ -221,25 +245,33 @@ var result = await _messageBus.InvokeAsync<OrderDto>(query, cancellationToken);
 
 ---
 
-## Phase R.5 — Multi-Scenario Loop
+## Phase R.5 — Build the Spanning Set
 
-After the initial reference app is green, check whether additional scenarios are needed before handing off to `module-ecosystem-analyst`.
+After the initial (typically in-memory / simplest) reference app is green, build out the rest of the **confirmed spanning set** before handing off to `module-ecosystem-analyst`. This is not an optional "do we need more?" check — the spanning set was already identified and developer-approved in the Pattern Document's **Spanning Set** section (see **Scope Batching — The Spanning Set Principle** in `tech-pattern-researcher`). Build every scenario in that set; do not silently stop at the first green app.
 
-**Either the developer or the AI may trigger an additional scenario:**
-- **Developer-initiated** — "I also need a scenario for X" → build a new reference app for that scenario now.
-- **AI-initiated** — AI identifies a scenario material to the module design not covered by the current app → propose it; developer confirms or rejects.
-- **PRD-driven** — multiple scenarios described in the PRD are each built as separate reference apps.
+**For each scenario in the confirmed spanning set:**
+- **AI-spinnable dependency** (RabbitMQ, SQL Server, etc.) → bring the dependency up via docker-compose, switch the reference app's configuration to that scenario, and run the full R.0–R.4 cycle against the real dependency. A docker-compose that was generated in R.0 but never brought up and exercised does **not** count — the scenario is only complete once the path runs through the real dependency.
+- **Deferred scenario** (developer-provided dependency, or a redundant shape) → do **not** build it. Record the deferral and its reason in the build state so `module-ecosystem-analyst` knows the shape is unverified and can flag it as a later runtime-only check rather than treating it as covered.
 
-Each additional scenario follows the same R.0–R.4 cycle. Record all reference app paths in `.intent-build-state.md`. `module-ecosystem-analyst` synthesizes across all of them.
+**Scope changes are still allowed mid-phase** (the spanning set is a proposal, not a cage):
+- **Developer-initiated** — "I also need a scenario for X" → add it to the set and build it now.
+- **AI-initiated** — AI finds a distinct shape the stress-test missed → propose it; developer confirms or rejects before building.
+- **PRD-driven** — scenarios described in the PRD are each built as part of the set.
+
+Each scenario follows the same R.0–R.4 cycle. Record all reference app paths and every deferral in `.module-builder/WORKING.md`. `module-ecosystem-analyst` synthesizes across all of them.
 
 **Pivots are also handled here.** If new information requires reworking an existing reference app (Level 2+ pivot per the agent Pivot Scale), do so before proceeding. A pivot triggered after a PRD was provided is valid — new runtime evidence supersedes the original document.
 
-Only proceed to `module-ecosystem-analyst` when all required scenarios are green and no pending pivots remain.
+**Major pivot — re-fire the Research Mode Gate** (from `tech-pattern-researcher`) before continuing when a pivot requires substantial re-research: a new technology is being evaluated, the CA layer assignment changes fundamentally, or the Pattern Document's Technology Profile needs to be rebuilt. Ask the user whether to proceed with built-in tools or produce a prompt for an external deep-research tool. A pivot that only corrects a file shape or a DI registration does not trigger the gate — handle it in-flow.
+
+Only proceed to `module-ecosystem-analyst` when every scenario in the confirmed spanning set is green (or explicitly deferred with a recorded reason) and no pending pivots remain.
 
 ---
 
 ## Handoff
 
 Once all reference apps are green and the Pattern Document is updated, load **`module-ecosystem-analyst`** and pass all reference app paths + Pattern Document as context. The ecosystem analyst reads the actual generated code across all scenarios to determine what the Intent ecosystem already provides, which SDK building blocks to use, and how to structure the Attack Plan.
+
+> **Note for the increment loop:** these reference apps become the **Phase-1 SF target** later (the module is installed on top to confirm it reproduces this code exactly — see `module-building-strategies` §4, two-phase verification). Because these files are hand-crafted, the increment loop must reset the regeneration baseline (remove hand-added `Ignore`s / delete-to-regenerate template-owned files) before trusting any staged diff. A separate **from-scratch app** with no pre-written code is then required as Phase 2.
 
 > If at any point a reference app cannot be made to work after 3+ attempts and Pattern Document updates, **stop and escalate to the user.** Do not proceed to ecosystem analysis with an unverified pattern.

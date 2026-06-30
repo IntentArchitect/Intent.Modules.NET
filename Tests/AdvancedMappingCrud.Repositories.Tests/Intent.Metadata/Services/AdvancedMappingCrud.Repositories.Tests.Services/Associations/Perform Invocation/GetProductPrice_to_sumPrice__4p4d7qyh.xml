@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="2f93be43-1b2c-4941-abf4-bb9eea46f6df">
-  <comment />
   <sourceEnd id="05e8119d-9285-4d2a-9db7-bd754cc241b4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ProductsService.GetProductPrice</display>
     <order>0</order>
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="2f93be43-1b2c-4941-abf4-bb9eea46f6df" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <comment />
     <name>sumPrice</name>
     <display>[call] sumPrice = SumPrices(...): decimal</display>
     <order>3</order>

@@ -106,7 +106,27 @@ public class MyTemplateRegistration : SingleFileTemplateRegistration<MyTemplate>
 
 ---
 
-## 10. Double semicolon from `AddReturn` wrapping a statement-type expression
+## 10. `FindMethod` Returns Only the First Overload
+
+**Symptom:** When a class has multiple overloaded methods with the same name (e.g. two `HandleAsync` methods for different event types), only the first overload is modified or enriched — subsequent overloads are silently ignored.  
+**Cause:** `cls.FindMethod("HandleAsync")` stops at the first match.  
+**Fix:** Use LINQ to enumerate all matching methods:
+
+```csharp
+// Wrong — only finds the first overload
+var method = cls.FindMethod("HandleAsync");
+
+// Correct — handles all overloads
+var methods = cls.Methods.Where(m => m.Name == "HandleAsync");
+foreach (var method in methods)
+{
+    // apply changes to each overload
+}
+```
+
+---
+
+## 11. Double semicolon from `AddReturn` wrapping a statement-type expression
 
 **Symptom:** Generated returns emit a stray second semicolon, e.g. `return await Task.FromResult(value); ;`.
 **Cause:** `method.AddReturn(stmt)` already appends the `;`. `CSharpObjectInitializerBlock` renders as an expression (no own semicolon), so `AddReturn` works cleanly with it — but `CSharpInvocationStatement` (and other statement-type nodes) default to rendering **with** their own trailing `;`, which then doubles up.

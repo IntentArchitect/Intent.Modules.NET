@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dcd6a531-5ec0-4df9-a17a-83e12a4836e3" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Folders</name>
+  <display>Folders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>af4024b7-8c8e-4391-877b-9b135d2b20d8</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>dcd6a531-5ec0-4df9-a17a-83e12a4836e3</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

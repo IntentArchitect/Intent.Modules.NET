@@ -1,6 +1,6 @@
 ---
 name: module-retrospective
-description: "INTERNAL — Intent.Modules.NET team only. Omit when packaging for external distribution. Appends findings to RETROSPECTIVE.md as the build progresses. Three buckets: Intent gaps, Process gaps, PRD/user gaps. Runs automatically; no developer action required."
+description: "INTERNAL — Intent.Modules.NET team only. Omit when packaging for external distribution. Appends findings to .module-builder/RETROSPECTIVE.md as the build progresses. Buckets: Intent gaps, Process gaps, Module Architecture gaps, PRD/user gaps. Runs automatically; no developer action required."
 ---
 
 # Module Retrospective
@@ -14,13 +14,15 @@ Capture learnings from every module build and route them back into the harness. 
 
 ## When to Append an Entry
 
-Write an entry for: missing/insufficient IA SDK features, wrong or incomplete skill guidance, mid-build requirement gaps, Level 2+ pivots, unexpectedly complex runtime dependencies. Also consolidate at session end (after wrap-up) to catch anything not yet noted.
+Write an entry for: missing/insufficient IA SDK features, wrong or incomplete skill guidance, mid-build requirement gaps, Level 2+ pivots, unexpectedly complex runtime dependencies, **and module-system architecture problems** (shared-project DLL skew, coupling smells, decomposition that fights extensibility). Also consolidate at session end (after wrap-up) to catch anything not yet noted.
+
+**Flag findings even when the task completed successfully.** Completion is *not* evidence of a clean foundation — a workaround that worked still hides a real Intent or architecture issue. If the AI found its way through but the path revealed a platform limitation or an architectural problem, record it anyway.
 
 ---
 
-## Output: `RETROSPECTIVE.md`
+## Output: `.module-builder/RETROSPECTIVE.md`
 
-Located at repo root. **Append-only — never overwrite or reformat existing entries.**
+Located under `.module-builder/` (gitignored). **Append-only — never overwrite or reformat existing entries.**
 
 ### Entry format
 
@@ -32,6 +34,9 @@ Located at repo root. **Append-only — never overwrite or reformat existing ent
 
 ### Process Gaps
 - [Finding] → [Which SKILL.md to update and what to add]
+
+### Module Architecture Gaps
+- [Finding] → [Decomposition / coupling / shared-project / common-module issue and the architectural change it implies]
 
 ### PRD / User Gaps
 - [Finding] → [Which U-question to add or strengthen in module-kickoff]
@@ -59,6 +64,7 @@ After wrap-up, review all entries added during this session and propose targeted
 |---|---|
 | **Intent Gaps** | Add a note in `CONTEXT.md` under `## Intent Gaps`, flagged for the IA team. No SKILL.md edit. |
 | **Process Gaps** | Propose a targeted edit to the relevant SKILL.md. One finding → one edit. Present as a diff. |
+| **Module Architecture Gaps** | Add a note in `CONTEXT.md` under `## Module Architecture Gaps`, flagged for the architecture owners. If the finding generalizes into a reusable rule, also propose an edit to `module-building-strategies/SKILL.md`. |
 | **PRD / User Gaps** | Propose adding or strengthening a U-question in `module-kickoff/SKILL.md`. Present as a diff. |
 
 Present all proposals together. Developer accepts or rejects each individually. Apply accepted edits before closing the session.

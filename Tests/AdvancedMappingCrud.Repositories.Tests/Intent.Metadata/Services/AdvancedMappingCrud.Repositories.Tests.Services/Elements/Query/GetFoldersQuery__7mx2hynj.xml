@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ae229103-347d-4d24-beb8-f849084ad75d" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetFoldersQuery</name>
+  <display>GetFoldersQuery: FolderDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="57aed992-c774-4b92-90fc-e411e40db671">
+    <typeId>f03d9e40-587d-4f3b-85f9-de79446a82a6</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>af4024b7-8c8e-4391-877b-9b135d2b20d8</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

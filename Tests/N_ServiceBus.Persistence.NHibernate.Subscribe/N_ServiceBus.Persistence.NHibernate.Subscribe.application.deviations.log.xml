@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#7cf87ad7-125f-44b6-ac69-efb64520c500</correlationId>
-      <path>N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-06-23T19:38:14.2288823Z</updatedAt>
-      <deviationsHash>49DBA94BCB5A38E5A0088221E8788EE2C3F38E157FC856A006CB3ED55A7DA8C0</deviationsHash>
-      <fileHash>B4CD5F60854B41328CFCA6480E772742D5612D25494CCBF98048B6165C8433A4</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>
