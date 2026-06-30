@@ -184,8 +184,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Forgot
                     code.AddProperty("InputModel", "Input", input =>
                     {
                         input.Private();
-                        input.WithInitialValue("new()");
+                        input.WithInitialValue("default!");
                         input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+                    });
+
+                    code.AddMethod("void", "OnInitialized", onInitialized =>
+                    {
+                        onInitialized.Protected().Override();
+
+                        onInitialized.AddStatement("Input ??= new();");
                     });
 
                     code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>

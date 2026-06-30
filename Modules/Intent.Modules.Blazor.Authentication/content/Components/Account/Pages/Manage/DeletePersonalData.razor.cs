@@ -19,7 +19,7 @@ namespace <#= Namespace #>Components.Account.Pages.Manage
         private HttpContext HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {

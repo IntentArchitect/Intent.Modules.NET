@@ -251,7 +251,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
                     code.AddProperty("InputModel", "Input", input =>
                     {
                         input.Private();
-                        input.WithInitialValue("new()");
+                        input.WithInitialValue("default!");
                         input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
                     });
                     code.AddProperty("string?", "ReturnUrl", input =>
@@ -261,6 +261,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
                     });
 
                     code.AddProperty("string?", "Message", p => p.Private().WithoutSetter().Getter.WithExpressionImplementation("identityErrors is null ? null : $\"Error: {string.Join(\", \", identityErrors.Select(error => error.Description))}\""));
+
+                    code.AddMethod("void", "OnInitialized", onInitialized =>
+                    {
+                        onInitialized.Protected().Override();
+
+                        onInitialized.AddStatement("Input ??= new();");
+                    });
 
                     code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "RegisterUser", onValidSubmitAsync =>
                     {

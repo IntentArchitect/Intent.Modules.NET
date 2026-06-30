@@ -210,7 +210,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                     code.AddProperty("InputModel", "Input", input =>
                     {
                         input.Private();
-                        input.WithInitialValue("new()");
+                        input.WithInitialValue("default!");
                         input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
                     });
 
@@ -225,6 +225,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                     code.AddMethod("void", "OnInitialized", onValidSubmitAsync =>
                     {
                         onValidSubmitAsync.Protected().Override();
+
+                        onValidSubmitAsync.AddStatement("Input ??= new();");
 
                         onValidSubmitAsync.AddIfStatement("Code is null", @if =>
                         {
