@@ -196,6 +196,9 @@ When the module is already installed at the correct version, the deploy loop is:
 
 Calling `install_or_update_modules` unnecessarily can corrupt IA's internal package reference cache, causing `Failed to resolve package reference` errors on the next SF run that require a UI restart to clear.
 
+### Designer Changes Persist via the Software Factory — There Is No Save Tool
+There is **no standalone "save designer" MCP tool.** Designer model changes (e.g. from `run_designer_script`) are persisted when the **Software Factory runs** — starting/stopping SF triggers the designer save. **Consequence (a common friction point):** if you made designer changes, **run SF before compiling or reinstalling the module.** Compiling + reinstalling on the back of *unsaved* designer changes means the rebuilt/reinstalled module doesn't reflect them, and the unsaved designer state can be lost. Correct order whenever a designer was touched: **designer change → run SF on that application (saves the designer + regenerates) → apply staged → compile → reinstall (only if the version changed).**
+
 ### `NugetPackages.cs` — Do Not Edit
 This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overwritten by the next SF run. All NuGet package and version changes must go through the **Module Builder designer**.
 
