@@ -4,6 +4,7 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Api.Controllers.ResponseTypes;
+using CleanArchitecture.Comprehensive.Application.Common.Pagination;
 using CleanArchitecture.Comprehensive.Application.Customers;
 using CleanArchitecture.Comprehensive.Application.Customers.ChangeName;
 using CleanArchitecture.Comprehensive.Application.Customers.CreateCustomer;
@@ -12,6 +13,7 @@ using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerById;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerByNameEmail;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerExtraFields;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomers;
+using CleanArchitecture.Comprehensive.Application.Customers.GetCustomersPaged;
 using CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -180,6 +182,23 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         {
             var result = await _mediator.Send(new GetCustomerExtraFieldsQuery(id: id, field1: field1, field2: field2), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/customers/paged")]
+        [ProducesResponseType(typeof(PagedResult<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomersPaged(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomersPagedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>

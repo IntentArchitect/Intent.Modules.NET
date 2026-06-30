@@ -47,6 +47,28 @@ public class CustomersServiceHttpClientStub : ICustomersService
 
 By default each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Fully)]`, so the Software Factory keeps it returning the generated defaults on every run. To give a stub meaningful canned behaviour, set the method's `Body` to `Mode.Ignore` (i.e. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`) and write your own implementation — the Software Factory will then preserve your hand-written body while still keeping the method signature in sync with the contract.
 
+### Paged results
+
+When an endpoint returns a `PagedResult<T>`, the stub returns a single-item page that reflects the request rather than an empty, all-zero result. `TotalCount` and `PageCount` are set to `1` (the one item returned), and `PageNumber`/`PageSize` echo the request's paging fields:
+
+```csharp
+public async Task<PagedResult<OrderDto>> GetOrdersPagedAsync(
+    GetOrdersPagedQuery query,
+    CancellationToken cancellationToken = default)
+{
+    return await Task.FromResult(new PagedResult<OrderDto>
+    {
+        TotalCount = 1,
+        PageCount = 1,
+        PageSize = query.PageSize,
+        PageNumber = query.PageNo,
+        Data = new List<OrderDto> { /* one fully-populated item */ }
+    });
+}
+```
+
+The paging fields are located by name on the query/command, using the same conventions as the rest of Intent — `page` / `pageno` / `pagenum` / `pagenumber` / `pageindex` for the page number and `size` / `pagesize` for the page size. If a paged request has no recognizable paging fields, those two counters fall back to `0`.
+
 ## Conditional Registration
 
 The generated `StubHttpClientConfiguration` exposes `AddStubHttpClients`, which replaces a real client registration with its stub only when the corresponding `UseStub` setting is enabled:

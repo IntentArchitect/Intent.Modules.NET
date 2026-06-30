@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using CleanArchitecture.Comprehensive.HttpClients.Application.Common.Exceptions;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices;
+using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
@@ -160,6 +161,33 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<List<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(
+            GetCustomersPagedQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/paged";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", query.PageNo.ToString());
+            queryParams.Add("pageSize", query.PageSize.ToString());
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

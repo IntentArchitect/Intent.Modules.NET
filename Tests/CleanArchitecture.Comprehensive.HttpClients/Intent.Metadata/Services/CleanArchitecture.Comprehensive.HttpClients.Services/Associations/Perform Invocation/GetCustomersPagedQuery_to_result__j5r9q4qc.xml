@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="afe930ea-0767-4c2a-93d5-3400e0255b15">
+  <sourceEnd id="fa46403d-699e-42df-957a-361e498431e6" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.GetCustomersPagedQuery</display>
+    <order>0</order>
+    <typeReference id="99b59f14-efe8-4572-88fd-6c6e433885a6">
+      <typeId>f7c27fd4-65ef-4625-a35d-94ff22777864</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="afe930ea-0767-4c2a-93d5-3400e0255b15" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetCustomersPagedQuery(...): PagedResult&lt;CustomerDto&gt;</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="29d40b92-6148-4553-ba3a-50043d460da6">
+      <typeId>ffc53dee-ce1e-4c70-96d5-04419e480246</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f7c27fd4-65ef-4625-a35d-94ff22777864" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomersPagedQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ffc53dee-ce1e-4c70-96d5-04419e480246" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomersPagedQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetCustomersPagedQuery}</expression>
+            <path>
+              <target id="ffc53dee-ce1e-4c70-96d5-04419e480246" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="GetCustomersPagedQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="f7c27fd4-65ef-4625-a35d-94ff22777864" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{PageNo}</expression>
+            <path>
+              <target id="ffc53dee-ce1e-4c70-96d5-04419e480246" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="5f859dbc-f338-4b87-9ede-a724ecf28c5b" name="PageNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="PageNo" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="f7c27fd4-65ef-4625-a35d-94ff22777864" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="7b07bfd6-1f11-4ec2-94ed-d9d936574488" name="PageNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{PageSize}</expression>
+            <path>
+              <target id="ffc53dee-ce1e-4c70-96d5-04419e480246" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="57053197-f4fc-4028-bce0-f4bc04c5a648" name="PageSize" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="PageSize" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="f7c27fd4-65ef-4625-a35d-94ff22777864" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="defcd6fc-5073-4faa-a817-f3e2f425492a" name="PageSize" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

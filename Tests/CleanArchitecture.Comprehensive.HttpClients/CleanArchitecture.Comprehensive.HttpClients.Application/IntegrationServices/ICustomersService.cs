@@ -1,3 +1,4 @@
+using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
@@ -15,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationSer
         Task<List<CustomerDto>> GetCustomerByNameEmailAsync(GetCustomerByNameEmailQuery query, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomerExtraFieldsAsync(GetCustomerExtraFieldsQuery query, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(GetCustomersPagedQuery query, CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default);
     }
 }

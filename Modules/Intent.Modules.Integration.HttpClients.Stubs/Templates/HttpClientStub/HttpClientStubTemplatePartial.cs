@@ -125,6 +125,12 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
             return CSharpFile.ToString();
         }
 
+        // Pagination has no Intent stereotype; paged queries are detected by the PagedResult return type
+        // plus conventionally-named fields. These patterns mirror Intent.Modules.Application.Dtos.Pagination
+        // (PagingDefaultsExtension) and the MediatR CRUD paged strategy so detection stays consistent.
+        private static readonly string[] PageNumberFieldNames = { "page", "pageno", "pagenum", "pagenumber", "pageindex" };
+        private static readonly string[] PageSizeFieldNames = { "size", "pagesize" };
+
         private string GetReturnType(IHttpEndpointModel endpoint)
         {
             var taskTypeName = UseType("System.Threading.Tasks.Task");
@@ -142,7 +148,9 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
                 return;
             }
 
-            var value = BuildValueExpression(endpoint.ReturnType, new HashSet<string>());
+            var value = endpoint.ReturnType.Element?.Id == PagedResultTemplateBase.TypeDefinitionElementId
+                ? BuildPagedResultBlock(endpoint.ReturnType, new HashSet<string>(), endpoint)
+                : BuildValueExpression(endpoint.ReturnType, new HashSet<string>());
             var typeArgument = WouldResolveToDefault(endpoint.ReturnType)
                 ? $"<{GetTypeName(endpoint.ReturnType)}>"
                 : string.Empty;
@@ -288,18 +296,66 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
                 .AddStatement(GetScalarLiteral(itemTypeReference));
         }
 
-        private CSharpObjectInitializerBlock BuildPagedResultBlock(ITypeReference typeReference, ISet<string> ancestorDtoIds)
+        private CSharpObjectInitializerBlock BuildPagedResultBlock(ITypeReference typeReference, ISet<string> ancestorDtoIds, IHttpEndpointModel endpoint = null)
         {
+            var (totalCount, pageCount, pageSize, pageNumber) = ResolvePagingExpressions(endpoint);
+
             var block = new CSharpObjectInitializerBlock($"new {GetTypeName(typeReference)}")
-                .AddInitStatement("TotalCount", "0")
-                .AddInitStatement("PageCount", "0")
-                .AddInitStatement("PageSize", "0")
-                .AddInitStatement("PageNumber", "0");
+                .AddInitStatement("TotalCount", totalCount)
+                .AddInitStatement("PageCount", pageCount)
+                .AddInitStatement("PageSize", pageSize)
+                .AddInitStatement("PageNumber", pageNumber);
 
             var dataItemTypeReference = typeReference.GenericTypeParameters.FirstOrDefault();
             block.AddInitStatement("Data", BuildPagedDataExpression(dataItemTypeReference, ancestorDtoIds));
 
             return block;
+        }
+
+        // The four PagedResult counters. The stub always materialises exactly one top-level item, so a
+        // top-level paged result reports TotalCount/PageCount = 1 and echoes the request's page number and
+        // size when those fields can be located on the query/command DTO. `endpoint` is null for nested
+        // paged results, which keep the all-zero defaults.
+        private (string TotalCount, string PageCount, string PageSize, string PageNumber) ResolvePagingExpressions(IHttpEndpointModel endpoint)
+        {
+            const string zero = "0";
+            if (endpoint == null)
+            {
+                return (zero, zero, zero, zero);
+            }
+
+            var pageNumber = zero;
+            var pageSize = zero;
+
+            // Only the standard "whole query/command DTO as a single parameter" shape is echoed. The
+            // per-input and single-field shapes keep the safe 0 fallback.
+            if (!Model.CreateParameterPerInput)
+            {
+                var fields = endpoint.InternalElement.ChildElements.Where(x => x.IsDTOFieldModel()).ToArray();
+                if (fields.Length > 1)
+                {
+                    var parameterName = endpoint.InternalElement.SpecializationTypeId switch
+                    {
+                        CommandModel.SpecializationTypeId => "command",
+                        QueryModel.SpecializationTypeId => "query",
+                        _ => endpoint.InternalElement.Name.ToParameterName()
+                    };
+
+                    var pageNumberField = fields.FirstOrDefault(x => PageNumberFieldNames.Contains(x.Name.ToLowerInvariant()));
+                    if (pageNumberField != null)
+                    {
+                        pageNumber = $"{parameterName}.{pageNumberField.Name.ToPascalCase()}";
+                    }
+
+                    var pageSizeField = fields.FirstOrDefault(x => PageSizeFieldNames.Contains(x.Name.ToLowerInvariant()));
+                    if (pageSizeField != null)
+                    {
+                        pageSize = $"{parameterName}.{pageSizeField.Name.ToPascalCase()}";
+                    }
+                }
+            }
+
+            return ("1", "1", pageSize, pageNumber);
         }
 
         // PagedResult.Data is a List<T>; build a single-item list of the page's item type.

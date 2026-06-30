@@ -1,4 +1,5 @@
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices;
+using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
@@ -81,6 +82,30 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.HttpC
                     Email = string.Empty,
                     Name = string.Empty,
                     Surname = string.Empty
+                }
+            });
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(
+            GetCustomersPagedQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            return await Task.FromResult(new PagedResult<CustomerDto>
+            {
+                TotalCount = 1,
+                PageCount = 1,
+                PageSize = query.PageSize,
+                PageNumber = query.PageNo,
+                Data = new List<CustomerDto>
+                {
+                    new CustomerDto
+                    {
+                        Id = Guid.Empty,
+                        Email = string.Empty,
+                        Name = string.Empty,
+                        Surname = string.Empty
+                    }
                 }
             });
         }
