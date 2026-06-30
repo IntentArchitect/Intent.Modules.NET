@@ -53,5 +53,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
-  <migrations />
+  <migrations has-on-install-migration="true" />
 </package>

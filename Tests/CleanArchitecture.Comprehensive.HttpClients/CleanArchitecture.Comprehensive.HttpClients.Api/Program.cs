@@ -1,6 +1,7 @@
 using CleanArchitecture.Comprehensive.HttpClients.Api.Configuration;
 using CleanArchitecture.Comprehensive.HttpClients.Application;
 using CleanArchitecture.Comprehensive.HttpClients.Infrastructure;
+using CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.Configuration;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,6 +20,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Api
             builder.Services.ConfigureApplicationSecurity(builder.Configuration);
             builder.Services.ConfigureProblemDetails();
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddStubHttpClients(builder.Configuration);
 
             var app = builder.Build();
 

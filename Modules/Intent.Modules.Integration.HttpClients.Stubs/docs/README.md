@@ -1,0 +1,100 @@
+# Intent.Integration.HttpClients.Stubs
+
+This module generates stub implementations of the service contracts produced by the `Intent.Integration.HttpClients` module. It generates a dedicated `<App>.Infrastructure.Stubs` project containing one stub per HTTP client, plus a dependency-injection registration that swaps the real HTTP clients for stubs when enabled through configuration.
+
+Stubs let you run and test an application without the downstream services its HTTP clients call — useful for local development, demos, and integration tests where the real endpoints are unavailable or undesirable.
+
+## What This Module Generates
+
+On install the module adds a dedicated stub project beside the application's Infrastructure project, then generates the stubs and their registration into it:
+
+- **`<App>.Infrastructure.Stubs` project** — created by an on-install migration. It is placed in the same solution folder as the `<App>.Infrastructure` project and inherits its .NET settings (SDK, target framework, implicit usings), so the stubs compile against the same framework as the rest of the application.
+- **`<Service>HttpClientStub`** (role `Stubs.HttpClientStub`) — one class per HTTP client service proxy. Each implements the generated service contract interface and provides a method per endpoint that returns a safe default value.
+- **`StubHttpClientConfiguration`** (role `Stubs.Configuration`) — a static class exposing the `AddStubHttpClients(this IServiceCollection, IConfiguration)` extension method that conditionally replaces the real client registrations with stubs.
+
+## The Stub Project
+
+The `<App>.Infrastructure.Stubs` project does not exist in a fresh application — it is created the first time this module is installed, by an on-install migration that extends the Codebase Structure designer:
+
+1. It locates the application's Infrastructure project (via its `Infrastructure` output anchor, falling back to the `*.Infrastructure` naming convention).
+2. It creates an `<App>.Infrastructure.Stubs` C# project in the same solution folder, copying the Infrastructure project's `.NET Settings` so the stub project targets the same framework.
+3. It adds a single `Stubs` output anchor inside the new project. The stub templates bind to this anchor by role, so their output lands inside the framework-targeted stub project.
+
+The migration is idempotent: if an `<App>.Infrastructure.Stubs` project already exists it makes no changes, so re-running the Software Factory or re-installing the module is safe.
+
+## Stub Implementations
+
+For each HTTP client, the module generates a stub class implementing the service contract. Every endpoint method returns a default value so the application can run without the downstream service:
+
+```csharp
+public class CustomersServiceHttpClientStub : ICustomersService
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+    public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await Task.FromResult(new CustomerDto
+        {
+            Id = Guid.Empty,
+            Email = string.Empty,
+            Name = string.Empty,
+            Surname = string.Empty
+        });
+    }
+
+    // ... a method per endpoint
+}
+```
+
+By default each method is marked `[IntentManaged(Mode.Fully, Body = Mode.Fully)]`, so the Software Factory keeps it returning the generated defaults on every run. To give a stub meaningful canned behaviour, set the method's `Body` to `Mode.Ignore` (i.e. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`) and write your own implementation — the Software Factory will then preserve your hand-written body while still keeping the method signature in sync with the contract.
+
+## Conditional Registration
+
+The generated `StubHttpClientConfiguration` exposes `AddStubHttpClients`, which replaces a real client registration with its stub only when the corresponding `UseStub` setting is enabled:
+
+```csharp
+public static IServiceCollection AddStubHttpClients(this IServiceCollection services, IConfiguration configuration)
+{
+    if (UseStubHttpClient(configuration, "CleanArchitecture.Comprehensive.Services", "CustomersService"))
+    {
+        services.RemoveAll<ICustomersService>();
+        services.AddTransient<ICustomersService, CustomersServiceHttpClientStub>();
+    }
+    // ... an entry per client
+    return services;
+}
+```
+
+The module wires `services.AddStubHttpClients(configuration);` into the application's composition root at a priority that orders it **after** the real HTTP client registrations (`AddInfrastructure`), so the real registrations exist to be removed and replaced. When `UseStub` is `false` (the default) the real clients are left untouched.
+
+## Module Settings
+
+This module introduces no Module Builder settings. Instead it registers a per-client-group `UseStub` application setting (defaulting to `false`) into the generated `appsettings.json`, alongside the existing `Intent.Integration.HttpClients` settings:
+
+```json
+"HttpClients": {
+  "CleanArchitecture.Comprehensive.Services": {
+    "Uri": "https://localhost:{app_port}/",
+    "IdentityClientKey": "default",
+    "Timeout": "00:01:00",
+    "UseStub": false
+  }
+}
+```
+
+Set `UseStub` to `true` to swap that group's clients for their stubs. Resolution is checked most-specific first:
+
+- `HttpClients:<ServiceName>:UseStub` — overrides a single service.
+- `HttpClients:<GroupName>:UseStub` — applies to every service in the client group.
+
+If neither key is present the value defaults to `false`, so stubs are never used unless explicitly opted in.
+
+## Related Modules
+
+### [Intent.Integration.HttpClients](https://docs.intentarchitect.com/articles/modules-dotnet/intent-integration-httpclients/intent-integration-httpclients.html)
+Generates the real HTTP client implementations and their `appsettings.json` configuration. This module generates stand-in implementations of the same service contracts and reuses the `HttpClients` configuration section, adding the `UseStub` switch.
+
+### [Intent.Application.Contracts.Clients](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-contracts-clients/intent-application-contracts-clients.html)
+Generates the service contract interfaces and DTOs that the stubs implement and return.
+
+### [Intent.VisualStudio.Projects](https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html)
+Provides the Codebase Structure project model that the on-install migration extends to add the `<App>.Infrastructure.Stubs` project.

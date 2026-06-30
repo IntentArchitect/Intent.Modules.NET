@@ -11,5 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitecture.Comprehensive.HttpClients.Application\CleanArchitecture.Comprehensive.HttpClients.Application.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Comprehensive.HttpClients.Infrastructure\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.csproj" />
   </ItemGroup>
   </Project>

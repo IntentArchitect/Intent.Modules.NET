@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Persistence.V2;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -15,8 +14,7 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
     {
         // The "Codebase Structure" designer (formerly "Visual Studio"). Migrations that mutate it must load
         // the application via IPersistenceLoader and use the Intent.Persistence.V2 API (see
-        // Intent.Modules.VisualStudio.Projects Migration_04_00_00_Pre_00). The static ApplicationPersistable.Load
-        // and the legacy Intent.Persistence (V1) API are the older, incorrect approaches.
+        // Intent.Modules.VisualStudio.Projects Migration_04_00_00_Pre_00).
         private const string CodebaseStructureDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
 
         private const string CSharpProjectSpecializationType = "C# Project (.NET)";
@@ -56,7 +54,6 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
             var designer = application.GetDesigner(CodebaseStructureDesignerId);
             if (designer is null)
             {
-                Logging.Log.Warning("[Stubs.OnInstall] Codebase Structure designer not found; skipping.");
                 return;
             }
 
@@ -67,8 +64,8 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                 var elements = package.Classes;
 
                 // Locate the Infrastructure project by walking up from its existing "Infrastructure" output
-                // anchor to the owning project (the canonical handle), falling back to the conventionally
-                // named "*.Infrastructure" project if no anchor is present yet.
+                // anchor to the owning project, falling back to the conventionally named "*.Infrastructure"
+                // project if no anchor is present yet.
                 var infrastructureAnchor = elements.FirstOrDefault(e =>
                     e.SpecializationTypeId == OutputAnchorSpecializationId && e.Name == InfrastructureAnchorName);
                 var infrastructureProject = infrastructureAnchor is not null
@@ -80,7 +77,6 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
 
                 if (infrastructureProject is null)
                 {
-                    Logging.Log.Info($"[Stubs.OnInstall] No Infrastructure project found in package '{package.Name}'; skipping.");
                     continue;
                 }
 
@@ -90,11 +86,8 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                 if (elements.Any(e => e.SpecializationTypeId == CSharpProjectSpecializationId &&
                         e.Name.Equals(stubProjectName, StringComparison.OrdinalIgnoreCase)))
                 {
-                    Logging.Log.Info($"[Stubs.OnInstall] '{stubProjectName}' already exists; skipping.");
                     continue;
                 }
-
-                Logging.Log.Info($"[Stubs.OnInstall] Creating '{stubProjectName}' as a sibling of '{infrastructureProject.Name}' (solution folder '{infrastructureProject.ParentFolderId}').");
 
                 // Create the stub project beside Infrastructure (same solution folder) — never at the solution root.
                 var stubProject = package.Classes.Add(
@@ -119,10 +112,6 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                         netSettings.Properties.Add(property.DefinitionId, property.Name, property.Value);
                     }
                 }
-                else
-                {
-                    Logging.Log.Warning($"[Stubs.OnInstall] '{infrastructureProject.Name}' has no .NET Settings to copy; stub project may be frameworkless.");
-                }
 
                 // A single "Stubs" output anchor inside the stub project. The stub templates' Roles
                 // ("Stubs.Configuration", "Stubs.HttpClientStub") bind to it, so the install places their
@@ -142,7 +131,6 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                 anchorSettings.Properties.Add(CreateSubFoldersPropertyId, CreateSubFoldersPropertyName, "true");
 
                 package.Save();
-                Logging.Log.Info($"[Stubs.OnInstall] Created '{stubProjectName}' with single '{StubsAnchorName}' anchor and saved package '{package.Name}'.");
             }
         }
     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="292b5682-5c79-4689-ad79-aeb6664cd225" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fa2ed5c4-3c6e-45c6-b7fb-c145cf0d7c16</parentFolderId>
+  <packageId>fa2ed5c4-3c6e-45c6-b7fb-c145cf0d7c16</packageId>
+  <packageName>Intent.Integration.HttpClients.Stubs</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Comprehensive.HttpClients.Infrastructure", "CleanArchitecture.Comprehensive.HttpClients.Infrastructure\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj", "{FBDA1FFF-8AE3-4A2B-98C9-5B1F209B6271}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs", "CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.csproj", "{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,7 @@ Global
 		{507CFA0A-628B-422B-9693-D3F1BB5B28F3} = {2F8B6FBD-3BB3-43DF-B79A-AE968EB353D4}
 		{A340434A-F8CC-41DB-818A-0C8CEBD6C4B3} = {A80A76DF-1E13-41DB-A479-073F21293B63}
 		{FBDA1FFF-8AE3-4A2B-98C9-5B1F209B6271} = {049E7EAF-EC28-44A7-8C80-24CC8DD6F6A4}
+		{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989} = {049E7EAF-EC28-44A7-8C80-24CC8DD6F6A4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3C2DBE85-7C21-49E9-853A-F887E11D1F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,5 +52,9 @@ Global
 		{FBDA1FFF-8AE3-4A2B-98C9-5B1F209B6271}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBDA1FFF-8AE3-4A2B-98C9-5B1F209B6271}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBDA1FFF-8AE3-4A2B-98C9-5B1F209B6271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9A2562-E0C9-4F3B-B8D1-D9355DEB3989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
