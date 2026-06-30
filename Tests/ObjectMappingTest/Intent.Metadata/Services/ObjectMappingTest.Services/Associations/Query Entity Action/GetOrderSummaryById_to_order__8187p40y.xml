@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1e165874-a058-4ea7-a7d0-1bfda5f9f159">
+  <sourceEnd id="4b2579eb-66d6-4a2b-b34b-6bceb89ee777" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderSummaryById</display>
+    <order>0</order>
+    <typeReference id="35e92c92-bcac-4512-8b14-f0e7341f7b27">
+      <typeId>191e5fc5-51b7-462e-b1a0-59fe7ada4699</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMappingTest.Services</typePackageName>
+      <typePackageId>c2a2cb49-3872-453c-aad1-915ba3a38986</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1e165874-a058-4ea7-a7d0-1bfda5f9f159" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="aa0de3d7-b7b0-4bb9-a1f6-88d9ab89bc65">
+      <typeId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMappingTest.Domain</typePackageName>
+      <typePackageId>343757b4-4d8f-4efa-9303-56b4be6867ce</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

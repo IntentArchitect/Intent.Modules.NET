@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="819dd21a-1344-4693-a8dd-a5237b24e8bd" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>PaymentStatus</name>
+  <display>PaymentStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>343757b4-4d8f-4efa-9303-56b4be6867ce</parentFolderId>
+  <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+  <packageName>ObjectMappingTest.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1947f84a-1b5b-4e87-8962-06d142aca0c6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>819dd21a-1344-4693-a8dd-a5237b24e8bd</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1dbad388-5c53-42f9-8c64-ee90604070d6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Paid</name>
+      <display>Paid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>819dd21a-1344-4693-a8dd-a5237b24e8bd</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c61e91c3-dce2-4a4c-ad23-406ba2b2dc86" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Refunded</name>
+      <display>Refunded</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>819dd21a-1344-4693-a8dd-a5237b24e8bd</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

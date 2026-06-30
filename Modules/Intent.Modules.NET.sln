@@ -426,6 +426,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.Wolverine", "Intent.Modules.FastEndpoints.Dispatch.Wolverine\Intent.Modules.FastEndpoints.Dispatch.Wolverine.csproj", "{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.ObjectMapping", "Intent.Modules.Application.Dtos.ObjectMapping\Intent.Modules.Application.Dtos.ObjectMapping.csproj", "{9B749D9F-852C-489F-AC7C-0D215E5D24A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1124,6 +1126,10 @@ Global
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF476EB-0D83-4FDC-AC10-82BDFD678B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -187,6 +187,7 @@
     <application id="3d663621-925e-4293-817c-19b9821ee5a8" name="Intent.Modules.Application.Wolverine.FluentValidation" solutionFolder="Application" relativePath="Intent.Modules.Application.Wolverine.FluentValidation/Intent.Modules.Application.Wolverine.FluentValidation.application.config" />
     <application id="380ba38d-d140-4ba4-b03c-3f00c5d1ab4f" name="Intent.Modules.Application.Wolverine.DomainEvents" solutionFolder="Application" relativePath="Intent.Modules.Application.Wolverine.DomainEvents/Intent.Modules.Application.Wolverine.DomainEvents.application.config" />
     <application id="a4ef8894-c485-4353-bfcd-df19c3d450a9" name="Intent.Modules.FastEndpoints.Dispatch.Wolverine" solutionFolder="API Frameworks" relativePath="Intent.Modules.FastEndpoints.Dispatch.Wolverine/Intent.Modules.FastEndpoints.Dispatch.Wolverine.application.config" />
+    <application id="5906ef37-8ce9-4dcd-a4ae-8ab1f7ad2cbb" name="Intent.Modules.Application.Dtos.ObjectMapping" relativePath="Intent.Modules.Application.Dtos.ObjectMapping/Intent.Modules.Application.Dtos.ObjectMapping.application.config" />
     <application id="97b031c5-c4db-4ee0-9b65-17e441a9bfa7" name="Intent.Modules.Integration.HttpClients.Stubs" solutionFolder="Direct Integration" relativePath="Intent.Modules.Integration.HttpClients.Stubs/Intent.Modules.Integration.HttpClients.Stubs.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4ba8b55-06cc-4d70-91a1-0cdf005c14c2" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Order</name>
+  <display>Order</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>343757b4-4d8f-4efa-9303-56b4be6867ce</parentFolderId>
+  <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+  <packageName>ObjectMappingTest.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="19c86cab-e5c6-4bfe-97e7-4db7bd9dcbb5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="17f7a015-bfe8-467b-aa16-45dba1568ed4">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ec3593f2-b554-4fd2-9761-8b503b44b536" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>RefNo</name>
+      <display>RefNo: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b47b2b74-9a55-49f2-96e4-ab7d3c75fddd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="39db3f67-6ad3-4e6b-b100-e17b468fdf99" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CustomerId</name>
+      <display>CustomerId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0f0934bd-b494-4622-94a6-6c2c78e6f2e6">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="077edcea-5326-44b1-91db-16c62814e821" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="CustomerId" />
+        <entry key="association" value="077edcea-5326-44b1-91db-16c62814e821" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b43551e2-6cd6-4d20-bda8-1ce06f291b76" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Status</name>
+      <display>Status: OrderStatus</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1a1b7da4-f739-45d0-927b-379c105ae5c1">
+        <typeId>cdd940d2-560f-4e71-ae8d-aeb4968ed51b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ObjectMappingTest.Domain</typePackageName>
+        <typePackageId>343757b4-4d8f-4efa-9303-56b4be6867ce</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4cf53ab7-5567-45c8-bfbd-66e0ddda3c7d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PaymentStatus</name>
+      <display>PaymentStatus: PaymentStatus</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8d3a1a98-8583-4553-9f4a-538113c46ab7">
+        <typeId>819dd21a-1344-4693-a8dd-a5237b24e8bd</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ObjectMappingTest.Domain</typePackageName>
+        <typePackageId>343757b4-4d8f-4efa-9303-56b4be6867ce</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3ee79ad4-7cd1-4cb3-bf26-f865e5dfb746" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetDisplayName</name>
+      <display>GetDisplayName(): string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0fd76541-6644-48ba-a872-bc34e034694f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ba8b55-06cc-4d70-91a1-0cdf005c14c2</parentFolderId>
+      <packageId>343757b4-4d8f-4efa-9303-56b4be6867ce</packageId>
+      <packageName>ObjectMappingTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
