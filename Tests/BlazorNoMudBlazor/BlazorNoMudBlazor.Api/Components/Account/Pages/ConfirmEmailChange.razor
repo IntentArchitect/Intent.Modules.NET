@@ -9,11 +9,20 @@
 @inject IdentityRedirectManager RedirectManager
 
 <PageTitle>Confirm email change</PageTitle>
-<AccountHero Icon="check-circle"
-             Title="Confirm email change"
-             Subtitle="Updating your email address." />
-<div class="ux-form-narrow">
-    <section>
+
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead" Class="mr-2" />
+        Confirm email change
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        We are verifying your updated email address and applying the change.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Class="mb-3">Email change status</MudText>
         <StatusMessage Message="@message" />
-    </section>
-</div>
+    </MudCardContent>
+</MudCard>

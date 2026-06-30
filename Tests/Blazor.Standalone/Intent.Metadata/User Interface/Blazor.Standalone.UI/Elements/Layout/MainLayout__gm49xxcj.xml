@@ -4,7 +4,7 @@
   <display>MainLayout</display>
   <externalReference>a178d0e7-8bc2-47a2-9724-fc672ce37c13</externalReference>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4a7eff42-25d5-4def-914c-0da82a5173f1</parentFolderId>
@@ -42,78 +42,6 @@
             <target id="38f5bfa8-452c-4583-a8fc-25756c62fced" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
           </path>
           <sources />
-        </mappedEnd>
-        <mappedEnd>
-          <expression>{NavigateToExamplePage}</expression>
-          <path>
-            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
-            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="cdee07b6-baaf-4d6b-ab98-fd2cfe68aa1d" name="Profile" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-          </path>
-          <sources>
-            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
-              <path>
-                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
-              </path>
-            </source>
-          </sources>
-        </mappedEnd>
-        <mappedEnd>
-          <expression>{NavigateToExamplePage}</expression>
-          <path>
-            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
-            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="b10df3d0-575c-4f2c-9841-cbfa6555a17d" name="My Account" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-          </path>
-          <sources>
-            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
-              <path>
-                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
-              </path>
-            </source>
-          </sources>
-        </mappedEnd>
-        <mappedEnd>
-          <expression>{NavigateToExamplePage}</expression>
-          <path>
-            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
-            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="1d1c5bb0-699f-42f8-9721-8400510d165c" name="Logout" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-          </path>
-          <sources>
-            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
-              <path>
-                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
-              </path>
-            </source>
-          </sources>
-        </mappedEnd>
-        <mappedEnd>
-          <expression>{NavigateToExamplePage}</expression>
-          <path>
-            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="30970cc3-e5a1-45f0-afea-5a359e372ddd" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
-            <target id="9ca6d73d-85e7-4996-b183-c4d22173a84c" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="577563e0-4ddc-4351-a49d-80fb8c34aa08" name="Add Menu Options..." type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-          </path>
-          <sources>
-            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
-              <path>
-                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
-              </path>
-            </source>
-          </sources>
         </mappedEnd>
         <mappedEnd>
           <expression>{NavigateToProduct}</expression>

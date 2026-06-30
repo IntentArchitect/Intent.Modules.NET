@@ -4,6 +4,40 @@
 @inject IAuthService AuthService
 
 <PageTitle>Confirm email</PageTitle>
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+          Elevation="0">
+    <MudText Typo="Typo.h4"
+             Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead"
+                 Class="mr-2" />
+        Confirm email
+    </MudText>
+    <MudText Typo="Typo.body1"
+             Class="text-white opacity-90">
+        We are verifying your email address and completing your account setup.
+    </MudText>
+</MudPaper>
+<MudGrid Spacing="3">
+    <MudItem xs="12"
+             md="8"
+             lg="6">
+        <MudCard Class="ux-fade-in-up"
+                 Style="animation-delay: 0.1s">
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Email confirmation status</MudText>
+                <MudText Typo="Typo.body2"
+                         Class="mb-4">
+                    The result of your email confirmation request is shown below.
+                </MudText>
+                <StatusMessage Message="@statusMessage" />
+                <MudStack Spacing="1"
+                          Class="mt-4">
+                    <MudLink Href="Account/Login">Continue to log in</MudLink>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
 <AccountHero Icon="check-circle"
              Title="Confirm email"
              Subtitle="Email confirmation status." />

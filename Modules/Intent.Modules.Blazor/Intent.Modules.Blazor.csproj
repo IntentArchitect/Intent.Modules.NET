@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -59,10 +59,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="modelers\Blazor UI Extensions.designer.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Blazor UI Extensions.designer.Designer.cs</LastGenOutput>
-    </None>
+    
   </ItemGroup>
 
 </Project>

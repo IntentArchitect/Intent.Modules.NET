@@ -245,13 +245,13 @@
     </group>
   </moduleSettings>
   <dependencies>
+    <dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.1-pre.0" />
     <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
     <dependency id="Intent.Common" version="3.11.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.3" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.Modelers.UI" version="1.1.4-pre.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.11" />
-	<dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.1-pre.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.VisualStudio.Projects">

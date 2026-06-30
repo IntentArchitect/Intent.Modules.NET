@@ -14,13 +14,12 @@ namespace MudBlazor.ExampleApp.Client.Components.Layout
     public static class AppNav
     {
         public static IReadOnlyList<NavLinks.NavItem> Items { get; } = [
-            new("Manage Invoices", "/invoices", Icons.Material.Filled.Receipt),
-            new("Manage Customers", "/customers", Icons.Material.Filled.Person),
-            new("Manage Products", "/products", Icons.Material.Filled.ShoppingCart),
             new("Products", "/products", Icons.Material.Filled.AddCircle),
+            new("Manage Customers", "/customers", Icons.Material.Filled.Person),
             new("Group1", "/"),
+            new("Manage Invoices", "/invoices", Icons.Material.Filled.Receipt),
             new("Paged Invoice List", "/invoices/paged-invoice-table"),
-            new("Admin", "")
+            new("Manage Products", "/products", Icons.Material.Filled.ShoppingCart)
         ];
     }
 }

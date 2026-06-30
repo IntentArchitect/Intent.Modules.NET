@@ -1,8 +1,8 @@
 ---
 name: blazor-dialog-adding-entity
-description: Creates Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when implementing add or create entity dialogs in Blazor.
+description: Implements Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when creating or implementing add or create entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 1E96DFA2374CAEE20B6D771E999F0C8F7EB4C5401D2F4BC26B82C7E23E2B8588
+contentHash: 2A1C4E173A71E3DE613299117A597533651E2D05FE3841F58C9665AEB0EF8B51
 ---
 ## MANDATORY: Read Samples Before Implementation
 

@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
     <name>GetProductsQuery</name>
-    <display>[call] Blazor.ProductService.Services.GetProductsQuery: ProductDto[*]</display>
+    <display>[call] BlazorProductService.Services.GetProductsQuery: ProductDto[*]</display>
     <order>0</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
@@ -31,7 +31,7 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>Blazor.ProductService.Services</typePackageName>
+      <typePackageName>BlazorProductService.Services</typePackageName>
       <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
       <stereotypes />
       <genericTypeParameters />

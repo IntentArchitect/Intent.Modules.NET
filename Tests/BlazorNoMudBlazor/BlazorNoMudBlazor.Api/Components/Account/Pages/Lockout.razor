@@ -1,9 +1,10 @@
 @page "/Account/Lockout"
 
 <PageTitle>Locked out</PageTitle>
-<div class="ux-form-narrow">
-    <section>
-        <h2 class="text-danger">Locked out</h2>
-        <p>This account has been locked out, please try again later.</p>
-    </section>
-</div>
+
+<MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Color="Color.Error" Class="mb-3">Locked out</MudText>
+        <MudText Typo="Typo.body1">This account has been locked out, please try again later.</MudText>
+    </MudCardContent>
+</MudCard>

@@ -2,9 +2,28 @@
 @inject NavigationManager NavigationManager
 
 @using BlazorNoMudBlazor.Api.Components.Layout
+<MudThemeProvider IsDarkMode="@IsDarkTheme" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
 <AppBrand Class="account-brand" />
 <ThemeToggle Class="account-theme-toggle" />
+
+<MudLayout>
+    <MudMainContent Class="pa-4">
+        <div class="account-layout-content">
+            @if (HttpContext is null)
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                @Body
+            }
+        </div>
+    </MudMainContent>
+</MudLayout>
 
 <main class="account-layout-main">
     <div class="account-layout-content">

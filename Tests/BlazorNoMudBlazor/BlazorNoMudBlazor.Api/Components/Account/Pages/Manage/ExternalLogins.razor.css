@@ -1,12 +1,4 @@
-/* Page-specific external login layout. App-wide controls live in ux-tokens.css. */
-
-.form-horizontal {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-}
-
-.form-horizontal p {
+.external-login-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);

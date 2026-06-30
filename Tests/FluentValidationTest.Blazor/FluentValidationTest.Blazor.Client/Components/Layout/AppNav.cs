@@ -15,6 +15,8 @@ namespace FluentValidationTest.Blazor.Client.Components.Layout
     public static class AppNav
     {
         public static IReadOnlyList<NavLinks.NavItem> Items { get; } = [
+            new("Home", "/"),
+            new("Example", "/example-page/{Title}"),
             new("Add Menu Options...", $"/example-page/{"Navigation Page"}", Icons.Material.Filled.AddCircle)
         ];
     }

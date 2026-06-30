@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a27628d9-289d-497b-be35-e9d61a037fd7" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]: void</display>
+  <externalReference>df564f66-db25-4356-8f5f-f481b3de9fe5</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <typeReference id="618af9cc-977b-4677-b0ed-76eb966cc062">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>0070e153-b8a6-4fb4-886b-bf294ade3c93</parentFolderId>
+  <packageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</packageId>
+  <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="550f659f-e188-41dc-b1b4-2ccb28a5679f" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Head</name>
+      <display>Head = ###Hello, world!</display>
+      <externalReference>7f8968fe-e7ee-4719-bc8c-6d357b2fa7ed</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>###Hello, world!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a27628d9-289d-497b-be35-e9d61a037fd7</parentFolderId>
+      <packageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8aef43ad-a04c-4db5-ab96-f756644bc7b7" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text</name>
+      <display>Text = Welcome to your new app, code-automated by Intent Architect,</display>
+      <externalReference>be4cad91-1a36-47b1-9168-e55611e51558</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>Welcome to your new app, code-automated by Intent Architect,</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a27628d9-289d-497b-be35-e9d61a037fd7</parentFolderId>
+      <packageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="27ea45fd-27c0-427b-b0c6-3262a6d795dd" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text2</name>
+      <display>Text2 = and powered by MudBlazor and .NET 8!</display>
+      <externalReference>991229f0-d10f-47b1-8499-fc679a245c1d</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>and powered by MudBlazor and .NET 8!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a27628d9-289d-497b-be35-e9d61a037fd7</parentFolderId>
+      <packageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

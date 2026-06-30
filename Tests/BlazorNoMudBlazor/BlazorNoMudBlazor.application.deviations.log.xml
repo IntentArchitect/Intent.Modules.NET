@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#02d4e2ed-0776-4cbb-af22-2eefef5f2f21</correlationId>
+      <path>BlazorNoMudBlazor.Api/BlazorNoMudBlazor.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-30T13:36:56.567954Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-06-30T13:54:33.3131117Z</approvedAt>
+      <deviationsHash>21A05A5415EA014FBBA28FBB8A41D2A06039E60C6EA400CC58B524CF981205A7</deviationsHash>
+      <fileHash>21A05A5415EA014FBBA28FBB8A41D2A06039E60C6EA400CC58B524CF981205A7</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -11,6 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using Serilog;
 using Serilog.Events;
 
@@ -62,6 +63,7 @@ namespace BlazorNoMudBlazor.Api
 
                 builder.Services.AddRazorComponents()
                     .AddInteractiveServerComponents();
+                builder.Services.AddMudServices();
                 builder.Services.AddScoped<ThemeService>();
 
                 var app = builder.Build();

@@ -1,414 +1,129 @@
 /* ============================================================================
-   ux-account.css
-   Presentational layer for the Identity (account + manage) pages.
-   Bootstrap-free; built on the ux design system (ux-tokens / ux-base / ux-components)
-   and mirrors the MudBlazor app's carded, icon-led look.
-   Requires: ux-tokens.css. Consumed via the UxIcon / AccountHero / UxField components.
+   ux-account.css — MudBlazor account/manage presentation layer
+   ----------------------------------------------------------------------------
+   Shipped only for MudBlazor + ASP.NET Core Identity apps and linked AFTER
+   ux-mudblazor.css, so it can override the shared MudBlazor page-header utility
+   for the account area without touching the main-app pages. Counterpart to the
+   non-MudBlazor ux-account.css.
    ============================================================================ */
 
-
-/* ─── Inline icons (UxIcon) ──────────────────────────────────────────────── */
-.ux-icon {
-    display: inline-block;
-    width: 1.25rem;
-    height: 1.25rem;
-    vertical-align: middle;
-    flex-shrink: 0;
+/* ----------------------------------------------------------------------------
+   1. Page-header (.ux-gradient-primary) is a decorative banner — never let it
+      capture pointer events. On manage pages its full-bleed box overlaps the
+      manage nav column; without this, only the nav-link text is hoverable.
+   ---------------------------------------------------------------------------- */
+.mud-paper.ux-gradient-primary {
+    pointer-events: none;
 }
 
+/* ----------------------------------------------------------------------------
+   2. Account pages: the hero is an INLINE header (icon badge + gradient title +
+      subtitle), matching the non-MudBlazor .account-hero — NOT the full-bleed
+      frosted page-banner ux-mudblazor.css ships. That banner spans 100vw with a
+      negative left margin to clear the main drawer and is a blurred translucent
+      panel; inside the account layout there is no drawer, and the contained panel
+      reads as an awkward floating box (mostly empty on the two-column login).
+      So de-full-bleed it (width/margin/padding) AND strip the panel chrome
+      (gradient fill, backdrop blur, shadow, glow orb) so only the badge + title
+      + subtitle remain, seamless over the page background. The
+      .mud-layout .mud-main-content prefix raises specificity above both the dark-
+      and light-mode .ux-gradient-primary rules in ux-mudblazor.css.
 
-/* ─── Hero header (AccountHero) ──────────────────────────────────────────────
-   Gradient hero mirroring the Mud app's MudPaper banner. */
-.account-hero {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
+      The manage pages (ManageLayout.razor) carry the same inline hero inside a grid
+      column rather than a full-bleed banner, so .manage-layout-content gets the same
+      de-chrome treatment — otherwise the frosted panel reads as a floating box over
+      the manage content.
+   ---------------------------------------------------------------------------- */
+.mud-layout .mud-main-content .account-layout-content .mud-paper.ux-gradient-primary,
+.mud-layout .mud-main-content.manage-layout-content .mud-paper.ux-gradient-primary {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    padding: 0 0 var(--space-2) 0 !important;
+    overflow: visible !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
 }
 
-.account-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: var(--radius-md);
-    background: var(--gradient-brand);
-    color: #fff;
-    box-shadow: 0 4px 20px var(--primary-glow, rgba(14, 165, 233, 0.5));
-    flex-shrink: 0;
+.mud-layout .mud-main-content .account-layout-content .mud-paper.ux-gradient-primary::before,
+.mud-layout .mud-main-content.manage-layout-content .mud-paper.ux-gradient-primary::before {
+    display: none !important;
 }
 
-.account-hero-badge .ux-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.account-hero-title {
-    margin: 0;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    background: var(--gradient-brand);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-.account-hero-subtitle {
-    margin: 0.2rem 0 0;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* Danger variant — error / status pages (Lockout, AccessDenied, Invalid*) */
-.account-hero-danger .account-hero-badge {
-    background: var(--danger);
-    box-shadow: 0 4px 20px color-mix(in srgb, var(--danger) 45%, transparent);
-}
-
-.account-hero-danger .account-hero-title {
-    background: none;
-    -webkit-text-fill-color: var(--danger);
-    color: var(--danger);
-}
-
-
-/* ─── Layout grids ───────────────────────────────────────────────────────────
-   Replace the Bootstrap .row / .col-md-* grid the Identity scaffold used. */
-.ux-form-grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: var(--space-6);
-}
-
-.ux-form-col {
-    flex: 1 1 320px;
-    min-width: 0;
-}
-
-/* Single-form pages: one constrained card under the hero.
-   Phase 1A.2 — target 554px (login-column width), centred H + V. */
-.ux-form-narrow {
+/* ----------------------------------------------------------------------------
+   3. Single-card account pages: constrain to the shared 554px form width (matches
+      the non-MudBlazor app) and anchor the hero+card column to the upper third.
+      The base AccountLayout.razor.css caps the content at 1120px and centres it
+      horizontally; we narrow it and bias it down by 18vh (true vertical centring
+      left the short forms sitting too low). The .mud-layout .mud-main-content
+      ancestor chain outscores the scoped .account-layout-content rule so this
+      wins without !important.
+   ---------------------------------------------------------------------------- */
+.mud-layout .mud-main-content .account-layout-content {
     max-width: 554px;
-    margin-inline: auto;
-}
-
-/* Narrow the whole column (hero + card) to match the card, and centre it
-   vertically in the viewport for the sparse single-card pages. */
-.account-layout-main:has(.ux-form-narrow) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 18vh;
 }
 
-.account-layout-main:has(.ux-form-narrow) .account-layout-content {
-    max-width: 554px;
+/* RazorBuilder single-card pages (ForgotPassword/ResetPassword/ResendEmail…)
+   wrap their card in a single-column MudGrid sized md=7/lg=6. In a 554px
+   container that lone column would be too narrow — let it fill the container.
+   :only-child scopes this to single-item grids, so the two-column pages
+   (Login/Register) keep their md sizing untouched. */
+.mud-layout .mud-main-content .account-layout-content > .mud-grid > .mud-grid-item:only-child {
+    max-width: 100%;
+    flex-basis: 100%;
 }
 
-
-/* ─── Cards ──────────────────────────────────────────────────────────────────
-   Card-frame each form <section> (mirrors the Mud app's MudCard panels). */
-.account-layout-content section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 88%, var(--surface-2)) 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-2);
-    padding: var(--space-5) var(--space-5) var(--space-4);
+/* ----------------------------------------------------------------------------
+   4. Two-column pages (Login, Register) keep the full width + side-by-side
+      columns. They are the only account pages whose content grid has TWO+
+      direct items, so :has() targets exactly them.
+   ---------------------------------------------------------------------------- */
+.mud-layout .mud-main-content .account-layout-content:has(> .mud-grid > .mud-grid-item + .mud-grid-item) {
+    max-width: 1120px;
+    display: block;
 }
 
-.account-layout-content form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
+/* ----------------------------------------------------------------------------
+   5. Manage drawer is a PUSH drawer (matches the main app's MudDrawer): when the
+      circuit-free nav drawer is open (html.ux-drawer-open, flipped by nav-drawer.js),
+      shift the content right by the drawer width rather than overlaying it. The
+      drawer panel itself slides in (ManageLayout.razor.css); this cross-boundary
+      content shift can't be scoped (.mud-main-content is a child component's markup),
+      so it lives here. Only ManageLayout ever sets the class, so account/login pages
+      are unaffected.
+   ---------------------------------------------------------------------------- */
+.mud-main-content {
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* Gradient top-accent line ("lit from within") */
-.account-layout-content section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
-    opacity: 0.9;
+html.ux-drawer-open .mud-main-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
 }
 
-.account-layout-content section h2,
-.account-layout-content section h3 {
-    font-size: var(--type-body-lg);
-    font-weight: 600;
-    margin: 0;
-}
-
-
-/* ─── Section title + subtitle ───────────────────────────────────────────── */
-.ux-section-head {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-}
-
-.ux-section-subtitle {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-
-/* ─── Form fields (UxField) ───────────────────────────────────────────────────
-   Label above + filled shell with a leading icon (mirrors the Mud app's .login-input-*). */
-.ux-field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.ux-field-label {
-    color: var(--text);
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.ux-field-shell {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-height: 44px;
-    padding: 0 0.875rem;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
-}
-
-.ux-field-shell:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-subtle);
-}
-
-.ux-field-icon {
-    width: 1.1rem;
-    height: 1.1rem;
-    color: var(--text-muted);
-}
-
-.ux-input {
-    flex: 1;
-    min-width: 0;
-    min-height: 42px;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--text);
-    font-family: var(--font-primary);
-    font-size: var(--type-body-sm);
-}
-
-.ux-input::placeholder {
-    color: var(--text-muted);
-}
-
-/* Browser autofill: when a value is picked from Chrome's saved-entries list,
-   Chrome paints the input with its own near-white background and dark text,
-   ignoring the theme (normal typing is unaffected). Rather than mask it with an
-   inset box-shadow (which paints a sharp-cornered rectangle inside the rounded
-   .ux-field-shell, leaving a faint inner edge), defeat it with an absurdly long
-   background-color transition: Chrome applies its autofill background via a
-   transition, so a 9999s duration means the visible colour never animates away
-   from the input's own (transparent) background — the rounded shell keeps showing
-   through, no rectangle. -webkit-text-fill-color + caret-color restore the theme
-   text/caret. */
-.ux-input:-webkit-autofill,
-.ux-input:-webkit-autofill:hover,
-.ux-input:-webkit-autofill:focus,
-.ux-input:-webkit-autofill:active {
+/* ----------------------------------------------------------------------------
+   6. Browser autofill: when a value is picked from Chrome's saved-entries list,
+      Chrome paints the input with its own near-white background and dark text,
+      ignoring the theme (normal typing is unaffected). Rather than mask it with
+      an inset box-shadow (which paints a sharp-cornered rectangle inside the
+      rounded input-shell, leaving a faint inner edge), defeat it with an absurdly
+      long background-color transition: Chrome applies its autofill background via
+      a transition, so a 9999s duration means the visible colour never animates
+      away from the input's own (transparent) background — the rounded shell keeps
+      showing through, no rectangle. -webkit-text-fill-color + caret-color restore
+      the theme text/caret. Scoped to the identity input controls
+      (login/register/manage *-input-control) so main-app MudBlazor inputs are
+      untouched.
+   ---------------------------------------------------------------------------- */
+input[class*="-input-control"]:-webkit-autofill,
+input[class*="-input-control"]:-webkit-autofill:hover,
+input[class*="-input-control"]:-webkit-autofill:focus,
+input[class*="-input-control"]:-webkit-autofill:active {
     -webkit-text-fill-color: var(--text) !important;
     caret-color: var(--text);
     transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
-}
-
-/* Inline suffix inside a field shell (e.g. the "verified" tick) */
-.ux-field-suffix {
-    flex-shrink: 0;
-    font-weight: 700;
-}
-
-
-/* ─── Callouts (info / warning / danger notices) ─────────────────────────────── */
-.ux-callout {
-    padding: var(--space-3) var(--space-4);
-    margin-block: var(--space-3);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-}
-
-.ux-callout p {
-    margin: 0;
-}
-
-/* Icon-led callout (warning / danger notices) — icon beside the text block. */
-.ux-callout:has(.ux-callout-icon) {
-    display: flex;
-    gap: var(--space-3);
-    align-items: flex-start;
-}
-
-.ux-callout-icon {
-    display: inline-flex;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-}
-
-.ux-callout-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    min-width: 0;
-}
-
-.ux-callout-warning {
-    border-color: color-mix(in srgb, var(--warning) 35%, transparent);
-    background: color-mix(in srgb, var(--warning) 12%, transparent);
-    color: var(--warning);
-}
-
-.ux-callout-danger {
-    border-color: color-mix(in srgb, var(--danger) 35%, transparent);
-    background: color-mix(in srgb, var(--danger) 12%, transparent);
-    color: var(--danger);
-}
-
-.ux-callout-info {
-    border-color: color-mix(in srgb, var(--info) 35%, transparent);
-    background: color-mix(in srgb, var(--info) 12%, transparent);
-    color: var(--info);
-}
-
-
-/* ─── Action links & button rows ─────────────────────────────────────────────── */
-.ux-account-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.ux-account-links a {
-    color: var(--primary);
-    font-size: var(--type-body-sm);
-    text-decoration: none;
-}
-
-.ux-account-links a:hover {
-    text-decoration: underline;
-}
-
-.ux-button-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-/* Action buttons — uppercase like the Mud app (base .btn, since btn-lg is no longer used). */
-.account-layout-content .btn:not(.btn-link):not(.btn-icon),
-.ux-manage .btn:not(.btn-link):not(.btn-icon) {
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-
-/* ─── Manage section (renders inside the app shell) ──────────────────────────── */
-.ux-manage-grid {
-    display: grid;
-    gap: var(--space-6);
-    padding: var(--space-2) 0 var(--space-4);
-}
-
-@media (min-width: 768px) {
-    .ux-manage-grid {
-        grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
-    }
-}
-
-.ux-manage-nav,
-.ux-manage-content {
-    min-width: 0;
-}
-
-/* Content card */
-.ux-manage-content {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 88%, var(--surface-2)) 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-2);
-    padding: var(--space-5);
-}
-
-.ux-manage-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
-    opacity: 0.9;
-}
-
-.ux-manage-content > h3 {
-    margin: 0 0 var(--space-4);
-    font-size: var(--type-body-lg);
-    font-weight: 600;
-}
-
-.ux-manage-content h4 {
-    margin: var(--space-4) 0 var(--space-2);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.ux-manage-content form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-/* Action button sits bottom-right of the card, like the Mud app (MudStack FlexEnd).
-   Link-style buttons (e.g. "Send verification email") keep their natural position. */
-.ux-manage-content form > button:not(.btn-link),
-.ux-manage-content .ux-button-row {
-    align-self: flex-end;
-}
-
-.ux-manage-content .ux-button-row {
-    justify-content: flex-end;
-}
-
-/* Manage card section heading + description (mirrors the Mud card's heading/subtitle). */
-.ux-manage-content .ux-section-head {
-    margin-bottom: var(--space-4);
-}
-
-.ux-manage-content .ux-section-head h3 {
-    margin: 0;
-    font-size: var(--type-body-lg);
-    font-weight: 600;
-}
-
-/* Inline action (e.g. "Send verification email") stays left, not bottom-right. */
-.ux-manage-content form > button.ux-inline-action {
-    align-self: flex-start;
 }

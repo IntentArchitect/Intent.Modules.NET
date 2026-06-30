@@ -1,23 +1,29 @@
 @inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MudThemeProvider IsDarkMode="@_themeService.IsDark" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start"
+                       OnClick="@((e) => DrawerToggle())" />
+        <MudButton Href="/"
+                   Class="my-2 mr-2"
+                   Color="Color.Inherit">
+            <MudText Typo="Typo.h5">BlazorNoMudBlazor</MudText>
+        </MudButton>
+        <MudSpacer />
+        <ThemeToggle OnToggle="ToggleTheme" />
+        <AppUserMenu />
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen"
+               ClipMode="DrawerClipMode.Always"
+               Elevation="0">
+        <NavLinks Items="AppNav.Items" />
+    </MudDrawer>
+    <MudMainContent Class="mt-16 pa-4">@Body</MudMainContent>
+</MudLayout>

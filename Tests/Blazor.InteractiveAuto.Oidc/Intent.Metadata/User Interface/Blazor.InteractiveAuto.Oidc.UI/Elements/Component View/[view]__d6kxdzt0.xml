@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="d731b3b0-ea34-462e-a090-4b45e2039c4f" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
   <name>[view]</name>
-  <display>[view]</display>
+  <display>[view]: void</display>
   <externalReference>df564f66-db25-4356-8f5f-f481b3de9fe5</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <order>0</order>
   <genericTypes />
+  <typeReference id="0cceedd7-97e0-4a04-86f3-54d0970ec18a">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>20779ee0-0941-4801-8fcc-97967a49c732</parentFolderId>
   <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>

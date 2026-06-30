@@ -1,0 +1,16 @@
+.auth-form-shell {
+    max-width: 720px;
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-xl);
+}
+
+.two-fa-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+.two-fa-inline-form {
+    display: inline-block;
+}

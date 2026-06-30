@@ -10,6 +10,7 @@ namespace BlazorNoMudBlazor.Api.Components.Account.Shared
     {
         [CascadingParameter]
         private HttpContext? HttpContext { get; set; }
+        private bool IsDarkTheme => !(HttpContext?.Request.Cookies.TryGetValue("theme", out var theme) == true && theme == "light");
 
         protected override void OnParametersSet()
         {

@@ -1,23 +1,16 @@
-/* Page-specific recovery code layout. App-wide controls live in ux-tokens.css. */
-
-.row {
+.recovery-codes-container {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-6);
-    padding: var(--space-4);
+    gap: var(--space-2);
 }
 
-.row ::deep .col-md-12 {
-    flex: 1 1 100%;
-    max-width: 100%;
-}
-
-.row ::deep .recovery-code {
+.recovery-codes-container ::deep .recovery-code {
     display: inline-block;
-    margin: 0 var(--space-2) var(--space-2) 0;
     padding: var(--space-1) var(--space-2);
     color: var(--text);
     background: var(--surface-2);
     border: var(--border-width) solid var(--border);
     border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--type-body-sm);
 }

@@ -11,6 +11,7 @@
   <packageName>Blazor.Standalone.UI</packageName>
   <traits>
     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
   </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
@@ -110,7 +111,7 @@
         <isNullable>true</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Blazor.ProductService.Services</typePackageName>
+        <typePackageName>BlazorProductService.Services</typePackageName>
         <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
         <stereotypes />
         <genericTypeParameters />

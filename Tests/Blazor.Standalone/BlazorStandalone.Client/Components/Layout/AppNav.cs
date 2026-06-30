@@ -15,7 +15,7 @@ namespace BlazorStandalone.Client.Components.Layout
     public static class AppNav
     {
         public static IReadOnlyList<NavLinks.NavItem> Items { get; } = [
-            new("Add Menu Options...", "/example-page/{Title}", Icons.Material.Filled.AddCircle),
+            new("Home", "/"),
             new("Products", "/product")
         ];
     }

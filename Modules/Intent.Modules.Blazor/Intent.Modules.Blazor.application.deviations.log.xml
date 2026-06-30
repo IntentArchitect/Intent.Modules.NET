@@ -27,15 +27,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-14T17:33:35.6123106Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T18:08:05.9685076Z</approvedAt>
-      <deviationsHash>D6E9818C67256E08495449C540E7E0408902DCC49FA777A3498754436D726A1D</deviationsHash>
-      <fileHash>9B7BA02DD7D3F78B3046CB9B814F93372F8F6E9AB63B2E22FB0C13C563294F20</fileHash>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-30T13:40:22.4756389Z</updatedAt>
+      <deviationsHash>8EA7CA6765207822EF0AFCBBC972CBCAE11F97DD542CED4B370E05D03A6A68AE</deviationsHash>
+      <fileHash>A98B20BF1B2DE5DC45B8AD31BBF6B90F9813206F76044DBF4A045C981DEABA24</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -115,6 +112,16 @@
       <updatedAt>2026-06-21T11:28:13.9305265Z</updatedAt>
       <deviationsHash>5258CE44BDFC07554725F85BEF72A03EB48A6FFBC77E9EF7A961D530CAEC4B82</deviationsHash>
       <fileHash>F194D86E5EC5C895F086890221ED840F0C46C235CFE93251E4D31DA2C4C8E967</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#185ee26d-ddf6-431b-8012-9cf6b6c154c4</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/UserMenuDefaultStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-06-30T13:40:22.4764077Z</updatedAt>
+      <deviationsHash>684688181EE1AE0B83510308DA9392CAF5DECE7FC813251DE2A4312E94A0BFE2</deviationsHash>
+      <fileHash>6F89ED38573C74A7A4ED01FB31AB1AFB88FD29449F5EA75E370B5FFF265532F1</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c89e88-c8cd-4d7d-973f-f256613795d6</correlationId>

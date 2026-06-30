@@ -83,5 +83,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="84a5ffd7-5e56-4d59-8d03-663f66d99c52" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate</name>
+      <display>Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>89768685-bd8f-49f7-80fc-c6c91302eecd</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
