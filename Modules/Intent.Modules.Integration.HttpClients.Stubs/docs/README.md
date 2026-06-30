@@ -98,9 +98,9 @@ The stubs and their `AddStubHttpClients` registration are isolated in `<App>.Inf
 
 ## Module Settings
 
-This module adds no Module Builder settings. Stubbing is controlled entirely by one `appsettings.json` flag — **`UseStub`** — which the module registers (defaulting to `false`) alongside the `Uri` / `Timeout` / `IdentityClientKey` that `Intent.Integration.HttpClients` already generates.
+This module adds no Module Builder settings. Stubbing is controlled by a single `appsettings.json` flag — **`UseStub`** — added to your application's existing `HttpClients` configuration: the same section, with the same `Uri` / `Timeout` / `IdentityClientKey` per client, that the [Intent.Integration.HttpClients](https://docs.intentarchitect.com/articles/modules-dotnet/intent-integration-httpclients/intent-integration-httpclients.html) module already generates. This module doesn't introduce a new way to configure clients; it just adds `UseStub` (defaulting to `false`) to that one.
 
-**What a "group" is.** Every generated HTTP client belongs to a *group* — the downstream application it calls. All clients to the same application share that group's connection settings, which is why `Uri` / `Timeout` are configured once per group rather than per client. `UseStub` works the same way and can be set at two levels:
+**Groups and services.** That `HttpClients` configuration — defined by the `Intent.Integration.HttpClients` module — organises your clients into *groups*: a group is the downstream application a client calls, so every client to the same application shares its settings (this is why `Uri` / `Timeout` are set once per group rather than on each client). `UseStub` follows the same model, so you can switch stubs on for a whole application (its group) or for a single client (a service):
 
 | Level | Where the key goes | Effect |
 |---|---|---|
