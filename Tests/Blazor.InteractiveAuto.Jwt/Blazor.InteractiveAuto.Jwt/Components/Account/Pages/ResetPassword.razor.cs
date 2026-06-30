@@ -21,7 +21,6 @@ namespace Blazor.InteractiveAuto.Jwt.Components.Account.Pages
 
         protected override void OnInitialized()
         {
-            Input ??= new();
             if (Code is null)
             {
                 RedirectManager.RedirectTo("Account/InvalidPasswordReset");

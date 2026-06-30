@@ -24,11 +24,6 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
             await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);
         }
 
-        protected override void OnInitialized()
-        {
-            Input ??= new();
-        }
-
         private sealed class InputModel
         {
             [Required]

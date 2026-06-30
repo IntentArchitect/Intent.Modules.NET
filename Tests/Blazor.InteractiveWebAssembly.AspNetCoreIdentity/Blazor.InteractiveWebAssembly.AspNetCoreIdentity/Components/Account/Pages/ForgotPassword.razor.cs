@@ -12,11 +12,6 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = new();
 
-        protected override void OnInitialized()
-        {
-            Input ??= new();
-        }
-
         private async Task OnValidSubmitAsync()
         {
             await AuthService.ForgotPassword(Input.Email);
