@@ -418,6 +418,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoint
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.CQRS.CRUD", "Intent.Modules.Application.CQRS.CRUD\Intent.Modules.Application.CQRS.CRUD.csproj", "{0F7821EC-79B4-4BDC-B4C9-84EA7DB0ED6D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.ObjectMapping", "Intent.Modules.Application.Dtos.ObjectMapping\Intent.Modules.Application.Dtos.ObjectMapping.csproj", "{9B749D9F-852C-489F-AC7C-0D215E5D24A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1104,6 +1106,10 @@ Global
 		{0F7821EC-79B4-4BDC-B4C9-84EA7DB0ED6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7821EC-79B4-4BDC-B4C9-84EA7DB0ED6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7821EC-79B4-4BDC-B4C9-84EA7DB0ED6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B749D9F-852C-489F-AC7C-0D215E5D24A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

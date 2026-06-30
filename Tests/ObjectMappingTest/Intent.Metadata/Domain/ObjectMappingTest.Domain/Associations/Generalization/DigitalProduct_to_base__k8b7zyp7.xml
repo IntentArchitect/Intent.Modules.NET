@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8a27ddf9-c0e6-449a-879b-a802ac47bd81">
+  <sourceEnd id="3dfd294c-0bbd-4a33-b5b9-9422af5d6faf" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: DigitalProduct</display>
+    <order>0</order>
+    <typeReference id="d5b7901a-91f5-4736-b3e1-5c7780328e3c">
+      <typeId>3237a0be-62a4-49c0-b29c-080923099636</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMappingTest.Domain</typePackageName>
+      <typePackageId>343757b4-4d8f-4efa-9303-56b4be6867ce</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8a27ddf9-c0e6-449a-879b-a802ac47bd81" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends Product</display>
+    <order>0</order>
+    <typeReference id="697a1a68-7d7e-4ccf-9d24-987d5b5bf9c1">
+      <typeId>715b71f0-9872-487f-8d8e-c80b81b324c9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMappingTest.Domain</typePackageName>
+      <typePackageId>343757b4-4d8f-4efa-9303-56b4be6867ce</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

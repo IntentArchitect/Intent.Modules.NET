@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bcfee881-463e-4879-8fa5-d5a20cd92c68" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>PaymentStatusDto</name>
+  <display>PaymentStatusDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>081a10b1-56ac-4426-a82e-6230825e72b5</parentFolderId>
+  <packageId>c2a2cb49-3872-453c-aad1-915ba3a38986</packageId>
+  <packageName>ObjectMappingTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="004c9bba-d42d-4dec-85d4-6d1c5cc9d71e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bcfee881-463e-4879-8fa5-d5a20cd92c68</parentFolderId>
+      <packageId>c2a2cb49-3872-453c-aad1-915ba3a38986</packageId>
+      <packageName>ObjectMappingTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9c4dbfde-3fe0-416b-8019-1b3209623403" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Paid</name>
+      <display>Paid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bcfee881-463e-4879-8fa5-d5a20cd92c68</parentFolderId>
+      <packageId>c2a2cb49-3872-453c-aad1-915ba3a38986</packageId>
+      <packageName>ObjectMappingTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="483fcef8-5e8f-4b09-baa8-e028471338a8" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Refunded</name>
+      <display>Refunded</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bcfee881-463e-4879-8fa5-d5a20cd92c68</parentFolderId>
+      <packageId>c2a2cb49-3872-453c-aad1-915ba3a38986</packageId>
+      <packageName>ObjectMappingTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
