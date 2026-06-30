@@ -98,25 +98,49 @@ The stubs and their `AddStubHttpClients` registration are isolated in `<App>.Inf
 
 ## Module Settings
 
-This module introduces no Module Builder settings. Instead it registers a per-client-group `UseStub` application setting (defaulting to `false`) into the generated `appsettings.json`, alongside the existing `Intent.Integration.HttpClients` settings:
+This module adds no Module Builder settings. Stubbing is controlled entirely by one `appsettings.json` flag — **`UseStub`** — which the module registers (defaulting to `false`) alongside the `Uri` / `Timeout` / `IdentityClientKey` that `Intent.Integration.HttpClients` already generates.
+
+**What a "group" is.** Every generated HTTP client belongs to a *group* — the downstream application it calls. All clients to the same application share that group's connection settings, which is why `Uri` / `Timeout` are configured once per group rather than per client. `UseStub` works the same way and can be set at two levels:
+
+| Level | Where the key goes | Effect |
+|---|---|---|
+| **Group** | `UseStub` inside the group object (beside its `Uri`) | stubs **every** client that calls that application |
+| **Service** | `UseStub` in a key named after a single service | stubs **just that one** client; overrides its group |
+
+> Both are plain keys directly under `HttpClients` — a flat list, not a nesting. A service key sits *beside* its group key, never inside it.
+
+**Group level — stub a whole downstream application:**
 
 ```json
 "HttpClients": {
-  "CleanArchitecture.Comprehensive.Services": {
-    "Uri": "https://localhost:{app_port}/",
+  "Ordering.Services": {
+    "Uri": "https://localhost:44365/",
     "IdentityClientKey": "default",
     "Timeout": "00:01:00",
+    "UseStub": true
+  }
+}
+```
+
+Every client that calls the Ordering application is now stubbed. (There's no single master switch — to stub *all* downstream applications, set `UseStub: true` in each group.)
+
+**Service level — stub or un-stub one client.** The service key is a sibling of the group. Here the whole Ordering application is stubbed by default, except `OrdersService`, which keeps hitting the real endpoint:
+
+```json
+"HttpClients": {
+  "Ordering.Services": {
+    "Uri": "https://localhost:44365/",
+    "IdentityClientKey": "default",
+    "Timeout": "00:01:00",
+    "UseStub": true
+  },
+  "OrdersService": {
     "UseStub": false
   }
 }
 ```
 
-Set `UseStub` to `true` to swap that group's clients for their stubs. Resolution is checked most-specific first:
-
-- `HttpClients:<ServiceName>:UseStub` — overrides a single service.
-- `HttpClients:<GroupName>:UseStub` — applies to every service in the client group.
-
-If neither key is present the value defaults to `false`, so stubs are never used unless explicitly opted in.
+`UseStub` is resolved **most-specific-first**: the service key (`HttpClients:OrdersService:UseStub`) wins if present, otherwise the group key (`HttpClients:Ordering.Services:UseStub`), otherwise `false`.
 
 ## Related Modules
 

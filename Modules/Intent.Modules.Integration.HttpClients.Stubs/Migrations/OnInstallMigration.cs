@@ -12,17 +12,15 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
 {
     public class OnInstallMigration : IModuleOnInstallMigration
     {
-        // The "Codebase Structure" designer (formerly "Visual Studio"). Migrations that mutate it must load
-        // the application via IPersistenceLoader and use the Intent.Persistence.V2 API (see
-        // Intent.Modules.VisualStudio.Projects Migration_04_00_00_Pre_00).
         private const string CodebaseStructureDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
 
         private const string CSharpProjectSpecializationType = "C# Project (.NET)";
         private const string CSharpProjectSpecializationId = "8e9e6693-2888-4f48-a0d6-0f163baab740";
 
-        // 025e933b is the Codebase Structure "Output Anchor" element type. A template generates into the
-        // project that owns an anchor whose name matches the template's Role; a single "Stubs" anchor serves
-        // both stub templates ("Stubs.Configuration" and "Stubs.HttpClientStub").
+        // "Output Anchor" element type. Projects/folders/anchors are NESTED in the Codebase Structure tree, so
+        // they must be located with GetElementsOfType(...) (walks the whole package, top-level AND nested).
+        // package.Classes only returns the package's TOP-LEVEL elements and never sees a nested anchor — that was
+        // the bug.
         private const string OutputAnchorSpecializationType = "Output Anchor";
         private const string OutputAnchorSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
 
@@ -59,37 +57,30 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
 
             foreach (var package in designer.GetPackages())
             {
-                // package.Classes is a FLAT list of every element in the package, so anchors/projects can be
-                // filtered and parent-walked directly.
-                var elements = package.Classes;
+                // Find the Infrastructure anchor anywhere in the package, then the project that owns it.
+                var infrastructureAnchor = package.GetElementsOfType(OutputAnchorSpecializationId)
+                    .FirstOrDefault(e => e.Name == InfrastructureAnchorName);
+                if (infrastructureAnchor is null)
+                {
+                    continue;
+                }
 
-                // Locate the Infrastructure project by walking up from its existing "Infrastructure" output
-                // anchor to the owning project, falling back to the conventionally named "*.Infrastructure"
-                // project if no anchor is present yet.
-                var infrastructureAnchor = elements.FirstOrDefault(e =>
-                    e.SpecializationTypeId == OutputAnchorSpecializationId && e.Name == InfrastructureAnchorName);
-                var infrastructureProject = infrastructureAnchor is not null
-                    ? elements.FirstOrDefault(e => e.SpecializationTypeId == CSharpProjectSpecializationId && e.Id == infrastructureAnchor.ParentFolderId)
-                    : null;
-                infrastructureProject ??= elements.FirstOrDefault(e =>
-                    e.SpecializationTypeId == CSharpProjectSpecializationId &&
-                    e.Name.EndsWith(".Infrastructure", StringComparison.OrdinalIgnoreCase));
-
+                var infrastructureProject = package.GetElementsOfType(CSharpProjectSpecializationId)
+                    .FirstOrDefault(p => p.Id == infrastructureAnchor.ParentFolderId);
                 if (infrastructureProject is null)
                 {
                     continue;
                 }
 
                 var stubProjectName = $"{infrastructureProject.Name}.Stubs";
-
-                // Idempotent: don't re-create if the stub project already exists.
-                if (elements.Any(e => e.SpecializationTypeId == CSharpProjectSpecializationId &&
-                        e.Name.Equals(stubProjectName, StringComparison.OrdinalIgnoreCase)))
+                if (package.GetElementsOfType(CSharpProjectSpecializationId)
+                        .Any(p => p.Name.Equals(stubProjectName, StringComparison.OrdinalIgnoreCase)))
                 {
-                    continue;
+                    continue; // already created — idempotent
                 }
 
-                // Create the stub project beside Infrastructure (same solution folder) — never at the solution root.
+                // Stub project beside Infrastructure (same parent folder), inheriting its .NET settings so it
+                // resolves a target framework.
                 var stubProject = package.Classes.Add(
                     id: Guid.NewGuid().ToString(),
                     specializationType: CSharpProjectSpecializationType,
@@ -97,8 +88,6 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                     name: stubProjectName,
                     parentId: infrastructureProject.ParentFolderId);
 
-                // Inherit Infrastructure's .NET settings (SDK, Target Framework, Implicit Usings, ...) so the
-                // stub project resolves a framework for the stub templates' NuGet/version resolution.
                 if (infrastructureProject.Stereotypes.TryGet(NetSettingsStereotypeId, out var sourceNetSettings) && sourceNetSettings is not null)
                 {
                     var netSettings = stubProject.Stereotypes.Add(
@@ -113,9 +102,8 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
                     }
                 }
 
-                // A single "Stubs" output anchor inside the stub project. The stub templates' Roles
-                // ("Stubs.Configuration", "Stubs.HttpClientStub") bind to it, so the install places their
-                // Template Outputs inside this (frameworked) project rather than at the solution root.
+                // The "Stubs" anchor routes the stub templates (role "Stubs.*") into this project; Create
+                // Sub-Folders lets the HttpClientStub template emit into its "HttpClients" sub-folder.
                 var anchor = package.Classes.Add(
                     id: Guid.NewGuid().ToString(),
                     specializationType: OutputAnchorSpecializationType,
