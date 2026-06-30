@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
@@ -46,7 +48,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             AddTypeSource("Intent.Application.Dtos.DtoModel");
             AddTypeSource(TemplateId);
 
-            RazorFile = IRazorFile.Create(this, $"{Model.Name}")
+            RazorFile = IRazorFile.Create(this, $"{Model.Name.ToSanitized()}")
                 .Configure(file =>
                 {
                     if (Model.HasPage())
@@ -100,20 +102,174 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         protected override string CodeBehindTemplateId => RazorComponentCodeBehindTemplate.TemplateId;
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
             var config = RazorFile.GetConfig();
 
-            return new RazorFileConfig(config.ClassName, config.Namespace, 
-                config.LocationInProject,
-                OverwriteBehaviour.OverwriteDisabled);
+            return new RazorFileConfig(config.ClassName, config.Namespace,
+                config.LocationInProject, OverwriteBehaviour.Always)
+                .WithAIContext(GetIntentionContext());
         }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully)]
-        public override string TransformText() => !string.IsNullOrWhiteSpace(RazorFile.ToString())
-            ? RazorFile.ToString()
-            : "@* To be replaced with your razor content *@";
+        [IntentManaged(Mode.Ignore)]
+        public override string TransformText()
+        {
+            var filePath = GetMetadata().GetFilePath();
+
+            string baseContent;
+            if (!System.IO.File.Exists(filePath))
+            {
+                var razorContent = RazorFile.ToString();
+                if (string.IsNullOrWhiteSpace(razorContent))
+                    return "@* To be replaced with your razor content *@";
+                baseContent = razorContent;
+            }
+            else
+            {
+                baseContent = System.IO.File.ReadAllText(filePath);
+            }
+
+            var pageDirective = BuildPageDirective();
+            var attributeDirectives = BuildAttributeDirectives();
+            var pageTitle = BuildPageTitle();
+
+            if (string.IsNullOrEmpty(pageDirective) && string.IsNullOrEmpty(pageTitle))
+                return baseContent;
+
+            var stripped = RemoveManagedDirectives(baseContent);
+            var (userDirectives, contentBody) = SplitLeadingDirectives(stripped);
+
+            var sb = new System.Text.StringBuilder();
+            sb.Append(pageDirective);
+            sb.Append(userDirectives);
+            sb.Append(attributeDirectives);
+            if (!string.IsNullOrEmpty(pageTitle))
+                sb.Append(pageTitle).Append('\n');
+            if (!string.IsNullOrEmpty(contentBody))
+                sb.Append(contentBody.TrimStart('\r', '\n'));
+
+            return sb.ToString();
+        }
+
+        private string BuildPageDirective()
+        {
+            if (!Model.HasPage()) return string.Empty;
+            var route = Model.GetPage().Route();
+            var fullRoute = route.StartsWith('/') ? route : "/" + route;
+            return $"@page \"{fullRoute}\"\n";
+        }
+
+        private string BuildAttributeDirectives()
+        {
+            if (!Model.HasSecured()) return string.Empty;
+            var sb = new System.Text.StringBuilder();
+            foreach (var secure in Model.GetSecureds())
+                sb.Append("@attribute ").Append(secure.AuthorizationAttribute(this)).Append('\n');
+            return sb.ToString();
+        }
+
+        private string BuildPageTitle()
+        {
+            if (!Model.HasPage()) return string.Empty;
+            var title = Model.GetPage().Title();
+            return string.IsNullOrWhiteSpace(title) ? string.Empty : $"<PageTitle>{title}</PageTitle>";
+        }
+
+        private static (string directives, string body) SplitLeadingDirectives(string content)
+        {
+            var lines = content.Split('\n');
+            var i = 0;
+            while (i < lines.Length)
+            {
+                var t = lines[i].Trim();
+                if (t.StartsWith("@") || t.Length == 0)
+                    i++;
+                else
+                    break;
+            }
+            var directives = i > 0 ? string.Join('\n', lines.Take(i)) + '\n' : string.Empty;
+            var body = i < lines.Length ? string.Join('\n', lines.Skip(i)) : string.Empty;
+            return (directives, body);
+        }
+
+        private static string RemoveManagedDirectives(string content)
+        {
+            var lines = content.Split('\n');
+            var kept = lines.Where(line =>
+            {
+                var t = line.Trim();
+                return !t.StartsWith("@page ") &&
+                       !t.StartsWith("<PageTitle>") &&
+                       !(t.StartsWith("@attribute [") && t.Contains("Authorize"));
+            });
+            return string.Join('\n', kept);
+        }
+
+        private string GetIntentionContext()
+        {
+            var intention = new StringBuilder();
+            AddLayoutNavigationContext(intention);
+            AddNavigatesToContext(intention);
+            AddShowDialogContext(intention);
+            AddCallServiceOperationContext(intention);
+            AddCompositionContext(intention);
+            return intention.ToString();
+        }
+
+        private void AddLayoutNavigationContext(StringBuilder intention)
+        {
+            foreach (var associationEnd in Model.InternalElement.AssociatedElements
+                .Where(a => a.IsNavigationSourceEndModel() && !a.IsNavigable))
+            {
+                intention.AppendLine($"- This page is navigated to from a {associationEnd.TypeReference.Element.Name} menu item");
+            }
+        }
+
+        private void AddNavigatesToContext(StringBuilder intention)
+        {
+            foreach (var navigation in Model.InternalElement.AssociatedElements.Where(e => e.IsNavigationEndModel() && e.IsNavigable))
+            {
+                var navEndModel = navigation.AsNavigationEndModel();
+                intention.AppendLine($"- This pages navigates to the {navEndModel.TypeReference.Element.Name} component");
+            }
+        }
+
+        private void AddShowDialogContext(StringBuilder intention)
+        {
+            foreach (var operation in Model.Operations.Where(o => o.InternalElement.AssociatedElements.Any(e => e.IsShowDialogTargetEndModel())))
+            {
+                foreach (var association in operation.InternalElement.AssociatedElements.Where(e => e.IsShowDialogTargetEndModel()))
+                {
+                    var dialogTargetEnd = association.AsShowDialogTargetEndModel();
+                    intention.AppendLine($"- The {operation.Name} operation opens a dialog to show the {dialogTargetEnd.TypeReference.Element.Name} component");
+                }
+            }
+
+            foreach (var association in Model.InternalElement.AssociatedElements.Where(e => e.IsShowDialogTargetEndModel()))
+            {
+                var dialogTargetEnd = association.AsShowDialogTargetEndModel();
+                intention.AppendLine($"- {Model.Name} opens a dialog to show the {dialogTargetEnd.TypeReference.Element.Name} component");
+            }
+        }
+
+        private void AddCallServiceOperationContext(StringBuilder intention)
+        {
+            foreach (var serviceCall in Model.InternalElement.AssociatedElements.Where(o => o.IsCallServiceOperationActionEndModel()))
+            {
+                var serviceCallEnd = serviceCall.AsCallServiceOperationActionEndModel();
+                intention.AppendLine($"- The {Model.Name} page calls the {serviceCallEnd.TypeReference.Element.Name} service");
+            }
+        }
+
+        private void AddCompositionContext(StringBuilder intention)
+        {
+            foreach (var association in Model.InternalElement.AssociatedElements.Where(e => e.IsCompositionTargetEndModel()))
+            {
+                var compositionTargetEnd = association.AsCompositionTargetEndModel();
+                intention.AppendLine($"- {Model.Name} is composed of the {compositionTargetEnd.TypeReference.Element.Name} component.");
+            }
+        }
     }
 }

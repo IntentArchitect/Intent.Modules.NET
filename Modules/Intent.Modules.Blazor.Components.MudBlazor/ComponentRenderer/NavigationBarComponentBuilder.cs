@@ -7,9 +7,11 @@ using Intent.Modules.Blazor.Components.MudBlazor.Templates.AppNav;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
@@ -95,7 +97,11 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             return;
         }
 
-        var entries = navigationModel.MenuItems.Select(BuildNavItemExpression).ToList();
+        // Menu items which do not have a "Link-To" property set are excluded form the list
+        var menuEntries = navigationModel.MenuItems.Select(BuildNavItemExpression).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+        // Items which just have a [navigate] association
+        var entries = AddNavigationItems(menuEntries, layoutElement, navigationModel);
+
         var initializer = entries.Count == 0
             ? "[]"
             : $"[\n            {string.Join(",\n            ", entries)}\n        ]";
@@ -106,7 +112,15 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
     private string BuildNavItemExpression(MenuItemModel menuItemModel)
     {
         var label = !string.IsNullOrWhiteSpace(menuItemModel.Value) ? menuItemModel.Value : menuItemModel.Name;
-        var href = ToCSharpHref(_bindingManager.GetHrefRoute(_bindingManager.GetMappedEndsFor(menuItemModel, "Link To")));
+        var mappendEnds = _bindingManager.GetMappedEndsFor(menuItemModel, "Link To");
+
+        if (mappendEnds.Count == 0 || mappendEnds is null)
+        {
+            return string.Empty;
+        }
+
+        var href = ToCSharpHref(_bindingManager.GetHrefRoute(mappendEnds));
+
         var icon = menuItemModel.HasIcon()
             ? $"Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}"
             : null;
@@ -137,6 +151,68 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
         }
 
         return $"\"{href}\"";
+    }
+
+    private List<string> AddNavigationItems(
+        List<string> menuEntries,
+        IElement layoutElement,
+        NavigationMenuModel navigationModel)
+    {
+        // Build route → pre-built expression map from explicit menu items
+        var menuByRoute = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var item in navigationModel.MenuItems)
+        {
+            var href = _bindingManager.GetHrefRoute(_bindingManager.GetMappedEndsFor(item, "Link To"));
+            if (string.IsNullOrWhiteSpace(href) || href!.StartsWith('@'))
+                continue;
+            var expression = BuildNavItemExpression(item);
+            if (!string.IsNullOrWhiteSpace(expression))
+                menuByRoute[NormalizeRoute(href)] = expression;
+        }
+
+        var result = new List<string>();
+        var usedExpressions = new HashSet<string>();
+
+        // Iterate layout navigation associations in their modelled order
+        foreach (var assocEnd in layoutElement.AssociatedElements
+            .Where(e => e.IsNavigationEndModel() && e.IsNavigable))
+        {
+            var navEnd = assocEnd.AsNavigationEndModel();
+            var targetComponent = new ComponentModel((IElement)navEnd.TypeReference.Element);
+
+            if (!targetComponent.HasPage())
+                continue;
+
+            var route = targetComponent.GetPage().Route();
+
+            if (menuByRoute.TryGetValue(NormalizeRoute(route), out var existingEntry))
+            {
+                result.Add(existingEntry);
+                usedExpressions.Add(existingEntry);
+            }
+            else
+            {
+                var fullRoute = route.StartsWith('/') ? route : "/" + route;
+                var label = ToHumanReadableLabel(targetComponent.Name);
+                result.Add($"new(\"{label}\", {ToCSharpHref(fullRoute)})");
+            }
+        }
+
+        // Append any menu items not matched to a layout navigation association
+        foreach (var entry in menuEntries.Where(e => !usedExpressions.Contains(e)))
+            result.Add(entry);
+
+        return result;
+    }
+
+    private static string NormalizeRoute(string route) =>
+        route.TrimStart('/').ToLowerInvariant();
+
+    private static string ToHumanReadableLabel(string name)
+    {
+        if (name.EndsWith("Page"))
+            name = name[..^4];
+        return Regex.Replace(name, "([a-z])([A-Z])", "$1 $2");
     }
 
     private void AddMenuItem(IHtmlElement parent, MenuItemModel menuItemModel)

@@ -403,7 +403,7 @@ public static class RazorFileExtensions
                 }
                 var navigationModel = associationEnd.AsNavigationEndModel();
                 var toComponent = navigationModel.Element.AsComponentModel();
-                block.AddMethod("void", associationEnd.Name?.ToPropertyName() ?? $"NavigateTo{toComponent.Name}", method =>
+                block.AddMethod("void", associationEnd.Name?.ToPropertyName() ?? $"NavigateTo{toComponent.Name.ToSanitized()}", method =>
                 {
                     method.Private();
                     var routeManager = new RouteManager($"\"{toComponent.GetPage().Route()}\"");

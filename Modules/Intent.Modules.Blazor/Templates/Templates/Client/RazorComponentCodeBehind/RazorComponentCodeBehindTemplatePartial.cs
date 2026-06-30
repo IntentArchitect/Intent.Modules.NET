@@ -32,7 +32,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")
                 .IntentManagedMerge()
-                .AddClass($"{Model.Name}", @class =>
+                .AddClass($"{Model.Name.ToSanitized()}", @class =>
                 {
                     @class.Partial();
                 });

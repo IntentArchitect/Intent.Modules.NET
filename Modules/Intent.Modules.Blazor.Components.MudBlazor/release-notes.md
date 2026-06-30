@@ -1,3 +1,9 @@
+### Version 2.0.1
+
+- Improvement: Application home label out of the box now reflect the application name.
+- Improvement: Menu items without a link are no longer included in the output.
+- Improvement: Navigations (without a related menu item) will not be included in the output.
+
 ### Version 2.0.0
 
 - Improvement: Component code-behind and styles are now emitted as separate `razor.cs` and `razor.css` files, allowing improved separation of concerns of C# logic and scoped CSS.

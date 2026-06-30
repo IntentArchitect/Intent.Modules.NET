@@ -51,4 +51,18 @@
     <None Include="content\**\*.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="modelers\Blazor UI Extensions.designer.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Blazor UI Extensions.designer.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="modelers\Blazor UI Extensions.designer.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Blazor UI Extensions.designer.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

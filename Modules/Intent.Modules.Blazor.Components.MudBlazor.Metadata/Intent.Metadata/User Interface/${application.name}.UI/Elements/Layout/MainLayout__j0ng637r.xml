@@ -34,42 +34,12 @@
           </sources>
         </mappedEnd>
         <mappedEnd>
-          <expression>#####Application</expression>
+          <expression>#####${application.name}</expression>
           <path>
             <target id="a178d0e7-8bc2-47a2-9724-fc672ce37c13" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
             <target id="a7c89270-9de3-40c7-942e-483aea25806f" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
             <target id="248ce27e-85f7-4591-b140-153c8279de0a" name="Home" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
             <target id="ef9c99a7-7b82-41ee-8884-1702ffb5fae4" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
-          </path>
-          <sources />
-        </mappedEnd>
-        <mappedEnd>
-          <expression>{NavigateToExamplePage}</expression>
-          <path>
-            <target id="a178d0e7-8bc2-47a2-9724-fc672ce37c13" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="3abb8e62-1ef0-41ff-8a0a-fb4333322e31" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
-            <target id="e15086df-a61f-4354-ad7f-e04a99b10e16" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="ae0406db-542c-4d64-9233-5a258a5cf532" name="Add Menu Options..." type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-          </path>
-          <sources>
-            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
-              <path>
-                <target id="a178d0e7-8bc2-47a2-9724-fc672ce37c13" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="77575ef0-e91a-4ad1-93cc-2f8bbc0208eb" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
-              </path>
-            </source>
-          </sources>
-        </mappedEnd>
-        <mappedEnd>
-          <expression>"Navigation Page"</expression>
-          <path>
-            <target id="a178d0e7-8bc2-47a2-9724-fc672ce37c13" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-            <target id="3abb8e62-1ef0-41ff-8a0a-fb4333322e31" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
-            <target id="e15086df-a61f-4354-ad7f-e04a99b10e16" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="ae0406db-542c-4d64-9233-5a258a5cf532" name="Add Menu Options..." type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
-            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
-            <target id="1c567757-678c-4a39-ba73-c58a43b36b87" name="title" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
           </path>
           <sources />
         </mappedEnd>
@@ -134,10 +104,10 @@
           <childElements>
             <childElement id="ef9c99a7-7b82-41ee-8884-1702ffb5fae4" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
               <name>Text</name>
-              <display>Text = #####Application</display>
+              <display>Text = #####${application.name}</display>
               <externalReference>0aea6446-7198-4176-9b45-29c9a721fdd7</externalReference>
               <isAbstract>false</isAbstract>
-              <value>#####Application</value>
+              <value>#####${application.name}</value>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>248ce27e-85f7-4591-b140-153c8279de0a</parentFolderId>
@@ -190,7 +160,6 @@
           <display>Navigation Menu</display>
           <externalReference>7b67c707-03a8-4cc4-927a-12d22b0a8fee</externalReference>
           <isAbstract>false</isAbstract>
-          <sort-children>by-type-then-manually</sort-children>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3abb8e62-1ef0-41ff-8a0a-fb4333322e31</parentFolderId>
@@ -201,33 +170,7 @@
           </traits>
           <stereotypes />
           <metadata />
-          <childElements>
-            <childElement id="ae0406db-542c-4d64-9233-5a258a5cf532" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
-              <name>Add Menu Options...</name>
-              <display>Add Menu Options...</display>
-              <externalReference>eead53c4-3b24-4e6f-8ac5-c37ace777d10</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>e15086df-a61f-4354-ad7f-e04a99b10e16</parentFolderId>
-              <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
-              <packageName>${application.name}.UI</packageName>
-              <stereotypes>
-                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
-                  <addedByDefault>false</addedByDefault>
-                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
-                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
-                  <properties>
-                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="bcb1ed81-8cfa-47c4-826e-46b2fda60b54" isActive="true" />
-                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
-                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
-                  </properties>
-                </stereotype>
-              </stereotypes>
-              <metadata />
-              <childElements />
-            </childElement>
-          </childElements>
+          <childElements />
         </childElement>
       </childElements>
     </childElement>
