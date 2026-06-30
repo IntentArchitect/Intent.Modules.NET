@@ -1,11 +1,10 @@
 #nullable enable
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Intent.Engine;
-using Intent.Persistence;
+using Intent.Persistence.V2;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -14,32 +13,37 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
 {
     public class OnInstallMigration : IModuleOnInstallMigration
     {
-        private const string VisualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
-        private const string VisualStudioSolutionPackageSpecializationId = "07e7b690-a59d-4b72-8440-4308a121d32c";
-        private const string VisualStudioSolutionSpecializationId = "769a45a2-119f-434f-8c27-bd4a399b915c";
+        // The "Codebase Structure" designer (formerly "Visual Studio"). Migrations that mutate it must load
+        // the application via IPersistenceLoader and use the Intent.Persistence.V2 API (see
+        // Intent.Modules.VisualStudio.Projects Migration_04_00_00_Pre_00). The static ApplicationPersistable.Load
+        // and the legacy Intent.Persistence (V1) API are the older, incorrect approaches.
+        private const string CodebaseStructureDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
 
-        private const string CSharpProjectSpecializationId = "8e9e6693-2888-4f48-a0d6-0f163baab740";
         private const string CSharpProjectSpecializationType = "C# Project (.NET)";
+        private const string CSharpProjectSpecializationId = "8e9e6693-2888-4f48-a0d6-0f163baab740";
 
-        private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
-        private const string RoleSpecializationType = "Role";
-        private const string StubsRoleName = "Stubs";
+        // 025e933b is the Codebase Structure "Output Anchor" element type. A template generates into the
+        // project that owns an anchor whose name matches the template's Role; a single "Stubs" anchor serves
+        // both stub templates ("Stubs.Configuration" and "Stubs.HttpClientStub").
+        private const string OutputAnchorSpecializationType = "Output Anchor";
+        private const string OutputAnchorSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
 
-        private const string NetSettingsStereoTypeId = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
-        private const string NetSettingsStereoType = ".NET Settings";
+        private const string InfrastructureAnchorName = "Infrastructure";
+        private const string StubsAnchorName = "Stubs";
 
-        private const string VsProjectsPackageId = "a0636ab7-d3a1-430b-9609-11a18aa3cc7f";
-        private const string VsProjectsPackageName = "Intent.VisualStudio.Projects";
+        private const string NetSettingsStereotypeId = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
 
-        private const string SdkPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
-        private const string SdkPropertyValue = "Microsoft.NET.Sdk";
+        private const string OutputAnchorSettingsStereotypeId = "a23c7901-31a5-4cbf-b8bf-1be128977e6d";
+        private const string OutputAnchorSettingsStereotypeName = "Output Anchor Settings";
+        private const string CodebaseStructurePackageId = "525868ff-adc0-4ab6-a90e-352288da941f";
+        private const string CodebaseStructurePackageName = "Intent.Modelers.CodebaseStructure";
+        private const string CreateSubFoldersPropertyId = "8d79a350-96f1-4d50-bb0a-f65a5c53ec62";
+        private const string CreateSubFoldersPropertyName = "Create Sub-Folders";
 
-        private readonly IApplicationConfigurationProvider _configurationProvider;
         private readonly IPersistenceLoader _persistenceLoader;
 
-        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider, IPersistenceLoader persistenceLoader)
+        public OnInstallMigration(IPersistenceLoader persistenceLoader)
         {
-            _configurationProvider = configurationProvider;
             _persistenceLoader = persistenceLoader;
         }
 
@@ -48,112 +52,98 @@ namespace Intent.Modules.Integration.HttpClients.Stubs.Migrations
 
         public void OnInstall()
         {
-            var app = _persistenceLoader.LoadCurrentApplication();
-            var designer = app.GetDesigner(VisualStudioDesignerId);
-            if (designer == null)
+            var application = _persistenceLoader.LoadCurrentApplication();
+            var designer = application.GetDesigner(CodebaseStructureDesignerId);
+            if (designer is null)
             {
+                Logging.Log.Warning("[Stubs.OnInstall] Codebase Structure designer not found; skipping.");
                 return;
             }
 
-            var packages = designer.GetPackages()
-                .Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId)
-                .ToArray();
-
-            if (packages.Length == 0 ||
-                packages.SelectMany(x => x.GetElementsOfType(RoleSpecializationId)).Any(x => x.Name == StubsRoleName) ||
-                !TryGetDefaultSolution(packages, out var defaultSolution))
+            foreach (var package in designer.GetPackages())
             {
-                return;
-            }
+                // package.Classes is a FLAT list of every element in the package, so anchors/projects can be
+                // filtered and parent-walked directly.
+                var elements = package.Classes;
 
-            // The stub project pairs with Infrastructure (where the real HTTP clients live) so it sits in
-            // the same solution folder and inherits the same .NET settings.
-            var infrastructureProject = GetProjectWithRole(packages, "Infrastructure");
-            var stubProjectName = infrastructureProject != null
-                ? $"{infrastructureProject.Name}.Stubs"
-                : $"{defaultSolution.Name}.Infrastructure.Stubs";
-            var targetPackage = infrastructureProject?.Package ?? defaultSolution.Package;
+                // Locate the Infrastructure project by walking up from its existing "Infrastructure" output
+                // anchor to the owning project (the canonical handle), falling back to the conventionally
+                // named "*.Infrastructure" project if no anchor is present yet.
+                var infrastructureAnchor = elements.FirstOrDefault(e =>
+                    e.SpecializationTypeId == OutputAnchorSpecializationId && e.Name == InfrastructureAnchorName);
+                var infrastructureProject = infrastructureAnchor is not null
+                    ? elements.FirstOrDefault(e => e.SpecializationTypeId == CSharpProjectSpecializationId && e.Id == infrastructureAnchor.ParentFolderId)
+                    : null;
+                infrastructureProject ??= elements.FirstOrDefault(e =>
+                    e.SpecializationTypeId == CSharpProjectSpecializationId &&
+                    e.Name.EndsWith(".Infrastructure", StringComparison.OrdinalIgnoreCase));
 
-            var stubProject =
-                packages.SelectMany(p => p.GetElementsOfType(CSharpProjectSpecializationId)).FirstOrDefault(p => p.Name.Equals(stubProjectName, StringComparison.OrdinalIgnoreCase)) ??
-                targetPackage.Classes.Add(
-                   id: Guid.NewGuid().ToString(),
-                   specializationType: CSharpProjectSpecializationType,
-                   specializationTypeId: CSharpProjectSpecializationId,
-                   name: stubProjectName,
-                   parentId: infrastructureProject?.ParentFolderId ?? defaultSolution.Id);
+                if (infrastructureProject is null)
+                {
+                    Logging.Log.Info($"[Stubs.OnInstall] No Infrastructure project found in package '{package.Name}'; skipping.");
+                    continue;
+                }
 
-            stubProject.ChildElements.Add(
-                id: Guid.NewGuid().ToString(),
-                specializationType: RoleSpecializationType,
-                specializationTypeId: RoleSpecializationId,
-                name: StubsRoleName,
-                parentId: stubProject.Id);
+                var stubProjectName = $"{infrastructureProject.Name}.Stubs";
 
-            if (stubProject.Stereotypes.All(s => s.DefinitionId != NetSettingsStereoTypeId))
-            {
-                stubProject.Stereotypes.Add(
-                    definitionId: NetSettingsStereoTypeId,
-                    name: NetSettingsStereoType,
-                    definitionPackageId: VsProjectsPackageId,
-                    definitionPackageName: VsProjectsPackageName,
-                    configure: stereotype =>
+                // Idempotent: don't re-create if the stub project already exists.
+                if (elements.Any(e => e.SpecializationTypeId == CSharpProjectSpecializationId &&
+                        e.Name.Equals(stubProjectName, StringComparison.OrdinalIgnoreCase)))
+                {
+                    Logging.Log.Info($"[Stubs.OnInstall] '{stubProjectName}' already exists; skipping.");
+                    continue;
+                }
+
+                Logging.Log.Info($"[Stubs.OnInstall] Creating '{stubProjectName}' as a sibling of '{infrastructureProject.Name}' (solution folder '{infrastructureProject.ParentFolderId}').");
+
+                // Create the stub project beside Infrastructure (same solution folder) — never at the solution root.
+                var stubProject = package.Classes.Add(
+                    id: Guid.NewGuid().ToString(),
+                    specializationType: CSharpProjectSpecializationType,
+                    specializationTypeId: CSharpProjectSpecializationId,
+                    name: stubProjectName,
+                    parentId: infrastructureProject.ParentFolderId);
+
+                // Inherit Infrastructure's .NET settings (SDK, Target Framework, Implicit Usings, ...) so the
+                // stub project resolves a framework for the stub templates' NuGet/version resolution.
+                if (infrastructureProject.Stereotypes.TryGet(NetSettingsStereotypeId, out var sourceNetSettings) && sourceNetSettings is not null)
+                {
+                    var netSettings = stubProject.Stereotypes.Add(
+                        definitionId: sourceNetSettings.DefinitionId,
+                        name: sourceNetSettings.Name,
+                        definitionPackageId: sourceNetSettings.DefinitionPackageId,
+                        definitionPackageName: sourceNetSettings.DefinitionPackageName);
+                    netSettings.AddedByDefault = true;
+                    foreach (var property in sourceNetSettings.Properties)
                     {
-                        var sourceStereotype =
-                            infrastructureProject?.Stereotypes?.FirstOrDefault(s => s.DefinitionId == NetSettingsStereoTypeId) ??
-                            targetPackage.GetElementsOfType(CSharpProjectSpecializationId)
-                                .SelectMany(x => x.Stereotypes)
-                                .FirstOrDefault(x => x.DefinitionId == NetSettingsStereoTypeId && x.Properties.Any(y => y.DefinitionId == SdkPropertyId && y.Value == SdkPropertyValue));
-                        if (sourceStereotype == null)
-                        {
-                            return;
-                        }
+                        netSettings.Properties.Add(property.DefinitionId, property.Name, property.Value);
+                    }
+                }
+                else
+                {
+                    Logging.Log.Warning($"[Stubs.OnInstall] '{infrastructureProject.Name}' has no .NET Settings to copy; stub project may be frameworkless.");
+                }
 
-                        foreach (var property in sourceStereotype.Properties)
-                        {
-                            stereotype.Properties.Add(property.DefinitionId, property.Name, property.Value);
-                        }
-                    });
+                // A single "Stubs" output anchor inside the stub project. The stub templates' Roles
+                // ("Stubs.Configuration", "Stubs.HttpClientStub") bind to it, so the install places their
+                // Template Outputs inside this (frameworked) project rather than at the solution root.
+                var anchor = package.Classes.Add(
+                    id: Guid.NewGuid().ToString(),
+                    specializationType: OutputAnchorSpecializationType,
+                    specializationTypeId: OutputAnchorSpecializationId,
+                    name: StubsAnchorName,
+                    parentId: stubProject.Id);
+                var anchorSettings = anchor.Stereotypes.Add(
+                    definitionId: OutputAnchorSettingsStereotypeId,
+                    name: OutputAnchorSettingsStereotypeName,
+                    definitionPackageId: CodebaseStructurePackageId,
+                    definitionPackageName: CodebaseStructurePackageName);
+                anchorSettings.AddedByDefault = true;
+                anchorSettings.Properties.Add(CreateSubFoldersPropertyId, CreateSubFoldersPropertyName, "true");
+
+                package.Save();
+                Logging.Log.Info($"[Stubs.OnInstall] Created '{stubProjectName}' with single '{StubsAnchorName}' anchor and saved package '{package.Name}'.");
             }
-
-            targetPackage.Save();
-        }
-
-        /// <summary>
-        /// The "Codebase Structure" designer replaced the Visual Studio designer and changed the solutions from packages to elements.
-        /// </summary>
-        private bool TryGetDefaultSolution(IReadOnlyList<IPackageModelPersistable> packages, out (string Name, string Id, IPackageModelPersistable Package) defaultSolution)
-        {
-            if (!_configurationProvider.GetInstalledModules().Any(x => string.Equals(x.ModuleId, "Intent.Modelers.CodebaseStructure", StringComparison.OrdinalIgnoreCase)))
-            {
-                defaultSolution = (packages[0].Name, packages[0].Id, packages[0]);
-                return true;
-            }
-
-            var element = packages.SelectMany(x => x.GetElementsOfType(VisualStudioSolutionSpecializationId)).FirstOrDefault();
-            if (element == null)
-            {
-                defaultSolution = default;
-                return false;
-            }
-
-            defaultSolution = (element.Name, element.Id, element.Package);
-            return true;
-        }
-
-        private static IElementPersistable? GetProjectWithRole(IReadOnlyCollection<IPackageModelPersistable> packages, string roleName)
-        {
-            var roleElement = packages
-                .SelectMany(p => p.GetElementsOfType(RoleSpecializationId))
-                .FirstOrDefault(x => x.Name == roleName);
-            if (roleElement == null)
-            {
-                return null;
-            }
-
-            return packages
-                .SelectMany(p => p.GetElementsOfType(CSharpProjectSpecializationId))
-                .FirstOrDefault(p => p.ChildElements.Any(c => c.Id == roleElement.Id));
         }
     }
 }

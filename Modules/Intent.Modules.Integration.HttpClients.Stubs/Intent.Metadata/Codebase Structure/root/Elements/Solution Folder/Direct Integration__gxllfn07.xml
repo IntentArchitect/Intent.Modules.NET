@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3bbaead7-203f-4fd6-8fa4-6dcbb692aeb1" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Direct Integration</name>
+  <display>Direct Integration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff1e9f25-9d4c-4ffa-a9db-a5aa06aa1ec2</parentFolderId>
+  <packageId>486bf729-83ab-475b-9b6c-0c133abff1b5</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

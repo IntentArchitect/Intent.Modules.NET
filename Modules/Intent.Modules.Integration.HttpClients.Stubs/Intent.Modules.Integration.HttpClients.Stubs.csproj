@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.1" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.7.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.10" />
-    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.5.3" />
-    <PackageReference Include="Intent.Packager" Version="3.6.0">
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.8" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.7.21" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.15" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.5.5" />
+    <PackageReference Include="Intent.Packager" Version="3.6.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -28,4 +28,5 @@
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
 </Project>

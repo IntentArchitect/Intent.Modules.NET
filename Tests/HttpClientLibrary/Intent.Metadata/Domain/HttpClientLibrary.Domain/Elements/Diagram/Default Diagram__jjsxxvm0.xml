@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2b7a4500-7d89-4d2a-a924-f49d4b3bd9c3</parentFolderId>
+  <packageId>2b7a4500-7d89-4d2a-a924-f49d4b3bd9c3</packageId>
+  <packageName>HttpClientLibrary.Domain</packageName>
   <diagram>
     <targetPackageId>2b7a4500-7d89-4d2a-a924-f49d4b3bd9c3</targetPackageId>
   </diagram>

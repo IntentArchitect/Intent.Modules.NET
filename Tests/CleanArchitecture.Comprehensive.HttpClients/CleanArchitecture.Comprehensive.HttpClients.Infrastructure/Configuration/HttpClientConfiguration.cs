@@ -20,31 +20,17 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Configurati
                 clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
             }
 
-            if (UseFakeHttpClient(configuration, "CleanArchitecture.Comprehensive.Services", "CustomersService"))
-            {
-                services.AddTransient<ICustomersService, CustomersServiceHttpClientFake>();
-            }
-            else
-            {
-                services
-                    .AddHttpClient<ICustomersService, CustomersServiceHttpClient>(http =>
-                    {
-                        ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "CustomersService");
-                    });
-            }
+            services
+                .AddHttpClient<ICustomersService, CustomersServiceHttpClient>(http =>
+                {
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "CustomersService");
+                });
 
-            if (UseFakeHttpClient(configuration, "CleanArchitecture.Comprehensive.Services", "QueryDtoParameterService"))
-            {
-                services.AddTransient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClientFake>();
-            }
-            else
-            {
-                services
-                    .AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
-                    {
-                        ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "QueryDtoParameterService");
-                    });
-            }
+            services
+                .AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
+                {
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "QueryDtoParameterService");
+                });
         }
 
         private static void ApplyAppSettings(
@@ -55,11 +41,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Configurati
         {
             client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
             client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
-        }
-
-        private static bool UseFakeHttpClient(IConfiguration configuration, string groupName, string serviceName)
-        {
-            return configuration.GetValue<bool?>($"HttpClients:{serviceName}:UseFake") ?? configuration.GetValue<bool?>($"HttpClients:{groupName}:UseFake") ?? false;
         }
     }
 }
