@@ -103,3 +103,21 @@ public class MyTemplateRegistration : SingleFileTemplateRegistration<MyTemplate>
 **Symptom:** A relocated/extracted member fails to compile — types or attributes (`Task`, `[SupplyParameterFromForm]`, `[Required]`, `IEnumerable<>`, …) not found — even though the same code compiled in its original file.
 **Cause:** (a) members were added with **raw type strings** the builder can't track; and/or (b) the destination file doesn't inherit the source's implicit imports (e.g. a plain `.cs` gets none of Razor's `_Imports`; global usings differ per project); and/or (c) the type was resolved against the **wrong** template, so the using landed on the source file, not the destination.
 **Fix:** Resolve every type/return/attribute through the **destination block's** template — `targetBlock.Template.UseType("Namespace.Type")` (e.g. `code.Template.UseType(...)` where `code` is the destination class) — so the using lands on the file that holds the members. Add `.RemoveSuffix("Attribute")` for attribute names. Ensure the destination template exposes the right context, e.g. `public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();`. Types referenced only inside **raw statement/expression strings** are never tracked — interpolate a `UseType(...)` into the string, or add the namespace explicitly with `CSharpFile.AddUsing(...)`. See *Split-file / code-behind usings* in `SKILL.md`.
+
+---
+
+## 10. Double semicolon from `AddReturn` wrapping a statement-type expression
+
+**Symptom:** Generated returns emit a stray second semicolon, e.g. `return await Task.FromResult(value); ;`.
+**Cause:** `method.AddReturn(stmt)` already appends the `;`. `CSharpObjectInitializerBlock` renders as an expression (no own semicolon), so `AddReturn` works cleanly with it — but `CSharpInvocationStatement` (and other statement-type nodes) default to rendering **with** their own trailing `;`, which then doubles up.
+**Fix:** Call `.WithoutSemicolon()` on the inner statement before handing it to `AddReturn` (or to `.AddArgument(...)` / any expression position):
+
+```csharp
+// Wrong — invocation keeps its own ';', AddReturn adds another → "...); ;"
+method.AddReturn(new CSharpInvocationStatement("await Task.FromResult").AddArgument(value));
+
+// Right — invocation renders as an expression; AddReturn supplies the single ';'
+method.AddReturn(new CSharpInvocationStatement("await Task.FromResult").AddArgument(value).WithoutSemicolon());
+```
+
+Rule of thumb: any `CSharp*Statement` placed in an expression slot (return value, argument, init value) needs `.WithoutSemicolon()`; object-initializer blocks already behave as expressions.

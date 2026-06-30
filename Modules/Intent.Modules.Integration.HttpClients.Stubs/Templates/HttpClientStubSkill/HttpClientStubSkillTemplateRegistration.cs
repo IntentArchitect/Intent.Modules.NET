@@ -6,17 +6,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Integration.HttpClients.Fakes.Templates.HttpClientFakeSkill
+namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStubSkill
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class HttpClientFakeSkillTemplateRegistration : SingleFileTemplateRegistration
+    public class HttpClientStubSkillTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => HttpClientFakeSkillTemplate.TemplateId;
+        public override string TemplateId => HttpClientStubSkillTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new HttpClientFakeSkillTemplate(outputTarget);
+            return new HttpClientStubSkillTemplate(outputTarget);
         }
     }
 }

@@ -14,24 +14,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Integration.HttpClients.Fakes.Templates.HttpClientFake
+namespace Intent.Modules.Integration.HttpClients.Stubs.Templates.HttpClientStub
 {
     [IntentManaged(Mode.Ignore)]
-    public class HttpClientFakeTemplateRegistration : FilePerModelTemplateRegistration<IServiceProxyModel>
+    public class HttpClientStubTemplateRegistration : FilePerModelTemplateRegistration<IServiceProxyModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public HttpClientFakeTemplateRegistration(IMetadataManager metadataManager)
+        public HttpClientStubTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => HttpClientFakeTemplate.TemplateId;
+        public override string TemplateId => HttpClientStubTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IServiceProxyModel model)
         {
-            return new HttpClientFakeTemplate(outputTarget, model);
+            return new HttpClientStubTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

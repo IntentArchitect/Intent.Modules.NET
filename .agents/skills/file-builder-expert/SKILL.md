@@ -31,7 +31,7 @@ argument-hint: "[source file] [target template name]"
 
 ## Must Nots
 1. Never emit structural C# as raw strings outside the fluent API.
-2. Never use obsolete `CSharpMethodChainStatement` or `AddMethodChainStatement`.
+2. **Never ship an obsolete builder API.** Build with warnings visible and treat any `CS0618` "…is obsolete" warning as a failure — switch to the replacement the warning names. Known traps: `CSharpMethodChainStatement` / `AddMethodChainStatement`; `field.WithAssignment(string)` (see #5); and passing a **base-typed `CSharpStatement`** to `AddStatement(...)`, which binds to the obsolete `AddStatement(TParent, CSharpStatement, Action<CSharpStatement>)` overload — pass a `string` (collection-initializer items) or the **concrete** statement subtype (e.g. `CSharpObjectInitializerBlock`) so the generic `AddStatement<TParent, TStatement>` overload is selected.
 3. Never add `else`/`catch`/`finally` as children of a block (must be siblings).
 4. Never use raw string interpolation for lambda arrows `=>` or object initializer braces `{}`.
 5. Never call obsolete `field.WithAssignment(string)` directly (use `WithAssignment(new CSharpStatement(...))`).

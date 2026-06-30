@@ -408,7 +408,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.NServiceBus", "Intent.Modules.Eventing.NServiceBus\Intent.Modules.Eventing.NServiceBus.csproj", "{E492480E-7810-4634-83AC-C8E3C16E1CAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients.Fakes", "Intent.Modules.Integration.HttpClients.Fakes\Intent.Modules.Integration.HttpClients.Fakes.csproj", "{69C56294-27F8-4388-B351-2C07BCE835ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients.Stubs", "Intent.Modules.Integration.HttpClients.Stubs\Intent.Modules.Integration.HttpClients.Stubs.csproj", "{69C56294-27F8-4388-B351-2C07BCE835ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{89E0C178-1FD2-4864-887C-C84EE20406B7}"
 EndProject
