@@ -88,6 +88,14 @@ public static IServiceCollection AddStubHttpClients(this IServiceCollection serv
 
 The module wires `services.AddStubHttpClients(configuration);` into the application's composition root at a priority that orders it **after** the real HTTP client registrations (`AddInfrastructure`), so the real registrations exist to be removed and replaced. When `UseStub` is `false` (the default) the real clients are left untouched.
 
+### Why a dedicated project
+
+The stubs and their `AddStubHttpClients` registration are isolated in `<App>.Infrastructure.Stubs` rather than folded into the main infrastructure. This makes stubbing a single, removable capability with clear operational guarantees:
+
+- **Excludable from production.** The entire mechanism — the stub classes *and* the registration that activates them — lives in one project that can be omitted from production build and deployment pipelines, so stub code never ships to environments where it does not belong.
+- **Safe by construction, not just by configuration.** If the stubs project is not deployed, `AddStubHttpClients` is not there to run. No `appsettings.json` edit or environment override can swap a real client for a stub, so in production the real endpoints simply cannot be switched off.
+- **Contained control.** Whether stubs are in play is governed entirely by this one project and its `UseStub` settings, keeping the decision explicit and in one place rather than threaded through the main registration code.
+
 ## Module Settings
 
 This module introduces no Module Builder settings. Instead it registers a per-client-group `UseStub` application setting (defaulting to `false`) into the generated `appsettings.json`, alongside the existing `Intent.Integration.HttpClients` settings:
