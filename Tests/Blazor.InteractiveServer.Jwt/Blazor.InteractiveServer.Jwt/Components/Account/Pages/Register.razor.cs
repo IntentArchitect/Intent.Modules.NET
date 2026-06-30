@@ -25,6 +25,11 @@ namespace Blazor.InteractiveServer.Jwt.Components.Account.Pages
             await AuthService.Register(Input.Email, Input.Password, ReturnUrl);
         }
 
+        protected override void OnInitialized()
+        {
+            Input ??= new();
+        }
+
         private sealed class InputModel
         {
             [Required]

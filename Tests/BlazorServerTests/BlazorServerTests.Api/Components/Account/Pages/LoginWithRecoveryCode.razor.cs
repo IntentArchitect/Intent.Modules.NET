@@ -14,13 +14,14 @@ namespace BlazorServerTests.Api.Components.Account.Pages
         private IdentityUser user = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         [SupplyParameterFromQuery]
         private string? ReturnUrl { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
+            Input ??= new();
             // Ensure the user has gone through the username & password screen first
             user = await SignInManager.GetTwoFactorAuthenticationUserAsync() ??
                 throw new InvalidOperationException("Unable to load two-factor authentication user.");

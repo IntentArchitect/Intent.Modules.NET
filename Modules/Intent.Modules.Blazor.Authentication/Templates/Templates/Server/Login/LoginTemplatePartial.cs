@@ -276,7 +276,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                     code.AddProperty("InputModel", "Input", input =>
                     {
                         input.Private();
-                        input.WithInitialValue("new()");
+                        // NOTE: there appears to be an issue with the C# weaver here where an existing 'new()' is not replaced with a different initial value for pre-existing codebases. Harmless, but the code looks a bit funky for upgraded projects that don't migrate this properly from 'new()' to 'default!'.
+                        input.WithInitialValue("default!");
                         input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
                     });
                     code.AddProperty("string?", "ReturnUrl", input =>
@@ -285,6 +286,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                         input.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute"));
                     });
 
+
+                    code.AddMethod("void", "OnInitialized", onInitialized =>
+                    {
+                        onInitialized.Protected().Override();
+
+                        onInitialized.AddStatement("Input ??= new();");
+                    });
 
                     code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "LoginUser", onValidSubmitAsync =>
                     {

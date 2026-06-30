@@ -19,10 +19,11 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
         private HttpContext HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private InputModel Input { get; set; } = new();
+        private InputModel Input { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
+            Input ??= new();
             user = await UserAccessor.GetRequiredUserAsync(HttpContext);
             username = await UserManager.GetUserNameAsync(user);
             phoneNumber = await UserManager.GetPhoneNumberAsync(user);
