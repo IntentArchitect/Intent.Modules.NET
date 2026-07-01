@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectMappingTest.Infrastructure", "ObjectMappingTest.Infrastructure\ObjectMappingTest.Infrastructure.csproj", "{C687C3D7-7D89-48E2-A3AE-1726A2249371}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{D9FBAF32-99E4-4D12-B6F4-0C22D194CE16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectMappingTest.Tests", "Tests\ObjectMappingTest.Tests.csproj", "{866175FB-98B9-4FFA-904D-FB6F21CF61F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,7 @@ Global
 		{833D8DB5-B1F4-40AB-9092-4D2E0A7E4E00} = {6A89439F-7631-4ADD-B6F0-AD4F20E4BD7A}
 		{696D9CEF-415A-49E3-A428-39566FCCD8D8} = {8F0ACB69-2EAA-4C88-81AB-0D27053B877E}
 		{C687C3D7-7D89-48E2-A3AE-1726A2249371} = {5D6B8041-08F8-4CE6-8C92-9C640BAC5B1C}
+		{866175FB-98B9-4FFA-904D-FB6F21CF61F7} = {D9FBAF32-99E4-4D12-B6F4-0C22D194CE16}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{18C7FC46-4A92-46AB-9D50-AE0A78FF4C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,5 +54,9 @@ Global
 		{C687C3D7-7D89-48E2-A3AE-1726A2249371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C687C3D7-7D89-48E2-A3AE-1726A2249371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C687C3D7-7D89-48E2-A3AE-1726A2249371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866175FB-98B9-4FFA-904D-FB6F21CF61F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866175FB-98B9-4FFA-904D-FB6F21CF61F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866175FB-98B9-4FFA-904D-FB6F21CF61F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866175FB-98B9-4FFA-904D-FB6F21CF61F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
