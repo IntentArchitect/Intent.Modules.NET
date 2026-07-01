@@ -124,10 +124,12 @@ Nullable objects:
 | Enum | `MudSelect` with verified numeric values |
 | Lookup | `MudSelect` using real loaded options |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 MudBlazor rules:
 - Declare `T` explicitly for generic controls when required
 - Add placeholders to `MudSelect`
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Keep `Dense`, `Variant`, and `Margin` settings consistent across the form when used
 
@@ -208,6 +210,7 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Conditional sections follow the backing logic
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation is wired and Save is disabled when invalid or loading
 - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
 - [ ] Sample utility classes were verified to exist in the target project and reused when available

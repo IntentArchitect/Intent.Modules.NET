@@ -4,6 +4,8 @@
 - Improvement: Modelling context now added from the template, allowing for a consistent experience when not using auto-generated AI tasks.
 - Improvement: Having a space in the page name will no longer generate incorrect code.
 - Improvement: Component razor files are effectively written "Once off" (except for relevent directives)
+- Improvement: Updated skills with additional MudDatePicker context
+- Improvement: Removed weaving from RazorComponent
 
 ### Version 2.0.0
 

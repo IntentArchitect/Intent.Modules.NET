@@ -156,12 +156,16 @@ Save button state:
 | Enum | `MudSelect` with verified numeric values |
 | Lookup | `MudSelect` from real option sources only |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 Enum rules:
 - Read and verify the enum definition before rendering options
 - Use only verified members
 - Prefer explicit numeric values in `MudSelectItem`
 - Never assume enum members from the sample files
+
+MudBlazor rules:
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 
 ---
 
@@ -199,6 +203,7 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Backend methods were not modified
 - [ ] Model properties were not added, removed, or renamed
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation prevents service calls when invalid
 - [ ] Shared styles were preserved and component styling remained minimal
 
