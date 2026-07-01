@@ -150,12 +150,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             sb.Append(userDirectives);
             sb.Append(attributeDirectives);
             if (!string.IsNullOrEmpty(pageTitle))
-            {
                 sb.Append('\n').Append(pageTitle).Append('\n');
-                if (!string.IsNullOrEmpty(contentBody))
-                    sb.Append('\n');
-            }
-            sb.Append(contentBody);
+            if (!string.IsNullOrEmpty(contentBody))
+                sb.Append('\n').Append(contentBody);
 
             return sb.ToString();
         }
@@ -197,7 +194,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             while (i < lines.Length)
             {
                 var t = lines[i].Trim();
-                if (t.StartsWith('@'))
+                if (RazorDirectiveRegex().IsMatch(t))
                     directiveLines.Add(lines[i]);
                 else if (t.Length != 0)
                     break;
@@ -289,5 +286,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 
         [GeneratedRegex(@"<PageTitle\b[^>]*>.*?</PageTitle>", RegexOptions.IgnoreCase | RegexOptions.Singleline, "en-ZA")]
         private static partial Regex PageTitleRegex();
+
+        [GeneratedRegex(@"^@(page|using|attribute|inject|implements|typeparam|layout|namespace|inherits|preservewhitespace|rendermode)\b")]
+        private static partial Regex RazorDirectiveRegex();
     }
 }
