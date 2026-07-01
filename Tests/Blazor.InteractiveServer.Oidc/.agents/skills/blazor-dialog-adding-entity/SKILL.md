@@ -2,7 +2,7 @@
 name: blazor-dialog-adding-entity
 description: Implements Blazor add or create entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs service behavior while wiring save and cancel correctly. Use when creating or implementing add or create entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 2A1C4E173A71E3DE613299117A597533651E2D05FE3841F58C9665AEB0EF8B51
+contentHash: D447B8BB3F5A02C9EBB07343627942EA1523E7E6B83F05192DA21FBBE2D88E01
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -122,6 +122,7 @@ Save button state:
 | Enum | `MudSelect` with verified numeric values |
 | Lookup | `MudSelect` from real option sources only |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 Enum rules:
 
@@ -129,6 +130,10 @@ Enum rules:
 - Use only verified members
 - Prefer explicit numeric values in `MudSelectItem`
 - Never assume enum members from the sample files
+
+MudBlazor rules:
+
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - --
 
 ## 5. Child Collections
@@ -163,5 +168,6 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Backend methods were not modified
 - [ ] Model properties were not added, removed, or renamed
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation prevents service calls when invalid
 - [ ] Shared styles were preserved and component styling remained minimal

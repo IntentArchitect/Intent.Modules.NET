@@ -2,7 +2,7 @@
 name: blazor-page-editing-entity
 description: Implements Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing edit, update, or modify entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: A62A49F7CCC79078657D62FDCC6C1F12166F4D139D65892B59B1CDB478475A57
+contentHash: 12DC75F5303E38469F6F25D7C0966E96A3B45488B367EAD2BB0E98EA4189B7AE
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -84,11 +84,13 @@ Nullable objects:
 | Enum | `MudSelect` with verified numeric values |
 | Lookup | `MudSelect` using real loaded options |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 MudBlazor rules:
 
 - Declare `T` explicitly for generic controls when required
 - Add placeholders to `MudSelect`
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Keep `Dense`, `Variant`, and `Margin` settings consistent across the form when used
 
@@ -171,6 +173,7 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Conditional sections follow the backing logic
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation is wired and Save is disabled when invalid or loading
 - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
 - [ ] Sample utility classes were verified to exist in the target project and reused when available

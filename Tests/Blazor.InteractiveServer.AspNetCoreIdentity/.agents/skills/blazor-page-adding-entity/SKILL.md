@@ -2,7 +2,7 @@
 name: blazor-page-adding-entity
 description: Implements Blazor add or create entity pages using MudBlazor forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: F7B56D8670A4AD8F99301256DB2E3E2A761813B26F4C8726C6C858EB94825BF8
+contentHash: 9A9B3D857551C2B1F57C9C8453FEB2547F6BBC73136FB4CB5EFA75FDE3D5F1FB
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -82,6 +82,7 @@ Nullable objects:
 | Enum | `MudSelect` with explicit numeric values |
 | Lookup | `MudSelect` using real service-loaded options only |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 Enum rules:
 
@@ -91,8 +92,10 @@ Enum rules:
 4. For `MudSelect`, prefer numeric values with explicit casts such as `Value="@((int)AddressType.Delivery)"`
 5. Never invent enum members from samples
 
-For MudBlazor generic controls such as `MudSelect`, declare `T` explicitly when required.
+MudBlazor rules:
 
+- For MudBlazor generic controls such as `MudSelect`, declare `T` explicitly when required
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - --
 
 ## 3. Form Validation
@@ -168,6 +171,7 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] No service classes or interfaces were invented that don't exist in the project
 - [ ] Child collection buttons exist only when backing methods exist
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation is wired and Save is disabled when invalid or loading
 - [ ] Shared styles were preserved and component styling remained minimal
 - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested

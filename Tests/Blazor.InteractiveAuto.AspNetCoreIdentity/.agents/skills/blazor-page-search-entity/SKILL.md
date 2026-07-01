@@ -2,7 +2,7 @@
 name: blazor-page-search-entity
 description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: B6E7D446EE67630DCA9186AE525AC683276AEFBD20512793CB5EDDC9C4DD4275
+contentHash: 48A455243F88CFB5596017CCAC677800276855948097781B043619EB79932EEA
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -116,6 +116,7 @@ MudBlazor rules:
 
 - Declare `T` explicitly for generic controls when required
 - Add placeholders to `MudSelect`
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Bind enum values numerically, not as string literals
 - Enum component properties such as `Justify`, `AlignItems`, `Direction`, `Variant`, and `Color` must use explicit enum values
@@ -191,6 +192,7 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Row-level actions are rendered only for existing matching methods
 - [ ] No CRUD or navigation methods were invented in `.razor.cs`
 - [ ] Enum values and select options were verified against real types
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Paging and sorting were kept in table flow rather than exposed as normal filter inputs
 - [ ] Shared styles were preserved and component styling remained minimal
 - [ ] Sample visual structure was matched (hero header + main card), not replaced with an alternative header structure unless explicitly requested

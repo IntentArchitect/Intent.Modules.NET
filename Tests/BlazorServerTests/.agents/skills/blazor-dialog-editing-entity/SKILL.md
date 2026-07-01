@@ -2,7 +2,7 @@
 name: blazor-dialog-editing-entity
 description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: DD193EBADF15B1F275A41E6D2C7828C5050BC6ABEF8F8AAD9AB5634EFD2AD5C7
+contentHash: FED779538DD94B339EE2250C44AA501AC8D0D0DB62A2B66CD0AAE0F259D25CD4
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -115,11 +115,13 @@ Save button state:
 | Enum | `MudSelect` with verified numeric values |
 | Lookup | `MudSelect` from real option sources only |
 | Array | Repeatable MudBlazor blocks |
+| Date | `MudDatePicker` |
 
 MudBlazor rules:
 
 - Declare `T` explicitly for generic controls when required
 - Add placeholders to `MudSelect`
+- Every `MudDatePicker` must include `Placeholder="Select date"`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Never assume enum members from sample code
 - --
@@ -157,5 +159,6 @@ Apply the design token and CSS utility context from the files you read in the ma
 - [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
 - [ ] No service classes or interfaces were invented that don't exist in the project
 - [ ] Enum options were verified against the real enum definition
+- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
 - [ ] Validation prevents service calls when invalid
 - [ ] Shared styles were preserved and component styling remained minimal
