@@ -2,7 +2,7 @@
 name: mudblazor-ux-theme-sync
 description: Updates ux-tokens.css and ux-mudblazor.css to match a new or replaced design.md. Use when a design specification (any format or structure) has changed and the MudBlazor theme needs to reflect the new colours, typography, spacing, radii, or component styles.
 paths:
-contentHash: 42A1B0BB8660D5B5A979A01580AB0EDC3D06D051EA8E3829ADFE7F2CFAE07C3D
+contentHash: B20DC2D9451DD782E0951C87C5EE7FDE6B47B3DB80906B985684F50ED39A0FCE
 ---
 ## Purpose
 
@@ -170,6 +170,7 @@ Forbidden:
 - *Conflicting values** — if the design.md contains contradictory values (e.g. two different values for primary), use the most prominent or last-defined one and note the conflict in a comment adjacent to the token.
 - *Unknown design format** — if the design.md structure is unrecognised (e.g. raw Figma JSON, a screenshot description, a prose brief), extract colour values, font names, and size values by reading carefully before proceeding. Do not assume token names match.
 - *Missing files** — if the target project has no `ux-tokens.css` or `ux-mudblazor.css`, stop and report which file is missing rather than creating one from scratch. Theme creation is out of scope.
+- *Browser-compatibility hacks** — rules that exist purely to work around browser behaviour (e.g. `:-webkit-autofill` overrides, vendor-prefixed fixes) may have no corresponding concept in `design.md`. Do not treat their absence from `design.md` as license to remove, restructure, or simplify them — re-point any token references if the underlying token is renamed, otherwise leave the rule as-is.
 - --
 
 ## Definition of Done
