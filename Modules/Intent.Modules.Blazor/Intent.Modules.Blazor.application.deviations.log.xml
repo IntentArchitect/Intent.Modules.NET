@@ -15,16 +15,6 @@
       <fileHash>6A4202BCD930019EE7BB312E412D6CB531B917F84BE7363ED8980A80684B5216</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#d3b25506-e786-4c88-ba24-40ff61b630f8</correlationId>
-      <path>Intent.Modules.Blazor/Migrations/OnInstallMigration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-02T08:56:31.2609129Z</updatedAt>
-      <deviationsHash>C7658A9803942559BDB201821B1CABEBEB530C4497A8BBA19F3D9480A68EDB0C</deviationsHash>
-      <fileHash>5D8B9F8F8B319C2DCB4C844E446FF1A231F7932E5666DF2443E25D8EA15C4E36</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>

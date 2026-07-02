@@ -70,7 +70,7 @@ namespace Intent.Modules.Blazor.Migrations
             }
 
             designerServices = app.TryGetDesigner(ServicesDesignerId);
-            
+
             var servicePackages = designerServices.GetPackages().Where(x => x.SpecializationTypeId == ServicePackageSpecializationId);
             if (!servicePackages.Any())
             {
@@ -95,7 +95,7 @@ namespace Intent.Modules.Blazor.Migrations
             bool result = false;
             ApplicationDesignerPersistable? designerDomain;
 
-            if(!app.HasDesigner(DomainDesignerId))
+            if (!app.HasDesigner(DomainDesignerId))
             {
                 return result;
             }
@@ -158,6 +158,6 @@ namespace Intent.Modules.Blazor.Migrations
 
         private record StartupDetails(PackageModelPersistable Pacakge, ElementPersistable Role);
 
-        
+
     }
 }
