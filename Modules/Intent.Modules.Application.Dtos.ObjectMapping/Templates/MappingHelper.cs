@@ -37,11 +37,12 @@ namespace Intent.Modules.Application.Dtos.ObjectMapping.Templates
         {
             var pathTargets = field.Mapping.Path;
 
-            // Expression-type mapping (contains special chars like ?, (, !, etc.)
+            // Expression-type mapping (contains special chars like ?, (, !, etc.) — authored directly
+            // against this module's own "projectFrom" parameter name (e.g. "projectFrom.X ? ... : ...").
+            // There is no other source-variable convention to translate from; emit as typed, PascalCased.
             if (IsExpression(pathTargets))
             {
-                var expr = PascalCasePropertyAccesses(string.Join(".", pathTargets.Select(p => p.Name)));
-                return expr.Replace("src.", "projectFrom.");
+                return PascalCasePropertyAccesses(string.Join(".", pathTargets.Select(p => p.Name)));
             }
 
             // FK extraction (single association end + primitive field type)
