@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c85b2f3f-1105-496c-a06d-6aeed00003d8" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>CatalogueCreatedIntegrationEvent</name>
+  <display>CatalogueCreatedIntegrationEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8220ce20-84b9-42c6-a10f-dd77cfc1365c</parentFolderId>
+  <packageId>8220ce20-84b9-42c6-a10f-dd77cfc1365c</packageId>
+  <packageName>Subscribe.MassTransit.DomainInteractionsRepro.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="66b5d557-13e0-44ed-8111-f4b735a4b20f" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="11864bfb-cefa-444a-ba23-ccd8b72fa994">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c85b2f3f-1105-496c-a06d-6aeed00003d8</parentFolderId>
+      <packageId>8220ce20-84b9-42c6-a10f-dd77cfc1365c</packageId>
+      <packageName>Subscribe.MassTransit.DomainInteractionsRepro.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

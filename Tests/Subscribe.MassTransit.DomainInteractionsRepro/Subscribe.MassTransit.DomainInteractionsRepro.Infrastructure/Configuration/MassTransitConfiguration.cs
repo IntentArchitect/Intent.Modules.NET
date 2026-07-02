@@ -1,0 +1,48 @@
+using System.Reflection;
+using Intent.RoslynWeaver.Attributes;
+using MassTransit;
+using MassTransit.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Subscribe.MassTransit.DomainInteractionsRepro.Application.Common.Eventing;
+using Subscribe.MassTransit.DomainInteractionsRepro.Eventing.Messages;
+using Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure.Eventing;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.MassTransitConfiguration", Version = "1.0")]
+
+namespace Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure.Configuration
+{
+    public static class MassTransitConfiguration
+    {
+        public static IServiceCollection AddMassTransitConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            services.AddScoped<MassTransitMessageBus>();
+            services.AddScoped<IMessageBus>(provider => provider.GetRequiredService<MassTransitMessageBus>());
+
+            services.AddMassTransit(x =>
+            {
+                x.SetKebabCaseEndpointNameFormatter();
+                x.AddConsumers();
+                x.UsingInMemory((context, cfg) =>
+                {
+                    cfg.UseMessageRetry(r => r.Interval(
+                        configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
+                    cfg.ConfigureEndpoints(context);
+                    cfg.UseInMemoryOutbox(context);
+                });
+                x.AddInMemoryInboxOutbox();
+            });
+            return services;
+        }
+
+        private static void AddConsumers(this IRegistrationConfigurator cfg)
+        {
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<CatalogueCreatedIntegrationEvent>, CatalogueCreatedIntegrationEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<CatalogueCreatedIntegrationEvent>, CatalogueCreatedIntegrationEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-DomainInteractionsRepro");
+        }
+    }
+}

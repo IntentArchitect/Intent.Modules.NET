@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ffcc3927-5149-4812-b5ad-312b1d2c66a3">
+  <sourceEnd id="2ec47c5f-8093-484f-8a4e-e741216ffabb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Catalogue</name>
+    <display>Catalogue: Catalogue</display>
+    <order>0</order>
+    <typeReference id="96a3b29d-85ff-42d3-b337-85fac671d540">
+      <typeId>04c4d548-a03d-4487-b5dc-3a2a61fd23fb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Domain</typePackageName>
+      <typePackageId>25e04e47-2965-487f-a689-361d427ee185</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ffcc3927-5149-4812-b5ad-312b1d2c66a3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>CatalogueItems</name>
+    <display>CatalogueItems: CatalogueItem[*]?</display>
+    <order>3</order>
+    <typeReference id="12b3e2f9-0022-40bc-8c7a-6ebb4b3360a8">
+      <typeId>e5e483ea-0a65-446a-a417-09ff44e16c37</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Domain</typePackageName>
+      <typePackageId>25e04e47-2965-487f-a689-361d427ee185</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
