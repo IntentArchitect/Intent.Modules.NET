@@ -85,8 +85,6 @@ namespace Intent.Modules.Blazor.Settings
             InteractiveAuto,
         }
 
-        public bool IncludeSamplePages() => bool.TryParse(_groupSettings.GetSetting("bbddad39-3601-4244-bf8d-0da805ee6376")?.Value.ToPascalCase(), out var result) && result;
-
         public bool ServerPrerendering() => bool.TryParse(_groupSettings.GetSetting("d851b4d1-b230-461f-9873-80d6857fa175")?.Value.ToPascalCase(), out var result) && result;
 
         public bool EnableThemeToggle() => bool.TryParse(_groupSettings.GetSetting("fa401099-f333-4702-a261-4d66239dde29")?.Value.ToPascalCase(), out var result) && result;

@@ -62,13 +62,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
-                            if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
-                            {
-                                head.AddHtmlElement("link", t => t
-                                    .AddAttribute("rel", "icon")
-                                    .AddAttribute("type", "image/png")
-                                    .AddAttribute("href", $"favicon.png"));
-                            }
+                            
                             head.AddHtmlElement("HeadOutlet", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                         });
 

@@ -50,7 +50,6 @@ namespace Intent.Modules.Blazor.Migrations
 
             bool changes = false;
             changes |= EnsureBlazorRoleInVSDesigner(app);
-            changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");            
             changes |= AddServicePackageReferenceToUIPackages(app);
             changes |= AddDomainPackageReferenceToUIPackages(app);
             if (changes)
@@ -63,9 +62,15 @@ namespace Intent.Modules.Blazor.Migrations
         private bool AddServicePackageReferenceToUIPackages(ApplicationPersistable app)
         {
             bool result = false;
-            var designerServices = app.TryGetDesigner(ServicesDesignerId);
-            if (designerServices == null)
+            ApplicationDesignerPersistable? designerServices;
+
+            if (!app.HasDesigner(ServicesDesignerId))
+            {
                 return result;
+            }
+
+            designerServices = app.TryGetDesigner(ServicesDesignerId);
+            
             var servicePackages = designerServices.GetPackages().Where(x => x.SpecializationTypeId == ServicePackageSpecializationId);
             if (!servicePackages.Any())
             {
@@ -88,14 +93,20 @@ namespace Intent.Modules.Blazor.Migrations
         private bool AddDomainPackageReferenceToUIPackages(ApplicationPersistable app)
         {
             bool result = false;
-            var designerDomain = app.TryGetDesigner(DomainDesignerId);
-            if (designerDomain == null)
+            ApplicationDesignerPersistable? designerDomain;
+
+            if(!app.HasDesigner(DomainDesignerId))
+            {
                 return result;
+            }
+
+            designerDomain = app.TryGetDesigner(DomainDesignerId);
             var domainPackages = designerDomain.GetPackages().Where(x => x.SpecializationTypeId == DomainPackageSpecializationId);
             if (!domainPackages.Any())
             {
                 return result;
             }
+
             var designerUI = app.GetDesigner(UIDesignerId);
             var uipackages = designerUI.GetPackages().Where(x => x.SpecializationTypeId == UIPackageSpecializationId);
 
