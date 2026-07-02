@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace BlazorServerTests.Api.Components.Layout
 {
@@ -8,6 +9,10 @@ namespace BlazorServerTests.Api.Components.Layout
         [Parameter, EditorRequired]
         public IReadOnlyList<NavItem> Items { get; set; } = [];
 
-        public sealed record NavItem(string Label, string Href, string? Icon = null);
+        private static NavLinkMatch GetMatch(NavItem item) => item.Href == "/"
+            ? NavLinkMatch.All
+            : NavLinkMatch.Prefix;
+
+    public sealed record NavItem(string Label, string Href, string? Icon = null);
     }
 }
