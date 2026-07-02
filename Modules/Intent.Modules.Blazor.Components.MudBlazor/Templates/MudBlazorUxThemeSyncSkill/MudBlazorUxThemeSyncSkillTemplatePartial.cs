@@ -213,6 +213,8 @@ Forbidden:
 
 **Missing files** — if the target project has no `ux-tokens.css` or `ux-mudblazor.css`, stop and report which file is missing rather than creating one from scratch. Theme creation is out of scope.
 
+**Browser-compatibility hacks** — rules that exist purely to work around browser behaviour (e.g. `:-webkit-autofill` overrides, vendor-prefixed fixes) may have no corresponding concept in `design.md`. Do not treat their absence from `design.md` as license to remove, restructure, or simplify them — re-point any token references if the underlying token is renamed, otherwise leave the rule as-is.
+
 ---
 
 ## Definition of Done
