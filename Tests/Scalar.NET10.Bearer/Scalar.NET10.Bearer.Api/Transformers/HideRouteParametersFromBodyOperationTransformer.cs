@@ -63,7 +63,10 @@ namespace Scalar.NET10.Bearer.Api.Transformers
                     continue;
                 }
 
-                if (schema is not OpenApiSchema concreteSchema)
+                // Resolve the concrete schema - content.Schema may be a direct schema or a reference to a shared component DTO
+                var concreteSchema = schema as OpenApiSchema ?? (schema as OpenApiSchemaReference)?.RecursiveTarget;
+
+                if (concreteSchema == null)
                 {
                     continue;
                 }
