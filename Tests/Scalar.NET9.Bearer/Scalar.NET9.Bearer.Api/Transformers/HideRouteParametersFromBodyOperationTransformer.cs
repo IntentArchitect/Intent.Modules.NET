@@ -47,13 +47,6 @@ namespace Scalar.NET9.Bearer.Api.Transformers
                     continue;
                 }
 
-                // Note: Schema references are typically already resolved at this stage
-                if (schema.Reference != null)
-                {
-                    // Schema is a reference, properties may not be directly accessible
-                    continue;
-                }
-
                 if (schema.Properties == null || schema.Properties.Count == 0)
                 {
                     continue;

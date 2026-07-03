@@ -99,18 +99,6 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                             {
                                 stmt.AddStatement("continue;");
                             });
-                            if (!usesMicrosoftOpenApiV2)
-                            {
-                                // For .NET 9 - skip reference resolution as context doesn't provide document access
-                                forEach.AddStatement("// Note: Schema references are typically already resolved at this stage", s => s.SeparatedFromPrevious());
-                                forEach.AddIfStatement("schema.Reference != null", stmt =>
-                                {
-                                    stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                    stmt.AddStatement("// Schema is a reference, properties may not be directly accessible");
-                                    stmt.AddStatement("continue;");
-                                });
-                            }
-
                             forEach.AddIfStatement("schema.Properties == null || schema.Properties.Count == 0", stmt =>
                             {
                                 stmt.AddStatement("continue;");
@@ -131,16 +119,30 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                             if (usesMicrosoftOpenApiV2)
                             {
                                 // For .NET 10+ - OpenAPI v2 approach
-                                forEach.AddStatement("// Remove matching properties directly from the schema", c => c.SeparatedFromPrevious());
+                                // content.Schema is an IOpenApiSchema that may be either an inline OpenApiSchema or an
+                                // OpenApiSchemaReference pointing at a shared component. The native OpenApiOperationTransformerContext
+                                // (unlike Swashbuckle's OperationFilterContext) exposes no SchemaRepository, so resolve the reference
+                                // via RecursiveTarget to reach the concrete schema before cloning.
+                                forEach.AddStatement("// Resolve the concrete schema - content.Schema may be a direct schema or a reference to a shared component DTO", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("var concreteSchema = schema as OpenApiSchema ?? (schema as OpenApiSchemaReference)?.RecursiveTarget;");
+                                forEach.AddIfStatement("concreteSchema == null", stmt =>
+                                {
+                                    stmt.AddStatement("continue;");
+                                });
+                                forEach.AddStatement("// Clone the schema before mutating - schema may be shared across every operation that references the same DTO", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();");
+                                forEach.AddStatement("// Remove matching properties from the clone only", s => s.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyName", "propertiesToRemove", innerForEach =>
                                 {
                                     innerForEach.BeforeSeparator = CSharpCodeSeparatorType.None;
                                     innerForEach.AddIfStatement("propertyName != null", ifStmt =>
                                     {
-                                        ifStmt.AddStatement("schema.Properties.Remove(propertyName);");
-                                        ifStmt.AddStatement("schema.Required?.Remove(propertyName);");
+                                        ifStmt.AddStatement("clonedSchema.Properties.Remove(propertyName);");
+                                        ifStmt.AddStatement("clonedSchema.Required?.Remove(propertyName);");
                                     });
                                 });
+                                forEach.AddStatement("// Point this operation's content at the clone instead of the shared original", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("content.Schema = clonedSchema;");
                             }
                             else
                             {

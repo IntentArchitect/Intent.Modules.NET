@@ -54,13 +54,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
                             {
                                 outerIf.AddIfStatement("context.Type == typeof(TimeSpan) || context.Type == typeof(TimeSpan?)", stmt =>
                                 {
-                                    stmt.AddStatement("concreteSchema.Example = new JsonObject { [\"example\"] = \"00:00:00\" };");
-                                    stmt.AddStatement("concreteSchema.Type = JsonSchemaType.String;");
+                                    stmt.AddStatement("concreteSchema.Example = JsonValue.Create(\"00:00:00\");");
                                 });
                                 outerIf.AddIfStatement("context.Type == typeof(DateOnly) || context.Type == typeof(DateOnly?)", stmt =>
                                 {
-                                    stmt.AddStatement("concreteSchema.Example = new JsonObject { [\"example\"] = DateTime.Today.ToString(\"yyyy-MM-dd\") };");
-                                    stmt.AddStatement("concreteSchema.Type = JsonSchemaType.String;");
+                                    stmt.AddStatement("concreteSchema.Example = JsonValue.Create(DateTime.Today.ToString(\"yyyy-MM-dd\"));");
                                 });
                             });
                         }
