@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>6d30e652-7e0d-4a43-94ea-614940426a7c</id>
+  <name>Security Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Security Configuration" typeId="0888156b-6645-49b6-8180-77095e20783c">
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>
