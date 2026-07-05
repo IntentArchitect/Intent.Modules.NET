@@ -63,15 +63,29 @@ namespace Scalar.NET10.AuthCode.Api.Filters
                     continue;
                 }
 
-                // Remove matching properties directly from the schema
+                // Resolve the concrete schema - content.Schema may be a direct schema or a reference to a shared component DTO
+                var concreteSchema = schema as OpenApiSchema ?? (schema as OpenApiSchemaReference)?.RecursiveTarget;
+
+                if (concreteSchema == null)
+                {
+                    continue;
+                }
+
+                // Clone the schema before mutating - schema may be shared across every operation that references the same DTO
+                var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();
+
+                // Remove matching properties from the clone only
                 foreach (var propertyName in propertiesToRemove)
                 {
                     if (propertyName != null)
                     {
-                        schema.Properties.Remove(propertyName);
-                        schema.Required?.Remove(propertyName);
+                        clonedSchema.Properties.Remove(propertyName);
+                        clonedSchema.Required?.Remove(propertyName);
                     }
                 }
+
+                // Point this operation's content at the clone instead of the shared original
+                content.Schema = clonedSchema;
             }
 
             return Task.CompletedTask;
