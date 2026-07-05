@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7476a4d1-b0a1-4de4-8282-d845835bc672" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</parentFolderId>
+  <packageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</packageId>
+  <packageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</packageName>
+  <diagram>
+    <targetPackageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

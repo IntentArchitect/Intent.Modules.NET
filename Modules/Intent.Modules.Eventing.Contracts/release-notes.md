@@ -1,3 +1,7 @@
+### Version 6.1.3
+
+- Fixed: Create Entity Actions in Integration/Domain Event Handlers now project a mapped child collection (e.g. sourced from a preceding Query call's result) via `Select(...).ToList()` instead of emitting a raw assignment that failed to compile.
+
 ### Version 6.1.2
 
 - Improvement: Code generated for Integration Event Handlers will also allow for CRUD operations.

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6b8c1066-ac9d-43de-8404-180a0f5183ad">
+  <sourceEnd id="eb77acc8-cd20-454a-bd64-5a26027d49ef" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Subscribe.MassTransit.DomainInteractionsRepro.Services.CatalogueCreatedIntegrationEventHandler</display>
+    <order>0</order>
+    <typeReference id="6459f6a3-b893-4746-a0cc-7646e1216110">
+      <typeId>d4166b0d-1c37-4501-8bcf-1207ec0fcd17</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</typePackageName>
+      <typePackageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6b8c1066-ac9d-43de-8404-180a0f5183ad" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] CatalogueCreatedIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="c2442042-8b3a-4a09-8e0f-404bf67a1cbf">
+      <typeId>c85b2f3f-1105-496c-a06d-6aeed00003d8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Eventing.Messages</typePackageName>
+      <typePackageId>8220ce20-84b9-42c6-a10f-dd77cfc1365c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

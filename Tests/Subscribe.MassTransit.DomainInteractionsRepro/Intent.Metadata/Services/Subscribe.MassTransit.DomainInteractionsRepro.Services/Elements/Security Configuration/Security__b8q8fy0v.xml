@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84c1c294-03e5-44f0-bc8f-5b5773557d0f" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</parentFolderId>
+  <packageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</packageId>
+  <packageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

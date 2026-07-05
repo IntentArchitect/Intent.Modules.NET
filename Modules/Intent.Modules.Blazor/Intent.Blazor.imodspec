@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.1-pre.1</version>
+  <version>2.0.1-pre.4</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -183,10 +183,6 @@
       <role>Blazor.NoSample</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration" externalReference="cf0d83f6-5edf-461b-bc7f-91a5e241dc13">
-      <role>Blazor.Sample</role>
-      <location></location>
-    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="90716486-d2c5-4813-bdf8-e32192e096f8">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
@@ -201,10 +197,6 @@
     </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
       <role>Blazor.NoSample</role>
-      <location></location>
-    </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration" externalReference="0a626c1c-206c-4b4f-b299-a0bbb8ba0eea">
-      <role>Blazor.Sample</role>
       <location></location>
     </template>
   </templates>
@@ -229,9 +221,6 @@
             <option value="interactive-auto" description="Interactive Auto" />
           </options>
         </setting>
-        <setting id="bbddad39-3601-4244-bf8d-0da805ee6376" title="Include Sample Pages" type="switch">
-          <defaultValue>false</defaultValue>
-        </setting>
         <setting id="d851b4d1-b230-461f-9873-80d6857fa175" title="Prerendering" type="switch">
           <hint>Enable prerendering for Interactive Server mode.</hint>
           <defaultValue>false</defaultValue>
@@ -245,9 +234,9 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.1-pre.0" />
+    <dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.1-pre.4" />
     <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
-    <dependency id="Intent.Common" version="3.11.0" />
+    <dependency id="Intent.Common" version="3.11.3-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.9-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.Modelers.UI" version="1.1.4-pre.1" />
@@ -295,7 +284,5 @@
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
     <install target="User Interface;Module Builder" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
-  <migrations has-on-install-migration="true">
-    <migration version="1.0.0-pre.0" />
-  </migrations>
+  <migrations has-on-install-migration="true" />
 </package>

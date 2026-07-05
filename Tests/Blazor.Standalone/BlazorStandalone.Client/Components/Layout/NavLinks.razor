@@ -7,6 +7,6 @@
 <MudNavMenu>
     @foreach (var item in Items)
     {
-        <MudNavLink Href="@item.Href" Icon="@item.Icon">@item.Label</MudNavLink>
+        <MudNavLink Href="@item.Href" Icon="@item.Icon" Match="@GetMatch(item)">@item.Label</MudNavLink>
     }
 </MudNavMenu>
