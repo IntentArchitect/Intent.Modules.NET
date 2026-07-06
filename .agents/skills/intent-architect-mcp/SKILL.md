@@ -199,6 +199,8 @@ Calling `install_or_update_modules` unnecessarily can corrupt IA's internal pack
 ### Designer Changes Persist via the Software Factory — There Is No Save Tool
 There is **no standalone "save designer" MCP tool.** Designer model changes (e.g. from `run_designer_script`) are persisted when the **Software Factory runs** — starting/stopping SF triggers the designer save. **Consequence (a common friction point):** if you made designer changes, **run SF before compiling or reinstalling the module.** Compiling + reinstalling on the back of *unsaved* designer changes means the rebuilt/reinstalled module doesn't reflect them, and the unsaved designer state can be lost. Correct order whenever a designer was touched: **designer change → run SF on that application (saves the designer + regenerates) → apply staged → compile → reinstall (only if the version changed).**
 
+**Dirty / blocked state:** the MCP layer cannot see or dismiss an IA "save or reload?" dialog, so if tool calls return stale results or an unexpected `0 changes`, suspect an unsaved/dirty designer — **run SF to force the save**, then re-check. If behaviour is still inconsistent, ask the user to clear any open IA dialog.
+
 ### `NugetPackages.cs` — Do Not Edit
 This file is `[DefaultIntentManaged(Mode.Fully)]`. Hand edits are silently overwritten by the next SF run. All NuGet package and version changes must go through the **Module Builder designer**.
 
@@ -219,6 +221,15 @@ const val = element.getStereotype("C# Template Settings").getProperty("Model Typ
 // Wrong — throws "getValue is not a function"
 const val = element.getStereotype("C# Template Settings").getProperty("Model Type").getValue();
 ```
+
+### The `.imodspec` Is Generated — Register Templates/Factory Extensions via the Designer
+A module's `.imodspec` `<template>` / factory-extension entries are **generated from the Module Builder designer**. **Never hand-author them into the `.imodspec`.** A template `.cs` file added by hand compiles and runs via reflection, but with no `C# Template` element it never gets a manifest entry — consuming apps then fail at SF with *"Unable to find output target for template […] with role []"*, and no reinstall fixes it because install reads the same incomplete manifest. Register the element via `run_designer_script`, run SF on the module, and let it regenerate the manifest. (Cross-check: every `*TemplateRegistration.cs` with a `TemplateId` should have a matching `<template>` entry.)
+
+### Exposing External Element Types — Install the Module, Not a `pkg.config` Edit
+To use **element types from another Module Builder package** (e.g. `C# Template` from `Intent.ModuleBuilder.CSharp`) in your designer, **install that module into the module-builder application**. A manual `pkg.config` edit is overwritten on reload, and `pkg.addReference()` alone does not load the element-type registry. Install **metadata-only** by default; if the needed element/reference types still don't appear, install the **designer** too and retry (e.g. a new eventing module needs *Eventing Contracts* installed as a designer to expose its reference elements for message-bus configuration).
+
+### Keep Wizard / Field Hints Short
+When authoring hints in designer scripts (`IDynamicFormFieldConfig.hint`), stereotype-property hints, or module-setting hints, keep them to a **short one-line phrase stating the constraint or purpose** — not a paragraph restating each option. The field has limited on-screen space; a wall of text is worse than a crisp constraint.
 
 ---
 

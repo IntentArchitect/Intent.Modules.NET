@@ -72,8 +72,9 @@ failure to the user. Do not proceed to any later step.
 
 1. Confirm repository identity (`AGENTS.md` at root).
 2. Classify the task (Greenfield vs Minor/Bugfix).
-3. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
-4. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
+3. **Reconcile the build state.** If a `.module-builder/WORKING.md` (global or localized) already exists, read it and check the incoming request against it. If the request **diverges** from what it documents (different module, changed objective, dropped/added scope, likely branch switch), pause and confirm with the user before any work — *"we were on X; this looks like Y — still aligned?"* WORKING.md is yours to maintain as a faithful mirror of the user's intent.
+4. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
+5. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
 
 ---
 
