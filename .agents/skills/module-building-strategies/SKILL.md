@@ -29,6 +29,10 @@ Cross-repo note: the common modules (`Intent.Common`, `Intent.Common.CSharp`, �
 
 > This protocol is the durable replacement for static per-type "playbooks": it stays current automatically, costs no developer time, and scales to any module.
 
+### Resolve conflicts at the authoritative source
+
+When two modules **disagree** about how a stereotype (or property) is used — one reads it correctly, another (often a legacy or copied module) reads the wrong property — do **not** arbitrate by copying whichever sibling "looks right." Trace back to the **authoritative source: the stereotype's *definition*** (where it is declared), and let that decide which usage is correct. That trace is also what exposes the real culprit — the discrepancy usually points at a bug in a *different* module than the one you were changing. (This is why blind sibling-mimicry is unreliable: the sibling may be the one that's wrong.)
+
 ---
 
 ## 1. Module Architecture & Decomposition

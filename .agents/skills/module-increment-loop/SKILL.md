@@ -43,6 +43,8 @@ Every implementation decision must be grounded in the technology's documented pa
 - Check Open Questions — if one is now answerable, close it before proceeding.
 - Check the Progress Tracker — do not re-implement any increment marked ✅ Complete.
 
+**`WORKING.md` is yours to maintain — reconcile on entry.** Ensure `.module-builder/WORKING.md` (or the per-module `.module-builder/<ModuleName>/WORKING.md`) exists; create it if not. Keep it a faithful mirror of the user's current intent. If the incoming request diverges *at all* from what it documents (different module, changed objective, dropped scope, a possible branch switch), **pause and confirm before touching anything** — *"we were on X; this looks like Y — still aligned?"* — then act on the answer. Never proceed on stale assumptions.
+
 **After completing each increment:** update the Progress Tracker row for that increment to ✅ Complete (or ❌ Blocked with the blocker noted). Add any new decisions to the Decision Log. Close any Open Questions resolved during this increment.
 
 ## Musts
@@ -55,8 +57,9 @@ Every implementation decision must be grounded in the technology's documented pa
 6. **For eventing/messaging modules, exercise the publish + subscribe path against a running sample before declaring an increment done.** Compilation alone is not sufficient.
 7. **Read the diagnostics file (if the tech emits one) before assuming the runtime is wired correctly.** NServiceBus writes `[AppBin]/.diagnostics/[EndpointName]-configuration.txt` — check the `Manifest-MessageTypes[*].IsEvent` flag, `Receiving.MessageHandlers` list, and `AssemblyScanning.Assemblies` before debugging the template.
 8. **Capture every non-obvious learning to memory or to the relevant implementation skill** before closing the increment. A learning lost between increments compounds: by increment 5 the next agent walks into a wall the first agent already documented.
-9. **Reset the regeneration baseline before trusting any staged diff.** The reference app is the Phase-1 SF target, and its files were hand-crafted. Before relying on a staged diff (or a "0 changes" result): delete-to-regenerate every 100%-Intent-managed template-owned file, and strip any hand-added `Ignore`/merge-protected stub on a template-owned region. Otherwise SF reproduces the hand-craft and the diff proves nothing. See `module-building-strategies` §4.
+9. **Reset the regeneration baseline before trusting any staged diff.** The reference app is the Phase-1 SF target, and its files were hand-crafted. Before relying on a staged diff (or a "0 changes" result): delete-to-regenerate every 100%-Intent-managed template-owned file, and strip any hand-added `Ignore`/merge-protected stub on a template-owned region. Otherwise SF reproduces the hand-craft and the diff proves nothing. See `module-building-strategies` §4. **Concretely, before each SF verification:** (a) consult the list of `Ignore`s / overwrites you recorded in `WORKING.md` during the reference-app phase and undo them; (b) `grep` the test app for `Mode.Ignore` (assembly-level `[assembly: DefaultIntentManaged(Mode.Ignore)]` and class-level) — such files are **invisible to SF**, so "0 changes" over them is meaningless; (c) cross-check owned files (those carrying the module's template `IntentTemplate` id) against that grep and clean up any shielded owned file. The WORKING.md list is an indicator, not the whole truth — still grep thoroughly.
 10. **Verify in two phases — reproduce, then from scratch.** Phase 1: confirm the module reproduces the reference app's existing code exactly. Phase 2 (mandatory): build a brand-new app, install the module with no code pre-written, and confirm everything generates correctly and is fully wired. Phase 2 is the only test that exposes a forgotten wiring step. Attempt app creation via the `create_application`/`create_solution` MCP tools; if they're unavailable, ask the user to scaffold the from-scratch app.
+11. **For multi-app / eventing verification, keep dependency versions consistent across every participating app before trusting a runtime result.** A publisher on framework/module vN and a subscriber on vN-1 can pass compilation and still misbehave on the wire. Confirm all participating apps share the same framework, module, and NuGet versions — **unless the developer explicitly asked to test mixed versions** — and rebuild every app on the same version before drawing a conclusion. Capture the actual **wire payload** (the emitted envelope/message) as ground truth, not just receipt logs.
 
 ## Must Nots
 
@@ -122,7 +125,22 @@ Intent Architect monitors the module's build output folder. When you recompile t
 
 **NEVER copy DLL files manually.** The OS may lock them, you may overwrite the wrong version, and it bypasses IA's module management entirely.
 
-**Detect a stale run:** If `run_software_factory` returns `0 changes` after a template body change that should have produced output, confirm the `dotnet build` succeeded (exit 0) before assuming the template is wrong.
+**Detect a stale run:** If `run_software_factory` returns `0 changes` after a template body change that should have produced output, confirm the `dotnet build` succeeded (exit 0) before assuming the template is wrong. If it still returns `0 changes`, the designer may hold **unsaved changes** — run SF once more to force the save (there is no separate save tool), then re-check.
+
+---
+
+## Module Version Management (already-published modules)
+
+The hot-reload above (recompile → IA picks up the new DLL at the **same** version) works for a **brand-new local module**. It does **not** work once a module version has been **published** — to the hosted registry *or* to your local package feed — at the version you're building: IA serves the already-published copy and silently ignores your rebuild. Then you must **bump the local pre-version** to force pickup. Use this precedence:
+
+1. **imodspec shows a normal (non-pre) version** → bump to the next **pre** version and proceed. **Record the bump in `WORKING.md`.**
+2. **imodspec already on a pre version AND `WORKING.md` has no record of a bump this session** → run the **module-search tool** (`search_available_modules`). If that version already exists on the server → bump the local pre-version.
+3. **The local-compile trap.** The moment you compile a module it registers in the location IA searches — so the search tool will thereafter *always* report "exists." Do **not** treat that as "must bump again." **`WORKING.md` is the source of truth** that distinguishes *published-locally* (your own build) from *published-online*.
+4. **Keep moving the local pre-version forward each iteration** while testing a fix to an already-published module (so IA picks up each new build), recording every bump in `WORKING.md`. `module-wrap-up` consolidates to the final release version.
+
+**Never change a version number to fix a build or SF failure** — versions reflect intent, not troubleshooting.
+
+> **Troubleshooting — "my changes aren't showing up" / version conflict.** Consider that another developer or agent may be working the **same module on another branch** and bumped to the *same* version, publishing first — so "I'm the first one here" is unsafe. This is a race condition, handled in the troubleshooting framework, **not** a per-change pre-check: don't module-search on every edit, but when changes mysteriously don't land or a publish conflict appears, check the published version before assuming your local state is authoritative.
 
 ---
 
@@ -165,7 +183,7 @@ When the increment changes an existing module (not a greenfield build):
 ## Per-Increment Checklist
 
 **Pre-increment version check (run before starting each increment):**
-- [ ] The module's imodspec/csproj version matches the agreed release version for this task. If the version was bumped in a prior increment, do not bump it again. Version numbers reflect intent — never change the version number to resolve a build or SF failure.
+- [ ] The module's imodspec/csproj version matches the agreed release version for this task, and any bump this session is recorded in `WORKING.md` (see *Module Version Management* — for an already-published module a same-version rebuild is shadowed and must be bumped; a brand-new local module hot-reloads without one). If the version was already bumped this session, do not bump it again. Never change the version number to resolve a build or SF failure.
 
 Before moving to the next increment in the Attack Plan:
 
@@ -183,6 +201,7 @@ Before moving to the next increment in the Attack Plan:
 - [ ] Progress Tracker in `ATTACK-PLAN.md` updated (✅ Complete or ❌ Blocked with reason)
 - [ ] Any new decisions added to the Decision Log in `PATTERN-DOCUMENT.md`
 - [ ] Any resolved Open Questions closed in `PATTERN-DOCUMENT.md`
+- [ ] Every template or factory extension added this increment is **registered in the Module Builder designer** (a `C# Template` / `Factory Extension` element) and appears in the module's `.imodspec` — a hand-authored `*.cs` file compiles and runs via reflection but stays invisible to packaging if never registered. **Never hand-edit the `.imodspec` to add a template/FE entry** — register it via the designer/MCP and let SF regenerate the manifest.
 - [ ] Every template or factory extension implemented in this increment calls `AddNugetDependency(...)` in its constructor for each framework type it references in generated output. This applies to factory extensions too — an extension that enriches another module's template with library-dependent code must declare the NuGet dependency, since the consuming project will not have the library installed.
 - [ ] Every factory extension that emits a `services.AddXxx(configuration)` call has a corresponding `AppSettingRegistrationRequest` published in `OnBeforeTemplateExecution` to seed the required configuration section in `appsettings.json`. Without this, `configuration.GetSection(...)` returns null at startup with no helpful error.
 - [ ] The reference app exercises more than the minimum path: at least one scenario covers an edge case or multi-instance variant (e.g. two handlers, multiple subscriptions, a cross-service scenario). A module verified only against a single basic case will silently fail in real applications.
