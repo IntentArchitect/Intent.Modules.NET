@@ -131,6 +131,10 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                                 });
                                 forEach.AddStatement("// Clone the schema before mutating - schema may be shared across every operation that references the same DTO", s => s.SeparatedFromPrevious());
                                 forEach.AddStatement("var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();");
+                                forEach.AddIfStatement("clonedSchema.Properties == null", stmt =>
+                                {
+                                    stmt.AddStatement("continue;");
+                                });
                                 forEach.AddStatement("// Remove matching properties from the clone only", s => s.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyName", "propertiesToRemove", innerForEach =>
                                 {
