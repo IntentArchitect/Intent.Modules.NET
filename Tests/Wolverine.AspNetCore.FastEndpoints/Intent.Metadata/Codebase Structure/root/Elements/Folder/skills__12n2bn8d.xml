@@ -123,5 +123,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="5b930ba4-5f62-47eb-bc8f-c22dac9db19f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.CommandHandlerSkillTemplate</name>
+      <display>Intent.Application.Wolverine.CommandHandlerSkillTemplate</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8a74b40f-1871-46a4-81d5-3b95e6cded00</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2777c5fd-84cf-46b5-86bf-ec73e7afd7a7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.QueryHandlerSkillTemplate</name>
+      <display>Intent.Application.Wolverine.QueryHandlerSkillTemplate</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8a74b40f-1871-46a4-81d5-3b95e6cded00</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

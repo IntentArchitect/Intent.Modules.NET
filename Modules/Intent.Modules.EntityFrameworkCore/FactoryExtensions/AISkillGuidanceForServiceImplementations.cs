@@ -2,6 +2,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
@@ -22,26 +23,10 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            RegisterAutoMapperGuidance(
-                application,
-                "Intent.Application.MediatR.CommandHandlerSkillTemplate");
-
-            RegisterAutoMapperGuidance(
-                application,
-                "Intent.Application.MediatR.QueryHandlerSkillTemplate");
-
-            RegisterAutoMapperGuidance(
-                application,
-                "Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate");
-        }
-
-        private static void RegisterAutoMapperGuidance(
-            IApplication application,
-            string templateId)
-        {
-            var skill = application.FindTemplateInstance<IMarkdownFileBuilderTemplate>(templateId);
-
-            skill?.MarkdownFile.OnBuild((file) => AddEFGuidanceSection(application, file));
+            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.Skills))
+            {
+                skill.MarkdownFile.OnBuild(file => AddEFGuidanceSection(application, file));
+            }
         }
 
         private static void AddEFGuidanceSection(IApplication application, IMarkdownFile file)

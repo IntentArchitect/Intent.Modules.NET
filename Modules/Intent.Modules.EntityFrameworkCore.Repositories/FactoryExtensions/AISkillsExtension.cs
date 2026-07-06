@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -30,21 +31,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            RegisterEFRepositoryGuidance(
-                application,
-                "Intent.Application.MediatR.CommandHandlerSkillTemplate");
-            RegisterEFRepositoryGuidance(
-                application,
-                "Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate");
-        }
-
-        private static void RegisterEFRepositoryGuidance(
-            IApplication application,
-            string templateId)
-        {
-            var skill = application.FindTemplateInstance<IMarkdownFileBuilderTemplate>(templateId);
-
-            skill?.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f));
+            // Applied to every AI skill file regardless of command/query/service kind - the
+            // guidance is a "do not do X" rule that is harmless (and inapplicable) on read-only
+            // query handler skills, so a single role-based lookup is used instead of enumerating
+            // per-transport, per-handler-kind template ids.
+            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.Skills))
+            {
+                skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f));
+            }
         }
 
         private static void AddEFRepoGuidance(IApplication application, IMarkdownFile file)

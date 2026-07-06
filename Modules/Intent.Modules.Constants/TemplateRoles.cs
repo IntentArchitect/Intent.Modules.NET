@@ -190,5 +190,13 @@ namespace Intent.Modules.Constants
                 }
             }
         }
+
+        public static class AI
+        {
+            public static class Context
+            {
+                public const string Skills = "AI.Context.Skills";
+            }
+        }
     }
 }

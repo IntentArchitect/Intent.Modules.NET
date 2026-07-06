@@ -2,6 +2,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,26 +20,10 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
        
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            RegisterMapperlyGuidance(
-                application,
-                "Intent.Application.MediatR.CommandHandlerSkillTemplate");
-
-            RegisterMapperlyGuidance(
-                application,
-                "Intent.Application.MediatR.QueryHandlerSkillTemplate");
-
-            RegisterMapperlyGuidance(
-                application,
-                "Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate");
-        }
-
-        private static void RegisterMapperlyGuidance(
-            IApplication application,
-            string templateId)
-        {
-            var skill = application.FindTemplateInstance<IMarkdownFileBuilderTemplate>(templateId);
-
-            skill?.MarkdownFile.OnBuild(AddAutoMapperGuidanceSection);
+            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.Skills))
+            {
+                skill.MarkdownFile.OnBuild(AddAutoMapperGuidanceSection);
+            }
         }
 
         private static void AddAutoMapperGuidanceSection(IMarkdownFile file)
