@@ -97,6 +97,11 @@ namespace N_ServiceBus.SqlServer.Api.Filters
                 // Clone the schema before mutating - concreteSchema is cached and shared across every operation that references the same DTO
                 var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();
 
+                if (clonedSchema.Properties == null)
+                {
+                    continue;
+                }
+
                 // Remove matching properties from the clone only
                 foreach (var propertyKey in propertyKeysToRemove)
                 {

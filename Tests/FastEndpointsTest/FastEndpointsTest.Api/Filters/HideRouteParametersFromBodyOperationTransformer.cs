@@ -77,6 +77,11 @@ namespace FastEndpointsTest.Api.Filters
                 // Clone the schema before mutating - schema may be shared across every operation that references the same DTO
                 var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();
 
+                if (clonedSchema.Properties == null)
+                {
+                    continue;
+                }
+
                 // Remove matching properties from the clone only
                 foreach (var propertyName in propertiesToRemove)
                 {
