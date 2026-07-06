@@ -308,6 +308,7 @@ Icon buttons use `--radius-sm`, dimmed colour at rest (62 % opacity), full colou
 - Focus: border becomes `--primary`; box-shadow `0 0 0 3px var(--focus), 0 0 12px var(--primary-glow)`.
 - Focused label: `--primary`, 0.75 rem, 500 weight.
 - Numeric spin buttons: minimal 24 px column, no borders, dimmed primary colour, subtle fill on hover.
+- Autofill (Chrome/Edge): overrides browser autofill styling so the field keeps its themed surface background and text colour instead of the native highlight.
 
 ### Dialogs / Modals
 

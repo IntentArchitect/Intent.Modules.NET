@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#0677f2a0-2bd0-43e9-adeb-8c31ee24101b</correlationId>
+      <path>N_ServiceBus.SQS.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:16:29.724855Z</updatedAt>
+      <deviationsHash>210F015DF22907CDCA1CEC5B528B99A56979B5E9CDDE73AA8FCB46FE4C5D65F0</deviationsHash>
+      <fileHash>BB647C0C08D6B69BEF23DB5A2BB68C75FE157A7A2CF251BA2E328CCDB6A8F84C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#a602daa5-2adc-42b9-949b-368c2df0ec05</correlationId>
+      <path>N_ServiceBus.SQS.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:16:29.7254644Z</updatedAt>
+      <deviationsHash>5B40BB3C1DC282ACFDEF6633F18DA1216A496BBBECFC450E4B87B0ACB59C9CAE</deviationsHash>
+      <fileHash>A94B68E6848C06B077EF2519242B3DC457B76142FC485FA866037387F28F8F96</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#dc30690d-7ae2-406f-a046-03a84b6d10c0</correlationId>
+      <path>N_ServiceBus.SQS.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:16:29.7255074Z</updatedAt>
+      <deviationsHash>18A0050DBA7511D7BAD286CFD058D41669404B3CBD354D166EC54DE7E59412DD</deviationsHash>
+      <fileHash>B18D9FA54EDF2C0B1EB39F80D1DD2CF4BCE49BDBA962BB3CD59E37C5168BAEB6</fileHash>
+    </file>
+  </files>
 </deviationsLog>

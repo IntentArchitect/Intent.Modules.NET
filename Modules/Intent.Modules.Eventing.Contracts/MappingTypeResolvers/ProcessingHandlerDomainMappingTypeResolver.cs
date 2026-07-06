@@ -19,7 +19,13 @@ public class ProcessingHandlerDomainMappingTypeResolver : IMappingTypeResolver
     {
         var model = mappingModel.Model;
 
-        if (model.IsClassModel() || model.IsConstructorModel())
+        // Also handle a node whose *type* is a Class — e.g. an Association Target End / DTO-field
+        // collection projecting onto an entity collection (CatalogueItems -> ICollection<CatalogueItem>).
+        // IsClassModel() only matches when the node's own model is a class (the root entity); it misses
+        // a collection node whose element type is a class, which would otherwise fall through to a bare
+        // assignment (CS0266) instead of a Select(...).ToList() projection. Mirrors EntityCreationMappingTypeResolver.
+        if (model.IsClassModel() || model.IsConstructorModel() ||
+            model.TypeReference?.Element?.SpecializationType == "Class")
         {
             return new ObjectInitializationMapping(mappingModel, (ICSharpTemplate)_template);
         }

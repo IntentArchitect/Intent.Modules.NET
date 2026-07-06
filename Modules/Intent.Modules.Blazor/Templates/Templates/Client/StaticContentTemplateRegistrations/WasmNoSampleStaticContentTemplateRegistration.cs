@@ -48,8 +48,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
                 return;
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly())
                 return;
-            if (application.GetSettings().GetBlazor().IncludeSamplePages())
-                return;
 
             base.Register(registry, application);
         }

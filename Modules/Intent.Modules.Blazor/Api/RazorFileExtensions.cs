@@ -547,7 +547,7 @@ public static class RazorFileExtensions
 
     public static string? GetHrefRoute(this BindingManager bindingManager, IList<IElementToElementMappedEnd> mappingEnds)
     {
-        if (mappingEnds.Any())
+        if (mappingEnds.Any(e => e.TargetElement is not null))
         {
             var route = new RouteManager(mappingEnds[0].SourcePath != null
                 ? $"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}"

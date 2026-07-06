@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e01afc9-2ae8-40ff-b747-0ded27de5fa8" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>WidgetDto</name>
+  <display>WidgetDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c6bd6326-f7aa-4464-8f93-388aafd53812</parentFolderId>
+  <packageId>c6bd6326-f7aa-4464-8f93-388aafd53812</packageId>
+  <packageName>SwashbuckleSettings.All.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f16e3a88-b65f-4077-8752-efec734f2b41" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>WidgetId</name>
+      <display>WidgetId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="aaa62201-43a0-4c6e-89b0-aaf23a883d86">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e01afc9-2ae8-40ff-b747-0ded27de5fa8</parentFolderId>
+      <packageId>c6bd6326-f7aa-4464-8f93-388aafd53812</packageId>
+      <packageName>SwashbuckleSettings.All.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bafe234e-4c28-4966-9b17-2cf870f356a4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="948d7984-c028-43b6-8d5f-8daa1c15f0db">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e01afc9-2ae8-40ff-b747-0ded27de5fa8</parentFolderId>
+      <packageId>c6bd6326-f7aa-4464-8f93-388aafd53812</packageId>
+      <packageName>SwashbuckleSettings.All.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fcbcf398-36c1-4efd-82f5-80cd75a43b0c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ScheduledTime</name>
+      <display>ScheduledTime: TimeSpan</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="69448694-3741-4e54-b013-cc5472c93758">
+        <typeId>46dbdc6c-aaa7-4d2e-ba1f-81abdb87a888</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.CSharp</typePackageName>
+        <typePackageId>730e1275-0c32-44f7-991a-9619d07ca68d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e01afc9-2ae8-40ff-b747-0ded27de5fa8</parentFolderId>
+      <packageId>c6bd6326-f7aa-4464-8f93-388aafd53812</packageId>
+      <packageName>SwashbuckleSettings.All.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

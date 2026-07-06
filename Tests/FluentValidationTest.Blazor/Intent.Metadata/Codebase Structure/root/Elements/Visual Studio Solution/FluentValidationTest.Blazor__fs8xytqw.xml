@@ -320,37 +320,9 @@
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="81c2dca0-8568-4dcf-a7ff-e91a9362f3d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration</name>
-          <display>Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration</display>
-          <externalReference>Intent.Blazor</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
         <childElement id="187ff1f7-23cf-4cd4-9cdd-6c8961aef019" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration</name>
           <display>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration</display>
-          <externalReference>Intent.Blazor</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="fe181b08-21a8-4475-a017-ea0d93f4abab" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration</name>
-          <display>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration</display>
           <externalReference>Intent.Blazor</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />

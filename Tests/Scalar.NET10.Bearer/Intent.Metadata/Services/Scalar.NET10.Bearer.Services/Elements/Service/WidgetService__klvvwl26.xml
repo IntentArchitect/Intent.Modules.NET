@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a00bc8fe-4766-4fac-8ace-5077e052f32d" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>WidgetService</name>
+  <display>WidgetService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f6cf2020-b204-426d-9704-c4a414ff4678</parentFolderId>
+  <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+  <packageName>Scalar.NET10.Bearer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2d2d8d0a-cfc9-4519-8342-a94d541af652" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateWidget</name>
+      <display>CreateWidget(widget: WidgetDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="428a0d8d-32f3-41da-a1f7-f819b498393c">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a00bc8fe-4766-4fac-8ace-5077e052f32d</parentFolderId>
+      <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+      <packageName>Scalar.NET10.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5d8bfb09-d78e-4725-a5ab-7e06620c5a37" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>widget</name>
+          <display>in : widget: WidgetDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5aa5a42d-64ac-45d6-8982-fbbc098529d4">
+            <typeId>f75f91ca-4f7f-4c09-8f38-47e29cfa5a53</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Scalar.NET10.Bearer.Services</typePackageName>
+            <typePackageId>f6cf2020-b204-426d-9704-c4a414ff4678</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2d2d8d0a-cfc9-4519-8342-a94d541af652</parentFolderId>
+          <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+          <packageName>Scalar.NET10.Bearer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="fa865c9c-d70c-49ec-a8ed-d684242d1c90" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateWidget</name>
+      <display>UpdateWidget(widgetId: guid, widget: WidgetDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="36cd41e7-32a2-44db-b534-09011669f142">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a00bc8fe-4766-4fac-8ace-5077e052f32d</parentFolderId>
+      <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+      <packageName>Scalar.NET10.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets/{widgetId}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5946fc80-e6f0-4b37-8f4c-b7a4af977c92" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>widgetId</name>
+          <display>in : widgetId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4df41b33-374c-4364-9182-97a4432fc20f">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fa865c9c-d70c-49ec-a8ed-d684242d1c90</parentFolderId>
+          <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+          <packageName>Scalar.NET10.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7f7fd632-0c3f-4419-89d2-8e0f39950691" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>widget</name>
+          <display>in : widget: WidgetDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="14e9ee18-1fb4-43bc-b12d-82981cecc423">
+            <typeId>f75f91ca-4f7f-4c09-8f38-47e29cfa5a53</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Scalar.NET10.Bearer.Services</typePackageName>
+            <typePackageId>f6cf2020-b204-426d-9704-c4a414ff4678</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fa865c9c-d70c-49ec-a8ed-d684242d1c90</parentFolderId>
+          <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+          <packageName>Scalar.NET10.Bearer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

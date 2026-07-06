@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e10d5736-878a-47da-ab5b-785e893c2d0e">
+  <sourceEnd id="9bb7bfe3-bb56-4ee3-a861-02cf32df48e4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CatalogueCreatedIntegrationEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="2124b8f5-595b-4672-a09f-37b9df0a3f80">
+      <typeId>6b8c1066-ac9d-43de-8404-180a0f5183ad</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</typePackageName>
+      <typePackageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e10d5736-878a-47da-ab5b-785e893c2d0e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetCatalogueByIdQuery(...): CatalogueDto</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8bc0582a-0c2f-4627-b61b-cce0c83e5e01">
+      <typeId>36f8d1ad-231d-43a9-adfa-830616a2e968</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</typePackageName>
+      <typePackageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="50b9ab59-4419-476b-82a9-d1c3b86dfec2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6b8c1066-ac9d-43de-8404-180a0f5183ad" location="[Subscribe.MassTransit.DomainInteractionsRepro].[Services].[Handler]" />
+        <target applicationId="50b9ab59-4419-476b-82a9-d1c3b86dfec2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="36f8d1ad-231d-43a9-adfa-830616a2e968" location="[Subscribe.MassTransit.DomainInteractionsRepro].[Services].[GetCatalogueByIdQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="36f8d1ad-231d-43a9-adfa-830616a2e968" name="GetCatalogueByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="6b8c1066-ac9d-43de-8404-180a0f5183ad" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="36f8d1ad-231d-43a9-adfa-830616a2e968" name="GetCatalogueByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="bd0ff64d-2a4e-4ed8-a88a-5db780e79875" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="6b8c1066-ac9d-43de-8404-180a0f5183ad" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="66b5d557-13e0-44ed-8111-f4b735a4b20f" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

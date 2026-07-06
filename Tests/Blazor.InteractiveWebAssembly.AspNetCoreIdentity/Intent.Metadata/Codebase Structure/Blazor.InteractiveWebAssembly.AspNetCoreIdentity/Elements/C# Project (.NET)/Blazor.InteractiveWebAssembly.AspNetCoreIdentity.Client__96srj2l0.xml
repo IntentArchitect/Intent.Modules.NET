@@ -529,32 +529,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d07eaf23-6a71-407a-8bec-b374ed75dda9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
-      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
-      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="507bc43f-bb7c-4962-a8ad-53496be70e8a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration</display>
@@ -636,32 +610,6 @@
     <childElement id="de0b0dc4-1923-4a4f-a0ea-69efe9981f31" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
-      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
-      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="756bbef6-18ce-4099-93f2-80054d9aada9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration</display>
       <externalReference>Intent.Blazor</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#042e257e-a9a3-40ac-91aa-4d7998de6904</correlationId>
+      <path>N_ServiceBus.Persistence.NHibernate.Publish.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:15:16.6744201Z</updatedAt>
+      <deviationsHash>D4BC6E34BE332937A1447F94B388AD13D9F13AE47F8D5D3CD5AA0C6554ED9495</deviationsHash>
+      <fileHash>65B36883A94662DE2E2E94B9DE6EF5A57241B92EABAC3F749D92BFB669998CCB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#e9798a07-abb2-4179-9d9a-cdb019eb2016</correlationId>
+      <path>N_ServiceBus.Persistence.NHibernate.Publish.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:15:16.6746927Z</updatedAt>
+      <deviationsHash>E6D52D0795E852E09D99FBD36038DA457D787FE3870C146D9D571BD11547517D</deviationsHash>
+      <fileHash>3B2CA0D2AE19ED7EB99F1E3E40DF0D1061BED59D74099AAD226A7266F75EB065</fileHash>
+    </file>
+  </files>
 </deviationsLog>

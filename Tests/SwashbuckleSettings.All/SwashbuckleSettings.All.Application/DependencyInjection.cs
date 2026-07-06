@@ -13,6 +13,10 @@ namespace SwashbuckleSettings.All.Application
         [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            });
             return services;
         }
     }

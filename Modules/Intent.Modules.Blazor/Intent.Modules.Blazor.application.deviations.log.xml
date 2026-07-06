@@ -32,7 +32,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-06-30T13:40:22.4756389Z</updatedAt>
       <deviationsHash>8EA7CA6765207822EF0AFCBBC972CBCAE11F97DD542CED4B370E05D03A6A68AE</deviationsHash>
-      <fileHash>A98B20BF1B2DE5DC45B8AD31BBF6B90F9813206F76044DBF4A045C981DEABA24</fileHash>
+      <fileHash>0718FB1221BAB71D10410CD074EA6C435D98B99349A9856955853A879D7E07C8</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -81,17 +81,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-06-05T09:06:07.012382Z</updatedAt>
       <deviationsHash>4A7941FA142D922B5263843EFF6BD4DDE69E32C70272FCF899E909CCFC852CDD</deviationsHash>
-      <fileHash>A2514119A26BC16161CC15C4BF94658079AA30D94C8A9EDF54566B587905D16B</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cf0d83f6-5edf-461b-bc7f-91a5e241dc13</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmSamplePagesStaticContentTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-04T09:00:58.5327854Z</updatedAt>
-      <deviationsHash>D8BE9AEC1B3F71D743515743297A7085A277A3E7663E64A6AC18D4CA4D30259A</deviationsHash>
-      <fileHash>46D5D1812E904F2CB56BD0C0FFCC405BF9DB3BA2B133507C4162F2926E7C496E</fileHash>
+      <fileHash>F918ADE4289397208A48691478FD39215974BFE12E8B5A8AEC3E4B7DC4F0FC5A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#90716486-d2c5-4813-bdf8-e32192e096f8</correlationId>
@@ -154,7 +144,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9739678Z</approvedAt>
       <deviationsHash>EB677E52EC84423A6AC719FAD686B65C99C5244DC6B8964C899617CE3749B8D2</deviationsHash>
-      <fileHash>5AA9103F818A5A2857AB9FFC1CFCE5A0A79598FA073113675D1F87C0FCC43E2E</fileHash>
+      <fileHash>DD6BD92FAC2F0E01F32B98DB66B6A200DF5BAE39A98311883EFF0E9A8AAAF74C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</correlationId>
@@ -164,17 +154,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-07-25T11:27:53.6368268Z</updatedAt>
       <deviationsHash>A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3</deviationsHash>
-      <fileHash>4E0DB5447822C7E32419FC5D6209A0FBA4DE75E7261CBBE33ED426C7015CB2D2</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-07-24T09:32:00.9913414Z</updatedAt>
-      <deviationsHash>A410DB2FCD80280E1ED391DECF98D4F467D9A16FB48F6FA710827D95D942A5B9</deviationsHash>
-      <fileHash>EA9D22902E27A5C9ED5415C7FF0ACD894813F5C6B06B2E7CD424639C5D4529A2</fileHash>
+      <fileHash>E97779E556A9161863987DB5A5D34A220EE3F189F63762080D131C388A967481</fileHash>
     </file>
   </files>
 </deviationsLog>

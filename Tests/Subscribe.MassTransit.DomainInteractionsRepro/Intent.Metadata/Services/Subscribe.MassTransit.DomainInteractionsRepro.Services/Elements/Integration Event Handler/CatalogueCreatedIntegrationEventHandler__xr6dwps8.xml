@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d4166b0d-1c37-4501-8bcf-1207ec0fcd17" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CatalogueCreatedIntegrationEventHandler</name>
+  <display>CatalogueCreatedIntegrationEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</parentFolderId>
+  <packageId>e2f7bc40-271b-43d0-87ed-58f2af1baf6d</packageId>
+  <packageName>Subscribe.MassTransit.DomainInteractionsRepro.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
