@@ -2,26 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d88d24af-9206-471e-bed3-2804d88f7df1</correlationId>
-      <path>Intent.Modules.Application.CQRS.CRUD/FactoryExtensions/CqrsHandlerCrudExtension.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-02T16:25:40.3354015Z</updatedAt>
-      <deviationsHash>E6765758CA550E5FA2865CD8BF7BD0C789B5ECA22796E972E84C3DF5341CCFAF</deviationsHash>
-      <fileHash>EF41E84D97B7BB1C05DE7D7A1C56F58107B4BBF1B4D276AE834DC29FA1BEF573</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.IModSpecFile#e7612495-e439-49dd-a2a6-4b9fc66706f8</correlationId>
-      <path>Intent.Modules.Application.CQRS.CRUD/Intent.Application.CQRS.CRUD.imodspec</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-02T16:24:03.4525427Z</updatedAt>
-      <deviationsHash>5615A1E275950E0171D5D435F94F971671E42B1D81896607AC52BABE93A26C57</deviationsHash>
-      <fileHash>1EF364581460247AEA39D07E0D6061A003544DABA557A4242255900E19B5F9D7</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#0f7821ec-79b4-4bdc-b4c9-84ea7db0ed6d</correlationId>
       <path>Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.csproj</path>
       <count>1</count>

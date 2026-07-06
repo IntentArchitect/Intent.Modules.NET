@@ -22,14 +22,6 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
 {
-    /// <summary>
-    /// Implements CRUD handler bodies for transport-agnostic command and query handlers by hooking
-    /// into the Domain Interactions pattern. Handlers are discovered by TEMPLATE ROLE
-    /// (<see cref="TemplateRoles.Application.Handler.Command"/> / <see cref="TemplateRoles.Application.Handler.Query"/>),
-    /// not by any transport's concrete handler template type - any transport whose handler template
-    /// declares these roles (currently Wolverine and MediatR) is supported without a compile-time
-    /// reference to that transport module.
-    /// </summary>
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CqrsHandlerCrudExtension : FactoryExtensionBase
     {
@@ -110,11 +102,10 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
                 var interactions = model.GetInteractions().ToList();
                 if (interactions.Count == 0)
                 {
-                    // No modelled interactions: fall back to convention-based generation.
-                    // 1. Plain unfiltered "get all" (collection of a domain-mapped DTO).
-                    // 2. OData "get all" (collection of a domain-mapped DTO, ODataQuery stereotype).
+                    // No modelled interactions: fall back to convention-based "get all" generation
+                    // (collection of a domain-mapped DTO). OData queries require a modelled
+                    // Domain Interaction - see ODataQueryInteractionStrategy.
                     ConventionGetAllStrategy.TryApply(template, model);
-                    ConventionODataGetAllStrategy.TryApply(template, model);
                     continue;
                 }
 

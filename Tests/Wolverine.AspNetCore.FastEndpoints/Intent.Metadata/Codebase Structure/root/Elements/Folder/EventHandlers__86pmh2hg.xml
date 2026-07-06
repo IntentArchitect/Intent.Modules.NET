@@ -21,9 +21,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="fc8f0c50-e378-44ea-986c-54a0f508a728" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</name>
-      <display>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</display>
+    <childElement id="2ec0cd1c-08ce-48d0-a3e6-9b028789d476" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</name>
+      <display>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</display>
       <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -47,27 +47,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2ec0cd1c-08ce-48d0-a3e6-9b028789d476" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</name>
-      <display>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</display>
+    <childElement id="c4ddd251-e98b-4977-b0e3-2d53e341ff33" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</name>
+      <display>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</display>
       <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>eb18e176-5848-40b5-bc11-b2b261509e7a</parentFolderId>
-      <packageId>ca37b6ee-94c1-4a66-8a5e-f3949507fbbf</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
