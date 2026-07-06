@@ -6,7 +6,6 @@ using N_ServiceBus.Persistence.Sql.Publish.Eventing.Messages;
 using N_ServiceBus.Persistence.Sql.Subscribe.Application.Common.Eventing;
 using N_ServiceBus.Persistence.Sql.Subscribe.Eventing.Messages;
 using N_ServiceBus.Persistence.Sql.Subscribe.Infrastructure.Eventing;
-using NServiceBus;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

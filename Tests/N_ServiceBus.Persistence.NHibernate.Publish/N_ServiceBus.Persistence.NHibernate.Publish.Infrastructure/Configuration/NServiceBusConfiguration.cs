@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using N_ServiceBus.Persistence.NHibernate.Publish.Application.Common.Eventing;
 using N_ServiceBus.Persistence.NHibernate.Publish.Eventing.Messages;
 using N_ServiceBus.Persistence.NHibernate.Publish.Infrastructure.Eventing;
-using NServiceBus;
 using NServiceBus.Persistence;
 using NServiceBus.TransactionalSession;
 

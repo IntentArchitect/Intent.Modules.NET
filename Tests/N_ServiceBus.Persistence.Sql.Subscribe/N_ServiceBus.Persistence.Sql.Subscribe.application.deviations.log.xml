@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#c84ea9f8-5a1f-4534-9f06-2ebef158ace4</correlationId>
+      <path>N_ServiceBus.Persistence.Sql.Subscribe.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:15:53.7854792Z</updatedAt>
+      <deviationsHash>30249306DEB8A9788378767E6B658430F2B1C5EB506DD67B6DCD68243AE2BCED</deviationsHash>
+      <fileHash>6E5830A889838B05B52562CF42C25F8CCD08973B181863377D5B0FB122AA8ABE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#b93655b5-d6b7-4722-b107-33968d7f0ecd</correlationId>
+      <path>N_ServiceBus.Persistence.Sql.Subscribe.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:15:53.7857516Z</updatedAt>
+      <deviationsHash>E2F12369555DC70D4E098A271F66570E0768DC2FFDB6F247BC07A3379BF6E3A9</deviationsHash>
+      <fileHash>38A65547ED3A3D55AA04BFCB699E1563B8ECB4198098F68537B9E8FD5C31D926</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#75841e6a-ad8b-4c04-8575-92ab9596487c</correlationId>
+      <path>N_ServiceBus.Persistence.Sql.Subscribe.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T05:15:53.785788Z</updatedAt>
+      <deviationsHash>CC70C39CF131B7AB9AA75F0EB18B49BC96FF4168B10687DFB972E952AF18F533</deviationsHash>
+      <fileHash>27DE22A7AD5518A23965D8686B55E29BE684144A977E0BD2753E30D6701DA576</fileHash>
+    </file>
+  </files>
 </deviationsLog>
