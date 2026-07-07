@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.Wolverine.CommandHandlerSkillTemplate#d29b91d3-d575-4a44-bc54-a099362f1d93</correlationId>
+      <path>.agents/skills/wolverine-command-handler/SKILL.md</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-07T17:11:00.8292751Z</updatedAt>
+      <deviationsHash>240538793C4CB67AB8BD5DB17DB50A51C91960E1CEA1A968D3D5B2C807FFDEBD</deviationsHash>
+      <fileHash>A6C496901E9208E7DB058CFFE316FBF700EEAFBDF2EDA2D4FB4E4FD4097A0ED5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Wolverine.QueryHandlerSkillTemplate#f8320cdb-7da7-4dc0-964d-ad104fe6a3ec</correlationId>
+      <path>.agents/skills/wolverine-query-handler/SKILL.md</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-07T17:11:00.8272313Z</updatedAt>
+      <deviationsHash>4C662FD71ECAFF5E6C6B7AB56E63F0E5BCF2EF183ABA3F67125548CB07264D69</deviationsHash>
+      <fileHash>095DB171F95AF43F18FE382F057226ACA39E1C9393CBE20CEEF7248224A98981</fileHash>
+    </file>
+  </files>
 </deviationsLog>
