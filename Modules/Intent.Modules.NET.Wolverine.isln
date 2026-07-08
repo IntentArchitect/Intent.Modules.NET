@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.8" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.9" />
   <applications>
     <application id="cece4e6c-f47b-4af0-8f8f-9581465e9792" name="Intent.Modules.Application.AutoMapper" solutionFolder="Modules/Application" relativePath="Intent.Modules.Application.AutoMapper/Intent.Modules.Application.AutoMapper.application.config" />
     <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" solutionFolder="Modules/Persistence" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
@@ -19,5 +19,6 @@
     <application id="e5ece418-cf71-484a-a5ad-706affe51df3" name="Intent.Modules.Application.CQRS.CRUD" solutionFolder="Modules/Application" relativePath="Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.application.config" />
     <application id="31f3d32d-2ed8-435d-a8e4-39120b18b177" name="Wolverine.AspNetCore.Controllers" solutionFolder="Tests" relativePath="../Tests/Wolverine.AspNetCore.Controllers/Wolverine.AspNetCore.Controllers.application.config" />
     <application id="d2358d26-abb4-4969-a778-b3fdfd0defc7" name="Wolverine.AspNetCore.FastEndpoints" solutionFolder="Tests" relativePath="../Tests/Wolverine.AspNetCore.FastEndpoints/Wolverine.AspNetCore.FastEndpoints.application.config" />
+    <application id="23307d96-67ee-4702-a826-f5fab766c536" name="Wolverine.Mapperly" solutionFolder="Tests" relativePath="../Tests/Wolverine.Mapperly/Wolverine.Mapperly.application.config" />
   </applications>
 </solution>

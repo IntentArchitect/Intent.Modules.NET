@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#e2c12bdc-0920-4f2c-8861-28c8e858f4f6</correlationId>
+      <path>Wolverine.Mapperly.Api/Wolverine.Mapperly.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T05:26:24.0938053Z</updatedAt>
+      <deviationsHash>A38422E69537A42B7807AC3E6F3346417CEE2E397A124F0E27666A09500BC065</deviationsHash>
+      <fileHash>F9239BEFF93480CDDDC5F2E7A47FFCE44C1218B10BD5C2990C29665D696B51EA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#016bf62a-59c6-486d-b744-2c5dea083f3e</correlationId>
+      <path>Wolverine.Mapperly.Application/Wolverine.Mapperly.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T05:26:24.093825Z</updatedAt>
+      <deviationsHash>EEA44FC774B8DC9E23538027ACD7CD97EDDDC366AA143555303C96431B6F0030</deviationsHash>
+      <fileHash>2D8BF775D05FAF0FDC9B62730EC44B42C74534BEAB45F4D39B953A682BE2BD56</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#63d44aec-e4e5-41a0-bf58-22684286bacc</correlationId>
+      <path>Wolverine.Mapperly.Domain/Wolverine.Mapperly.Domain.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T05:26:24.0938381Z</updatedAt>
+      <deviationsHash>B16EFC317A3617A3CC9B01B6AF2D69EB8EF85605DC66F064EA9D0BF7E224FBAB</deviationsHash>
+      <fileHash>7652A350F7ABADE6D9D5057BBF116E8F94A81AB3D23002F1532B0EDB7FE54937</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#e88e1d08-61b6-4118-bc9d-4b20a0918228</correlationId>
+      <path>Wolverine.Mapperly.Infrastructure/Wolverine.Mapperly.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T05:28:27.3811697Z</updatedAt>
+      <deviationsHash>BC8575B422858DC498A7ACEFA371B3CCF0DD7F28686453B56349A1181521DF64</deviationsHash>
+      <fileHash>1A152388E292E9B735219A23E4100F68E0FF972EB6AD84CB3E37F9D9DE60CD2F</fileHash>
+    </file>
+  </files>
+</deviationsLog>
