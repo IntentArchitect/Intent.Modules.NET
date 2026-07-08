@@ -23,5 +23,9 @@
     <application id="3d663621-925e-4293-817c-19b9821ee5a8" name="Application.Wolverine.FluentValidation" solutionFolder="Modules/Wolverine" relativePath="Intent.Modules.Application.Wolverine.FluentValidation/Intent.Modules.Application.Wolverine.FluentValidation.application.config" />
     <application id="5ccc47b7-4c8e-4a0f-b846-03641defebba" name="AspNetCore.Controllers.Dispatch.Wolverine" solutionFolder="Modules/Wolverine" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine.application.config" />
     <application id="a4ef8894-c485-4353-bfcd-df19c3d450a9" name="FastEndpoints.Dispatch.Wolverine" solutionFolder="Modules/Wolverine" relativePath="Intent.Modules.FastEndpoints.Dispatch.Wolverine/Intent.Modules.FastEndpoints.Dispatch.Wolverine.application.config" />
+    <application id="3cbc980e-da30-405c-a8bd-f0043279721f" name="Intent.Modules.Application.MediatR" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.application.config" />
+    <application id="b43e280b-5711-433f-87d1-ba8bba65465c" name="Intent.Modules.Application.ServiceImplementations" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.application.config" />
+    <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" solutionFolder="Tests" relativePath="../Tests/CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
+    <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="Tests" relativePath="../Tests/Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
   </applications>
 </solution>

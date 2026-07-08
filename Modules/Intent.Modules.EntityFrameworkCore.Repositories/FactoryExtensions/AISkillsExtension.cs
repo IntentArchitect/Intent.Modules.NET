@@ -31,11 +31,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Applied to every AI skill file regardless of command/query/service kind - the
-            // guidance is a "do not do X" rule that is harmless (and inapplicable) on read-only
-            // query handler skills, so a single role-based lookup is used instead of enumerating
-            // per-transport, per-handler-kind template ids.
-            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.Skills))
+            // Target only handler-specific skill files (command/query handlers) so EF repository
+            // guidance doesn't pollute unrelated skill files (domain-entity, fluent-validation, etc.).
+            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.SkillsHandler))
             {
                 skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f));
             }
@@ -51,23 +49,23 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 file.BeforeSection("Output expectations", "Unit of Work guidance", section =>
                 {
                     section.WithListItems("""
-                            - SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-                            - If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-                            - If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-                            - If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-                            - When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-                            """);
+                        - SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
+                        - If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
+                        - If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
+                        - If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
+                        - When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+                        """);
                 });
             }
 
             file.BeforeSection("Output expectations", "Entity Framework repository guidance", section =>
             {
                 section.WithListItems("""
-                            - Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
-                            - EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
-                            - Only call Add/Create/Delete operations when inserting or removing entities.
-                            - When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
-                            """);
+                    - Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
+                    - EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
+                    - Only call Add/Create/Delete operations when inserting or removing entities.
+                    - When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
+                    """);
             });
         }
     }

@@ -2,7 +2,7 @@
 name: fluent-validation-custom-validation
 description: implement or revise fluent validation custom async method logic in an existing validator file. use when a c# fluent validation validator has an incomplete or incorrect custom async validation method and the agent should update the method body, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the validator.
 template-id: Intent.Application.FluentValidation.CustomValidationSkillTemplate
-contentHash: A3F7D805DB537E6B03684F33190D23E3E136D8F66C9850990BEB47D6B6E69FF8
+contentHash: 40B5DE04A23E86965C2B06AAABE3833178B39E6AE8FB452F4271AA99C393609E
 ---
 # Fluent Validation Custom Async Method
 
@@ -74,69 +74,6 @@ If you find no such evidence, ask:
 - What failure message should be shown to users?
 - Should it query the database, call a domain service, or check a value object?
 - Are there related tests, domain rules, or examples in the codebase?
-
-## EF Related Data Loading guidance
-
-- NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
-- Lazy loading with proxies is enabled. 
-- Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
-- You can rely on navigation properties being automatically loaded when accessed.
-- (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
-
-## Unit of Work guidance
-
-- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-
-## Entity Framework repository guidance
-
-- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
-- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
-- Only call Add/Create/Delete operations when inserting or removing entities.
-- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
-
-## AutoMapper guidance
-
-- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
-- **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
-    - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
-    - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
-- **Registration assumption (do not block on DI):**
-    - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
-    - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
-    - Do not modify DI registration as part of this guidance unless the user explicitly asks.
-- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-    - This must include an inline code comment explaining why AutoMapper is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
-- If you can't find any existing mappings, create them in the same project as the services under:
-    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
-
-**Example:**
-```csharp
-
-public class CustomerDtoProfile : Profile
-{
-    public CustomerDtoProfile()
-    {
-        CreateMap<Customer, CustomerDto>();
-    }
-}
-
-public static class CustomerDtoMappingExtensions
-{
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
-        mapper.Map<CustomerDto>(projectFrom);
-
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
-        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
-}
-```
 
 ## Output expectations
 

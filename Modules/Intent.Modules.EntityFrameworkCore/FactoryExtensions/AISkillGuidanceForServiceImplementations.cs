@@ -23,7 +23,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.Skills))
+            foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.SkillsHandler))
             {
                 skill.MarkdownFile.OnBuild(file => AddEFGuidanceSection(application, file));
             }
@@ -36,10 +36,10 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             file.BeforeSection("Output expectations", "EF Related Data Loading guidance", section =>
             {
                 section.WithListItems($"""
-            - NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
-            - Lazy loading with proxies is {(lazyLoading ? "enabled" : "disabled")}. 
-            - Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
-            """);
+                    - NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
+                    - Lazy loading with proxies is {(lazyLoading ? "enabled" : "disabled")}. 
+                    - Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
+                    """);
                 if (lazyLoading)
                 {
                     section.WithListItem("You can rely on navigation properties being automatically loaded when accessed.");

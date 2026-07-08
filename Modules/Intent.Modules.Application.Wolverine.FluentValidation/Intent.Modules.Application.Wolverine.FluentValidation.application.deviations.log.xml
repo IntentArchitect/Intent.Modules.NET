@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f837be03-784a-485f-8831-14be8f167812</correlationId>
+      <path>Intent.Modules.Application.Wolverine.FluentValidation/Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T13:44:17.7757542Z</updatedAt>
+      <deviationsHash>7993E112B729BF2C5D7E2C66F30E3897D4E67BDB746C41BAF4E872EDB1A92EAC</deviationsHash>
+      <fileHash>6B08C2B71960CFB31F65ECBA6030427DD3B8A0CE2972DFE2C3CEF3D5F565DAB5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e697c72c-c021-4729-a9c9-85e25447b111</correlationId>
+      <path>Intent.Modules.Application.Wolverine.FluentValidation/Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T13:44:17.7757848Z</updatedAt>
+      <deviationsHash>6F88B82959670C857FC6E4C86374C00D0D2AB8ED5C22FFDBAB1B88621B5A30F2</deviationsHash>
+      <fileHash>28E6776FD479362C5AE4320368A8976B0464DB5AA241081C894ACAD002D66C88</fileHash>
+    </file>
+  </files>
 </deviationsLog>

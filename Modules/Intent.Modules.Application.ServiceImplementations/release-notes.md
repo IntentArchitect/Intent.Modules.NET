@@ -1,3 +1,7 @@
+### Version 4.7.3
+
+- Improvement: Scoped the `ServiceImplementationSkillTemplate` AI skill file to the new `AI.Context.Skills.Handler` role so EF Core, EF Repositories, and AutoMapper handler-specific guidance (SaveChanges rules, repository Update rules, mapper verification gates) is generated onto it, matching the same guidance already generated for other CQRS transports (e.g. Wolverine).
+
 ### Version 4.7.2
 
 - Fixed: Mismatch on skill name and usage `traditional-service-implementation` -> `application-service-implementation` fixed to be `application-service-implementation`.

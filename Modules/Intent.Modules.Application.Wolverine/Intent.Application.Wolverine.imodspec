@@ -32,7 +32,7 @@
       <location></location>
     </template>
     <template id="Intent.Application.Wolverine.CommandHandlerSkillTemplate" externalReference="dfeead3b-e32e-49b0-a60d-25fa20fdc9ec">
-      <role>AI.Context.Skills</role>
+      <role>AI.Context.Skills,AI.Context.Skills.Handler</role>
       <location></location>
     </template>
     <template id="Intent.Application.Wolverine.CommandInterface" externalReference="374faa8c-7601-4b5d-beea-896a531a6b5f">
@@ -76,7 +76,7 @@
       <location></location>
     </template>
     <template id="Intent.Application.Wolverine.QueryHandlerSkillTemplate" externalReference="e148a054-80a4-4224-8221-8d1de944e82d">
-      <role>AI.Context.Skills</role>
+      <role>AI.Context.Skills,AI.Context.Skills.Handler</role>
       <location></location>
     </template>
     <template id="Intent.Application.Wolverine.QueryInterface" externalReference="9df667b5-7705-439f-8ffd-6baf272e2302">
