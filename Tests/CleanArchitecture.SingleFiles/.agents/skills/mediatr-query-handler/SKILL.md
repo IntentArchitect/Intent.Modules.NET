@@ -2,7 +2,7 @@
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 34725A3CA37816C4CA0A48B66BCA2095A435B6A950488B0F947751647D8E1D0F
+contentHash: 5364AC5127D5E74B81D686B597D389A6F0C3023398B09008241887947713995C
 ---
 # MediatR Query Handler
 
@@ -66,43 +66,58 @@ When a needed read capability is missing:
 - You can rely on navigation properties being automatically loaded when accessed.
 - (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
 
+## Unit of Work guidance
+
+- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
+- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
+- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
+- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
+- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+
+## Entity Framework repository guidance
+
+- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
+- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
+- Only call Add/Create/Delete operations when inserting or removing entities.
+- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
+
 ## AutoMapper guidance
 
 - Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
+- Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
 - **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
-    - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
-    - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
+- **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
+- if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
+- **No assumptions allowed** (a generic projection method or other feature usage is not verification).
 - **Registration assumption (do not block on DI):**
-    - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
-    - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
-    - Do not modify DI registration as part of this guidance unless the user explicitly asks.
+- Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
+- Therefore, **do not delay profile creation** because DI registration details are not currently visible.
+- Do not modify DI registration as part of this guidance unless the user explicitly asks.
 - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-    - This must include an inline code comment explaining why AutoMapper is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
+- This must include an inline code comment explaining why AutoMapper is not reasonable.
+- “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
-    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
+- `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
+- Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
 
 **Example:**
 ```csharp
 
 public class CustomerDtoProfile : Profile
 {
-    public CustomerDtoProfile()
-    {
-        CreateMap<Customer, CustomerDto>();
-    }
+public CustomerDtoProfile()
+{
+CreateMap<Customer, CustomerDto>();
+}
 }
 
 public static class CustomerDtoMappingExtensions
 {
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
-        mapper.Map<CustomerDto>(projectFrom);
+public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+mapper.Map<CustomerDto>(projectFrom);
 
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
-        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 

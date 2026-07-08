@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: 75AF7B2B952E00DCDA6C3F0EC7C7B423A678BACC4EBEDFD959EEF482369F71F3
+contentHash: D3D47896F14906A7F3B8DC0C57F522F1A8BCC554DC49893C10766319E76E91C4
 ---
 # Traditional Service Implementation
 
@@ -83,72 +83,6 @@ When a needed capability is missing:
 - Follow the existing application error/result conventions already used in the solution.
 - Reuse nearby patterns for not found, validation failures, business rule failures, and authorization failures.
 - Do not invent a new exception or result style when the surrounding code already establishes one.
-
-## EF Related Data Loading guidance
-
-- NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
-- Lazy loading with proxies is enabled. 
-- Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
-- You can rely on navigation properties being automatically loaded when accessed.
-- (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
-
-## Unit of Work guidance
-
-- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-
-## Entity Framework repository guidance
-
-- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
-- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
-- Only call Add/Create/Delete operations when inserting or removing entities.
-- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
-
-## Mapperly guidance
-
-- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use Mapperly.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths..
-- **Mapperly gate (absolute):** If a handler/service returns entity-shaped DTOs or uses any mapper call, you **MUST**:
-    - verify a Mapperly mapper exists by locating a `[Mapper]` partial mapper class with the required mapping method, e.g. `CustomerToCustomerDto(Customer customer)`, **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required Mapperly mapper(s), including all required nested mappers.
-    - verify collection mappings when returning lists, e.g. `CustomerToCustomerDtoList(IEnumerable<Customer> customers)`.
-    - verify nested mapper dependencies use `[UseMapper]` and constructor injection where needed.
-- **Registration gate:**
-    - If a mapper is injected into a handler/service, verify it is registered in Application DI.
-    - Follow the existing registration style. Mapperly sample projects register mappers as singletons, e.g. `services.AddSingleton<CustomerDtoMapper>();`.
-    - If registration is missing, add the minimal mapper registration, including nested mapper registrations.
-- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and Mapperly is not reasonable.
-    - This must include an inline code comment explaining why Mapperly is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
-- If you can't find any existing mappings, create them in the same project as the services under:
-    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
-
-**Example:**
-```csharp
-    [Mapper]
-    public partial class OrderDtoMapper
-    {
-        [UseMapper]
-        private readonly OrderLineDtoMapper _orderLineDtoMapper;
-
-        public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
-        {
-            _orderLineDtoMapper = orderLineDtoMapper;
-        }
-
-        [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
-        [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
-        public partial OrderDto OrderToOrderDto(Order order);
-
-        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
-
-        private bool MapIsActive(Order source) => source.IsActive();
-}
-```
 
 ## Output expectations
 

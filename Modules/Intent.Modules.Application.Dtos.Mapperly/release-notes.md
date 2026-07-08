@@ -1,3 +1,7 @@
+### Version 1.1.4
+
+- Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so Mapperly guidance is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.
+
 ### Version 1.1.3
 
 - Fixed: Issue when ignore attribute was not being added for associations when not mapped.

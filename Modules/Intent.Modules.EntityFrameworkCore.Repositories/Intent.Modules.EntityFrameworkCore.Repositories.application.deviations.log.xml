@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3e5e932f-a74c-4c96-ad5a-e6eb4356f9a4</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T16:14:11.1535996Z</updatedAt>
+      <deviationsHash>53B06FC918DAAEECAC73BD7E9AFC2944D25865237D41FA1DF02D17E7CA34C0E4</deviationsHash>
+      <fileHash>B7F597CEFAEB69599C78F4460C4E5D72206F352304D8E00784FC663031EAEDD4</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
       <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplatePartial.cs</path>
       <count>3</count>
