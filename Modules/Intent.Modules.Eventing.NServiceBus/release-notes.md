@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Improvement: Shortened and clarified the Module Settings hints for `Recoverability Policy`, `Persistence`, `Enable Outbox`, `Enable Audit Queue`, and `Enable Instance Identification`.
+
 ### Version 1.0.0
 
 - New Feature: License Path support — optional `NServiceBus:LicensePath` appsetting; calls `endpointConfiguration.LicensePath(path)` when present, allowing NServiceBus license files to be specified per environment without code changes.
