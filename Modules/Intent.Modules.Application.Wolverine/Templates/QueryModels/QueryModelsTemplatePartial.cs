@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.Wolverine.Templates;
@@ -11,6 +12,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.Security.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -39,6 +41,8 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryModels
                 .AddClass(Model.Name, @class =>
                 {
                     @class.RepresentsModel(model);
+                    @class.TryAddXmlDocComments(Model.InternalElement);
+                    CqrsTemplateHelpers.AddAuthorization(this, @class, Model.InternalElement);
                     @class.ImplementsInterface(this.GetQueryInterfaceName());
 
                     @class.AddConstructor();
@@ -72,12 +76,37 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryModels
                                 }
                             }
 
+                            // AddProperty is used instead of IntroduceProperty as the property and the parameter might not have the same type
+                            // One could be non-nullable and the other not, specifically when its a collection with default value
                             @class.AddProperty(GetTypeName(property), property.Name.ToPropertyName(), prop =>
                             {
-                                prop.AddMetadata("model", property);
+                                prop.TryAddXmlDocComments(property.InternalElement);
                                 prop.RepresentsModel(property);
 
-                                // Do the assignment in the constructor
+                                var defaultValueKind = property.GetDefaultValueAttributeKind();
+                                if (!string.IsNullOrWhiteSpace(property.Value) && defaultValueKind != DefaultValueAttributeKind.None)
+                                {
+                                    prop.AddAttribute(UseType("System.ComponentModel.DefaultValue"), attribute =>
+                                    {
+                                        if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
+                                        {
+                                            attribute.AddArgument($"typeof({GetTypeName(property.TypeReference)})");
+                                            attribute.AddArgument($"\"{property.Value.AsFormattedValidTypeValue(this, property.TypeReference)}\"");
+                                        }
+                                        else
+                                        {
+                                            attribute.AddArgument(property.Value.AsFormattedValidTypeValue(this, property.TypeReference));
+                                        }
+                                    });
+                                }
+
+                                if (property.HasStereotype("OpenAPI Settings")
+                                    && !string.IsNullOrWhiteSpace(property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                                {
+                                    prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                                }
+
+                                // Do the assignment in the constructor, if the parameter has a default value, we need to use the null-coalescing operator to assign the default value to the property if the parameter is null
                                 var rhs = setDefaultValue && nulledFields.Contains(property.Id) ? $"{property.Name.ToParameterName()} ?? {property.Value}" :
                                     property.Name.ToParameterName();
                                 var assignmentStatement = new CSharpFieldAssignmentStatement(prop.Name, rhs);
