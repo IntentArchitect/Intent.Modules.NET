@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="5d442222-a036-4342-b382-03b2c2372fca" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.4.4</name>
+      <name>3.0.0</name>
       <display>2.4.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3c80b0bd-c07d-42ad-b28d-5063c882dc73" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8df20178-3b73-4597-975e-192b032720f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Amazon.Lambda.Core</name>
-          <display>Amazon.Lambda.Core (2.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>3.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d442222-a036-4342-b382-03b2c2372fca</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -64,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="f463916f-7fa3-4b49-beb5-8c059420b501" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.4.4</name>
+      <name>2.4.5</name>
       <display>2.4.4 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -86,16 +83,45 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ab3ae75c-c7ff-4534-b3ce-0a8d8c90894a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8993f4fe-d460-4f8a-bb8e-6212871fe72f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Amazon.Lambda.Core</name>
-          <display>Amazon.Lambda.Core (2.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f463916f-7fa3-4b49-beb5-8c059420b501</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="38cc3ef5-24c0-4418-9c35-c8a34bac0edc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e813c38e-069f-43c0-b063-20c6239eb889</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8f281b54-f2b6-466c-84cf-d8f1e5ad46e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Amazon.Lambda.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>3.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>38cc3ef5-24c0-4418-9c35-c8a34bac0edc</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

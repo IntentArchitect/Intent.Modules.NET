@@ -1,6 +1,8 @@
 ### Version 1.0.1
 
 - Improvement: Shortened and clarified the Module Settings hints for `Recoverability Policy`, `Persistence`, `Enable Outbox`, `Enable Audit Queue`, and `Enable Instance Identification`.
+- Improvement: Updated NuGet package versions.
+
 
 ### Version 1.0.0
 

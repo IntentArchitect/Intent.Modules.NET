@@ -23,7 +23,9 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(CoverletCollectorPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("6.0.4"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.1"),
+                        ( >= 2, >= 0) => new PackageVersion("6.0.4"),
+                        ( >= 0, >= 0) => new PackageVersion("10.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{CoverletCollectorPackageName}'"),
                     }
                 );
@@ -71,8 +73,8 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.2.1")
-                            .WithNugetDependency("xunit.v3.mtp-v1", "3.2.1"),
+                        ( >= 8, >= 0) => new PackageVersion("3.2.2")
+                            .WithNugetDependency("xunit.v3.mtp-v1", "3.2.2"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")

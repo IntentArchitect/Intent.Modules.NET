@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="1b2bc2ec-87b9-4397-a842-9aa5a74afcb9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.105.2</name>
+      <name>3.105.6</name>
       <display>3.103.8.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="959f76f2-dccf-4c93-a502-47c061f6c1fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="09b61dce-3163-4145-923c-e1ab7ae63431" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>3.1.0</value>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bbb51fbb-67b4-4b06-af6b-9b5fccbcd5c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a3ddb40c-8d33-4476-8176-968f2f41441c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CSharp</name>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="115d15e5-6291-4cb3-bb62-d341b5fce759" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ca6e89eb-3f14-414c-8c30-f5e2086e456a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
@@ -80,7 +80,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="200a0291-7fbf-43a8-8d0b-3abd71449851" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a3260e96-b777-4799-811d-5a922f84ae19" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
@@ -91,7 +91,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c6386231-5420-467e-8c56-3fd8770a5dd7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3541d773-9af2-4b51-9a4e-b4f32158ea78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.TypeExtensions</name>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
@@ -105,7 +105,7 @@
       </childElements>
     </childElement>
     <childElement id="ec546327-ad61-42bb-ab50-1029d3129fc2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.105.2</name>
+      <name>5.105.6</name>
       <display>5.103.8.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -127,7 +127,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7e9dd10d-a7f9-4d6b-92a2-a7bd31cea56f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="231a8bc0-ff30-440e-b867-8c9aed4ce589" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CSharp</name>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
@@ -138,7 +138,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="12b6cc60-a537-4982-8d7b-c902d995c12d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="661811e3-3e08-44ea-867a-80f39f97ddb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
@@ -149,7 +149,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="133cb532-bd15-4c84-820c-a0317b4e3026" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb82f24a-a715-40ac-9ad7-76a14c92c2ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.TypeExtensions</name>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
@@ -160,7 +160,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="aa2add35-c01a-4358-a42b-ce88c587f291" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b6f568dc-2b3d-494e-86d8-16f0f4f58a0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
           <isAbstract>false</isAbstract>
           <value>5.0.0</value>
@@ -171,7 +171,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e2af0fa1-4bc9-48c5-91de-a7627118d3f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="18cef938-6c25-4a61-b27a-181e1a4ae365" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>5.0.0</value>
@@ -185,7 +185,7 @@
       </childElements>
     </childElement>
     <childElement id="d2329af6-8195-4133-a3ab-bfff8ce2f962" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.105.2</name>
+      <name>7.105.6</name>
       <display>7.103.8.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -207,7 +207,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f4af1162-c60f-4092-a916-850c56fccaaa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="129fcbfe-8d1c-4c23-a8d4-fb0ae42cf2b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -218,7 +218,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a6bbac0b-4763-487c-80db-4b7f797896c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b13eb098-73ef-4d5a-8101-e38a4196b441" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -309,7 +309,7 @@
       </childElements>
     </childElement>
     <childElement id="f874bba7-85a7-491f-85cf-aa47c6cf2c0e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.105.2</name>
+      <name>10.105.6</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -327,7 +327,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="26eea2db-f6b1-44b1-af79-c0e32249b381" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a9b17df2-f8a7-4171-9cf1-326e287ba5ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
@@ -338,7 +338,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b9c497fe-30e2-4cf3-bc96-afcfe3c54471" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f9a97fb8-4c20-450d-9b62-acd305f19984" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>

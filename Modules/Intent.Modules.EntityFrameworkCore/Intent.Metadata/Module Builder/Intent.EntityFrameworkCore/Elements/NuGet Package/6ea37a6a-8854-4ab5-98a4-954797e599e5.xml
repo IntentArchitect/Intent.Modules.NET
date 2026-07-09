@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,58 +47,46 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7ffc3aea-0622-4f78-bbd9-b5161e215255" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e561af3c-0077-4f6f-8f54-16d92da485bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="aa59bc04-4f05-41cf-9a7c-9111210e2ec0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Castle.Core</name>
-          <display>Castle.Core (5.2.1)</display>
           <isAbstract>false</isAbstract>
           <value>5.2.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dbf4d4d0-9c31-466e-84f5-cc1455ee919e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (10.0.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0e3d57b9-7675-4684-9805-0e981fa50d61" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e5c80c66-49b9-41fe-9038-2ac1a70616be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6a0524f6-4936-4759-88dd-d071bd6fd63e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1ca2cede-faa2-4e2a-9bc1-055471616f87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />

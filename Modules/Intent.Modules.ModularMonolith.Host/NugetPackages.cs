@@ -37,6 +37,74 @@ namespace Intent.Modules.ModularMonolith.Host
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FluentValidationPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MassTransitPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("9.1.2")
+                            .WithNugetDependency("MassTransit.Abstractions", "9.1.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.1.2")
+                            .WithNugetDependency("MassTransit.Abstractions", "9.1.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("9.1.2")
+                            .WithNugetDependency("MassTransit.Abstractions", "9.1.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("9.1.2")
+                            .WithNugetDependency("MassTransit.Abstractions", "9.1.2")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "8.0.1")
+                            .WithNugetDependency("System.Memory", "4.6.3")
+                            .WithNugetDependency("System.Reflection.Emit", "4.7.0")
+                            .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0")
+                            .WithNugetDependency("System.Text.Json", "8.0.6")
+                            .WithNugetDependency("System.Threading.Channels", "8.0.0")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "10.2.3")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("10.2.3")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "9.0.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "10.2.3"),
+                        ( >= 8, >= 0) => new PackageVersion("10.2.3")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "8.0.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "10.2.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "10.2.3"),
+                        ( >= 2, >= 0) => new PackageVersion("8.1.4")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "8.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "8.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "8.1.4"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SwashbuckleAspNetCorePackageName}'"),
+                    }
+                );
 
             // If MassTransit pre-commercial version is enabled, register those packages and return early
             //IntentIgnore

@@ -1,5 +1,6 @@
 ### Version 2.0.1
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Application home label out of the box now reflect the application name.
 - Improvement: Menu items without a link are no longer included in the output.
 - Improvement: Navigations (without a related menu item) will not be included in the output.

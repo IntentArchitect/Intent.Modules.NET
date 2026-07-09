@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="eee4d67b-30a2-4fe2-896e-476a4b83fcbf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.1.1</name>
+      <name>16.2.0</name>
       <display>16.1.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fef2dbdd-eb4f-4315-9241-01fec346d687" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d902339b-9300-4cbf-a46e-145a46da4cb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eee4d67b-30a2-4fe2-896e-476a4b83fcbf</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c10734e0-716c-4241-b9e6-6be60491407a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e9c0c699-1e29-40b0-ae28-d5aaed22c28f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eee4d67b-30a2-4fe2-896e-476a4b83fcbf</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7c867a08-a2ab-4cd8-828c-291c96cce865" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="34cb3727-9bbd-4c98-a95d-7b5e2141db16" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eee4d67b-30a2-4fe2-896e-476a4b83fcbf</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="b04c95bf-fc27-4d27-a271-b7a876f80855" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.1.1</name>
+      <name>16.2.0</name>
       <display>16.1.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,72 +105,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2f4e685c-109b-49dc-b442-b540b719c55e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="845ef60a-7765-4217-a094-ef453d00d9e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.HashCode</name>
-          <display>Microsoft.Bcl.HashCode (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b04c95bf-fc27-4d27-a271-b7a876f80855</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d0c49a5-a576-4982-b5b4-3655e1a5a6f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aab1ad11-45db-443c-b69b-f77b2a290962" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b04c95bf-fc27-4d27-a271-b7a876f80855</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="26e4acd8-7d54-4630-b474-c87a5b293adf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="43f108cd-e4bf-4fc4-a00c-1c6be30ae955" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b04c95bf-fc27-4d27-a271-b7a876f80855</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7acc5e99-7aa0-43dd-92b5-24900da08802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9670c583-2b67-4340-ad8d-965146698aec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b04c95bf-fc27-4d27-a271-b7a876f80855</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="243dec4e-b0d2-423f-830f-58809e4fb965" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6bbf38b5-d7c1-48b7-b10a-8e193ffc0efc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
-          <display>System.Reflection.Emit (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b04c95bf-fc27-4d27-a271-b7a876f80855</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -187,7 +163,7 @@
       </childElements>
     </childElement>
     <childElement id="a9544a9a-6c2d-42f3-bb5b-e28eda107aab" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.1.1</name>
+      <name>16.2.0</name>
       <display>16.1.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -209,44 +185,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9a78ba3d-1acc-413c-9f0e-4a4555f193c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="78922423-9ec5-441f-8c6d-94fb5c1950d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9544a9a-6c2d-42f3-bb5b-e28eda107aab</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5cdabb87-bdfb-4194-bdc8-7a2888097b4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96311b2d-fd57-486c-b82e-256704cd481f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9544a9a-6c2d-42f3-bb5b-e28eda107aab</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5adcf33b-7d7f-49d8-b22c-7a5ae90036f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be74bcfb-1748-480c-98e8-53166f21aba8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9544a9a-6c2d-42f3-bb5b-e28eda107aab</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -254,7 +221,7 @@
       </childElements>
     </childElement>
     <childElement id="0a0915d8-8e53-440c-8a17-b2191b485981" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.1.1</name>
+      <name>16.2.0</name>
       <display>16.1.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -276,44 +243,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5e94f71c-c36f-4601-9be2-60d45f8ebf40" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a25c1b2c-19ee-42bd-9778-bbcb4819598a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a0915d8-8e53-440c-8a17-b2191b485981</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f701841b-eb72-4b5b-90dd-796473bdb14e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ded32361-1165-4b03-aaf5-98eff356d777" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a0915d8-8e53-440c-8a17-b2191b485981</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5162e4f-5060-4a32-8b63-c0e378f2569a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="45429710-e264-410f-831a-0c6a2eba2407" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a0915d8-8e53-440c-8a17-b2191b485981</parentFolderId>
-          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
-          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />

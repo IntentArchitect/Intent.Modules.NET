@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="55637615-e2cb-4020-93c5-73c0f15b24bb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,100 +47,79 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="60cf3d3e-6115-4073-b444-ae59ae533026" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Data.SqlClient</name>
-          <display>Microsoft.Data.SqlClient (6.1.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.1.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5fa7c3e4-555c-45d4-8617-d09c1eaa4e15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6ecabae0-40fc-4cf7-b193-db18fd56d11b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.SqlServer</name>
-          <display>Microsoft.EntityFrameworkCore.SqlServer (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c629ad2f-9e3e-4a0a-8e9a-2039501094c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b522df97-1675-4888-929d-f9ca7aefb9cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2f6ca732-6215-473a-8405-a2929cc752c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8a2d3914-8a00-4df6-8557-27f9fb05c492" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>NetTopologySuite</name>
-          <display>NetTopologySuite (2.6.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>2.6.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6ccc456a-e129-4725-9d3d-f531e8f478bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="55b5e1cc-e3a7-444c-97f3-6e9703e118c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NetTopologySuite.IO.SqlServerBytes</name>
-          <display>NetTopologySuite.IO.SqlServerBytes (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="762db858-c3d9-42e4-90e2-d08676b72058" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient</name>
+          <isAbstract>false</isAbstract>
+          <value>6.1.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7eb09615-d119-47c6-b5e5-2d54d99977da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="92af5860-6f06-4f1b-a62b-55de1f9fe937" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="027e7a2c-7de9-4d1c-9649-e054385fc37f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8098b39c-48ce-496e-94eb-920c12f69b9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NetTopologySuite</name>
+          <isAbstract>false</isAbstract>
+          <value>2.6.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

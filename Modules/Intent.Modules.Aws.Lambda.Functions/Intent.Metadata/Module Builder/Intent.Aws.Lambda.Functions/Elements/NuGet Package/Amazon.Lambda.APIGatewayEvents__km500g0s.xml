@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="870935d8-6c7a-403c-b5bb-0d4ed11b1228" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.7.3</name>
+      <name>3.0.0</name>
       <display>2.7.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -82,6 +82,26 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="1234428b-b398-43df-8300-3adbfecb21a8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>833febfe-4912-4366-8c13-9af25de0c361</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

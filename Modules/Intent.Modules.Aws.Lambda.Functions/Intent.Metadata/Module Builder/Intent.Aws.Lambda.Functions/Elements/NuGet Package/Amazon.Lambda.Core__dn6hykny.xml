@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="425dfb5a-9fe7-4be7-8e89-ed6f568c8fc9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.8.0</name>
+      <name>3.1.1</name>
       <display>2.8.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -47,31 +47,8 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="b500cf72-a1ee-4328-853f-46f743a71dfc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.8.0</name>
-      <display>2.8.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e51010b7-4e08-41ad-bcae-3e199f28c3fb</parentFolderId>
-      <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-      <packageName>Intent.Aws.Lambda.Functions</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="fc145f97-ecd4-48fc-bbb4-4321b7e852db" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.8.0</name>
+      <name>3.1.1</name>
       <display>2.8.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -86,6 +63,26 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6879f2b2-bd55-416c-a072-bfc5539662c7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.1.1</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e51010b7-4e08-41ad-bcae-3e199f28c3fb</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>

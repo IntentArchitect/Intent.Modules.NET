@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="7b0cf953-2152-47f0-9471-893c5fa67e02" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="aa825ac0-aa23-4463-a215-0bbdbb457140" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c74081d7-8c5c-4a98-9763-6f5e00baa43f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8008010f-f0ff-420e-839e-7c5ec093f5c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0bd61f5b-1fde-4320-af25-9c0ee26ba8c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a331e815-ca8f-4fd6-a285-60c806ce97c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8bffc2ae-012e-42cb-9b8e-fa9ccecbd678" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />

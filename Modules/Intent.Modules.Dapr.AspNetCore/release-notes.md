@@ -1,3 +1,7 @@
+### Version 2.1.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.1.0
 
 - Improvement: Updated module dependencies including moving over to the Codebase Structure designer.

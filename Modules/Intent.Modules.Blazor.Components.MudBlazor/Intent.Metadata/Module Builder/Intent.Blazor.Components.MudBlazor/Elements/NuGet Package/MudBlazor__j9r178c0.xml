@@ -212,7 +212,7 @@
       </childElements>
     </childElement>
     <childElement id="e8c1514a-7083-432d-b3dd-3e3ffc053468" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.15.0</name>
+      <name>9.6.0</name>
       <display>8.15.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -234,44 +234,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d203a04a-023a-4daf-9619-a789a89d855b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b3c153eb-4596-47ef-8f7c-226898480057" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
-          <display>Microsoft.AspNetCore.Components (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2068bf0b-8ebc-4809-9ce1-df6c454e1e8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="53a6f1b7-a8c3-4ee1-bab7-f91c2304f7c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="21022cd3-308a-4eae-a999-6ff319e5128b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2198215e-5077-4900-adb1-d6d7b8e1865e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
-          <display>Microsoft.Extensions.Localization (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -279,7 +270,7 @@
       </childElements>
     </childElement>
     <childElement id="d8480efb-395e-4ed9-b226-f020ed3567b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.15.0</name>
+      <name>9.6.0</name>
       <display>8.15.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -301,44 +292,89 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="45c6d7ab-9539-4958-b5e8-45b903fb0ab0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4bd4ed94-7cbf-4195-b5c0-af9c2eb01923" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
-          <display>Microsoft.AspNetCore.Components (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="23fa47a3-1f38-4cd0-8164-7e063f991871" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b5a5812-b419-4bf8-95e3-8015abe95818" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3da12a4c-e717-45c6-b594-0deb66732da5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3cbfb3f2-81b0-40be-980b-0bbb86cfcd9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
-          <display>Microsoft.Extensions.Localization (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="16641dd4-3a00-4084-aab5-604ea7de9051" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.6.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>96ce0dec-1629-4ed4-8965-939c8e02967b</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="717c76c3-8293-4272-933d-a2efc9de688e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>16641dd4-3a00-4084-aab5-604ea7de9051</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="375849fd-9eaa-4832-8a41-7564ab2b1e84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>16641dd4-3a00-4084-aab5-604ea7de9051</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="33f64151-08d3-4b6d-92b9-c58a5f5fb0f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Localization</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>16641dd4-3a00-4084-aab5-604ea7de9051</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

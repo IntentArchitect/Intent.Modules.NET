@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.5.3</name>
+      <name>5.5.4</name>
       <display>5.5.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e4ceb00a-7e25-4c5b-b801-c62900515d77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Queues</name>
-          <display>Azure.Storage.Queues (12.21.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>12.21.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce</parentFolderId>
-          <packageId>02ce5521-0b0c-4796-918d-4638bdcc8062</packageId>
-          <packageName>Intent.AzureFunctions.AzureQueueStorage</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c44f8d9b-6237-48d0-8678-26d163a1f348" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.Functions.Worker.Core</name>
-          <display>Microsoft.Azure.Functions.Worker.Core (1.20.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.20.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce</parentFolderId>
-          <packageId>02ce5521-0b0c-4796-918d-4638bdcc8062</packageId>
-          <packageName>Intent.AzureFunctions.AzureQueueStorage</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3f33b1a5-d0a3-46b9-826d-e0f5c4d5abf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0558953b-201b-4864-bfeb-ed550d1b934c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
-          <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce</parentFolderId>
-          <packageId>02ce5521-0b0c-4796-918d-4638bdcc8062</packageId>
-          <packageName>Intent.AzureFunctions.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cb02b149-4797-47bc-9d54-53a36c9e23a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Queues</name>
+          <isAbstract>false</isAbstract>
+          <value>12.21.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4d4dde71-ee62-4dde-a9e7-d44fd47dede1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ecb65a4c-94be-436a-9c9a-e0e90e9dd8ce</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

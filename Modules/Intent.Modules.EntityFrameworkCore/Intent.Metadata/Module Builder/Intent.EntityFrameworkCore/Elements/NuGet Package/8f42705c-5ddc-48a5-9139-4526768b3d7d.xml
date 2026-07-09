@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="cd73c8e4-4479-407e-8432-8e29d9517421" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6b188004-7dc4-4b6b-adac-acdc2552e1b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15d83154-4fef-4f38-94f5-9f1cb0f82344" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cd73c8e4-4479-407e-8432-8e29d9517421</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9d847716-01b4-4ff6-b78a-f27733b645e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5070d72e-2d1e-4609-b08f-4581c4cee710" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cd73c8e4-4479-407e-8432-8e29d9517421</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3b16b657-4e24-4752-a13e-5b3083a9aad0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50c9502f-9b60-4b30-8ba0-8a233b4c0cdd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Npgsql</name>
-          <display>Npgsql (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cd73c8e4-4479-407e-8432-8e29d9517421</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />

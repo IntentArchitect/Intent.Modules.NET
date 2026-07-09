@@ -1,3 +1,7 @@
+### Version 2.0.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.1
 
 - Improvement: ModularMonolith.Host no longer outputs skills or instructions, leading to contention with ModularMonolith modules.

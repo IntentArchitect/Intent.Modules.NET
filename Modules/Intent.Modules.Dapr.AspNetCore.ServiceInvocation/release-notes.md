@@ -1,3 +1,7 @@
+### Version 2.3.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.3.2
 
 - Improvement: Internal refactoring.

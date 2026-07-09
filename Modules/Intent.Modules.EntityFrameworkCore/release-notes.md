@@ -1,3 +1,7 @@
+### Version 5.0.47
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.46
 
 - Improvement: When the MediatR UnitOfWorkBehaviour is installed, EF now automatically teaches it to detect an externally-managed EF transaction and skip TransactionScope, preventing MSDTC escalation.

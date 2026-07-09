@@ -1,3 +1,7 @@
+### Version 5.0.25
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.24
 
 - Improvement: Updated script to cater for possible null stereotype property value

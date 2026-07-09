@@ -46,22 +46,22 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("14.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("14.2.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 9, >= 0) => new PackageVersion("14.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("14.2.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("14.0.0")
+                        ( >= 8, >= 0) => new PackageVersion("14.2.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 2, >= 0) => new PackageVersion("14.0.0")
+                        ( >= 2, >= 0) => new PackageVersion("14.2.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
