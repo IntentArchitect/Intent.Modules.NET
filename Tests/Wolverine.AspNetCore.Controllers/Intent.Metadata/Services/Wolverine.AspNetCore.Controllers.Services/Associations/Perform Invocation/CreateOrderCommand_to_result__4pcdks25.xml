@@ -43,6 +43,19 @@
         <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c07880ef-827d-4c94-96f8-92295b535147" location="[Wolverine.AspNetCore.Controllers].[Services].[GetOrderByIdQuery]" />
         <mappedEnds>
           <mappedEnd>
+            <expression>{CreateOrderCommand}</expression>
+            <path>
+              <target id="c07880ef-827d-4c94-96f8-92295b535147" name="GetOrderByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="66ad62f6-359a-4e2a-9267-aec0b4cc0f65" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
             <expression>{order.Id}</expression>
             <path>
               <target id="c07880ef-827d-4c94-96f8-92295b535147" name="GetOrderByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />

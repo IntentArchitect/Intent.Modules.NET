@@ -25,6 +25,10 @@
       <role>Application.DomainEventHandler.Explicit</role>
       <location>EventHandlers</location>
     </template>
+    <template id="Intent.Application.Wolverine.DomainEvents.DomainEventHandlerSkill" externalReference="9653a0ed-4d68-4974-883c-46c28e4daea0">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Application.Wolverine.DomainEvents.DomainEventService" externalReference="7fe44235-33ee-41ba-b7ef-7181d9e8aecb">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

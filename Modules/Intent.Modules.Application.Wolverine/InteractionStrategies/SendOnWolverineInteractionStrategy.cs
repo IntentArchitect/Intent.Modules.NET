@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Templates;
 

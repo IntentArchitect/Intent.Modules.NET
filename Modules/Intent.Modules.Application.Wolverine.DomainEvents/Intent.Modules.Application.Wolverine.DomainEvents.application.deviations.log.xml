@@ -42,6 +42,16 @@
       <fileHash>B845CEB43B63A8E2D065AD0F881164A9BF303B2C8C44F485BF44F71F40EA77B5</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9653a0ed-4d68-4974-883c-46c28e4daea0</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T20:05:48.7179641Z</updatedAt>
+      <deviationsHash>4B12AC4B66785D6E38E40C62B515091326E341D9F99252C117B800F79B7ADF2B</deviationsHash>
+      <fileHash>7F30B9A790990BFEF57676C30FCA22AD2B7B3452F69FBA0008010DCE30C35363</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7fe44235-33ee-41ba-b7ef-7181d9e8aecb</correlationId>
       <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
       <count>5</count>
