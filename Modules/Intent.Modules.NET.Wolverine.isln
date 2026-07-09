@@ -27,5 +27,6 @@
     <application id="b43e280b-5711-433f-87d1-ba8bba65465c" name="Intent.Modules.Application.ServiceImplementations" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.application.config" />
     <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" solutionFolder="Tests" relativePath="../Tests/CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="Tests" relativePath="../Tests/Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
+    <application id="b7db91ac-8839-48cd-8389-8b32ff4eaf41" name="AspNetCore.Controllers.JsonPatch" solutionFolder="Modules/Support" relativePath="Intent.Modules.AspNetCore.Controllers.JsonPatch/Intent.Modules.AspNetCore.Controllers.JsonPatch.application.config" />
   </applications>
 </solution>

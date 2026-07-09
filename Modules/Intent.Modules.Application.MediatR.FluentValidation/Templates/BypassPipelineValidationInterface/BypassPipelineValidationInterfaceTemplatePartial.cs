@@ -21,6 +21,10 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.BypassPi
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BypassPipelineValidationInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // Also fulfil the transport-agnostic shared role so Wolverine (and other transports)
+            // can resolve this interface without taking a hard dependency on the MediatR module.
+            FulfillsRole("Application.Common.BypassValidationInterface");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"IBypassPipelineValidation", @interface =>
                 {

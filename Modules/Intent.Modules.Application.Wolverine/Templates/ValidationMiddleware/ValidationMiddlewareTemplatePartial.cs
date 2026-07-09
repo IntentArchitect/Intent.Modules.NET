@@ -28,7 +28,9 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
                 .AddClass("ValidationMiddleware", @class =>
                 {
                     var validatorProvider = GetTypeName("Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface");
-                    var hasBypassInterface = TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface", out var bypassInterface);
+                    // Prefer the transport-agnostic shared role; fall back to the MediatR-specific one for backwards compatibility
+                    var hasBypassInterface = TryGetTypeName("Application.Common.BypassValidationInterface", out var bypassInterface)
+                        || TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface", out bypassInterface);
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "BeforeAsync", method =>
                     {
                         method.Async();
