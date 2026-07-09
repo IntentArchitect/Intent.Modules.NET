@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.EntityFrameworkCore;
 using Finbuckle.SharedDatabase.TestApplication.Application.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common;
@@ -19,12 +20,14 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
     public class ApplicationDbContext : DbContext, IUnitOfWork, IMultiTenantDbContext
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly IMultiTenantContextAccessor<TenantInfo> _multiTenantContextAccessor;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
             IDomainEventService domainEventService,
-            ITenantInfo tenantInfo) : base(options)
+            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor) : base(options)
         {
             _domainEventService = domainEventService;
-            TenantInfo = tenantInfo;
+            _multiTenantContextAccessor = multiTenantContextAccessor;
+            TenantInfo = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo!;
         }
 
         public DbSet<User> Users { get; set; }

@@ -110,7 +110,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 file
                     .AddUsing("System")
-                    .AddUsing("System.Linq.Expressions");
+                    .AddUsing("System.Linq.Expressions")
+                    .AddUsing("Finbuckle.MultiTenant");
 
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
@@ -121,12 +122,12 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 constructor.ConstructorCall.AddArgument($"{(partitionAttribute != null ? $"\"{partitionAttribute.Name.ToCamelCase()}\"" : "default")}");
                 if (RequiresMultiTenancy(template.Model))
                 {
-                    constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
+                    constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                     constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
                 }
                 else
                 {
-                    constructor.ConstructorCall.AddArgument($"default({template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>")})");
+                    constructor.ConstructorCall.AddArgument($"default({template.UseType("Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>")})");
                 }
 
                 if (RequiresMultiTenancy(template.Model))
@@ -153,14 +154,16 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
-                file.AddUsing("System");
+                file
+                    .AddUsing("System")
+                    .AddUsing("Finbuckle.MultiTenant");
 
                 var @class = file.Classes.First();
                 @class.AddField($"string{nullableChar}", "_tenantId", f => f.PrivateReadOnly());
 
                 var constructor = @class.Constructors.First();
                 constructor.AddParameter($"string{nullableChar}", "partitionKeyFieldName", p => p.IntroduceReadonlyField());
-                constructor.AddParameter(template.UseType($"Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>{nullableChar}"), "multiTenantContextAccessor");
+                constructor.AddParameter(template.UseType($"Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>{nullableChar}"), "multiTenantContextAccessor");
 
                 constructor.AddIfStatement("multiTenantContextAccessor != null", stmt =>
                 {

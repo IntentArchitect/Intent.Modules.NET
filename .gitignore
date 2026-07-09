@@ -282,3 +282,5 @@ Spikes/
 # Transitory module-builder artifacts (WORKING.md, RETROSPECTIVE.md,
 # PATTERN-DOCUMENT.md, ATTACK-PLAN.md, etc.)
 .module-builder/
+
+Modules/Intent.Modules/

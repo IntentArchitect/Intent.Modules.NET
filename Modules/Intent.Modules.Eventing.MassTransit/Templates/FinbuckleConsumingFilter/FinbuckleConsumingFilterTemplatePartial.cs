@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("MassTransit")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"FinbuckleConsumingFilter", @class =>
                 {
@@ -40,7 +41,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                         .AddConstructor(ctor =>
                         {
                             ctor.AddParameter("IServiceProvider", "serviceProvider")
-                                .AddParameter("IMultiTenantContextAccessor", "accessor", p => p.IntroduceReadonlyField())
+                                .AddParameter("IMultiTenantContextSetter", "setter", p => p.IntroduceReadonlyField())
                                 .AddParameter("ITenantResolver", "tenantResolver", p => p.IntroduceReadonlyField())
                                 .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
                                 .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";")
@@ -57,7 +58,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                                 {
                                     stmt.AddStatement("_messageHeaderStrategy.SetTenantIdentifier(tenantIdentifier);");
                                     stmt.AddStatement("var multiTenantContext = await _tenantResolver.ResolveAsync(context);");
-                                    stmt.AddStatement("_accessor.MultiTenantContext = multiTenantContext;");
+                                    stmt.AddStatement("_setter.MultiTenantContext = multiTenantContext;");
                                 })
                                 .AddStatement("await next.Send(context);")
                                 ;
@@ -84,8 +85,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration",
-                       new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration",
+                    new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
     }
 }

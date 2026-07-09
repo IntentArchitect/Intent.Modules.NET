@@ -37,7 +37,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Finbuckle.MultiTenant")
-                .AddUsing("Finbuckle.MultiTenant.Stores")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
+                .AddUsing("Finbuckle.MultiTenant.Stores.InMemoryStore")
                 .AddUsing("Microsoft.AspNetCore.Builder")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -159,7 +160,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
 
         private string GetTenantClass()
         {
-            if (_connectionRequests.Any())
+            // Finbuckle v7+ removed ConnectionString from the base TenantInfo, so separate-database
+            // data isolation always needs the extended tenant-info type to carry it (even with a
+            // single connection string) -- not just when multiple connection strings are registered.
+            if (_connectionRequests.Any() || ExecutionContext.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase())
             {
                 return this.GetTenantExtendedInfoName();
             }

@@ -20,60 +20,60 @@ namespace Intent.Modules.CosmosDB
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.1")
-                            .WithNugetDependency("Azure.Identity", "1.13.1")
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
-                            .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.1")
-                            .WithNugetDependency("Azure.Identity", "1.13.1")
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
-                            .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.1")
-                            .WithNugetDependency("Azure.Identity", "1.13.1")
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
-                            .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.1")
-                            .WithNugetDependency("Azure.Identity", "1.13.1")
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
-                            .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IEvangelistAzureCosmosRepositoryPackageName}'"),
-                    }
-                );
+                {
+                    ( >= 10, >= 0) => new PackageVersion("10.0.1")
+                        .WithNugetDependency("Azure.Identity", "1.13.1")
+                        .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
+                        .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
+                        .WithNugetDependency("Newtonsoft.Json", "13.0.3")
+                        .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                    ( >= 9, >= 0) => new PackageVersion("10.0.1")
+                        .WithNugetDependency("Azure.Identity", "1.13.1")
+                        .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
+                        .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
+                        .WithNugetDependency("Newtonsoft.Json", "13.0.3")
+                        .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                    ( >= 8, >= 0) => new PackageVersion("10.0.1")
+                        .WithNugetDependency("Azure.Identity", "1.13.1")
+                        .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
+                        .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
+                        .WithNugetDependency("Newtonsoft.Json", "13.0.3")
+                        .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                    ( >= 2, >= 0) => new PackageVersion("10.0.1")
+                        .WithNugetDependency("Azure.Identity", "1.13.1")
+                        .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
+                        .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                        .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
+                        .WithNugetDependency("Newtonsoft.Json", "13.0.3")
+                        .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                    _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IEvangelistAzureCosmosRepositoryPackageName}'"),
+                }
+            );
             NugetRegistry.Register(NewtonsoftJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 6, >= 0) => new PackageVersion("13.0.4"),
-                        ( >= 2, >= 0) => new PackageVersion("13.0.4"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NewtonsoftJsonPackageName}'"),
-                    }
-                );
+                {
+                    ( >= 6, >= 0) => new PackageVersion("13.0.4"),
+                    ( >= 2, >= 0) => new PackageVersion("13.0.4"),
+                    _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NewtonsoftJsonPackageName}'"),
+                }
+            );
         }
 
         public static NugetPackageInfo NewtonsoftJson(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NewtonsoftJsonPackageName, outputTarget.GetMaxNetAppVersion());

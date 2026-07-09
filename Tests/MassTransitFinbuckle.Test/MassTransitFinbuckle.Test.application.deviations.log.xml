@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3c9062a3-83b2-44d6-8dce-ac88e0fedd13</correlationId>
+      <path>MassTransitFinbuckle.Test.Api/MassTransitFinbuckle.Test.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T15:21:54.68297Z</updatedAt>
+      <deviationsHash>0F7022FC92AE0F2348F1879F31B8E198E749D79F9C8AE9B37C74429E23806D09</deviationsHash>
+      <fileHash>8E20C4898EAA0ED4AFC18F2EEC409C12515CCAE069E1E1A8788BEA2CEFEE379C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2204336b-62f6-4ab7-9e95-ec6134ca1d62</correlationId>
+      <path>MassTransitFinbuckle.Test.Application/MassTransitFinbuckle.Test.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T15:33:17.0897497Z</updatedAt>
+      <deviationsHash>42EA0493E8A91AF0FD4751FD5237C452F97DD6E19446F3F95D28C503B1D7B8C7</deviationsHash>
+      <fileHash>F435FEC9EFADA50737F4D7EA9D6C715774629881F6695BF2FAB96396858BE725</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#5f54ca23-d142-4094-a2f0-9b4f6f532892</correlationId>
+      <path>MassTransitFinbuckle.Test.Infrastructure/MassTransitFinbuckle.Test.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T15:32:28.3120871Z</updatedAt>
+      <deviationsHash>E52E6127F90A9974C97ADA91CAD605F24E2E0512F833D203803F745653D59639</deviationsHash>
+      <fileHash>3A312CF271582346DFC94B8F287E0D657CFE8CFA3A87D08978AA0039C72A196D</fileHash>
+    </file>
+  </files>
 </deviationsLog>

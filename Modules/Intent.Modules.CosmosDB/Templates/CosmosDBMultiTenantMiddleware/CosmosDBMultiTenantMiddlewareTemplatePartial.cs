@@ -25,11 +25,25 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantMiddleware
                 .AddUsing("System")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddUsing("Microsoft.AspNetCore.Http")
                 .AddUsing("Microsoft.AspNetCore.Builder")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
-                .AddClass($"CosmosDBMultiTenantMiddleware", @class =>
+                .AddUsing("Microsoft.Azure.CosmosRepository.Providers");
+
+            // The "Invoke" method body is built inside OnBuild (deferred to the Build phase, after all templates
+            // across all modules are registered) because it needs GetTypeName to resolve
+            // Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo (no ProjectReference to that module - cross-
+            // module lookup by TemplateId). Calling GetTypeName in the constructor throws if that module's template
+            // hasn't been registered yet, since registration order across modules isn't guaranteed. This template
+            // only runs for separate-database multi-tenancy (see CanRunTemplate), where that module always registers
+            // AddMultiTenant<TenantExtendedInfo>() - Finbuckle only DI-registers the accessor closed over that exact
+            // type, so resolving IMultiTenantContextAccessor<TenantInfo> (the base type) would fail at runtime.
+            CSharpFile.OnBuild(file =>
+            {
+                var tenantInfoTypeName = this.GetTypeName("Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo");
+
+                file.AddClass($"CosmosDBMultiTenantMiddleware", @class =>
                 {
                     @class.AddField(this.GetCosmosDBMultiTenantClientProviderName(), "_clientProvider", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
@@ -51,17 +65,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantMiddleware
                         method
                             .Async()
                             .AddParameter("HttpContext", "context");
-                        method.AddStatements(@"using (var scope = _serviceProvider.CreateScope())
-			{
-				var tenant = scope.ServiceProvider.GetService<TenantInfo>();
-				var cosmosClientOptionsProvider = scope.ServiceProvider.GetRequiredService<ICosmosClientOptionsProvider>();
+                        method.AddStatements($@"using (var scope = _serviceProvider.CreateScope())
+                            {{
+                            var tenant = scope.ServiceProvider.GetRequiredService<IMultiTenantContextAccessor<{tenantInfoTypeName}>>().MultiTenantContext?.TenantInfo;
+                            var cosmosClientOptionsProvider = scope.ServiceProvider.GetRequiredService<ICosmosClientOptionsProvider>();
 
-				using (_clientProvider.SetLocalState(tenant, cosmosClientOptionsProvider))
-				{
-					await _next(context);
-				}
+                            using (_clientProvider.SetLocalState(tenant, cosmosClientOptionsProvider))
+                            {{
+                            await _next(context);
+                            }}
 
-			}".ConvertToStatements());
+                            }}".ConvertToStatements());
                     });
                 })
                 .AddClass("CosmosDBMultiTenantMiddlewareExtensions", @class =>
@@ -75,6 +89,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantMiddleware
                         method.AddStatement("return builder.UseMiddleware<CosmosDBMultiTenantMiddleware>();");
                     });
                 });
+            }, 1000);
         }
 
         public override bool CanRunTemplate()

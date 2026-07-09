@@ -25,6 +25,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MassTransit")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass($"FinbuckleSendingFilter", @class =>
                 {
                     @class.AddGenericParameter("T", out var t)
@@ -34,10 +35,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
                         .AddConstructor(ctor =>
                         {
-                            ctor.AddParameter("ITenantInfo", "tenant", p =>
-                                {
-                                    p.IntroduceReadonlyField();
-                                })
+                            ctor.AddParameter("IMultiTenantContextAccessor", "multiTenantContextAccessor", p =>
+                            {
+                                p.IntroduceReadonlyField();
+                            })
                                 .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
                                 .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";");
                         })
@@ -46,7 +47,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         {
                             method.AddParameter($"SendContext<{t}>", "context")
                                 .AddParameter($"IPipe<SendContext<{t}>>", "next")
-                                .AddStatement("context.Headers.Set(_headerName, _tenant.Identifier);")
+                                .AddStatement("context.Headers.Set(_headerName, _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier);")
                                 .AddStatement("return next.Send(context);");
                         });
                 });
@@ -55,7 +56,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
 
         [IntentManaged(Mode.Fully)]

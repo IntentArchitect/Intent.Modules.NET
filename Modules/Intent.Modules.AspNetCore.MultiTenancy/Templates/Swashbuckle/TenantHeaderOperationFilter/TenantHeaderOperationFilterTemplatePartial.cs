@@ -13,7 +13,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHeaderOperationFilter
+namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantHeaderOperationFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class TenantHeaderOperationFilterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHea
         {
             var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
             var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
                 .AddUsing(openApiNamespace)
@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHea
                     @class.AddMethod("void", "Apply", method =>
                     {
                         var apiParameterType = isMicrosoftOpenApi_2_4_1 ? "IOpenApiParameter" : "OpenApiParameter";
-                        
+
                         method
                             .AddParameter("OpenApiOperation", "operation")
                             .AddParameter("OperationFilterContext", "context");

@@ -1,0 +1,14 @@
+{
+    "tasks": {
+        "build": {
+            "label": "Build",
+            "icon": "fa-cogs",
+            "command": "dotnet build Finbuckle.SeparateDatabase.TestApplication.sln --no-restore -v q",
+            "workingDirectory": ".",
+            "aiAutoFix": {
+                "enabled": false,
+                "errorParser": "dotnet"
+            }
+        }
+    }
+}

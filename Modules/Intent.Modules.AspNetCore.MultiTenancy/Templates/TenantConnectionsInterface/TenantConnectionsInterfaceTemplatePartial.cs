@@ -54,6 +54,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
             }
             template.CSharpFile.OnBuild(file =>
             {
+                file.AddUsing("Finbuckle.MultiTenant.Abstractions");
+
                 var method = file.Classes.FirstOrDefault()?.FindMethod("AddInfrastructure");
                 if (method == null)
                 {
@@ -67,9 +69,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
                     multiTenantException = "Finbuckle.MultiTenant.MultiTenantException";
                 }
 
+                var extendedInfoTypeName = template.GetTenantExtendedInfoName();
                 method.AddStatement($@"services.AddScoped<ITenantConnections>(
-                provider => provider.GetService<ITenantInfo>() as {template.GetTenantExtendedInfoName()} ?? 
-                throw new {multiTenantException}(""Failed to resolve tenant info""));");
+                    provider => provider.GetRequiredService<IMultiTenantContextAccessor<{extendedInfoTypeName}>>().MultiTenantContext?.TenantInfo as {extendedInfoTypeName} ?? 
+                    throw new {multiTenantException}(""Failed to resolve tenant info""));");
             });
         }
 

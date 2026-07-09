@@ -107,11 +107,11 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         applyConfiguration =
             application.Settings.GetMultitenancySettings().DataIsolation().AsEnum() switch
             {
-                MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase =>
-                    hasMultiConnStr => GetSeparateDatabaseDataIsolationConfiguration(hasMultiConnStr, application, connectionStringNameInternal),
-                MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase =>
-                    _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext, metadataManager),
-                _ => throw new ArgumentOutOfRangeException()
+            MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase =>
+            hasMultiConnStr => GetSeparateDatabaseDataIsolationConfiguration(hasMultiConnStr, application, connectionStringNameInternal),
+            MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase =>
+            _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext, metadataManager),
+            _ => throw new ArgumentOutOfRangeException()
             };
 
         return true;
@@ -141,14 +141,15 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             file.AddUsing("System.Threading");
             file.AddUsing("System.Threading.Tasks");
             file.AddUsing("Finbuckle.MultiTenant");
+            file.AddUsing("Finbuckle.MultiTenant.Abstractions");
             file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
 
             var priClass = file.Classes.First();
             priClass.ImplementsInterface("IMultiTenantDbContext");
 
             var ctor = priClass.Constructors.First();
-            ctor.AddParameter("ITenantInfo", "tenantInfo");
-            ctor.AddStatement("TenantInfo = tenantInfo;");
+            ctor.AddParameter("IMultiTenantContextAccessor<TenantInfo>", "multiTenantContextAccessor", p => p.IntroduceField(field => field.PrivateReadOnly()));
+            ctor.AddStatement("TenantInfo = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo!;");
 
             priClass.AddProperty("ITenantInfo", "TenantInfo", prop => prop.PrivateSetter());
             priClass.AddProperty("TenantMismatchMode", "TenantMismatchMode", prop => prop.WithInitialValue("TenantMismatchMode.Throw"));
@@ -170,7 +171,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             entityTypeTemplate.CSharpFile.AfterBuild(file =>
             {
-                file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
+                file.AddUsing("Finbuckle.MultiTenant");
 
                 var priClass = file.Classes.First();
                 var configMethod = priClass.FindMethod("Configure");
@@ -192,7 +193,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                     !x.InternalElement.AsClassModel().IsAggregateRoot() &&
                     x.HasMultiTenant() &&
                     !x.HasStereotype("Table") // has Table stereotype
-                    ).FirstOrDefault();
+                ).FirstOrDefault();
             if (problem != null)
             {
                 throw new ElementException(problem.InternalElement, "Composite/Owned entities cannot be have the `Multi Tenant` stereotype (as FinBuckle does not support this mapping). Either remove the stereotype or change the relationship to not be owned `Inverting` the owned association or apply the `Table` stereotype.");
@@ -218,9 +219,10 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
         template.CSharpFile.AfterBuild(file =>
         {
-            var (castTo, indexer) = hasMultipleConnectionStrings
-                ? ($"({template.GetTypeName(TenantExtendedInfoTemplate.TemplateId)})", $"[\"{connectionStringNameInternal}\"]")
-                : (string.Empty, string.Empty);
+            file.AddUsing("Finbuckle.MultiTenant.Abstractions");
+
+            var extendedInfoTypeName = template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
+            var indexer = hasMultipleConnectionStrings ? $"[\"{connectionStringNameInternal}\"]" : string.Empty;
 
             var method = file.Classes.First().FindMethod("AddInfrastructure");
             if (method == null)
@@ -228,11 +230,14 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 return;
             }
 
-            method.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
+            method.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), "connectionString");
 
-            method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
-                .InsertAbove(
-                    $@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info."");");
+            var useStatement = method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"));
+            useStatement.InsertAbove(
+                $@"// Design-time safe: at runtime the tenant is always resolved and its connection string is used; at design time (EF tooling) no tenant is resolved, so fall back to DefaultConnection so FindContextTypes()/migrations do not throw.
+                var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<{extendedInfoTypeName}>>().MultiTenantContext?.TenantInfo;");
+            useStatement.InsertAbove(
+                $@"var connectionString = tenantInfo{indexer}?.ConnectionString ?? configuration.GetConnectionString(""DefaultConnection"");");
         });
     }
 
@@ -292,56 +297,56 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             file.AddUsing("System.Collections.Generic");
 
-            // ConfigureMultiTenancy
+        // ConfigureMultiTenancy
+        {
+            var method = file.Classes.First().FindMethod("ConfigureMultiTenancy");
+
+            method?
+                .FindStatement(x => x.HasMetadata("add-multi-tenant"))?
+                .FindAndReplace("TenantInfo", extendedInfoTypeName);
+
+            method?
+                .FindStatement(x => x.HasMetadata("with-ef-core-store"))?
+                .FindAndReplace("TenantInfo", extendedInfoTypeName);
+        }
+
+        // SetupInMemoryStore
+        {
+            var method = file.Classes.First().FindMethod("SetupInMemoryStore");
+            if (method != null)
             {
-                var method = file.Classes.First().FindMethod("ConfigureMultiTenancy");
-
-                method?
-                    .FindStatement(x => x.HasMetadata("add-multi-tenant"))?
-                    .FindAndReplace("TenantInfo", extendedInfoTypeName);
-
-                method?
-                    .FindStatement(x => x.HasMetadata("with-ef-core-store"))?
-                    .FindAndReplace("TenantInfo", extendedInfoTypeName);
+                method.Parameters[0] = new($"InMemoryStoreOptions<{extendedInfoTypeName}>", "options", file);
             }
+        }
 
-            // SetupInMemoryStore
-            {
-                var method = file.Classes.First().FindMethod("SetupInMemoryStore");
-                if (method != null)
-                {
-                    method.Parameters[0] = new($"InMemoryStoreOptions<{extendedInfoTypeName}>", "options", file);
-                }
-            }
+        // InitializeStore
+        {
+            var method = file.Classes.First().FindMethod("InitializeStore");
 
-            // InitializeStore
-            {
-                var method = file.Classes.First().FindMethod("InitializeStore");
+            method?
+                .FindStatement(x => x.HasMetadata("get-multi-tenant-store"))?
+                .FindAndReplace("TenantInfo", extendedInfoTypeName);
 
-                method?
-                    .FindStatement(x => x.HasMetadata("get-multi-tenant-store"))?
-                    .FindAndReplace("TenantInfo", extendedInfoTypeName);
+            method?
+                .FindStatement(x => x.HasMetadata("add-tenant1"))?
+                .FindAndReplace("TenantInfo", extendedInfoTypeName)?
+                .FindAndReplace($"ConnectionString = \"Tenant1Connection\"", ConnectionStrings("Tenant1"));
 
-                method?
-                    .FindStatement(x => x.HasMetadata("add-tenant1"))?
-                    .FindAndReplace("TenantInfo", extendedInfoTypeName)?
-                    .FindAndReplace($"ConnectionString = \"Tenant1Connection\"", ConnectionStrings("Tenant1"));
-
-                method?
-                    .FindStatement(x => x.HasMetadata("add-tenant2"))?
-                    .FindAndReplace("TenantInfo", extendedInfoTypeName)
+            method?
+                .FindStatement(x => x.HasMetadata("add-tenant2"))?
+                .FindAndReplace("TenantInfo", extendedInfoTypeName)
                     .FindAndReplace("ConnectionString = \"Tenant2Connection\"", ConnectionStrings("Tenant2"));
 
-                string ConnectionStrings(string tenantName)
-                {
-                    var connectionStrings = connectionStringNames
-                        .Select(connectionStringName =>
-                            $"new TenantConnectionString {{ Name = \"{connectionStringName}\", Value = \"{tenantName}{connectionStringName}Connection\" }}");
+            string ConnectionStrings(string tenantName)
+            {
+                var connectionStrings = connectionStringNames
+                    .Select(connectionStringName =>
+                        $"new TenantConnectionString {{ Name = \"{connectionStringName}\", Value = \"{tenantName}{connectionStringName}Connection\" }}");
 
-                    return
-                        $"ConnectionStrings = new List<TenantConnectionString> {{ {string.Join(", ", connectionStrings)} }}";
-                }
+                return
+                    $"ConnectionStrings = new List<TenantConnectionString> {{ {string.Join(", ", connectionStrings)} }}";
             }
+        }
         });
     }
 

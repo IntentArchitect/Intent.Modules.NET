@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -15,19 +16,19 @@ namespace MassTransitFinbuckle.Test.Application.RequestResponse.Test
     public class TestCommandHandler : IRequestHandler<TestCommand>
     {
         private readonly ILogger<TestCommandHandler> _logger;
-        private readonly ITenantInfo _tenantInfo;
+        private readonly IMultiTenantContextAccessor _multiTenantContextAccessor;
 
         [IntentManaged(Mode.Merge)]
-        public TestCommandHandler(ILogger<TestCommandHandler> logger, ITenantInfo tenantInfo)
+        public TestCommandHandler(ILogger<TestCommandHandler> logger, IMultiTenantContextAccessor multiTenantContextAccessor)
         {
             _logger = logger;
-            _tenantInfo = tenantInfo;
+            _multiTenantContextAccessor = multiTenantContextAccessor;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Current Tenant: {Tenant}", _tenantInfo.Identifier);
+            _logger.LogInformation("Current Tenant: {Tenant}", _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier);
         }
     }
 }

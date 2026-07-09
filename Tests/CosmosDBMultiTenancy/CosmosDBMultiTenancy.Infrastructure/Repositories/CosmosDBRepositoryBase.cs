@@ -11,6 +11,7 @@ using CosmosDBMultiTenancy.Domain.Repositories;
 using CosmosDBMultiTenancy.Infrastructure.Persistence;
 using CosmosDBMultiTenancy.Infrastructure.Persistence.Documents;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;

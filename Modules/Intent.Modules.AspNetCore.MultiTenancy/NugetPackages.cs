@@ -21,21 +21,21 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantEntityFrameworkCorePackageName}'"),
                     }
                 );

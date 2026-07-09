@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f8fc6ca4-6b98-4d3d-b921-9552965c7e40</correlationId>
+      <path>Intent.Modules.CosmosDB/Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T19:55:20.4849923Z</updatedAt>
+      <deviationsHash>56A06D6FF32C565D3727EB6D6EFB2E1055299DEF0248A7249CAAD8E9A036526C</deviationsHash>
+      <fileHash>582A7E0056290B75FB848E9189F04ED5110E86C53C3633C199297EFCFE4B661A</fileHash>
+    </file>
+  </files>
 </deviationsLog>

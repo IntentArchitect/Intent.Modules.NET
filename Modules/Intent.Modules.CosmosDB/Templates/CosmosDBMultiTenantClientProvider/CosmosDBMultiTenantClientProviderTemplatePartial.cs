@@ -21,6 +21,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBMultiTenantClientProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            CSharpClass mainClass = null;
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -28,6 +29,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                 .AddUsing("System.Data.Common")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddUsing("Microsoft.Azure.Cosmos")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -35,6 +37,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                 .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
                 .AddClass($"CosmosDBMultiTenantClientProvider", @class =>
                 {
+                    mainClass = @class;
                     AddNugetDependency(NugetPackages.FinbuckleMultiTenant(outputTarget));
 
                     @class.ImplementsInterfaces(new string[] { "ICosmosClientProvider", "IDisposable" });
@@ -56,6 +59,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                         ctor.AddStatement("_defaultDatabaseName = repositoryOptions.DatabaseId;");
                     });
 
+                    // Typed as the base ITenantInfo - the app's DI accessor may be closed over a custom TTenantInfo
+                    // (e.g. TenantExtendedInfo for separate-database multi-tenancy), but ITenantInfo is always a
+                    // valid supertype reference here; no cross-module type is needed at this level.
                     @class.AddProperty("ITenantInfo?", "Tenant", p => p.WithoutSetter().Getter.WithImplementation("_scopedData?.Value?.Tenant"));
                     @class.AddProperty("CosmosClient", "CosmosClient", p => p.WithoutSetter().Getter.WithImplementation("GetClient()"));
 
@@ -72,39 +78,15 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                         method.Private();
                         method.AddStatement("return GetTenantConnectionInfo().Client;");
                     });
-                    @class.AddMethod("ConnectionInfo", "GetTenantConnectionInfo", method =>
-                    {
-                        method.Private();
-                        method.AddStatements(@$"if (_scopedData.Value == null || _scopedData.Value.Tenant == null || _scopedData.Value.Tenant.Id == null)
-			{{
-				throw new ArgumentNullException(""Tenant info not found, unable to determine which database to access"");
-			}}
-			var tenantInfo = _scopedData.Value.Tenant;
-			if (!_clients.TryGetValue(tenantInfo.Id, out var connectionInfo))
-			{{
-				lock (_lock)
-				{{
-					if (!_clients.TryGetValue(tenantInfo.Id, out connectionInfo))
-					{{
-						string[] settings = tenantInfo.ConnectionString.Split("";"");
-						var clientOptions = _scopedData.Value.ClientOptions;
-						var client = new CosmosClient(tenantInfo.ConnectionString, clientOptions);
-						GetValuesFromConnectionString(tenantInfo.ConnectionString, out var database, out var defaultContainer);
-						if (database == null)
-						{{
-							database = _defaultDatabaseName;
-						}}
-						if (defaultContainer == null)
-						{{
-							defaultContainer = _defaultContainerName;
-						}}
-						connectionInfo = new ConnectionInfo(client, database, defaultContainer);
-						_clients.Add(tenantInfo.Id, connectionInfo);
-					}}
-				}}
-			}}
-			return connectionInfo;".ConvertToStatements());
-                    });
+                    // GetTenantConnectionInfo is added later, in CSharpFile.OnBuild below - its body needs to cast
+                    // `tenantInfo` to the app's concrete extended tenant type to reach `.ConnectionString` (removed
+                    // from base ITenantInfo/TenantInfo at Finbuckle 9.x), resolved via a cross-module GetTypeName
+                    // lookup (Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo, no ProjectReference to that
+                    // module). GetTypeName must not be called here in the constructor - other modules' templates are
+                    // not guaranteed to be registered yet at construction time, and it throws if the owning template
+                    // hasn't been registered. This template only runs for separate-database multi-tenancy (see
+                    // CanRunTemplate), where that module always generates TenantExtendedInfo (TenantInfo +
+                    // ConnectionString).
                     @class.AddMethod("void", "GetValuesFromConnectionString", method =>
                     {
                         method
@@ -113,7 +95,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                             .AddParameter("string?", "database", p => p.WithOutParameterModifier())
                             .AddParameter("string?", "defaultContainer", p => p.WithOutParameterModifier());
                         method.AddStatements(@$"database = null;
-			defaultContainer = null;	
+			defaultContainer = null;
 			if (connectionString == null)
 			{{
 				throw new ArgumentNullException(nameof(connectionString));
@@ -178,6 +160,44 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                         nested.AddMethod("void", "Dispose", m => m.WithExpressionBody("_disposeAction()"));
                     });
                 });
+
+            CSharpFile.OnBuild(file =>
+            {
+                var tenantInfoTypeName = this.GetTypeName("Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo");
+                mainClass.AddMethod("ConnectionInfo", "GetTenantConnectionInfo", method =>
+                {
+                    method.Private();
+                    method.AddStatements(@$"if (_scopedData.Value == null || _scopedData.Value.Tenant == null || _scopedData.Value.Tenant.Id == null)
+			{{
+				throw new ArgumentNullException(""Tenant info not found, unable to determine which database to access"");
+			}}
+			var tenantInfo = ({tenantInfoTypeName})_scopedData.Value.Tenant;
+			if (!_clients.TryGetValue(tenantInfo.Id, out var connectionInfo))
+			{{
+				lock (_lock)
+				{{
+					if (!_clients.TryGetValue(tenantInfo.Id, out connectionInfo))
+					{{
+						string[] settings = tenantInfo.ConnectionString.Split("";"");
+						var clientOptions = _scopedData.Value.ClientOptions;
+						var client = new CosmosClient(tenantInfo.ConnectionString, clientOptions);
+						GetValuesFromConnectionString(tenantInfo.ConnectionString, out var database, out var defaultContainer);
+						if (database == null)
+						{{
+							database = _defaultDatabaseName;
+						}}
+						if (defaultContainer == null)
+						{{
+							defaultContainer = _defaultContainerName;
+						}}
+						connectionInfo = new ConnectionInfo(client, database, defaultContainer);
+						_clients.Add(tenantInfo.Id, connectionInfo);
+					}}
+				}}
+			}}
+			return connectionInfo;".ConvertToStatements());
+                });
+            }, 1000);
         }
 
         public override bool CanRunTemplate()

@@ -44,12 +44,12 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "9.0.9")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "9.0.9")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "9.0.17")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "9.0.17")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "7.0.20")

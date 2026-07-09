@@ -12,6 +12,16 @@
       <fileHash>6067CD7CD7460FDB7EFEF10CC93F79A83DCCECFC44031726941C5ACBD56BB3B7</fileHash>
     </file>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#d84c6ada-4081-4d11-8766-d8fd2dab08dc</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T16:23:48.0569814Z</updatedAt>
+      <deviationsHash>3994C0434FB4A91EAB860621369CBA19EBCEEE0E6C339FC7A0C5915AC20E3732</deviationsHash>
+      <fileHash>E2D4931A631511CE0B537E914E4FF38FB63CC7AEBAC5991D6730D2C99F204034</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
       <path>Intent.Modules.Eventing.MassTransit/NugetPackages.cs</path>
       <count>4</count>

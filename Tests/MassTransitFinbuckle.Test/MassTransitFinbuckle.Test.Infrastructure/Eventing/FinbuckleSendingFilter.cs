@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -13,11 +14,11 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
         where T : class
     {
         private readonly string _headerName;
-        private readonly ITenantInfo _tenant;
+        private readonly IMultiTenantContextAccessor _multiTenantContextAccessor;
 
-        public FinbuckleSendingFilter(ITenantInfo tenant, IConfiguration configuration)
+        public FinbuckleSendingFilter(IMultiTenantContextAccessor multiTenantContextAccessor, IConfiguration configuration)
         {
-            _tenant = tenant;
+            _multiTenantContextAccessor = multiTenantContextAccessor;
             _headerName = configuration.GetValue<string?>("MassTransit:TenantHeader") ?? "Tenant-Identifier";
         }
 
@@ -27,7 +28,7 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
 
         public Task Send(SendContext<T> context, IPipe<SendContext<T>> next)
         {
-            context.Headers.Set(_headerName, _tenant.Identifier);
+            context.Headers.Set(_headerName, _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier);
             return next.Send(context);
         }
     }

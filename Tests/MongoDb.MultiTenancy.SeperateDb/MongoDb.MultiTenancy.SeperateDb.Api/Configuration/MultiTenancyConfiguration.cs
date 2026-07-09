@@ -1,6 +1,8 @@
 using System;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.Stores;
+using Finbuckle.MultiTenant.Stores.InMemoryStore;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -36,8 +38,8 @@ namespace MongoDb.MultiTenancy.SeperateDb.Api.Configuration
             var scopeServices = sp.CreateScope().ServiceProvider;
             var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantExtendedInfo>>();
 
-            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant1" }).Wait();
-            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant2" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant1" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant2" }).Wait();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

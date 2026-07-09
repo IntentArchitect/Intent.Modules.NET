@@ -11,7 +11,6 @@
   <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABQCAYAAABRX4iyAAAAAXNSR0IArs4c6QAAA1lJREFUeF7tnE1IVFEYhp9vTEltE0REtKhFCyMrKGifUAQlgbYUhJxJatUq29WiTRQIEeEdfyqoIIOgoKBNmxYVbVoFIhWhFWFpScMkOiduqdj4M+e7dyIu88123vec8z3z3su5Z8654o5SxVqagB5gM36fMRwnJcsdP/lilUtzEOhF2OjVhvCJAmkmeCyDTHl5yiwSl+YAwkMgpWy7gOO0ZLmo9OE6aCXFLaBa6Q37bJUs95S+ssjFZXirSFRxp08Zp0nzS7uzpPjAI2B/xApyElAf0RvLFsJyMVoYpYpGucq4bxuujXpqeQZs9/UU6yRAonrj+OLCes8UO+UaE76DcCdYwzTPgW2+HoNlsEpnxZJll2HplAB2z/LC9EdksAzW0gRs6qBIhsEyWAoCCqkly2ApCCikliyDpSCgkFqyDJaCgEIaN1nvgF0S8M23z0pedRhimj3Sz6TBKk3AYJVmNK8wWAbr36w6WLIsWZYsRQYM1n+HNcwPdstNvvuOZHZS+gJo8PUU65L6j3SeAlullxHfwl0Hm0gxBNT6epbQ7ZOAJzH8kaxxH3fCTj8zQ4P08bXUCFw7G6jhFbC+lLbE9x+ZZIfcZixmOyp7OWCBwyGL9kyFmzeKN3BotxitXIxjBqGgqjiK2PEa6CoPrCgDSKDHYCl+NINlsBQEFFJLlsFSEFBILVkGS0FAIbVkGSwFAYXUkmWwFAQUUkuWwVIQUEgtWRUE6wtCAAywapkziD9JITQjdM0uOmqPCs7jTHKyuoHzEvitlroM1QjncJxRhOkvaTJhOYbJ6f4omavaZX4f39sbBVgyYcEDCWiOUrDLcASinYRNJixHn2TpiATrOIdx3I/iTSYs6JGAzigFO4Plj81g+bPCYBmsFQnYPUsREIPlDcvRL1mOeesXCCvxnhV9UpqmBeFuFNBJnWeNUEejdPu/fGPB484bYEslwQprHSTPKbnBqE/hrp3V1HAZos38wz6Smqw5PuF2o0sUGADyy0ITWoALSLx32CQdlk+oyqYxWAqUBstgKQgopJYsg6UgoJBasgyWgoBCaskyWAoCCqkly2ApCCikliwlrFzM42yK7pItDV9E3QZcj7t8kWwMXqPPhZdhHY5DCFeAdV62yhO9pEDnL34QGaDTALhbAAAAAElFTkSuQmCC" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return true;</displayIconFunction>
-  <displayFunction />
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>false</displayAsText>
   <autoAdd>false</autoAdd>
@@ -43,7 +42,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="36cef3c0-9be1-4885-a96f-193aec2d576d">
       <hint>Specify the queue should be durable or in-memory. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -51,7 +50,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="5e5f2079-b866-4650-bf3c-6e03b65ffac8">
       <hint>Purge the messages from an existing queue on startup. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -59,7 +58,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813">
       <hint>Specify that the queue is exclusive to this process and cannot be accessed by other processes at the same time. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -67,7 +66,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="24c1edb4-8136-4588-97db-cd9f4849c6ba">
       <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration#receive-endpoints)</hint>

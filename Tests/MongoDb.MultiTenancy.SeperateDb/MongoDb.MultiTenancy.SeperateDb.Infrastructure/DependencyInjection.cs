@@ -1,5 +1,6 @@
 using System;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,8 +26,8 @@ namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<ITenantConnections>(
-                provider => provider.GetService<ITenantInfo>() as TenantExtendedInfo ??
-                throw new Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant info"));
+                    provider => provider.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo as TenantExtendedInfo ??
+                    throw new Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant info"));
             services.AddSingleton<MongoDbMultiTenantConnectionFactory>();
             services.AddScoped<IMongoDatabase>(provider =>
                     {

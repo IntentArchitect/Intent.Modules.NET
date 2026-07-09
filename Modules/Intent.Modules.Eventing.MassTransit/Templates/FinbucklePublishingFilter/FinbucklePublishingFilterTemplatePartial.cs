@@ -25,30 +25,31 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilte
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MassTransit")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass($"FinbucklePublishingFilter", @class =>
                 {
                     @class.AddGenericParameter("T", out var t)
-                    .ImplementsInterface($"IFilter<PublishContext<{t}>>")
-                    .AddGenericTypeConstraint(t, c => c
-                        .AddType("class"))
-                    .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
-                    .AddConstructor(ctor =>
-                    {
-                        ctor.AddParameter("ITenantInfo", "tenant", p =>
+                        .ImplementsInterface($"IFilter<PublishContext<{t}>>")
+                        .AddGenericTypeConstraint(t, c => c
+                            .AddType("class"))
+                        .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
+                        .AddConstructor(ctor =>
                         {
-                            p.IntroduceReadonlyField();
+                            ctor.AddParameter("IMultiTenantContextAccessor", "multiTenantContextAccessor", p =>
+                            {
+                                p.IntroduceReadonlyField();
+                            })
+                                .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
+                                .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";");
                         })
-                        .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
-                        .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";");
-                    })
-                    .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); })
-                    .AddMethod("Task", "Send", method =>
-                    {
-                        method.AddParameter($"PublishContext<{t}>", "context")
-                            .AddParameter($"IPipe<PublishContext<{t}>>", "next")
-                            .AddStatement("context.Headers.Set(_headerName, _tenant.Identifier);")
-                            .AddStatement("return next.Send(context);");
-                    });
+                        .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); })
+                        .AddMethod("Task", "Send", method =>
+                        {
+                            method.AddParameter($"PublishContext<{t}>", "context")
+                                .AddParameter($"IPipe<PublishContext<{t}>>", "next")
+                                .AddStatement("context.Headers.Set(_headerName, _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier);")
+                                .AddStatement("return next.Send(context);");
+                        });
                 });
         }
 
@@ -70,7 +71,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilte
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
     }
 }
