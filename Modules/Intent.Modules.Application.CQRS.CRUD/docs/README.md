@@ -47,6 +47,21 @@ public async Task<List<OrderDto>> Handle(GetOrdersQuery query, CancellationToken
 > [!NOTE]
 > OData queries require a modelled Domain Interaction and are not covered by this fallback — see `ODataQueryInteractionStrategy` in `Intent.Application.DomainInteractions`.
 
+## Convention-Based Paged Query
+
+A Query with **no** modelled Domain Interactions that returns a `PagedResult<TDto>` is generated as a paged "get all": if the nested DTO is mapped from a domain entity (not a nested compositional child) and the query exposes a page-number field (`Page`, `PageNo`, `PageNum`, `PageNumber`) and a page-size field (`Size`, `PageSize`), the handler is generated as a paged repository `FindAllAsync(pageNo, pageSize)` call followed by a `MapToPagedResult` projection. This mirrors the legacy MediatR CRUD module's paged behaviour.
+
+```csharp
+public async Task<PagedResult<OrderDto>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
+{
+    var results = await _orderRepository.FindAllAsync(request.PageNo, request.PageSize, cancellationToken);
+    return results.MapToPagedResult(x => x.MapToOrderDto(_mapper));
+}
+```
+
+> [!NOTE]
+> Paging is only applied on the convention path — a query with a modelled `Query Entity Action` takes the Domain Interaction path instead and will not receive paged generation.
+
 ## Related Modules
 
 ### [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md)

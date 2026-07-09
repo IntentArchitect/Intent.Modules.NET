@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="880b3b60-16df-4bf6-a445-115ed22637f5">
+  <sourceEnd id="1bf165e2-9844-47d0-a62a-30ae65fe5df0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Orders.PlaceOrderCommand</display>
+    <order>0</order>
+    <typeReference id="de14e603-930b-4d6f-9e77-d800f9bedee6">
+      <typeId>e4858d45-fa1d-4e6b-9b28-f32440ef4dc5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Services</typePackageName>
+      <typePackageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="880b3b60-16df-4bf6-a445-115ed22637f5" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>order</name>
+    <display>[update] order: PlaceOrder</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="637bc8f0-d979-4b80-b421-c2db7876463a">
+      <typeId>e5c3acc1-7a21-4bec-b35b-5a0f97f3cc02</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e4858d45-fa1d-4e6b-9b28-f32440ef4dc5" location="[Wolverine.AspNetCore.Controllers].[Services].[PlaceOrderCommand]" />
+        <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="84249c07-945b-4437-880e-cbc583db3e0b" location="[Wolverine.AspNetCore.Controllers].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="84249c07-945b-4437-880e-cbc583db3e0b" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8c022987-ff9b-462b-a038-5be208151265" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e4858d45-fa1d-4e6b-9b28-f32440ef4dc5" name="PlaceOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8108865b-1be4-456f-b407-7cc07a63a63e" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e4858d45-fa1d-4e6b-9b28-f32440ef4dc5" location="[Wolverine.AspNetCore.Controllers].[Services].[PlaceOrderCommand]" />
+        <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="84249c07-945b-4437-880e-cbc583db3e0b" location="[Wolverine.AspNetCore.Controllers].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PlaceOrderCommand}</expression>
+            <path>
+              <target id="84249c07-945b-4437-880e-cbc583db3e0b" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e5c3acc1-7a21-4bec-b35b-5a0f97f3cc02" name="PlaceOrder" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="PlaceOrderCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="e4858d45-fa1d-4e6b-9b28-f32440ef4dc5" name="PlaceOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

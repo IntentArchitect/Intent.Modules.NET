@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.UpdateProductPrice
+namespace Wolverine.AspNetCore.Controllers.Application.UpdateProductPrice
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateProductPriceCommandHandler

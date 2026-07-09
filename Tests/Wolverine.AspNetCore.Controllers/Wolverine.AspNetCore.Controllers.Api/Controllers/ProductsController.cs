@@ -2,12 +2,12 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Wolverine;
-using Wolverine.AspNetCore.Controllers.Application.Products;
-using Wolverine.AspNetCore.Controllers.Application.Products.ChangeProductProduct;
-using Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct;
-using Wolverine.AspNetCore.Controllers.Application.Products.GetProductById;
-using Wolverine.AspNetCore.Controllers.Application.Products.GetProducts;
-using Wolverine.AspNetCore.Controllers.Application.Products.UpdateProductPrice;
+using Wolverine.AspNetCore.Controllers.Application;
+using Wolverine.AspNetCore.Controllers.Application.ChangeProductProduct;
+using Wolverine.AspNetCore.Controllers.Application.CreateProduct;
+using Wolverine.AspNetCore.Controllers.Application.GetProductById;
+using Wolverine.AspNetCore.Controllers.Application.GetProducts;
+using Wolverine.AspNetCore.Controllers.Application.UpdateProductPrice;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]

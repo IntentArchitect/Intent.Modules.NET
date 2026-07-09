@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="05781f36-3c69-4c50-81b3-73e11679e5e6">
+  <sourceEnd id="9db0b169-40cc-464c-94dd-13ac7e4944dc" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="e8f4ee7a-d0cd-4103-b182-b103c7e63831">
+      <typeId>84249c07-945b-4437-880e-cbc583db3e0b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="05781f36-3c69-4c50-81b3-73e11679e5e6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OrderItems</name>
+    <display>OrderItems: OrderItem[*]</display>
+    <order>7</order>
+    <typeReference id="a4d2f5fc-026a-4c2e-bbad-7ccfe5e84530">
+      <typeId>d56c7f45-8838-4f61-ac30-fc36f1f55930</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

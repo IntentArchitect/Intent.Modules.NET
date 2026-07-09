@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
+namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateProductCommandHandler

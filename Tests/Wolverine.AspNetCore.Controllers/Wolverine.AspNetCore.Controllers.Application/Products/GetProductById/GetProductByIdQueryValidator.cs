@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.FluentValidation.QueryValidator", Version = "2.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProductById
+namespace Wolverine.AspNetCore.Controllers.Application.GetProductById
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetProductByIdQueryValidator : AbstractValidator<GetProductByIdQuery>

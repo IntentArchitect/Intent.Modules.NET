@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products
+namespace Wolverine.AspNetCore.Controllers.Application
 {
     public record ProductDto
     {

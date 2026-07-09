@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="54a9a859-fb3a-491a-88df-674d759515a6">
+  <sourceEnd id="74098168-4ede-4c14-8ead-98b8ca8ce3d9" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Order.PlaceOrder</display>
+    <order>0</order>
+    <typeReference id="5e5f964f-83fe-4a76-a5a2-15807bae3e41">
+      <typeId>e5c3acc1-7a21-4bec-b35b-5a0f97f3cc02</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="54a9a859-fb3a-491a-88df-674d759515a6" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : OrderPlacedDomainEvent</display>
+    <order>0</order>
+    <typeReference id="aeee54ca-bf78-4382-b2f0-d948c2a530ea">
+      <typeId>6572070b-62f1-40c2-a1c7-0d39a11843e0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="84249c07-945b-4437-880e-cbc583db3e0b" location="[Wolverine.AspNetCore.Controllers].[Domain].[Order]" />
+        <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6572070b-62f1-40c2-a1c7-0d39a11843e0" location="[Wolverine.AspNetCore.Controllers].[Domain].[OrderPlacedDomainEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Order}</expression>
+            <path>
+              <target id="6572070b-62f1-40c2-a1c7-0d39a11843e0" name="OrderPlacedDomainEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="fd632d0c-74d7-44fd-9d66-1e84610e9251" name="Order" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Order" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="84249c07-945b-4437-880e-cbc583db3e0b" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

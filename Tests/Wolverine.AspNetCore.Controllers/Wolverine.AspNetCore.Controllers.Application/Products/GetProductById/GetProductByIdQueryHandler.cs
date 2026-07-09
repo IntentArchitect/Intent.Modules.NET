@@ -6,7 +6,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.QueryHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProductById
+namespace Wolverine.AspNetCore.Controllers.Application.GetProductById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetProductByIdQueryHandler

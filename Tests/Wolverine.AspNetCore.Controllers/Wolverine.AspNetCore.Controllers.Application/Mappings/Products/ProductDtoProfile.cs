@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Entities;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.AutoMapper.DtoMappingProfile", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products
+namespace Wolverine.AspNetCore.Controllers.Application
 {
     public class ProductDtoProfile : Profile
     {
