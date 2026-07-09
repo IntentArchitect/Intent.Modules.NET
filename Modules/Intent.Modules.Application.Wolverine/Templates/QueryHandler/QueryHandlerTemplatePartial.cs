@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
                     {
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                        method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "query");
+                        method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "request");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                         method.AddStatement("// IntentInitialGen");
                         method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");

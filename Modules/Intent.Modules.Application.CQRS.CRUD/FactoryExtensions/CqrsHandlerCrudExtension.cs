@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
                     csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
                     csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(template));
 
-                    csharpMapping.SetFromReplacement(model, "command");
+                    csharpMapping.SetFromReplacement(model, "request");
 
                     handleMethod.ImplementInteractions(interactions);
 
@@ -139,7 +139,7 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
                     csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
                     csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(template));
 
-                    csharpMapping.SetFromReplacement(model, "query");
+                    csharpMapping.SetFromReplacement(model, "request");
 
                     handleMethod.ImplementInteractions(interactions);
 

@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.CommandHandler
                     {
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                        method.AddParameter(GetTypeName(CommandModelsTemplate.TemplateId, Model), "command");
+                        method.AddParameter(GetTypeName(CommandModelsTemplate.TemplateId, Model), "request");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                         method.AddStatement("// IntentInitialGen");
                         method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");

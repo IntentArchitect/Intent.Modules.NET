@@ -18,15 +18,15 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.UpdateProductPri
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(UpdateProductPriceCommand command, CancellationToken cancellationToken)
+        public async Task Handle(UpdateProductPriceCommand request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FindByIdAsync(command.Id, cancellationToken);
+            var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
             if (product is null)
             {
-                throw new NotFoundException($"Could not find Product '{command.Id}'");
+                throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
 
-            product.Price = command.NewPrice;
+            product.Price = request.NewPrice;
         }
     }
 }

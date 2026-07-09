@@ -18,13 +18,13 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var product = new Product
             {
-                Name = command.Name,
-                Price = command.Price,
-                IsActive = command.IsActive
+                Name = request.Name,
+                Price = request.Price,
+                IsActive = request.IsActive
             };
 
             _productRepository.Add(product);
