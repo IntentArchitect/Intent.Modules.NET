@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 - “Mapping doesn’t exist yet” is not a valid exception.
             - If you can't find any existing mappings, create them in the same project as the services under:
                 - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-                - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`
+                - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
             """);
 
                 section.WithCodeBlock("""
