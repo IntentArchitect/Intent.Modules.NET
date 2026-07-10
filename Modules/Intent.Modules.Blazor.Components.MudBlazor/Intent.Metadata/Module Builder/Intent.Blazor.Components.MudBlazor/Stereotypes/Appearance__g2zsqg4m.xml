@@ -25,7 +25,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
       <isActiveFunction>return element.hasStereotype("8e1b7033-fd27-495a-a2a7-36b5168f04f5") // Icon</isActiveFunction>
     </property>
     <property id="de8a25d2-a144-4806-b5ad-e6c195abfa43">
