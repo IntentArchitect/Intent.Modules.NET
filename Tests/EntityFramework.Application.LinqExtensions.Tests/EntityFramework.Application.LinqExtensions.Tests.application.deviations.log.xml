@@ -27,5 +27,18 @@
       <deviationsHash>E2D71D177388B2476B301A2956A1E55E32ADFD916575FFBF502DF4740FDD5E00</deviationsHash>
       <fileHash>F9387FA4FF146B3DFAF416E58236C5ED659C17E0C46D4273734E1D2F94303D62</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#41e9b58e-a2dc-4eae-b38b-b71b08fe5c6e</correlationId>
+      <path>EntityFramework.Application.LinqExtensions.Tests.Infrastructure/EntityFramework.Application.LinqExtensions.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:29.2330052Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.3134671Z</approvedAt>
+      <deviationsHash>9D786B6EDFFDA82FB820C5E29AE1B32882B7D02A24A7F18103890CBA50A453AC</deviationsHash>
+      <fileHash>EE3F6909A7C0B626C9A19E20A7D66B92C9D7884DBEADAE0A1D6EF4AC7F92BCE5</fileHash>
+    </file>
   </files>
 </deviationsLog>

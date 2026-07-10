@@ -14,5 +14,18 @@
       <deviationsHash>7A636C4CCB1C4D046A6CE8E11462531D8A10437E198347F5BBF688D8CD33B532</deviationsHash>
       <fileHash>FE3D6D6015B471D14744C8117B7834A60A9EF4AC321D719FEC948F343EE8E8AA</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#4e8768c2-035d-4a34-aff6-37d3af9abcd2</correlationId>
+      <path>EfCore.SecondLevelCaching.Infrastructure/EfCore.SecondLevelCaching.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:20.6039855Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.2328478Z</approvedAt>
+      <deviationsHash>82B05875D200416F658EDE42B6894193D334EA5831FE580733D2734C4ACA3D52</deviationsHash>
+      <fileHash>ADE3C523EAFE1E0C372E82CF5FF1C1B9C1AE961FB4755DAB0DA4556E041B8A07</fileHash>
+    </file>
   </files>
 </deviationsLog>

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#8ef58349-6821-41e5-91ca-543238751afe</correlationId>
+      <path>CleanArchitecture.IdentityService.Application/CleanArchitecture.IdentityService.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:57.8079901Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.4830772Z</approvedAt>
+      <deviationsHash>588E0C888F9E7B1BF68BB119D923202A4E4072A1F0BBA6CA67F4EA9BBCAC8502</deviationsHash>
+      <fileHash>68CB59E29E7580EDA12A7935B431DE76AD8F3053C47EAC892659DF43117CF4D2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#ff221d1f-b4d0-4255-b26e-c71e2da2ddaa</correlationId>
+      <path>CleanArchitecture.IdentityService.Infrastructure/CleanArchitecture.IdentityService.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:57.8083043Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.5123617Z</approvedAt>
+      <deviationsHash>C5A28ECF378DB5D1CA3CBDA54517C79BE2AD5837B90B509BDEE7A73FE742273D</deviationsHash>
+      <fileHash>40C73B45F0253C201DEF25395D74342138CF294DD100E111BB2FC3035E5CD9E7</fileHash>
+    </file>
+  </files>
 </deviationsLog>

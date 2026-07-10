@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#bbcfcc93-d849-4d1c-a6f3-5532a74de617</correlationId>
+      <path>AzureKeyVault.Infrastructure/AzureKeyVault.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:47.3729402Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:27.9540292Z</approvedAt>
+      <deviationsHash>5840418CDFD03D9BDFF943FAEF9C4ECDF428AFF613140763BBF9D09AF59A732B</deviationsHash>
+      <fileHash>BD325F1B84D96DE17070D4133901015C5FC72D123BA7D492B3A525F552B13899</fileHash>
+    </file>
+  </files>
 </deviationsLog>

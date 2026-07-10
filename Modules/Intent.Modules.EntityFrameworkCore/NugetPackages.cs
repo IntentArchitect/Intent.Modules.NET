@@ -44,12 +44,12 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "9.0.9")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "9.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "7.0.20")
@@ -88,14 +88,14 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.49.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.12.0")
@@ -122,7 +122,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -136,7 +136,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Humanizer.Core", "2.8.26")
@@ -155,7 +155,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -169,7 +169,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.17"),
@@ -186,7 +186,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -200,7 +200,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Castle.Core", "4.4.1")
@@ -222,8 +222,8 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.1.11")
                             .WithNugetDependency("SQLitePCLRaw.core", "2.1.11"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Core", "7.0.20")
                             .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.1.4"),
@@ -245,7 +245,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -259,7 +259,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "2.0.1")
@@ -281,7 +281,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("NetTopologySuite", "2.6.0")
                             .WithNugetDependency("NetTopologySuite.IO.SqlServerBytes", "2.1.0"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -295,7 +295,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.SqlServer", "5.0.17")
@@ -312,7 +312,7 @@ namespace Intent.Modules.EntityFrameworkCore
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.9")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -326,7 +326,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.9")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "7.0.20"),
                         ( >= 2, >= 0) => new PackageVersion("5.0.17")

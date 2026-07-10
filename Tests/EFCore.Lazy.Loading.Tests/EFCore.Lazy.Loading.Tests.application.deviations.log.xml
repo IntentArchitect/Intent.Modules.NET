@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#201055d9-cb0f-48c1-9cf6-a80523c5666d</correlationId>
+      <path>EFCore.Lazy.Loading.Tests.Infrastructure/EFCore.Lazy.Loading.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:18.7689451Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.161194Z</approvedAt>
+      <deviationsHash>9A7BE7DEFF0FB9A7756510F6AEDBE1627EA35D69FD9BB0E63305B78FE50D6A3E</deviationsHash>
+      <fileHash>FFDC488C5889B9298103E2CABAC88640D10893C577665B0984B7C4C05CC8E597</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#48d284c2-d41e-47eb-b2b1-09b8f16a2d51</correlationId>
+      <path>EntityFrameworkCore.Oracle.TestApplication.Infrastructure/EntityFrameworkCore.Oracle.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:32.3593813Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.0886581Z</approvedAt>
+      <deviationsHash>B679B1599207B39A528555669EE2079ECCBF31D4C8E0996E7BBA0CF29FAF39B0</deviationsHash>
+      <fileHash>87A33B798465656077FC84EE3BF9EBDAAD1EDEC4B97A641947F4ED7072FD934F</fileHash>
+    </file>
+  </files>
 </deviationsLog>

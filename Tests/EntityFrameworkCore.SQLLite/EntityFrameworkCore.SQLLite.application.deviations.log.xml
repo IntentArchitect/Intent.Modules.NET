@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2628206e-e983-454a-be6d-6d4ba123201f</correlationId>
+      <path>EntityFrameworkCore.SQLLite.Infrastructure/EntityFrameworkCore.SQLLite.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:37.1314067Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.5365476Z</approvedAt>
+      <deviationsHash>008D7D2810A3030F6CA853729FA62D02A3F2B1F0C8CBBFEA8CAC8EBB9DD3A9BB</deviationsHash>
+      <fileHash>BC0A7F4702EF889D1B32CCB55E14DA6FACE391644D3F7A003774E26101DF00AE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

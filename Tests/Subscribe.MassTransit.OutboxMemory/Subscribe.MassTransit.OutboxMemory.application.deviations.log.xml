@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#080b5c00-82ed-4040-82c0-00cb176c1a71</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Infrastructure/Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:41.5210165Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:29.2924371Z</approvedAt>
+      <deviationsHash>BB1C9FF417B8C3E626E06C7DD6939770036420AC39308CA38B04964184574796</deviationsHash>
+      <fileHash>750333B10A1877376FEDB19851CCCD11BA6627F301665C558F9E87E699A5A2EE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

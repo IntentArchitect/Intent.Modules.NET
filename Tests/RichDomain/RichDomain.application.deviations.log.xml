@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#49be393a-10a7-41c1-bef6-bcb2a646af31</correlationId>
+      <path>RichDomain.Infrastructure/RichDomain.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:36.9627125Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:30.2021171Z</approvedAt>
+      <deviationsHash>AB04BF44B6D3D60D3A768C8632A72E1F0B38960259403CCD9B415F73FDE1D80B</deviationsHash>
+      <fileHash>00B5DE5E99A3AFE05DD736484093839040C1D4C1BDE102873BA05B5E554CFF8A</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#1418507d-6f95-4bcc-a8c5-50cbd49d78fd</correlationId>
+      <path>AwsLambdaFunction.Infrastructure/AwsLambdaFunction.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:30.2315572Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.6984029Z</approvedAt>
+      <deviationsHash>1BF78A7E7702A527F8AAE8885A8E5B8CAA72DE816FD87D6AE67050482E81B906</deviationsHash>
+      <fileHash>9D1C08A25145A77B591746CF068B84D63953ED4054927BF26080CE16EE586468</fileHash>
+    </file>
+  </files>
 </deviationsLog>

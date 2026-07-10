@@ -28,6 +28,19 @@
       <fileHash>DEB0D6867612AF8244F4B39208DD0202B687C433A8A4993DD4A765DF8B394BA9</fileHash>
     </file>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3fb81f71-9ce2-463d-b586-c4026e6d58d2</correlationId>
+      <path>GraphQL.CQRS.TestApplication.Infrastructure/GraphQL.CQRS.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:46.3682489Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:56.1006546Z</approvedAt>
+      <deviationsHash>095F37015A48964754CFEF81E92E89B9F59272EB0E3FFE96C481B2E4B7C08653</deviationsHash>
+      <fileHash>AC8D873196C49A6BBFB6489C2DCD8744CC5B67A720C1519F700F2BDF98770430</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#e09c33ec-3804-47f8-8369-2d8abf7f93ef</correlationId>
       <path>GraphQL.CQRS.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</path>
       <count>1</count>

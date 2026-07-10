@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#0afdd396-dc53-4ba8-ac41-b3f762daef36</correlationId>
+      <path>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:33.5909579Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.1057819Z</approvedAt>
+      <deviationsHash>4C508DEE126CD2CF10ED247422B6F99C0AF5684919423E5B1750B3777CFEBD72</deviationsHash>
+      <fileHash>77E7068D397D5B2DE6A976ACA5E33B4B8C24D823FD01C35CAD20009367030EB0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#1f14fbf7-424f-4378-9dd8-bc106fb84d4e</correlationId>
+      <path>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:33.5912233Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.1303882Z</approvedAt>
+      <deviationsHash>70411D16BCC7159C4D7D0BD76D9B3BC0FE252E9B9192571246B391BB656E2275</deviationsHash>
+      <fileHash>627AD11DF0A227559C1C5259A6CD14E6AC71FF7906C40F9274177E766FC28D93</fileHash>
+    </file>
+  </files>
 </deviationsLog>

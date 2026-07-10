@@ -24,11 +24,11 @@
     <PackageReference Include="MassTransit" Version="8.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.11" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.3.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.28" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.9" />
     <PackageReference Include="NServiceBus" Version="9.2.12" />

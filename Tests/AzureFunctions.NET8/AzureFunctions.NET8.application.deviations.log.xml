@@ -27,5 +27,18 @@
       <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
       <fileHash>6B2369A209DB3B84CCB883304D27520880B7E1266AB1A90967D959734D1E159F</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#53ac4ed2-2438-49bf-b131-1ec31bcbe287</correlationId>
+      <path>AzureFunctions.NET8.Infrastructure/AzureFunctions.NET8.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:45.5203505Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.7406623Z</approvedAt>
+      <deviationsHash>EB7FED21AFFD87A3E89C2BA179BF8E9A3F119D209F6A0CF7393C78E911F3F37F</deviationsHash>
+      <fileHash>8F0FE13479815DB52526C14D0FFFE502A8B1B85A87E7016B50A32703EA73303B</fileHash>
+    </file>
   </files>
 </deviationsLog>
