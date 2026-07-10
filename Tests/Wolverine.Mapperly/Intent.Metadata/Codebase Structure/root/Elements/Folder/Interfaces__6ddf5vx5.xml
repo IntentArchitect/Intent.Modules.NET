@@ -93,5 +93,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="9298fb95-71aa-4612-808e-054e279ba042" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.FluentValidation.BypassValidationInterface</name>
+      <display>Intent.Application.Wolverine.FluentValidation.BypassValidationInterface</display>
+      <externalReference>Intent.Application.Wolverine.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5c589a5c-8650-4a49-9c0e-f142defa2690</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
