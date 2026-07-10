@@ -1,6 +1,7 @@
 ### Version 5.3.10
 
 - Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so AutoMapper guidance is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.
+- Fixed: The AI skill guidance's nested rule bullets and C# code example had lost their indentation (flattened to a single level) in an earlier edit. Restored proper nesting.
 
 ### Version 5.3.9
 
