@@ -1,5 +1,6 @@
 ### Version 2.0.2
 
+- Fixed: Handler AI skills (re-scoped to the `AI.Context.Skills.Handler` role) were no longer suppressed on the Modular Monolith host, so the host regenerated bare skill files that contended with the enriched ones produced by the modules (shared output folder). The host now also suppresses the `AI.Context.Skills.Handler` role.
 - Improvement: Updated NuGet package versions.
 
 ### Version 2.0.1
