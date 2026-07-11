@@ -135,12 +135,12 @@
     </detect>
     <detect id="Intent.Application.AutoMapper">
       <install>
-        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.1" />
+        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.2" />
       </install>
     </detect>
     <detect id="Intent.Application.Dtos.Mapperly">
       <install>
-        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.1" />
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.2" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
