@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#474118b0-25b1-437b-94cf-716f10307370</correlationId>
-      <path>N_ServiceBus.AzureServiceBus.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.6821996Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.0600539Z</approvedAt>
-      <deviationsHash>59BD4828AF7CDA1023C209288917DFAFAA0E7A622134267BBE31B8849E3782BD</deviationsHash>
-      <fileHash>A05279BDA804F18B46AAFE91B2B84DCCE790B6B05DF1FE0D9CB35471BEBCC581</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#261e87c8-9e3e-4e28-9ec7-00a17c25e76a</correlationId>
-      <path>N_ServiceBus.AzureServiceBus.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.6825023Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.0773145Z</approvedAt>
-      <deviationsHash>F04D2B47611FBD1C5DE377FA9577BB0FC746C196EF43A352992E4866C9DC7A19</deviationsHash>
-      <fileHash>6D88CB73A732C1DE210BEBF6050445CF7AF63A53B848CCAB062F378CD2F676F1</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#d016a750-6f6e-47ee-9c26-f53d85c4dce0</correlationId>
-      <path>N_ServiceBus.AzureServiceBus.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.6825318Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.1047887Z</approvedAt>
-      <deviationsHash>8254CD837D3E9471BA64EC697C55EF18A51C7CD8EB2D467F14791BD5FF630E35</deviationsHash>
-      <fileHash>71A9FB6DFD28A87A2E520776FC5C36AB5231AAB2A2BAB3F2DC1E05AB4DD13507</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

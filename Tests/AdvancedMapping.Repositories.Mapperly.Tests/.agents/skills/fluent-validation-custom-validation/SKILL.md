@@ -2,7 +2,7 @@
 name: fluent-validation-custom-validation
 description: implement or revise fluent validation custom async method logic in an existing validator file. use when a c# fluent validation validator has an incomplete or incorrect custom async validation method and the agent should update the method body, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the validator.
 template-id: Intent.Application.FluentValidation.CustomValidationSkillTemplate
-contentHash: 18A16CBCB9D768628D9AA46BF4C1537E5CDCB8ED4FE888ABBF598EB81F11E9AD
+contentHash: 40B5DE04A23E86965C2B06AAABE3833178B39E6AE8FB452F4271AA99C393609E
 ---
 # Fluent Validation Custom Async Method
 
@@ -74,49 +74,6 @@ If you find no such evidence, ask:
 - What failure message should be shown to users?
 - Should it query the database, call a domain service, or check a value object?
 - Are there related tests, domain rules, or examples in the codebase?
-
-## Mapperly guidance
-
-- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use Mapperly.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths..
-- **Mapperly gate (absolute):** If a handler/service returns entity-shaped DTOs or uses any mapper call, you **MUST**:
-    - verify a Mapperly mapper exists by locating a `[Mapper]` partial mapper class with the required mapping method, e.g. `CustomerToCustomerDto(Customer customer)`, **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required Mapperly mapper(s), including all required nested mappers.
-    - verify collection mappings when returning lists, e.g. `CustomerToCustomerDtoList(IEnumerable<Customer> customers)`.
-    - verify nested mapper dependencies use `[UseMapper]` and constructor injection where needed.
-- **Registration gate:**
-    - If a mapper is injected into a handler/service, verify it is registered in Application DI.
-    - Follow the existing registration style. Mapperly sample projects register mappers as singletons, e.g. `services.AddSingleton<CustomerDtoMapper>();`.
-    - If registration is missing, add the minimal mapper registration, including nested mapper registrations.
-- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and Mapperly is not reasonable.
-    - This must include an inline code comment explaining why Mapperly is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
-- If you can't find any existing mappings, create them in the same project as the services under:
-    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
-
-**Example:**
-```csharp
-    [Mapper]
-    public partial class OrderDtoMapper
-    {
-        [UseMapper]
-        private readonly OrderLineDtoMapper _orderLineDtoMapper;
-
-        public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
-        {
-            _orderLineDtoMapper = orderLineDtoMapper;
-        }
-
-        [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
-        [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
-        public partial OrderDto OrderToOrderDto(Order order);
-
-        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
-
-        private bool MapIsActive(Order source) => source.IsActive();
-}
-```
 
 ## Output expectations
 

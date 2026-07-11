@@ -2,7 +2,7 @@
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 130AC696BE18AA944F247DBE06A8F6A033598DC922C14497314604920220B4B0
+contentHash: 91101A4E7A5B8C7D82146C2A5083FEA6531A317B6E45DF4880A37D6300666159
 ---
 # MediatR Command Handler
 
@@ -97,7 +97,7 @@ When a needed repository capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`
 
 **Example:**
 ```csharp

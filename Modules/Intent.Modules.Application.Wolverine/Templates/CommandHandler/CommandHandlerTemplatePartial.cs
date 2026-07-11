@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.CommandHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.WolverineFx(outputTarget));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(CommandModelsTemplate.TemplateId);
             AddTypeSource("Domain.Enum");

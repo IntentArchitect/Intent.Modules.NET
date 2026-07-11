@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#5386bf6b-a753-4561-9c64-3322c619847b</correlationId>
-      <path>N_ServiceBus.LearnerTransport.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.7009604Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.1476779Z</approvedAt>
-      <deviationsHash>2D04E9FA5BE6863B4A3B9B6848FE8328276948A85C300276A10FA0BFC65DB6BB</deviationsHash>
-      <fileHash>AC6403F8C3DA1C352E5E62B0AB668DBC45AEB162320C8A512BB29213D63848D1</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#b59b0b16-d7ba-46b3-8582-b64ea012942a</correlationId>
-      <path>N_ServiceBus.LearnerTransport.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.7011313Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.1636097Z</approvedAt>
-      <deviationsHash>3450BD1C8F6BF0B1234D6FECE6D378761C2EE14CC002A274517DFB3E20840521</deviationsHash>
-      <fileHash>BCC4D7474677CADB9BAE6A9A1FC1FCD6CE1151B3F0AC34AC437B93E0ECADE16A</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#4ab9f7a7-4c92-4506-a280-db9c9401ab62</correlationId>
-      <path>N_ServiceBus.LearnerTransport.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:17.7011519Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.1798554Z</approvedAt>
-      <deviationsHash>21B391B848323C6CD57CB9ED80419175E3750EFB2E7D003816B33D03F53EDAEC</deviationsHash>
-      <fileHash>AFF37250610D2D114FDEF67B26F08D7CC06B93D9C3C84847F6AC102A46BC2F0B</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

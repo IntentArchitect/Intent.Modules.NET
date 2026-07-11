@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: 75AF7B2B952E00DCDA6C3F0EC7C7B423A678BACC4EBEDFD959EEF482369F71F3
+contentHash: A8CFCC6396DCA106563D5C604E49CF467F72DFFB37B55CEE392AFB6553315A90
 ---
 # Traditional Service Implementation
 
@@ -125,28 +125,28 @@ When a needed capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`
 
 **Example:**
 ```csharp
-    [Mapper]
-    public partial class OrderDtoMapper
+[Mapper]
+public partial class OrderDtoMapper
+{
+    [UseMapper]
+    private readonly OrderLineDtoMapper _orderLineDtoMapper;
+
+    public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
     {
-        [UseMapper]
-        private readonly OrderLineDtoMapper _orderLineDtoMapper;
+        _orderLineDtoMapper = orderLineDtoMapper;
+    }
 
-        public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
-        {
-            _orderLineDtoMapper = orderLineDtoMapper;
-        }
+    [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
+    [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
+    public partial OrderDto OrderToOrderDto(Order order);
 
-        [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
-        [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
-        public partial OrderDto OrderToOrderDto(Order order);
+    public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
 
-        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
-
-        private bool MapIsActive(Order source) => source.IsActive();
+    private bool MapIsActive(Order source) => source.IsActive();
 }
 ```
 

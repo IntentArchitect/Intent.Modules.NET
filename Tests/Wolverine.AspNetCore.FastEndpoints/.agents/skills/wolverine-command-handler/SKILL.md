@@ -2,7 +2,7 @@
 name: wolverine-command-handler
 description: implement or revise Wolverine command handler business logic in an existing handler file. use when a c# Wolverine command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.Wolverine.CommandHandlerSkillTemplate
-contentHash: 6F7E196BAF8AC8B0176E02D4194215B14DC4C411FA609C2C29CCCCB4D1BA9D2E
+contentHash: A20BFDC40826C0DDE1A6CB2BB8948402A3255DCA263130BAAE23E689EEAFC75F
 ---
 # Wolverine Command Handler
 
@@ -85,40 +85,40 @@ When a needed repository capability is missing:
 ## AutoMapper guidance
 
 - Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
-- Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
+    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
 - **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
-- **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
-- if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
-- **No assumptions allowed** (a generic projection method or other feature usage is not verification).
+    - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
+    - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
+    - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
 - **Registration assumption (do not block on DI):**
-- Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
-- Therefore, **do not delay profile creation** because DI registration details are not currently visible.
-- Do not modify DI registration as part of this guidance unless the user explicitly asks.
+    - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
+    - Do not modify DI registration as part of this guidance unless the user explicitly asks.
 - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-- This must include an inline code comment explaining why AutoMapper is not reasonable.
-- “Mapping doesn’t exist yet” is not a valid exception.
+    - This must include an inline code comment explaining why AutoMapper is not reasonable.
+    - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
-- `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-- Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
+    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`
 
 **Example:**
 ```csharp
 
 public class CustomerDtoProfile : Profile
 {
-public CustomerDtoProfile()
-{
-CreateMap<Customer, CustomerDto>();
-}
+    public CustomerDtoProfile()
+    {
+        CreateMap<Customer, CustomerDto>();
+    }
 }
 
 public static class CustomerDtoMappingExtensions
 {
-public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
-mapper.Map<CustomerDto>(projectFrom);
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+        mapper.Map<CustomerDto>(projectFrom);
 
-public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
-projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 

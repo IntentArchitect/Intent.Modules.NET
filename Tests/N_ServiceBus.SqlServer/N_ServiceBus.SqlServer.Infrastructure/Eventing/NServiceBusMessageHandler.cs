@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using N_ServiceBus.SqlServer.Application.Common.Eventing;
+using NServiceBus;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusMessageHandler", Version = "1.0")]

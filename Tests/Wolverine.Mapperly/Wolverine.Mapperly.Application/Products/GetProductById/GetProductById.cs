@@ -6,6 +6,9 @@ using Wolverine.Mapperly.Application.Common.Interfaces;
 
 namespace Wolverine.Mapperly.Application.Products.GetProductById
 {
+    /// <summary>
+    /// Fetches a Product by Id and returns it as a ProductDto (Mapperly projection).
+    /// </summary>
     public class GetProductById : IQuery
     {
         public GetProductById(Guid id)

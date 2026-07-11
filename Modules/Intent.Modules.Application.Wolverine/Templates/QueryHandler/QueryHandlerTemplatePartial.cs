@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.WolverineFx(outputTarget));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(QueryModelsTemplate.TemplateId);
             AddTypeSource("Domain.Enum");

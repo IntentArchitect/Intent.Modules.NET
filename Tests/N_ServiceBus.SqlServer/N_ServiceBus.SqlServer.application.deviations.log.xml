@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#5d86bcd4-8536-488c-ab75-f94a6c55cb5e</correlationId>
-      <path>N_ServiceBus.SqlServer.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:30.7633146Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.2432687Z</approvedAt>
-      <deviationsHash>9E9EE1332E816D4BCCB7BDFE4431B45C371878DB812DCDA37CC99844CB39605C</deviationsHash>
-      <fileHash>A383E3D1FAC7E8ADC986E4922BF0C9FD0F1D25CB6DAB906DB8F6DB8019554E19</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#f6675957-3e88-490e-8851-5a00270516c7</correlationId>
-      <path>N_ServiceBus.SqlServer.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:30.7636301Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.2568993Z</approvedAt>
-      <deviationsHash>B8F7FDC26039669A482DB7604442EB0B308676123008A23D3487C376079CFA43</deviationsHash>
-      <fileHash>CB031A9AFF5A3B871C39926FF3B6EB38BF289DD4405718FA61E1FC4B9A97C183</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#a8cdf849-8644-41de-beb2-cbb1fd63ca3f</correlationId>
-      <path>N_ServiceBus.SqlServer.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:30.7636623Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:35.2883378Z</approvedAt>
-      <deviationsHash>2958074C019FA8E73B6AEF270E30049DB4C2D3E5062582142FE7AE062629B3F2</deviationsHash>
-      <fileHash>BD9F2C2E9EEA70DD900D21A581B44925D370523541ED7CF617004965E2F96FF0</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

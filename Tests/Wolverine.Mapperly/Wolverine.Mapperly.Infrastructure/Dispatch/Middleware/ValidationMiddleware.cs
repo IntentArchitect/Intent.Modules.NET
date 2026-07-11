@@ -1,6 +1,7 @@
 using System.Reflection;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Wolverine.Mapperly.Application.Common.Interfaces;
 using Wolverine.Mapperly.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,6 +24,10 @@ namespace Wolverine.Mapperly.Infrastructure.Dispatch.Middleware
             IValidatorProvider validatorProvider,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassValidation)
+            {
+                return;
+            }
             var validator = GetValidator(request, validatorProvider);
 
             if (validator is null)

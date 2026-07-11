@@ -2,7 +2,7 @@
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 34725A3CA37816C4CA0A48B66BCA2095A435B6A950488B0F947751647D8E1D0F
+contentHash: 1B71F6AD3C15DE6B65D4821306ACC5F8799CC30F896C5D319101F889D1C572BA
 ---
 # MediatR Query Handler
 
@@ -66,6 +66,21 @@ When a needed read capability is missing:
 - You can rely on navigation properties being automatically loaded when accessed.
 - (CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.
 
+## Unit of Work guidance
+
+- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
+- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
+- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
+- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
+- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+
+## Entity Framework repository guidance
+
+- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
+- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
+- Only call Add/Create/Delete operations when inserting or removing entities.
+- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
+
 ## AutoMapper guidance
 
 - Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
@@ -83,7 +98,7 @@ When a needed read capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`
 
 **Example:**
 ```csharp

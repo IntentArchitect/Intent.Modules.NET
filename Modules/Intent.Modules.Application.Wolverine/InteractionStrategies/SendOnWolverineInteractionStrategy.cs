@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -28,6 +29,8 @@ public class SendOnWolverineInteractionStrategy : IInteractionStrategy
         var interaction = (IAssociationEnd)interactionElement;
         var handlerClass = method.Class;
         var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
+        template.CSharpFile.AddUsing("Wolverine");
+        template.AddNugetDependency(NugetPackages.WolverineFx(template.OutputTarget));
         template.AddTypeSource(TemplateRoles.Application.Query);
         template.AddTypeSource(TemplateRoles.Application.Command);
         template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);

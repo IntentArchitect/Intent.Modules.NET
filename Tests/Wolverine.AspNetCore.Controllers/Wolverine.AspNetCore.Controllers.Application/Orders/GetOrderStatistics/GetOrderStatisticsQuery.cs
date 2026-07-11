@@ -6,6 +6,9 @@ using Wolverine.AspNetCore.Controllers.Application.Common.Interfaces;
 
 namespace Wolverine.AspNetCore.Controllers.Application.GetOrderStatistics
 {
+    /// <summary>
+    /// Custom query with no domain interaction. Handler body computes aggregate statistics (implemented by hand).
+    /// </summary>
     public class GetOrderStatisticsQuery : IQuery
     {
         public GetOrderStatisticsQuery()

@@ -2,7 +2,7 @@
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 4246006AE85352246588CCB871DDCA6087E5CF1C19DAB950BCEA164C2D7373C4
+contentHash: 25ACCBE2CF9D2AD09A6FDCA23A63A40B89FDD4CEF6DE34A091E1DF124208B996
 ---
 # MediatR Command Handler
 
@@ -99,28 +99,28 @@ When a needed repository capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`
 
 **Example:**
 ```csharp
-    [Mapper]
-    public partial class OrderDtoMapper
+[Mapper]
+public partial class OrderDtoMapper
+{
+    [UseMapper]
+    private readonly OrderLineDtoMapper _orderLineDtoMapper;
+
+    public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
     {
-        [UseMapper]
-        private readonly OrderLineDtoMapper _orderLineDtoMapper;
+        _orderLineDtoMapper = orderLineDtoMapper;
+    }
 
-        public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
-        {
-            _orderLineDtoMapper = orderLineDtoMapper;
-        }
+    [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
+    [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
+    public partial OrderDto OrderToOrderDto(Order order);
 
-        [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
-        [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
-        public partial OrderDto OrderToOrderDto(Order order);
+    public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
 
-        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
-
-        private bool MapIsActive(Order source) => source.IsActive();
+    private bool MapIsActive(Order source) => source.IsActive();
 }
 ```
 
