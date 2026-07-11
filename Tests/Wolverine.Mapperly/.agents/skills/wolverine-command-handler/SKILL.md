@@ -2,7 +2,7 @@
 name: wolverine-command-handler
 description: implement or revise Wolverine command handler business logic in an existing handler file. use when a c# Wolverine command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.Wolverine.CommandHandlerSkillTemplate
-contentHash: C61E1B804FC02AA966BD9A24A38ED7AF3EF69DC93DB40B909F3335EDB3BD4327
+contentHash: 9CDFD5FAFB16A5E03C3B9130D7293F09FDCB695B68E5411437E24DA006A87481
 ---
 # Wolverine Command Handler
 
@@ -100,7 +100,7 @@ When a needed repository capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
 
 **Example:**
 ```csharp

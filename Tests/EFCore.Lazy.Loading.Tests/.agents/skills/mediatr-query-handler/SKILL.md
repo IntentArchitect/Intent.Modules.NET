@@ -2,7 +2,7 @@
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 5B43E912BC089A162E68469C3BCA50F9225FD704EB73F42F4AB69383D6E0216F
+contentHash: FE86A8A829E7F9F206F835812C88572B9616388FF6E6BFCB25669CE9B897A650
 ---
 # MediatR Query Handler
 
@@ -97,7 +97,7 @@ When a needed read capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
 
 **Example:**
 ```csharp

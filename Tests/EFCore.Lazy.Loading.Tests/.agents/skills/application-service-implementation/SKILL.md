@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: F740EF0CED3DF5A490FE52BC2E929F9A5772676379177A3EB63DED729ED6DD13
+contentHash: B93DA7611A303EFEC141B711AF774249B6631DB4B086CAD97374388ED3B5CF1C
 ---
 # Traditional Service Implementation
 
@@ -123,7 +123,7 @@ When a needed capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
 
 **Example:**
 ```csharp

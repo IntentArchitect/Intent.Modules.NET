@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using N_ServiceBus.AzureServiceBus.Application.Common.Eventing;
 using N_ServiceBus.AzureServiceBus.Eventing.Messages;
 using N_ServiceBus.AzureServiceBus.Infrastructure.Eventing;
-using NServiceBus;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.NServiceBus.NServiceBusConfiguration", Version = "1.0")]

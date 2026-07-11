@@ -5,7 +5,6 @@ using N_ServiceBus.Persistence.NHibernate.Publish.Eventing.Messages;
 using N_ServiceBus.Persistence.NHibernate.Subscribe.Application.Common.Eventing;
 using N_ServiceBus.Persistence.NHibernate.Subscribe.Eventing.Messages;
 using N_ServiceBus.Persistence.NHibernate.Subscribe.Infrastructure.Eventing;
-using NServiceBus;
 using NServiceBus.Persistence;
 using NServiceBus.TransactionalSession;
 

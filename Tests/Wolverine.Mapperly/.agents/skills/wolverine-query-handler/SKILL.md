@@ -2,7 +2,7 @@
 name: wolverine-query-handler
 description: implement or revise Wolverine query handler business logic in an existing handler file. use when a c# Wolverine query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.Wolverine.QueryHandlerSkillTemplate
-contentHash: 25410044E4193FFC7CCF690FD1C49D33F27DC3339BF9AC34F34D9CA71875DDD6
+contentHash: 702BF4712236FC27F35F76EF997FF42656CBCA4E42CA2D2213845DB4DCCA7AD8
 ---
 # Wolverine Query Handler
 
@@ -100,7 +100,7 @@ When a needed read capability is missing:
     - “Mapping doesn’t exist yet” is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`
+    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
 
 **Example:**
 ```csharp

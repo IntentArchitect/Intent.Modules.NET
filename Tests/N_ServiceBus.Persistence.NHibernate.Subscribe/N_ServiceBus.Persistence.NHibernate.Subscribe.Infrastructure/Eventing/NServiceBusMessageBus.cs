@@ -2,7 +2,6 @@ using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using N_ServiceBus.Persistence.NHibernate.Subscribe.Application.Common.Eventing;
-using NServiceBus;
 using NServiceBus.TransactionalSession;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
