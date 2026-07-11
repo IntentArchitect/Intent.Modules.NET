@@ -28,5 +28,8 @@
     <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" solutionFolder="Tests" relativePath="../Tests/CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="Tests" relativePath="../Tests/Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="b7db91ac-8839-48cd-8389-8b32ff4eaf41" name="AspNetCore.Controllers.JsonPatch" solutionFolder="Modules/Support" relativePath="Intent.Modules.AspNetCore.Controllers.JsonPatch/Intent.Modules.AspNetCore.Controllers.JsonPatch.application.config" />
+    <application id="38950864-1930-4a7f-9a21-57f1b4043ad1" name="RichDomain" solutionFolder="Tests" relativePath="../Tests/RichDomain/RichDomain.application.config" />
+    <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Tests" relativePath="../Tests/ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
+    <application id="4d989763-0499-4e06-a75d-af159dea70cd" name="Module1" solutionFolder="Tests" relativePath="../Tests/Module1/Module1.application.config" />
   </applications>
 </solution>
