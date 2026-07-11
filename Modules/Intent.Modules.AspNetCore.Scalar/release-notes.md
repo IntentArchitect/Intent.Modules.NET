@@ -1,5 +1,6 @@
 ### Version 1.0.10
 
+- Improvement: Updated NuGet package versions.
 - Fixed: `HideRouteParametersFromBodyOperationTransformer` now correctly removes route-bound properties from request bodies that are references to shared component DTOs on both .NET 9 and .NET 10+. Previously .NET 9 skipped referenced schemas entirely, and .NET 10+ failed to resolve `OpenApiSchemaReference` bodies; the transformer now resolves the reference (via `RecursiveTarget` on .NET 10+) and mutates a clone, leaving the shared component schema intact for other operations.
 
 ### Version 1.0.9

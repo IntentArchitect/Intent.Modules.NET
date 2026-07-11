@@ -14,5 +14,18 @@
       <deviationsHash>19F38C4AC26CE12317F366DC72D65C72FFEEDAD5F4BE87CE6EE47A4737A7F807</deviationsHash>
       <fileHash>0F85CAD7B1B4AAA484183146B4C86649783D17DCBC06F1E9903C1E16C7B50593</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#d683c72a-bfb6-4251-b8d0-910c07ec3113</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Infrastructure/Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:20.9985454Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:55.9235301Z</approvedAt>
+      <deviationsHash>97B33C1FAE70A3308724CF41F4854A4F1A6E868B569DE8645047F55BFA134AB6</deviationsHash>
+      <fileHash>C3B662C9F8E4A9B59CE9A75858EC8E60353959BD7937823AB14AB7D47BC908CF</fileHash>
+    </file>
   </files>
 </deviationsLog>

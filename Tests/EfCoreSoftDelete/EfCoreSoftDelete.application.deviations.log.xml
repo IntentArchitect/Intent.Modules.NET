@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#861a62e8-4371-4cb5-880a-489c140c6eab</correlationId>
+      <path>EfCoreSoftDelete.Infrastructure/EfCoreSoftDelete.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:28.1943689Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.5554137Z</approvedAt>
+      <deviationsHash>6AD89FD62134D598AA8F2FA87A10384F60F4D614A19B07833693BAE6175A6CF8</deviationsHash>
+      <fileHash>DE9D24EA617A9F70696C49114322E4CF55F125FCA34E6FD85F6CDA93F7315746</fileHash>
+    </file>
+  </files>
 </deviationsLog>

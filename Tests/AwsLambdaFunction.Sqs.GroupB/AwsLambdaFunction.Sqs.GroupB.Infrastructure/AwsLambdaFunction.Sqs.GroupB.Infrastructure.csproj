@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Amazon.Lambda.SQSEvents" Version="2.2.0" />
-    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.19" />
-    <PackageReference Include="AWSSDK.SQS" Version="4.0.2.11" />
+    <PackageReference Include="Amazon.Lambda.SQSEvents" Version="3.0.0" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.100.3" />
+    <PackageReference Include="AWSSDK.SQS" Version="4.0.100.3" />
   </ItemGroup>
   </Project>

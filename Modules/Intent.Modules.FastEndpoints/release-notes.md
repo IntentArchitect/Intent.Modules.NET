@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.0
 
 - Improvement: Additional checks added to ensure compatibile Intent Swashbuckle module used.

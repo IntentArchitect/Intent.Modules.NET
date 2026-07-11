@@ -20,18 +20,18 @@ namespace Intent.Modules.AspNetCore.Grpc
             NugetRegistry.Register(GrpcAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("2.76.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.76.0")
+                        ( >= 10, >= 0) => new PackageVersion("2.80.0")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1")
-                            .WithNugetDependency("Grpc.Tools", "2.76.0"),
-                        ( >= 9, >= 0) => new PackageVersion("2.76.0")
+                            .WithNugetDependency("Grpc.Tools", "2.80.0"),
+                        ( >= 9, >= 0) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.76.0")
-                            .WithNugetDependency("Grpc.Tools", "2.76.0"),
-                        ( >= 8, >= 0) => new PackageVersion("2.76.0")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.80.0")
+                            .WithNugetDependency("Grpc.Tools", "2.80.0"),
+                        ( >= 8, >= 0) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.76.0")
-                            .WithNugetDependency("Grpc.Tools", "2.76.0"),
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.80.0")
+                            .WithNugetDependency("Grpc.Tools", "2.80.0"),
                         ( >= 7, >= 0) => new PackageVersion("2.71.0")
                             .WithNugetDependency("Google.Protobuf", "3.30.2")
                             .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.71.0")
@@ -46,18 +46,18 @@ namespace Intent.Modules.AspNetCore.Grpc
             NugetRegistry.Register(GrpcAspNetCoreServerReflectionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("2.76.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.76.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.76.0")
+                        ( >= 10, >= 0) => new PackageVersion("2.80.0")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1"),
-                        ( >= 9, >= 0) => new PackageVersion("2.76.0")
+                        ( >= 9, >= 0) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.76.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.76.0"),
-                        ( >= 8, >= 0) => new PackageVersion("2.76.0")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0"),
+                        ( >= 8, >= 0) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Protobuf", "3.31.1")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.76.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.76.0"),
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0"),
                         ( >= 7, >= 0) => new PackageVersion("2.71.0")
                             .WithNugetDependency("Google.Protobuf", "3.30.2")
                             .WithNugetDependency("Grpc.AspNetCore.Server", "2.71.0")
@@ -72,12 +72,12 @@ namespace Intent.Modules.AspNetCore.Grpc
             NugetRegistry.Register(GrpcStatusProtoPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 1) => new PackageVersion("2.76.0")
+                        ( >= 2, >= 1) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.16.0")
-                            .WithNugetDependency("Grpc.Core.Api", "2.76.0"),
-                        ( >= 2, >= 0) => new PackageVersion("2.76.0")
+                            .WithNugetDependency("Grpc.Core.Api", "2.80.0"),
+                        ( >= 2, >= 0) => new PackageVersion("2.80.0")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.16.0")
-                            .WithNugetDependency("Grpc.Core.Api", "2.76.0"),
+                            .WithNugetDependency("Grpc.Core.Api", "2.80.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{GrpcStatusProtoPackageName}'"),
                     }
                 );

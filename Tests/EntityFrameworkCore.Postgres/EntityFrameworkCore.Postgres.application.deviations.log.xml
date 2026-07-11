@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#8817d69f-712c-4502-a270-f1fd66d469ee</correlationId>
+      <path>EntityFrameworkCore.Postgres.Infrastructure/EntityFrameworkCore.Postgres.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:54.2140468Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.3780089Z</approvedAt>
+      <deviationsHash>417D4A52AFF79B9926081EDEE1AA10A39717A98BBC53D53B7ED0A6FF6ECF8E29</deviationsHash>
+      <fileHash>22EC6910B35B0D0B21B763854C843A5FFE8EFD067DFC15E47E68ACC703A795E9</fileHash>
+    </file>
+  </files>
 </deviationsLog>

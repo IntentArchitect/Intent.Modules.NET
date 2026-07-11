@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#c65ee65d-b4c7-4bb2-bb59-72215705884b</correlationId>
+      <path>CleanArchitecture.SingleFiles.Api/CleanArchitecture.SingleFiles.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-11T13:57:25.8760937Z</updatedAt>
+      <deviationsHash>AAB90981C6DA7C19ADAEAC2324AF0637F24F1F5953C0F03102149E38910101F3</deviationsHash>
+      <fileHash>73881179596446E91A251E0D3DB07A964FD52393C14965431A53BBF77BCA736F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#1773a42c-b33a-400c-acbb-0b81956fcadd</correlationId>
+      <path>CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-11T13:57:25.8792311Z</updatedAt>
+      <deviationsHash>EA02151E52E41FB1D2320692D4DA9028D758953542730FAD1D45C4613D600EBC</deviationsHash>
+      <fileHash>1F3EE7741919F6D80F5025C3F6D64E07A66A1AFBFE7E83CB6A07BC4778FF0BFF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#f0db48f6-7aa9-4e05-91ea-04cc31380034</correlationId>
+      <path>CleanArchitecture.SingleFiles.Infrastructure/CleanArchitecture.SingleFiles.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:08.3435464Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.2549978Z</approvedAt>
+      <deviationsHash>52B901FAFE95A900F278C045B306675085D9549886110E910C2A2FBB33892405</deviationsHash>
+      <fileHash>08B8F2586FA8EB5CA4B737AE318AC1A73BD826E9BCA16D090447B7FB32CADEE4</fileHash>
+    </file>
+  </files>
 </deviationsLog>

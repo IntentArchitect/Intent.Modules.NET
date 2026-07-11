@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="80453541-ec7c-4e0e-a380-73d5b6e77c80" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.14.0-beta.2</name>
+      <name>1.16.0-beta.1</name>
       <display>1.12.0-beta.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="434bd373-b5ca-4e8f-ac49-f721048c48e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="528d8fa9-fbf8-4cfb-a162-66b2d26ffa43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>80453541-ec7c-4e0e-a380-73d5b6e77c80</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="8853c403-a5e1-4b62-9a1d-45a6d6c429e8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.14.0-beta.2</name>
+      <name>1.16.0-beta.1</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -79,10 +79,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0ac25740-e12f-4501-b23d-8a1ef1f1ea57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3af5f6be-1464-48c3-855b-b5a49769d3a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8853c403-a5e1-4b62-9a1d-45a6d6c429e8</parentFolderId>
@@ -93,7 +93,7 @@
       </childElements>
     </childElement>
     <childElement id="d5f5266e-3f0f-4d73-83da-d3323e31da69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.14.0-beta.2</name>
+      <name>1.16.0-beta.1</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -111,10 +111,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="005f664d-c9d0-4692-b1fb-416604ee9ac5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ecfcca9c-bdfc-4ca4-849c-7e839a6540af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5f5266e-3f0f-4d73-83da-d3323e31da69</parentFolderId>

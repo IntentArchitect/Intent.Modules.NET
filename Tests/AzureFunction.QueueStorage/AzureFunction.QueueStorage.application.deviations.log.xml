@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#d6182297-d117-4af0-993c-2818b081a748</correlationId>
+      <path>AzureFunction.QueueStorage.Infrastructure/AzureFunction.QueueStorage.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:34.363262Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.9864584Z</approvedAt>
+      <deviationsHash>B4F837D545D0F919C348C87C8840704EE76355A7AEFE025D9BA715FAE1219B9D</deviationsHash>
+      <fileHash>17ED7F44B80AF0CFD91AA13F040A959A0E6A595ACE76DD12980F378A819C55CE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="e1ce21c3-8977-4884-b3f6-0d5bdca9598b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f6835d3b-da90-491c-99ab-c4b36da18c31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15821411-691a-49ca-a8b2-cadc7f9304cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e1ce21c3-8977-4884-b3f6-0d5bdca9598b</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1b63bb1f-beb2-4602-9687-fb2162ab908e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2b23274b-34d0-44e3-b9e9-314788c9ecb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e1ce21c3-8977-4884-b3f6-0d5bdca9598b</parentFolderId>
@@ -72,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="d48cea9f-2712-4ce1-b3ee-d93ef595b613" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.9</name>
+      <name>2.3.11</name>
       <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -94,10 +94,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f0bdaed4-fbb0-4bbb-9333-73794892b2e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="14d0615f-22e7-4c98-a349-c4d15bc32dc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Identity</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.8</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d48cea9f-2712-4ce1-b3ee-d93ef595b613</parentFolderId>
@@ -105,7 +105,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="09414ce6-1685-45dc-aff2-030aa2ef61a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="75f8676d-423e-4ded-ba4f-38e542d4e24d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>2.1.14</value>
@@ -116,10 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7faea4f4-1c67-4bcb-8695-f9636cc565de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d891af83-3dc9-44c0-8d84-2efe32f9df33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.8</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d48cea9f-2712-4ce1-b3ee-d93ef595b613</parentFolderId>
@@ -260,7 +260,7 @@
     </childElement>
     <childElement id="3af47704-a9d1-4440-acad-1fd17635fb95" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Locked to prevent "NuGet Downgrade Errors" due to  Intent.EntityFrameworkCore module being locked to lower version.</comment>
-      <name>8.0.23</name>
+      <name>8.0.28</name>
       <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -282,10 +282,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ff80313c-d4f5-42ec-87ac-43c975473daf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b53091e-44ea-46f3-a3f9-0befe507ab31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.23</value>
+          <value>8.0.28</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3af47704-a9d1-4440-acad-1fd17635fb95</parentFolderId>
@@ -293,10 +293,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ae320d64-15ea-4720-9375-fcf74501123b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a5e66bff-f038-495a-9150-80b8b93407d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.23</value>
+          <value>8.0.28</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3af47704-a9d1-4440-acad-1fd17635fb95</parentFolderId>
@@ -307,7 +307,7 @@
       </childElements>
     </childElement>
     <childElement id="780fa709-7f7c-45fb-8987-2278a3db7c77" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.12</name>
+      <name>9.0.17</name>
       <display>9.0.11 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -329,10 +329,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="33552101-b1bf-437f-ae39-051d722d7f98" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d28998d5-08aa-4e34-99a8-0cee20db6298" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.12</value>
+          <value>9.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>780fa709-7f7c-45fb-8987-2278a3db7c77</parentFolderId>
@@ -340,10 +340,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b25fe5df-5487-4cd7-92c8-cbea0947e62d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7cc14069-7c73-4bd2-a588-0eee7d9fd371" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.12</value>
+          <value>9.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>780fa709-7f7c-45fb-8987-2278a3db7c77</parentFolderId>

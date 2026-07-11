@@ -1,3 +1,7 @@
+### Version 6.1.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 6.1.2
 
 - Improvement: Internal refactoring.

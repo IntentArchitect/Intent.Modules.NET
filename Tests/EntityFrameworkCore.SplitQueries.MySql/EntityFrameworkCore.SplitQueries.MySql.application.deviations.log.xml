@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2f4ae803-44de-4abc-abf4-bfc4d2d1abcc</correlationId>
+      <path>EntityFrameworkCore.SplitQueries.MySql.Infrastructure/EntityFrameworkCore.SplitQueries.MySql.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:29.9090586Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.7153535Z</approvedAt>
+      <deviationsHash>1B2102459FEB2CB8B862F5C872A021AA460295E8FDC095517A8430DE2A46DC27</deviationsHash>
+      <fileHash>787DF504C313A59030CDDD1908871E0B67AF231B8D68092D5485102F72F4011F</fileHash>
+    </file>
+  </files>
 </deviationsLog>

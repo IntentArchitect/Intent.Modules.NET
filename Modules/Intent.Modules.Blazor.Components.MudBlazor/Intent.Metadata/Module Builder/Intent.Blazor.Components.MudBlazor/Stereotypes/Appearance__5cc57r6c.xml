@@ -25,7 +25,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="17f49bf9-0511-469e-8fe3-58ce147af1bc">
       <name>Width</name>

@@ -14,5 +14,31 @@
       <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
       <fileHash>14A3957C2B6F9D7880F1E7F26DE906815AB600BAED56D8AE1DCE3FD05EE4AAD5</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#034e5ad7-94f5-45b1-a010-3d60bd78514a</correlationId>
+      <path>MudBlazor.ExampleApp.Client/MudBlazor.ExampleApp.Client.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T19:04:42.7857011Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T19:05:37.4160495Z</approvedAt>
+      <deviationsHash>0542540AAE022CE82D5340E606CD6BF6BB02F0A729F200817924B8D27669FA1D</deviationsHash>
+      <fileHash>B897DCF9E67FA26C1E56A286251F6F5225F43E48AB3A9444DA0A12F53D3DE549</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#483e2214-6448-40b1-b393-da28db541f1c</correlationId>
+      <path>MudBlazor.ExampleApp.Infrastructure/MudBlazor.ExampleApp.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:19.3958631Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.0771125Z</approvedAt>
+      <deviationsHash>28CD776455F437572EED6C13C2FB5B168D2566A3A7B4449B89CEFBEBE0672B66</deviationsHash>
+      <fileHash>F0D2F53C62B893E0E433293871AF38A386749B2EEF1695C286D4B138E144AAFD</fileHash>
+    </file>
   </files>
 </deviationsLog>

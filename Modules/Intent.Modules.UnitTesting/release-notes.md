@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.1
 
 - Improvement: Updated instruction format and generation to align with other modules.

@@ -24,34 +24,51 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(DaprClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.16.1")
-                            .WithNugetDependency("Dapr.Common", "1.16.1")
-                            .WithNugetDependency("Dapr.Protos", "1.16.1")
+                        ( >= 10, >= 0) => new PackageVersion("1.18.4")
+                            .WithNugetDependency("Dapr.Common", "1.18.4")
+                            .WithNugetDependency("Dapr.Protos", "1.18.4")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
-                            .WithNugetDependency("Google.Protobuf", "3.32.0")
-                            .WithNugetDependency("Grpc.Net.Client", "2.71.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
-                        ( >= 8, >= 0) => new PackageVersion("1.16.1")
-                            .WithNugetDependency("Dapr.Common", "1.16.1")
-                            .WithNugetDependency("Dapr.Protos", "1.16.1")
+                            .WithNugetDependency("Google.Protobuf", "3.35.0")
+                            .WithNugetDependency("Grpc.Net.Client", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.8"),
+                        ( >= 9, >= 0) => new PackageVersion("1.18.4")
+                            .WithNugetDependency("Dapr.Common", "1.18.4")
+                            .WithNugetDependency("Dapr.Protos", "1.18.4")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
-                            .WithNugetDependency("Google.Protobuf", "3.32.0")
-                            .WithNugetDependency("Grpc.Net.Client", "2.71.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
+                            .WithNugetDependency("Google.Protobuf", "3.35.0")
+                            .WithNugetDependency("Grpc.Net.Client", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("1.18.4")
+                            .WithNugetDependency("Dapr.Common", "1.18.4")
+                            .WithNugetDependency("Dapr.Protos", "1.18.4")
+                            .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
+                            .WithNugetDependency("Google.Protobuf", "3.35.0")
+                            .WithNugetDependency("Grpc.Net.Client", "2.80.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.80.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.8"),
                         ( >= 6, >= 0) => new PackageVersion("1.15.4")
                             .WithNugetDependency("Dapr.Common", "1.15.4")
                             .WithNugetDependency("Dapr.Protos", "1.15.4")
@@ -79,22 +96,22 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftAspNetCoreHttpPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
-                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
-                            .WithNugetDependency("Microsoft.AspNetCore.WebUtilities", "2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.10")
+                            .WithNugetDependency("Microsoft.AspNetCore.WebUtilities", "2.3.10")
                             .WithNugetDependency("Microsoft.Extensions.ObjectPool", "8.0.11")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.8"),
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreHttpExtensionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
-                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.10")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.8")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.10")
                             .WithNugetDependency("System.Buffers", "4.6.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpExtensionsPackageName}'"),
                     }
@@ -102,15 +119,15 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "10.0.2"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.12"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.23")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "10.0.9"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.17"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.28")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.8")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.10")
                             .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
@@ -118,53 +135,53 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
                 );
             NugetRegistry.Register(SystemTextJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("System.IO.Pipelines", "10.0.2")
-                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.2"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("System.IO.Pipelines", "10.0.2")
-                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.2"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.2")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.9"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("System.IO.Pipelines", "10.0.9")
+                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.9"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("System.IO.Pipelines", "10.0.9")
+                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.9"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.9")
                             .WithNugetDependency("System.Buffers", "4.6.1")
-                            .WithNugetDependency("System.IO.Pipelines", "10.0.2")
+                            .WithNugetDependency("System.IO.Pipelines", "10.0.9")
                             .WithNugetDependency("System.Memory", "4.6.3")
                             .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.1.2")
-                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.2")
+                            .WithNugetDependency("System.Text.Encodings.Web", "10.0.9")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }

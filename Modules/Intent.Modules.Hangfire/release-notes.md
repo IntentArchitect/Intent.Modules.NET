@@ -1,3 +1,7 @@
+### Version 1.0.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.11
 
 - Fixed: Issue where default Dashbaord Auth Filter was using older `ICurrentUserService` implementation

@@ -14,5 +14,18 @@
       <deviationsHash>AC33032FC5146701E431C5F0C81B8F9339E935202E6D4390EC91C7EA63DE848C</deviationsHash>
       <fileHash>61CFDD526F16BF90621BE0C6994212F6C071DCA89DE0D5E302AC40E335B76EE7</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b612434b-dd53-4075-b29c-35521444f9d9</correlationId>
+      <path>BlazorServerTests.Infrastructure/BlazorServerTests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:56.3078841Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.6459381Z</approvedAt>
+      <deviationsHash>76D6CC8E350D40E0A10A6120DD5D76DE3A864C0EDE2603778FD0887D5BBBF913</deviationsHash>
+      <fileHash>2A4FCFF8E32FD8027CAD98283575F7462D72F4D1046AEC3B4497053EC95E4338</fileHash>
+    </file>
   </files>
 </deviationsLog>

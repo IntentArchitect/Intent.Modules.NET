@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#6030b5f0-5f9b-4a7a-a458-36b6b213bd7a</correlationId>
+      <path>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:24.8300504Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.7011435Z</approvedAt>
+      <deviationsHash>AFB1684283F56C16FF693D3579BDA5ED8A9B0BB6F0F395D700BB54B1281BC5BE</deviationsHash>
+      <fileHash>E9620F7F2AA4846829A6E4675FEE918A02AEA3F4C2DE3901F7F255688A00D1A5</fileHash>
+    </file>
+  </files>
 </deviationsLog>

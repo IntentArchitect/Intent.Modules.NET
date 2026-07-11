@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2f4ae803-44de-4abc-abf4-bfc4d2d1abcc</correlationId>
+      <path>EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:30.5668197Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.6919754Z</approvedAt>
+      <deviationsHash>A0A368121A93B540DA8FE3C6ED3462C12D3DD64863FB93A85401A3D56218FD44</deviationsHash>
+      <fileHash>E7455FA5FE3D2508C81B34D2FE00D12A6A9C6C8589C48056B87C56393467A0E5</fileHash>
+    </file>
+  </files>
 </deviationsLog>

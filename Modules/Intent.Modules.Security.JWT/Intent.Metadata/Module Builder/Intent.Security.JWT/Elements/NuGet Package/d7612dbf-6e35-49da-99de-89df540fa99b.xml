@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="5e650c5f-70a9-4d9e-babd-dbbd02ce205b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.9</name>
+      <name>2.3.11</name>
       <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="43bc6cc9-afae-4ac1-b29b-fa15728a83c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9822f286-b688-4fa3-9bf5-26b5accb7542" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Authentication</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5e650c5f-70a9-4d9e-babd-dbbd02ce205b</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4fc46c30-5f3d-4f9a-9c5b-746216a5a162" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5d322d94-9d65-4c39-9372-a457af0a6c5d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>5.7.0</value>
@@ -134,7 +134,7 @@
       <childElements />
     </childElement>
     <childElement id="2d2c3928-fa82-48f6-8b1f-0b9c6418a617" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.23</name>
+      <name>8.0.28</name>
       <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -156,7 +156,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bedd9690-c36e-4bbd-bafc-068dda14f731" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="634054c9-8fd2-4952-95e9-a1e95d6a9c77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
@@ -170,7 +170,7 @@
       </childElements>
     </childElement>
     <childElement id="50d99d52-f71b-4969-aa90-583e0434f2ae" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.12</name>
+      <name>9.0.17</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -192,7 +192,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cde94a3b-059a-4386-b95e-b686b58ac8a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3199cf97-e234-4d25-a000-393f6f74d8ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
@@ -206,7 +206,7 @@
       </childElements>
     </childElement>
     <childElement id="2499f280-8a17-4c5a-88bf-eda7c1c4ca84" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -224,7 +224,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="26ec7be7-f55b-4259-ae7a-dc6e707a9e69" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="46077a34-fac2-4cbf-887e-23954bc09a04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>

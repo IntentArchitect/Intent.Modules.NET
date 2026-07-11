@@ -1,3 +1,7 @@
+### Version 1.0.15
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.14
 
 - Fixed: Migration updated to correctly create the`extends` relationship between `ApplicationIdentityUser` and `IdentityUser<T>`.

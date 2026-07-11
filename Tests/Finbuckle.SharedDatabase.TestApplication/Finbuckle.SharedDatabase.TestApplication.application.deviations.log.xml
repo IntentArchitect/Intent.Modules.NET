@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#bf4c0648-086e-4b03-a1f8-da4c3bd0773a</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:50.6138105Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:48.233241Z</approvedAt>
+      <deviationsHash>E89F181B48881ED41743D93365DA8592B7E194C6BACB9E4AE27E837E30282039</deviationsHash>
+      <fileHash>911DE6FE93B93B3B49FBE4464A445A881F317F420E76A728C1224F7FC7D960EA</fileHash>
+    </file>
+  </files>
 </deviationsLog>
