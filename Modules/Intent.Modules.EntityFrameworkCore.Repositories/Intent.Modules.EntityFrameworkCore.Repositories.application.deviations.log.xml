@@ -5,11 +5,21 @@
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#3e5e932f-a74c-4c96-ad5a-e6eb4356f9a4</correlationId>
       <path>Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.csproj</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-08T16:14:11.1535996Z</updatedAt>
-      <deviationsHash>53B06FC918DAAEECAC73BD7E9AFC2944D25865237D41FA1DF02D17E7CA34C0E4</deviationsHash>
-      <fileHash>B7F597CEFAEB69599C78F4460C4E5D72206F352304D8E00784FC663031EAEDD4</fileHash>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-07-13T18:34:53.404414Z</updatedAt>
+      <deviationsHash>4B380696D5328E7DE96C7B1EE8C94A1486625E7C02075DFF9FFD47F73242CA57</deviationsHash>
+      <fileHash>0D51008AC3A58908EB0C83608CD1539A4C45801416A6E699EF7354F42B01FDDE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4594c780-e992-42d4-b448-82c6343f5fc2</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/EFRepositorySkill/EFRepositorySkillTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-07-13T18:38:25.0666067Z</updatedAt>
+      <deviationsHash>B8C5D1DCEFE5FB069CE81366EFAA5BD5B83665EBEABEF2263C0B50BF9C8D0A00</deviationsHash>
+      <fileHash>452153F0820808B571231F8AC198EC2BC54A27EE9912E01E92DA2E707CC0C4A1</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
