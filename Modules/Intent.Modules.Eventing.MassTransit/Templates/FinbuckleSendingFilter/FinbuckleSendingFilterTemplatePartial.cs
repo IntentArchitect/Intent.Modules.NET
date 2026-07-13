@@ -47,7 +47,27 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         {
                             method.AddParameter($"SendContext<{t}>", "context")
                                 .AddParameter($"IPipe<SendContext<{t}>>", "next")
-                                .AddStatement("context.Headers.Set(_headerName, _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier);")
+                                .AddStatement("""
+                                    if (context.RequestId.HasValue
+                                        && context.TryGetPayload<ConsumeContext>(out var sourceConsumeContext)
+                                        && sourceConsumeContext.RequestId == context.RequestId)
+                                    {
+                                        // This is a MassTransit-generated reply/fault correlating to a previously consumed
+                                        // request (RespondAsync, or an unhandled-exception Fault) - it is correlation-routed
+                                        // via RequestId, not tenant-routed, so it can proceed without a resolved tenant. This
+                                        // legitimately happens when UseInMemoryOutbox/UseInMemoryInboxOutbox defers the send
+                                        // until after the consumer's AsyncLocal-based Finbuckle tenant context has unwound.
+                                        var replyTenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;
+                                        if (replyTenantIdentifier is not null)
+                                        {
+                                            context.Headers.Set(_headerName, replyTenantIdentifier);
+                                        }
+
+                                        return next.Send(context);
+                                    }
+                                    """)
+                                .AddStatement("var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier\n                    ?? throw new MultiTenantException(\"Cannot send a message without a resolved tenant context.\");")
+                                .AddStatement("context.Headers.Set(_headerName, tenantIdentifier);")
                                 .AddStatement("return next.Send(context);");
                         });
                 });

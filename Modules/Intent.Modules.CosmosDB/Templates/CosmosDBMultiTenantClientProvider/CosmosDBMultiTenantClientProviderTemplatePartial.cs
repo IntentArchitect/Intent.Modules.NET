@@ -79,14 +79,16 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
                         method.AddStatement("return GetTenantConnectionInfo().Client;");
                     });
                     // GetTenantConnectionInfo is added later, in CSharpFile.OnBuild below - its body needs to cast
-                    // `tenantInfo` to the app's concrete extended tenant type to reach `.ConnectionString` (removed
-                    // from base ITenantInfo/TenantInfo at Finbuckle 9.x), resolved via a cross-module GetTypeName
-                    // lookup (Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo, no ProjectReference to that
-                    // module). GetTypeName must not be called here in the constructor - other modules' templates are
-                    // not guaranteed to be registered yet at construction time, and it throws if the owning template
-                    // hasn't been registered. This template only runs for separate-database multi-tenancy (see
-                    // CanRunTemplate), where that module always generates TenantExtendedInfo (TenantInfo +
-                    // ConnectionString).
+                    // `tenantInfo` to the app's concrete extended tenant type to reach `.CosmosDbConnection` (base
+                    // ITenantInfo/TenantInfo lost `ConnectionString` at Finbuckle 9.x), resolved via a cross-module
+                    // GetTypeName lookup (Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo, no
+                    // ProjectReference to that module). GetTypeName must not be called here in the constructor -
+                    // other modules' templates are not guaranteed to be registered yet at construction time, and it
+                    // throws if the owning template hasn't been registered. This template only runs for
+                    // separate-database multi-tenancy (see CanRunTemplate); `MultiTenancyFactoryExtension` registers
+                    // CosmosDB as a connection-string requester so TenantExtendedInfo always generates a named
+                    // `CosmosDbConnection` property (not a bare `ConnectionString`) regardless of which other
+                    // separate-database modules are also installed.
                     @class.AddMethod("void", "GetValuesFromConnectionString", method =>
                     {
                         method
@@ -178,10 +180,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
 				{{
 					if (!_clients.TryGetValue(tenantInfo.Id, out connectionInfo))
 					{{
-						string[] settings = tenantInfo.ConnectionString.Split("";"");
+						string[] settings = tenantInfo.CosmosDbConnection.Split("";"");
 						var clientOptions = _scopedData.Value.ClientOptions;
-						var client = new CosmosClient(tenantInfo.ConnectionString, clientOptions);
-						GetValuesFromConnectionString(tenantInfo.ConnectionString, out var database, out var defaultContainer);
+						var client = new CosmosClient(tenantInfo.CosmosDbConnection, clientOptions);
+						GetValuesFromConnectionString(tenantInfo.CosmosDbConnection, out var database, out var defaultContainer);
 						if (database == null)
 						{{
 							database = _defaultDatabaseName;

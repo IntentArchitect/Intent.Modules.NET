@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration#99c3dfb1-d98f-4081-b61f-d87ec7b5bd6f</correlationId>
-      <path>MongoDb.MultiTenancy.SeperateDb.Api/Configuration/MultiTenancyConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-09T17:12:46.1145781Z</updatedAt>
-      <deviationsHash>B194A4A34628EC7F85062032E81C010327E9ABC972653CB5555DD49513389455</deviationsHash>
-      <fileHash>2078E56E3797DBF99560C15F6B0BC823F7A0BE986ABC42B488A2E4115BF7E725</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#fe63974f-7b83-4993-a508-0cd7d00c1694</correlationId>
       <path>MongoDb.MultiTenancy.SeperateDb.Api/MongoDb.MultiTenancy.SeperateDb.Api.csproj</path>
       <count>1</count>

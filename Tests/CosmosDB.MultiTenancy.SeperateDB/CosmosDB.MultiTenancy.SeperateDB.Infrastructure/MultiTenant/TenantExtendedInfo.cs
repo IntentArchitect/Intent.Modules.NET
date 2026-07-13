@@ -6,8 +6,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant
 {
-    public class TenantExtendedInfo : TenantInfo
+    public class TenantExtendedInfo : TenantInfo, ITenantConnections
     {
-        public string? ConnectionString { get; set; }
+        public string? CosmosDbConnection { get; set; }
     }
 }

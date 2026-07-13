@@ -17,17 +17,17 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-09T16:23:48.0569814Z</updatedAt>
-      <deviationsHash>3994C0434FB4A91EAB860621369CBA19EBCEEE0E6C339FC7A0C5915AC20E3732</deviationsHash>
-      <fileHash>E2D4931A631511CE0B537E914E4FF38FB63CC7AEBAC5991D6730D2C99F204034</fileHash>
+      <updatedAt>2026-07-13T13:34:12.9165352Z</updatedAt>
+      <deviationsHash>AA47CF38DBB1A2BCAC687819ED056259D14FEDE0F1EDAA93AA0517917A467EE3</deviationsHash>
+      <fileHash>2671025A14D77FFC93163D63E72D1C5001BAD6FA682822A42EA750CB28EB5863</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#2bc7e478-1e47-4553-91c7-827a842e55ad</correlationId>
       <path>Intent.Modules.Eventing.MassTransit/NugetPackages.cs</path>
       <count>4</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-01-26T12:33:36.590368Z</updatedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-13T13:13:03.6569353Z</updatedAt>
       <deviationsHash>359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC</deviationsHash>
       <fileHash>F97360D4E25F4D35316524A175B03C682AC93633AA1F1E381D234F12EE7CB8B4</fileHash>
     </file>

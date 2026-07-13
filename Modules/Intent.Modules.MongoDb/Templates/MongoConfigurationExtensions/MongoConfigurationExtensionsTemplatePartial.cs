@@ -44,7 +44,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions
 
                         addMongoCollection.AddStatement("mongoConfiguration.RegisterCollectionMap();");
 
-                        addMongoCollection.AddStatements($@"services.AddSingleton(sp =>
+                        addMongoCollection.AddStatements($@"// NOTE: Registered as Scoped (not Singleton) because IMongoDatabase
+                        // is resolved per-tenant (Scoped) in multi-tenant applications - see the
+                        // application's tenant-aware IMongoDatabase registration in its DI setup.
+                        // A Singleton collection would capture only the first tenant's database and/or throw
+                        // ""Cannot resolve scoped service 'IMongoDatabase' from root provider"" at runtime.
+                        services.AddScoped(sp =>
                         {{
                             var database = sp.GetRequiredService<IMongoDatabase>();
                             return database.GetCollection<T>(mongoConfiguration.CollectionName);

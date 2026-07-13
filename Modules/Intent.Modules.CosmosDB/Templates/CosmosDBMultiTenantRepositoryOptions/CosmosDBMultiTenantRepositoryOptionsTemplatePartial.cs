@@ -52,10 +52,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions
             // CosmosConnectionString is added inside OnBuild (deferred to the Build phase, after all templates
             // across all modules are registered) because it needs GetTypeName to resolve
             // Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo (no ProjectReference to that module - cross-
-            // module lookup by TemplateId). ConnectionString was removed from the base ITenantInfo/TenantInfo at
-            // Finbuckle 9.x, so `_clientProvider.Tenant` (typed ITenantInfo?) must be cast to the app's concrete
-            // extended tenant type to reach it. This template only runs for separate-database multi-tenancy (see
-            // CanRunTemplate), where that module always generates TenantExtendedInfo (TenantInfo + ConnectionString).
+            // module lookup by TemplateId). Base ITenantInfo/TenantInfo lost `ConnectionString` at Finbuckle 9.x, so
+            // `_clientProvider.Tenant` (typed ITenantInfo?) must be cast to the app's concrete extended tenant type
+            // to reach it. This template only runs for separate-database multi-tenancy (see CanRunTemplate);
+            // `MultiTenancyFactoryExtension` registers CosmosDB as a connection-string requester so
+            // TenantExtendedInfo always generates a named `CosmosDbConnection` property (not a bare
+            // `ConnectionString`) regardless of which other separate-database modules are also installed.
             CSharpFile.OnBuild(file =>
             {
                 var tenantInfoTypeName = this.GetTypeName("Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo");
@@ -63,7 +65,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions
                 mainClass.AddProperty("string?", "CosmosConnectionString", p =>
                 {
                     p.Override();
-                    p.Getter.WithExpressionImplementation($"(({tenantInfoTypeName}?)_clientProvider.Tenant)?.ConnectionString");
+                    p.Getter.WithExpressionImplementation($"(({tenantInfoTypeName}?)_clientProvider.Tenant)?.CosmosDbConnection");
                     p.Setter.WithBodyImplementation("");
                 });
             }, 1000);

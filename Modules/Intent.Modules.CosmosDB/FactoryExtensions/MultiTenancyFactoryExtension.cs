@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
@@ -62,6 +63,14 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
         {
             ConfigureStartUpForSeperateDatabaseMultiTenancy(application);
             ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(application);
+
+            // Registers CosmosDB as a connection-string requester so TenantExtendedInfo generates a
+            // named CosmosDbConnection property instead of assuming it's the only separate-database
+            // module installed. Without this, combining CosmosDB with another separate-database
+            // module (MongoDb, MongoDb.MongoFramework, Google.CloudStorage) would switch
+            // TenantExtendedInfo to named-properties-only and break CosmosDB's bare `.ConnectionString`
+            // read at compile time. Matches the pattern already used by those other modules.
+            application.EventDispatcher.Publish(new MultitenantConnectionStringRegistrationRequest("CosmosDbConnection", $"AccountEndpoint=https://localhost:8081/;Database={application.Name.ToCSharpIdentifier()}-{{tenant}}"));
         }
 
         private void ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(IApplication application)

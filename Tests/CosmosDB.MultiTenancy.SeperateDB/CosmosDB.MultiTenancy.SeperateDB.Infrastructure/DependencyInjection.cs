@@ -2,10 +2,13 @@ using CosmosDB.MultiTenancy.SeperateDB.Application.Common.Interfaces;
 using CosmosDB.MultiTenancy.SeperateDB.Domain.Common.Interfaces;
 using CosmosDB.MultiTenancy.SeperateDB.Domain.Repositories;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Configuration;
+using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence.Documents;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Repositories;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Services;
+using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +32,9 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure
                         .WithContainer("Customer"));
             });
             services.ConfigureCosmosSeperateDBMultiTenancy(configuration);
+            services.AddScoped<ITenantConnections>(
+                    provider => provider.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo as TenantExtendedInfo ??
+                    throw new MultiTenantException("Failed to resolve tenant info"));
             services.AddScoped<ICustomerRepository, CustomerCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());

@@ -67,10 +67,10 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence
                 {
                     if (!_clients.TryGetValue(tenantInfo.Id, out connectionInfo))
                     {
-                        string[] settings = tenantInfo.ConnectionString.Split(";");
+                        string[] settings = tenantInfo.CosmosDbConnection.Split(";");
                         var clientOptions = _scopedData.Value.ClientOptions;
-                        var client = new CosmosClient(tenantInfo.ConnectionString, clientOptions);
-                        GetValuesFromConnectionString(tenantInfo.ConnectionString, out var database, out var defaultContainer);
+                        var client = new CosmosClient(tenantInfo.CosmosDbConnection, clientOptions);
+                        GetValuesFromConnectionString(tenantInfo.CosmosDbConnection, out var database, out var defaultContainer);
                         if (database == null)
                         {
                             database = _defaultDatabaseName;

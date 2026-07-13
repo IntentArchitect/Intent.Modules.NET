@@ -29,7 +29,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence
         }
         public override string? CosmosConnectionString
         {
-            get => ((TenantExtendedInfo?)_clientProvider.Tenant)?.ConnectionString;
+            get => ((TenantExtendedInfo?)_clientProvider.Tenant)?.CosmosDbConnection;
             set { }
         }
     }
