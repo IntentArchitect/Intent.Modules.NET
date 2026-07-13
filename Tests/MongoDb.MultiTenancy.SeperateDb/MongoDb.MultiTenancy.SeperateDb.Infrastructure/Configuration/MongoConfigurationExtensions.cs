@@ -18,7 +18,12 @@ namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure.Configuration
             IMongoMappingConfiguration<T> mongoConfiguration)
         {
             mongoConfiguration.RegisterCollectionMap();
-            services.AddSingleton(sp =>
+            // NOTE: Registered as Scoped (not the module's default Singleton) because IMongoDatabase
+            // is resolved per-tenant (Scoped) in this multi-tenant SeperateDb app - see
+            // MongoDb.MultiTenancy.SeperateDb.Infrastructure.DependencyInjection.AddInfrastructure.
+            // A Singleton collection would capture only the first tenant's database and/or throw
+            // "Cannot resolve scoped service 'IMongoDatabase' from root provider" at runtime.
+            services.AddScoped(sp =>
                                     {
                                         var database = sp.GetRequiredService<IMongoDatabase>();
                                         return database.GetCollection<T>(mongoConfiguration.CollectionName);

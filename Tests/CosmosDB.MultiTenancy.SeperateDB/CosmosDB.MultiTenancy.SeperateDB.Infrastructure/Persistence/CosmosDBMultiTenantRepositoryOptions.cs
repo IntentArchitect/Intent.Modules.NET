@@ -1,3 +1,4 @@
+using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository.Options;
 using Microsoft.Azure.CosmosRepository.Providers;
@@ -28,7 +29,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence
         }
         public override string? CosmosConnectionString
         {
-            get => _clientProvider.Tenant?.ConnectionString;
+            get => ((TenantExtendedInfo?)_clientProvider.Tenant)?.ConnectionString;
             set { }
         }
     }

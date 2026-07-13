@@ -19,7 +19,7 @@ namespace CosmosDBMultiTenancy.Api.Configuration
             IConfiguration configuration)
         {
             services.AddMultiTenant<TenantInfo>()
-                .WithHttpRemoteStore(configuration["Finbuckle:MultiTenant:Stores:HttpRemoteEndpointTemplate"]!) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#http-remote-store
+                .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
                 .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
             return services;
         }
@@ -38,6 +38,13 @@ namespace CosmosDBMultiTenancy.Api.Configuration
 
             store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1" }).Wait();
             store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2" }).Wait();
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
+        {
+            // configure in memory store:
+            options.IsCaseSensitive = false;
         }
     }
 }

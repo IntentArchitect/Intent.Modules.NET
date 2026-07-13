@@ -25,14 +25,14 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>true</defaultValue>
+      <defaultValue>True</defaultValue>
     </property>
     <property id="47756536-1333-482a-ada0-382db9b6fd1b">
       <name>Unique</name>
       <type>boolean</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>false</defaultValue>
+      <defaultValue>False</defaultValue>
     </property>
     <property id="ed962b0f-1001-41c2-8a4f-8780da2cf1ac">
       <name>Sort Order</name>

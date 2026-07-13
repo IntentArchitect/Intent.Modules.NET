@@ -75,7 +75,7 @@ internal static class Utils
                                 // if multitenancy configured, and it's a http post, then add the tenant to the parameters
                                 if(TryGetMultiTenancyRoute(template, operationModel, out var tenantRoute) && operationModel.Verb == HttpVerb.Post)
                                 {
-                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result, {tenantRoute} = tenantInfo.Id }}, {resultExpression})";
+                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result, {tenantRoute} = HttpContext.RequestServices.GetService<IMultiTenantContextAccessor>()?.MultiTenantContext?.TenantInfo?.Id }}, {resultExpression})";
                                 }
                             }
                             else
@@ -100,7 +100,7 @@ internal static class Utils
                                 // if multitenancy configured, and it's a http post, then add the tenant to the parameters
                                 if (TryGetMultiTenancyRoute(template, operationModel, out var tenantRoute) && operationModel.Verb == HttpVerb.Post)
                                 {
-                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result, {tenantRoute} = tenantInfo.Id }}, {resultExpression})";
+                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result, {tenantRoute} = HttpContext.RequestServices.GetService<IMultiTenantContextAccessor>()?.MultiTenantContext?.TenantInfo?.Id }}, {resultExpression})";
                                 }
                             }
                             else

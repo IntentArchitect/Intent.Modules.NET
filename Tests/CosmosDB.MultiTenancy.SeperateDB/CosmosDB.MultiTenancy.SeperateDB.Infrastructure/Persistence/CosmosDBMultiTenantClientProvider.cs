@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository.Options;
@@ -58,7 +60,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence
             {
                 throw new ArgumentNullException("Tenant info not found, unable to determine which database to access");
             }
-            var tenantInfo = _scopedData.Value.Tenant;
+            var tenantInfo = (TenantExtendedInfo)_scopedData.Value.Tenant;
             if (!_clients.TryGetValue(tenantInfo.Id, out var connectionInfo))
             {
                 lock (_lock)

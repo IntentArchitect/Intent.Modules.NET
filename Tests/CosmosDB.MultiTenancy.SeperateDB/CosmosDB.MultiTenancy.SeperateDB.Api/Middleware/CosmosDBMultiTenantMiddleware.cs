@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant;
 using CosmosDB.MultiTenancy.SeperateDB.Infrastructure.Persistence;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
@@ -33,7 +34,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Middleware
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var tenant = scope.ServiceProvider.GetRequiredService<IMultiTenantContextAccessor<TenantInfo>>().MultiTenantContext?.TenantInfo;
+                var tenant = scope.ServiceProvider.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo;
                 var cosmosClientOptionsProvider = scope.ServiceProvider.GetRequiredService<ICosmosClientOptionsProvider>();
 
                 using (_clientProvider.SetLocalState(tenant, cosmosClientOptionsProvider))

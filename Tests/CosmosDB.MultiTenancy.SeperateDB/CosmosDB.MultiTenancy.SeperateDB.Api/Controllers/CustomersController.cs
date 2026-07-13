@@ -10,7 +10,7 @@ using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.DeleteCustomer;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.GetCustomerById;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.GetCustomers;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.UpdateCustomer;
-using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -45,11 +45,10 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<JsonResponse<string>>> CreateCustomer(
             [FromBody] CreateCustomerCommand command,
-            ITenantInfo tenantInfo,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetCustomerById), new { id = result, __tenant__ = tenantInfo.Id }, new JsonResponse<string>(result));
+            return CreatedAtAction(nameof(GetCustomerById), new { id = result, __tenant__ = HttpContext.RequestServices.GetService<IMultiTenantContextAccessor>()?.MultiTenantContext?.TenantInfo?.Id }, new JsonResponse<string>(result));
         }
 
         /// <summary>
