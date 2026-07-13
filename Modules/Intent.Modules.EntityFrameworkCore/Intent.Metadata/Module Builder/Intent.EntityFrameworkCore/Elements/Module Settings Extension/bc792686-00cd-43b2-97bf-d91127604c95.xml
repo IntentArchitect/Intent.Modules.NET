@@ -40,7 +40,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="True" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Underlying database technology." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -168,7 +168,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="True" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Naming convention for SQL table names." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="pluralized" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -239,7 +239,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="True" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="true" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -267,7 +267,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Exposes a LINQ-capable interface in the Application layer, decoupled from the concrete DbContext." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -295,7 +295,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Sets the `UseQuerySplittingBehavior` option on the DbContext to `SplitQuery`." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -323,7 +323,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Enables a convention to convert enums to/from strings." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -351,7 +351,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Add SQL Table check constraints to ensure data corresponds to the enum." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -379,7 +379,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Explicitly set the default schema name for application (relational DBs only)" isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -407,7 +407,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="True" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="SQL column ordering should reflect the model order." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -436,7 +436,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Controls value generation in `EntityTypeConfiguration` classes." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="default" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
@@ -494,7 +494,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Controls the naming convention of the DBSets created on the DBContext." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="pluralized" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
@@ -551,7 +551,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="False" isActive="false" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Opt-out of having the Connection String added to appsettings.json" isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
