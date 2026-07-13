@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandHandlerSkill;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -18,6 +13,12 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -91,8 +92,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                     .WithAISummary("MediatR Handler implementation for the " + Model.Name + " command.")
                     .WithAIContext(
-                                """
-                                Use the mediatr-command-handler skill when modifying this handler.
+                                $"""
+                                Use the `{CommandHandlerSkillTemplate.SkillName}` skill when modifying this handler.
                                 """);
         }
 

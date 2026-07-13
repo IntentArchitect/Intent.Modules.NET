@@ -9,6 +9,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementationSkill;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -167,8 +168,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             return CSharpFile.GetConfig()
                     .WithAISummary($"Application Service implementation for the {Model.Name} service.")
                     .WithAIContext(
-                                """
-                                Use the application-service-implementation skill when modifying this service implementation.
+                                $"""
+                                Use the `{ServiceImplementationSkillTemplate.SkillName}` skill when modifying this service implementation.
                                 """); ;
         }
 
