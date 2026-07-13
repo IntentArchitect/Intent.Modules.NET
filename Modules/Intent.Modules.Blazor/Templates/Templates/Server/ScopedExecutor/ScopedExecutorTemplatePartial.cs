@@ -57,11 +57,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor
                                 method.AddStatement($"var currentUser = _serviceProvider.GetRequiredService<{interfaceName}>();");
                                 method.AddStatement("var user = await currentUser.GetAsync();");
                                 method.AddStatement("var scope = _scopeFactory.CreateScope();");
-                                method.AddIfStatement("user is not null", ifs => 
+                                method.AddIfStatement("user is not null", ifs =>
                                 {
                                     ifs.AddStatement("// AuthenticationStateProvider can't be invoked in the a child container. Propagating the ClaimsPrincipal to the child container.");
                                     ifs.AddStatement($"var scopedUser = scope.ServiceProvider.GetRequiredService<{interfaceName}>() as {this.GetTypeName("Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface")};");
-                                    ifs.AddStatement("scopedUser?.SetContext(user.Principal);"); 
+                                    ifs.AddStatement("scopedUser?.SetContext(user.Principal);");
                                 });
                                 method.AddStatement("return scope;");
 

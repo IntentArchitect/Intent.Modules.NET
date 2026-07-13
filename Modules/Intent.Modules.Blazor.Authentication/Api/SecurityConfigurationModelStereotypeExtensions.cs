@@ -73,6 +73,8 @@ namespace Intent.Blazor.Authentication.Api
                             return AuthenticationOptionsEnum.JWT;
                         case "OIDC":
                             return AuthenticationOptionsEnum.OIDC;
+                        case "None":
+                            return AuthenticationOptionsEnum.None;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -90,13 +92,18 @@ namespace Intent.Blazor.Authentication.Api
                 {
                     return Value == "OIDC";
                 }
+                public bool IsNone()
+                {
+                    return Value == "None";
+                }
             }
 
             public enum AuthenticationOptionsEnum
             {
                 ASPNETCoreIdentity,
                 JWT,
-                OIDC
+                OIDC,
+                None
             }
         }
 

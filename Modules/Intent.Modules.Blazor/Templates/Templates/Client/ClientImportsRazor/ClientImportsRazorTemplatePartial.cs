@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Settings;

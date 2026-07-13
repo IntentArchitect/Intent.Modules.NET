@@ -22,7 +22,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-08-05T15:30:51.0659739Z</updatedAt>
       <deviationsHash>5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D</deviationsHash>
-      <fileHash>DD157E07FE56CBEA6641377AB67BFAAB67CC90C8830A1493FEACE651B22E1F19</fileHash>
+      <fileHash>EB7F5D15C21C151BFA98543E9DD682D217BCBCE6A5095751C05FDA41E0167409</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -30,9 +30,9 @@
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-06-30T13:40:22.4756389Z</updatedAt>
+      <updatedAt>2026-07-13T15:36:52.7911622Z</updatedAt>
       <deviationsHash>8EA7CA6765207822EF0AFCBBC972CBCAE11F97DD542CED4B370E05D03A6A68AE</deviationsHash>
-      <fileHash>0718FB1221BAB71D10410CD074EA6C435D98B99349A9856955853A879D7E07C8</fileHash>
+      <fileHash>46BEC6F9FBC561F02647EA6E1FCD6403292A5233E0969A92A0A00014C488BB7E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -51,13 +51,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-14T17:33:35.6123199Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T18:08:05.9713919Z</approvedAt>
-      <deviationsHash>0F27A94780EEB5385BC0BFE852EF2D89D1C235431D997964BD63B661CB29A3D1</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-13T11:46:45.1271308Z</updatedAt>
+      <deviationsHash>87B0BD82374587D9034ADF30243947DD972E71D765E74E7442607A89914C8FAD</deviationsHash>
       <fileHash>FA9B4B0162CA52BDEACB211D1C7B5A464E19C850499F5D1CDB434EE36B763A85</fileHash>
     </file>
     <file>

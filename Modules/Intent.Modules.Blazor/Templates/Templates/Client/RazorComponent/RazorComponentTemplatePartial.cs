@@ -24,6 +24,7 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
     using Intent.Blazor.Api;
+    using Intent.Modules.Blazor.Templates.Templates.Client;
     using Intent.Templates;
 
     /// <summary>
@@ -36,6 +37,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
+
+        // Element metadata key stamped by the "Security Type" stereotype's page-tagging script onto
+        // the modelled Login/Register/etc. Component/Page elements it creates (e.g. "jwt-login").
+        private const string AuthPageIdMetadataKey = "blazor-auth-page-id";
 
         /// <summary>
         /// Creates a new instance of <see cref="RazorComponentTemplate"/>.
@@ -50,7 +55,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             AddTypeSource("Intent.Application.Dtos.DtoModel");
             AddTypeSource(TemplateId);
 
-            RazorFile = IRazorFile.Create(this, $"{Model.Name.ToSanitized()}")
+            RazorFile = IRazorFile.Create(this, GetOutputFileName(model))
                 .Configure(file =>
                 {
                     if (Model.HasPage())
@@ -101,6 +106,38 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         [IntentManaged(Mode.Ignore)]
         public sealed override IRazorFile RazorFile { get; }
 
+        /// <summary>
+        /// When set, seeds this page's first-generation Razor content with this literal string instead
+        /// of <see cref="RazorFile"/>'s built markup.
+        /// </summary>
+        public string? DefaultContentOverride { get; set; }
+
+        /// <summary>
+        /// Computes this component's physical output file name (without extension), appending an
+        /// authentication-mode suffix (e.g. "LoginJwt") when the model is an authentication-generated
+        /// page, so pages sharing the same modelled route across auth modes still generate to distinct
+        /// files. The <c>@page</c> route itself is unaffected.
+        /// </summary>
+        public static string GetOutputFileName(ComponentModel model)
+        {
+            var baseName = model.Name.ToSanitized();
+            if (!model.InternalElement.Metadata.TryGetValue(AuthPageIdMetadataKey, out var pageId))
+            {
+                return baseName;
+            }
+
+            var mode = pageId.Split('-', 2)[0];
+            var suffix = mode switch
+            {
+                "identity" => "Identity",
+                "jwt" => "Jwt",
+                "oidc" => "Oidc",
+                _ => string.Empty
+            };
+
+            return $"{baseName}{suffix}";
+        }
+
         protected override string CodeBehindTemplateId => RazorComponentCodeBehindTemplate.TemplateId;
 
         /// <inheritdoc />
@@ -123,7 +160,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             string baseContent;
             if (!System.IO.File.Exists(filePath))
             {
-                var razorContent = RazorFile.ToString();
+                var razorContent = DefaultContentOverride ?? RazorFile.ToString();
                 if (string.IsNullOrWhiteSpace(razorContent))
                     return "@* To be replaced with your razor content *@";
                 baseContent = razorContent;
@@ -137,7 +174,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             var attributeDirectives = BuildAttributeDirectives();
             var pageTitle = BuildPageTitle();
 
-            if (string.IsNullOrEmpty(pageDirective) && string.IsNullOrEmpty(pageTitle))
+            if (string.IsNullOrEmpty(pageDirective) && string.IsNullOrEmpty(pageTitle) && string.IsNullOrEmpty(attributeDirectives))
                 return baseContent;
 
             baseContent = NormalizeLineEndings(baseContent);
@@ -214,7 +251,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             {
                 var t = line.Trim();
                 return !t.StartsWith("@page ") &&
-                       !(t.StartsWith("@attribute [") && t.Contains("Authorize"));
+                    !(t.StartsWith("@attribute [") && t.Contains("Authorize"));
             });
             return string.Join('\n', kept);
         }

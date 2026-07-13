@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1132514b-15dd-4dac-b602-462278e1128d" type="Razor Template" typeId="05162e94-598b-416c-9779-d42b0b5262a1">
+  <comment>Generates Razor component/page files with edit-preserving managed directives. Physical output file names are computed per model (auth-generated pages get an authentication-mode suffix, e.g. "LoginJwt", so distinct auth modes never collide on the same output file) while the modelled route stays unchanged.</comment>
   <name>RazorComponentTemplate</name>
   <display>RazorComponentTemplate: File Per Model</display>
   <isAbstract>false</isAbstract>

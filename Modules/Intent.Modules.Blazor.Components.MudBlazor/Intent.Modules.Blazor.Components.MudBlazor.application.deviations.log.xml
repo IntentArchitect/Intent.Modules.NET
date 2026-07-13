@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cc70cbf5-cdba-41f3-a082-24dc1d260eeb</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/HomePageDefaultHtmlExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-13T19:12:42.3124038Z</updatedAt>
+      <deviationsHash>C9CC9031F3F5D0DC2654BE50A37C0C80CF66E2A7C4350E54EEDC08690982E2E9</deviationsHash>
+      <fileHash>09016193E33EAD0E51FE40AEE58CFB81038B2D9223997FC514058570345A40BD</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cdfa2128-cc5d-4fba-a736-f60d7c446179</correlationId>
       <path>Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/WireupCssExtension.cs</path>
       <count>1</count>

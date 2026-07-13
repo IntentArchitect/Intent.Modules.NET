@@ -41,7 +41,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     {
                         identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
                     }
-                        @class.Internal().Sealed();
+                    @class.Internal().Sealed();
                     @class.ImplementsInterface($"{UseType("Microsoft.AspNetCore.Identity.IEmailSender")}<{identityUserName}>");
 
                     @class.AddField("IEmailSender", "emailSender", emailSender =>

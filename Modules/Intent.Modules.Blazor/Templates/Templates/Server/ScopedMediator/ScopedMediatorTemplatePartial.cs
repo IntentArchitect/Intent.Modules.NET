@@ -118,7 +118,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediator
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() 
+            return base.CanRunTemplate()
                 && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
                 && ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Application.MediatR");
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -32,7 +33,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")
                 .IntentManagedMerge()
-                .AddClass($"{Model.Name.ToSanitized()}", @class =>
+                .AddClass(RazorComponentTemplate.GetOutputFileName(model), @class =>
                 {
                     @class.Partial();
                 });
