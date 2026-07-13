@@ -14,7 +14,7 @@
       <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
       <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
       <properties>
-        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="False" isActive="true" />
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="false" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
