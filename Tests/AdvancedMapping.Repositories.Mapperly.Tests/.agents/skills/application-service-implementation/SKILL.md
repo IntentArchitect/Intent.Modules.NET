@@ -1,8 +1,8 @@
 ---
 name: application-service-implementation
-description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
+description: Implement or fix business logic in traditional style application services, following this codebase's established architectural conventions. Use when a C# application service class has incomplete or incorrect business logic.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: CE148C3BC338A63E6D258520FC9C7BF48BB355BFED169EDD45DE51355877766B
+contentHash: 58EE7DAECC0EBDCD16F8FA28B6CB8474B3C46DA26DE4ED6C606F87CD2D24CF63
 ---
 # Traditional Service Implementation
 

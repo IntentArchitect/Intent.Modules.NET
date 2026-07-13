@@ -1,8 +1,8 @@
 ---
 name: mediatr-command-handler
-description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
+description: Implement or fix business logic in a MediatR command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 130AC696BE18AA944F247DBE06A8F6A033598DC922C14497314604920220B4B0
+contentHash: 73B3E68A499E3A53B7E8B69B63746C15E8A41F3C76636310C193FE47A02D44EC
 ---
 # MediatR Command Handler
 
