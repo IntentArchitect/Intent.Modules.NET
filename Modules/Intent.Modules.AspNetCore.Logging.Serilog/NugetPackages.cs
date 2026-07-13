@@ -82,12 +82,12 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
             NugetRegistry.Register(SerilogSinksApplicationInsightsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("5.0.0")
+                        ( >= 6, >= 0) => new PackageVersion("5.0.1")
                             .WithNugetDependency("Microsoft.ApplicationInsights", "2.23.0")
-                            .WithNugetDependency("Serilog", "4.3.0"),
-                        ( >= 2, >= 0) => new PackageVersion("5.0.0")
+                            .WithNugetDependency("Serilog", "4.3.1"),
+                        ( >= 2, >= 0) => new PackageVersion("5.0.1")
                             .WithNugetDependency("Microsoft.ApplicationInsights", "2.23.0")
-                            .WithNugetDependency("Serilog", "4.3.0"),
+                            .WithNugetDependency("Serilog", "4.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogSinksApplicationInsightsPackageName}'"),
                     }
                 );

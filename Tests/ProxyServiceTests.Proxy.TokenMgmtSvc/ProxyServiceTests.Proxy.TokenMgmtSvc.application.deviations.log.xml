@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#fe688d06-442e-4f24-9aef-8d3f1c3ddbe8</correlationId>
+      <path>ProxyServiceTests.Proxy.TMS.Infrastructure/ProxyServiceTests.Proxy.TMS.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:25.7629447Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.29628Z</approvedAt>
+      <deviationsHash>4426A1C272356C3B370565AA217A2245C2E474810E1642D9F104723966510FB7</deviationsHash>
+      <fileHash>6D7A9D0E193C5AE5C0844AB94643871C0DB2B4DB2EE03DF5A0990143680B7069</fileHash>
+    </file>
+  </files>
 </deviationsLog>

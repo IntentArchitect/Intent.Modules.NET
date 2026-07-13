@@ -21,7 +21,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.GetProducts
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ProductDto>> Handle(GetProductsQuery query, CancellationToken cancellationToken)
+        public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.FindAllAsync(cancellationToken);
             return products.MapToProductDtoList(_mapper);

@@ -283,4 +283,8 @@ Spikes/
 # PATTERN-DOCUMENT.md, ATTACK-PLAN.md, etc.)
 .module-builder/
 
+# Intent Architect
+
+.mcp.json
+
 Modules/Intent.Modules/

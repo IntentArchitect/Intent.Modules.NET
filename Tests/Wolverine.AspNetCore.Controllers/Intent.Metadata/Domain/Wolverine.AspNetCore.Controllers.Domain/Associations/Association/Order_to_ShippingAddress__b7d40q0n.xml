@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="962c2494-df9d-4e32-b3b1-cecda75e4466">
+  <sourceEnd id="36d23ea3-3609-4783-b677-0e9ff667f493" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="65a0dd19-8010-4f0a-93a2-006e3f8af13f">
+      <typeId>84249c07-945b-4437-880e-cbc583db3e0b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="962c2494-df9d-4e32-b3b1-cecda75e4466" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ShippingAddress</name>
+    <display>ShippingAddress: ShippingAddress</display>
+    <order>8</order>
+    <typeReference id="228dfa23-3931-4f03-8df3-7660aff7e909">
+      <typeId>cf016e5e-4c4e-4b44-869c-632afeff7531</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Domain</typePackageName>
+      <typePackageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

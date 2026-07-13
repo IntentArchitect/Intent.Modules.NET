@@ -6,7 +6,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.QueryHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProductById
+namespace Wolverine.AspNetCore.Controllers.Application.GetProductById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetProductByIdQueryHandler
@@ -21,12 +21,12 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProductById
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<ProductDto> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
+        public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FindByIdAsync(query.Id, cancellationToken);
+            var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
             if (product is null)
             {
-                throw new NotFoundException($"Could not find Product '{query.Id}'");
+                throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
             return product.MapToProductDto(_mapper);
         }

@@ -2,7 +2,7 @@
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 4246006AE85352246588CCB871DDCA6087E5CF1C19DAB950BCEA164C2D7373C4
+contentHash: A8810364355AF3002FD5A7AE84E80B8BE5F6127794920B8A11FDAE751CF704F2
 ---
 # MediatR Command Handler
 
@@ -103,24 +103,24 @@ When a needed repository capability is missing:
 
 **Example:**
 ```csharp
-    [Mapper]
-    public partial class OrderDtoMapper
+[Mapper]
+public partial class OrderDtoMapper
+{
+    [UseMapper]
+    private readonly OrderLineDtoMapper _orderLineDtoMapper;
+
+    public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
     {
-        [UseMapper]
-        private readonly OrderLineDtoMapper _orderLineDtoMapper;
+        _orderLineDtoMapper = orderLineDtoMapper;
+    }
 
-        public OrderDtoMapper(OrderLineDtoMapper orderLineDtoMapper)
-        {
-            _orderLineDtoMapper = orderLineDtoMapper;
-        }
+    [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
+    [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
+    public partial OrderDto OrderToOrderDto(Order order);
 
-        [MapProperty(nameof(Order.Lines), nameof(OrderDto.OrderLines))]
-        [MapPropertyFromSource(nameof(OrderDto.IsActive), Use = nameof(MapIsActive))]
-        public partial OrderDto OrderToOrderDto(Order order);
+    public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
 
-        public partial List<OrderDto> OrderToOrderDtoList(IEnumerable<Order> orders);
-
-        private bool MapIsActive(Order source) => source.IsActive();
+    private bool MapIsActive(Order source) => source.IsActive();
 }
 ```
 

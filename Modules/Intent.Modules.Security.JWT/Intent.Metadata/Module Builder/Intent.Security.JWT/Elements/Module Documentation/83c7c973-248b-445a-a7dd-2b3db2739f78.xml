@@ -13,7 +13,6 @@
   <metadata />
   <childElements>
     <childElement id="1f3359ce-1467-43cd-abfa-5c383bd35bf9" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
-      <comment />
       <name>JWT Security Module Documentation</name>
       <display>JWT Security Module Documentation</display>
       <isAbstract>false</isAbstract>

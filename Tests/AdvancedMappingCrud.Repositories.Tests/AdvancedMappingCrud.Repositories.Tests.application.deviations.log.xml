@@ -28,6 +28,19 @@
       <fileHash>2B4DAE5B19A8BDF8E596ED27C2030B5C0F27E9AC397B42E521A6D745D385A22F</fileHash>
     </file>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#a7d214f2-d79e-4341-bebb-59eaffc5dbb0</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Infrastructure/AdvancedMappingCrud.Repositories.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:51.1238302Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.8564327Z</approvedAt>
+      <deviationsHash>25565F15AD63B442DA207F0D0ABF46889FDCD5D60B33854AEB1CF4A5B94A84B6</deviationsHash>
+      <fileHash>9267ECE6E3BEF8D7BB497C04B1FA240FC06ACE52CED3F8B82E250A9500C86692</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c28c7bc4-2b22-4257-bf26-e3deffc0cfb9</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateCountryTests.cs</path>
       <count>1</count>

@@ -1,3 +1,7 @@
+### Version 2.0.19
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.18
 
 - Fixed: Added additional null check when dealing with nullable collection parameters.

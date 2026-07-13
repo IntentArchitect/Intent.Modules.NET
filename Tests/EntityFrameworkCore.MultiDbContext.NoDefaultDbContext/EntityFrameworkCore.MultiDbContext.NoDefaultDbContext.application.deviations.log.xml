@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b883b1b8-b427-449e-a1e5-9e2fa7555ae1</correlationId>
+      <path>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:33.0568016Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.8398051Z</approvedAt>
+      <deviationsHash>E887D1C3FD0040FEB2FCAA68722C1B7718A0DFCBAAD21598BD0D705E5D4CC613</deviationsHash>
+      <fileHash>51A100FE728A7F90045B17D1B9153B20F3CDF89E32472A49C4738C2B8E33B977</fileHash>
+    </file>
+  </files>
 </deviationsLog>

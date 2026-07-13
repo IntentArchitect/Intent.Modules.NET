@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#9dc8c190-797f-42d4-8315-7aedc4a3c1a2</correlationId>
+      <path>CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:02.2905608Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:30.0228536Z</approvedAt>
+      <deviationsHash>67F176B7BDD09E8102256D93AD730026BF79B677E627DCE9CD5FCB08BC1D422B</deviationsHash>
+      <fileHash>C2887398CE900740731A62DAB192E24588F096D8C5B81176398B1CE08279EAC1</fileHash>
+    </file>
+  </files>
 </deviationsLog>

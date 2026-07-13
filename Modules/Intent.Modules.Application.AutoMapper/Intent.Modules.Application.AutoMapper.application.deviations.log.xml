@@ -9,7 +9,7 @@
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-05-26T06:41:36.8950963Z</updatedAt>
       <deviationsHash>D2DCD6A6013EF4160C6DD2E6BF2F15B28126B8BAEEF66DE6E8F130C8A12D3928</deviationsHash>
-      <fileHash>5FC8671CF15F95DA0CFD49A91EBBDE9FEA5EF239B5C89008A69D9BCE09F829D7</fileHash>
+      <fileHash>B4B7340DE62FF6F389135F78DA132BB3F88EC5CB8D1881FD5EE40ACA403FE967</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
@@ -69,6 +69,16 @@
       <approvedAt>2024-08-20T11:55:49.5386337Z</approvedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>F7790D38C8CE1A7715CBADCD6289FB20647F507CFBA9B59E8D1B99F7DA7BD727</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.VisualStudioSolution#67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</correlationId>
+      <path>Intent.Modules.NET.sln</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-10T13:29:20.5359061Z</updatedAt>
+      <deviationsHash>0AE00E9D52DB72006D195AB07DFE79564B2B59D216CD3DD176C7AC0CA979B995</deviationsHash>
+      <fileHash>C43855B666F6F597FB9BE904AF2A56C09358EEDE966AA004E2EE60CEB37733CD</fileHash>
     </file>
   </files>
 </deviationsLog>

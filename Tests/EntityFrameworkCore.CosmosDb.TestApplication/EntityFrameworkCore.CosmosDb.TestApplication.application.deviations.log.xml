@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#6392f072-8f5f-4330-b46a-00c9b02f5185</correlationId>
+      <path>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:33.1949228Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:43.8845816Z</approvedAt>
+      <deviationsHash>B98D6E65A87B68187B4A94553C332B05D8A29E28BCE9F4EAC1404F777D1C6183</deviationsHash>
+      <fileHash>0C3739B8C7E5F064E36F2A601BB731E4ABD5D81EF87453E5063FAA9F139A2C53</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</correlationId>
       <path>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs</path>
       <count>1</count>

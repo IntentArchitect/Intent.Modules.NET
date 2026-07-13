@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations</id>
-  <version>4.7.2</version>
+  <version>4.7.3-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides a standard service implementation pattern for Application Contracts</summary>
   <description>Provides a standard service implementation pattern for Application Contracts</description>
@@ -20,7 +20,7 @@
       </config>
     </template>
     <template id="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" externalReference="809b95af-f0c0-4779-b754-d89d221a960d">
-      <role>AI.Context.Skills</role>
+      <role>AI.Context.Skills.Handler</role>
       <location></location>
     </template>
   </templates>
@@ -33,6 +33,30 @@
     <dependency id="Intent.Modelers.Services" version="4.0.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>
+  <interoperability>
+    <!-- Minimum Compatible Versions -->
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore" version="5.0.47-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.EntityFrameworkCore.Repositories">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.AutoMapper">
+      <install>
+        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Dtos.Mapperly">
+      <install>
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.2" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

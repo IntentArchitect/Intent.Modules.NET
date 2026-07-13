@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="a8328902-35f9-4434-a498-866137ddc8ab" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.1.0</name>
+      <name>4.1.1</name>
       <display>3.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2a183949-f0ff-41c9-99f6-7ab621a35f68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="06d7095f-4232-477b-a2e2-73fe31e0b714" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Bugsnag</name>
           <isAbstract>false</isAbstract>
-          <value>4.1.0</value>
+          <value>4.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
@@ -55,7 +55,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f3edb1f9-00ed-4b51-b614-3796fb4d1de7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="480847a6-2d6c-4892-97a1-d60c32d6387e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Diagnostics.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -66,7 +66,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ef01a68f-d11b-4981-bbad-9d3a870798f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50a87c07-ee12-457a-b215-2755548cb7ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -77,7 +77,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bba648e2-74ca-4ae6-824f-bc27069ab731" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="244ba78e-e552-4f9d-bfa5-b823e1b07ec2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -88,7 +88,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3e1efb19-c0a0-4364-b016-f1d51e0ed55f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a0794fb-8a56-4348-9be6-b84d42ee2132" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -99,7 +99,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="00ccfd87-f008-407d-a8e1-e7ef72085261" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a4f5ced1-80da-4464-9125-1e3e78cdf26a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -110,7 +110,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89ed24d3-4883-4ee3-a4e4-35420b9b323b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="78501bc5-ec12-47c1-95ca-d5259f5f8c26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.2</value>
@@ -121,7 +121,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="83e907e5-a621-41ca-a104-87cef7185a98" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a482ead3-9a36-4093-bed1-032988ca34c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DiagnosticAdapter</name>
           <isAbstract>false</isAbstract>
           <value>3.1.32</value>
@@ -132,7 +132,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f95e4a62-165c-475b-9acf-831d305edf54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="793146d5-abe2-4d6c-9fba-f50798906d55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -143,7 +143,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a56bc05d-d1ec-4c22-a868-b271f194cf12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e855e648-d15b-4e82-b31b-bbd6c14a2333" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Diagnostics.DiagnosticSource</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
@@ -157,7 +157,7 @@
       </childElements>
     </childElement>
     <childElement id="cbc8a0a1-ac3a-48da-9efa-2a6e3600588c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.1.0</name>
+      <name>4.1.1</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -175,10 +175,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="17399edd-b1fc-4125-80b2-9b8024523e6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="117a819d-dae5-47a2-90a4-e6e803005079" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Bugsnag</name>
           <isAbstract>false</isAbstract>
-          <value>4.1.0</value>
+          <value>4.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cbc8a0a1-ac3a-48da-9efa-2a6e3600588c</parentFolderId>
@@ -186,7 +186,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e0e8a733-99ac-4fce-add6-223abc9a7bb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6758565e-4862-4346-88c7-299b15b67f38" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DiagnosticAdapter</name>
           <isAbstract>false</isAbstract>
           <value>3.1.32</value>

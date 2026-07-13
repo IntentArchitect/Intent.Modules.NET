@@ -1,0 +1,7 @@
+### Version 1.0.0
+
+- Improvement: Interaction-implemented handler bodies now reference the incoming command/query via `request` (previously `command`/`query`), matching the parameter name used on the handler's own `Handle` method signature across all supported transports.
+- New Feature: Initial release. Discovers Command and Query handlers by role (`TemplateRoles.Application.Handler.Command` / `.Query`) instead of a concrete transport type, so any transport module (Wolverine, MediatR, etc.) can supply the handler templates.
+- New Feature: Implements the modelled Domain Interactions (`Create Entity Action`, `Update Entity Action`, `Query Entity Action`, etc.) inside the discovered handler's `Handle` method for both commands and queries.
+- New Feature: Adds a convention-based "get all" fallback for queries with no modelled Domain Interactions that return a collection of a DTO mapped from a domain entity, generating a repository `FindAllAsync` call plus an AutoMapper projection.
+- New Feature: Adds convention-based paging for queries with no modelled Domain Interactions that return a `PagedResult<TDto>` (where the nested DTO is mapped from a domain entity) and expose page-number (`Page` / `PageNo` / `PageNumber`) and page-size (`Size` / `PageSize`) fields. The handler is generated as a paged repository `FindAllAsync(pageNo, pageSize)` call followed by a `MapToPagedResult` projection, matching the legacy MediatR CRUD module's paged "get all" behaviour so paged queries are no longer left as stubs.

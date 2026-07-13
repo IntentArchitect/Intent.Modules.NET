@@ -2,6 +2,32 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3c50f867-88d1-419e-8a2e-eed8d12e80f2</correlationId>
+      <path>AdvancedMappingCrud.DbContext.Tests.Application/AdvancedMappingCrud.DbContext.Tests.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:33.5771462Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.9729023Z</approvedAt>
+      <deviationsHash>5BD26495B7150FC9A585069E0FEBA407C28B6B4A2E8A76116C257B861ED1704B</deviationsHash>
+      <fileHash>AED87C4274864329C2C0897594E9BAA7C318EEDAB907F213868E2D9AD4EC70C6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3042658d-5472-4c53-95da-0e7a3bde78e2</correlationId>
+      <path>AdvancedMappingCrud.DbContext.Tests.Infrastructure/AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:33.5774475Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.9994426Z</approvedAt>
+      <deviationsHash>EEBE240084A36AC9C89AA99A00411CF4A3310510CB662AEE36DC487ECC639B41</deviationsHash>
+      <fileHash>E13D0D0E0A32B986119B2D1068FCF40EE406A9A23C6FB72E7375ECE194FC4D64</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture#b50680f2-b7d8-4491-bc20-35b9378bd180</correlationId>
       <path>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/EFContainerFixture.cs</path>
       <count>1</count>

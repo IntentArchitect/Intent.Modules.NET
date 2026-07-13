@@ -36,6 +36,16 @@ Both templates fulfil the standard Intent roles:
 
 These roles are how `Intent.Application.Wolverine` (and any other module that wires validation middleware) finds the validator template instances at SF time. Do not change or remove these role assignments.
 
+### The `CustomValidationSkill` AI agent skill file is inherited, never duplicated
+
+This module deliberately does **not** own a `CustomValidationSkill` template. The skill file (`.agents/skills/fluent-validation-custom-validation/SKILL.md`) is owned by the base `Intent.Application.FluentValidation` module and is inherited via an imodspec `<dependency id="Intent.Application.FluentValidation" .../>` declaration — the exact same pattern `Intent.Application.MediatR.FluentValidation` uses for the same file.
+
+This was not obvious the first time around: a duplicate `CustomValidationSkillTemplate` was mistakenly created directly inside this module before the sibling MediatR module's imodspec was checked. That duplicate collided on the exact same output path as the base module's template whenever both happened to be installed in the same app (which they usually are, since `Intent.Application.FluentValidation.Dtos` also depends on the base module) — one of the two templates silently never executed, and a "0 changes" SF result did not mean the duplicate worked; it meant the collision was masking it. The fix was to delete the duplicate template entirely and add the missing imodspec dependency instead.
+
+**Do not re-add a `CustomValidationSkill` (or similarly named) template to this module.** If the skill content ever needs to change, change it in the base `Intent.Application.FluentValidation` module — both MediatR and Wolverine apps inherit it from there.
+
+The dependency floor is pinned at `3.12.2` (not the lower `3.11.6` this module's `.csproj` compiles against) because `3.12.0` and earlier generated the skill file at a different, since-renamed output path (`custom-fluent-validation` instead of `fluent-validation-custom-validation`). A lower floor resolves to a version whose template deletes/recreates the file at the wrong path on install. If bumping this dependency in the future, verify the resolved base-module version still uses `fluent-validation-custom-validation` before lowering the floor.
+
 ---
 
 ## Interactions with Other Modules
@@ -45,6 +55,7 @@ These roles are how `Intent.Application.Wolverine` (and any other module that wi
 | `Intent.Modules.FluentValidation.Shared` | Provides `DtoValidatorTemplateBase` — the only base class for both validators. |
 | `Intent.Application.Wolverine` | Consumes the template roles (`TemplateRoles.Application.Validation.Command/.Query`) to wire validation middleware. |
 | `Intent.Application.MediatR.FluentValidation` | Sibling module that uses the same shared base. Keep both in sync via the shared package — never diverge their base class strategy. |
+| `Intent.Application.FluentValidation` | Declared as an imodspec dependency solely to inherit the `CustomValidationSkill` AI agent skill template — not for validator generation logic. |
 
 ---
 
@@ -52,3 +63,4 @@ These roles are how `Intent.Application.Wolverine` (and any other module that wi
 
 - **Do not generate validator code from scratch.** The shared base handles the scaffolding, injection, and partial method pattern. Reinventing this creates drift with the MediatR variant.
 - **Do not change `modelParameterName` to a generic value** like `"model"` or `"dto"`. The name is load-bearing — it must match Wolverine's handler method parameter name.
+- **Do not add a duplicate `CustomValidationSkill` template to this module.** It already inherits one from `Intent.Application.FluentValidation` via the imodspec dependency; a second copy collides on the same output path.

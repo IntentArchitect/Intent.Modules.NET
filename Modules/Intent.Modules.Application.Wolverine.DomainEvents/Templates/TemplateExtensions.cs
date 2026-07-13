@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modules.Application.Wolverine.DomainEvents.Templates.DefaultDomainEventHandler;
 using Intent.Modules.Application.Wolverine.DomainEvents.Templates.DomainEventHandler;
 using Intent.Modules.Application.Wolverine.DomainEvents.Templates.DomainEventService;
 using Intent.Modules.Common.Templates;
@@ -13,6 +14,15 @@ namespace Intent.Modules.Application.Wolverine.DomainEvents.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetDefaultDomainEventHandlerName<T>(this IIntentTemplate<T> template) where T : DomainEventModel
+        {
+            return template.GetTypeName(DefaultDomainEventHandlerTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDefaultDomainEventHandlerName(this IIntentTemplate template, DomainEventModel model)
+        {
+            return template.GetTypeName(DefaultDomainEventHandlerTemplate.TemplateId, model);
+        }
         public static string GetDomainEventHandlerName<T>(this IIntentTemplate<T> template) where T : DomainEventHandlerModel
         {
             return template.GetTypeName(DomainEventHandlerTemplate.TemplateId, template.Model);

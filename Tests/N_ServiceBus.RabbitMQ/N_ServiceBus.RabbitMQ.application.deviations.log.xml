@@ -1,35 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#1feed6e8-a0a7-47c9-a9a3-14e4f7aba6c2</correlationId>
-      <path>N_ServiceBus.RabbitMQ.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:31.0187545Z</updatedAt>
-      <deviationsHash>88FDCE184A9E23D11F3177E267755E8B225DD60FAE421B360260A8E2B9623288</deviationsHash>
-      <fileHash>658D3D4094558EEA6CEF4935A89C103F2B89B80829787868F221507F2D041AD5</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#24828efc-b592-4436-b607-b37ebe6b07b7</correlationId>
-      <path>N_ServiceBus.RabbitMQ.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:31.0190374Z</updatedAt>
-      <deviationsHash>91649CBBB714352E6243C8ED66B3FD202C2DA5D72903D50404F5398D5A1C258C</deviationsHash>
-      <fileHash>176C755B6A0238FD93AC31030933D949D04DE10CFC61DD510ED1538B73DA5962</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageHandler#77cedf0c-421c-4cfe-b996-00340a1021d4</correlationId>
-      <path>N_ServiceBus.RabbitMQ.Infrastructure/Eventing/NServiceBusMessageHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:16:31.0190708Z</updatedAt>
-      <deviationsHash>D9F42ADF832951D2E5593A41E52485D766026E15CAF2DB21F9370129A030A161</deviationsHash>
-      <fileHash>0E8D8AF0AC6027A91DF7A34C7D38330814FF90BC9E8EB7F63B96823BCAB3A4A0</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

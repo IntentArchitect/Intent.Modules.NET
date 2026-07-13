@@ -28,10 +28,10 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("7.0.1")
+                        ( >= 9, >= 0) => new PackageVersion("7.0.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.13")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "1.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "1.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.13")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
@@ -39,10 +39,10 @@ namespace Intent.Modules.Eventing.NServiceBus
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.13")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.13"),
-                        ( >= 8, >= 0) => new PackageVersion("7.0.1")
+                        ( >= 8, >= 0) => new PackageVersion("7.0.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "1.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "1.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
@@ -50,10 +50,10 @@ namespace Intent.Modules.Eventing.NServiceBus
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1"),
-                        ( >= 2, >= 0) => new PackageVersion("7.0.1")
+                        ( >= 2, >= 0) => new PackageVersion("7.0.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "1.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "1.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
@@ -69,7 +69,7 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(NServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.2.6")
+                        ( >= 10, >= 0) => new PackageVersion("10.2.7")
                             .WithNugetDependency("Microsoft.Extensions.Hosting", "10.0.9")
                             .WithNugetDependency("NServiceBus.MessageInterfaces", "1.0.0")
                             .WithNugetDependency("System.IO.Hashing", "10.0.9"),
@@ -148,7 +148,9 @@ namespace Intent.Modules.Eventing.NServiceBus
                             .WithNugetDependency("NServiceBus", "9.2.11"),
                         ( >= 6, >= 0) => new PackageVersion("9.0.6")
                             .WithNugetDependency("NServiceBus", "8.2.7"),
-                        ( >= 0, >= 0) => new PackageVersion("8.6.4")
+                        ( >= 2, >= 0) => new PackageVersion("8.6.4")
+                            .WithNugetDependency("Microsoft.CSharp", "4.7.0")
+                            .WithNugetDependency("NHibernate", "5.5.2")
                             .WithNugetDependency("NServiceBus", "7.8.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusNHibernatePackageName}'"),
                     }
@@ -160,16 +162,22 @@ namespace Intent.Modules.Eventing.NServiceBus
                             .WithNugetDependency("NServiceBus.NHibernate", "11.1.0"),
                         ( >= 8, >= 0) => new PackageVersion("10.1.2")
                             .WithNugetDependency("NServiceBus.NHibernate", "10.1.2"),
+                        ( >= 6, >= 0) => new PackageVersion("9.0.6")
+                            .WithNugetDependency("NServiceBus.NHibernate", "9.0.6")
+                            .WithNugetDependency("NServiceBus.TransactionalSession", "2.0.2"),
+                        ( >= 2, >= 0) => new PackageVersion("8.6.4")
+                            .WithNugetDependency("NServiceBus.NHibernate", "8.6.4")
+                            .WithNugetDependency("NServiceBus.TransactionalSession", "1.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusNHibernateTransactionalSessionPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusPersistenceSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("9.0.1")
+                        ( >= 10, >= 0) => new PackageVersion("9.0.2")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.4")
                             .WithNugetDependency("NServiceBus", "10.1.4"),
-                        ( >= 8, >= 0) => new PackageVersion("8.3.1")
+                        ( >= 8, >= 0) => new PackageVersion("8.3.2")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
                             .WithNugetDependency("NServiceBus", "9.2.11"),
                         ( >= 6, >= 0) => new PackageVersion("7.0.8")
@@ -184,11 +192,11 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(NServiceBusPersistenceSqlTransactionalSessionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("9.0.1")
-                            .WithNugetDependency("NServiceBus.Persistence.Sql", "9.0.1")
+                        ( >= 10, >= 0) => new PackageVersion("9.0.2")
+                            .WithNugetDependency("NServiceBus.Persistence.Sql", "9.0.2")
                             .WithNugetDependency("NServiceBus.TransactionalSession", "4.0.2"),
-                        ( >= 8, >= 0) => new PackageVersion("8.3.1")
-                            .WithNugetDependency("NServiceBus.Persistence.Sql", "8.3.1")
+                        ( >= 8, >= 0) => new PackageVersion("8.3.2")
+                            .WithNugetDependency("NServiceBus.Persistence.Sql", "8.3.2")
                             .WithNugetDependency("NServiceBus.TransactionalSession", "3.4.1"),
                         ( >= 6, >= 0) => new PackageVersion("7.0.8")
                             .WithNugetDependency("NServiceBus.Persistence.Sql", "7.0.8")

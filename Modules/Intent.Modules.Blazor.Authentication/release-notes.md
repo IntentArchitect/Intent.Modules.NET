@@ -1,5 +1,6 @@
 ### Version 2.0.1
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Reduced unnecessary warnings by seeding `[SupplyParameterFromForm]` input models in `OnInitialized (Input ??= new())` instead of a property initializer which should rather be set to `default!`
 
 ### Version 2.0.0

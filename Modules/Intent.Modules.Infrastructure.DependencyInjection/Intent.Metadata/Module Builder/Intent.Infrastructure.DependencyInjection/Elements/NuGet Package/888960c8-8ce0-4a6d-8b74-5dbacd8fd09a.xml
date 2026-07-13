@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="076b4c49-e1b1-44c4-8e8e-dfe3b966187f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="57a4fb85-9678-4313-8a38-9f5a9e983f63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2f01300-f26b-407d-bc17-2bc006decac1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>076b4c49-e1b1-44c4-8e8e-dfe3b966187f</parentFolderId>
@@ -58,7 +58,7 @@
       </childElements>
     </childElement>
     <childElement id="141537af-5588-42d4-af6b-8569927c3316" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -76,10 +76,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1127a472-2ac8-48c7-b51f-b9b7ccba0279" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15c0f0b7-9f48-4482-8b89-67a012038c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>141537af-5588-42d4-af6b-8569927c3316</parentFolderId>
@@ -87,10 +87,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="29096084-0a66-45e7-a4c1-b6092f02e608" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="65986a80-5e33-492c-a35d-4047b2cf66a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>141537af-5588-42d4-af6b-8569927c3316</parentFolderId>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0fbfccbe-e7d2-44c7-a72b-5786eade165d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="49af98ca-fc5e-4c6d-9dfa-0d706a22bbe4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
@@ -112,7 +112,7 @@
       </childElements>
     </childElement>
     <childElement id="be195e68-d376-4a2d-ad59-5b91a06c535c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -130,10 +130,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2c1e3c1d-f41f-4bef-8e7c-9f198c21d544" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8dd4611e-5e27-44de-82d1-7f3e1b5541ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>be195e68-d376-4a2d-ad59-5b91a06c535c</parentFolderId>
@@ -144,7 +144,7 @@
       </childElements>
     </childElement>
     <childElement id="1c55f774-21c8-4f63-9957-feefda90dfdf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -162,10 +162,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a3b6984f-b1a3-48b0-83a2-35e229e92cfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b3cd6398-2fa9-4080-a959-d866b480b8f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1c55f774-21c8-4f63-9957-feefda90dfdf</parentFolderId>
@@ -176,7 +176,7 @@
       </childElements>
     </childElement>
     <childElement id="e3a215d7-ea6b-42d7-b0a1-763b6a5bdbc8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
+      <name>10.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -194,10 +194,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="21b63f6b-d16f-4c52-be55-6c3e9615f647" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="789011ef-761a-4b14-90f7-65a789567428" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e3a215d7-ea6b-42d7-b0a1-763b6a5bdbc8</parentFolderId>

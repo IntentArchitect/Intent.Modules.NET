@@ -1,3 +1,7 @@
+### Version 1.2.27
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.26
 
 - Fixed: Issue when association name wasn't formatted correctly in some scenarios.

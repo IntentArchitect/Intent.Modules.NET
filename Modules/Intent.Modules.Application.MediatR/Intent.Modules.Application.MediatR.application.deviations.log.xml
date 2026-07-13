@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#221043f0-7703-4326-909c-6689fd961f8a</correlationId>
+      <path>Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T14:46:52.7146672Z</updatedAt>
+      <deviationsHash>FB3929C954EE8946F0905548609485877EFEC73608208B3B9068FC7D52C99687</deviationsHash>
+      <fileHash>60AA727B09CF449FE99356C918272414978A1AD7F674AFACBAA5C71B9366CA33</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#9c8ff153-4dca-4d95-8136-043ed779abd1</correlationId>
       <path>Intent.Modules.Application.MediatR/Templates/CommandHandler/CommandHandlerDecorator.cs</path>
       <count>2</count>

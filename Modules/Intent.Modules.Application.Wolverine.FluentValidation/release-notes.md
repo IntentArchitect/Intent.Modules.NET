@@ -1,5 +1,7 @@
 ### Version 1.0.0
 
+- Improvement: Updated NuGet package versions.
 - New Feature: Initial release.
 - New Feature: Generates `AbstractValidator<TCommand>` and `AbstractValidator<TQuery>` classes for each Command and Query element using the shared FluentValidation infrastructure.
 - New Feature: Validators support repository injection, custom validation logic, and unique constraint validation based on application settings.
+- Improvement: Now depends on `Intent.Application.FluentValidation` so Wolverine apps inherit the `fluent-validation-custom-validation` AI agent skill file, matching what MediatR apps already receive.

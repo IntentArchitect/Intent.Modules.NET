@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cabd40e9-f79f-4141-b97a-414f58f8be96" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Application</name>
+  <display>Application</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ffc2ce0e-1b93-40d4-ae02-46c626c963d0</parentFolderId>
+  <packageId>3a1e4412-3abc-44da-828f-d56573962c1b</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

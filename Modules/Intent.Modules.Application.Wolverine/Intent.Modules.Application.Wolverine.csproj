@@ -1,27 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Version>1.0.0-pre.2</Version>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.0-pre.0</Version>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Intent.Modules.Common" Version="3.11.2" />
+        <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.7" />
+        <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.1" />
+        <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.15" />
+        <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="6.0.7" />
+        <PackageReference Include="Intent.Packager" Version="3.6.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
+        <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.7" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.15" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="6.0.7" />
-    <PackageReference Include="Intent.Packager" Version="3.6.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" PrivateAssets="All" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" PrivateAssets="All" />
-  </ItemGroup>
-
+    <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
 </Project>

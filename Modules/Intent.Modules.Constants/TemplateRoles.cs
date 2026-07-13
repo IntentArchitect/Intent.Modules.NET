@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using static Intent.Modules.Constants.TemplateRoles.Application;
 
 namespace Intent.Modules.Constants
@@ -188,6 +188,15 @@ namespace Intent.Modules.Constants
                 {
                     public const string Dto = "Blazor.HttpClient.Contracts.Dto";
                 }
+            }
+        }
+
+        public static class AI
+        {
+            public static class Context
+            {
+                public const string Skills = "AI.Context.Skills";
+                public const string SkillsHandler = "AI.Context.Skills.Handler";
             }
         }
     }

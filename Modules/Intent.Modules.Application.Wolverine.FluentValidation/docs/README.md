@@ -75,7 +75,12 @@ private void ConfigureValidationRules()
 }
 ```
 
+## AI Agent Skill File
+
+This module depends on `Intent.Application.FluentValidation`, which generates an AI agent skill file at `.agents/skills/fluent-validation-custom-validation/SKILL.md`. It describes how to implement or revise a validator's custom async validation method — updating the method body, adding private helper methods, and extending Application/Domain abstractions such as repositories, while keeping infrastructure dependencies out of the validator. The same skill file is shared with `Intent.Application.MediatR.FluentValidation` apps; it is not duplicated per transport.
+
 ## Related Modules
 
 - [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md) — core Wolverine CQRS module; required by this module.
 - [Intent.Application.Wolverine.DomainEvents](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.DomainEvents/README.md) — dispatches domain events through Wolverine's `IMessageBus`.
+- [Intent.Application.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md) — provides the shared `CustomValidationSkill` AI agent skill file inherited by this module.

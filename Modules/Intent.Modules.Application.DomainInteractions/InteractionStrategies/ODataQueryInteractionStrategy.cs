@@ -47,7 +47,7 @@ public class ODataQueryInteractionStrategy : IInteractionStrategy
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
             var allowSelect = interaction.AsQueryEntityActionTargetEndModel().OtherEnd().Element.GetStereotype(ODataQueryStereoType)
-                .GetProperty<bool>("Allow Select");
+                .GetProperty<bool>("Enable Select");
 
             handleMethod.AddStatement(
                 phase: ExecutionPhases.Response,

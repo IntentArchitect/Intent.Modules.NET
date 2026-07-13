@@ -19,6 +19,8 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Order> Orders { get; set; }
+
         public DbSet<Product> Products { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -42,6 +44,7 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 

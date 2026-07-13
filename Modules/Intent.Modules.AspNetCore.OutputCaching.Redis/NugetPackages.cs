@@ -21,15 +21,15 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis
             NugetRegistry.Register(StackExchangeRedisPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.12")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.17")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.23")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.28")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.3")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f8da8d78-9c50-481e-8db4-88136c544ef5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.5.0</name>
+      <name>1.8.2</name>
       <display>1.4.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="daf15b57-6ea2-4766-b881-7afd60efa1b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="feda0115-42b3-4bd8-958c-55fca021db1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.50.0</value>
+          <value>1.59.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
@@ -58,21 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f259433e-b118-4a16-ae14-8a045430fb09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry</name>
-          <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7d21046e-90eb-4817-9135-fe7330d2aef8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1708d463-3626-4d01-8af7-7151365beb16" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>1.15.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
@@ -80,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6e46d047-d38c-4200-b80d-2eb816564d0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4aa99565-baaf-4404-ae42-ad1627e751ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.PersistentStorage.FileSystem</name>
           <isAbstract>false</isAbstract>
-          <value>1.0.2</value>
+          <value>1.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
@@ -94,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="1d2cf5f2-94a7-4ee5-a06b-79017a69c0a9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.5.0</name>
+      <name>1.8.2</name>
       <display>1.4.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -116,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="86058312-b789-403f-b538-1e48a734c8a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2ef3488e-792b-473f-9e1e-2ba77adce081" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.50.0</value>
+          <value>1.59.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1d2cf5f2-94a7-4ee5-a06b-79017a69c0a9</parentFolderId>
@@ -127,21 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d64a7cc3-4b85-4382-9c3e-5a6c30b3eb57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry</name>
-          <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1d2cf5f2-94a7-4ee5-a06b-79017a69c0a9</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="9baa9c29-24fa-4858-b462-1e2340fbe031" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24ceacca-6663-40fe-a34b-afced05c2cf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>1.15.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1d2cf5f2-94a7-4ee5-a06b-79017a69c0a9</parentFolderId>
@@ -149,13 +127,67 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4872aa03-02c5-4476-b850-1e86a6b84015" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0476de85-41a2-4013-ac71-93247efdb1fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.PersistentStorage.FileSystem</name>
           <isAbstract>false</isAbstract>
-          <value>1.0.2</value>
+          <value>1.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1d2cf5f2-94a7-4ee5-a06b-79017a69c0a9</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e2090aee-e3ae-4b2b-a23d-2a0261b3c9a9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.8.2</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fb0044a2-4362-4715-9cd1-bec1b564dc06</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4cd3f0b7-da65-4bc3-998c-f27fddf385c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.59.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e2090aee-e3ae-4b2b-a23d-2a0261b3c9a9</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7b64fcee-260f-445e-a597-4f541122e87c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Extensions.Hosting</name>
+          <isAbstract>false</isAbstract>
+          <value>1.15.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e2090aee-e3ae-4b2b-a23d-2a0261b3c9a9</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="22061ada-d581-41e9-83f2-d1b922dba270" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.PersistentStorage.FileSystem</name>
+          <isAbstract>false</isAbstract>
+          <value>1.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e2090aee-e3ae-4b2b-a23d-2a0261b3c9a9</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

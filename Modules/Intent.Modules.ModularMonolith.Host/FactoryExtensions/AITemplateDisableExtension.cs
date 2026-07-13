@@ -21,17 +21,23 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // on the host, don't generate any AI skills/instructions, these shold come from the modules
-            var aiSkillTemplates = application.FindTemplateInstances<IIntentTemplate>("AI.Context.Skills");
-            foreach (var item in aiSkillTemplates)
+            // on the host, don't generate any AI skills/instructions, these should come from the modules.
+            // Includes the narrower "AI.Context.Skills.Handler" role: handler skills were re-scoped to it
+            // and would otherwise no longer be caught here, leaking onto the host and clobbering the
+            // module-generated skill files (shared output folder).
+            var rolesToDisable = new[]
             {
-                item.CanRun = false;
-            }
+                "AI.Context.Skills",
+                "AI.Context.Skills.Handler",
+                "AI.Context.Instructions",
+            };
 
-            var aiInstructionTemplates = application.FindTemplateInstances<IIntentTemplate>("AI.Context.Instructions");
-            foreach (var item in aiInstructionTemplates)
+            foreach (var role in rolesToDisable)
             {
-                item.CanRun = false;
+                foreach (var item in application.FindTemplateInstances<IIntentTemplate>(role))
+                {
+                    item.CanRun = false;
+                }
             }
         }
     }

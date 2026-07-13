@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#6976eb09-ccef-42eb-90b5-cf0e03843d1a</correlationId>
+      <path>EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:38.9501466Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.8713264Z</approvedAt>
+      <deviationsHash>8E43B219839C5425A262C131ECD8ECD2C45ECD116787B7D721066CF5216424CC</deviationsHash>
+      <fileHash>569F4FF996388D9D6E8DE716D41DF58E5020EF92E9A9DA819E0D2A4AA0B3AB0B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#ab61b175-b85a-4593-9ba0-7fd4c37386c7</correlationId>
+      <path>EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:38.9509177Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.8932576Z</approvedAt>
+      <deviationsHash>140C091655FBB62EAC50EB5F65970B66C0992EBEA8498C2734331F8CE2F9696D</deviationsHash>
+      <fileHash>3E3838D5E1A8AD3CB8336722CE7584005066A8E0FC7D420E94F77F77A56B8813</fileHash>
+    </file>
+  </files>
 </deviationsLog>

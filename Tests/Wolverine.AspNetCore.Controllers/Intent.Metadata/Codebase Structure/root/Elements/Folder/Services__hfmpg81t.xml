@@ -15,13 +15,13 @@
       <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
       <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
       <properties>
-        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="True" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a7d97566-fd1c-4645-b872-954fd96af053" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="208996f8-249c-454e-af4a-763e757b3801" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Wolverine.DomainEvents.DomainEventService</name>
       <display>Intent.Application.Wolverine.DomainEvents.DomainEventService</display>
       <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
@@ -37,7 +37,7 @@
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="True" isActive="true" />
             <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
           </properties>
         </stereotype>

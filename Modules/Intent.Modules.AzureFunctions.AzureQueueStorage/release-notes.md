@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.0
 
 - Improvement: Azure Functions Storage Queue handlers now support composite message bus configurations, allowing multiple message brokers to coexist in the same application.

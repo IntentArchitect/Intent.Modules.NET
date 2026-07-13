@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.7.2</version>
+  <version>4.7.3-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
@@ -20,7 +20,7 @@
       <location></location>
     </template>
     <template id="Intent.Application.MediatR.CommandHandlerSkillTemplate" externalReference="c9d4d6a0-1547-45df-8967-1ed76f8347f5">
-      <role>AI.Context.Skills</role>
+      <role>AI.Context.Skills.Handler</role>
       <location></location>
     </template>
     <template id="Intent.Application.MediatR.CommandInterface" externalReference="373cd97c-cf6b-4864-94f5-a0931bf01bb6">
@@ -48,7 +48,7 @@
       <location></location>
     </template>
     <template id="Intent.Application.MediatR.QueryHandlerSkillTemplate" externalReference="1df6293f-8be4-4fa3-a2f3-b720321debdb">
-      <role>AI.Context.Skills</role>
+      <role>AI.Context.Skills.Handler</role>
       <location></location>
     </template>
     <template id="Intent.Application.MediatR.QueryInterface" externalReference="0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32">
@@ -121,6 +121,26 @@
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
         <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.2.17" />
+      </install>
+    </detect>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore" version="5.0.47-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.EntityFrameworkCore.Repositories">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.AutoMapper">
+      <install>
+        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Dtos.Mapperly">
+      <install>
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.2" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

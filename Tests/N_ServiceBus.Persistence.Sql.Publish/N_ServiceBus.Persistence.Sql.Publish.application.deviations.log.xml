@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusConfiguration#32ffdb4e-5676-4879-bbd8-cf562a48ecbe</correlationId>
-      <path>N_ServiceBus.Persistence.Sql.Publish.Infrastructure/Configuration/NServiceBusConfiguration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:53.5361353Z</updatedAt>
-      <deviationsHash>53681AABD1EDE53AEADDFD156CE22B5C258B902F9D654B77C6C8D31F6C7855E7</deviationsHash>
-      <fileHash>C8B1C031053D451CD8A3FF6004AFDE54ED7322386340944FDED831D4971E1611</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.NServiceBus.NServiceBusMessageBus#e6d7e229-c62b-44aa-92d7-1edf6a645d5d</correlationId>
-      <path>N_ServiceBus.Persistence.Sql.Publish.Infrastructure/Eventing/NServiceBusMessageBus.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-06T05:15:53.5364323Z</updatedAt>
-      <deviationsHash>4BE4B119E1D481E420F3A7467ACD56F6F911C2CF7C61905ABFDBC985AE2231A1</deviationsHash>
-      <fileHash>580B416E513FBDA9548347E64E9C4DCBA4547C170C712A964CDC85E17C04AFFD</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

@@ -106,7 +106,7 @@
       </childElements>
     </childElement>
     <childElement id="6d1f19c7-b9f8-4460-a733-6bac2e920560" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.5.2</name>
+      <name>3.10.0</name>
       <display>3.5.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -128,10 +128,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a1c4d44a-c3e0-4dc4-b84a-5998f4912bd3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="444fcb6c-6ce7-47ff-a59d-f3adea9d5937" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MongoDB.Bson</name>
           <isAbstract>false</isAbstract>
-          <value>3.5.2</value>
+          <value>3.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
@@ -139,7 +139,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b74cc352-bcb5-41b8-af93-8a10fa780e9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3f2abff-4615-491f-bc30-2247a205e564" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>DnsClient</name>
           <isAbstract>false</isAbstract>
           <value>1.6.1</value>
@@ -150,7 +150,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f89a4c2d-08ac-477a-b2ad-63f09cab0c7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="72bdace3-f22a-4993-a855-9d1313f21ff6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -161,10 +161,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="af6945b8-2a55-4d2e-ba8f-fa3c5eb8ab72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="048414cb-3c46-4e1d-9eb7-2b0e2242c56c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>SharpCompress</name>
           <isAbstract>false</isAbstract>
-          <value>0.30.1</value>
+          <value>0.48.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
@@ -172,10 +172,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0d2eedb0-3b5c-4be8-b079-8bccbce2b4d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="839ebc00-a578-46ef-ae57-8239d6f1cbd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Snappier</name>
           <isAbstract>false</isAbstract>
-          <value>1.0.0</value>
+          <value>1.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
@@ -183,10 +183,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cfa05e2a-15d8-4d03-9c46-d3b540ee2b50" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d35c6fcf-4f4e-4e44-9794-d8f86c19a177" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
           <isAbstract>false</isAbstract>
-          <value>4.5.1</value>
+          <value>4.6.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
@@ -194,7 +194,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c74d364-8859-4fab-a78f-5db8951732fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0a3eb895-2271-4e67-89dd-0f16c3fd406e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ZstdSharp.Port</name>
           <isAbstract>false</isAbstract>
           <value>0.7.3</value>
@@ -208,7 +208,7 @@
       </childElements>
     </childElement>
     <childElement id="a202da88-be5a-41cb-adbb-4c845657769b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.5.2</name>
+      <name>3.10.0</name>
       <display>3.5.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -230,10 +230,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f708a596-fe4f-400a-957f-3ebec6f23d7d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5bfd8baf-69c2-4838-8996-f112da1b43c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MongoDB.Bson</name>
           <isAbstract>false</isAbstract>
-          <value>3.5.2</value>
+          <value>3.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
@@ -241,7 +241,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="48425d6d-89dd-440b-8f29-b8c99516cff4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5b58d6b2-dfca-4008-8f9c-db5cd76bfb97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>DnsClient</name>
           <isAbstract>false</isAbstract>
           <value>1.6.1</value>
@@ -252,7 +252,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="501926db-3892-4306-a579-fc570293cc5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f1739909-9d89-413b-9859-ff0a1dc43e73" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -263,10 +263,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="82703a73-47f4-4f79-802d-c60278e35d61" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a020c4cf-8f76-42be-9728-03b7047ba275" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>SharpCompress</name>
           <isAbstract>false</isAbstract>
-          <value>0.30.1</value>
+          <value>0.48.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
@@ -274,10 +274,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2af31cf0-af81-4d7e-8bbe-1129a867a3cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="80946e3f-cf72-4ab4-8d00-e3a1388d687f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Snappier</name>
           <isAbstract>false</isAbstract>
-          <value>1.0.0</value>
+          <value>1.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
@@ -285,10 +285,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="71fca85f-5dbd-4e4d-8f63-7e6b8f62741c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b7646d50-a426-419b-90c3-0c1a4352e624" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
           <isAbstract>false</isAbstract>
-          <value>4.5.1</value>
+          <value>4.6.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
@@ -296,7 +296,18 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d56db2dd-9ee2-4d18-bae2-2dee5cb79c9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b5586968-7d10-4694-bb4e-c075cf287ff5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Diagnostics.DiagnosticSource</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d0c55628-ec34-4044-866f-0499b15da666" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ZstdSharp.Port</name>
           <isAbstract>false</isAbstract>
           <value>0.7.3</value>
