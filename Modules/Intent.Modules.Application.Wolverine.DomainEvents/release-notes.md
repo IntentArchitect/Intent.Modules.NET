@@ -1,5 +1,6 @@
 ### Version 1.0.0
 
+- Fixed: Corrected the declared `Intent.Common`/`Intent.Common.CSharp` module dependency versions to match what this module actually requires.
 - New Feature: Initial release.
 - New Feature: Generates `DomainEventService` implementing `IDomainEventService`, dispatching domain events via Wolverine's `IMessageBus.PublishAsync`. Registered as a scoped service in DI.
 - New Feature: Generates an implicit `{EventName}Handler` stub for every domain event in the Domain designer that does not have an explicit handler, matching MediatR's auto-generation behaviour.

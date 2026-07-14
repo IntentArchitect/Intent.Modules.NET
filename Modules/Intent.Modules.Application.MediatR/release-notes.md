@@ -1,6 +1,7 @@
 ### Version 4.7.3
 
 - Improvement: Scoped the `CommandHandlerSkillTemplate` / `QueryHandlerSkillTemplate` AI skill files to the new `AI.Context.Skills.Handler` role so EF Core, EF Repositories, and AutoMapper handler-specific guidance (SaveChanges rules, repository Update rules, mapper verification gates) is generated onto them, matching the same guidance already generated for other CQRS transports (e.g. Wolverine).
+- Improvement: Tweaked Command and Query Handler skill descriptions.
 
 ### Version 4.7.2
 

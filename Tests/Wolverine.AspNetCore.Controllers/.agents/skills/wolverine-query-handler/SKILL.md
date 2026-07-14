@@ -1,8 +1,8 @@
 ---
 name: wolverine-query-handler
-description: implement or revise Wolverine query handler business logic in an existing handler file. use when a c# Wolverine query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
+description: Implement or fix business logic in a Wolverine query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
 template-id: Intent.Application.Wolverine.QueryHandlerSkillTemplate
-contentHash: B4C2CE9CC7FD08CA3E6842F238858A701B07CE0DF7B63A3DDBF51DB816BFC976
+contentHash: B9B855D3127D9C90B1D5BCBB988B3FF63D5FE79B88F9939E307B956F6A2BEAE1
 ---
 # Wolverine Query Handler
 

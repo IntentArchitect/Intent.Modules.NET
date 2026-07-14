@@ -9,6 +9,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandHandlerSkill;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -91,8 +92,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                     .WithAISummary("MediatR Handler implementation for the " + Model.Name + " command.")
                     .WithAIContext(
-                                """
-                                Use the mediatr-command-handler skill when modifying this handler.
+                                $"""
+                                Use the `{CommandHandlerSkillTemplate.SkillName}` skill when modifying this handler.
                                 """);
         }
 

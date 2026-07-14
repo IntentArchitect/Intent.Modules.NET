@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Wolverine</id>
-  <version>1.0.0-pre.3</version>
+  <version>1.0.0-pre.4</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</summary>
   <description>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</description>
@@ -134,8 +134,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.7" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.15" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.7" />
@@ -154,12 +154,12 @@
     </detect>
     <detect id="Intent.Application.FluentValidation">
       <install>
-        <package id="Intent.Application.Wolverine.FluentValidation" version="1.0.0-pre.0" />
+        <package id="Intent.Application.Wolverine.FluentValidation" version="1.0.0-pre.3" />
       </install>
     </detect>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0-pre.1" />
+        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0-pre.2" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->

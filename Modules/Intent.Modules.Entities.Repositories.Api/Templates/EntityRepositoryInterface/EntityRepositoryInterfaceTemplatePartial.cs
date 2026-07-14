@@ -162,21 +162,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         protected override CSharpFileConfig DefineFileConfig()
         {
             return CSharpFile.GetConfig()
-                .WithAISummary($"The repository interface for the {Model.Name} entity.")
-                .WithAIContext("""
-                               ## Architectural Guidelines:
-                               - Repositories should encapsulate all logic for retrieving and persisting entities. This includes any necessary joins, filtering, or other data access logic.
-                               - Aggregations of data should be handled by the repository layer, not by services or other layers. This ensures that all data access logic is centralized and can be optimized as needed.
-                               
-                               ## Instructions:
-                               - Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
-                               - Always read the base repository interface to understand what is already provided and available before adding new methods.
-                               - If you add a new method to the repository interface, do not put any [IntentManaged] attributes on it, especially not [IntentManaged(Mode.Fully)].
-                               
-                               ## Rules when adding methods:
-                               - Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
-                               - Never return tuples. If a complex return type is required, create a new Contract record in this file (below this interface) and add a `[IntentIgnore]` attribute over it.
-                               """);
+                .WithAISummary($"The repository interface for the {Model.Name} entity.");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

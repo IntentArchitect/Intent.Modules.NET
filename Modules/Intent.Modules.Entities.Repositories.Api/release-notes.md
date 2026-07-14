@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Improved AI guidance.
+
 ### Version 5.2.0
 
 - Improvement: Added AI Agent guidance.

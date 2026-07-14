@@ -22,15 +22,17 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandlerSkill
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.CommandHandlerSkillTemplate";
 
+        internal const string SkillName = "mediatr-command-handler";
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CommandHandlerSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
-            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: "mediatr-command-handler")
+            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($"""
 ---
-name: mediatr-command-handler
-description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
+name: {SkillName}
+description: Implement or fix business logic in a MediatR command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
 template-id: {TemplateId}
 ---
 

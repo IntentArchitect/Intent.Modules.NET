@@ -20,15 +20,18 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate";
 
+        internal const string SkillName = "application-service-implementation";
+
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceImplementationSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
-            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: "application-service-implementation")
+            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($"""
 ---
-name: application-service-implementation
-description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
+name: {SkillName}
+description: Implement or fix business logic in traditional style application services, following this codebase's established architectural conventions. Use when a C# application service class has incomplete or incorrect business logic.
 template-id: {TemplateId}
 ---
 

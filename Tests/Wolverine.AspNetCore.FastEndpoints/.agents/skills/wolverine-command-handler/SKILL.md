@@ -1,8 +1,8 @@
 ---
 name: wolverine-command-handler
-description: implement or revise Wolverine command handler business logic in an existing handler file. use when a c# Wolverine command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
+description: Implement or fix business logic in a Wolverine command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
 template-id: Intent.Application.Wolverine.CommandHandlerSkillTemplate
-contentHash: 08E965421022FB744C6EAE0ED7286AA153714E12D0A54EE05646A2AD11AB27F4
+contentHash: 78EF1E2F30B13855F484FCA3251591406CDB7B283B1BE7C63A9AD85116F0DB89
 ---
 # Wolverine Command Handler
 
