@@ -20,15 +20,17 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandlerSkill
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Wolverine.QueryHandlerSkillTemplate";
 
+        internal const string SkillName = "wolverine-query-handler";
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryHandlerSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
-            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: "wolverine-query-handler")
+            MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($"""
 ---
-name: wolverine-query-handler
-description: implement or revise Wolverine query handler business logic in an existing handler file. use when a c# Wolverine query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
+name: {SkillName}
+description: Implement or fix business logic in a Wolverine query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
 template-id: {TemplateId}
 ---
 
