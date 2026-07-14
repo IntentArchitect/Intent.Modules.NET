@@ -22,7 +22,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
 
         internal const string SkillName = "ef-repository";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public EFRepositorySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;

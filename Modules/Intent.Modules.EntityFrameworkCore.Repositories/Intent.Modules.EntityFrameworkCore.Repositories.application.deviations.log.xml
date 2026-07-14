@@ -12,16 +12,6 @@
       <fileHash>0D51008AC3A58908EB0C83608CD1539A4C45801416A6E699EF7354F42B01FDDE</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4594c780-e992-42d4-b448-82c6343f5fc2</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/EFRepositorySkill/EFRepositorySkillTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-07-13T18:38:25.0666067Z</updatedAt>
-      <deviationsHash>B8C5D1DCEFE5FB069CE81366EFAA5BD5B83665EBEABEF2263C0B50BF9C8D0A00</deviationsHash>
-      <fileHash>452153F0820808B571231F8AC198EC2BC54A27EE9912E01E92DA2E707CC0C4A1</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
       <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplatePartial.cs</path>
       <count>3</count>
@@ -32,7 +22,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:21:14.5857304Z</approvedAt>
       <deviationsHash>E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7</deviationsHash>
-      <fileHash>86BEA9E71BB9C3A75BFA472108B5FA3A7071B8E4DA945AA5AF2A4E1C673D82CF</fileHash>
+      <fileHash>BD81E11D0DDD7645AEF6B3A5231056E30B063366D94548BA0001E55F876AE93A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
