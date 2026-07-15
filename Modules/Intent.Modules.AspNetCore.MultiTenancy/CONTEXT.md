@@ -129,6 +129,40 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
    explicit `Version = "1.0"`, so `.Upgrade(1, 2)` is the correct criteria — `UnversionedUpgrade`
    silently bumped the version marker without touching content. See `.module-builder/RETROSPECTIVE.md`
    (2026-07-15 entry) for the full investigation trail.
+7. **`AspNetCoreIntegrationExtension.GetSeparateDatabaseDataIsolationConfiguration()`'s `AddDbContext`
+   registration silently fell back to `DefaultConnection` whenever no tenant was resolved** —
+   `tenantInfo?.ConnectionString ?? configuration.GetConnectionString("DefaultConnection")`. The
+   original comment justified this as "design-time safe" for EF Core CLI tooling (`dotnet ef
+   migrations`), which runs outside any HTTP request so `tenantInfo` is legitimately null there.
+   Problem: this repo's own `docs/README.md` already documents that migrations against a
+   Finbuckle-managed app require installing `Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory`
+   — which supplies its own `IDesignTimeDbContextFactory<T>`, picked up by `dotnet ef` *before* the
+   app's DI/host is ever built, reading `appsettings.json` directly. When that module is installed (the
+   documented, correct setup), this `AddDbContext` factory is **never invoked** at design time at all —
+   so the `DefaultConnection` fallback was solving a problem that doesn't exist in the documented
+   configuration, while simultaneously masking a real bug: if a tenant *is* resolved but its connection
+   string is missing (misconfigured tenant, or a named-connection lookup miss), the same `?? DefaultConnection`
+   silently reads/writes the wrong tenant's data instead of failing — a data-isolation defect, not a
+   safe default. Fixed: removed the fallback entirely; now throws
+   `Finbuckle.MultiTenant.MultiTenantException` whenever no tenant (or no connection string) is resolved,
+   with a message that differs by environment — `IHostEnvironment.IsDevelopment()` gates whether the
+   message includes the `DesignTimeDbContextFactory` install hint (for a developer who hit this by
+   running `dotnet ef` without that module) or stays generic (production — don't leak internal
+   module/architecture details to whatever surfaces the exception). Matches the existing
+   `Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant ... connection information")`
+   pattern already used by `Intent.Modules.MongoDb`/`MongoDb.MongoFramework`/`Google.CloudStorage`'s own
+   `DependencyInjectionFactoryExtension.cs` — this brings the EF Core path in line with them. Required
+   adding a new `Microsoft.Extensions.Hosting.Abstractions` package registration to this module's
+   `NugetPackages.cs` (the Infrastructure class library project doesn't reference ASP.NET Core's shared
+   framework, so `IHostEnvironment` isn't otherwise available there) and a matching
+   `template.AddNugetDependency(...)` call. Verified against all three apps in this repo that hit this
+   code path — `Finbuckle.SeparateDatabase.TestApplication`, `Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests`
+   (which resolves via `tenantInfo?.Identifier`, not `ConnectionString` — see item 5 above — the fix
+   composes cleanly with that variant), and `MassTransitFinbuckle.Test` — staged diffs inspected and
+   applied, all three build clean afterward. Note: `TryGetMongoDbConfiguration` in this same file (a
+   separate code path targeting an `Infrastructure.Configuration.MongoDb.MultiTenancy` template role)
+   was investigated as part of this and found to be dead code in this repo — no template currently
+   registers that role, so it was left untouched.
 
 ### Infra used for runtime verification (all local, Docker where noted)
 

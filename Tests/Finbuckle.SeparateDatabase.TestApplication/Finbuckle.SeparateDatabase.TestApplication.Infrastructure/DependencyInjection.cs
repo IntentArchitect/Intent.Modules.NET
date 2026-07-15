@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.SeparateDatabase.TestApplication.Application;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Common.Interfaces;
@@ -11,6 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -24,9 +26,10 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                // Design-time safe: at runtime the tenant is always resolved and its connection string is used; at design time (EF tooling) no tenant is resolved, so fall back to DefaultConnection so FindContextTypes()/migrations do not throw.
                 var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo;
-                var connectionString = tenantInfo?.ConnectionString ?? configuration.GetConnectionString("DefaultConnection");
+                var connectionString = tenantInfo?.ConnectionString ?? throw new MultiTenantException(sp.GetRequiredService<IHostEnvironment>().IsDevelopment()
+                    ? "Failed to resolve tenant connection information. If you are running EF Core CLI commands (e.g. 'dotnet ef migrations'), install the Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory module."
+                    : "Failed to resolve tenant connection information.");
                 options.UseSqlServer(
                     connectionString,
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));

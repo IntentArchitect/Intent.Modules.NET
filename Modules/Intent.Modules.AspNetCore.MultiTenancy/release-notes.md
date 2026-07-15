@@ -13,7 +13,7 @@
 >   Finbuckle v7+). Separate-database apps now resolve connections via `ITenantConnections`/named
 >   connection-string properties instead.
 
-- Fixed: separate-database `AddDbContext` no longer throws at EF Core design time (e.g. `dotnet ef migrations`) when no tenant is resolved — falls back to `DefaultConnection`, matching pre-upgrade behavior.
+- Fixed: separate-database `AddDbContext` no longer silently falls back to `DefaultConnection` when no tenant (or no connection string) is resolved — throws `MultiTenantException` instead, since a legitimate tenant request silently hitting the wrong database is a data-isolation bug, not a safe default. For EF Core CLI commands (e.g. `dotnet ef migrations`), install `Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory` as already documented — that factory is picked up before this registration ever runs. The exception message includes that hint only when `IHostEnvironment.IsDevelopment()` is true; production stays generic.
 - Fixed: `InitializeStore` for **new** apps no longer seeds a stray `ConnectionString` when a named connection property (or none) is what's actually on the tenant class.
 - Fixed: pre-upgrade apps with a hand-locked `InitializeStore()` referencing a bare `ConnectionString` are auto-migrated the next time the Software Factory runs, matching whatever the app actually needs: retargeted to the extended tenant type with the connection string preserved (separate-database only), rewritten to the app's named connection-string property (Cosmos/Mongo/MongoFramework/GoogleCloudStorage installed), or removed outright (no extended type applies).
 

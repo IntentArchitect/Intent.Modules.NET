@@ -217,10 +217,13 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
         template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
         template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore(template.OutputTarget));
+        template.AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingAbstractions(template.OutputTarget));
 
         template.CSharpFile.AfterBuild(file =>
         {
             file.AddUsing("Finbuckle.MultiTenant.Abstractions");
+            file.AddUsing("Finbuckle.MultiTenant");
+            file.AddUsing("Microsoft.Extensions.Hosting");
 
             var extendedInfoTypeName = template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
             var indexer = hasMultipleConnectionStrings ? $"[\"{connectionStringNameInternal}\"]" : string.Empty;
@@ -235,10 +238,11 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
             var useStatement = method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"));
             useStatement.InsertAbove(
-                $@"// Design-time safe: at runtime the tenant is always resolved and its connection string is used; at design time (EF tooling) no tenant is resolved, so fall back to DefaultConnection so FindContextTypes()/migrations do not throw.
-                var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<{extendedInfoTypeName}>>().MultiTenantContext?.TenantInfo;");
+                $@"var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<{extendedInfoTypeName}>>().MultiTenantContext?.TenantInfo;");
             useStatement.InsertAbove(
-                $@"var connectionString = tenantInfo{indexer}?.ConnectionString ?? configuration.GetConnectionString(""DefaultConnection"");");
+                $@"var connectionString = tenantInfo{indexer}?.ConnectionString ?? throw new MultiTenantException(sp.GetRequiredService<IHostEnvironment>().IsDevelopment()
+                    ? ""Failed to resolve tenant connection information. If you are running EF Core CLI commands (e.g. 'dotnet ef migrations'), install the Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory module.""
+                    : ""Failed to resolve tenant connection information."");");
         });
     }
 

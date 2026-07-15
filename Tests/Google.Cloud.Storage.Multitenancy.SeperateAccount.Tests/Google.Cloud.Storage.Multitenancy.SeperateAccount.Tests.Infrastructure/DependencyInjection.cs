@@ -12,6 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -25,11 +26,10 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                // Design-time safe: at runtime the tenant is always resolved and its identifier keys a separate
-                // in-memory database per tenant; at design time (EF tooling) no tenant is resolved, so fall back
-                // to DefaultConnection so FindContextTypes()/migrations do not throw.
                 var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo;
-                var connectionString = tenantInfo?.Identifier ?? configuration.GetConnectionString("DefaultConnection");
+                var connectionString = tenantInfo?.Identifier ?? throw new MultiTenantException(sp.GetRequiredService<IHostEnvironment>().IsDevelopment()
+                    ? "Failed to resolve tenant connection information. If you are running EF Core CLI commands (e.g. 'dotnet ef migrations'), install the Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory module."
+                    : "Failed to resolve tenant connection information.");
                 options.UseInMemoryDatabase(connectionString);
                 options.UseLazyLoadingProxies();
             });
