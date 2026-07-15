@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
@@ -105,6 +109,39 @@ namespace Intent.Blazor.Authentication.Api
                 OIDC,
                 None
             }
+        }
+
+        [IntentIgnore]
+        public static AuthenticationOptions GetAuthenticationType(this RazorComponentTemplate template)
+        {
+            var model = template.Model;
+            var currentItem = model.InternalElement;
+            while (currentItem?.ParentElement != null)
+            {
+                currentItem = currentItem.ParentElement;
+            }
+
+            if (currentItem is not null)
+            {
+                var secConfigElement = currentItem.ChildElements.FirstOrDefault(x => x.IsSecurityConfigurationModel());
+                if (secConfigElement is not null)
+                {
+                    var securityConfiguration = secConfigElement.AsSecurityConfigurationModel();
+                    if (securityConfiguration.HasSecurityType())
+                    {
+                        return securityConfiguration.GetSecurityType().Authentication();
+                    }
+                }
+            }
+
+            return new AuthenticationOptions(AuthenticationOptionsEnum.None.ToString());
+        }
+
+        [IntentIgnore]
+        public static AuthenticationOptions GetAuthenticationType(this IMetadataManager metadataManager, string applicationId)
+        {
+            var securityConfig = metadataManager.UserInterface(applicationId).GetSecurityConfigurationModels().FirstOrDefault();
+            return securityConfig?.GetSecurityType()?.Authentication() ?? new AuthenticationOptions(AuthenticationOptionsEnum.None.ToString());
         }
 
     }

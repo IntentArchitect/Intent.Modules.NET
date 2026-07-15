@@ -1,3 +1,4 @@
+using Intent.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
 using Intent.Modules.Blazor.Settings;
@@ -19,7 +20,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
-            var isAspnetcoreIdentity = template.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity();
+            var isAspnetcoreIdentity = template.GetAuthenticationType().IsASPNETCoreIdentity();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor

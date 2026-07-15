@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -185,7 +186,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+            var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+            return base.CanRunTemplate() && securityType.IsJWT();
         }
     }
 }

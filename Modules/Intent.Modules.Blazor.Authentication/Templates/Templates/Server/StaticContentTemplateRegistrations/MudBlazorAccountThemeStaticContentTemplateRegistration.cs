@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -42,14 +43,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var auth = application.GetSettings().GetBlazor().Authentication();
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             // The account skin (ux-account.css + nav-drawer.js) is mode-independent — it tames the
             // shared page-header banner for account pages and drives centering. Ship it for any
             // MudBlazor app with a local account UI (Identity or JWT). OIDC redirects to an external
             // IdP (no local account UI) — the same !IsOidc() gate the account pages use.
-            if (mudBlazorInstalled && !auth.IsOidc())
+            if (mudBlazorInstalled && !auth.IsOIDC())
             {
                 RegisterAuthStaticContent(registry, application);
             }

@@ -189,8 +189,4 @@
     <application id="a4ef8894-c485-4353-bfcd-df19c3d450a9" name="Intent.Modules.FastEndpoints.Dispatch.Wolverine" solutionFolder="API Frameworks" relativePath="Intent.Modules.FastEndpoints.Dispatch.Wolverine/Intent.Modules.FastEndpoints.Dispatch.Wolverine.application.config" />
     <application id="97b031c5-c4db-4ee0-9b65-17e441a9bfa7" name="Intent.Modules.Integration.HttpClients.Stubs" solutionFolder="Direct Integration" relativePath="Intent.Modules.Integration.HttpClients.Stubs/Intent.Modules.Integration.HttpClients.Stubs.application.config" />
   </applications>
-  <folders>
-    <folder path="D:/.spikes/auth-modeling/Intent.Modules/Modules" />
-    <folder path="D:/Dev/Intent.Code.Weaving/Modules" />
-  </folders>
 </solution>

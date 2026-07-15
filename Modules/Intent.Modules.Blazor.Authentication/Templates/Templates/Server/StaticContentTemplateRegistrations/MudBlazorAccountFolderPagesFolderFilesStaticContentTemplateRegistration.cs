@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -25,7 +26,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         {
         }
 
-        public override string ContentSubFolder => "ComponentsMudBlazor/Account/Pages";
+        public override string ContentSubFolder => "ComponentsMudBlazor/Account";
 
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };
@@ -48,7 +49,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 // dangling `@using …Data` (a compile error). Non-Identity setups that still have a
                 // Data namespace keep the using.
                 var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data";
-                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+
+                var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
+                var isJwt = securityType.IsJWT();
+
                 replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
             }
@@ -67,19 +71,19 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var auth = application.GetSettings().GetBlazor().Authentication();
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
             if (!mudBlazorInstalled)
             {
                 return;
             }
 
-            if (auth.IsAspnetcoreIdentity())
+            if (auth.IsASPNETCoreIdentity())
             {
                 // Identity: the full account page set (incl. Manage/*, 2FA, external login, email change).
                 RegisterAuthStaticContent(registry, application);
             }
-            else if (auth.IsJwt())
+            else if (auth.IsJWT())
             {
                 // JWT: only the account-pages layout wiring (_Imports → @layout AccountLayout). JWT's
                 // actual pages are RazorBuilder templates; the Identity-only static pages stay out, so

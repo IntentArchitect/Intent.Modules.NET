@@ -52,6 +52,50 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             ["jwt-confirm-email"] = (ConfirmEmailPageContent.BuildRazorContent, ConfirmEmailPageContent.BuildCodeBehind),
             ["identity-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind),
             ["jwt-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind),
+
+            // Informational/simple Account pages: the stereotype's page-tagging script only ever
+            // creates these under ASP.NET Core Identity mode, so their page ids carry no mode prefix.
+            ["access-denied"] = (AccessDeniedPageContent.BuildRazorContent, AccessDeniedPageContent.BuildCodeBehind),
+            ["forgot-password-confirmation"] = (ForgotPasswordConfirmationPageContent.BuildRazorContent, ForgotPasswordConfirmationPageContent.BuildCodeBehind),
+            ["invalid-password-reset"] = (InvalidPasswordResetPageContent.BuildRazorContent, InvalidPasswordResetPageContent.BuildCodeBehind),
+            ["invalid-user"] = (InvalidUserPageContent.BuildRazorContent, InvalidUserPageContent.BuildCodeBehind),
+            ["lockout"] = (LockoutPageContent.BuildRazorContent, LockoutPageContent.BuildCodeBehind),
+            ["register-confirmation"] = (RegisterConfirmationPageContent.BuildRazorContent, RegisterConfirmationPageContent.BuildCodeBehind),
+            ["reset-password-confirmation"] = (ResetPasswordConfirmationPageContent.BuildRazorContent, ResetPasswordConfirmationPageContent.BuildCodeBehind),
+
+            // Auth-flow Account pages: also Identity-only, so no mode prefix on their page ids.
+            ["confirm-email-change"] = (ConfirmEmailChangePageContent.BuildRazorContent, ConfirmEmailChangePageContent.BuildCodeBehind),
+            ["external-login"] = (ExternalLoginPageContent.BuildRazorContent, ExternalLoginPageContent.BuildCodeBehind),
+            ["login-with-2fa"] = (LoginWith2faPageContent.BuildRazorContent, LoginWith2faPageContent.BuildCodeBehind),
+            ["login-with-recovery-code"] = (LoginWithRecoveryCodePageContent.BuildRazorContent, LoginWithRecoveryCodePageContent.BuildCodeBehind),
+
+            // Manage/* Account pages: also Identity-only, so no mode prefix on their page ids.
+            ["manage"] = (ManageIndexPageContent.BuildRazorContent, ManageIndexPageContent.BuildCodeBehind),
+            ["manage-email"] = (ManageEmailPageContent.BuildRazorContent, ManageEmailPageContent.BuildCodeBehind),
+            ["manage-change-password"] = (ManageChangePasswordPageContent.BuildRazorContent, ManageChangePasswordPageContent.BuildCodeBehind),
+            ["manage-set-password"] = (ManageSetPasswordPageContent.BuildRazorContent, ManageSetPasswordPageContent.BuildCodeBehind),
+            ["manage-two-factor-authentication"] = (ManageTwoFactorAuthenticationPageContent.BuildRazorContent, ManageTwoFactorAuthenticationPageContent.BuildCodeBehind),
+            ["manage-disable-2fa"] = (ManageDisable2faPageContent.BuildRazorContent, ManageDisable2faPageContent.BuildCodeBehind),
+            ["manage-enable-authenticator"] = (ManageEnableAuthenticatorPageContent.BuildRazorContent, ManageEnableAuthenticatorPageContent.BuildCodeBehind),
+            ["manage-reset-authenticator"] = (ManageResetAuthenticatorPageContent.BuildRazorContent, ManageResetAuthenticatorPageContent.BuildCodeBehind),
+            ["manage-generate-recovery-codes"] = (ManageGenerateRecoveryCodesPageContent.BuildRazorContent, ManageGenerateRecoveryCodesPageContent.BuildCodeBehind),
+            ["manage-personal-data"] = (ManagePersonalDataPageContent.BuildRazorContent, ManagePersonalDataPageContent.BuildCodeBehind),
+            ["manage-delete-personal-data"] = (ManageDeletePersonalDataPageContent.BuildRazorContent, ManageDeletePersonalDataPageContent.BuildCodeBehind),
+            ["manage-external-logins"] = (ManageExternalLoginsPageContent.BuildRazorContent, ManageExternalLoginsPageContent.BuildCodeBehind),
+
+            // Shared (non-Page) components: tagged by the stereotype's shared() helper, so they carry
+            // no Page stereotype and RazorComponentTemplate skips the @page/<PageTitle> injection for
+            // them. "account-layout" remains on its dedicated template pair, but now follows the same
+            // default-content builder pattern as these component seeds.
+            ["status-message"] = (StatusMessageContent.BuildRazorContent, StatusMessageContent.BuildCodeBehind),
+
+            ["manage-nav-menu"] = (ManageNavMenuContent.BuildRazorContent, ManageNavMenuContent.BuildCodeBehind),
+            ["external-login-picker"] = (ExternalLoginPickerContent.BuildRazorContent, ExternalLoginPickerContent.BuildCodeBehind),
+            ["show-recovery-codes"] = (ShowRecoveryCodesContent.BuildRazorContent, ShowRecoveryCodesContent.BuildCodeBehind),
+            ["app-user-menu"] = (AppUserMenuContent.BuildRazorContent, AppUserMenuContent.BuildCodeBehind),
+            ["account-hero"] = (AccountHeroContent.BuildRazorContent, AccountHeroContent.BuildCodeBehind),
+            ["ux-field"] = (UxFieldContent.BuildRazorContent, UxFieldContent.BuildCodeBehind),
+            ["ux-icon"] = (UxIconContent.BuildRazorContent, UxIconContent.BuildCodeBehind),
         };
 
         public override string Id => "Intent.Blazor.Authentication.AuthPageDefaultContentFactoryExtension";

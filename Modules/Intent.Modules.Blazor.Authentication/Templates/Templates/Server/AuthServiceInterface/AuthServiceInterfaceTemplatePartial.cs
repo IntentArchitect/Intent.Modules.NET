@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -36,7 +37,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
                         method.AddParameter("string", "returnUrl");
                     });
 
-                    if (!outputTarget.ExecutionContext.Settings.GetBlazor().Authentication().IsOidc())
+                    var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+
+                    if (!securityType.IsOIDC())
                     {
                         @interface.AddMethod("Task<string>", "ConfirmEmail", method =>
                         {

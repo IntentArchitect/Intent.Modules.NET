@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -10,6 +12,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
+using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -26,9 +29,11 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            var securityType = application.MetadataManager.GetAuthenticationType(application.Id);
+
             // ux-account.css ships for the non-MudBlazor account pages with a local login — ASP.NET
             // Core Identity OR JWT (the !IsOidc() account-UI gate); OIDC redirects to an external IdP.
-            if (application.GetSettings().GetBlazor().Authentication().IsOidc())
+            if (securityType.IsOIDC())
             {
                 return;
             }

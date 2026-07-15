@@ -81,7 +81,7 @@ const IDENTITY_MANAGE_PAGES = [
 ];
 
 const IDENTITY_SHARED = [
-    shared("account-layout", "AccountLayout"),
+    //shared("account-layout", "AccountLayout"),
     shared("account-hero", "AccountHero"),
     shared("app-user-menu", "AppUserMenu"),
     shared("external-login-picker", "ExternalLoginPicker"),
@@ -102,7 +102,7 @@ const JWT_PAGES = [
     page(authPageId("jwt", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation")
 ];
 const JWT_SHARED = [
-    shared("account-layout", "AccountLayout"),
+    //shared("account-layout", "AccountLayout"),
     shared("account-hero", "AccountHero"),
     shared("status-message", "StatusMessage"),
     shared("ux-field", "UxField"),
@@ -113,7 +113,7 @@ const OIDC_PAGES = [
     page(authPageId("oidc", "login"), "Login", "/Account/Login", "Login")
 ];
 const OIDC_SHARED = [
-    shared("account-layout", "AccountLayout")
+    //shared("account-layout", "AccountLayout")
 ];
 
 const PAGE_DEFINITIONS = {
@@ -260,9 +260,18 @@ async function runSync(securityType) {
             const route = c.getStereotype(PAGE_STEREOTYPE).getProperty("Route").getValue();
             return route === "/" || route === "" || c.getName() === "Home" || c.getName() === "HomePage";
         });
-        const parent = homePage ? (homePage.getParent() || homePage.getPackage()) : element.getPackage();
-        accountFolder = parent.addChild("Folder", "Account");
-        accountFolder.addChild("Diagram", "Account");
+        const pagesRootFolder = homePage ? homePage.getParent() : null;
+        let ancestor = pagesRootFolder;
+        while (ancestor &amp;&amp; ancestor.getName() !== "Pages") {
+            ancestor = ancestor.getParent();
+        }
+        const parent = ancestor ? (ancestor.getParent() || ancestor.getPackage()) : (pagesRootFolder || element.getPackage());
+        const existingAccountFolder = findChildFolder(parent, "Account");
+        accountFolder = existingAccountFolder ? existingAccountFolder : parent.addChild("Folder", "Account");
+        const accountDiagram = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+        if (!accountDiagram) {
+            accountFolder.addChild("Diagram", "Account");
+        }
     }
 
     toRemove.forEach(function (c) { c.delete(); });
@@ -329,8 +338,10 @@ async function runSync(securityType) {
             if (sharedFolder.getChildren().length === 0) {
                 sharedFolder.delete();
             }
-            const remaining = accountFolder.getChildren().filter(function (c) { return c.getSpecialization() !== "Diagram"; });
-            if (remaining.length === 0) {
+            const remaining = accountFolder.getChildren().filter(function (c) {
+                return c !== pagesFolder &amp;&amp; c !== sharedFolder &amp;&amp; c.getSpecialization() !== "Diagram";
+            });
+            if (remaining.length === 0 &amp;&amp; !pagesFolder.getParent() &amp;&amp; !sharedFolder.getParent()) {
                 accountFolder.getChildren("Diagram").forEach(function (d) { d.delete(); });
                 accountFolder.delete();
             }
@@ -405,7 +416,7 @@ const IDENTITY_MANAGE_PAGES = [
 ];
 
 const IDENTITY_SHARED = [
-    shared("account-layout", "AccountLayout"),
+    //shared("account-layout", "AccountLayout"),
     shared("account-hero", "AccountHero"),
     shared("app-user-menu", "AppUserMenu"),
     shared("external-login-picker", "ExternalLoginPicker"),
@@ -426,7 +437,7 @@ const JWT_PAGES = [
     page(authPageId("jwt", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation")
 ];
 const JWT_SHARED = [
-    shared("account-layout", "AccountLayout"),
+    //shared("account-layout", "AccountLayout"),
     shared("account-hero", "AccountHero"),
     shared("status-message", "StatusMessage"),
     shared("ux-field", "UxField"),
@@ -437,7 +448,7 @@ const OIDC_PAGES = [
     page(authPageId("oidc", "login"), "Login", "/Account/Login", "Login")
 ];
 const OIDC_SHARED = [
-    shared("account-layout", "AccountLayout")
+    //shared("account-layout", "AccountLayout")
 ];
 
 const PAGE_DEFINITIONS = {
@@ -584,9 +595,18 @@ async function runSync(securityType) {
             const route = c.getStereotype(PAGE_STEREOTYPE).getProperty("Route").getValue();
             return route === "/" || route === "" || c.getName() === "Home" || c.getName() === "HomePage";
         });
-        const parent = homePage ? (homePage.getParent() || homePage.getPackage()) : element.getPackage();
-        accountFolder = parent.addChild("Folder", "Account");
-        accountFolder.addChild("Diagram", "Account");
+        const pagesRootFolder = homePage ? homePage.getParent() : null;
+        let ancestor = pagesRootFolder;
+        while (ancestor &amp;&amp; ancestor.getName() !== "Pages") {
+            ancestor = ancestor.getParent();
+        }
+        const parent = ancestor ? (ancestor.getParent() || ancestor.getPackage()) : (pagesRootFolder || element.getPackage());
+        const existingAccountFolder = findChildFolder(parent, "Account");
+        accountFolder = existingAccountFolder ? existingAccountFolder : parent.addChild("Folder", "Account");
+        const accountDiagram = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+        if (!accountDiagram) {
+            accountFolder.addChild("Diagram", "Account");
+        }
     }
 
     toRemove.forEach(function (c) { c.delete(); });
@@ -653,8 +673,10 @@ async function runSync(securityType) {
             if (sharedFolder.getChildren().length === 0) {
                 sharedFolder.delete();
             }
-            const remaining = accountFolder.getChildren().filter(function (c) { return c.getSpecialization() !== "Diagram"; });
-            if (remaining.length === 0) {
+            const remaining = accountFolder.getChildren().filter(function (c) {
+                return c !== pagesFolder &amp;&amp; c !== sharedFolder &amp;&amp; c.getSpecialization() !== "Diagram";
+            });
+            if (remaining.length === 0 &amp;&amp; !pagesFolder.getParent() &amp;&amp; !sharedFolder.getParent()) {
                 accountFolder.getChildren("Diagram").forEach(function (d) { d.delete(); });
                 accountFolder.delete();
             }
@@ -678,8 +700,7 @@ const toAddCount = allTargets.filter(function (t) {
 
 try {
     await dialogService.confirm(
-        "Switching Security Type to \"" + securityType + "\" will add " + toAddCount +
-        " and remove " + toRemoveNow.length + " modelled Account page(s)/component(s). Continue?"
+    `Switching Security Type to "${securityType}" will modify the modelled Account pages/components by adding ${toAddCount} and removing ${toRemoveNow.length}. Continue?`
     );
     await runSync(securityType);
 } catch {

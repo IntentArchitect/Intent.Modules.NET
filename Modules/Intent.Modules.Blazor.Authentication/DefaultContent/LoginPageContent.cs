@@ -1,10 +1,15 @@
+using Intent.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using System.Linq;
+using System.Threading;
+using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
 {
@@ -19,16 +24,19 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
+            var authServiceInterfaceTemplate = template.ExecutionContext.FindTemplateInstance(AuthServiceInterfaceTemplate.TemplateId);
+            var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;
+
             var authService = template.GetAuthServiceInterfaceTemplateName();
-            var isAspnetcoreIdentity = template.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity();
+            var isAspnetcoreIdentity = template.GetAuthenticationType().IsASPNETCoreIdentity();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor
-                ? BuildMudBlazorContent(authService, isAspnetcoreIdentity)
-                : BuildBootstrapContent(authService, isAspnetcoreIdentity);
+                ? BuildMudBlazorContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "")
+                : BuildBootstrapContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "");
         }
 
-        private static string BuildMudBlazorContent(string authService, bool isAspnetcoreIdentity)
+        private static string BuildMudBlazorContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
         {
             var externalLoginCard = isAspnetcoreIdentity
                 ? """
@@ -45,6 +53,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : string.Empty;
 
             var head = $$"""
+                @using {{authServiceNamespace}}
                 @inject {{authService}} AuthService
                 @inject NavigationManager NavigationManager
 
@@ -185,7 +194,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return head + externalLoginCard + tail;
         }
 
-        private static string BuildBootstrapContent(string authService, bool isAspnetcoreIdentity)
+        private static string BuildBootstrapContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
         {
             var gridClass = isAspnetcoreIdentity ? "ux-form-grid" : "ux-form-grid ux-form-narrow";
 
@@ -204,6 +213,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : string.Empty;
 
             var head = $$"""
+                @using {{authServiceNamespace}}
                 @inject {{authService}} AuthService
                 @inject NavigationManager NavigationManager
 

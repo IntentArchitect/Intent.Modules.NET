@@ -129,14 +129,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates
             return template.GetTypeName(ServerAuthorizationMessageHandlerTemplate.TemplateId);
         }
 
-        public static string GetAccountLayoutTemplateName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(AccountLayoutTemplate.TemplateId);
-        }
-
         public static string GetRedirectToLoginTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(RedirectToLoginTemplate.TemplateId);
+        }
+
+        public static string GetAccountLayoutTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AccountLayoutTemplate.TemplateId);
         }
 
     }

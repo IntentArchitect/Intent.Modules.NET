@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -38,16 +39,25 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => ReplacementsPrivate(outputTarget);
 
         [IntentIgnore]
+        private static string GetAccountNamespaceRoot(IOutputTarget outputTarget)
+        {
+            return outputTarget.GetNamespace()
+                .Replace("Components.Account.Shared", string.Empty)
+                .Replace("Pages.Account.Shared", string.Empty);
+        }
+
+        [IntentIgnore]
         private Dictionary<string, string> ReplacementsPrivate(IOutputTarget outputTarget)
         {
             var replacements = new Dictionary<string, string>();
+            var accountNamespaceRoot = GetAccountNamespaceRoot(outputTarget);
 
-            replacements.Add("Namespace", outputTarget.GetNamespace().Replace("Components.Account.Shared", ""));
+            replacements.Add("Namespace", accountNamespaceRoot);
 
             // The shared layout lives in the server project for InteractiveServer, but in the .Client
             // project for InteractiveAuto / InteractiveWebAssembly. Emit the render-mode-correct layout
             // namespace so these components' @layout / @using resolve (otherwise Auto/Wasm hit CS0234).
-            var layoutRoot = outputTarget.GetNamespace().Replace("Components.Account.Shared", "");
+            var layoutRoot = accountNamespaceRoot;
             replacements.Add("LayoutNamespace", outputTarget.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
                 ? layoutRoot
                 : $"{layoutRoot.TrimEnd('.')}.Client.");
@@ -57,8 +67,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 replacements.Add("IdentityClass", "ApplicationUser");
                 // JWT apps have no server-side user-data namespace, so _Imports must not emit a
                 // dangling `@using …Data`. Non-Identity setups that still have a Data namespace keep it.
-                var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data";
-                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
+                var dataNamespace = $"{accountNamespaceRoot}Data";
+
+                var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
+                var isJwt = securityType.IsJWT();
+
                 replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
             }
@@ -77,10 +90,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var auth = application.GetSettings().GetBlazor().Authentication();
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
-            if (auth.IsAspnetcoreIdentity())
+            if (auth.IsASPNETCoreIdentity())
             {
                 if (!mudBlazorInstalled)
                 {
@@ -93,7 +106,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 return;
             }
 
-            if (auth.IsJwt())
+            if (auth.IsJWT())
             {
                 // JWT ships only the Identity-free account shell — the SignInManager-dependent
                 // ExternalLoginPicker/ManageNavMenu and the Manage components stay Identity-only.
@@ -102,7 +115,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                     // Non-MudBlazor: the shared UX primitives + layout css/wiring (their code-behind included).
                     RegisterAuthStaticContent(registry, application,
                         pathFilter: rel => rel is "AccountHero.razor" or "UxField.razor" or "UxIcon.razor"
-                            or "StatusMessage.razor" or "StatusMessage.razor.cs" or "AccountLayout.razor.css" or "_Imports.razor");
+                        or "StatusMessage.razor" or "StatusMessage.razor.cs" or "AccountLayout.razor.css" or "_Imports.razor");
                     return;
                 }
 
