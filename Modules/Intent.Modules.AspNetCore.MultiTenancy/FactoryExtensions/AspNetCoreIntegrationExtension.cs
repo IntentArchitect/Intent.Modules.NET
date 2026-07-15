@@ -14,6 +14,7 @@ using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;

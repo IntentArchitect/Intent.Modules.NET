@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -18,15 +19,15 @@ namespace MinimalHostingModel.Infrastructure.Eventing
     {
         private readonly string _headerName;
         private readonly FinbuckleMessageHeaderStrategy _messageHeaderStrategy;
-        private readonly IMultiTenantContextAccessor _accessor;
+        private readonly IMultiTenantContextSetter _setter;
         private readonly ITenantResolver _tenantResolver;
 
         public FinbuckleConsumingFilter(IServiceProvider serviceProvider,
-            IMultiTenantContextAccessor accessor,
+            IMultiTenantContextSetter setter,
             ITenantResolver tenantResolver,
             IConfiguration configuration)
         {
-            _accessor = accessor;
+            _setter = setter;
             _tenantResolver = tenantResolver;
             _headerName = configuration.GetValue<string?>("MassTransit:TenantHeader") ?? "Tenant-Identifier";
 
@@ -41,7 +42,7 @@ namespace MinimalHostingModel.Infrastructure.Eventing
             {
                 _messageHeaderStrategy.SetTenantIdentifier(tenantIdentifier);
                 var multiTenantContext = await _tenantResolver.ResolveAsync(context);
-                _accessor.MultiTenantContext = multiTenantContext;
+                _setter.MultiTenantContext = multiTenantContext;
             }
             await next.Send(context);
         }

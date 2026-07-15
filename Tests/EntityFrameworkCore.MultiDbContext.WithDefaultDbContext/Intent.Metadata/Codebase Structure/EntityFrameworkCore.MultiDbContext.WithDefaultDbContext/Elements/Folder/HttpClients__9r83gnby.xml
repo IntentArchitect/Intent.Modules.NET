@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8f61148d-a784-4f7c-b105-f792bd3351f9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>HttpClients</name>
+  <display>HttpClients</display>
+  <externalReference>a8789b61-65c2-46f5-a32c-4ff2d92f763d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+  <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="4d14b772-a2a5-4d46-ade8-a24b6ce1e952" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>IntegrationTests.HttpClients</name>
+      <display>IntegrationTests.HttpClients</display>
+      <externalReference>d4443416-18f0-408a-810b-726906b4e418</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+      <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

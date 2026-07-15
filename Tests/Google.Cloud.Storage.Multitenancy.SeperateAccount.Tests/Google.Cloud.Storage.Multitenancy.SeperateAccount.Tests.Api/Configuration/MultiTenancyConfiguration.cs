@@ -1,6 +1,8 @@
 using System;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.Stores;
+using Finbuckle.MultiTenant.Stores.InMemoryStore;
 using Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
@@ -36,8 +38,8 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Configurat
             var scopeServices = sp.CreateScope().ServiceProvider;
             var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantExtendedInfo>>();
 
-            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection", GoogleCloudStorageConnection = "JsonConnection-tenant1" }).Wait();
-            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection", GoogleCloudStorageConnection = "JsonConnection-tenant2" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", GoogleCloudStorageConnection = "JsonConnection-tenant1" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", GoogleCloudStorageConnection = "JsonConnection-tenant2" }).Wait();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

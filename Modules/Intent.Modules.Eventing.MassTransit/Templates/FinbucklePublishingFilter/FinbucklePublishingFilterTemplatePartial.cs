@@ -24,7 +24,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilte
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MassTransit")
-                .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass($"FinbucklePublishingFilter", @class =>
                 {
@@ -47,27 +46,18 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilte
                         {
                             method.AddParameter($"PublishContext<{t}>", "context")
                                 .AddParameter($"IPipe<PublishContext<{t}>>", "next")
+                                // A resolved tenant is optional here, not required: a message may legitimately be
+                                // published without one (e.g. a MassTransit-generated reply/fault correlating to a
+                                // previously consumed request via RequestId after the consumer's AsyncLocal-based
+                                // Finbuckle tenant context has unwound, or an intentional tenant-less publish). Only
+                                // set the header when a tenant is actually present - never throw.
+                                .AddStatement("var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;")
                                 .AddStatement("""
-                                    if (context.RequestId.HasValue
-                                        && context.TryGetPayload<ConsumeContext>(out var sourceConsumeContext)
-                                        && sourceConsumeContext.RequestId == context.RequestId)
+                                    if (tenantIdentifier is not null)
                                     {
-                                        // This is a MassTransit-generated reply/fault correlating to a previously consumed
-                                        // request (RespondAsync, or an unhandled-exception Fault) - it is correlation-routed
-                                        // via RequestId, not tenant-routed, so it can proceed without a resolved tenant. This
-                                        // legitimately happens when UseInMemoryOutbox/UseInMemoryInboxOutbox defers the send
-                                        // until after the consumer's AsyncLocal-based Finbuckle tenant context has unwound.
-                                        var replyTenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;
-                                        if (replyTenantIdentifier is not null)
-                                        {
-                                            context.Headers.Set(_headerName, replyTenantIdentifier);
-                                        }
-
-                                        return next.Send(context);
+                                        context.Headers.Set(_headerName, tenantIdentifier);
                                     }
                                     """)
-                                .AddStatement("var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier\n                    ?? throw new MultiTenantException(\"Cannot publish a message without a resolved tenant context.\");")
-                                .AddStatement("context.Headers.Set(_headerName, tenantIdentifier);")
                                 .AddStatement("return next.Send(context);");
                         });
                 });

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -77,11 +78,54 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageConfigu
             if (ExecutionContext.Settings.GetMultitenancySettings()?.GoogleCloudStorageDataIsolation()?.IsSeparateStorageAccount() == true)
             {
                 ExecutionContext.EventDispatcher.Publish(new MultitenantConnectionStringRegistrationRequest("GoogleCloudStorageConnection", $"JsonConnection-{{tenant}}"));
+
+                FixUpEntityFrameworkCoreConnectionResolution();
             }
             this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddGoogleCloudStorage", ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
+        }
+
+        // Claiming our own named GoogleCloudStorageConnection above means TenantExtendedInfoTemplate omits the
+        // generic ConnectionString property from the tenant class (the two are mutually exclusive by design).
+        // Intent.Modules.AspNetCore.MultiTenancy's own DependencyInjection integration
+        // (AspNetCoreIntegrationExtension.GetSeparateDatabaseDataIsolationConfiguration) doesn't know about our
+        // setting and always assumes ConnectionString exists whenever this app also has an EF Core DbContext
+        // with separate-database isolation - so patch that generated statement here (this module already
+        // depends on AspNetCore.MultiTenancy, so this is the correct direction for this fix-up to live in,
+        // rather than teaching AspNetCore.MultiTenancy about this module's specific setting). Runs at Final
+        // priority (1000) so the statement already exists to find and replace by the time this executes.
+        private void FixUpEntityFrameworkCoreConnectionResolution()
+        {
+            // "Data Isolation" (owned by AspNetCore.MultiTenancy) - read via the generic GetSetting(id) lookup
+            // since this module's own MultitenancySettings shim only exposes the properties it directly uses.
+            const string dataIsolationSettingId = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+            if (ExecutionContext.Settings.GetMultitenancySettings()?.GetSetting(dataIsolationSettingId)?.Value != "separate-database")
+            {
+                return;
+            }
+
+            if (GetTemplate<object>("Infrastructure.Data.DbContext", new TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false }) == null)
+            {
+                return;
+            }
+
+            var dependencyInjectionTemplate = GetTemplate<ICSharpFileBuilderTemplate>("Infrastructure.DependencyInjection", new TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false });
+            dependencyInjectionTemplate?.CSharpFile.AfterBuild(file =>
+            {
+                var method = file.Classes.First().FindMethod("AddInfrastructure");
+
+                method?.FindStatement(x => x.GetText(string.Empty).Contains("tenantInfo?.ConnectionString"))
+                    ?.FindAndReplace("tenantInfo?.ConnectionString", "tenantInfo?.Identifier");
+
+                // The comment is factually wrong once the expression above becomes tenantInfo?.Identifier -
+                // it no longer resolves a connection string, so correct it to match.
+                method?.FindStatement(x => x.GetText(string.Empty).Contains("its connection string is used"))
+                    ?.FindAndReplace(
+                        "// Design-time safe: at runtime the tenant is always resolved and its connection string is used; at design time (EF tooling) no tenant is resolved, so fall back to DefaultConnection so FindContextTypes()/migrations do not throw.",
+                        "// Design-time safe: at runtime the tenant is always resolved and its identifier keys a separate\n                // in-memory database per tenant; at design time (EF tooling) no tenant is resolved, so fall back\n                // to DefaultConnection so FindContextTypes()/migrations do not throw.");
+            }, 1000);
         }
 
         [IntentManaged(Mode.Fully)]

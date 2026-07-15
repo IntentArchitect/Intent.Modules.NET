@@ -23,5 +23,8 @@
     <application id="51d44bee-1a4b-4c0a-897e-41261c2bfb9c" name="MinimalHostingModel" solutionFolder="Tests" relativePath="../Tests/MinimalHostingModel/MinimalHostingModel.application.config" />
     <application id="45185cf9-43a9-43e6-9d1e-78afadb97f44" name="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests" solutionFolder="Tests" relativePath="../Tests/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.application.config" />
     <application id="c3880144-3cc1-4e70-8bc2-f48be644b8d9" name="EntityFrameworkCore.DesignTimeDbContextFactory" solutionFolder="Modules/Support" relativePath="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.application.config" />
+    <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="EntityFrameworkCore" solutionFolder="Modules/Support" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
+    <application id="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" name="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext" solutionFolder="Tests" relativePath="../Tests/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.application.config" />
+    <application id="02808467-d0f1-40b4-877a-9206ff897be8" name="EntityFrameworkCore.MySql" solutionFolder="Tests" relativePath="../Tests/EntityFrameworkCore.MySql/EntityFrameworkCore.MySql.application.config" />
   </applications>
 </solution>

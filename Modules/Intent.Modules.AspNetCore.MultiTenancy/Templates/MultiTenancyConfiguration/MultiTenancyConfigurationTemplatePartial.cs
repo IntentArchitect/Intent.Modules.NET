@@ -207,17 +207,19 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                     {
                         { "Id" , "sample-tenant-1" },
                         { "Identifier" , "tenant1" },
-                        { "Name" , "Tenant 1" },
-                        { "ConnectionString" , "Tenant1Connection" }
+                        { "Name" , "Tenant 1" }
                     },
                     new Dictionary<string, string>
                     {
                         { "Id" , "sample-tenant-2" },
                         { "Identifier" , "tenant2" },
-                        { "Name" , "Tenant 2" },
-                        { "ConnectionString" , "Tenant2Connection" }
+                        { "Name" , "Tenant 2" }
                     }
                 });
+
+            // Mirrors GetTenantClass()/TenantExtendedInfoTemplate: named connection requests and the
+            // generic ConnectionString are mutually exclusive properties on the generated tenant class,
+            // so the seeded sample tenants must only reference whichever one actually exists.
             if (_connectionRequests.Any())
             {
                 foreach (var tenant in result.Tenants)
@@ -227,6 +229,12 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                         tenant.Add(connection.Name.ToCSharpIdentifier(), connection.ConnectionStringTemplate.Replace("{tenant}", tenant["Identifier"]));
                     }
                 }
+            }
+            else if (ExecutionContext.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase())
+            {
+                var tenants = result.Tenants.ToList();
+                tenants[0].Add("ConnectionString", "Tenant1Connection");
+                tenants[1].Add("ConnectionString", "Tenant2Connection");
             }
 
             return result;

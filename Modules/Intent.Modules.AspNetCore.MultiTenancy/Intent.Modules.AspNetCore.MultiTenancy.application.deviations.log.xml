@@ -32,37 +32,14 @@
       <fileHash>172753591A426D8B02EDE8F1F5959AD4490424AF58415AFA16E1AEE67CBE6565</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/Swashbuckle/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-01T09:30:24.347878Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-13T15:06:56.9764423Z</approvedAt>
-      <deviationsHash>F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742</deviationsHash>
-      <fileHash>99EA89C414DB56AD8210615E0FEE1369F7BE8E180ACFBC9EDE03790289BDE5B5</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/Swashbuckle/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-09T17:09:54.3489866Z</updatedAt>
-      <deviationsHash>3875A6C06C45DF6D636741C5A30AE2CA25C565A9538404FBA1E4F15118F73273</deviationsHash>
-      <fileHash>564B7F315B93B6210B8E271BA4E2C2107F3B2D85348943EBD2B254030075089E</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f59f1208-0510-4564-9121-b0695b3450be</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TemplateExtensions.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-02-26T06:54:05.9997251Z</updatedAt>
-      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>61F0BC833C0A83866145E337B8B39D0207B5E64180CB14F976036A4335D9F3F0</fileHash>
+      <updatedAt>2026-07-15T07:54:57.9747124Z</updatedAt>
+      <deviationsHash>CDDA496E5727EF0648B161C866C8B75ED2C0D59643D78C8AF981E4FD82730097</deviationsHash>
+      <fileHash>40047C9CFA704D905FE9A82408B8F90D6FA868840361A568CCE4F6D82D4C5614</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</correlationId>
@@ -76,6 +53,19 @@
       <approvedAt>2024-11-13T15:06:55.3666477Z</approvedAt>
       <deviationsHash>D132540BE60254A82663589407E6390C320B1CE7A59F297814F594EE111B24D4</deviationsHash>
       <fileHash>7171911EEA1C3C9A53574788C5F199AF5C5C60A90121D8405DDB16372A43A69E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-11-01T09:30:24.347878Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-11-13T15:06:56.9764423Z</approvedAt>
+      <deviationsHash>F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742</deviationsHash>
+      <fileHash>D45B52A8B7D71595A0D0BD7747A77AC430BC2378DD6E6815EDB60C0D852E854B</fileHash>
     </file>
   </files>
 </deviationsLog>

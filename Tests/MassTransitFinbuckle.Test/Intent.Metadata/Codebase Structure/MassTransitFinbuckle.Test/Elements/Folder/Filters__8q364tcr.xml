@@ -53,22 +53,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a78464ff-cb58-43d1-9928-452c89303d33" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</display>
-      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</parentFolderId>
-      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
-      <packageName>MassTransitFinbuckle.Test</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="8c83903c-fab6-44c6-ad16-8eac9133888e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
       <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
@@ -101,6 +85,20 @@
       <name>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</name>
       <display>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</display>
       <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="546f2a2a-1e31-4e8e-b7cf-0122805e0e31" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter</display>
+      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

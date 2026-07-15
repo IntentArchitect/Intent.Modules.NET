@@ -4,7 +4,7 @@ using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter", Version = "1.0")]
 
 namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Filters
 {

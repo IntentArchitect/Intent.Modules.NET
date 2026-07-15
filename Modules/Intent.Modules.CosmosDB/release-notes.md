@@ -1,3 +1,9 @@
+### Version 2.0.0
+
+- **Breaking change**: Upgraded Finbuckle.MultiTenant from 6.13.1 to 9.4.10, in line with `Intent.Modules.AspNetCore.MultiTenancy` 6.0.0. .NET 6 and .NET 7 are no longer supported by generated multi-tenancy code — applications must target .NET 8 or later.
+- Fixed: separate-database multi-tenancy no longer assumes CosmosDB is the only separate-database module installed. It now publishes a `MultitenantConnectionStringRegistrationRequest` for a named `CosmosDbConnection` property on the tenant type (the same mechanism `Intent.Modules.MongoDb`, `Intent.Modules.MongoDb.MongoFramework`, and `Intent.Modules.Google.CloudStorage` already use), instead of relying on a bare `TenantExtendedInfo.ConnectionString` — which Finbuckle removed at v7+ and which would otherwise conflict when another separate-database module is installed alongside CosmosDB.
+- Improvement: DI resolution of the current tenant in the CosmosDB middleware and client provider now uses `IMultiTenantContextAccessor<T>` instead of direct `TenantInfo`/`ITenantInfo` injection, matching Finbuckle 9.x's API shape.
+
 ### Version 1.2.27
 
 - Improvement: Updated NuGet package versions.

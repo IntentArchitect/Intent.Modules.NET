@@ -1,11 +1,14 @@
 using System;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.Stores;
+using Finbuckle.MultiTenant.Stores.InMemoryStore;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MinimalHostingModel.Infrastructure.Eventing;
+using MinimalHostingModel.Infrastructure.MultiTenant;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "1.0")]
@@ -18,7 +21,7 @@ namespace MinimalHostingModel.Api.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddMultiTenant<TenantInfo>()
+            services.AddMultiTenant<TenantExtendedInfo>()
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
                 .WithStrategy<FinbuckleMessageHeaderStrategy>(ServiceLifetime.Scoped)
                 .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
@@ -32,7 +35,7 @@ namespace MinimalHostingModel.Api.Configuration
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
+        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantExtendedInfo> options)
         {
             // configure in memory store:
             options.IsCaseSensitive = false;
