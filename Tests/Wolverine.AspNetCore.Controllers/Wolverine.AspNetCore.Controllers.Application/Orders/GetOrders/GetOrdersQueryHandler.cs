@@ -20,7 +20,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetOrders
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<PagedResult<OrderDto>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
         {
             var results = await _orderRepository.FindAllAsync(request.PageNo, request.PageSize, cancellationToken);

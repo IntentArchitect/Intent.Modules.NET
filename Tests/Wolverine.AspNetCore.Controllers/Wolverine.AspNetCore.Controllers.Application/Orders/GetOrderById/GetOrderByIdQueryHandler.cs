@@ -21,7 +21,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetOrderById
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<OrderDto> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
         {
             var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);

@@ -20,7 +20,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetProducts
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.FindAllAsync(cancellationToken);

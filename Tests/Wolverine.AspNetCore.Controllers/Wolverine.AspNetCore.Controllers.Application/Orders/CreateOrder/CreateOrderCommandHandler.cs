@@ -26,7 +26,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.CreateOrder
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<OrderDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var order = new Order

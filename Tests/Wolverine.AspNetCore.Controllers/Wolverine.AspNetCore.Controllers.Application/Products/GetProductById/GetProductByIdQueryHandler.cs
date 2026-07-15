@@ -20,7 +20,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetProductById
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);

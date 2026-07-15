@@ -18,7 +18,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetOrderStatistics
             _orderRepository = orderRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<OrderStatisticsDto> Handle(GetOrderStatisticsQuery request, CancellationToken cancellationToken)
         {
             var orders = await _orderRepository.FindAllAsync(cancellationToken);
