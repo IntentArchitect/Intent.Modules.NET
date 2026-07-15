@@ -1,5 +1,6 @@
 ### Version 1.0.0
 
+- Improvement: Handler method discovery now tries both `Handle` and `HandleAsync` (in that order) instead of only `Handle`, so transports whose handler templates name the method `HandleAsync` are also supported. The lookup is centralized in a single helper so additional conventions (or a metadata-based lookup) can be added later without touching call sites.
 - Improvement: Interaction-implemented handler bodies now reference the incoming command/query via `request` (previously `command`/`query`), matching the parameter name used on the handler's own `Handle` method signature across all supported transports.
 - New Feature: Initial release. Discovers Command and Query handlers by role (`TemplateRoles.Application.Handler.Command` / `.Query`) instead of a concrete transport type, so any transport module (Wolverine, MediatR, etc.) can supply the handler templates.
 - New Feature: Implements the modelled Domain Interactions (`Create Entity Action`, `Update Entity Action`, `Query Entity Action`, etc.) inside the discovered handler's `Handle` method for both commands and queries.

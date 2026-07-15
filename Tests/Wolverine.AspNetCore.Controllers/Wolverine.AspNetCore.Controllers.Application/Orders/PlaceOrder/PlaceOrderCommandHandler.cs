@@ -18,7 +18,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.PlaceOrder
             _orderRepository = orderRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(PlaceOrderCommand request, CancellationToken cancellationToken)
         {
             var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);

@@ -25,6 +25,13 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CqrsHandlerCrudExtension : FactoryExtensionBase
     {
+        /// <summary>
+        /// Handler method names tried, in order, across supported transports (MediatR and Wolverine
+        /// both use "Handle"; other transports may use "HandleAsync"). Add to this list - or replace it
+        /// with a metadata-based lookup - if a future transport needs a different convention.
+        /// </summary>
+        private static readonly string[] HandlerMethodNames = { "Handle", "HandleAsync" };
+
         public override string Id => "Intent.Application.CQRS.CRUD.CqrsHandlerCrudExtension";
 
         [IntentManaged(Mode.Ignore)]
@@ -34,6 +41,17 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
         {
             InstallOnCommandHandlers(application);
             InstallOnQueryHandlers(application);
+        }
+
+        private static CSharpClassMethod FindHandlerMethod(CSharpClass @class)
+        {
+            var foundHandler = HandlerMethodNames.Select(@class.FindMethod).FirstOrDefault(m => m is not null);
+            if (foundHandler is null)
+            {
+                throw new System.Exception($"No handler method found in class '{@class.Name}' for any of the expected names: {string.Join(", ", HandlerMethodNames)}");
+            }
+
+            return foundHandler;
         }
 
         private static void InstallOnCommandHandlers(IApplication application)
@@ -60,8 +78,7 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
                     template.AddTypeSource(TemplateRoles.Domain.DataContract);
                     template.AddTypeSource(TemplateRoles.Domain.Entity.Behaviour);
 
-                    var @class = template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
-                    var handleMethod = @class.FindMethod("Handle")!;
+                    var handleMethod = FindHandlerMethod(template.CSharpFile.Classes.First());
                     handleMethod.Statements.Clear();
                     handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
@@ -123,8 +140,7 @@ namespace Intent.Modules.Application.CQRS.CRUD.FactoryExtensions
                     template.AddTypeSource(TemplateRoles.Domain.ValueObject);
                     template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
-                    var @class = template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
-                    var handleMethod = @class.FindMethod("Handle")!;
+                    var handleMethod = FindHandlerMethod(template.CSharpFile.Classes.First());
                     handleMethod.Statements.Clear();
                     handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 

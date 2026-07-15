@@ -17,7 +17,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.UpdateProductPrice
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateProductPriceCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);

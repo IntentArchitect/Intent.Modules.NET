@@ -17,7 +17,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var product = new Product

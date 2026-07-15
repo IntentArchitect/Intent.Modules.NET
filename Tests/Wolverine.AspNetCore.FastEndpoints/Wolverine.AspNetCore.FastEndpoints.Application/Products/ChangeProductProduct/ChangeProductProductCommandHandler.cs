@@ -18,7 +18,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.ChangeProductP
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(ChangeProductProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
