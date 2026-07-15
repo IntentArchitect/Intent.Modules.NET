@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.MultiTenant;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "2.0")]
 
 namespace MongoDb.MultiTenancy.SeperateDb.Api.Configuration
 {

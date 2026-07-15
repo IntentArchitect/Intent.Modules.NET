@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "2.0")]
 
 namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Configuration
 {
@@ -32,7 +32,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Configurat
             InitializeStore(app.ApplicationServices);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;

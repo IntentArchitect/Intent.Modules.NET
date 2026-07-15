@@ -33,7 +33,7 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
 | MongoDb.MongoFramework | *(no dedicated test app in this repo)* | **Build-only** | `NugetPackages.cs` package-ladder reconciled (removed a stray `>=10 → 10.0.2` Finbuckle arm that would have put v10 alongside this module's root-pinned 9.4.10 — a version conflict). Never exercised end-to-end; no MongoFramework-specific test app exists here. |
 | `Intent.Modules.EntityFrameworkCore` package floor (`>= 8.0.28` / `>= 9.0.17`, required transitively by `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10) | — | **Build-only** | This module is not part of the IA solution these test apps live in; fix is source-only, confirmed against the real 9.4.10 `.nuspec` dependency groups, not SF/runtime-verified against any target app in this repo. |
 | Google Cloud Storage separate-account multi-tenancy | `Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests` | **Build-only** | `Intent.Modules.Google.CloudStorage` needed no changes for Finbuckle 9.4.10 *by itself* — it has no direct Finbuckle API usage and resolves tenants purely through this module's `ITenantConnections`/named-connection abstraction. It did need one fix for a *combination* issue: this test app also has an EF Core `DbContext`, and claiming its own named `GoogleCloudStorageConnection` meant `AspNetCoreIntegrationExtension`'s EF Core integration (item 5 below) could no longer assume `ConnectionString` exists — fixed in `Intent.Modules.Google.CloudStorage` itself (see that module's own `CONTEXT.md`), not here. What else broke was the app's own stale hand-written code (fixed by hand) plus the `GetDefaultTenants()` bug (item 4 below, fixed in this module). Not runtime-tested — requires developer-provided GCS credentials. |
-| MinimalHostingModel (uses both MultiTenancy + MassTransit) | `MinimalHostingModel` | **Not tested** | Still on pre-upgrade module versions (`AspNetCore.MultiTenancy` `5.2.2-pre.0`, `Eventing.MassTransit` `7.1.3-pre.0`). Never updated or exercised this upgrade. |
+| MinimalHostingModel (uses both MultiTenancy + MassTransit) | `MinimalHostingModel` | **Build + SF diff verified** | Only app in this repo still carrying the genuine pre-upgrade `Body = Ignore` pattern; used as the live test case for the `ITemplateMigration` in item 6 below (separate-database scenario — retarget path, not the strip path). |
 | net9.0 / net10.0 targets | — | **Not tested** | Every test app in this repo targets `net8.0`. The `>= 8` NuGet arm (all pinned to `9.4.10`, no separate `>=10` arm) is unexercised on net9/net10 by any real app — confirmed by source/package-floor reasoning only. |
 
 ### Known-fixed bugs discovered *during* this testing (not pre-existing upstream issues)
@@ -62,8 +62,11 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
    no `ConnectionString`, only `GoogleCloudStorageConnection`). Fixed to mirror the same
    named-vs-generic-vs-neither condition in both places. Note: this only fixes **newly generated**
    `InitializeStore` bodies — existing ones are `Body = Ignore` (permanently hand-owned) and were
-   corrected by hand in that test app instead (see its own `DependencyInjection.cs` and
-   `MultiTenancyConfiguration.cs`).
+   corrected by hand in that test app at the time (in its `DependencyInjection.cs` and
+   `MultiTenancyConfiguration.cs`), including a temporary `Body = Mode.Fully` override on
+   `InitializeStore` to force it to regenerate. That hand-fix (and the `Body = Mode.Fully` override) is
+   now superseded by item 6's `ITemplateMigration`, which was verified end-to-end against this exact
+   app's original stale state — `InitializeStore` is back to its normal `Body = Mode.Ignore`.
 5. **`AspNetCoreIntegrationExtension.GetSeparateDatabaseDataIsolationConfiguration()` (the factory extension
    that injects tenant-aware EF Core `AddDbContext` code into `Infrastructure.DependencyInjection`)
    unconditionally assumes `tenantInfo?.ConnectionString` exists** — this only fires when an app has
@@ -79,6 +82,53 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
    to disappear from the tenant class in the first place. If CosmosDB/MongoDb/MongoFramework are ever
    combined with EF Core in the same app and hit the same issue, the fix belongs in *that* module using the
    same pattern — never here.
+6. **Pre-upgrade apps with a hand-locked `InitializeStore()` referencing `new TenantInfo() { ...,
+   ConnectionString = "..." }` fail to compile** (`CS0117: 'TenantInfo' does not contain a definition
+   for 'ConnectionString'`) the moment they update to this module version — `Body = Mode.Ignore` means
+   that code never regenerates on its own, so no amount of template fixing helps existing output. Fixed
+   with an `ITemplateMigration` on `MultiTenancyConfigurationTemplatePartial`
+   (`AlignStaleTenantInfoReferencesMigration`, `TemplateMetadata` bumped `1.0` → `2.0`,
+   `TemplateMigrationCriteria.Upgrade(1, 2)`): a real Roslyn AST pass (`CSharpSyntaxTree.ParseText` +
+   `SyntaxEditor`, not string `Replace`). It first checks the file's own (always-regenerated)
+   `services.AddMultiTenant<T>()` call to find the app's *current* tenant class, then branches across
+   all three `GetTenantClass()`/`GetDefaultTenants()` scenarios:
+   - `T == "TenantInfo"` (no extended type — shared-database, no named connection request): strips
+     just the `ConnectionString` assignment from `new TenantInfo() {...}`, leaving `Id`/`Identifier`/
+     `Name` intact — there's nowhere left to put the value.
+   - `T` is an extended type and no named connection request exists (separate-database data isolation
+     only): retargets `new TenantInfo()` → `new {T}()` and `IMultiTenantStore<TenantInfo>` →
+     `IMultiTenantStore<{T}>`, **keeping** `ConnectionString` intact, since the extended type still
+     carries it.
+   - A named connection-string request exists (Cosmos/Mongo/MongoFramework/GoogleCloudStorage
+     installed, matching item 4 above): the stale `ConnectionString` assignment — whether on a bare
+     `TenantInfo` or an already-extended type that used to carry `ConnectionString` before the named
+     property took over — is replaced with one assignment per registered
+     `MultitenantConnectionStringRegistrationRequest` (`request.Name.ToCSharpIdentifier()`), substituting
+     the object's own `Identifier` literal for the `{tenant}` placeholder in
+     `request.ConnectionStringTemplate` — the same substitution `GetDefaultTenants()` uses for newly
+     generated sample tenants. This is what item 4's manual fix (in
+     `Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests`) should have been — the migration takes
+     over that case now.
+   The first version of this migration only handled the first two cases and always took the "keep
+   `ConnectionString`" path whenever an extended type was already in use, regardless of whether a named
+   connection request existed — for separate-database apps that also had a named connection request,
+   that either silently deleted the connection string (when it hadn't retargeted yet) or left a
+   property reference that no longer compiles (`ConnectionString` on a type that now only has
+   `GoogleCloudStorageConnection`). Both gaps caught via user review of the staged diff, not by initial
+   self-verification.
+   Runs automatically the first time Software Factory executes after an app updates past this version —
+   no manual edit needed. Verified against two real scenarios: `Tests/MinimalHostingModel`
+   (separate-database only — retarget path: `TenantInfo` → `TenantExtendedInfo` on both the store type
+   argument and both object creations, `ConnectionString` preserved) and
+   `Tests/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests` (named connection request on an
+   already-extended type — reverted to its pre-fix stale state to re-test: staged diff showed
+   `ConnectionString = "Tenant1Connection"` → `GoogleCloudStorageConnection = "JsonConnection-tenant1"`,
+   matching exactly what a freshly generated app produces). Both apps build afterward. Note the criteria
+   gotcha this took two tries to get right: `TemplateMigrationCriteria.UnversionedUpgrade(n)` only
+   matches files with **no** `Version` attribute at all; this template's files have always carried an
+   explicit `Version = "1.0"`, so `.Upgrade(1, 2)` is the correct criteria — `UnversionedUpgrade`
+   silently bumped the version marker without touching content. See `.module-builder/RETROSPECTIVE.md`
+   (2026-07-15 entry) for the full investigation trail.
 
 ### Infra used for runtime verification (all local, Docker where noted)
 

@@ -11,7 +11,7 @@ using MinimalHostingModel.Infrastructure.Eventing;
 using MinimalHostingModel.Infrastructure.MultiTenant;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "2.0")]
 
 namespace MinimalHostingModel.Api.Configuration
 {
@@ -45,10 +45,10 @@ namespace MinimalHostingModel.Api.Configuration
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;
-            var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
+            var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantExtendedInfo>>();
 
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }).Wait();
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection" }).Wait();
         }
     }
 }

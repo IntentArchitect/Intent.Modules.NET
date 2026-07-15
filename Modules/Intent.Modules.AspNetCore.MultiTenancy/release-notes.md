@@ -1,11 +1,21 @@
 ### Version 6.0.0
 
-- **Breaking change**: Upgraded Finbuckle.MultiTenant from 6.13.1 to 9.4.10. .NET 6 and .NET 7 are no longer supported by generated multi-tenancy code — applications must target .NET 8 or later.
-- **Breaking change**: Direct DI injection of `ITenantInfo`/`TenantInfo` is replaced by `IMultiTenantContextAccessor<T>` (read) and `IMultiTenantContextSetter` (write) throughout generated code, matching Finbuckle 9.x's API shape. Namespaces reorganized: `ITenantInfo`, `IMultiTenantContext(Accessor)<T>`, `IMultiTenantStore<T>`, and `ITenantResolver<T>` now live in `Finbuckle.MultiTenant.Abstractions`; `InMemoryStoreOptions<T>` moved to `Finbuckle.MultiTenant.Stores.InMemoryStore`; the EF Core store DbContext base moved to `Finbuckle.MultiTenant.EntityFrameworkCore.Stores.EFCoreStore`.
-- **Breaking change**: `TenantInfo`/`TenantExtendedInfo` no longer carry a bare `ConnectionString` property (removed upstream by Finbuckle at v7+). Separate-database applications now resolve per-tenant connections through `ITenantConnections`/named connection-string properties instead.
-- Manual migration note: existing applications' hand-owned tenant seed data (`InitializeStore`/`SetupInMemoryStore`, generated with `Body = Ignore`) will not auto-migrate — any `ConnectionString = "..."` initializer on the seeded tenant object must be updated by hand to the new named connection-string property after updating this module and running the Software Factory.
-- Fixed: separate-database `AddDbContext` tenant-connection resolution no longer throws at EF Core design time (e.g. during `dotnet ef migrations`) when no tenant is resolved; it now falls back to the `DefaultConnection` connection string in that case, matching the pre-upgrade design-time behavior.
-- Fixed: the InMemory-store sample tenant seed (`InitializeStore`) generated for **new** applications no longer includes a stray `ConnectionString` initializer when a named connection-string property (or none at all) is what's actually generated on the tenant class. Previously `GetDefaultTenants()` always seeded `ConnectionString`, which failed to compile whenever a separate-database module (CosmosDB, MongoDb, MongoFramework, Google Cloud Storage) registered its own named connection instead.
+> ⚠️ **BREAKING CHANGES**
+>
+> - Upgraded Finbuckle.MultiTenant 6.13.1 → 9.4.10. **.NET 8+ only** — 6/7 no longer supported.
+> - `ITenantInfo`/`TenantInfo` DI injection replaced by `IMultiTenantContextAccessor<T>` (read) /
+>   `IMultiTenantContextSetter` (write), matching Finbuckle 9.x. Namespaces moved:
+>   `ITenantInfo`, `IMultiTenantContext(Accessor)<T>`, `IMultiTenantStore<T>`, `ITenantResolver<T>` →
+>   `Finbuckle.MultiTenant.Abstractions`; `InMemoryStoreOptions<T>` →
+>   `Finbuckle.MultiTenant.Stores.InMemoryStore`; EF Core store base →
+>   `Finbuckle.MultiTenant.EntityFrameworkCore.Stores.EFCoreStore`.
+> - `TenantInfo`/`TenantExtendedInfo` no longer carry a bare `ConnectionString` (removed upstream at
+>   Finbuckle v7+). Separate-database apps now resolve connections via `ITenantConnections`/named
+>   connection-string properties instead.
+
+- Fixed: separate-database `AddDbContext` no longer throws at EF Core design time (e.g. `dotnet ef migrations`) when no tenant is resolved — falls back to `DefaultConnection`, matching pre-upgrade behavior.
+- Fixed: `InitializeStore` for **new** apps no longer seeds a stray `ConnectionString` when a named connection property (or none) is what's actually on the tenant class.
+- Fixed: pre-upgrade apps with a hand-locked `InitializeStore()` referencing a bare `ConnectionString` are auto-migrated the next time the Software Factory runs, matching whatever the app actually needs: retargeted to the extended tenant type with the connection string preserved (separate-database only), rewritten to the app's named connection-string property (Cosmos/Mongo/MongoFramework/GoogleCloudStorage installed), or removed outright (no extended type applies).
 
 ### Version 5.2.2
 

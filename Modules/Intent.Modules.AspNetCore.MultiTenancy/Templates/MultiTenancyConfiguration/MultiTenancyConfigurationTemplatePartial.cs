@@ -13,6 +13,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Editing;
 using Microsoft.Win32.SafeHandles;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -252,6 +256,148 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        public override TemplateMetadata TemplateMetadata => new TemplateMetadata(TemplateId, "2.0");
+
+        public override ITemplateMigration[] Migrations => new ITemplateMigration[] { new AlignStaleTenantInfoReferencesMigration(_connectionRequests) };
+
+        // Finbuckle v7+ removed ConnectionString from the base TenantInfo class (see GetTenantClass() above).
+        // Apps generated before this module's Finbuckle 9.4.10 upgrade may have hand-locked
+        // (Body = Ignore) InitializeStore code seeding e.g.
+        // `new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }`
+        // directly against the (then-valid) base TenantInfo.ConnectionString property. That code never
+        // regenerates on its own, so it breaks three different ways once an app upgrades past this version:
+        //  - No extended tenant type and no named connection request (GetTenantClass() == "TenantInfo"):
+        //    the ConnectionString initializer no longer compiles at all, and there is nowhere left to put
+        //    it, so it's removed.
+        //  - Extended tenant type, no named connection request (separate-database data isolation only --
+        //    GetTenantClass() == GetTenantExtendedInfoName()): the extended type still carries
+        //    ConnectionString, but the stale body still constructs the *base* TenantInfo and asks for
+        //    IMultiTenantStore<TenantInfo>, which no longer matches what AddMultiTenant<TExtended>()
+        //    registers. That compiles today (TenantInfo itself is untouched) but throws a DI resolution
+        //    error at runtime. Retarget the stale type to the extended type instead of dropping
+        //    ConnectionString, since the extended type still has it.
+        //  - A named connection-string request exists (Cosmos/Mongo/MongoFramework/GoogleCloudStorage
+        //    installed) -- TenantExtendedInfoTemplate then generates a *named* property (e.g.
+        //    CosmosDbConnection) instead of ConnectionString on the extended type (mutually exclusive, see
+        //    GetTenantClass()/GetDefaultTenants() above), even when the stale body already used the
+        //    extended type. `ConnectionString` no longer compiles there either. Replace it with one
+        //    assignment per registered named connection, substituting the tenant's own Identifier value
+        //    for the "{tenant}" placeholder -- the same substitution GetDefaultTenants() uses for newly
+        //    generated sample tenants.
+        public class AlignStaleTenantInfoReferencesMigration : ITemplateMigration
+        {
+            private const string BaseTenantInfoTypeName = "TenantInfo";
+            private readonly IReadOnlyList<MultitenantConnectionStringRegistrationRequest> _connectionRequests;
+
+            public AlignStaleTenantInfoReferencesMigration(IReadOnlyList<MultitenantConnectionStringRegistrationRequest> connectionRequests)
+            {
+                _connectionRequests = connectionRequests;
+            }
+
+            public string Execute(string currentText)
+            {
+                var syntaxTree = CSharpSyntaxTree.ParseText(currentText);
+                var root = syntaxTree.GetRoot();
+                using var workspace = new AdhocWorkspace();
+                var editor = new SyntaxEditor(root, workspace.Services);
+
+                // AddMultiTenant<T>() is regenerated on every SF run (it isn't inside a Body = Ignore
+                // zone), so its type argument reflects the app's *current* tenant class -- the ground
+                // truth to reconcile the stale, hand-locked code against.
+                var currentTenantClass = root.DescendantNodes()
+                    .OfType<GenericNameSyntax>()
+                    .Where(g => g.Identifier.Text == "AddMultiTenant" && g.TypeArgumentList.Arguments.Count == 1)
+                    .Select(g => g.TypeArgumentList.Arguments[0].ToString())
+                    .FirstOrDefault() ?? BaseTenantInfoTypeName;
+
+                if (currentTenantClass != BaseTenantInfoTypeName)
+                {
+                    RetargetStaleTenantInfoReferences(root, editor, currentTenantClass);
+                }
+
+                ReconcileConnectionStringAssignments(root, editor, currentTenantClass);
+
+                return editor.GetChangedRoot().ToFullString();
+            }
+
+            // Bare `TenantInfo` object creations and the `IMultiTenantStore<TenantInfo>` DI lookup are
+            // stale references to a type this app no longer registers -- retype them to whatever
+            // AddMultiTenant<T>() actually configures.
+            private static void RetargetStaleTenantInfoReferences(SyntaxNode root, SyntaxEditor editor, string extendedTenantClass)
+            {
+                var objectCreations = root.DescendantNodes()
+                    .OfType<ObjectCreationExpressionSyntax>()
+                    .Where(o => o.Type.ToString() == BaseTenantInfoTypeName);
+
+                foreach (var objectCreation in objectCreations)
+                {
+                    editor.ReplaceNode(objectCreation.Type, SyntaxFactory.ParseTypeName(extendedTenantClass).WithTriviaFrom(objectCreation.Type));
+                }
+
+                var storeTypeArguments = root.DescendantNodes()
+                    .OfType<GenericNameSyntax>()
+                    .Where(g => g.Identifier.Text == "IMultiTenantStore"
+                                && g.TypeArgumentList.Arguments.Count == 1
+                                && g.TypeArgumentList.Arguments[0].ToString() == BaseTenantInfoTypeName)
+                    .SelectMany(g => g.TypeArgumentList.Arguments);
+
+                foreach (var typeArgument in storeTypeArguments)
+                {
+                    editor.ReplaceNode(typeArgument, SyntaxFactory.ParseTypeName(extendedTenantClass).WithTriviaFrom(typeArgument));
+                }
+            }
+
+            // Handles a stale `ConnectionString` assignment regardless of which type it's on (bare
+            // TenantInfo, or an extended type that used to carry ConnectionString before a named
+            // connection request claimed the property instead).
+            private void ReconcileConnectionStringAssignments(SyntaxNode root, SyntaxEditor editor, string currentTenantClass)
+            {
+                var objectCreations = root.DescendantNodes()
+                    .OfType<ObjectCreationExpressionSyntax>()
+                    .Where(o => o.Initializer != null
+                                && (o.Type.ToString() == BaseTenantInfoTypeName || o.Type.ToString() == currentTenantClass));
+
+                foreach (var objectCreation in objectCreations)
+                {
+                    var initializer = objectCreation.Initializer!;
+                    var connectionStringAssignment = initializer.Expressions
+                        .OfType<AssignmentExpressionSyntax>()
+                        .FirstOrDefault(a => a.Left is IdentifierNameSyntax { Identifier.Text: "ConnectionString" });
+
+                    if (connectionStringAssignment == null)
+                    {
+                        continue;
+                    }
+
+                    if (_connectionRequests.Count > 0)
+                    {
+                        var tenantIdentifier = initializer.Expressions
+                            .OfType<AssignmentExpressionSyntax>()
+                            .FirstOrDefault(a => a.Left is IdentifierNameSyntax { Identifier.Text: "Identifier" } && a.Right is LiteralExpressionSyntax)
+                            ?.Right is LiteralExpressionSyntax identifierLiteral
+                            ? identifierLiteral.Token.ValueText
+                            : null;
+
+                        var namedAssignments = _connectionRequests.Select(request => (ExpressionSyntax)SyntaxFactory.ParseExpression(
+                            $"{request.Name.ToCSharpIdentifier()} = \"{(tenantIdentifier != null ? request.ConnectionStringTemplate.Replace("{tenant}", tenantIdentifier) : request.ConnectionStringTemplate)}\""));
+
+                        var withoutConnectionString = initializer.Expressions.Where(e => e != connectionStringAssignment);
+                        var newExpressions = SyntaxFactory.SeparatedList(withoutConnectionString.Concat(namedAssignments));
+                        editor.ReplaceNode(initializer, initializer.WithExpressions(newExpressions));
+                    }
+                    else if (currentTenantClass == BaseTenantInfoTypeName)
+                    {
+                        var newExpressions = initializer.Expressions.Remove(connectionStringAssignment);
+                        editor.ReplaceNode(initializer, initializer.WithExpressions(newExpressions));
+                    }
+                    // else: an extended type with no named connection request still legitimately carries
+                    // ConnectionString -- leave it as-is.
+                }
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
         }
     }
 }
