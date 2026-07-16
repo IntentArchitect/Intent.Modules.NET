@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="86fb1e21-fb88-462a-bd62-594e5ceac628" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ChildOfParent</name>
-  <display>ChildOfParent : AbstractParent</display>
+  <display>ChildOfParent</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

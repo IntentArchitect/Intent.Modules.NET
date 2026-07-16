@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1c27fe12-28ae-4542-8cff-60485eeacb2c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPT_DerivedClassForConcrete</name>
-  <display>TPT_DerivedClassForConcrete : TPT_ConcreteBaseClass</display>
+  <display>TPT_DerivedClassForConcrete</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

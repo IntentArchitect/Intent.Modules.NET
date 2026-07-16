@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="daba366c-a445-41aa-8084-3b470f582423" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPT_Poly_ConcreteB</name>
-  <display>TPT_Poly_ConcreteB : TPT_Poly_BaseClassNonAbstract</display>
+  <display>TPT_Poly_ConcreteB</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

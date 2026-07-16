@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="300163c6-0277-42de-acd2-57543cab9b38" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPT_FkDerivedClass</name>
-  <display>TPT_FkDerivedClass : TPT_FkBaseClass</display>
+  <display>TPT_FkDerivedClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

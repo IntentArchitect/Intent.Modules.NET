@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e876b83a-029f-4b5f-9065-eb85b97cf2b6" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPT_Poly_BaseClassNonAbstract</name>
-  <display>TPT_Poly_BaseClassNonAbstract : TPT_Poly_RootAbstract</display>
+  <display>TPT_Poly_BaseClassNonAbstract</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
