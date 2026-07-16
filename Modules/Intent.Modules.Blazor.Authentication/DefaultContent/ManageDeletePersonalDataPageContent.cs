@@ -41,41 +41,70 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
                 @inject ILogger<DeletePersonalData> Logger
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.DeleteForever" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.DeleteForever"
+                                 Class="mr-2" />
                         Delete personal data
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Permanently remove your account and all associated personal data.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
 
-                <MudAlert Severity="Severity.Warning" Class="mb-4">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
+                <MudAlert Severity="Severity.Warning"
+                          Class="mb-4">
+                    Deleting this data will permanently remove your account, and this cannot be recovered.
+                </MudAlert>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
+                        <EditForm Model="Input"
+                                  FormName="delete-user"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
 
                             <MudGrid>
                                 <MudItem xs="12">
                                     <MudText Typo="Typo.h5">Confirm account deletion</MudText>
-                                    <MudText Typo="Typo.body2" Class="mb-4">Review this action carefully before continuing.</MudText>
+                                    <MudText Typo="Typo.body2"
+                                             Class="mb-4">
+                                        Review this action carefully before continuing.
+                                    </MudText>
                                 </MudItem>
                                 @if (requirePassword)
                                 {
                                     <MudItem xs="12">
-                                        <MudTextField T="string" @bind-Value="Input.Password" Label="Password" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Lock" InputType="InputType.Password" Immediate="true" For="@(() => Input.Password)" />
-                                        <ValidationMessage For="() => Input.Password" class="text-danger" />
+                                        <MudTextField T="string"
+                                                      @bind-Value="Input.Password"
+                                                      Label="Password"
+                                                      Variant="Variant.Outlined"
+                                                      Adornment="Adornment.Start"
+                                                      AdornmentIcon="@Icons.Material.Filled.Lock"
+                                                      InputType="InputType.Password"
+                                                      Immediate="true"
+                                                      For="@(() => Input.Password)" />
+                                        <ValidationMessage For="() => Input.Password"
+                                                           class="text-danger" />
                                     </MudItem>
                                 }
                                 <MudItem xs="12">
-                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">
+                                    <MudStack Row="true"
+                                              Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Filled"
+                                                   Color="Color.Error"
+                                                   StartIcon="@Icons.Material.Filled.DeleteForever">
                                             Delete data and close my account
                                         </MudButton>
                                     </MudStack>
@@ -136,24 +165,39 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     <p class="ux-section-subtitle">Review this action carefully before continuing.</p>
                 </div>
 
-                <div class="ux-callout ux-callout-warning" role="alert">
+                <div class="ux-callout ux-callout-warning"
+                     role="alert">
                     <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
                     <div class="ux-callout-body">
                         <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
                     </div>
                 </div>
 
-                <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
+                <EditForm Model="Input"
+                          FormName="delete-user"
+                          OnValidSubmit="OnValidSubmitAsync"
+                          method="post">
                     <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger" role="alert" />
+                    <ValidationSummary class="text-danger"
+                                       role="alert" />
                     @if (requirePassword)
                     {
-                        <UxField Label="Password" Icon="lock" For="password">
-                            <InputText id="password" type="password" @bind-Value="Input.Password" class="ux-input" autocomplete="current-password" aria-required="true" placeholder="Enter your password" />
+                        <UxField Label="Password"
+                                 Icon="lock"
+                                 For="password">
+                            <InputText id="password"
+                                       type="password"
+                                       @bind-Value="Input.Password"
+                                       class="ux-input"
+                                       autocomplete="current-password"
+                                       aria-required="true"
+                                       placeholder="Enter your password" />
                         </UxField>
-                        <ValidationMessage For="() => Input.Password" class="text-danger" />
+                        <ValidationMessage For="() => Input.Password"
+                                           class="text-danger" />
                     }
-                    <button class="btn btn-outline-danger" type="submit">
+                    <button class="btn btn-outline-danger"
+                            type="submit">
                         <UxIcon Name="trash" />
                         Delete data and close my account
                     </button>
@@ -177,14 +221,18 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
             });
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("requirePassword", new CSharpStatement("await UserManager.HasPasswordAsync(user);"));
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("requirePassword", new CSharpStatement("await UserManager.HasPasswordAsync(user);"));
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
             {
@@ -214,6 +262,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 inputModel.AddProperty("string", "Password", p =>
                 {
+                    code.Template.AddUsing("System.ComponentModel.DataAnnotations");
+
                     p.AddAttribute("DataType(DataType.Password)");
                     p.WithInitialValue("\"\"");
                 });

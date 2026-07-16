@@ -45,19 +45,29 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                         <MudIcon Icon="@Icons.Material.Filled.MoreVert" />
                     </Trigger>
                     <ChildContent>
-                        <a class="ux-user-menu-item" href="Account/Manage">
-                            <MudIcon Icon="@Icons.Material.Filled.Person" Size="Size.Small" />
+                        <a class="ux-user-menu-item"
+                           href="Account/Manage">
+                            <MudIcon Icon="@Icons.Material.Filled.Person"
+                                     Size="Size.Small" />
                             <span>Profile</span>
                         </a>
-                        <a class="ux-user-menu-item" href="Account/Manage">
-                            <MudIcon Icon="@Icons.Material.Filled.ManageAccounts" Size="Size.Small" />
+                        <a class="ux-user-menu-item"
+                           href="Account/Manage">
+                            <MudIcon Icon="@Icons.Material.Filled.ManageAccounts"
+                                     Size="Size.Small" />
                             <span>My Account</span>
                         </a>
-                        <form class="ux-user-menu-logout-form" action="Account/Logout" method="post">
+                        <form class="ux-user-menu-logout-form"
+                              action="Account/Logout"
+                              method="post">
                             <AntiforgeryToken />
-                            <input type="hidden" name="returnUrl" value="" />
-                            <button type="submit" class="ux-user-menu-item">
-                                <MudIcon Icon="@Icons.Material.Filled.Logout" Size="Size.Small" />
+                            <input type="hidden"
+                                   name="returnUrl"
+                                   value="" />
+                            <button type="submit"
+                                    class="ux-user-menu-item">
+                                <MudIcon Icon="@Icons.Material.Filled.Logout"
+                                         Size="Size.Small" />
                                 <span>Logout</span>
                             </button>
                         </form>
@@ -103,18 +113,25 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                         <UxIcon Name="more-vertical" />
                     </Trigger>
                     <ChildContent>
-                        <a class="ux-user-menu-item" href="Account/Manage">
+                        <a class="ux-user-menu-item"
+                           href="Account/Manage">
                             <UxIcon Name="user" />
                             <span>Profile</span>
                         </a>
-                        <a class="ux-user-menu-item" href="Account/Manage">
+                        <a class="ux-user-menu-item"
+                           href="Account/Manage">
                             <UxIcon Name="settings" />
                             <span>My Account</span>
                         </a>
-                        <form class="ux-user-menu-logout-form" action="Account/Logout" method="post">
+                        <form class="ux-user-menu-logout-form"
+                              action="Account/Logout"
+                              method="post">
                             <AntiforgeryToken />
-                            <input type="hidden" name="returnUrl" value="" />
-                            <button type="submit" class="ux-user-menu-item">
+                            <input type="hidden"
+                                   name="returnUrl"
+                                   value="" />
+                            <button type="submit"
+                                    class="ux-user-menu-item">
                                 <UxIcon Name="log-out" />
                                 <span>Logout</span>
                             </button>

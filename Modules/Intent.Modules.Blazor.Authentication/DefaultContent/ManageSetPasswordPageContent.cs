@@ -40,44 +40,82 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{userAccessor}} UserAccessor
                 @inject {{redirectManager}} RedirectManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Password" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.Password"
+                                 Class="mr-2" />
                         Set password
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Add a local password so you can sign in without an external provider.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
-                <MudAlert Severity="Severity.Info" Class="mb-4">
+                <MudAlert Severity="Severity.Info"
+                          Class="mb-4">
                     You do not have a local username/password for this site. Add a local
                     account so you can log in without an external login.
                 </MudAlert>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <EditForm Model="Input" FormName="set-password" OnValidSubmit="OnValidSubmitAsync" method="post">
+                        <EditForm Model="Input"
+                                  FormName="set-password"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
 
                             <MudGrid>
                                 <MudItem xs="12">
                                     <MudText Typo="Typo.h5">Set your password</MudText>
-                                    <MudText Typo="Typo.body2" Class="mb-4">Choose a password for future sign-ins.</MudText>
+                                    <MudText Typo="Typo.body2"
+                                             Class="mb-4">
+                                        Choose a password for future sign-ins.
+                                    </MudText>
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" @bind-Value="Input.NewPassword" Label="New password" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Lock" InputType="InputType.Password" Immediate="true" For="@(() => Input.NewPassword)" />
-                                    <ValidationMessage For="() => Input.NewPassword" class="text-danger" />
+                                    <MudTextField T="string"
+                                                  @bind-Value="Input.NewPassword"
+                                                  Label="New password"
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.Lock"
+                                                  InputType="InputType.Password"
+                                                  Immediate="true"
+                                                  For="@(() => Input.NewPassword)" />
+                                    <ValidationMessage For="() => Input.NewPassword"
+                                                       class="text-danger" />
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" @bind-Value="Input.ConfirmPassword" Label="Confirm password" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.LockReset" InputType="InputType.Password" Immediate="true" For="@(() => Input.ConfirmPassword)" />
-                                    <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
+                                    <MudTextField T="string"
+                                                  @bind-Value="Input.ConfirmPassword"
+                                                  Label="Confirm password"
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.LockReset"
+                                                  InputType="InputType.Password"
+                                                  Immediate="true"
+                                                  For="@(() => Input.ConfirmPassword)" />
+                                    <ValidationMessage For="() => Input.ConfirmPassword"
+                                                       class="text-danger" />
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Save">Set password</MudButton>
+                                    <MudStack Row="true"
+                                              Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Filled"
+                                                   Color="Color.Primary"
+                                                   StartIcon="@Icons.Material.Filled.Save">
+                                            Set password
+                                        </MudButton>
                                     </MudStack>
                                 </MudItem>
                             </MudGrid>
@@ -134,18 +172,39 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     You do not have a local username/password for this site. Add a local
                     account so you can log in without an external login.
                 </p>
-                <EditForm Model="Input" FormName="set-password" OnValidSubmit="OnValidSubmitAsync" method="post">
+                <EditForm Model="Input"
+                          FormName="set-password"
+                          OnValidSubmit="OnValidSubmitAsync"
+                          method="post">
                     <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger" role="alert" />
-                    <UxField Label="New password" Icon="lock" For="new-password">
-                        <InputText id="new-password" type="password" @bind-Value="Input.NewPassword" class="ux-input" autocomplete="new-password" placeholder="Enter a new password" />
+                    <ValidationSummary class="text-danger"
+                                       role="alert" />
+                    <UxField Label="New password"
+                             Icon="lock"
+                             For="new-password">
+                        <InputText id="new-password"
+                                   type="password"
+                                   @bind-Value="Input.NewPassword"
+                                   class="ux-input"
+                                   autocomplete="new-password"
+                                   placeholder="Enter a new password" />
                     </UxField>
-                    <ValidationMessage For="() => Input.NewPassword" class="text-danger" />
-                    <UxField Label="Confirm password" Icon="lock" For="confirm-password">
-                        <InputText id="confirm-password" type="password" @bind-Value="Input.ConfirmPassword" class="ux-input" autocomplete="new-password" placeholder="Confirm your new password" />
+                    <ValidationMessage For="() => Input.NewPassword"
+                                       class="text-danger" />
+                    <UxField Label="Confirm password"
+                             Icon="lock"
+                             For="confirm-password">
+                        <InputText id="confirm-password"
+                                   type="password"
+                                   @bind-Value="Input.ConfirmPassword"
+                                   class="ux-input"
+                                   autocomplete="new-password"
+                                   placeholder="Confirm your new password" />
                     </UxField>
-                    <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
-                    <button type="submit" class="btn btn-primary">
+                    <ValidationMessage For="() => Input.ConfirmPassword"
+                                       class="text-danger" />
+                    <button type="submit"
+                            class="btn btn-primary">
                         <UxIcon Name="lock" />
                         Set password
                     </button>
@@ -168,17 +227,21 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
             });
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("var hasPassword", new CSharpStatement("await UserManager.HasPasswordAsync(user);"));
-                onInitializedAsync.AddIfStatement("hasPassword", @if =>
-                {
-                    @if.AddStatement("RedirectManager.RedirectTo(\"Account/Manage/ChangePassword\");");
-                });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("var hasPassword", new CSharpStatement("await UserManager.HasPasswordAsync(user);"));
+            onInitializedAsync.AddIfStatement("hasPassword", @if =>
+            {
+                @if.AddStatement("RedirectManager.RedirectTo(\"Account/Manage/ChangePassword\");");
             });
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>

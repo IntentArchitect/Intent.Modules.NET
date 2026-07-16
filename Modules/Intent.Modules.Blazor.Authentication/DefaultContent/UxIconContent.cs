@@ -19,8 +19,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return """
                 @* Inline SVG icon — icon source for the account/identity pages.
                    Feather-style stroke icons; inherit colour via stroke="currentColor". *@
-                <svg class="ux-icon @Class" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg class="ux-icon @Class"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     aria-hidden="true">
                     @((MarkupString)Path)
                 </svg>
 

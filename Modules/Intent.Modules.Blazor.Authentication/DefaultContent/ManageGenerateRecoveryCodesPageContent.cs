@@ -42,32 +42,51 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()" StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                                       StatusMessage="@message" />
                 }
                 else
                 {
-                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                        <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                            <MudIcon Icon="@Icons.Material.Filled.Key" Class="mr-2" />
+                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                              Elevation="0">
+                        <MudText Typo="Typo.h4"
+                                 Class="text-white font-weight-bold mb-2">
+                            <MudIcon Icon="@Icons.Material.Filled.Key"
+                                     Class="mr-2" />
                             Generate recovery codes
                         </MudText>
-                        <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                        <MudText Typo="Typo.body1"
+                                 Class="text-white opacity-90">
                             Create a new set of recovery codes for your two-factor authentication setup.
                         </MudText>
                     </MudPaper>
 
-                    <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                    <MudCard Class="ux-fade-in-up auth-form-shell"
+                             Style="animation-delay: 0.1s"
+                             Outlined="true">
                         <MudCardContent>
-                            <MudText Typo="Typo.h5" Class="mb-3">Generate two-factor authentication (2FA) recovery codes</MudText>
-                            <MudAlert Severity="Severity.Warning" Class="mb-4">
+                            <MudText Typo="Typo.h5"
+                                     Class="mb-3">
+                                Generate two-factor authentication (2FA) recovery codes
+                            </MudText>
+                            <MudAlert Severity="Severity.Warning"
+                                      Class="mb-4">
                                 <MudText Typo="Typo.body1"><strong>Put these codes in a safe place.</strong></MudText>
                                 <MudText Typo="Typo.body1">If you lose your device and don't have the recovery codes you will lose access to your account.</MudText>
                                 <MudText Typo="Typo.body1">Generating new recovery codes does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
                             </MudAlert>
-                            <form @formname="generate-recovery-codes" @onsubmit="OnSubmitAsync" method="post">
+                            <form @formname="generate-recovery-codes"
+                                  @onsubmit="OnSubmitAsync"
+                                  method="post">
                                 <AntiforgeryToken />
-                                <MudStack Row="true" Justify="Justify.FlexEnd">
-                                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.Key">Generate recovery codes</MudButton>
+                                <MudStack Row="true"
+                                          Justify="Justify.FlexEnd">
+                                    <MudButton ButtonType="ButtonType.Submit"
+                                               Variant="Variant.Filled"
+                                               Color="Color.Error"
+                                               StartIcon="@Icons.Material.Filled.Key">
+                                        Generate recovery codes
+                                    </MudButton>
                                 </MudStack>
                             </form>
                         </MudCardContent>
@@ -96,7 +115,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()" StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                                       StatusMessage="@message" />
                 }
                 else
                 {
@@ -109,9 +129,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                             used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
                         </p>
                     </div>
-                    <form @formname="generate-recovery-codes" @onsubmit="OnSubmitAsync" method="post">
+                    <form @formname="generate-recovery-codes"
+                          @onsubmit="OnSubmitAsync"
+                          method="post">
                         <AntiforgeryToken />
-                        <button class="btn btn-danger" type="submit"><UxIcon Name="key" /> Generate recovery codes</button>
+                        <button class="btn btn-danger"
+                                type="submit">
+                            <UxIcon Name="key" /> Generate recovery codes
+                        </button>
                     </form>
                 }
                 """;
@@ -127,16 +152,21 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
             code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("var isTwoFactorEnabled", new CSharpStatement("await UserManager.GetTwoFactorEnabledAsync(user);"));
-                onInitializedAsync.AddIfStatement("!isTwoFactorEnabled", @if =>
-                {
-                    @if.AddStatement("throw new InvalidOperationException(\"Cannot generate recovery codes for user because they do not have 2FA enabled.\");");
-                });
+            onInitializedAsync.Async().Protected().Override();
+
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("var isTwoFactorEnabled", new CSharpStatement("await UserManager.GetTwoFactorEnabledAsync(user);"));
+            onInitializedAsync.AddIfStatement("!isTwoFactorEnabled", @if =>
+            {
+                @if.AddStatement("throw new InvalidOperationException(\"Cannot generate recovery codes for user because they do not have 2FA enabled.\");");
             });
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", onSubmitAsync =>

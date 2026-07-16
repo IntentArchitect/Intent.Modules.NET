@@ -46,25 +46,38 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()" StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                                       StatusMessage="@message" />
                 }
                 else
                 {
-                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                        <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                            <MudIcon Icon="@Icons.Material.Filled.QrCode2" Class="mr-2" />
+                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                              Elevation="0">
+                        <MudText Typo="Typo.h4"
+                                 Class="text-white font-weight-bold mb-2">
+                            <MudIcon Icon="@Icons.Material.Filled.QrCode2"
+                                     Class="mr-2" />
                             Configure authenticator app
                         </MudText>
-                        <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                        <MudText Typo="Typo.body1"
+                                 Class="text-white opacity-90">
                             Set up an authenticator app to strengthen your account security.
                         </MudText>
                     </MudPaper>
 
                     <StatusMessage Message="@message" />
-                    <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s" Outlined="true">
+                    <MudCard Class="ux-fade-in-up"
+                             Style="animation-delay: 0.1s"
+                             Outlined="true">
                         <MudCardContent>
-                            <MudText Typo="Typo.h5" Class="mb-3">Configure authenticator app</MudText>
-                            <MudText Typo="Typo.body1" Class="mb-4">To use an authenticator app go through the following steps:</MudText>
+                            <MudText Typo="Typo.h5"
+                                     Class="mb-3">
+                                Configure authenticator app
+                            </MudText>
+                            <MudText Typo="Typo.body1"
+                                     Class="mb-4">
+                                To use an authenticator app go through the following steps:
+                            </MudText>
                             <ol class="auth-steps">
                                 <li>
                                     <MudText Typo="Typo.body1">
@@ -78,24 +91,49 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                                 </li>
                                 <li>
                                     <MudText Typo="Typo.body1">Scan the QR Code or enter this key <code>@sharedKey</code> into your two factor authenticator app. Spaces and casing do not matter.</MudText>
-                                    <MudAlert Severity="Severity.Info" Class="mb-3">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</MudAlert>
+                                    <MudAlert Severity="Severity.Info"
+                                              Class="mb-3">
+                                        Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.
+                                    </MudAlert>
                                     <div data-url="@authenticatorUri"></div>
                                 </li>
                                 <li>
-                                    <MudText Typo="Typo.body1" Class="mb-3">Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below.</MudText>
+                                    <MudText Typo="Typo.body1"
+                                             Class="mb-3">
+                                        Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below.
+                                    </MudText>
                                     <div class="auth-form-shell">
-                                        <EditForm Model="Input" FormName="send-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+                                        <EditForm Model="Input"
+                                                  FormName="send-code"
+                                                  OnValidSubmit="OnValidSubmitAsync"
+                                                  method="post">
                                             <DataAnnotationsValidator />
-                                            <ValidationSummary class="text-danger" role="alert" />
+                                            <ValidationSummary class="text-danger"
+                                                                role="alert" />
 
                                             <MudGrid>
                                                 <MudItem xs="12">
-                                                    <MudTextField T="string" @bind-Value="Input.Code" Label="Verification code" Placeholder="Please enter the code." Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Password" Immediate="true" For="@(() => Input.Code)" />
-                                                    <ValidationMessage For="() => Input.Code" class="text-danger" />
+                                                    <MudTextField T="string"
+                                                                  @bind-Value="Input.Code"
+                                                                  Label="Verification code"
+                                                                  Placeholder="Please enter the code."
+                                                                  Variant="Variant.Outlined"
+                                                                  Adornment="Adornment.Start"
+                                                                  AdornmentIcon="@Icons.Material.Filled.Password"
+                                                                  Immediate="true"
+                                                                  For="@(() => Input.Code)" />
+                                                    <ValidationMessage For="() => Input.Code"
+                                                                       class="text-danger" />
                                                 </MudItem>
                                                 <MudItem xs="12">
-                                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.VerifiedUser">Verify</MudButton>
+                                                    <MudStack Row="true"
+                                                              Justify="Justify.FlexEnd">
+                                                        <MudButton ButtonType="ButtonType.Submit"
+                                                                   Variant="Variant.Filled"
+                                                                   Color="Color.Primary"
+                                                                   StartIcon="@Icons.Material.Filled.VerifiedUser">
+                                                            Verify
+                                                        </MudButton>
                                                     </MudStack>
                                                 </MudItem>
                                             </MudGrid>
@@ -162,7 +200,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()" StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                                       StatusMessage="@message" />
                 }
                 else
                 {
@@ -191,14 +230,28 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                                 Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
                                 with a unique code. Enter the code in the confirmation box below.
                             </p>
-                            <EditForm Model="Input" FormName="send-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+                            <EditForm Model="Input"
+                                      FormName="send-code"
+                                      OnValidSubmit="OnValidSubmitAsync"
+                                      method="post">
                                 <DataAnnotationsValidator />
-                                <UxField Label="Verification code" Icon="shield" For="code">
-                                    <InputText id="code" @bind-Value="Input.Code" class="ux-input" autocomplete="off" placeholder="Enter the code" />
+                                <UxField Label="Verification code"
+                                         Icon="shield"
+                                         For="code">
+                                    <InputText id="code"
+                                               @bind-Value="Input.Code"
+                                               class="ux-input"
+                                               autocomplete="off"
+                                               placeholder="Enter the code" />
                                 </UxField>
-                                <ValidationMessage For="() => Input.Code" class="text-danger" />
-                                <button type="submit" class="btn btn-primary"><UxIcon Name="check-circle" /> Verify</button>
-                                <ValidationSummary class="text-danger" role="alert" />
+                                <ValidationMessage For="() => Input.Code"
+                                                   class="text-danger" />
+                                <button type="submit"
+                                        class="btn btn-primary">
+                                    <UxIcon Name="check-circle" /> Verify
+                                </button>
+                                <ValidationSummary class="text-danger"
+                                                    role="alert" />
                             </EditForm>
                         </li>
                     </ol>
@@ -225,14 +278,18 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
             });
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddStatement("await LoadSharedKeyAndQrCodeUriAsync(user);");
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddStatement("await LoadSharedKeyAndQrCodeUriAsync(user);");
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
             {

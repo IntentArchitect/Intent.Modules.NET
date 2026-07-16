@@ -40,19 +40,28 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject SignInManager<{{identityClass}}> SignInManager
                 @inject {{redirectManager}} RedirectManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead"
+                                 Class="mr-2" />
                         Confirm email change
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         We are verifying your updated email address and applying the change.
                     </MudText>
                 </MudPaper>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Class="mb-3">Email change status</MudText>
+                        <MudText Typo="Typo.h5"
+                                 Class="mb-3">
+                            Email change status
+                        </MudText>
                         <StatusMessage Message="@message" />
                     </MudCardContent>
                 </MudCard>
@@ -78,7 +87,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject SignInManager<{{identityClass}}> SignInManager
                 @inject {{redirectManager}} RedirectManager
 
-                <AccountHero Icon="check-circle" Title="Confirm email change" Subtitle="Updating your email address." />
+                <AccountHero Icon="check-circle"
+                             Title="Confirm email change"
+                             Subtitle="Updating your email address." />
 
                 <div class="ux-form-narrow">
                     <section>
@@ -98,40 +109,45 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddProperty("string?", "Email", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("string?", "Code", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddIfStatement("UserId is null || Email is null || Code is null", @if =>
-                {
-                    @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", \"Error: Invalid email change confirmation link.\", HttpContext);");
-                });
+            onInitializedAsync.Async().Protected().Override();
 
-                onInitializedAsync.AddAssignmentStatement("var user", new CSharpStatement("await UserManager.FindByIdAsync(UserId);"));
-                onInitializedAsync.AddIfStatement("user is null", @if =>
-                {
-                    @if.AddStatement("message = \"Unable to find user with Id '{userId}'\";");
-                    @if.AddStatement("return;");
-                });
-
-                onInitializedAsync.AddAssignmentStatement("var code", new CSharpStatement($"{code.Template.UseType("System.Text.Encoding")}.UTF8.GetString({code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlDecode(Code));"));
-                onInitializedAsync.AddAssignmentStatement("var result", new CSharpStatement("await UserManager.ChangeEmailAsync(user, Email, code);"));
-                onInitializedAsync.AddIfStatement("!result.Succeeded", @if =>
-                {
-                    @if.AddStatement("message = \"Error changing email.\";");
-                    @if.AddStatement("return;");
-                });
-
-                onInitializedAsync.AddAssignmentStatement("var setUserNameResult", new CSharpStatement("await UserManager.SetUserNameAsync(user, Email);"));
-                onInitializedAsync.AddIfStatement("!setUserNameResult.Succeeded", @if =>
-                {
-                    @if.AddStatement("message = \"Error changing user name.\";");
-                    @if.AddStatement("return;");
-                });
-
-                onInitializedAsync.AddStatement("await SignInManager.RefreshSignInAsync(user);");
-                onInitializedAsync.AddStatement("message = \"Thank you for confirming your email change.\";");
+            onInitializedAsync.AddIfStatement("UserId is null || Email is null || Code is null", @if =>
+            {
+                @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", \"Error: Invalid email change confirmation link.\", HttpContext);");
             });
+
+            onInitializedAsync.AddAssignmentStatement("var user", new CSharpStatement("await UserManager.FindByIdAsync(UserId);"));
+            onInitializedAsync.AddIfStatement("user is null", @if =>
+            {
+                @if.AddStatement("message = \"Unable to find user with Id '{userId}'\";");
+                @if.AddStatement("return;");
+            });
+
+            onInitializedAsync.AddAssignmentStatement("var code", new CSharpStatement($"{code.Template.UseType("System.Text.Encoding")}.UTF8.GetString({code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlDecode(Code));"));
+            onInitializedAsync.AddAssignmentStatement("var result", new CSharpStatement("await UserManager.ChangeEmailAsync(user, Email, code);"));
+            onInitializedAsync.AddIfStatement("!result.Succeeded", @if =>
+            {
+                @if.AddStatement("message = \"Error changing email.\";");
+                @if.AddStatement("return;");
+            });
+
+            onInitializedAsync.AddAssignmentStatement("var setUserNameResult", new CSharpStatement("await UserManager.SetUserNameAsync(user, Email);"));
+            onInitializedAsync.AddIfStatement("!setUserNameResult.Succeeded", @if =>
+            {
+                @if.AddStatement("message = \"Error changing user name.\";");
+                @if.AddStatement("return;");
+            });
+
+            onInitializedAsync.AddStatement("await SignInManager.RefreshSignInAsync(user);");
+            onInitializedAsync.AddStatement("message = \"Thank you for confirming your email change.\";");
         }
     }
 }

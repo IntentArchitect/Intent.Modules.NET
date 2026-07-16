@@ -42,51 +42,81 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject UserManager<{{identityClass}}> UserManager
                 @inject IUserStore<{{identityClass}}> UserStore
                 @inject IEmailSender<{{identityClass}}> EmailSender
-                @inject NavigationManager NavigationManager
                 @inject {{redirectManager}} RedirectManager
                 @inject ILogger<ExternalLogin> Logger
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1"
+                                 Class="mr-2" />
                         Complete registration
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Link your @ProviderDisplayName account and finish creating your profile.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
-                <MudAlert Severity="Severity.Info" Class="mb-4">
+                <MudAlert Severity="Severity.Info"
+                          Class="mb-4">
                     You've successfully authenticated with <strong>@ProviderDisplayName</strong>.
                     Please enter an email address for this site below and click the Register button to finish
                     logging in.
                 </MudAlert>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <EditForm Model="Input" OnValidSubmit="OnValidSubmitAsync" FormName="confirmation" method="post">
+                        <EditForm Model="Input"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  FormName="confirmation"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
 
                             <MudGrid>
                                 <MudItem xs="12">
                                     <MudText Typo="Typo.h5">Associate your @ProviderDisplayName account</MudText>
-                                    <MudText Typo="Typo.body2" Class="mb-4">Enter an email address to complete registration.</MudText>
+                                    <MudText Typo="Typo.body2"
+                                             Class="mb-4">
+                                        Enter an email address to complete registration.
+                                    </MudText>
                                 </MudItem>
                                 <MudItem xs="12">
                                     <div class="account-input-field">
-                                        <label class="account-input-label" for="email">Email</label>
+                                        <label class="account-input-label"
+                                               for="email">
+                                            Email
+                                        </label>
                                         <div class="account-input-shell">
-                                            <MudIcon Icon="@Icons.Material.Filled.Email" Class="account-input-icon" />
-                                            <InputText id="email" class="account-input-control" @bind-Value="Input.Email" autocomplete="email" aria-required="true" placeholder="Please enter your email." type="email" />
+                                            <MudIcon Icon="@Icons.Material.Filled.Email"
+                                                     Class="account-input-icon" />
+                                            <InputText id="email"
+                                                       class="account-input-control"
+                                                       @bind-Value="Input.Email"
+                                                       autocomplete="email"
+                                                       aria-required="true"
+                                                       placeholder="Please enter your email."
+                                                       type="email" />
                                         </div>
-                                        <ValidationMessage For="() => Input.Email" class="text-danger" />
+                                        <ValidationMessage For="() => Input.Email"
+                                                           class="text-danger" />
                                     </div>
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.HowToReg">Register</MudButton>
+                                    <MudStack Row="true"
+                                              Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Filled"
+                                                   Color="Color.Primary"
+                                                   StartIcon="@Icons.Material.Filled.HowToReg">
+                                            Register
+                                        </MudButton>
                                     </MudStack>
                                 </MudItem>
                             </MudGrid>
@@ -164,11 +194,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject UserManager<{{identityClass}}> UserManager
                 @inject IUserStore<{{identityClass}}> UserStore
                 @inject IEmailSender<{{identityClass}}> EmailSender
-                @inject NavigationManager NavigationManager
                 @inject {{redirectManager}} RedirectManager
                 @inject ILogger<ExternalLogin> Logger
 
-                <AccountHero Icon="user-plus" Title="Almost there" Subtitle="@($"Associate your {ProviderDisplayName} account.")" />
+                <AccountHero Icon="user-plus"
+                             Title="Almost there"
+                             Subtitle="@($"Associate your {ProviderDisplayName} account.")" />
 
                 <div class="ux-form-narrow">
                     <section>
@@ -176,14 +207,26 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                         <p class="ux-section-subtitle">
                             You've successfully authenticated with <strong>@ProviderDisplayName</strong>. Enter an email address for this site and select Register to finish.
                         </p>
-                        <EditForm Model="Input" OnValidSubmit="OnValidSubmitAsync" FormName="confirmation" method="post">
+                        <EditForm Model="Input"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  FormName="confirmation"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
-                            <UxField Label="Email" Icon="mail" For="email">
-                                <InputText id="email" @bind-Value="Input.Email" class="ux-input" autocomplete="email" placeholder="name@example.com" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
+                            <UxField Label="Email"
+                                     Icon="mail"
+                                     For="email">
+                                <InputText id="email"
+                                           @bind-Value="Input.Email"
+                                           class="ux-input"
+                                           autocomplete="email"
+                                           placeholder="name@example.com" />
                             </UxField>
-                            <ValidationMessage For="() => Input.Email" class="text-danger" />
-                            <button type="submit" class="w-100 btn btn-primary">
+                            <ValidationMessage For="() => Input.Email"
+                                               class="text-danger" />
+                            <button type="submit"
+                                    class="w-100 btn btn-primary">
                                 <UxIcon Name="user-plus" />
                                 Register
                             </button>
@@ -197,7 +240,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
-            code.AddField("string", "LoginCallbackAction", f => f.PrivateConstant("\"LoginCallback\""));
+            code.AddField("string", "LoginCallbackAction", f => f.Public("\"LoginCallback\"").Constant());
             code.AddField("string?", "message");
             code.AddField(code.Template.UseType("Microsoft.AspNetCore.Identity.ExternalLoginInfo"), "externalLoginInfo", f => f.WithAssignment(new CSharpStatement("default!")));
 
@@ -214,36 +257,41 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
             code.AddProperty("string?", "ProviderDisplayName", p => p.Private().WithoutSetter().Getter.WithExpressionImplementation("externalLoginInfo.ProviderDisplayName"));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddIfStatement("RemoteError is not null", @if =>
+            onInitializedAsync.Async().Protected().Override();
+
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddIfStatement("RemoteError is not null", @if =>
+            {
+                @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", $\"Error from external provider: {RemoteError}\", HttpContext);");
+            });
+
+            onInitializedAsync.AddAssignmentStatement("var info", new CSharpStatement("await SignInManager.GetExternalLoginInfoAsync();"));
+            onInitializedAsync.AddIfStatement("info is null", @if =>
+            {
+                @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", \"Error loading external login information.\", HttpContext);");
+            });
+
+            onInitializedAsync.AddStatement("externalLoginInfo = info;");
+
+            onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method)", @if =>
+            {
+                @if.AddIfStatement("Action == LoginCallbackAction", innerIf =>
                 {
-                    @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", $\"Error from external provider: {RemoteError}\", HttpContext);");
+                    innerIf.AddStatement("await OnLoginCallbackAsync();");
+                    innerIf.AddStatement("return;");
                 });
 
-                onInitializedAsync.AddAssignmentStatement("var info", new CSharpStatement("await SignInManager.GetExternalLoginInfoAsync();"));
-                onInitializedAsync.AddIfStatement("info is null", @if =>
-                {
-                    @if.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Login\", \"Error loading external login information.\", HttpContext);");
-                });
-
-                onInitializedAsync.AddStatement("externalLoginInfo = info;");
-
-                onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method)", @if =>
-                {
-                    @if.AddIfStatement("Action == LoginCallbackAction", innerIf =>
-                    {
-                        innerIf.AddStatement("await OnLoginCallbackAsync();");
-                        innerIf.AddStatement("return;");
-                    });
-
-                    @if.AddStatement("// We should only reach this page via the login callback, so redirect back to");
-                    @if.AddStatement("// the login page if we get here some other way.");
-                    @if.AddStatement("RedirectManager.RedirectTo(\"Account/Login\");");
-                });
+                @if.AddStatement("// We should only reach this page via the login callback, so redirect back to");
+                @if.AddStatement("// the login page if we get here some other way.");
+                @if.AddStatement("RedirectManager.RedirectTo(\"Account/Login\");");
             });
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnLoginCallbackAsync", onLoginCallbackAsync =>

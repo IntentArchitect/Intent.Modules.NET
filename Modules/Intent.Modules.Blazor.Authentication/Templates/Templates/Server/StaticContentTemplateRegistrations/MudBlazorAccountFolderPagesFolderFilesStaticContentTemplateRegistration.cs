@@ -26,7 +26,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         {
         }
 
-        public override string ContentSubFolder => "ComponentsMudBlazor/Account";
+        public override string ContentSubFolder => "ComponentsMudBlazor/Account/Pages";
 
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };

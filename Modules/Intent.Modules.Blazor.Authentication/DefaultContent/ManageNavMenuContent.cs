@@ -37,7 +37,10 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject SignInManager<{{identityClass}}> SignInManager
 
                 <MudNavMenu>
-                    <MudNavLink Href="Account/Manage" Match="NavLinkMatch.All">Profile</MudNavLink>
+                    <MudNavLink Href="Account/Manage"
+                                Match="NavLinkMatch.All">
+                        Profile
+                    </MudNavLink>
                     <MudNavLink Href="Account/Manage/Email">Email</MudNavLink>
                     <MudNavLink Href="Account/Manage/ChangePassword">Password</MudNavLink>
                     @if (hasExternalLogins)
@@ -59,25 +62,44 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Account/Manage" Match="NavLinkMatch.All">Profile</NavLink>
+                        <NavLink class="nav-link"
+                                 href="Account/Manage"
+                                 Match="NavLinkMatch.All">
+                            Profile
+                        </NavLink>
                     </li>
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Account/Manage/Email">Email</NavLink>
+                        <NavLink class="nav-link"
+                                 href="Account/Manage/Email">
+                            Email
+                        </NavLink>
                     </li>
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Account/Manage/ChangePassword">Password</NavLink>
+                        <NavLink class="nav-link"
+                                 href="Account/Manage/ChangePassword">
+                            Password
+                        </NavLink>
                     </li>
                     @if (hasExternalLogins)
                     {
                         <li class="nav-item">
-                            <NavLink class="nav-link" href="Account/Manage/ExternalLogins">External logins</NavLink>
+                            <NavLink class="nav-link"
+                                     href="Account/Manage/ExternalLogins">
+                                External logins
+                            </NavLink>
                         </li>
                     }
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Account/Manage/TwoFactorAuthentication">Two-factor authentication</NavLink>
+                        <NavLink class="nav-link"
+                                 href="Account/Manage/TwoFactorAuthentication">
+                            Two-factor authentication
+                        </NavLink>
                     </li>
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Account/Manage/PersonalData">Personal data</NavLink>
+                        <NavLink class="nav-link"
+                                 href="Account/Manage/PersonalData">
+                            Personal data
+                        </NavLink>
                     </li>
                 </ul>
 
@@ -123,12 +145,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             code.AddField("bool", "hasExternalLogins");
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddAssignmentStatement("hasExternalLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();"));
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddAssignmentStatement("hasExternalLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();"));
         }
     }
 }

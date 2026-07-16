@@ -30,7 +30,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         {
         }
 
-        public override string ContentSubFolder => "Components/Account";
+        public override string ContentSubFolder => "Components/Account/Pages";
 
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };

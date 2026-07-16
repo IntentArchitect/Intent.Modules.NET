@@ -1,10 +1,13 @@
 using Intent.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Templates;
 using System.Linq;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
@@ -20,23 +23,33 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
+            var authServiceInterfaceTemplate = template.ExecutionContext.FindTemplateInstance(AuthServiceInterfaceTemplate.TemplateId);
+            var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;
+
+            var authService = template.GetAuthServiceInterfaceTemplateName();
             var isAspnetcoreIdentity = template.GetAuthenticationType().IsASPNETCoreIdentity();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor
-                ? BuildMudBlazorContent(isAspnetcoreIdentity)
-                : BuildBootstrapContent(isAspnetcoreIdentity);
+                ? BuildMudBlazorContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "")
+                : BuildBootstrapContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "");
         }
 
-        private static string BuildMudBlazorContent(bool isAspnetcoreIdentity)
+        private static string BuildMudBlazorContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
         {
             var externalLoginCard = isAspnetcoreIdentity
                 ? """
-                    <MudItem xs="12" md="5" lg="6">
-                        <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.2s">
+                    <MudItem xs="12"
+                             md="5"
+                             lg="6">
+                        <MudCard Class="ux-fade-in-up"
+                                 Style="animation-delay: 0.2s">
                             <MudCardContent>
                                 <MudText Typo="Typo.h6">Use another service to log in</MudText>
-                                <MudText Typo="Typo.body2" Class="mb-4">Choose an external provider to authenticate.</MudText>
+                                <MudText Typo="Typo.body2"
+                                         Class="mb-4">
+                                    Choose an external provider to authenticate.
+                                </MudText>
                                 <ExternalLoginPicker />
                             </MudCardContent>
                         </MudCard>
@@ -44,61 +57,123 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 """
                 : string.Empty;
 
-            const string head = """
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.PersonAdd" Class="mr-2" />
+            var head = $$"""
+                @using {{authServiceNamespace}}
+                @inject {{authService}} AuthService
+
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.PersonAdd"
+                                 Class="mr-2" />
                         Create your account
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">Register with your email address to continue.</MudText>
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
+                        Register with your email address to continue.
+                    </MudText>
                 </MudPaper>
 
                 <MudGrid Spacing="3">
-                    <MudItem xs="12" md="7" lg="6">
-                        <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
+                    <MudItem xs="12"
+                             md="7"
+                             lg="6">
+                        <MudCard Class="ux-fade-in-up"
+                                 Style="animation-delay: 0.1s">
                             <MudCardContent>
                                 <StatusMessage Message="@Message" />
-                                <EditForm Model="Input" FormName="register" OnValidSubmit="RegisterUser" method="post" asp-route-returnUrl="@ReturnUrl">
+                                <EditForm Model="Input"
+                                          FormName="register"
+                                          OnValidSubmit="RegisterUser"
+                                          method="post"
+                                          asp-route-returnUrl="@ReturnUrl">
                                     <DataAnnotationsValidator />
                                     <MudGrid>
                                         <MudItem xs="12">
                                             <MudText Typo="Typo.h5">Create a new account</MudText>
-                                            <MudText Typo="Typo.body2" Class="mb-2">Enter your details below.</MudText>
-                                            <ValidationSummary class="text-danger" role="alert" />
+                                            <MudText Typo="Typo.body2"
+                                                     Class="mb-2">
+                                                Enter your details below.
+                                            </MudText>
+                                            <ValidationSummary class="text-danger"
+                                                               role="alert" />
                                         </MudItem>
                                         <MudItem xs="12">
                                             <div class="register-input-field">
-                                                <label class="register-input-label" for="email">Email</label>
+                                                <label class="register-input-label"
+                                                       for="email">
+                                                    Email
+                                                </label>
                                                 <div class="register-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.Email" Class="register-input-icon" />
-                                                    <InputText id="email" class="register-input-control" @bind-Value="Input.Email" autocomplete="username" aria-required="true" placeholder="name@example.com" type="email" />
+                                                    <MudIcon Icon="@Icons.Material.Filled.Email"
+                                                             Class="register-input-icon" />
+                                                    <InputText id="email"
+                                                               class="register-input-control"
+                                                               @bind-Value="Input.Email"
+                                                               autocomplete="username"
+                                                               aria-required="true"
+                                                               placeholder="name@example.com"
+                                                               type="email" />
                                                 </div>
-                                                <ValidationMessage class="text-danger" For="() => Input.Email" />
+                                                <ValidationMessage class="text-danger"
+                                                                   For="() => Input.Email" />
                                             </div>
                                         </MudItem>
                                         <MudItem xs="12">
                                             <div class="register-input-field">
-                                                <label class="register-input-label" for="password">Password</label>
+                                                <label class="register-input-label"
+                                                       for="password">
+                                                    Password
+                                                </label>
                                                 <div class="register-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.Lock" Class="register-input-icon" />
-                                                    <InputText id="password" class="register-input-control" @bind-Value="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Enter your password" type="password" />
+                                                    <MudIcon Icon="@Icons.Material.Filled.Lock"
+                                                             Class="register-input-icon" />
+                                                    <InputText id="password"
+                                                               class="register-input-control"
+                                                               @bind-Value="Input.Password"
+                                                               autocomplete="new-password"
+                                                               aria-required="true"
+                                                               placeholder="Enter your password"
+                                                               type="password" />
                                                 </div>
-                                                <ValidationMessage class="text-danger" For="() => Input.Password" />
+                                                <ValidationMessage class="text-danger"
+                                                                   For="() => Input.Password" />
                                             </div>
                                         </MudItem>
                                         <MudItem xs="12">
                                             <div class="register-input-field">
-                                                <label class="register-input-label" for="confirm-password">Confirm Password</label>
+                                                <label class="register-input-label"
+                                                       for="confirm-password">
+                                                    Confirm Password
+                                                </label>
                                                 <div class="register-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.LockReset" Class="register-input-icon" />
-                                                    <InputText id="confirm-password" class="register-input-control" @bind-Value="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirm your password" type="password" />
+                                                    <MudIcon Icon="@Icons.Material.Filled.LockReset"
+                                                             Class="register-input-icon" />
+                                                    <InputText id="confirm-password"
+                                                               class="register-input-control"
+                                                               @bind-Value="Input.ConfirmPassword"
+                                                               autocomplete="new-password"
+                                                               aria-required="true"
+                                                               placeholder="Confirm your password"
+                                                               type="password" />
                                                 </div>
-                                                <ValidationMessage class="text-danger" For="() => Input.ConfirmPassword" />
+                                                <ValidationMessage class="text-danger"
+                                                                   For="() => Input.ConfirmPassword" />
                                             </div>
                                         </MudItem>
                                         <MudItem xs="12">
-                                            <MudStack Row="true" Spacing="2" Justify="Justify.FlexEnd" AlignItems="AlignItems.Center">
-                                                <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled" FullWidth="true" StartIcon="@Icons.Material.Filled.HowToReg">Register</MudButton>
+                                            <MudStack Row="true"
+                                                      Spacing="2"
+                                                      Justify="Justify.FlexEnd"
+                                                      AlignItems="AlignItems.Center">
+                                                <MudButton ButtonType="ButtonType.Submit"
+                                                           Color="Color.Primary"
+                                                           Variant="Variant.Filled"
+                                                           FullWidth="true"
+                                                           StartIcon="@Icons.Material.Filled.HowToReg">
+                                                    Register
+                                                </MudButton>
                                             </MudStack>
                                         </MudItem>
                                         <MudItem xs="12">
@@ -170,7 +245,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return head + externalLoginCard + tail;
         }
 
-        private static string BuildBootstrapContent(bool isAspnetcoreIdentity)
+        private static string BuildBootstrapContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
         {
             var gridClass = isAspnetcoreIdentity ? "ux-form-grid" : "ux-form-grid ux-form-narrow";
 
@@ -189,32 +264,69 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : string.Empty;
 
             var head = $$"""
-                <AccountHero Icon="user-plus" Title="Create your account" Subtitle="Get started with a new local account." />
+                @using {{authServiceNamespace}}
+                @inject {{authService}} AuthService
+
+                <AccountHero Icon="user-plus"
+                             Title="Create your account"
+                             Subtitle="Get started with a new local account." />
 
                 <div class="{{gridClass}}">
                     <div class="ux-form-col">
                         <section>
                             <StatusMessage Message="@Message" />
-                            <EditForm Model="Input" FormName="register" OnValidSubmit="RegisterUser" method="post" asp-route-returnUrl="@ReturnUrl">
+                            <EditForm Model="Input"
+                                      FormName="register"
+                                      OnValidSubmit="RegisterUser"
+                                      method="post"
+                                      asp-route-returnUrl="@ReturnUrl">
                                 <DataAnnotationsValidator />
                                 <div class="ux-section-head">
                                     <h2>Create a new account</h2>
                                     <p class="ux-section-subtitle">It only takes a moment.</p>
                                 </div>
-                                <ValidationSummary class="text-danger" role="alert" />
-                                <UxField Label="Email" Icon="mail" For="email">
-                                    <InputText id="email" class="ux-input" @bind-Value="Input.Email" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                                <ValidationSummary class="text-danger"
+                                                   role="alert" />
+                                <UxField Label="Email"
+                                         Icon="mail"
+                                         For="email">
+                                    <InputText id="email"
+                                               class="ux-input"
+                                               @bind-Value="Input.Email"
+                                               autocomplete="username"
+                                               aria-required="true"
+                                               placeholder="name@example.com" />
                                 </UxField>
-                                <ValidationMessage class="text-danger" For="() => Input.Email" />
-                                <UxField Label="Password" Icon="lock" For="password">
-                                    <InputText id="password" class="ux-input" type="password" @bind-Value="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Create a password" />
+                                <ValidationMessage class="text-danger"
+                                                   For="() => Input.Email" />
+                                <UxField Label="Password"
+                                         Icon="lock"
+                                         For="password">
+                                    <InputText id="password"
+                                               class="ux-input"
+                                               type="password"
+                                               @bind-Value="Input.Password"
+                                               autocomplete="new-password"
+                                               aria-required="true"
+                                               placeholder="Create a password" />
                                 </UxField>
-                                <ValidationMessage class="text-danger" For="() => Input.Password" />
-                                <UxField Label="Confirm Password" Icon="lock" For="confirm-password">
-                                    <InputText id="confirm-password" class="ux-input" type="password" @bind-Value="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirm your password" />
+                                <ValidationMessage class="text-danger"
+                                                   For="() => Input.Password" />
+                                <UxField Label="Confirm Password"
+                                         Icon="lock"
+                                         For="confirm-password">
+                                    <InputText id="confirm-password"
+                                               class="ux-input"
+                                               type="password"
+                                               @bind-Value="Input.ConfirmPassword"
+                                               autocomplete="new-password"
+                                               aria-required="true"
+                                               placeholder="Confirm your password" />
                                 </UxField>
-                                <ValidationMessage class="text-danger" For="() => Input.ConfirmPassword" />
-                                <button class="w-100 btn btn-primary" type="submit">
+                                <ValidationMessage class="text-danger"
+                                                   For="() => Input.ConfirmPassword" />
+                                <button class="w-100 btn btn-primary"
+                                        type="submit">
                                     <UxIcon Name="user-plus" />
                                     Register
                                 </button>

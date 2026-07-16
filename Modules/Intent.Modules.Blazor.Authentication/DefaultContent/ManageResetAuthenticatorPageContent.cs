@@ -41,28 +41,46 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
                 @inject ILogger<ResetAuthenticator> Logger
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.RestartAlt" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.RestartAlt"
+                                 Class="mr-2" />
                         Reset authenticator key
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Reset the key used by your authenticator app and reconfigure your 2FA setup.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage />
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Class="mb-3">Reset authenticator key</MudText>
-                        <MudAlert Severity="Severity.Warning" Class="mb-4">
+                        <MudText Typo="Typo.h5"
+                                 Class="mb-3">
+                            Reset authenticator key
+                        </MudText>
+                        <MudAlert Severity="Severity.Warning"
+                                  Class="mb-4">
                             <MudText Typo="Typo.body1"><strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong></MudText>
                             <MudText Typo="Typo.body1">This process disables 2FA until you verify your authenticator app. If you do not complete your authenticator app configuration you may lose access to your account.</MudText>
                         </MudAlert>
-                        <form @formname="reset-authenticator" @onsubmit="OnSubmitAsync" method="post">
+                        <form @formname="reset-authenticator"
+                              @onsubmit="OnSubmitAsync"
+                              method="post">
                             <AntiforgeryToken />
-                            <MudStack Row="true" Justify="Justify.FlexEnd">
-                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.RestartAlt">Reset authenticator key</MudButton>
+                            <MudStack Row="true"
+                                      Justify="Justify.FlexEnd">
+                                <MudButton ButtonType="ButtonType.Submit"
+                                           Variant="Variant.Filled"
+                                           Color="Color.Error"
+                                           StartIcon="@Icons.Material.Filled.RestartAlt">
+                                    Reset authenticator key
+                                </MudButton>
                             </MudStack>
                         </form>
                     </MudCardContent>
@@ -91,7 +109,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 <StatusMessage />
                 <h3>Reset authenticator key</h3>
-                <div class="ux-callout ux-callout-warning" role="alert">
+                <div class="ux-callout ux-callout-warning"
+                     role="alert">
                     <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
                     <div class="ux-callout-body">
                         <p><strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong></p>
@@ -102,9 +121,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     </div>
                 </div>
 
-                <form @formname="reset-authenticator" @onsubmit="OnSubmitAsync" method="post">
+                <form @formname="reset-authenticator"
+                      @onsubmit="OnSubmitAsync"
+                      method="post">
                     <AntiforgeryToken />
-                    <button class="btn btn-outline-danger" type="submit"><UxIcon Name="key" /> Reset authenticator key</button>
+                    <button class="btn btn-outline-danger"
+                            type="submit">
+                        <UxIcon Name="key" /> Reset authenticator key
+                    </button>
                 </form>
                 """;
         }

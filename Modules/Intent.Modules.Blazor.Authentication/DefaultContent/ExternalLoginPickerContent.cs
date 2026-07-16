@@ -46,15 +46,24 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 }
                 else
                 {
-                    <form class="form-horizontal" action="Account/PerformExternalLogin" method="post">
+                    <form class="form-horizontal"
+                          action="Account/PerformExternalLogin"
+                          method="post">
                         <AntiforgeryToken />
-                        <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+                        <input type="hidden"
+                               name="ReturnUrl"
+                               value="@ReturnUrl" />
                         <div class="external-login-buttons">
                             @foreach (var provider in externalLogins)
                             {
-                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
-                                           Name="provider" Value="@provider.Name"
-                                           Title="@($"Log in using your {provider.DisplayName} account")">@provider.DisplayName</MudButton>
+                                <MudButton ButtonType="ButtonType.Submit"
+                                           Variant="Variant.Outlined"
+                                           Color="Color.Primary"
+                                           Name="provider"
+                                           Value="@provider.Name"
+                                           Title="@($"Log in using your {provider.DisplayName} account")">
+                                    @provider.DisplayName
+                                </MudButton>
                             }
                         </div>
                     </form>
@@ -89,14 +98,24 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 }
                 else
                 {
-                    <form class="form-horizontal" action="Account/PerformExternalLogin" method="post">
+                    <form class="form-horizontal"
+                          action="Account/PerformExternalLogin"
+                          method="post">
                         <div>
                             <AntiforgeryToken />
-                            <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+                            <input type="hidden"
+                                   name="ReturnUrl"
+                                   value="@ReturnUrl" />
                             <p>
                                 @foreach (var provider in externalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit"
+                                            class="btn btn-primary"
+                                            name="provider"
+                                            value="@provider.Name"
+                                            title="Log in using your @provider.DisplayName account">
+                                        @provider.DisplayName
+                                    </button>
                                 }
                             </p>
                         </div>
@@ -125,12 +144,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
             code.AddProperty("string?", "ReturnUrl", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddAssignmentStatement("externalLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).ToArray();"));
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddAssignmentStatement("externalLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).ToArray();"));
         }
     }
 }

@@ -32,30 +32,56 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return $$"""
                 @inject {{userAccessor}} UserAccessor
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.FolderShared" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.FolderShared"
+                                 Class="mr-2" />
                         Personal data
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Review, download, or permanently delete the personal data linked to your account.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Class="mb-3">Personal data</MudText>
-                        <MudText Typo="Typo.body1" Class="mb-3">Your account contains personal data that you have given us. This page allows you to download or delete that data.</MudText>
-                        <MudAlert Severity="Severity.Warning" Class="mb-4">Deleting this data will permanently remove your account, and this cannot be recovered.</MudAlert>
+                        <MudText Typo="Typo.h5"
+                                 Class="mb-3">
+                            Personal data
+                        </MudText>
+                        <MudText Typo="Typo.body1"
+                                 Class="mb-3">
+                            Your account contains personal data that you have given us. This page allows you to download or delete that data.
+                        </MudText>
+                        <MudAlert Severity="Severity.Warning"
+                                  Class="mb-4">
+                            Deleting this data will permanently remove your account, and this cannot be recovered.
+                        </MudAlert>
 
                         <div class="personal-data-actions">
-                            <form action="Account/Manage/DownloadPersonalData" method="post">
+                            <form action="Account/Manage/DownloadPersonalData"
+                                  method="post">
                                 <AntiforgeryToken />
-                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Download">Download</MudButton>
+                                <MudButton ButtonType="ButtonType.Submit"
+                                           Variant="Variant.Filled"
+                                           Color="Color.Primary"
+                                           StartIcon="@Icons.Material.Filled.Download">
+                                    Download
+                                </MudButton>
                             </form>
-                            <MudButton Href="Account/Manage/DeletePersonalData" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete">Delete</MudButton>
+                            <MudButton Href="Account/Manage/DeletePersonalData"
+                                       Variant="Variant.Filled"
+                                       Color="Color.Error"
+                                       StartIcon="@Icons.Material.Filled.Delete">
+                                Delete
+                            </MudButton>
                         </div>
                     </MudCardContent>
                 </MudCard>
@@ -87,21 +113,25 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     <h3>Personal data</h3>
                     <p class="ux-section-subtitle">Your account contains personal data that you have given us. This page lets you download or delete that data.</p>
                 </div>
-                <div class="ux-callout ux-callout-warning" role="alert">
+                <div class="ux-callout ux-callout-warning"
+                     role="alert">
                     <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
                     <div class="ux-callout-body">
                         <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
                     </div>
                 </div>
                 <div class="ux-button-row">
-                    <form action="Account/Manage/DownloadPersonalData" method="post">
+                    <form action="Account/Manage/DownloadPersonalData"
+                          method="post">
                         <AntiforgeryToken />
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-primary"
+                                type="submit">
                             <UxIcon Name="download" />
                             Download
                         </button>
                     </form>
-                    <a href="Account/Manage/DeletePersonalData" class="btn btn-outline-danger">
+                    <a href="Account/Manage/DeletePersonalData"
+                       class="btn btn-outline-danger">
                         <UxIcon Name="trash" />
                         Delete
                     </a>
@@ -113,12 +143,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("_ = await UserAccessor.GetRequiredUserAsync(HttpContext);");
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("_ = await UserAccessor.GetRequiredUserAsync(HttpContext);");
         }
     }
 }

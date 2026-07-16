@@ -180,7 +180,7 @@
     </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="b1dde391-adec-41d2-a5c8-e4d2bb58db7c">
       <role>Startup,Blazor</role>
-      <location>Components/Account</location>
+      <location>Components/Account/Pages</location>
     </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="1145f97b-3ae3-4bc4-8759-87905618b27f">
       <role>Startup,Blazor</role>
@@ -192,7 +192,7 @@
     </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="7931ea0d-272b-4c4e-aaea-bfba5357534c">
       <role>Startup,Blazor</role>
-      <location>Components/Account</location>
+      <location>Components/Account/Pages</location>
     </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="9aa987fd-7b3c-45fe-b0d0-ffb2d572c8fa">
       <role>Startup,Blazor</role>

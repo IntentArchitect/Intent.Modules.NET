@@ -41,22 +41,30 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @inject UserManager<{{identityUserClass}}> UserManager
                 @inject IEmailSender<{{identityUserClass}}> EmailSender
-                @inject NavigationManager NavigationManager
                 @inject {{redirectManager}} RedirectManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread"
+                                 Class="mr-2" />
                         Register confirmation
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Confirm your email address to activate your account.
                     </MudText>
                 </MudPaper>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Class="mb-3">Confirmation status</MudText>
+                        <MudText Typo="Typo.h5"
+                                 Class="mb-3">
+                            Confirmation status
+                        </MudText>
                         <StatusMessage Message="@statusMessage" />
 
                         @if (emailConfirmationLink is not null)
@@ -84,7 +92,6 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @inject UserManager<{{identityUserClass}}> UserManager
                 @inject IEmailSender<{{identityUserClass}}> EmailSender
-                @inject NavigationManager NavigationManager
                 @inject {{redirectManager}} RedirectManager
 
                 <AccountHero Icon="mail-check"
@@ -119,31 +126,36 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddProperty("string?", "Email", email => email.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("string?", "ReturnUrl", returnUrl => returnUrl.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Protected().Async().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddIfStatement("Email is null", @if =>
-                {
-                    @if.AddStatement("RedirectManager.RedirectTo(\"\");");
-                });
+            onInitializedAsync.Protected().Async().Override();
 
-                onInitializedAsync.AddStatement("var user = await UserManager.FindByEmailAsync(Email);");
+            onInitializedAsync.AddIfStatement("Email is null", @if =>
+            {
+                @if.AddStatement("RedirectManager.RedirectTo(\"\");");
+            });
 
-                onInitializedAsync.AddIfStatement("user is null", @if =>
+            onInitializedAsync.AddStatement("var user = await UserManager.FindByEmailAsync(Email);");
+
+            onInitializedAsync.AddIfStatement("user is null", @if =>
+            {
+                @if.AddStatement($"HttpContext.Response.StatusCode = {code.Template.UseType("Microsoft.AspNetCore.Http.StatusCodes")}.Status404NotFound;");
+                @if.AddStatement("statusMessage = \"Error finding user for unspecified email\";");
+            });
+            onInitializedAsync.AddElseStatement(@else =>
+            {
+                @else.AddIfStatement($"EmailSender is {code.Template.GetIdentityNoOpEmailSenderTemplateName()}", elseIf =>
                 {
-                    @if.AddStatement($"HttpContext.Response.StatusCode = {code.Template.UseType("Microsoft.AspNetCore.Http.StatusCodes")}.Status404NotFound;");
-                    @if.AddStatement("statusMessage = \"Error finding user for unspecified email\";");
-                });
-                onInitializedAsync.AddElseStatement(@else =>
-                {
-                    @else.AddIfStatement($"EmailSender is {code.Template.GetIdentityNoOpEmailSenderTemplateName()}", elseIf =>
-                    {
-                        elseIf.AddStatement("var userId = await UserManager.GetUserIdAsync(user);");
-                        elseIf.AddStatement("var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);");
-                        elseIf.AddStatement($"code = {code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlEncode({code.Template.UseType("System.Text.Encoding")}.UTF8.GetBytes(code));");
-                        elseIf.AddStatement($"emailConfirmationLink = NavigationManager.GetUriWithQueryParameters(NavigationManager.ToAbsoluteUri(\"Account/ConfirmEmail\").AbsoluteUri, new {code.Template.UseType("System.Collections.Generic.Dictionary<string, object?>")} {{ [\"userId\"] = userId, [\"code\"] = code, [\"returnUrl\"] = ReturnUrl }});");
-                    });
+                    elseIf.AddStatement("var userId = await UserManager.GetUserIdAsync(user);");
+                    elseIf.AddStatement("var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);");
+                    elseIf.AddStatement($"code = {code.Template.UseType("Microsoft.AspNetCore.WebUtilities.WebEncoders")}.Base64UrlEncode({code.Template.UseType("System.Text.Encoding")}.UTF8.GetBytes(code));");
+                    elseIf.AddStatement($"emailConfirmationLink = NavigationManager.GetUriWithQueryParameters(NavigationManager.ToAbsoluteUri(\"Account/ConfirmEmail\").AbsoluteUri, new {code.Template.UseType("System.Collections.Generic.Dictionary<string, object?>")} {{ [\"userId\"] = userId, [\"code\"] = code, [\"returnUrl\"] = ReturnUrl }});");
                 });
             });
         }

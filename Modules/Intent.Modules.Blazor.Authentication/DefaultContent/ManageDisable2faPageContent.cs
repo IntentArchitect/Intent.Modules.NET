@@ -40,31 +40,49 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
                 @inject ILogger<Disable2fa> Logger
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.GppBad" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.GppBad"
+                                 Class="mr-2" />
                         Disable two-factor authentication
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Turn off 2FA for your account if you no longer wish to use it.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Class="mb-3">Disable two-factor authentication (2FA)</MudText>
+                        <MudText Typo="Typo.h5"
+                                 Class="mb-3">
+                            Disable two-factor authentication (2FA)
+                        </MudText>
 
-                        <MudAlert Severity="Severity.Warning" Class="mb-4">
+                        <MudAlert Severity="Severity.Warning"
+                                  Class="mb-4">
                             <MudText Typo="Typo.body1"><strong>This action only disables 2FA.</strong></MudText>
                             <MudText Typo="Typo.body1">Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
                         </MudAlert>
 
-                        <form @formname="disable-2fa" @onsubmit="OnSubmitAsync" method="post">
+                        <form @formname="disable-2fa"
+                              @onsubmit="OnSubmitAsync"
+                              method="post">
                             <AntiforgeryToken />
-                            <MudStack Row="true" Justify="Justify.FlexEnd">
-                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.GppBad">Disable 2FA</MudButton>
+                            <MudStack Row="true"
+                                      Justify="Justify.FlexEnd">
+                                <MudButton ButtonType="ButtonType.Submit"
+                                           Variant="Variant.Filled"
+                                           Color="Color.Error"
+                                           StartIcon="@Icons.Material.Filled.GppBad">
+                                    Disable 2FA
+                                </MudButton>
                             </MudStack>
                         </form>
                     </MudCardContent>
@@ -101,9 +119,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     </p>
                 </div>
 
-                <form @formname="disable-2fa" @onsubmit="OnSubmitAsync" method="post">
+                <form @formname="disable-2fa"
+                      @onsubmit="OnSubmitAsync"
+                      method="post">
                     <AntiforgeryToken />
-                    <button class="btn btn-danger" type="submit"><UxIcon Name="shield-off" /> Disable 2FA</button>
+                    <button class="btn btn-danger"
+                            type="submit">
+                        <UxIcon Name="shield-off" /> Disable 2FA
+                    </button>
                 </form>
                 """;
         }
@@ -116,15 +139,19 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
             code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method) && !await UserManager.GetTwoFactorEnabledAsync(user)", @if =>
-                {
-                    @if.AddStatement("throw new InvalidOperationException(\"Cannot disable 2FA for user as it's not currently enabled.\");");
-                });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method) && !await UserManager.GetTwoFactorEnabledAsync(user)", @if =>
+            {
+                @if.AddStatement("throw new InvalidOperationException(\"Cannot disable 2FA for user as it's not currently enabled.\");");
             });
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", onSubmitAsync =>

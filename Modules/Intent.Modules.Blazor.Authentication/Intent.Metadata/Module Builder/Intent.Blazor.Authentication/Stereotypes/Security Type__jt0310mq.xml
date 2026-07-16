@@ -42,6 +42,10 @@ const SECURITY_TYPE_PREFIX = {
     "None": null
 };
 const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
+// Bootstrap-only UX primitives with no MudBlazor-folder equivalent and no code-behind — MudBlazor's own
+// components (MudPaper/MudIcon/MudTextField, etc.) are used directly instead, so these should never be
+// modelled (and therefore never generated) when MudBlazor is installed.
+const HIDE_IF_MUDBLAZOR_IDS = ["account-hero", "ux-field", "ux-icon"];
 
 function authPageId(prefix, baseId) { return prefix + "-" + baseId; }
 
@@ -85,7 +89,7 @@ const IDENTITY_SHARED = [
     shared("account-hero", "AccountHero"),
     shared("app-user-menu", "AppUserMenu"),
     shared("external-login-picker", "ExternalLoginPicker"),
-    shared("manage-layout", "ManageLayout"),
+    //shared("manage-layout", "ManageLayout"),
     shared("manage-nav-menu", "ManageNavMenu"),
     shared("show-recovery-codes", "ShowRecoveryCodes"),
     shared("status-message", "StatusMessage"),
@@ -236,7 +240,13 @@ function syncNavigations(navigationDefinitions) {
 
 async function runSync(securityType) {
     const definition = PAGE_DEFINITIONS[securityType];
-    const allTargets = definition.pages.concat(definition.managePages, definition.shared);
+    // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
+    // so account-hero should never be modelled (and therefore never generated) when MudBlazor is installed.
+    const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+    const sharedTargets = definition.shared.filter(function (s) {
+        return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+    });
+    const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
     const targetIds = {};
     allTargets.forEach(function (t) { targetIds[t.id] = true; });
 
@@ -311,7 +321,7 @@ async function runSync(securityType) {
 
         definition.pages.forEach(function (p) { syncPage(p, pagesFolder); });
         definition.managePages.forEach(function (p) { syncPage(p, manageFolder); });
-        definition.shared.forEach(function (s) { syncShared(s, sharedFolder); });
+        sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
     }
 
     element.setMetadata("authentication", securityType);
@@ -377,6 +387,10 @@ const SECURITY_TYPE_PREFIX = {
     "None": null
 };
 const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
+// Bootstrap-only UX primitives with no MudBlazor-folder equivalent and no code-behind — MudBlazor's own
+// components (MudPaper/MudIcon/MudTextField, etc.) are used directly instead, so these should never be
+// modelled (and therefore never generated) when MudBlazor is installed.
+const HIDE_IF_MUDBLAZOR_IDS = ["account-hero", "ux-field", "ux-icon"];
 
 function authPageId(prefix, baseId) { return prefix + "-" + baseId; }
 
@@ -420,7 +434,7 @@ const IDENTITY_SHARED = [
     shared("account-hero", "AccountHero"),
     shared("app-user-menu", "AppUserMenu"),
     shared("external-login-picker", "ExternalLoginPicker"),
-    shared("manage-layout", "ManageLayout"),
+    //shared("manage-layout", "ManageLayout"),
     shared("manage-nav-menu", "ManageNavMenu"),
     shared("show-recovery-codes", "ShowRecoveryCodes"),
     shared("status-message", "StatusMessage"),
@@ -571,7 +585,13 @@ function syncNavigations(navigationDefinitions) {
 
 async function runSync(securityType) {
     const definition = PAGE_DEFINITIONS[securityType];
-    const allTargets = definition.pages.concat(definition.managePages, definition.shared);
+    // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
+    // so account-hero should never be modelled (and therefore never generated) when MudBlazor is installed.
+    const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+    const sharedTargets = definition.shared.filter(function (s) {
+        return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+    });
+    const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
     const targetIds = {};
     allTargets.forEach(function (t) { targetIds[t.id] = true; });
 
@@ -646,7 +666,7 @@ async function runSync(securityType) {
 
         definition.pages.forEach(function (p) { syncPage(p, pagesFolder); });
         definition.managePages.forEach(function (p) { syncPage(p, manageFolder); });
-        definition.shared.forEach(function (s) { syncShared(s, sharedFolder); });
+        sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
     }
 
     element.setMetadata("authentication", securityType);
@@ -689,7 +709,11 @@ async function runSync(securityType) {
 const stereotype = element.getStereotype(STEREOTYPE_ID);
 const securityType = stereotype.getProperty("Authentication").getValue();
 const definition = PAGE_DEFINITIONS[securityType];
-const allTargets = definition.pages.concat(definition.managePages, definition.shared);
+const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+const sharedTargets = definition.shared.filter(function (s) {
+    return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+});
+const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
 const targetIds = {};
 allTargets.forEach(function (t) { targetIds[t.id] = true; });
 const managedNow = findElements({ specialization: "Component" }).filter(function (c) { return c.hasMetadata(META_KEY); });

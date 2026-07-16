@@ -28,9 +28,15 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         private static string BuildMudBlazorContent()
         {
             return """
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Color="Color.Error" Class="mb-3">Locked out</MudText>
+                        <MudText Typo="Typo.h5"
+                                 Color="Color.Error"
+                                 Class="mb-3">
+                            Locked out
+                        </MudText>
                         <MudText Typo="Typo.body1">This account has been locked out, please try again later.</MudText>
                     </MudCardContent>
                 </MudCard>

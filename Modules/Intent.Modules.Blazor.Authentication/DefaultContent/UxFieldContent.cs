@@ -23,12 +23,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <div class="ux-field">
                     @if (!string.IsNullOrEmpty(Label))
                     {
-                        <label class="ux-field-label" for="@For">@Label</label>
+                        <label class="ux-field-label"
+                               for="@For">
+                            @Label
+                        </label>
                     }
                     <div class="ux-field-shell">
                         @if (!string.IsNullOrEmpty(Icon))
                         {
-                            <UxIcon Name="@Icon" Class="ux-field-icon" />
+                            <UxIcon Name="@Icon"
+                                    Class="ux-field-icon" />
                         }
                         @ChildContent
                     </div>

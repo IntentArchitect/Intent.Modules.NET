@@ -30,8 +30,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             return """
                 <StatusMessage Message="@StatusMessage" />
-                <MudText Typo="Typo.h5" Class="mb-3">Recovery codes</MudText>
-                <MudAlert Severity="Severity.Warning" Class="mb-3">
+                <MudText Typo="Typo.h5"
+                         Class="mb-3">
+                    Recovery codes
+                </MudText>
+                <MudAlert Severity="Severity.Warning"
+                          Class="mb-3">
                     <MudText Typo="Typo.body1"><strong>Put these codes in a safe place.</strong></MudText>
                     <MudText Typo="Typo.body1">If you lose your device and don't have the recovery codes you will lose access to your account.</MudText>
                 </MudAlert>
@@ -68,7 +72,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return """
                 <StatusMessage Message="@StatusMessage" />
                 <h3>Recovery codes</h3>
-                <div class="alert alert-warning" role="alert">
+                <div class="alert alert-warning"
+                     role="alert">
                     <p>
                         <strong>Put these codes in a safe place.</strong>
                     </p>

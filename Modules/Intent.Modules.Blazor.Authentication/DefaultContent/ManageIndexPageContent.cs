@@ -40,39 +40,73 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{userAccessor}} UserAccessor
                 @inject {{redirectManager}} RedirectManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.AccountCircle" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.AccountCircle"
+                                 Class="mr-2" />
                         Profile
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Manage your personal account details.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+                        <EditForm Model="Input"
+                                  FormName="profile"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
 
                             <MudGrid>
                                 <MudItem xs="12">
                                     <MudText Typo="Typo.h5">Profile details</MudText>
-                                    <MudText Typo="Typo.body2" Class="mb-4">Update the information associated with your account.</MudText>
+                                    <MudText Typo="Typo.body2"
+                                             Class="mb-4">
+                                        Update the information associated with your account.
+                                    </MudText>
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" Value="@username" Label="Username" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Badge" Disabled="true" />
+                                    <MudTextField T="string"
+                                                  Value="@username"
+                                                  Label="Username"
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.Badge"
+                                                  Disabled="true" />
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" @bind-Value="Input.PhoneNumber" Label="Phone number" Placeholder="Please enter your phone number." Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" Immediate="true" For="@(() => Input.PhoneNumber)" />
-                                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+                                    <MudTextField T="string"
+                                                  @bind-Value="Input.PhoneNumber"
+                                                  Label="Phone number"
+                                                  Placeholder="Please enter your phone number."
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.Phone"
+                                                  Immediate="true"
+                                                  For="@(() => Input.PhoneNumber)" />
+                                    <ValidationMessage For="() => Input.PhoneNumber"
+                                                       class="text-danger" />
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Save">Save</MudButton>
+                                    <MudStack Row="true"
+                                              Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Filled"
+                                                   Color="Color.Primary"
+                                                   StartIcon="@Icons.Material.Filled.Save">
+                                            Save
+                                        </MudButton>
                                     </MudStack>
                                 </MudItem>
                             </MudGrid>
@@ -129,17 +163,35 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 </div>
                 <StatusMessage />
 
-                <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+                <EditForm Model="Input"
+                          FormName="profile"
+                          OnValidSubmit="OnValidSubmitAsync"
+                          method="post">
                     <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger" role="alert" />
-                    <UxField Label="Username" Icon="user" For="username">
-                        <input id="username" type="text" value="@username" class="ux-input" placeholder="Your username" disabled />
+                    <ValidationSummary class="text-danger"
+                                       role="alert" />
+                    <UxField Label="Username"
+                             Icon="user"
+                             For="username">
+                        <input id="username"
+                               type="text"
+                               value="@username"
+                               class="ux-input"
+                               placeholder="Your username"
+                               disabled />
                     </UxField>
-                    <UxField Label="Phone number" Icon="phone" For="phone-number">
-                        <InputText id="phone-number" @bind-Value="Input.PhoneNumber" class="ux-input" placeholder="Your phone number" />
+                    <UxField Label="Phone number"
+                             Icon="phone"
+                             For="phone-number">
+                        <InputText id="phone-number"
+                                   @bind-Value="Input.PhoneNumber"
+                                   class="ux-input"
+                                   placeholder="Your phone number" />
                     </UxField>
-                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
-                    <button type="submit" class="btn btn-primary">
+                    <ValidationMessage For="() => Input.PhoneNumber"
+                                       class="text-danger" />
+                    <button type="submit"
+                            class="btn btn-primary">
                         <UxIcon Name="save" />
                         Save
                     </button>
@@ -163,16 +215,20 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
             });
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("username", new CSharpStatement("await UserManager.GetUserNameAsync(user);"));
-                onInitializedAsync.AddAssignmentStatement("phoneNumber", new CSharpStatement("await UserManager.GetPhoneNumberAsync(user);"));
-                onInitializedAsync.AddStatement("Input.PhoneNumber ??= phoneNumber;");
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("username", new CSharpStatement("await UserManager.GetUserNameAsync(user);"));
+            onInitializedAsync.AddAssignmentStatement("phoneNumber", new CSharpStatement("await UserManager.GetPhoneNumberAsync(user);"));
+            onInitializedAsync.AddStatement("Input.PhoneNumber ??= phoneNumber;");
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
             {

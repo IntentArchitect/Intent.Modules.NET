@@ -30,9 +30,15 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return """
                 <StatusMessage />
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <MudText Typo="Typo.h5" Color="Color.Error" Class="mb-3">Invalid user</MudText>
+                        <MudText Typo="Typo.h5"
+                                 Color="Color.Error"
+                                 Class="mb-3">
+                            Invalid user
+                        </MudText>
                         <MudText Typo="Typo.body1">The requested user could not be found or is no longer available.</MudText>
                     </MudCardContent>
                 </MudCard>

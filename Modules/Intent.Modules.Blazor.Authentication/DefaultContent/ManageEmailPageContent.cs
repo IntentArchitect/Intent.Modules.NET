@@ -42,52 +42,99 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{userAccessor}} UserAccessor
                 @inject NavigationManager NavigationManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.AlternateEmail" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.AlternateEmail"
+                                 Class="mr-2" />
                         Manage email
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Review your current email address and request an email change.
                     </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
 
-                <MudCard Class="ux-fade-in-up auth-form-shell" Style="animation-delay: 0.1s" Outlined="true">
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                         Style="animation-delay: 0.1s"
+                         Outlined="true">
                     <MudCardContent>
-                        <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
+                        <form @onsubmit="OnSendEmailVerificationAsync"
+                              @formname="send-verification"
+                              id="send-verification-form"
+                              method="post">
                             <AntiforgeryToken />
                         </form>
-                        <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
+                        <EditForm Model="Input"
+                                  FormName="change-email"
+                                  OnValidSubmit="OnValidSubmitAsync"
+                                  method="post">
                             <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger" role="alert" />
+                            <ValidationSummary class="text-danger"
+                                               role="alert" />
 
                             <MudGrid>
                                 <MudItem xs="12">
                                     <MudText Typo="Typo.h5">Email settings</MudText>
-                                    <MudText Typo="Typo.body2" Class="mb-4">Update the email address associated with your account.</MudText>
+                                    <MudText Typo="Typo.body2"
+                                             Class="mb-4">
+                                        Update the email address associated with your account.
+                                    </MudText>
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" Value="@email" Label="Email" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Email" Disabled="true" />
+                                    <MudTextField T="string"
+                                                  Value="@email"
+                                                  Label="Email"
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.Email"
+                                                  Disabled="true" />
                                     @if (isEmailConfirmed)
                                     {
-                                        <MudChip T="string" Color="Color.Success" Variant="Variant.Outlined" Class="mt-2">Verified</MudChip>
+                                        <MudChip T="string"
+                                                 Color="Color.Success"
+                                                 Variant="Variant.Outlined"
+                                                 Class="mt-2">
+                                            Verified
+                                        </MudChip>
                                     }
                                     else
                                     {
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Primary" StartIcon="@Icons.Material.Filled.MarkEmailRead" form="send-verification-form" Class="mt-2">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Text"
+                                                   Color="Color.Primary"
+                                                   StartIcon="@Icons.Material.Filled.MarkEmailRead"
+                                                   form="send-verification-form"
+                                                   Class="mt-2">
                                             Send verification email
                                         </MudButton>
                                     }
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudTextField T="string" @bind-Value="Input.NewEmail" Label="New email" Placeholder="Please enter new email." Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.ForwardToInbox" Immediate="true" For="@(() => Input.NewEmail)" />
-                                    <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
+                                    <MudTextField T="string"
+                                                  @bind-Value="Input.NewEmail"
+                                                  Label="New email"
+                                                  Placeholder="Please enter new email."
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.ForwardToInbox"
+                                                  Immediate="true"
+                                                  For="@(() => Input.NewEmail)" />
+                                    <ValidationMessage For="() => Input.NewEmail"
+                                                       class="text-danger" />
                                 </MudItem>
                                 <MudItem xs="12">
-                                    <MudStack Row="true" Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.SaveAs">Change email</MudButton>
+                                    <MudStack Row="true"
+                                              Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Filled"
+                                                   Color="Color.Primary"
+                                                   StartIcon="@Icons.Material.Filled.SaveAs">
+                                            Change email
+                                        </MudButton>
                                     </MudStack>
                                 </MudItem>
                             </MudGrid>
@@ -147,31 +194,68 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 </div>
 
                 <StatusMessage Message="@message"/>
-                <form @onsubmit="OnSendEmailVerificationAsync" @formname="send-verification" id="send-verification-form" method="post">
+                <form @onsubmit="OnSendEmailVerificationAsync"
+                      @formname="send-verification"
+                      id="send-verification-form"
+                      method="post">
                     <AntiforgeryToken />
                 </form>
-                <EditForm Model="Input" FormName="change-email" OnValidSubmit="OnValidSubmitAsync" method="post">
+                <EditForm Model="Input"
+                          FormName="change-email"
+                          OnValidSubmit="OnValidSubmitAsync"
+                          method="post">
                     <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger" role="alert" />
+                    <ValidationSummary class="text-danger"
+                                       role="alert" />
                     @if (isEmailConfirmed)
                     {
-                        <UxField Label="Email" Icon="mail" For="email">
-                            <input id="email" type="text" value="@email" class="ux-input" placeholder="Your email" disabled />
-                            <span class="ux-field-suffix text-success" title="Confirmed">✓</span>
+                        <UxField Label="Email"
+                                 Icon="mail"
+                                 For="email">
+                            <input id="email"
+                                   type="text"
+                                   value="@email"
+                                   class="ux-input"
+                                   placeholder="Your email"
+                                   disabled />
+                            <span class="ux-field-suffix text-success"
+                                  title="Confirmed">
+                                ✓
+                            </span>
                         </UxField>
                     }
                     else
                     {
-                        <UxField Label="Email" Icon="mail" For="email">
-                            <input id="email" type="text" value="@email" class="ux-input" placeholder="Your email" disabled />
+                        <UxField Label="Email"
+                                 Icon="mail"
+                                 For="email">
+                            <input id="email"
+                                   type="text"
+                                   value="@email"
+                                   class="ux-input"
+                                   placeholder="Your email"
+                                   disabled />
                         </UxField>
-                        <button type="submit" class="btn btn-outline-primary ux-inline-action" form="send-verification-form"><UxIcon Name="mail-check" /> Send verification email</button>
+                        <button type="submit"
+                                class="btn btn-outline-primary ux-inline-action"
+                                form="send-verification-form">
+                            <UxIcon Name="mail-check" /> Send verification email
+                        </button>
                     }
-                    <UxField Label="New email" Icon="mail" For="new-email">
-                        <InputText id="new-email" @bind-Value="Input.NewEmail" class="ux-input" autocomplete="email" aria-required="true" placeholder="Enter a new email" />
+                    <UxField Label="New email"
+                             Icon="mail"
+                             For="new-email">
+                        <InputText id="new-email"
+                                   @bind-Value="Input.NewEmail"
+                                   class="ux-input"
+                                   autocomplete="email"
+                                   aria-required="true"
+                                   placeholder="Enter a new email" />
                     </UxField>
-                    <ValidationMessage For="() => Input.NewEmail" class="text-danger" />
-                    <button type="submit" class="btn btn-primary">
+                    <ValidationMessage For="() => Input.NewEmail"
+                                       class="text-danger" />
+                    <button type="submit"
+                            class="btn btn-primary">
                         <UxIcon Name="mail" />
                         Change email
                     </button>
@@ -196,16 +280,20 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 p.AddAttribute($"{code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute")}(FormName = \"change-email\")");
             });
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddStatement("Input ??= new();");
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("email", new CSharpStatement("await UserManager.GetEmailAsync(user);"));
-                onInitializedAsync.AddAssignmentStatement("isEmailConfirmed", new CSharpStatement("await UserManager.IsEmailConfirmedAsync(user);"));
-                onInitializedAsync.AddStatement("Input.NewEmail ??= email;");
-            });
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("email", new CSharpStatement("await UserManager.GetEmailAsync(user);"));
+            onInitializedAsync.AddAssignmentStatement("isEmailConfirmed", new CSharpStatement("await UserManager.IsEmailConfirmedAsync(user);"));
+            onInitializedAsync.AddStatement("Input.NewEmail ??= email;");
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
             {

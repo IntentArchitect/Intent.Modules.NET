@@ -42,12 +42,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject IUserStore<{{identityClass}}> UserStore
                 @inject {{redirectManager}} RedirectManager
 
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-                    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Link" Class="mr-2" />
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                          Elevation="0">
+                    <MudText Typo="Typo.h4"
+                             Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.Link"
+                                 Class="mr-2" />
                         External logins
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+                    <MudText Typo="Typo.body1"
+                             Class="text-white opacity-90">
                         Manage the external identity providers linked to your account.
                     </MudText>
                 </MudPaper>
@@ -55,10 +59,18 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <StatusMessage />
                 @if (currentLogins?.Count > 0)
                 {
-                    <MudCard Class="ux-fade-in-up mb-4" Style="animation-delay: 0.1s" Outlined="true">
+                    <MudCard Class="ux-fade-in-up mb-4"
+                             Style="animation-delay: 0.1s"
+                             Outlined="true">
                         <MudCardContent>
-                            <MudText Typo="Typo.h5" Class="mb-3">Registered logins</MudText>
-                            <MudTable Items="currentLogins" Hover="true" Dense="true" Class="mb-3">
+                            <MudText Typo="Typo.h5"
+                                     Class="mb-3">
+                                Registered logins
+                            </MudText>
+                            <MudTable Items="currentLogins"
+                                      Hover="true"
+                                      Dense="true"
+                                      Class="mb-3">
                                 <HeaderContent>
                                     <MudTh>Provider</MudTh>
                                     <MudTh>Actions</MudTh>
@@ -68,12 +80,23 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                                     <MudTd DataLabel="Actions">
                                         @if (showRemoveButton)
                                         {
-                                            <form @formname="@($"remove-login-{context.LoginProvider}")" @onsubmit="OnSubmitAsync" method="post">
+                                            <form @formname="@($"remove-login-{context.LoginProvider}")"
+                                                  @onsubmit="OnSubmitAsync"
+                                                  method="post">
                                                 <AntiforgeryToken />
-                                                <input type="hidden" name="@nameof(LoginProvider)" value="@context.LoginProvider" />
-                                                <input type="hidden" name="@nameof(ProviderKey)" value="@context.ProviderKey" />
-                                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small"
-                                                            Title="@($"Remove this {context.ProviderDisplayName} login from your account")">Remove</MudButton>
+                                                <input type="hidden"
+                                                       name="@nameof(LoginProvider)"
+                                                       value="@context.LoginProvider" />
+                                                <input type="hidden"
+                                                       name="@nameof(ProviderKey)"
+                                                       value="@context.ProviderKey" />
+                                                <MudButton ButtonType="ButtonType.Submit"
+                                                           Variant="Variant.Outlined"
+                                                           Color="Color.Error"
+                                                           Size="Size.Small"
+                                                           Title="@($"Remove this {context.ProviderDisplayName} login from your account")">
+                                                    Remove
+                                                </MudButton>
                                             </form>
                                         }
                                     </MudTd>
@@ -84,18 +107,32 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 }
                 @if (otherLogins?.Count > 0)
                 {
-                    <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.2s" Outlined="true">
+                    <MudCard Class="ux-fade-in-up"
+                             Style="animation-delay: 0.2s"
+                             Outlined="true">
                         <MudCardContent>
-                            <MudText Typo="Typo.h6" Class="mb-3">Add another service to log in</MudText>
-                            <MudText Typo="Typo.body2" Class="mb-4">Connect another external provider for sign-in convenience.</MudText>
-                            <form action="Account/Manage/LinkExternalLogin" method="post">
+                            <MudText Typo="Typo.h6"
+                                     Class="mb-3">
+                                Add another service to log in
+                            </MudText>
+                            <MudText Typo="Typo.body2"
+                                     Class="mb-4">
+                                Connect another external provider for sign-in convenience.
+                            </MudText>
+                            <form action="Account/Manage/LinkExternalLogin"
+                                  method="post">
                                 <AntiforgeryToken />
                                 <div class="external-login-buttons">
                                     @foreach (var provider in otherLogins)
                                     {
-                                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary"
-                                                    Name="Provider" Value="@provider.Name"
-                                                    Title="@($"Log in using your {provider.DisplayName} account")">@provider.DisplayName</MudButton>
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                                   Variant="Variant.Outlined"
+                                                   Color="Color.Primary"
+                                                   Name="Provider"
+                                                   Value="@provider.Name"
+                                                   Title="@($"Log in using your {provider.DisplayName} account")">
+                                            @provider.DisplayName
+                                        </MudButton>
                                     }
                                 </div>
                             </form>
@@ -138,11 +175,19 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                                     <td>
                                         @if (showRemoveButton)
                                         {
-                                            <form @formname="@($"remove-login-{login.LoginProvider}")" @onsubmit="OnSubmitAsync" method="post">
+                                            <form @formname="@($"remove-login-{login.LoginProvider}")"
+                                                  @onsubmit="OnSubmitAsync"
+                                                  method="post">
                                                 <AntiforgeryToken />
-                                                <input type="hidden" name="@nameof(LoginProvider)" value="@login.LoginProvider" />
-                                                <input type="hidden" name="@nameof(ProviderKey)" value="@login.ProviderKey" />
-                                                <button type="submit" class="btn btn-danger" title="Remove this @login.ProviderDisplayName login from your account">
+                                                <input type="hidden"
+                                                       name="@nameof(LoginProvider)"
+                                                       value="@login.LoginProvider" />
+                                                <input type="hidden"
+                                                       name="@nameof(ProviderKey)"
+                                                       value="@login.ProviderKey" />
+                                                <button type="submit"
+                                                        class="btn btn-danger"
+                                                        title="Remove this @login.ProviderDisplayName login from your account">
                                                     <UxIcon Name="trash" /> Remove
                                                 </button>
                                             </form>
@@ -160,12 +205,18 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @if (otherLogins?.Count > 0)
                 {
                     <h4>Add another service to log in</h4>
-                    <form class="form-horizontal" action="Account/Manage/LinkExternalLogin" method="post">
+                    <form class="form-horizontal"
+                          action="Account/Manage/LinkExternalLogin"
+                          method="post">
                         <AntiforgeryToken />
                         <div class="ux-button-row">
                             @foreach (var provider in otherLogins)
                             {
-                                <button type="submit" class="btn btn-primary" name="Provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        name="Provider"
+                                        value="@provider.Name"
+                                        title="Log in using your @provider.DisplayName account">
                                     @provider.DisplayName
                                 </button>
                             }
@@ -193,7 +244,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
-            code.AddField("string", "LinkLoginCallbackAction", f => f.PrivateConstant("\"LinkLoginCallback\""));
+            code.AddField("string", "LinkLoginCallbackAction", f => f.Public("\"LinkLoginCallback\"").Constant());
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
             code.AddField($"IList<{code.Template.UseType("Microsoft.AspNetCore.Identity.UserLoginInfo")}>?", "currentLogins");
             code.AddField($"IList<{code.Template.UseType("Microsoft.AspNetCore.Authentication.AuthenticationScheme")}>?", "otherLogins");
@@ -204,26 +255,30 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddProperty("string?", "ProviderKey", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("string?", "Action", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
 
-            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync", onInitializedAsync =>
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
             {
-                onInitializedAsync.Async().Protected().Override();
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
 
-                onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
-                onInitializedAsync.AddAssignmentStatement("currentLogins", new CSharpStatement("await UserManager.GetLoginsAsync(user);"));
-                onInitializedAsync.AddAssignmentStatement("otherLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).Where(auth => currentLogins.All(ul => auth.Name != ul.LoginProvider)).ToList();"));
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
+            onInitializedAsync.AddAssignmentStatement("currentLogins", new CSharpStatement("await UserManager.GetLoginsAsync(user);"));
+            onInitializedAsync.AddAssignmentStatement("otherLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).Where(auth => currentLogins.All(ul => auth.Name != ul.LoginProvider)).ToList();"));
 
-                onInitializedAsync.AddAssignmentStatement("string? passwordHash", new CSharpStatement("null;"));
-                onInitializedAsync.AddIfStatement($"UserStore is IUserPasswordStore<{identityClass}> userPasswordStore", @if =>
-                {
-                    @if.AddAssignmentStatement("passwordHash", new CSharpStatement("await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);"));
-                });
+            onInitializedAsync.AddAssignmentStatement("string? passwordHash", new CSharpStatement("null;"));
+            onInitializedAsync.AddIfStatement($"UserStore is IUserPasswordStore<{identityClass}> userPasswordStore", @if =>
+            {
+                @if.AddAssignmentStatement("passwordHash", new CSharpStatement("await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);"));
+            });
 
-                onInitializedAsync.AddAssignmentStatement("showRemoveButton", new CSharpStatement("passwordHash is not null || currentLogins.Count > 1;"));
+            onInitializedAsync.AddAssignmentStatement("showRemoveButton", new CSharpStatement("passwordHash is not null || currentLogins.Count > 1;"));
 
-                onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method) && Action == LinkLoginCallbackAction", @if =>
-                {
-                    @if.AddStatement("await OnGetLinkLoginCallbackAsync();");
-                });
+            onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method) && Action == LinkLoginCallbackAction", @if =>
+            {
+                @if.AddStatement("await OnGetLinkLoginCallbackAsync();");
             });
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", onSubmitAsync =>
