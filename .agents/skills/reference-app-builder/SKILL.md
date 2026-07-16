@@ -23,6 +23,7 @@ This is the most important gate in the chain. Template bugs from unverified patt
 7. Record the reference app path in the Attack Plan under "Reference App".
 8. Exercise every runtime dependency path — including reflectively-loaded providers (e.g. NHibernate drivers, EF Core providers, serialization adapters). These fail only at startup with no compile-time signal; compilation alone does not verify them.
 9. **Model a comprehensive test domain when the module generates from domain / DTO / entity models.** Do not settle for one trivial DTO/entity with 2–3 scalar properties — deliberately exercise the OOP aspects the domain actually has: composition, aggregates (independent relationships), inheritance, nullability, collections, operations (where relevant), parameter lists, and parameterized constructors. A module verified only against a toy model silently fails on the variations developers really use. Expand to the domain's real shapes, then let the developer cut what's out of scope (don't pad artificially beyond what the domain has).
+10. **Record every `Ignore` / overwrite you insert.** When you add `[…Mode.Ignore]`, a merge-protected stub, or overwrite a template-owned region to make the reference app build/run, log the file in `.module-builder/WORKING.md`. The increment loop consults that list to undo them before trusting a staged diff (see `module-increment-loop` Must #9) — an un-recorded shield silently makes SF invisible over that file, so a later "0 changes" proves nothing.
 
 ## Must Nots
 

@@ -156,16 +156,24 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                 {
                                     stmt.AddStatement("continue;");
                                 });
-                                forEach.AddStatement("// Remove matching properties from the schema", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("// Clone the schema before mutating - concreteSchema is cached and shared across every operation that references the same DTO", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("var clonedSchema = (OpenApiSchema)concreteSchema.CreateShallowCopy();");
+                                forEach.AddIfStatement("clonedSchema.Properties == null", stmt =>
+                                {
+                                    stmt.AddStatement("continue;");
+                                });
+                                forEach.AddStatement("// Remove matching properties from the clone only", s => s.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyKey", "propertyKeysToRemove", innerForEach =>
                                 {
                                     innerForEach.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                    innerForEach.AddStatement("concreteSchema.Properties.Remove(propertyKey);");
-                                    innerForEach.AddIfStatement("concreteSchema.Required != null", ifStmt =>
+                                    innerForEach.AddStatement("clonedSchema.Properties.Remove(propertyKey);");
+                                    innerForEach.AddIfStatement("clonedSchema.Required != null", ifStmt =>
                                     {
-                                        ifStmt.AddStatement("concreteSchema.Required.Remove(propertyKey);");
+                                        ifStmt.AddStatement("clonedSchema.Required.Remove(propertyKey);");
                                     });
                                 });
+                                forEach.AddStatement("// Point this operation's content at the clone instead of the shared original", s => s.SeparatedFromPrevious());
+                                forEach.AddStatement("content.Schema = clonedSchema;");
                             });
                         }
                         else

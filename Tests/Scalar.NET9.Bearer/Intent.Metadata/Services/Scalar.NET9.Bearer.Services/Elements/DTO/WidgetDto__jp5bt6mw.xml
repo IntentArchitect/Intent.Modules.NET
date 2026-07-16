@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ed66c907-5992-4d2a-8bdc-d750c7c37f3d" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>WidgetDto</name>
+  <display>WidgetDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>277df972-a3b3-4893-8c67-6428374c277e</parentFolderId>
+  <packageId>277df972-a3b3-4893-8c67-6428374c277e</packageId>
+  <packageName>Scalar.NET9.Bearer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="99772fc8-892e-498a-aeb4-644359796512" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>WidgetId</name>
+      <display>WidgetId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ce13f66a-1705-4f9d-bb05-b27a8bd047d4">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ed66c907-5992-4d2a-8bdc-d750c7c37f3d</parentFolderId>
+      <packageId>277df972-a3b3-4893-8c67-6428374c277e</packageId>
+      <packageName>Scalar.NET9.Bearer.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d5f9ae6a-db25-47f6-b037-be04817fb3b0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bd57f234-4bd8-46ca-b3dd-aa3837f54702">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ed66c907-5992-4d2a-8bdc-d750c7c37f3d</parentFolderId>
+      <packageId>277df972-a3b3-4893-8c67-6428374c277e</packageId>
+      <packageName>Scalar.NET9.Bearer.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d36b50ef-eef1-491e-bfe0-b2c361f32999" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ScheduledTime</name>
+      <display>ScheduledTime: TimeSpan</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="87e759ab-621e-45a8-9fdc-59d5ff29de4c">
+        <typeId>46dbdc6c-aaa7-4d2e-ba1f-81abdb87a888</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.CSharp</typePackageName>
+        <typePackageId>730e1275-0c32-44f7-991a-9619d07ca68d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ed66c907-5992-4d2a-8bdc-d750c7c37f3d</parentFolderId>
+      <packageId>277df972-a3b3-4893-8c67-6428374c277e</packageId>
+      <packageName>Scalar.NET9.Bearer.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

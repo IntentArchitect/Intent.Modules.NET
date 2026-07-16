@@ -14,5 +14,18 @@
       <deviationsHash>DF91F333B7ADDDF2228DBC63929595D96824B0900D647A7EDCE005B2BA48B2A0</deviationsHash>
       <fileHash>02D7B54D8DE730027B3EBCE9E0A946C6D4F590214AF804FA7A5AFD24E7C403A2</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#e120bfc2-6c54-48e2-a07d-1d6390d4ae43</correlationId>
+      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:30.5848254Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:51.3660481Z</approvedAt>
+      <deviationsHash>E289E1E8E538A687CA01EFCEBD1AAC98335DB20D0810CE3EA262BE61C1F2B14A</deviationsHash>
+      <fileHash>04AA1F50BF9918B1A8F2E2B11F0FA4D405B7BE9E18BB15E714928619B0D59D46</fileHash>
+    </file>
   </files>
 </deviationsLog>

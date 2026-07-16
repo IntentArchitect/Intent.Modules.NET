@@ -1,3 +1,9 @@
+### Version 6.0.3
+
+- Improvement: Updated NuGet package versions.
+- Fixed: `HideRouteParametersFromBodyOperationFilter` no longer mutates the shared, cached schema for a DTO referenced by multiple operations. The filter now clones the schema per-operation before removing route-bound properties, so operations that do not have a matching route parameter keep the full request body schema.
+- Fixed: `TypeSchemaFilter` no longer wraps the `TimeSpan`/`DateOnly` OpenAPI `example` value in an extra JSON object on .NET 8+. The example is now emitted as a plain string (e.g. `"00:00:00"`), matching the documented OpenAPI schema shape.
+
 ### Version 6.0.2
 - Fixed an issue in `HideRouteParametersFromBodyOperationFilter` where omitted non-nullable string properties could cause ASP.NET model validation failures in certain request scenarios. Updated route-body parameter reconciliation behavior for string properties to preserve compatibility with common document database and user-supplied identifier patterns.
 

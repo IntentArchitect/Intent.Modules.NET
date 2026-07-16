@@ -49,6 +49,19 @@ Do not change the merge mode for handler method bodies. Changing to `Mode.Fully`
 
 Registered as `PerServiceCall` to align with the unit-of-work pattern used by EF Core and other scoped services. A singleton `DomainEventService` would share state across requests, which is incorrect.
 
+### AI agent skill file mirrors MediatR's, adapted for Wolverine dispatch semantics
+
+`Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplatePartial.cs` generates `.agents/skills/wolverine-domain-event-handler/SKILL.md` via a File Template designer element (`Templating Method = Markdown File Builder`, `Role = AI.Context.Skills`), the same recipe used by `Intent.MediatR.DomainEvents.DomainEventHandlerSkillTemplate`.
+
+The content was rewritten (not copy-pasted) to reflect Wolverine's actual mechanics rather than MediatR's:
+
+- Wolverine discovers handlers by convention (public `Handle` method whose parameter type is the domain event) — there is no `INotificationHandler<T>` marker interface to reference.
+- Dispatch flows through `DomainEventService.Publish` → `IMessageBus.PublishAsync`, not a MediatR pipeline.
+- Multiple handler classes may react to the same event (pub/sub fan-out) — the skill explicitly warns against assuming single-handler ownership.
+- Idempotency guidance calls out Wolverine's at-least-once redelivery assumption explicitly, since Wolverine (unlike in-process MediatR) can durably redeliver messages depending on transport/persistence configuration.
+
+If the MediatR skill template's structure changes (e.g. new sections added upstream), re-derive the Wolverine content from this module's actual dispatch mechanics rather than diffing/copying MediatR's file verbatim — the two transports' handler-discovery and delivery-guarantee models are genuinely different.
+
 ---
 
 ## Interactions with Other Modules

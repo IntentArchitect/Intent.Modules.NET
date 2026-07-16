@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1d3cf0bb-3d1f-469d-884e-333a1ac5edf6" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment />
   <name>xunit.runner.visualstudio</name>
   <display>xunit.runner.visualstudio</display>
   <isAbstract>false</isAbstract>

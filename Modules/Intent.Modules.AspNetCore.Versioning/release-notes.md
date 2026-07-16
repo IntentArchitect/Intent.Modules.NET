@@ -1,3 +1,7 @@
+### Version 1.1.13
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.12
 
 - Fixed: Minumum client version.

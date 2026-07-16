@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.2.1
 
 - Improvement: Updated setting name and hint descriptions.

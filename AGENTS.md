@@ -51,7 +51,7 @@ Both `WORKING.md` and `CONTEXT.md` are **managed and maintained entirely by the 
 
 **Lifecycle:** 
 * The `.module-builder/WORKING.md` file exists only while the overall project work is in progress. When the project is complete, the file is deleted or cleared, and any durable knowledge that should survive is extracted into the relevant `CONTEXT.md` files (which live in their module project folders). Per-module WORKING.md for minor/bugfix work goes under `.module-builder/<ModuleName>/WORKING.md` — never inside the module's own source folder.
-* **Stale File Handler**: If a `WORKING.md` file exists, but you receive a new task/request that is completely unrelated to what is described in the `WORKING.md`, you must prompt the user immediately: *"I see there is a project in progress in WORKING.md. Do you want to discard it and start fresh, or modify the existing plan?"* before taking any actions.
+* **Stale File Handler (WORKING.md is yours to maintain)**: `WORKING.md` is under your jurisdiction — keep it a faithful mirror of the user's current intent. If a `WORKING.md` exists but the incoming request **diverges** from what it documents — completely unrelated work, a changed objective, dropped/added scope, or a likely branch switch — do **not** plough ahead on stale assumptions. Prompt the user first, e.g. *"We were working on X in WORKING.md; this request looks like Y — are we still aligned, or did something change (branch, scope, direction)?"*, and act on their answer (discard, modify, or extend the plan) before taking any actions.
 
 
 ### Mandatory Pre-Code Verification Gate

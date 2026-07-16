@@ -2,6 +2,56 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#86427358-6bfb-4430-b462-e7dd6e140fd4</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Intent.Modules.Application.Wolverine.DomainEvents.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T10:44:52.5269702Z</updatedAt>
+      <deviationsHash>015FBCA9A990641B794BEECCEB67455582C4C26A647D768F858285A40620F138</deviationsHash>
+      <fileHash>D4A77F83769D9EFF2930103E177285F3CB64CA1092B68B41BF267E26B6CBD25A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#32fcb82c-64fc-458e-83dc-0aeff8ec5a24</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T10:44:52.2654954Z</updatedAt>
+      <deviationsHash>0162C0B68E517D25DC3F2AE8485FB357A924FE6489A55D27A5FD62D94B025734</deviationsHash>
+      <fileHash>11E0E530A986830DF7B5E6BBA9D5F73F44DA1E6A398B9A2DBFD06C75F56B3691</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#32fcb82c-64fc-458e-83dc-0aeff8ec5a24</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T10:44:52.2659275Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>A6240694B594DEB8C69B167420BA44DEEB7F3A65F16037966BCF6D8CFAD3B696</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2948f416-bf13-4af2-a5d9-90ff7e41a88d</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T10:44:52.2658411Z</updatedAt>
+      <deviationsHash>E22973819D479146BC248596005F85079EC86032A092016E77A43C05D9F67C5C</deviationsHash>
+      <fileHash>A02DD55BFE558228669AB1D6466B61F065078D407F9B2EBCB7881D039D868963</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9653a0ed-4d68-4974-883c-46c28e4daea0</correlationId>
+      <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T20:05:48.7179641Z</updatedAt>
+      <deviationsHash>4B12AC4B66785D6E38E40C62B515091326E341D9F99252C117B800F79B7ADF2B</deviationsHash>
+      <fileHash>7F30B9A790990BFEF57676C30FCA22AD2B7B3452F69FBA0008010DCE30C35363</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7fe44235-33ee-41ba-b7ef-7181d9e8aecb</correlationId>
       <path>Intent.Modules.Application.Wolverine.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
       <count>5</count>

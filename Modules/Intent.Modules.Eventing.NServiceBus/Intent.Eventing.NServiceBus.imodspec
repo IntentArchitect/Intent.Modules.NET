@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.NServiceBus</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.2</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</summary>
   <description>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</description>
@@ -52,7 +52,7 @@
           </options>
         </setting>
         <setting id="4060477a-191f-43be-a2c1-f2dd94ff00e2" title="Recoverability Policy" type="select">
-          <hint>Determines which retry configuration blocks are generated.</hint>
+          <hint>Controls which retry blocks are generated.</hint>
           <defaultValue>immediate-and-delayed</defaultValue>
           <options>
             <option value="none" description="None" />
@@ -62,7 +62,7 @@
           </options>
         </setting>
         <setting id="61e27361-13e1-46ad-834f-3c98088c3947" title="Persistence" type="select">
-          <hint>Select the persistence provider for saga storage, subscription storage, and (when outbox is enabled) exactly-once message dispatch.</hint>
+          <hint>Persistence provider for subscriptions and outbox exactly-once dispatch.</hint>
           <defaultValue>none</defaultValue>
           <options>
             <option value="none" description="None" />
@@ -71,15 +71,15 @@
           </options>
         </setting>
         <setting id="a249c7a3-2d67-4973-83ab-3f4873fe35ab" title="Enable Outbox" type="checkbox">
-          <hint>Enables the NServiceBus transactional outbox. Requires Persistence to be set to SQL Persistence or NHibernate.</hint>
+          <hint>Enables the transactional outbox. Requires SQL Persistence or NHibernate.</hint>
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="40a8127e-e253-47c9-aa90-ec93a4fca0fa" title="Enable Audit Queue" type="checkbox">
-          <hint>When enabled, generates audit queue configuration. Set NServiceBus:AuditQueue in appsettings.json to activate.</hint>
+          <hint>Generates audit queue config. Set NServiceBus:AuditQueue in appsettings.json.</hint>
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="6321cb9f-0357-440f-99da-b8ab01e37914" title="Enable Instance Identification" type="checkbox">
-          <hint>Generates UniquelyIdentifyRunningInstance configuration for Particular Service Platform monitoring. Set NServiceBus:InstanceId in appsettings.json.</hint>
+          <hint>Generates instance identification for Particular monitoring. Set NServiceBus:InstanceId in appsettings.json.</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>

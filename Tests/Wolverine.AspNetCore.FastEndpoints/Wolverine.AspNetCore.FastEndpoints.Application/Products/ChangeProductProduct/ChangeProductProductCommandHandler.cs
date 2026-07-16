@@ -18,16 +18,16 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.ChangeProductP
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(ChangeProductProductCommand command, CancellationToken cancellationToken)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task Handle(ChangeProductProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FindByIdAsync(command.Id, cancellationToken);
+            var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
             if (product is null)
             {
-                throw new NotFoundException($"Could not find Product '{command.Id}'");
+                throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
 
-            product.ChangeProduct(command.Name, command.Price);
+            product.ChangeProduct(request.Name, request.Price);
         }
     }
 }

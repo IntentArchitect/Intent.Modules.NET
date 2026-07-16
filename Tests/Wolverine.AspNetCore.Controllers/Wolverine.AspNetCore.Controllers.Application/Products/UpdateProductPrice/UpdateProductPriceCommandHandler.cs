@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.UpdateProductPrice
+namespace Wolverine.AspNetCore.Controllers.Application.UpdateProductPrice
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateProductPriceCommandHandler
@@ -17,16 +17,16 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.UpdateProductPri
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(UpdateProductPriceCommand command, CancellationToken cancellationToken)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task Handle(UpdateProductPriceCommand request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FindByIdAsync(command.Id, cancellationToken);
+            var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
             if (product is null)
             {
-                throw new NotFoundException($"Could not find Product '{command.Id}'");
+                throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
 
-            product.Price = command.NewPrice;
+            product.Price = request.NewPrice;
         }
     }
 }

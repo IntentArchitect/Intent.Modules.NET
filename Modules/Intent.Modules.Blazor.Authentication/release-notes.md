@@ -1,6 +1,7 @@
 ### Version 2.0.1
 
 - Improvement: The Login, Register, ForgotPassword, ResetPassword, ConfirmEmail and ResendEmailConfirmation account pages are now modelled `Component`/`Page` elements generated through the standard Razor component template, instead of dedicated always-regenerated templates. Edits to a generated page now survive regeneration, and deleting a page's modelled element stops it being generated.
+- Improvement: Updated NuGet package versions.
 - Improvement: Reduced unnecessary warnings by seeding `[SupplyParameterFromForm]` input models in `OnInitialized (Input ??= new())` instead of a property initializer which should rather be set to `default!`
 
 ### Version 2.0.0

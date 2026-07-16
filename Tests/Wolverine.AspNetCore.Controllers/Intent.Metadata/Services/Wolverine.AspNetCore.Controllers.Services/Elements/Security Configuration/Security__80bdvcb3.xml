@@ -3,6 +3,7 @@
   <name>Security</name>
   <display>Security</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</parentFolderId>

@@ -1,3 +1,7 @@
+### Version 4.1.17
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.16
 
 - Improvement: Made `AddInfrastructure` be `IntentMerge` by default, this is a better default with AI.

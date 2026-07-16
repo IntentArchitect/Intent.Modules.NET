@@ -2,6 +2,36 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5e6a2761-b883-495c-a3b9-1309933b6f43</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T12:32:39.3288185Z</updatedAt>
+      <deviationsHash>43DEA69B9C24155332935A36B388923D337A08312C8B20A8F0B3B1A9A9E4E2E4</deviationsHash>
+      <fileHash>A00716D179F47B2B83C358276DB2317BFED5420434E7923BD32F636881DC7144</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c1877186-0dcd-40c7-9c3e-4756dc0dae42</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-06T12:32:39.3288898Z</updatedAt>
+      <deviationsHash>55B564D16D3D08EBA3FA2654DC3D85452C03D417126C3DF4AFCC2D8FB133F952</deviationsHash>
+      <fileHash>AA03219D6C60B70C0683E436A186F7FD96354E6E48A005400AB25837F708BE1B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#a5803c32-0454-4111-9e1d-168e5bf6cb10</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-08T16:14:05.8990227Z</updatedAt>
+      <deviationsHash>68D563CF60FFDF4B8BF43C8FBA12485C4F2E6C4CACB9576339AEE813B966204D</deviationsHash>
+      <fileHash>B8565249C2A28B9FBA31980425210BB959FCF5C4ACD641CDA179A6CDDCEAA9C6</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
       <path>Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextTemplatePartial.cs</path>
       <count>2</count>
@@ -45,7 +75,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-05-28T13:37:34.8407089Z</updatedAt>
       <deviationsHash>6CA987185FA20749CF1CCB36174FBC249527C8D395F3451F5C26C9D55E95CBD5</deviationsHash>
-      <fileHash>8C973F5E1187C81CFC087140CC03E4636EDAE584D449EB3EF37316F235CB3BE0</fileHash>
+      <fileHash>9E039089D16573DF917F4A844A5C71C4A4D0A85C4B784173F0838DFFC0255389</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>

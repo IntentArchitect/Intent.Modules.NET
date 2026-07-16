@@ -4,7 +4,7 @@ using Wolverine.AspNetCore.Controllers.Application.Common.Interfaces;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandModels", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
+namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
 {
     public class CreateProductCommand : ICommand
     {

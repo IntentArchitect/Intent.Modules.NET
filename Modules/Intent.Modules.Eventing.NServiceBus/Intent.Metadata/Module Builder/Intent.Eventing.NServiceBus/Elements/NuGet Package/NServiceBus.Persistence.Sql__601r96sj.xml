@@ -131,7 +131,7 @@
       </childElements>
     </childElement>
     <childElement id="c31a3bc0-5c50-431e-a25f-66647d295fd3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.3.1</name>
+      <name>8.3.2</name>
       <display>8.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +153,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5ab5b895-f283-453f-ab9e-75aa8182a459" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Newtonsoft.Json</name>
-          <display>Newtonsoft.Json (13.0.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>13.0.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c31a3bc0-5c50-431e-a25f-66647d295fd3</parentFolderId>
-          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-          <packageName>Intent.Eventing.NServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="76df0fa4-a3de-4ad7-becc-d467665179d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4c336555-0e96-4adf-98fc-929f62de1649" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus</name>
-          <display>NServiceBus (9.2.11)</display>
           <isAbstract>false</isAbstract>
           <value>9.2.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c31a3bc0-5c50-431e-a25f-66647d295fd3</parentFolderId>
-          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="14da42f3-0073-4603-8680-de5751bb08c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>13.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c31a3bc0-5c50-431e-a25f-66647d295fd3</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -184,7 +178,7 @@
       </childElements>
     </childElement>
     <childElement id="434f0d9d-0f75-46b1-b2ea-3077252a5873" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.1</name>
+      <name>9.0.2</name>
       <display>9.0.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -206,30 +200,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="80f4c4fd-0103-44ed-869f-ae74f4b03892" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Newtonsoft.Json</name>
-          <display>Newtonsoft.Json (13.0.4)</display>
-          <isAbstract>false</isAbstract>
-          <value>13.0.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>434f0d9d-0f75-46b1-b2ea-3077252a5873</parentFolderId>
-          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-          <packageName>Intent.Eventing.NServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="aa59c8e1-d276-4d19-9218-77ba0ec179e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f160da37-0ce7-47cf-b8d3-94c4a6f55c23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus</name>
-          <display>NServiceBus (10.1.4)</display>
           <isAbstract>false</isAbstract>
           <value>10.1.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>434f0d9d-0f75-46b1-b2ea-3077252a5873</parentFolderId>
-          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5a0c238d-5327-4a4d-8f9b-167b9703c3d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>13.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>434f0d9d-0f75-46b1-b2ea-3077252a5873</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

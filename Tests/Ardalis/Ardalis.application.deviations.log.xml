@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</correlationId>
+      <path>Ardalis.Infrastructure/Ardalis.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:23.6504946Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.921689Z</approvedAt>
+      <deviationsHash>E34F1111F75FCE60367A76E1DD6DD8FE432255028C5167F63F0502E98BEC4F52</deviationsHash>
+      <fileHash>CEBBC662C95753A5FFEDA509D6F2FE1452BE5078FF8D601D4212DF61E36EB61C</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#931f0fb9-48da-478e-a955-fcfcbe6afc93</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:37.7850391Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:39.7715714Z</approvedAt>
+      <deviationsHash>900106D3C6FE10C6EF8D2E7C2367FBFA90912B632DC021BB919EBB6C5C7C5A7A</deviationsHash>
+      <fileHash>4704F9D38AC58E814FB03DB87FC8AB39FC3ACB53B2A7AFAEE24395F5696EFF19</fileHash>
+    </file>
+  </files>
 </deviationsLog>

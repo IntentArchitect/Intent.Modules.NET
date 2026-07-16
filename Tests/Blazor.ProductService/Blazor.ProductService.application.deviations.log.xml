@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#350d260d-ce65-41fe-9d90-41fe9f8f749c</correlationId>
+      <path>Blazor.ProductService.Infrastructure/Blazor.ProductService.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:48.5764128Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.7492832Z</approvedAt>
+      <deviationsHash>2EFFB1CE333C2FF9CDD4255A8922A1F65B90B7E0628089EA4F712BE2222AB7F1</deviationsHash>
+      <fileHash>1D84B77C0B38AA96B689525E839E6865BD3BF7F11BD63C4F3D71E46E8DDCEDE8</fileHash>
+    </file>
+  </files>
 </deviationsLog>

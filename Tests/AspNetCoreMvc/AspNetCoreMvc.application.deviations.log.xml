@@ -14,5 +14,18 @@
       <deviationsHash>F47E19BE72FFE1D2BAB49A3D40DBC236811943DDC5756FEF01C3349218A3AC1E</deviationsHash>
       <fileHash>A6308777473CEAB75170CA6B70B3F593583DD426A40AD2A8F3D4260159883776</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#1dd61f4d-054f-4669-b2a2-0db2436f0ccd</correlationId>
+      <path>AspNetCoreMvc.Infrastructure/AspNetCoreMvc.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:41:29.2121936Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:34.1565781Z</approvedAt>
+      <deviationsHash>99DAA93F77E7DA1DE3C471B8E5FD2BF3626E2A6F49A02D604BD9F68385CD0599</deviationsHash>
+      <fileHash>9AC0A4DDD0061988D407018ED8C471F33D7FF84C26A1A78B73CCD2C754D20879</fileHash>
+    </file>
   </files>
 </deviationsLog>

@@ -14,5 +14,18 @@
       <deviationsHash>15EF45840CC9DFC30FE037B4322716C6739B4A98B0C9C31943849688E66B5549</deviationsHash>
       <fileHash>276FAC0AD81449635DD3A0E135F03ECD3A2F5590ED108536F83F11B2DF8AE3A3</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#c0bda718-c812-4d9b-8caa-7a50453889d3</correlationId>
+      <path>CleanArchitecture.Comprehensive.Infrastructure/CleanArchitecture.Comprehensive.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:31.6652727Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.1139388Z</approvedAt>
+      <deviationsHash>C004B1B86D237803F313CC6ABF0333D55C06B8EA289451859DE59B45E9FC6F18</deviationsHash>
+      <fileHash>4424965486689A292567A0EACCA415330DECF6425CA35AED2469294E6553264E</fileHash>
+    </file>
   </files>
 </deviationsLog>

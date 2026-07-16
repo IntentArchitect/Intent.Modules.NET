@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -53,6 +56,40 @@ namespace Intent.Modules.Application.Wolverine.DomainEvents.Templates.DomainEven
                             method.AddParameter(GetTypeName(TemplateRoles.Domain.Events, handledDomainEvent.TypeReference.Element), "domainEvent");
                             method.AddParameter("CancellationToken", "cancellationToken");
                         });
+                    }
+                })
+                .AfterBuild(file =>
+                {
+                    foreach (var handler in CSharpFile.GetProcessingHandlers())
+                    {
+                        var interactions = handler.Model.GetInteractions().ToList();
+                        if (interactions.Any())
+                        {
+                            var method = handler.Method;
+                            var csharpMapping = method.GetMappingManager();
+                            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(this));
+
+                            // TODO: These can go to the handler template:
+                            csharpMapping.SetFromReplacement(handler.Model, "domainEvent");
+                            csharpMapping.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
+
+                            // Inheritance handling
+                            var domainEventModel = handler.Model.InternalElement.TypeReference?.Element?.AsDomainEventModel();
+                            var generalization = domainEventModel?.Generalizations().SingleOrDefault();
+                            if (generalization != null)
+                            {
+                                csharpMapping.SetFromReplacement(generalization, "domainEvent");
+                                csharpMapping.SetToReplacement(generalization, null);
+                            }
+
+                            method.ImplementInteractions(interactions);
+                        }
                     }
                 })
                 .AfterBuild(file =>

@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.Wolverine.DomainEvents.Templates.DefaultDom
 
         public override string TemplateId => DefaultDomainEventHandlerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainEventModel model)
         {
             return new DefaultDomainEventHandlerTemplate(outputTarget, model);

@@ -137,39 +137,3 @@
 <AccountHero Icon="mail"
              Title="Resend email confirmation"
              Subtitle="Enter your email to receive a new confirmation link." />
-<div class="ux-form-narrow">
-    <section>
-        <div class="ux-section-head">
-            <h2>Send another confirmation email</h2>
-            <p class="ux-section-subtitle">Enter the email address you used when registering.</p>
-        </div>
-        <EditForm Model="Input"
-                  FormName="resend-email-confirmation"
-                  OnValidSubmit="OnValidSubmitAsync"
-                  method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger"
-                               role="alert" />
-            <UxField Label="Email"
-                     Icon="mail"
-                     For="email">
-                <InputText id="email"
-                           class="ux-input"
-                           @bind-Value="Input.Email"
-                           autocomplete="username"
-                           aria-required="true"
-                           placeholder="name@example.com" />
-            </UxField>
-            <ValidationMessage class="text-danger"
-                               For="() => Input.Email" />
-            <button class="w-100 btn btn-primary"
-                    type="submit">
-                <UxIcon Name="mail" />
-                Resend
-            </button>
-            <div class="ux-account-links">
-                <a href="Account/Login">Back to log in</a>
-            </div>
-        </EditForm>
-    </section>
-</div>

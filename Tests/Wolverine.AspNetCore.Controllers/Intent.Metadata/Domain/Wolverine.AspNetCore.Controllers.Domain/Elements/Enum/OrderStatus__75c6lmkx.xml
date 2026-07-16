@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc5cc967-abe8-4fed-9ccd-db3283586ec5" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</parentFolderId>
+  <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+  <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5b540630-bad3-433e-a620-4bceb867073b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc5cc967-abe8-4fed-9ccd-db3283586ec5</parentFolderId>
+      <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+      <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e4755e21-a247-457f-813b-cec74560c479" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Confirmed</name>
+      <display>Confirmed</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc5cc967-abe8-4fed-9ccd-db3283586ec5</parentFolderId>
+      <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+      <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="07f0c3b8-0243-48e3-bdcb-ba25255a8a4a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Shipped</name>
+      <display>Shipped</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc5cc967-abe8-4fed-9ccd-db3283586ec5</parentFolderId>
+      <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+      <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e53dfd04-9e43-4252-a531-cadebb49b5b9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Cancelled</name>
+      <display>Cancelled</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc5cc967-abe8-4fed-9ccd-db3283586ec5</parentFolderId>
+      <packageId>ac9e5e8f-ad88-4fd1-aa99-be94c4ac9135</packageId>
+      <packageName>Wolverine.AspNetCore.Controllers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

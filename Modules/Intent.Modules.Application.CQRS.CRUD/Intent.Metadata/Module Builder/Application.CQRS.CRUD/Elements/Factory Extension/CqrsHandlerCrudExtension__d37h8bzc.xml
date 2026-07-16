@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d88d24af-9206-471e-bed3-2804d88f7df1" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CqrsHandlerCrudExtension</name>
+  <display>CqrsHandlerCrudExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>633e80ea-67a6-4456-a7c0-8de19c57cde7</parentFolderId>
+  <packageId>633e80ea-67a6-4456-a7c0-8de19c57cde7</packageId>
+  <packageName>Intent.Application.CQRS.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

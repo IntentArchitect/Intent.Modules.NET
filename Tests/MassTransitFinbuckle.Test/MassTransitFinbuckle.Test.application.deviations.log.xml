@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#5f54ca23-d142-4094-a2f0-9b4f6f532892</correlationId>
+      <path>MassTransitFinbuckle.Test.Infrastructure/MassTransitFinbuckle.Test.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:02.2983054Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:30.518767Z</approvedAt>
+      <deviationsHash>0ABF6A30B8A99E10C2373F99DCD1753F132987632209BC01862F52D096338187</deviationsHash>
+      <fileHash>B5510E531CB3B2E6693871DEB505E001985309689E12B6FD39C558AF3F609AE2</fileHash>
+    </file>
+  </files>
 </deviationsLog>

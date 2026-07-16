@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="dfddc7d5-de99-45de-8469-502129219a44" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.17.1</name>
+      <name>1.21.0</name>
       <display>1.13.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,43 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3a64de7c-b4bd-4fda-a10a-9caaa60599da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a91d70c-8a09-43c4-b0fd-465b8a92e185" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.50.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f653e79a-ae7e-4dbb-b92b-8e2c28e0dddf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client</name>
-          <isAbstract>false</isAbstract>
-          <value>4.78.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8b891a37-34ce-43bd-b996-408cbec004e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client.Extensions.Msal</name>
-          <isAbstract>false</isAbstract>
-          <value>4.78.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="44aab787-4899-4469-8e95-1cd32631b34a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Memory</name>
-          <isAbstract>false</isAbstract>
-          <value>4.6.3</value>
+          <value>1.53.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
@@ -94,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="fdee18d7-17ea-4d6c-82c7-9e8582cdbc67" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.17.1</name>
+      <name>1.21.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -112,10 +79,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dc693c78-37d6-4a15-be6a-e4eddab30a77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="89568f4d-898f-4d0c-bb97-7c15b04230a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.50.0</value>
+          <value>1.53.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>
@@ -123,24 +90,34 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9da80a30-7249-49d0-94f4-d1115343856d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client</name>
+      </childElements>
+    </childElement>
+    <childElement id="93362fb1-1f13-4a2b-ae99-c3233bc8be6c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.21.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d5c4680-925c-4457-a8f0-5e9e0b22f146</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e9db92ac-9267-4faf-9716-7761742540ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>4.78.0</value>
+          <value>1.53.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7def02b5-7155-4a0d-95bc-e2a783c1f307" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client.Extensions.Msal</name>
-          <isAbstract>false</isAbstract>
-          <value>4.78.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>
+          <parentFolderId>93362fb1-1f13-4a2b-ae99-c3233bc8be6c</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

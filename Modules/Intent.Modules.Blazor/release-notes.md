@@ -1,5 +1,6 @@
 ### Version 2.0.1
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Domain package reference automatically added to UI designer.
 - Improvement: Modelling context now added from the template, allowing for a consistent experience when not using auto-generated AI tasks.
 - Improvement: Having a space in the page name will no longer generate incorrect code.

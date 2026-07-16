@@ -19,24 +19,24 @@ namespace Intent.Modules.MongoDb.MongoFramework
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Finbuckle.MultiTenant.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "10.0.2"),
-                        ( >= 9, >= 0) => new PackageVersion("9.4.5")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.12")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.12"),
-                        ( >= 8, >= 0) => new PackageVersion("9.4.5")
+                        ( >= 10, >= 0) => new PackageVersion("10.1.1")
+                            .WithNugetDependency("Finbuckle.MultiTenant.Abstractions", "10.1.1")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "10.0.9"),
+                        ( >= 9, >= 0) => new PackageVersion("9.4.10")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.17")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.17"),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
@@ -44,7 +44,7 @@ namespace Intent.Modules.MongoDb.MongoFramework
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.10")
+                        ( >= 7, >= 0) => new PackageVersion("8.1.15")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "7.0.0")

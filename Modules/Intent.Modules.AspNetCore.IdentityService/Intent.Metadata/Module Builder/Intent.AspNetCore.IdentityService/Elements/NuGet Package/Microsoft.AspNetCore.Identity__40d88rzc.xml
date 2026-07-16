@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="e7b0423d-8705-4c25-bb39-c6dfb6ae5efe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.9</name>
+      <name>2.3.11</name>
       <display>2.3.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e11fe221-8c2f-48fa-af42-e6d0c933e747" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2c679d37-975a-4df2-acbc-9eb74630a951" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Authentication.Cookies</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="efbeb128-1710-4858-9663-13e417679be5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="80a88dfb-eb8b-4c7e-92ec-1dd0f21f5c9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Cryptography.KeyDerivation</name>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="09922903-0efc-4774-bb23-f7bacdf6de92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c6a49bb-65bd-438f-95b6-63558f1f50f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
@@ -80,10 +80,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="60b22952-8bfe-4426-a3a2-2b5fc5abd796" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="064a946b-1064-40e9-ba3a-85b3aba14a3e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>

@@ -14,5 +14,18 @@
       <deviationsHash>C0BBDB42DAEEB7F2FD59E4224ADDA5360F674F299071B60BE4C9243BDB78A2EC</deviationsHash>
       <fileHash>EEBD09A327EB79819ED59E9BB34030093A58EA5150CE09CC606ECC44AF470781</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#14784b90-f6bc-4fd7-aca7-f05fb9e3540e</correlationId>
+      <path>TableStorage.Tests.Infrastructure/TableStorage.Tests.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:46.6341547Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:31.6409698Z</approvedAt>
+      <deviationsHash>C115DBB7671124337D7C8D9EB1BD5D631B37AEBF2E9FA2518ED7C30B5D4871DC</deviationsHash>
+      <fileHash>79A41733EAA0491B200BEC0A876D0EB5620E92E654423086BC562AE880881C0C</fileHash>
+    </file>
   </files>
 </deviationsLog>

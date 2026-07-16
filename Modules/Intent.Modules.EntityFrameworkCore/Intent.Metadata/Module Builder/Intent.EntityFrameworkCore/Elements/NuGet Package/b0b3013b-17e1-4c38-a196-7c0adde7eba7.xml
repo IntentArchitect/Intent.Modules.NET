@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="6f395012-6ae2-466c-aaf5-fa6d8a266f63" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.23.26000</name>
-      <display>10.23.26000 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.23.26200</name>
+      <display>10.23.26200 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="93efcf02-4058-48bd-9989-1667546b326e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2cb2bafb-16f9-4b8a-aaf3-3a6f1793d926" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <display>Microsoft.EntityFrameworkCore.Relational (10.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="26f4c321-0591-4fbb-b5c3-9de16317df33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b3d723e9-c484-4108-90be-470654bd9f78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Oracle.ManagedDataAccess.Core</name>
-          <display>Oracle.ManagedDataAccess.Core (23.26.0)</display>
+          <display>Oracle.ManagedDataAccess.Core (23.26.200)</display>
           <isAbstract>false</isAbstract>
-          <value>23.26.0</value>
+          <value>23.26.200</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6f395012-6ae2-466c-aaf5-fa6d8a266f63</parentFolderId>

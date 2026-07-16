@@ -21,7 +21,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a7d97566-fd1c-4645-b872-954fd96af053" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="208996f8-249c-454e-af4a-763e757b3801" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Wolverine.DomainEvents.DomainEventService</name>
       <display>Intent.Application.Wolverine.DomainEvents.DomainEventService</display>
       <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>

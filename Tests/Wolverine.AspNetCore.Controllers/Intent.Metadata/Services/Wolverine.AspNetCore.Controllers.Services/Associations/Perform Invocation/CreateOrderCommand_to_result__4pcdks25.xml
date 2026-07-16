@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9d98d943-35c0-4af7-aac0-83f7ae5aac2d">
+  <sourceEnd id="2b30637b-1bc0-4ab6-b7f1-3d5991c33fff" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="4e46c935-17fb-45c1-8494-874c293c9981">
+      <typeId>66ad62f6-359a-4e2a-9267-aec0b4cc0f65</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Services</typePackageName>
+      <typePackageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9d98d943-35c0-4af7-aac0-83f7ae5aac2d" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetOrderByIdQuery(...): OrderDto</display>
+    <order>10</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8d003aeb-bae0-4732-b628-c4f4c9f88d59">
+      <typeId>c07880ef-827d-4c94-96f8-92295b535147</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.AspNetCore.Controllers.Services</typePackageName>
+      <typePackageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="66ad62f6-359a-4e2a-9267-aec0b4cc0f65" location="[Wolverine.AspNetCore.Controllers].[Services].[CreateOrderCommand]" />
+        <target applicationId="31f3d32d-2ed8-435d-a8e4-39120b18b177" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c07880ef-827d-4c94-96f8-92295b535147" location="[Wolverine.AspNetCore.Controllers].[Services].[GetOrderByIdQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrderCommand}</expression>
+            <path>
+              <target id="c07880ef-827d-4c94-96f8-92295b535147" name="GetOrderByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="66ad62f6-359a-4e2a-9267-aec0b4cc0f65" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.Id}</expression>
+            <path>
+              <target id="c07880ef-827d-4c94-96f8-92295b535147" name="GetOrderByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="ce4e7c89-e4b7-4365-bef3-cb428b78761a" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="order.Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="66ad62f6-359a-4e2a-9267-aec0b4cc0f65" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d53402fa-7803-4152-85bd-d3fbde0b53f2" name="order" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="8c022987-ff9b-462b-a038-5be208151265" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

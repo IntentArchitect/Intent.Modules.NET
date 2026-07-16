@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
+namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateProductCommandHandler
@@ -17,14 +17,14 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
             _productRepository = productRepository;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var product = new Product
             {
-                Name = command.Name,
-                Price = command.Price,
-                IsActive = command.IsActive
+                Name = request.Name,
+                Price = request.Price,
+                IsActive = request.IsActive
             };
 
             _productRepository.Add(product);

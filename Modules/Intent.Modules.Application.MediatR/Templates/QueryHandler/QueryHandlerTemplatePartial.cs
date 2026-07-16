@@ -9,6 +9,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.QueryHandlerSkill;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -93,8 +94,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                     .WithAISummary("MediatR Handler implementation for the " + Model.Name + " query.")
-                    .WithAIContext("""
-                                   Use the mediatr-query-handler skill when modifying this handler.
+                    .WithAIContext($"""
+                                   Use the `{QueryHandlerSkillTemplate.SkillName}` skill when modifying this handler.
                                    """);
         }
 

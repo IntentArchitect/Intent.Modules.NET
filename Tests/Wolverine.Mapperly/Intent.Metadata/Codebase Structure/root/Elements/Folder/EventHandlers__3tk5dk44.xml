@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7ad5537-bd77-4373-ba21-27b2f465de09" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>EventHandlers</name>
+  <display>EventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>016bf62a-59c6-486d-b744-2c5dea083f3e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="768cb618-b39a-4076-bd70-64836634956e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</name>
+      <display>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler</display>
+      <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7ad5537-bd77-4373-ba21-27b2f465de09</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d98c35a3-5041-4d83-9de2-3f9d8f7475c0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</name>
+      <display>Intent.Application.Wolverine.DomainEvents.DomainEventHandler</display>
+      <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7ad5537-bd77-4373-ba21-27b2f465de09</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

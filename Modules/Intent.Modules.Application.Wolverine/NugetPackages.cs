@@ -18,7 +18,7 @@ namespace Intent.Modules.Application.Wolverine
             NugetRegistry.Register(WolverineFxPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("5.39.5"),
+                        ( >= 8, >= 0) => new PackageVersion("5.39.5", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{WolverineFxPackageName}'"),
                     }
                 );

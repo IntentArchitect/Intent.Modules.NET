@@ -30,15 +30,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e9b86a42-6ac3-412f-96e9-8521215ffe55</correlationId>
       <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
-      <count>5</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-20T12:25:06.2402833Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:25:06.2402834Z</approvedAt>
-      <deviationsHash>39B7EC5F377F80EB9AFC2AD723CE4F614B827E64A22761364CAF632BCFBC94EA</deviationsHash>
-      <fileHash>232A216A29BE866AC2909606202AD65DF3A9EE42AA8F2DE35F2215FDD9ABDACB</fileHash>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-09T09:57:06.6680428Z</updatedAt>
+      <deviationsHash>95322CE7370ED401E14EE20F1A6CF9C3FCA0BA829CA3DFBE62BC3A3EF5ADF712</deviationsHash>
+      <fileHash>BCD4113C4F34C2F8B7F14A9BEE0349AA141F3313CC9995A51BF710E99821AFB3</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2de50976-c2bf-4bdd-9c10-a222a6b59ebf</correlationId>

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5E4F9D03-55D6-412B-9DC6-1E0C19FF3FAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.Mapperly.Api", "Wolverine.Mapperly.Api\Wolverine.Mapperly.Api.csproj", "{E2C12BDC-0920-4F2C-8861-28C8E858F4F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{40691AF8-B850-4413-8747-BA4375A847D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.Mapperly.Application", "Wolverine.Mapperly.Application\Wolverine.Mapperly.Application.csproj", "{016BF62A-59C6-486D-B744-2C5DEA083F3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0E6567D3-FC95-416C-8738-E21D215AD180}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.Mapperly.Domain", "Wolverine.Mapperly.Domain\Wolverine.Mapperly.Domain.csproj", "{63D44AEC-E4E5-41A0-BF58-22684286BACC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5AAD8F25-CEC0-44BE-8841-CE942BD99CCC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolverine.Mapperly.Infrastructure", "Wolverine.Mapperly.Infrastructure\Wolverine.Mapperly.Infrastructure.csproj", "{E88E1D08-61B6-4118-BC9D-4B20A0918228}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2C12BDC-0920-4F2C-8861-28C8E858F4F6} = {5E4F9D03-55D6-412B-9DC6-1E0C19FF3FAB}
+		{016BF62A-59C6-486D-B744-2C5DEA083F3E} = {40691AF8-B850-4413-8747-BA4375A847D6}
+		{63D44AEC-E4E5-41A0-BF58-22684286BACC} = {0E6567D3-FC95-416C-8738-E21D215AD180}
+		{E88E1D08-61B6-4118-BC9D-4B20A0918228} = {5AAD8F25-CEC0-44BE-8841-CE942BD99CCC}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2C12BDC-0920-4F2C-8861-28C8E858F4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C12BDC-0920-4F2C-8861-28C8E858F4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C12BDC-0920-4F2C-8861-28C8E858F4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C12BDC-0920-4F2C-8861-28C8E858F4F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016BF62A-59C6-486D-B744-2C5DEA083F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016BF62A-59C6-486D-B744-2C5DEA083F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016BF62A-59C6-486D-B744-2C5DEA083F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016BF62A-59C6-486D-B744-2C5DEA083F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D44AEC-E4E5-41A0-BF58-22684286BACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D44AEC-E4E5-41A0-BF58-22684286BACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D44AEC-E4E5-41A0-BF58-22684286BACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D44AEC-E4E5-41A0-BF58-22684286BACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E88E1D08-61B6-4118-BC9D-4B20A0918228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E88E1D08-61B6-4118-BC9D-4B20A0918228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E88E1D08-61B6-4118-BC9D-4B20A0918228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E88E1D08-61B6-4118-BC9D-4B20A0918228}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#fce3b3f2-e215-4749-9b3b-af9369363ffb</correlationId>
+      <path>ValueObjects.Record.Infrastructure/ValueObjects.Record.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:48.7236987Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:33.0223423Z</approvedAt>
+      <deviationsHash>54A47B5D1C3F3D79F3EE9D29093135E54F1197CCC3D744BA5895940FA51ACA68</deviationsHash>
+      <fileHash>2ED9A6B5949EAA4216680D804E7E084A1F2D99B3AD3028ED801BC43479510A69</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture#d028b12e-076b-425d-b3ff-a24ac8442c82</correlationId>
       <path>ValueObjects.Record.IntegrationTests/EFContainerFixture.cs</path>
       <count>1</count>

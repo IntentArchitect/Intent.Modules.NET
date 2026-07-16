@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="2b359096-7f8b-44d9-86c2-f112d21530cf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.76.0</name>
+      <name>2.80.0</name>
       <display>2.71.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dfcbb8a7-b5a0-4c30-9dc0-e55bf798f95c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c28b90be-9ab0-4beb-a25c-81105f088a94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.Core.Api</name>
           <isAbstract>false</isAbstract>
-          <value>2.76.0</value>
+          <value>2.80.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2b359096-7f8b-44d9-86c2-f112d21530cf</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c499a108-04cc-4e59-b7d7-1d869b04686e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8ccf39f8-ba81-46c7-8d6b-748337761d5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.CommonProtos</name>
           <isAbstract>false</isAbstract>
           <value>2.16.0</value>
@@ -72,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="7e0b6343-f53e-4dbe-a309-8694bddb888e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.76.0</name>
+      <name>2.80.0</name>
       <display>2.71.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -94,10 +94,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f053c76d-d526-4b66-8650-3d5cd665347c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="13da8779-436f-4789-8727-cf491891511c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.Core.Api</name>
           <isAbstract>false</isAbstract>
-          <value>2.76.0</value>
+          <value>2.80.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7e0b6343-f53e-4dbe-a309-8694bddb888e</parentFolderId>
@@ -105,7 +105,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="83323b00-6ebc-485a-b6f0-5d97177d2a84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a31eea71-1c75-49d0-8ce6-44aed7f0f9bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.CommonProtos</name>
           <isAbstract>false</isAbstract>
           <value>2.16.0</value>

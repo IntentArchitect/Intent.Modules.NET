@@ -20,8 +20,8 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.GetProducts
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ProductDto>> Handle(GetProductsQuery query, CancellationToken cancellationToken)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.FindAllAsync(cancellationToken);
             return products.MapToProductDtoList(_mapper);

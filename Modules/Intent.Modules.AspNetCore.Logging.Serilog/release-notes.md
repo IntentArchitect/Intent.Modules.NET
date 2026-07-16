@@ -1,3 +1,7 @@
+### Version 5.3.8
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.3.7
 
 - Improvement: Improved Console logging.

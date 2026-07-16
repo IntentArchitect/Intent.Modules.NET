@@ -1,3 +1,8 @@
+### Version 4.8.2
+
+- Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so repository-usage guidance is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.
+- Improvement: Repository guidance moved to a Skill.
+
 ### Version 4.8.1
 
 - Improvement: Better AI Context Engineering for SKills.

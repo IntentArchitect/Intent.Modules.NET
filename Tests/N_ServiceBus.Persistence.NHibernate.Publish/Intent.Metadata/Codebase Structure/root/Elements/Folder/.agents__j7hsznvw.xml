@@ -188,6 +188,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="b935e285-90a1-4810-961e-c5d0ddfe3a3c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</name>
+          <display>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</display>
+          <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ca4bf66f-b62d-4ea0-99af-a9287ed1e1aa</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
     <childElement id="aaff156a-e58d-4561-bb43-dc0b0ea943ee" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">

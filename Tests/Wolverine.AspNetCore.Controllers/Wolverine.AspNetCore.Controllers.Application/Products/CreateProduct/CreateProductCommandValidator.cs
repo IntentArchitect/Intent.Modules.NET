@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.FluentValidation.CommandValidator", Version = "2.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
+namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
@@ -18,8 +18,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.CreateProduct
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)
-                .NotNull()
-                .NotEmpty();
+                .NotNull();
         }
     }
 }

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#c4956529-9c05-41a1-b37c-bc9298fdbfe2</correlationId>
+      <path>Wolverine.AspNetCore.Controllers.Application/Wolverine.AspNetCore.Controllers.Application.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-11T14:42:07.059611Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-12T04:24:00.6529102Z</approvedAt>
+      <deviationsHash>DA1E77F7F3AE44C942A4CD88DB6FA0A9905CEC4812BFC39FB7AD7757D8431C65</deviationsHash>
+      <fileHash>F1C990523C390DA037EF13BD0D7B84A01F768FFCC8282F7730EE4F1DF85A62EE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

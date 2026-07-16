@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.WolverineFx(outputTarget));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(QueryModelsTemplate.TemplateId);
             AddTypeSource("Domain.Enum");
@@ -46,8 +47,8 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                        method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "query");
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddParameter(GetTypeName(QueryModelsTemplate.TemplateId, Model), "request");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                         method.AddStatement("// IntentInitialGen");
                         method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");

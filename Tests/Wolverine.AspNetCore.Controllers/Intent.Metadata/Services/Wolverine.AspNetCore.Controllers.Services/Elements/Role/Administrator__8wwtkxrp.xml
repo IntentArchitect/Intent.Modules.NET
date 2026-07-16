@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="196d2704-371b-4016-9a67-bd096594bc3a" type="Role" typeId="d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5">
+  <name>Administrator</name>
+  <display>Administrator</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67f3e873-ef4d-4bc7-912f-984a50880298</parentFolderId>
+  <packageId>dcd24cc4-2f01-4d8e-be7a-b3f5a64faad5</packageId>
+  <packageName>Wolverine.AspNetCore.Controllers.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="303b5c3d-bdc2-43c9-b59f-c1b009f82e3d" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e93adab-d79e-4b84-a725-32c0acbdc88e</parentFolderId>
+  <packageId>9e93adab-d79e-4b84-a725-32c0acbdc88e</packageId>
+  <packageName>Wolverine.Mapperly.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

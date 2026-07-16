@@ -24,66 +24,8 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8c9e7a34-dc89-43db-9afd-2bc0b2feb66d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.13.0</name>
-      <display>2.12.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f87cc521-f508-492e-a392-272ddbcf03c2</parentFolderId>
-      <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-      <packageName>Intent.Eventing.Kafka</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="5e98128c-4d89-4fbc-8462-f8bc6910b2ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Confluent.Kafka</name>
-          <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8c9e7a34-dc89-43db-9afd-2bc0b2feb66d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a79b615c-25b7-469f-8c2d-91a60731261c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Confluent.SchemaRegistry</name>
-          <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8c9e7a34-dc89-43db-9afd-2bc0b2feb66d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="9d544848-fd38-4f00-9e69-6b15e98eb8fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>NJsonSchema</name>
-          <isAbstract>false</isAbstract>
-          <value>10.9.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8c9e7a34-dc89-43db-9afd-2bc0b2feb66d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="70e6deac-56a9-4d17-9359-8afc49cd8f10" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.13.0</name>
+      <name>2.15.0</name>
       <display>2.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e593a2c9-a6ae-42d6-af44-96987e8b9776" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e038f69a-c14b-468e-b13a-2b0285cbf5bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.Kafka</name>
           <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
+          <value>2.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>70e6deac-56a9-4d17-9359-8afc49cd8f10</parentFolderId>
@@ -116,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2a586915-c3db-465c-b495-1256e266d479" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4eaf7bc1-8b32-4d9a-87d0-5cf042fab010" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.SchemaRegistry</name>
           <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
+          <value>2.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>70e6deac-56a9-4d17-9359-8afc49cd8f10</parentFolderId>
@@ -127,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d75f2087-a59d-444b-b79d-81d4d755946e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3cf27cca-9a5a-4995-b801-02f251884127" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NJsonSchema</name>
           <isAbstract>false</isAbstract>
           <value>10.9.0</value>
@@ -138,32 +80,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="02e795cc-5073-4fb8-849a-6d30eca73f5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Net.NameResolution</name>
-          <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70e6deac-56a9-4d17-9359-8afc49cd8f10</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1559f386-3b05-4654-a795-5eca6b734211" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Net.Sockets</name>
-          <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70e6deac-56a9-4d17-9359-8afc49cd8f10</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="034903d3-5ee0-461f-a7da-51613f7ec750" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.13.0</name>
+      <name>2.15.0</name>
       <display>2.12.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -185,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e04e7af6-cb17-4cc5-ba6d-ccf982af942a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a3982733-e127-463e-b25a-c1fd3aaff6dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.Kafka</name>
           <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
+          <value>2.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>034903d3-5ee0-461f-a7da-51613f7ec750</parentFolderId>
@@ -196,10 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a2be2952-d5ee-440a-910c-4e28e24c9865" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="44358ae7-1c9a-4db3-a30e-8381c6013c32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.SchemaRegistry</name>
           <isAbstract>false</isAbstract>
-          <value>2.13.0</value>
+          <value>2.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>034903d3-5ee0-461f-a7da-51613f7ec750</parentFolderId>
@@ -207,13 +127,67 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b0db3fee-40f7-4bea-b0d1-9fb9576fb526" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0fb0f57f-dd6c-4476-bfba-7417a3aa0471" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NJsonSchema.NewtonsoftJson</name>
           <isAbstract>false</isAbstract>
           <value>11.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>034903d3-5ee0-461f-a7da-51613f7ec750</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b21d54ce-3ff6-4997-b8ab-39f08bc25fef" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.15.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f87cc521-f508-492e-a392-272ddbcf03c2</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8286c2fc-78f4-452f-a7f0-7415d2b563df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Confluent.Kafka</name>
+          <isAbstract>false</isAbstract>
+          <value>2.15.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b21d54ce-3ff6-4997-b8ab-39f08bc25fef</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="672dc889-8134-4ac6-9ff0-4f8efa076ced" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Confluent.SchemaRegistry</name>
+          <isAbstract>false</isAbstract>
+          <value>2.15.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b21d54ce-3ff6-4997-b8ab-39f08bc25fef</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a4ab2750-8e06-4d52-ace1-858e7aa2eadc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NJsonSchema.NewtonsoftJson</name>
+          <isAbstract>false</isAbstract>
+          <value>11.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b21d54ce-3ff6-4997-b8ab-39f08bc25fef</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

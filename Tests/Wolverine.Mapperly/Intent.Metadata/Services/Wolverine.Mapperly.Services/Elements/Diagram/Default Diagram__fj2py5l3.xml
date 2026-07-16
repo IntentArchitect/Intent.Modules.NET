@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9a8b9bc3-2935-442f-aed5-a554599d088a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e93adab-d79e-4b84-a725-32c0acbdc88e</parentFolderId>
+  <packageId>9e93adab-d79e-4b84-a725-32c0acbdc88e</packageId>
+  <packageName>Wolverine.Mapperly.Services</packageName>
+  <diagram>
+    <targetPackageId>9e93adab-d79e-4b84-a725-32c0acbdc88e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

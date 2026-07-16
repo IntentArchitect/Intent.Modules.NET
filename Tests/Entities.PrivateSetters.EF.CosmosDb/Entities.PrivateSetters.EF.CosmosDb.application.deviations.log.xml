@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#10646b37-332c-468f-b03c-7904547633a6</correlationId>
+      <path>Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:42:20.511286Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:10:55.8487209Z</approvedAt>
+      <deviationsHash>CD39E9B1D1DA1142A25B4CB3C4BB9B857D6B4E2E0CBADD45B188C01A4B5746D0</deviationsHash>
+      <fileHash>55B04D3628E1CB42820150044979767BA79C46B181A720A64D587D26EBD4BF2F</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#fa987292-61ec-4c58-a1e0-96a58ca49c3e</correlationId>
+      <path>Kafka.Consumer.Infrastructure/Kafka.Consumer.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:06.8224958Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:32.1929232Z</approvedAt>
+      <deviationsHash>85AF0D4BE1EFCC207572875D8F8C21CE3A7D2AA567AF0631896D57CC0C2AAABA</deviationsHash>
+      <fileHash>0A203CDA0CEF2E409EFBBF534083F83D4BFE043E9742B1E523CD8DAFA05307D1</fileHash>
+    </file>
+  </files>
 </deviationsLog>

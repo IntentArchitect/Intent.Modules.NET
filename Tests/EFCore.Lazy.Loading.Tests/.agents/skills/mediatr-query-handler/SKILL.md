@@ -1,8 +1,8 @@
 ---
 name: mediatr-query-handler
-description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
+description: Implement or fix business logic in a MediatR query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 2023D0CC8586F0516133FC9C57BB99E0653DC88265743B5DB16F7C8BF01075D6
+contentHash: 0C46D698C9DC564E386939CAD35EB9817EFA65C92FA87E3B404608E21F6C868D
 ---
 # MediatR Query Handler
 
@@ -64,6 +64,21 @@ When a needed read capability is missing:
 - Lazy loading with proxies is disabled. 
 - Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
 - You must explicitly load related data in the infrastructure layer using repository methods
+
+## Unit of Work guidance
+
+- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
+- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
+- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
+- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
+- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+
+## Entity Framework repository guidance
+
+- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
+- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
+- Only call Add/Create/Delete operations when inserting or removing entities.
+- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
 
 ## AutoMapper guidance
 

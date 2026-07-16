@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#404a8dbd-1db7-48c3-b5ca-6b409a34abce</correlationId>
+      <path>SignalR.Infrastructure/SignalR.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-10T06:43:34.4556647Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-07-10T09:12:30.0729716Z</approvedAt>
+      <deviationsHash>E6A56C050D7B6AAF4634126227E2F9C8A4F2BFB8A4AD86B0F669880824564542</deviationsHash>
+      <fileHash>5A21EEA1015A2810204D18C026827FCB3914D97535969A8AFF0A894D755150A7</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.1
 
 - Fixed: Added additional null check when dealing with nullable collection parameters.

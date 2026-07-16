@@ -16,6 +16,8 @@ All scaffolding decisions must be grounded in Intent's established module patter
 
 **Before doing any work:** read `.module-builder/[ModuleName]/PATTERN-DOCUMENT.md` and `.module-builder/[ModuleName]/ATTACK-PLAN.md`. Check the Decision Log — do not re-derive any closed decision. Check the Progress Tracker — if the Scaffold row is ✅ Complete, this skill has already run; do not re-scaffold.
 
+**First action — the build-state file is yours to maintain.** Before any designer or file work, ensure `.module-builder/WORKING.md` (global) or `.module-builder/<ModuleName>/WORKING.md` (localized) exists — if not, create it now. It is under your jurisdiction: keep it a faithful mirror of the user's current intent throughout. **Reconcile on entry:** if the incoming request diverges *at all* from what WORKING.md documents (different module, changed objective, dropped scope, a possible branch switch), pause and confirm with the user before touching anything — *"we were on X; this looks like Y — are we still aligned?"* Act on their answer; never plough ahead on stale assumptions.
+
 **After completing the scaffold:** update the Progress Tracker row for "Scaffold" to ✅ Complete, noting the module `.csproj` path and any new decisions made.
 
 ## Musts
@@ -32,8 +34,8 @@ All scaffolding decisions must be grounded in Intent's established module patter
 ## Must Nots
 
 1. Never hardcode element IDs from memory or from other modules — IDs are solution-specific GUIDs. Always read them from the live model.
-2. Never create a template element without configuring its "C# Template Settings" stereotype (Templating Method, Model Type, Role, Default Location at minimum).
-3. Never create a template element without also setting its **type reference**. For single-file templates, set the type reference to the Single File element (typeId: `f65d2904-88c9-4501-873a-a4eec8303b1d`). If left as `<type not set>`, the Template Settings stereotype becomes invalid and SF will report errors.
+2. Never create a template element without configuring its stereotypes. `C# Template Settings` (always applicable) carries **Templating Method**; the separate **`Template Settings`** stereotype carries **Source, Designer, Model Type, Role, Default Location** and only becomes applicable *after* the type reference is set (see #3). Setting those properties before the type reference — or onto `C# Template Settings`, which has none of them — throws mid-script.
+3. Never create a template element without setting its **type reference immediately after creation, before any stereotype work.** For single-file templates set it to the Single File element (typeId: `f65d2904-88c9-4501-873a-a4eec8303b1d`); for model-driven use File Per Model or Custom. Until the type reference is set, `Template Settings` is unavailable and SF/the script will error.
 4. Never skip the Software Factory run. The scaffold only exists after SF generates it from the Module Builder metadata — hand-creating files bypasses the designer and breaks synchronization.
 5. Never apply staged file changes without reviewing them first. Read the diff with `get_staged_file_diffs` (absolute paths) before calling `apply_staged_file_changes`.
 6. Never run SF on the target application (the sample app) before compiling the module — the target app must pick up the updated module first.
@@ -45,17 +47,9 @@ All scaffolding decisions must be grounded in Intent's established module patter
 
 ## Learnings
 
-### `supportedClientVersions` — Two-Step Rule
+### `supportedClientVersions` — see `module-wrap-up`
 
-**What went wrong:** After scaffolding, the imodspec kept the wizard default `[4.4.0-a,6.0.0)`. The SF then failed:
-> "The `<supportedClientVersions/>` element value does not support one or more referenced SDK NuGet package versions. Resolved `Intent.SoftwareFactory.SDK` version: 3.14.0. Minimum required Intent Architect version: 5.0.0-a."
-
-**Two-step rule:**
-1. **SDK floor (hard minimum):** The SF error states it directly — e.g. `Minimum required Intent Architect version: 5.0.0-a`. This is the absolute lowest the lower bound can be.
-2. **Dependency floor (may be higher):** Check the module's `modules.config` lockfile. Find the highest lower-bound across all installed modules' `supportedClientVersions` entries. Example: SDK needs `4.5.18-a`, but `Intent.Common 3.11.2` requires `[5.0.0-a, 6.0.0-a)` — use `5.0.0-a`.
-3. **Final lower bound = max(SDK floor, highest dependency floor).** Cross-check with a neighbouring module — the values should align.
-
-Do this check after every SF run that bumps SDK or dependency versions. The Phase 3.7 checklist includes this as a gate item.
+If SF fails on `<supportedClientVersions/>` after a scaffold or a version bump, apply the **two-step rule** (SDK floor from the SF error; ceiling from a neighbouring module's `modules.config`, set `[floor, ceiling)`). The full rule, plus the package-rename caveat, lives in **`module-wrap-up`**. The Phase 3.7 checklist gates on it.
 
 ---
 
@@ -80,6 +74,10 @@ All `AddNugetDependency(...)` calls — unconditional and conditional alike — 
 4. Only then reference `NugetPackages.MyNewPackage(OutputTarget)` in template code.
 
 **The tell:** If a file in the module's own source has `[assembly: IntentTemplate(...)]`, it is owned by SF. Do not edit it. Period.
+
+### The `.imodspec` Is Generated — Register Templates/Factory Extensions via the Designer
+
+Never hand-author `<template>` or factory-extension entries into the `.imodspec`. A template `.cs` file added by hand compiles and runs via reflection, but with no `C# Template` element in the Module Builder designer it never gets a manifest entry — consuming apps then fail at SF with *"Unable to find output target for template […] with role []"*, and no reinstall fixes it because install reads the same incomplete manifest. Always register the element via `run_designer_script`, run SF on the module, and let it regenerate the manifest. **Cross-check before declaring the scaffold done:** every `*TemplateRegistration.cs` that declares a `TemplateId` has a matching `<template>` entry in the module's `.imodspec`.
 
 ### Changing a Template's Registration Type (e.g. `SingleFileNoModel` → `SingleFileListModel`)
 
@@ -120,20 +118,25 @@ Create these via `run_designer_script` with `createElementUnder(parent, "<Specia
 | Package Version | `231f8cf8-517b-4801-9682-991d22f4e662` |
 | NuGet Dependency | `3097322a-a058-4058-beed-4fcd6272f61d` |
 
-### C# Template Required Stereotype Configuration
+### C# Template Stereotype Configuration — Two Stereotypes, In Order
 
-Every C# Template element must have the `C# Template Settings` stereotype applied with these properties set:
+A C# Template carries **two** stereotypes, and **order matters** (see Must Not #3):
+
+1. **Set the type reference first** (`setType` → Single File / File Per Model / Custom) — immediately after creating the element.
+2. **`C# Template Settings`** (always applicable) — carries only **Templating Method** (`C# File Builder` for CSharpFile templates).
+3. **`Template Settings`** — becomes applicable **only after** the type reference is set. It carries the rest:
 
 | Property | Description | Example |
 |---|---|---|
-| Templating Method | Always `C# File Builder` for CSharpFile-based templates | `C# File Builder` |
-| Source | How the model is found | `Lookup Type` (for file-per-model) or omit for single-file |
+| Source | How the model is found | `Lookup Type` (file-per-model) or omit for single-file |
 | Designer | Which Intent designer provides the model | `Services` or `Eventing` |
 | Model Type | Fully qualified name of the typed model class | `Intent.Modelers.Services.EventInteractions.Api.IntegrationEventHandlerModel` |
 | Role | Template role string used for lookups | `Infrastructure.Eventing.NServiceBus.Consumer` |
 | Default Location | Output subfolder within the layer | `Infrastructure/Eventing` |
 
-For **single-file templates** (no model): omit `Source`, `Designer`, and `Model Type`. Set Role and Default Location only.
+Setting a `Template Settings` property (e.g. `Source`) before the type reference is set — or onto `C# Template Settings`, which has none of them — throws mid-script.
+
+For **single-file templates** (no model): omit `Source`, `Designer`, `Model Type`; set `Role` and `Default Location` only.
 
 ---
 
@@ -187,6 +190,18 @@ console.log(modulePkg.getId());   // only echo ids you actually need downstream
 
 Read the returned `errors[]`, then confirm with `find_designer_elements` / `get_designer_model_structure` before subsequent steps.
 
+### Naming & Version — Intent Convention (do this immediately after scaffolding)
+
+The Module Builder defaults a new module to `Intent.Modules.<Name>`. Correct it **before adding any templates, factory extensions, or NuGet packages** — the package name becomes the module ID in the `.imodspec` and drives cross-module lookups, so fixing it later means renaming across many generated files.
+
+This is an **Intent team naming convention** — it matters most when a module is copied/exported into other codebases, where a consistent ID is what keeps cross-references resolvable:
+
+1. Rename the **application** `Intent.Modules.<Name>` → `<Name>` (e.g. `Application.Dtos.ObjectMapping`) — rename the app, not the underlying files.
+2. Rename the **Intent Module package** (in the designer) `Intent.Modules.<Name>` → `Intent.<Name>` (e.g. `Intent.Application.Dtos.ObjectMapping`).
+3. Set **Module Settings → Version → `1.0.0-pre.0`** (all new modules start pre-release).
+
+> ⚠️ If a rename desyncs the `.imodspec` name from the package name, `supportedClientVersions` can misresolve later — see `module-wrap-up`.
+
 ---
 
 ## Phase 3.3 — Declare Dependencies and NuGet Packages
@@ -194,6 +209,11 @@ Read the returned `errors[]`, then confirm with `find_designer_elements` / `get_
 ### Task A — Module Dependencies
 
 For each Intent module dependency in the Attack Plan's Module Blueprint, add a dependency element under the package. Read the pattern from an existing module's snapshot before creating.
+
+**Exposing external element types (metadata install).** When your module needs **element types from another Module Builder package** (e.g. the `C# Template` element type ships in `Intent.ModuleBuilder.CSharp`), those types are made available by **installing that module into the module-builder application** — not by hand-editing `pkg.config` and not by `pkg.addReference()` alone (neither loads the element-type registry, and manual `pkg.config` edits are overwritten on reload).
+
+- **Norm:** install the dependency **metadata-only** — you want its element types/designer available, not its code generation running in your module project.
+- **Exception:** if a metadata-only install still doesn't surface the types or **reference elements** you need, **install the designer as well** and retry. Example: a new eventing module (e.g. Wolverine) needs the **Eventing Contracts** module installed **as a designer, not just metadata** — otherwise its reference elements aren't available and you can't set the message-bus configuration.
 
 ### Task B — NuGet Packages
 
@@ -219,14 +239,18 @@ For each row in the Attack Plan's Template Inventory, create a C# Template eleme
 ```js
 // one run_designer_script per template (or batch several — statement order is operation order)
 const tmpl = createElementUnder(modulePkg, "C# Template", "NServiceBusConsumer"); // or pass a Folder handle as the parent
-const s = tmpl.ensureStereotype("C# Template Settings");          // idempotent, by name
-s.setProperty("Templating Method", "C# File Builder");
-s.setProperty("Role", "Infrastructure.Eventing.NServiceBus.Consumer");
-s.setProperty("Default Location", "Infrastructure/Eventing");
-// file-per-model only:
-s.setProperty("Source", "Lookup Type");
-s.setProperty("Designer", "<Services designer>");
-s.setProperty("Model Type", "<model specialization id>");
+tmpl.setType("f65d2904-88c9-4501-873a-a4eec8303b1d");            // TYPE REFERENCE FIRST (Single File shown; use File Per Model / Custom for model-driven)
+
+const cs = tmpl.ensureStereotype("C# Template Settings");         // always applicable
+cs.setProperty("Templating Method", "C# File Builder");
+
+const ts = tmpl.ensureStereotype("Template Settings");            // ONLY applicable after setType
+ts.setProperty("Role", "Infrastructure.Eventing.NServiceBus.Consumer");
+ts.setProperty("Default Location", "Infrastructure/Eventing");
+// file-per-model only (set the type reference to File Per Model above, not Single File):
+ts.setProperty("Source", "Lookup Type");
+ts.setProperty("Designer", "<Services designer>");
+ts.setProperty("Model Type", "<model specialization id>");
 ```
 Then read `errors[]` and confirm with `find_designer_elements`.
 

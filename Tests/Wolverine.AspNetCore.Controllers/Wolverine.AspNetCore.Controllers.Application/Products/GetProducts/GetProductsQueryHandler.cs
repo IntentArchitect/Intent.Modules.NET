@@ -5,7 +5,7 @@ using Wolverine.AspNetCore.Controllers.Domain.Repositories;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Wolverine.QueryHandler", Version = "1.0")]
 
-namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProducts
+namespace Wolverine.AspNetCore.Controllers.Application.GetProducts
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetProductsQueryHandler
@@ -20,8 +20,8 @@ namespace Wolverine.AspNetCore.Controllers.Application.Products.GetProducts
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ProductDto>> Handle(GetProductsQuery query, CancellationToken cancellationToken)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.FindAllAsync(cancellationToken);
             return products.MapToProductDtoList(_mapper);

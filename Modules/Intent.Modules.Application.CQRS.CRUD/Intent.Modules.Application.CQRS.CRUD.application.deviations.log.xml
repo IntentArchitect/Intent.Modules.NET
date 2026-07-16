@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#0f7821ec-79b4-4bdc-b4c9-84ea7db0ed6d</correlationId>
+      <path>Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-02T16:22:42.37106Z</updatedAt>
+      <deviationsHash>89F5B648E4AE6232B6A509BC18BAC53B046A637EDD3B86E7705E5B49778BA77B</deviationsHash>
+      <fileHash>E0B5ED88059D7870AB86DEF9C4F9B598EFCBC76261F10C402316F0E6D9CA1F05</fileHash>
+    </file>
+  </files>
+</deviationsLog>

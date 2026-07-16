@@ -215,5 +215,6 @@
     <application id="82822186-8d93-43fa-902f-d9df61307077" name="N_ServiceBus.Persistence.NHibernate.Publish" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.NHibernate.Publish/N_ServiceBus.Persistence.NHibernate.Publish.application.config" />
     <application id="b4fb5e18-a007-4d13-a2dd-492d6c393dc7" name="N_ServiceBus.Persistence.NHibernate.Subscribe" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.Persistence.NHibernate.Subscribe/N_ServiceBus.Persistence.NHibernate.Subscribe.application.config" />
     <application id="50b9ab59-4419-476b-82a9-d1c3b86dfec2" name="Subscribe.MassTransit.DomainInteractionsRepro" solutionFolder="Eventing/MassTransit" relativePath="Subscribe.MassTransit.DomainInteractionsRepro/Subscribe.MassTransit.DomainInteractionsRepro.application.config" />
+    <application id="23307d96-67ee-4702-a826-f5fab766c536" name="Wolverine.Mapperly" solutionFolder="Wolverine Dispatch" relativePath="Wolverine.Mapperly/Wolverine.Mapperly.application.config" />
   </applications>
 </solution>
