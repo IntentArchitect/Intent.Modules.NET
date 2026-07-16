@@ -47,6 +47,7 @@ namespace EntityFrameworkCore.MySql.Api
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
+            services.ConfigureMultiTenancy(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +61,7 @@ namespace EntityFrameworkCore.MySql.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseMultiTenancy();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

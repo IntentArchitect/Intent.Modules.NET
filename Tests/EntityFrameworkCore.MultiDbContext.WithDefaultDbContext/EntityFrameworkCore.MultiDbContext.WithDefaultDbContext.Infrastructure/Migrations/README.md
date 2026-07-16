@@ -10,18 +10,23 @@ Command Line Interface (.NET CLI) tools.
 Substitute the curly brace (`{}`) enclosed arguments below with the appropriate migration name when
 executing these commands.
 
+> NOTE: When using `DesignTimeDbContextFactory`, it is recommended to use the `dotnet ef` CLI
+> commands as the Visual Studio Package Manager Console may encounter issues in this scenario.);
+
+A separate "appsettings.json" file is used in this project for managing connection strings.
+
 ## Visual Studio Package Manager Console quick reference
 
 ### Create a new migration (VS PMC)
 
 ```powershell
-Add-Migration -Name {ChangeName} -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Add-Migration -Name {ChangeName} -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Update the schema to the latest version (VS PMC)
 
 ```powershell
-Update-Database -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Update-Database -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ## .NET CLI quick reference
@@ -29,13 +34,13 @@ Update-Database -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultD
 ### Create a new migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations add {ChangeName} --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef migrations add {ChangeName} --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Update the schema to the latest version (.NET CLI)
 
 ```powershell
-dotnet ef database update --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef database update --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ## Visual Studio Package Manager Console additional commands
@@ -43,25 +48,25 @@ dotnet ef database update --startup-project "EntityFrameworkCore.MultiDbContext.
 ### Generate a script which detects the current database schema version and updates it to the latest (VS PMC)
 
 ```powershell
-Script-Migration -Idempotent -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Script-Migration -Idempotent -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (VS PMC)
 
 ```powershell
-Script-Migration {Source} {Target} -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Script-Migration {Source} {Target} -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Upgrade/downgrade the schema to a specific version (VS PMC)
 
 ```powershell
-Update-Database -Migration {Target} -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Update-Database -Migration {Target} -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Remove the last created migration (VS PMC)
 
 ```powershell
-Remove-Migration -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext" 
+Remove-Migration -Project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ## .NET CLI additional commands
@@ -69,25 +74,25 @@ Remove-Migration -StartupProject "EntityFrameworkCore.MultiDbContext.WithDefault
 ### Generate a script which detects the current database schema version and updates it to the latest (.NET CLI)
 
 ```powershell
-dotnet ef migrations script --idempotent --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef migrations script --idempotent --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (.NET CLI)
 
 ```powershell
-dotnet ef migrations script {Source} {Target} --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef migrations script {Source} {Target} --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Upgrade/downgrade the schema to a specific version (.NET CLI)
 
 ```powershell
-dotnet ef database update {Target} --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef database update {Target} --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Remove the last created migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations remove --startup-project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api" --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext"
+dotnet ef migrations remove --project "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ## Drop all tables in a schema

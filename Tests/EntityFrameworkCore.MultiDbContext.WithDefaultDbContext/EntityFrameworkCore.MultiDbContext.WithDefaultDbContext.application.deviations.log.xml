@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#321f5606-f11b-4359-ae51-2f07852a34fa</correlationId>
-      <path>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-14T20:10:59.9463813Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-07-15T08:49:38.0055458Z</approvedAt>
-      <deviationsHash>C5A450D38E06AB810B802EF328B4066C56E52D508CDB4B0538507FB34F7540EB</deviationsHash>
-      <fileHash>07FD94EC7FDA6F42A6EE90FE316F7F898AD8EAD2B30FD257E5CFB7CB67ADEEBB</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#13915750-f177-4473-9fe8-0ef549deed61</correlationId>
-      <path>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-14T20:11:12.2808642Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-07-15T08:49:38.896668Z</approvedAt>
-      <deviationsHash>51F31282A1E7D95120C408BCE63122E62F018146E0E80022D6ED353B51434BA7</deviationsHash>
-      <fileHash>B1633A6EB6593754D0755F1970F3F3D0E3715D4933DC0862D878F749A0223CED</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

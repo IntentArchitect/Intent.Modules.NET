@@ -5,10 +5,10 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo", Version = "1.0")]
 
-namespace CosmosDB.MultiTenancy.SeperateDB.Infrastructure.MultiTenant
+namespace EntityFrameworkCore.MySql.Infrastructure.MultiTenant
 {
-    public class TenantExtendedInfo : TenantInfo, ITenantConnections
+    public class TenantExtendedInfo : TenantInfo
     {
-        public string? CosmosDbConnection { get; set; }
+        public string? ConnectionString { get; set; }
     }
 }

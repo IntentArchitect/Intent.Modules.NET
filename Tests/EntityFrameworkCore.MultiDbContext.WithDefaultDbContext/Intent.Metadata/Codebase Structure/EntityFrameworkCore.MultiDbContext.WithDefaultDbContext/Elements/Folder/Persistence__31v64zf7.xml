@@ -47,5 +47,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="6e796c24-4008-4e02-9ba3-1f7d27e77e95" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7cc5442c-1cc3-45f5-b1b2-18a1979ee429</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -7,9 +7,9 @@
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-02-26T06:54:05.9996144Z</updatedAt>
+      <updatedAt>2026-07-16T08:02:33.5438602Z</updatedAt>
       <deviationsHash>79BED6D6BD01B6B2E78BB121FDAC54550632960687A9D5DF252FA380F21DBEAD</deviationsHash>
-      <fileHash>45477E7979FBBF7ABBB68736B52E4C912A225C54CCC24931C7D4D3591513DA4D</fileHash>
+      <fileHash>0C5AE337DD73453EE8D3B0EA5507B0BC902CFB4333E1C14249C5217223DE7AD1</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
@@ -17,9 +17,9 @@
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-02-26T06:54:05.9996251Z</updatedAt>
+      <updatedAt>2026-07-16T08:45:11.5503411Z</updatedAt>
       <deviationsHash>841A5E6E1C59E46D491C9A25285B2E49C7062786C62959C6597FD2079BA21625</deviationsHash>
-      <fileHash>441A122E5EBBEFC7B5EFF6CD28908860CA939EFE5D558ECD517613EA43013A53</fileHash>
+      <fileHash>5312F62D9E7DEDD43BE2D21D66D841F86FD45BF0979654A550E47FE33C2CE3E9</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
@@ -45,14 +45,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-10-31T14:51:42.7110358Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-13T15:06:55.3666477Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-16T08:45:11.5503692Z</updatedAt>
       <deviationsHash>D132540BE60254A82663589407E6390C320B1CE7A59F297814F594EE111B24D4</deviationsHash>
-      <fileHash>7171911EEA1C3C9A53574788C5F199AF5C5C60A90121D8405DDB16372A43A69E</fileHash>
+      <fileHash>11B891376957479D4DA0D66D7B45454CC478488DF190707B70934870985F0E20</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>

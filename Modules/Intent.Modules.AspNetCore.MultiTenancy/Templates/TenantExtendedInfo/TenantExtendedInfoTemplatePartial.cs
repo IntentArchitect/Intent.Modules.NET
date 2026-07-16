@@ -31,6 +31,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass("TenantExtendedInfo", @class =>
                 {
                     @class.WithBaseType("TenantInfo");

@@ -20,6 +20,7 @@ using EntityFrameworkCore.MySql.Domain.Repositories.TPH.Polymorphic;
 using EntityFrameworkCore.MySql.Domain.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.MySql.Domain.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.MySql.Domain.Repositories.ValueObjects;
+using EntityFrameworkCore.MySql.Infrastructure.MultiTenant;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories;
@@ -43,10 +44,13 @@ using EntityFrameworkCore.MySql.Infrastructure.Repositories.TPH.Polymorphic;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories.ValueObjects;
+using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -61,7 +65,11 @@ namespace EntityFrameworkCore.MySql.Infrastructure
             services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.UseMySql(configuration.GetConnectionString("DefaultConnection"), ServerVersion.Parse("8.0"), b =>
+                var tenantInfo = sp.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo;
+                var connectionString = tenantInfo?.ConnectionString ?? throw new MultiTenantException(sp.GetRequiredService<IHostEnvironment>().IsDevelopment()
+                    ? "Failed to resolve tenant connection information. If you are running EF Core CLI commands (e.g. 'dotnet ef migrations'), install the Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory module."
+                    : "Failed to resolve tenant connection information.");
+                options.UseMySql(connectionString, ServerVersion.Parse("8.0"), b =>
                 {
                     b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                     b.UseNetTopologySuite();

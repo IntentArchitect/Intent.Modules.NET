@@ -150,12 +150,12 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                         .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ {string.Join(", ", tenant.Select(kvp => $"{kvp.Key} = \"{kvp.Value}\""))} }}).Wait();", s => s
                                             .AddMetadata($"add-{tenant["Identifier"]}", true));
                                 }
-                                /*
-                                method
-                                    .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-1\", Identifier = \"tenant1\", Name = \"Tenant 1\" {GetConnectionStrings("tenant1")} }}).Wait();", s => s
-                                        .AddMetadata("add-tenant1", true))
-                                    .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-2\", Identifier = \"tenant2\", Name = \"Tenant 2\" {GetConnectionStrings("tenant2")} }}).Wait();", s => s
-                                        .AddMetadata("add-tenant2", true))*/
+                            /*
+                            method
+                            .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-1\", Identifier = \"tenant1\", Name = \"Tenant 1\" {GetConnectionStrings("tenant1")} }}).Wait();", s => s
+                            .AddMetadata("add-tenant1", true))
+                            .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-2\", Identifier = \"tenant2\", Name = \"Tenant 2\" {GetConnectionStrings("tenant2")} }}).Wait();", s => s
+                            .AddMetadata("add-tenant2", true))*/
                             });
                     }
                 });
@@ -209,15 +209,15 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                 {
                     new Dictionary<string, string>
                     {
-                        { "Id" , "sample-tenant-1" },
-                        { "Identifier" , "tenant1" },
-                        { "Name" , "Tenant 1" }
+                    { "Id" , "sample-tenant-1" },
+                    { "Identifier" , "tenant1" },
+                    { "Name" , "Tenant 1" }
                     },
                     new Dictionary<string, string>
                     {
-                        { "Id" , "sample-tenant-2" },
-                        { "Identifier" , "tenant2" },
-                        { "Name" , "Tenant 2" }
+                    { "Id" , "sample-tenant-2" },
+                    { "Identifier" , "tenant2" },
+                    { "Name" , "Tenant 2" }
                     }
                 });
 
@@ -339,8 +339,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                 var storeTypeArguments = root.DescendantNodes()
                     .OfType<GenericNameSyntax>()
                     .Where(g => g.Identifier.Text == "IMultiTenantStore"
-                                && g.TypeArgumentList.Arguments.Count == 1
-                                && g.TypeArgumentList.Arguments[0].ToString() == BaseTenantInfoTypeName)
+                        && g.TypeArgumentList.Arguments.Count == 1
+                        && g.TypeArgumentList.Arguments[0].ToString() == BaseTenantInfoTypeName)
                     .SelectMany(g => g.TypeArgumentList.Arguments);
 
                 foreach (var typeArgument in storeTypeArguments)
@@ -357,7 +357,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                 var objectCreations = root.DescendantNodes()
                     .OfType<ObjectCreationExpressionSyntax>()
                     .Where(o => o.Initializer != null
-                                && (o.Type.ToString() == BaseTenantInfoTypeName || o.Type.ToString() == currentTenantClass));
+                        && (o.Type.ToString() == BaseTenantInfoTypeName || o.Type.ToString() == currentTenantClass));
 
                 foreach (var objectCreation in objectCreations)
                 {
@@ -380,8 +380,16 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                             ? identifierLiteral.Token.ValueText
                             : null;
 
-                        var namedAssignments = _connectionRequests.Select(request => (ExpressionSyntax)SyntaxFactory.ParseExpression(
-                            $"{request.Name.ToCSharpIdentifier()} = \"{(tenantIdentifier != null ? request.ConnectionStringTemplate.Replace("{tenant}", tenantIdentifier) : request.ConnectionStringTemplate)}\""));
+                        var existingPropertyNames = initializer.Expressions
+                            .OfType<AssignmentExpressionSyntax>()
+                            .Where(a => a != connectionStringAssignment && a.Left is IdentifierNameSyntax)
+                            .Select(a => ((IdentifierNameSyntax)a.Left).Identifier.Text)
+                            .ToHashSet();
+
+                        var namedAssignments = _connectionRequests
+                            .Where(request => !existingPropertyNames.Contains(request.Name.ToCSharpIdentifier()))
+                            .Select(request => (ExpressionSyntax)SyntaxFactory.ParseExpression(
+                                $"{request.Name.ToCSharpIdentifier()} = \"{(tenantIdentifier != null ? request.ConnectionStringTemplate.Replace("{tenant}", tenantIdentifier) : request.ConnectionStringTemplate)}\""));
 
                         var withoutConnectionString = initializer.Expressions.Where(e => e != connectionStringAssignment);
                         var newExpressions = SyntaxFactory.SeparatedList(withoutConnectionString.Concat(namedAssignments));
@@ -392,8 +400,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                         var newExpressions = initializer.Expressions.Remove(connectionStringAssignment);
                         editor.ReplaceNode(initializer, initializer.WithExpressions(newExpressions));
                     }
-                    // else: an extended type with no named connection request still legitimately carries
-                    // ConnectionString -- leave it as-is.
+                // else: an extended type with no named connection request still legitimately carries
+                // ConnectionString -- leave it as-is.
                 }
             }
 

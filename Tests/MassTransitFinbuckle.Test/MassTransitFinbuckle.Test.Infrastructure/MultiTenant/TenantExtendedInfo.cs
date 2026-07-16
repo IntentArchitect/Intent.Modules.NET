@@ -1,4 +1,5 @@
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

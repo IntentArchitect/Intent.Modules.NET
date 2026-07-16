@@ -1,4 +1,5 @@
 using System;
+using EntityFrameworkCore.MySql.Infrastructure.MultiTenant;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.Stores.InMemoryStore;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", Version = "2.0")]
 
-namespace CosmosDBMultiTenancy.Api.Configuration
+namespace EntityFrameworkCore.MySql.Api.Configuration
 {
     public static class MultiTenancyConfiguration
     {
@@ -18,7 +19,7 @@ namespace CosmosDBMultiTenancy.Api.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddMultiTenant<TenantInfo>()
+            services.AddMultiTenant<TenantExtendedInfo>()
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
                 .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
             return services;
@@ -34,14 +35,14 @@ namespace CosmosDBMultiTenancy.Api.Configuration
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;
-            var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
+            var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantExtendedInfo>>();
 
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1" }).Wait();
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }).Wait();
+            store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection" }).Wait();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
+        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantExtendedInfo> options)
         {
             // configure in memory store:
             options.IsCaseSensitive = false;
