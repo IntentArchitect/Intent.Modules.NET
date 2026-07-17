@@ -260,7 +260,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
 
         public override TemplateMetadata TemplateMetadata => new TemplateMetadata(TemplateId, "2.0");
 
-        public override ITemplateMigration[] Migrations => new ITemplateMigration[] { new AlignStaleTenantInfoReferencesMigration(_connectionRequests) };
+        public override ITemplateMigration[] Migrations => new ITemplateMigration[] { new AlignStaleTenantInfoReferencesMigration(GetTenantClass, _connectionRequests) };
 
         // Finbuckle v7+ removed ConnectionString from the base TenantInfo class (see GetTenantClass() above).
         // Apps generated before this module's Finbuckle 9.4.10 upgrade may have hand-locked
@@ -289,10 +289,14 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         public class AlignStaleTenantInfoReferencesMigration : ITemplateMigration
         {
             private const string BaseTenantInfoTypeName = "TenantInfo";
+            private readonly Func<string> _getTargetTenantClass;
             private readonly IReadOnlyList<MultitenantConnectionStringRegistrationRequest> _connectionRequests;
 
-            public AlignStaleTenantInfoReferencesMigration(IReadOnlyList<MultitenantConnectionStringRegistrationRequest> connectionRequests)
+            public AlignStaleTenantInfoReferencesMigration(
+                Func<string> getTargetTenantClass,
+                IReadOnlyList<MultitenantConnectionStringRegistrationRequest> connectionRequests)
             {
+                _getTargetTenantClass = getTargetTenantClass;
                 _connectionRequests = connectionRequests;
             }
 
@@ -303,21 +307,25 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                 using var workspace = new AdhocWorkspace();
                 var editor = new SyntaxEditor(root, workspace.Services);
 
-                // AddMultiTenant<T>() is regenerated on every SF run (it isn't inside a Body = Ignore
-                // zone), so its type argument reflects the app's *current* tenant class -- the ground
-                // truth to reconcile the stale, hand-locked code against.
-                var currentTenantClass = root.DescendantNodes()
-                    .OfType<GenericNameSyntax>()
-                    .Where(g => g.Identifier.Text == "AddMultiTenant" && g.TypeArgumentList.Arguments.Count == 1)
-                    .Select(g => g.TypeArgumentList.Arguments[0].ToString())
-                    .FirstOrDefault() ?? BaseTenantInfoTypeName;
+                // The tenant class to reconcile against is the one the template is *about to
+                // (re)generate* for the app's current settings/modules -- i.e. GetTenantClass() --
+                // NOT whatever the file currently says. A template migration runs on the PREVIOUS
+                // output *before* regeneration, so the file's own services.AddMultiTenant<T>() still
+                // carries the OLD type argument at this point (e.g. "TenantInfo" in a genuine
+                // Finbuckle-6-era file, where the base TenantInfo still had ConnectionString).
+                // Parsing it here misclassified real upgrades: the stale <TenantInfo> forced the
+                // shared-database "strip ConnectionString" path even for separate-database apps, so
+                // the Body = Ignore InitializeStore kept IMultiTenantStore<TenantInfo> /
+                // new TenantInfo() while AddMultiTenant<T> regenerated to the extended type -- a
+                // file that compiles but throws a DI resolution error at runtime.
+                var targetTenantClass = _getTargetTenantClass() ?? BaseTenantInfoTypeName;
 
-                if (currentTenantClass != BaseTenantInfoTypeName)
+                if (targetTenantClass != BaseTenantInfoTypeName)
                 {
-                    RetargetStaleTenantInfoReferences(root, editor, currentTenantClass);
+                    RetargetStaleTenantInfoReferences(root, editor, targetTenantClass);
                 }
 
-                ReconcileConnectionStringAssignments(root, editor, currentTenantClass);
+                ReconcileConnectionStringAssignments(root, editor, targetTenantClass);
 
                 return editor.GetChangedRoot().ToFullString();
             }

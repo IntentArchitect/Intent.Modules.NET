@@ -129,6 +129,27 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
    explicit `Version = "1.0"`, so `.Upgrade(1, 2)` is the correct criteria — `UnversionedUpgrade`
    silently bumped the version marker without touching content. See `.module-builder/RETROSPECTIVE.md`
    (2026-07-15 entry) for the full investigation trail.
+
+   **Correction (6.0.0-pre.6):** the migration originally derived the target tenant class by parsing
+   `services.AddMultiTenant<T>()` out of the file it was handed, with a comment asserting that call
+   "is regenerated on every SF run, so its type argument reflects the app's current tenant class." That
+   assumption is **wrong**: a template migration runs on the PREVIOUS output *before* regeneration, so in
+   a genuine v5→v6 upgrade the file still says `AddMultiTenant<TenantInfo>`. The migration therefore read
+   `currentTenantClass == "TenantInfo"` and took the shared-database **strip** path even for
+   separate-database apps — leaving `IMultiTenantStore<TenantInfo>` / `new TenantInfo()` in the
+   `Body = Ignore` `InitializeStore` while `AddMultiTenant<T>` regenerated to `TenantExtendedInfo`. Result:
+   a file that compiles but throws `No service for type IMultiTenantStore<TenantInfo> has been registered`
+   at startup (reported by user against a real v5→pre.5 upgrade). Fixed by passing `GetTenantClass`
+   (a `Func<string>` — the class the template is *about to* generate) into the migration constructor and
+   reconciling against that, instead of parsing the not-yet-regenerated file. **Why the earlier
+   verification missed it:** both `MinimalHostingModel` and the GCS test were reverted to a hand-crafted
+   stale state that *already* had `AddMultiTenant<TenantExtendedInfo>` in the file, so the parse happened
+   to read the right type — the genuine Finbuckle-6-era shape (`AddMultiTenant<TenantInfo>`) was never
+   exercised. Re-verified (pre.6) against `Finbuckle.SeparateDatabase.TestApplication` reverted to a true
+   v1.0 / base-`TenantInfo` shape: staged diff retargets both the store lookup and the seeded tenants to
+   `TenantExtendedInfo` and preserves `ConnectionString`, reproducing the committed file byte-for-byte;
+   target builds clean. **Testing rule going forward: reproduce migrations from the genuine prior-version
+   file shape, never a hand-doctored intermediate that already carries the post-upgrade type.**
 7. **`AspNetCoreIntegrationExtension.GetSeparateDatabaseDataIsolationConfiguration()`'s `AddDbContext`
    registration silently fell back to `DefaultConnection` whenever no tenant was resolved** —
    `tenantInfo?.ConnectionString ?? configuration.GetConnectionString("DefaultConnection")`. The
