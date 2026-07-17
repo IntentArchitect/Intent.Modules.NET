@@ -67,7 +67,7 @@ If `reference-app-builder` cannot produce a green app, halt the entire build and
 2. Classify the task (Greenfield vs Minor/Bugfix).
 3. **Read the router first (`.module-builder/WORKING.md`) and branch — the entry state-machine:** empty/clean → fresh task; in-progress and **matches** the request → **resume** from where it left off; in-progress/complete but the request **diverges** → **ask** *"we were on X; this looks like Y — new feature, extend, or start fresh?"*; completed-but-not-cleared → clear the transient files (keep `RETROSPECTIVE.md`), then treat as fresh. "Point a fresh session at the folder and say proceed" must just work — the router is the source of truth, not this conversation. WORKING.md is yours to maintain as a faithful mirror of the developer's intent.
 4. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
-5. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
+5. **Create the `.module-builder/` directory if it doesn't exist** — it's gitignored, so a fresh clone or new worktree won't have it; create it before writing any state file. Then, if Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
 
 ## Autonomy Mode
 

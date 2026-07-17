@@ -31,7 +31,7 @@ All **transitory** build artifacts live under **`.module-builder/`** at the repo
 
 `CONTEXT.md` is the **only durable** artifact and the **exception**: it stays in the **module project folder** (e.g. `Modules/Intent.Modules.X/CONTEXT.md`) — never under `.module-builder/`, never at the repo root.
 
-**Transient-folder contract.** `.module-builder/` is **per-worktree** (never committed — so parallel worktrees never inherit each other's in-flight state) and **AI-managed**: the AI clears it **before and after** each task so the next task starts clean — **except `RETROSPECTIVE.md`**, which is append-only and never cleared (the developer harvests/commits it). The **PRD is developer-owned input**: the AI reads it and freezes an `acceptance-spec.md` from it, but never places or commits the PRD itself.
+**Transient-folder contract.** `.module-builder/` is **per-worktree** (never committed — so parallel worktrees never inherit each other's in-flight state) and **AI-managed**: the AI clears it **before and after** each task so the next task starts clean — **except `RETROSPECTIVE.md`**, which is append-only and never cleared (the developer harvests/commits it). The **PRD is developer-owned input**: the AI reads it and freezes an `acceptance-spec.md` from it, but never places or commits the PRD itself. Because `.module-builder/` is never committed, a fresh clone or new worktree won't have it — **if `.module-builder/` is missing, create it** before writing `WORKING.md` or any state file.
 
 ### `CONTEXT.md`
 
@@ -59,6 +59,7 @@ It captures:
 
 | Folder state | Action |
 |---|---|
+| **`.module-builder/` missing** | **Create the directory first** (gitignored — absent on a fresh clone/worktree), then treat as *Empty / clean* below |
 | Empty / clean | Fresh task — initialise the router and freeze the acceptance spec |
 | In-progress, **matches** the request | **Resume** via the router |
 | In-progress/complete, request **diverges** | 🛑 **Ask** — *"we were going in direction X; this looks like Y — new feature, extend, or start fresh?"* |
