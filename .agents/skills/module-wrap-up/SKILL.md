@@ -12,8 +12,7 @@ keywords: [wrap-up, version-bump, supportedClientVersions, context, release, imo
 # Skill: module-wrap-up
 
 ## When to Use
-Load this as the **final phase** once `module-increment-loop` reports every increment verified.
-Nothing here is optional — a module is not "done" until this phase completes.
+Load this as the **final phase** once `module-increment-loop` reports every increment verified **and `module-auditor`'s Gate 2 has returned PASS** against the frozen `acceptance-spec.md`. Do not begin wrap-up on self-certified completion — the independent audit is the entry condition. Nothing here is optional — a module is not "done" until this phase completes.
 
 The chain that leads here:
 ```
@@ -24,11 +23,13 @@ The chain that leads here:
 
 ## The Wrap-up Sequence (in order)
 
-1. **Version bump** — assess impact and apply the rule (below); align imodspec + csproj + designer.
+**Precondition — `module-auditor` Gate 2 = PASS.** Wrap-up does not start until the independent audit passes against the frozen `acceptance-spec.md`. Open findings go back through `module-increment-loop`, not into wrap-up.
+
+1. **Version bump** — assess impact and apply the rule (below); align imodspec + csproj + designer, reconciling against the `WORKING.md` version ledger.
 2. **`supportedClientVersions`** — apply the two-step rule (below) and confirm it survives any rename.
 3. **Docs** — invoke **`module-docs`** for `release-notes.md`, `docs/README.md`, and the `.imodspec` metadata fields, in the same turn.
 4. **`CONTEXT.md`** — write/update it **inside the module project folder** (never at repo root).
-5. **Clear build state** — delete/clear `.module-builder/WORKING.md` (and the per-module `.module-builder/<ModuleName>/` transitory files) once the task is complete.
+5. **Clear build state** — delete/clear `.module-builder/WORKING.md`, `acceptance-spec.md`, `audit-findings.md`, and the per-module `.module-builder/<ModuleName>/` transitory files once the task is complete — **except `RETROSPECTIVE.md`** (append-only; the developer harvests it). Verify the folder is clean so the next task starts fresh.
 6. **Confirm SF clean** — a final Software Factory run yields **zero staged changes**, verified *after* the regeneration baseline was reset (not a hand-craft echo).
 
 ---
@@ -78,9 +79,10 @@ This is what a future session reads to understand the *why* once the transitory 
 
 ## Gate — Do Not Declare Done Until
 
+- [ ] `module-auditor` Gate 2 returned **PASS** against the frozen `acceptance-spec.md` (not self-certified).
 - [ ] Version bumped and **aligned** across imodspec + csproj + designer, and ahead of the published version.
 - [ ] `supportedClientVersions` set per the two-step rule (and re-verified after any rename).
 - [ ] `module-docs` completed: `release-notes.md` (version heading matches imodspec, ≥1 bullet), `docs/README.md`, imodspec metadata fields (no scaffold defaults).
 - [ ] `CONTEXT.md` written **in the module project folder**.
-- [ ] `.module-builder/WORKING.md` and per-module transitory files cleared.
+- [ ] `.module-builder/WORKING.md`, `acceptance-spec.md`, `audit-findings.md`, and per-module transitory files cleared (`RETROSPECTIVE.md` kept).
 - [ ] Final SF run = **0 staged changes**, after the regeneration baseline was reset.

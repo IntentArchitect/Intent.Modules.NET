@@ -80,8 +80,13 @@ Task is complete only when **all** are true:
 - No `NotImplementedException` or TODO in new files
 - Required bespoke logic is in place, and a follow-up SF run proposes no changes to it
 
-### 6. Read-Only Branch
-If the request is read-only (explain, summarize, compare, audit), follow steps 1–5 only. **Do not** modify models, run the Software Factory, or edit code.
+### 6. Read-Only Tasks (per-task — never a permanent or session-wide state)
+
+"Read-only" describes the **current task**, not the session. Re-evaluate it on every task — a read-only audit can be followed immediately by a build task in the same session.
+
+- **Only when the task itself is explain / summarize / compare / audit** → inspect only (steps 1–5); do not modify models, run the Software Factory, or edit code. (`module-auditor` runs here by design — that read-only is intentional.)
+- **Any other task → you are NOT read-only.** If making the reference/target app build or run, or implementing a module, needs an Intent change (model a missing element, run SF, apply generated code), **make it** via the modelling-first path. Do not refuse a needed change because a prior task, the audit rule, or a research phase was read-only.
+- If the write tools appear **missing** (no `run_software_factory` / model-mutation tools loaded) while a solution is open, treat that as a **connection fault to surface to the user** — not as a signal that you are read-only.
 
 ### 7. Failure Recovery
 If the Software Factory fails to apply, or applied changes don't compile, **report the failure to the user with the error** — do **not** patch generated code to make it compile. Patching masks the modelling error and is overwritten on the next regeneration. Fix the model, not the output.

@@ -4,6 +4,8 @@
 > **Directives:** Enforces structural integrity, type safety, and mandatory build validation. These rules are **non-negotiable**.
 > **Ignore:** The `InternalTestModules/` folder — it is unrelated infrastructure and should not be referenced or used as a target for module work.
 
+> **⛔ Reference App First — non-negotiable.** No module code (templates, factory extensions, NuGet declarations) may be written or modified until `reference-app-builder` has produced a reference application that builds with exit code 0 and exercises the handler at runtime. This is the single most important sequencing rule in the framework — it cannot be skipped under any circumstance. If the developer only says *"build a module that does X,"* establish the sample first (see `module-kickoff`).
+
 ---
 
 ## 📋 Context & Working State (Read First)
@@ -29,6 +31,8 @@ All **transitory** build artifacts live under **`.module-builder/`** at the repo
 
 `CONTEXT.md` is the **only durable** artifact and the **exception**: it stays in the **module project folder** (e.g. `Modules/Intent.Modules.X/CONTEXT.md`) — never under `.module-builder/`, never at the repo root.
 
+**Transient-folder contract.** `.module-builder/` is **per-worktree** (never committed — so parallel worktrees never inherit each other's in-flight state) and **AI-managed**: the AI clears it **before and after** each task so the next task starts clean — **except `RETROSPECTIVE.md`**, which is append-only and never cleared (the developer harvests/commits it). The **PRD is developer-owned input**: the AI reads it and freezes an `acceptance-spec.md` from it, but never places or commits the PRD itself.
+
 ### `CONTEXT.md`
 
 `CONTEXT.md` is the **durable knowledge layer** for a module or area. It captures:
@@ -41,11 +45,26 @@ Location: `CONTEXT.md` lives **only inside module projects** — e.g. `Modules/I
 
 Use `CONTEXT.md` for truths that should remain valid across multiple tasks and branches. If your intended change conflicts with `CONTEXT.md`, stop and flag the conflict rather than silently "improving" the design.
 
-### `WORKING.md`
+### `WORKING.md` — the single canonical router / state file
 
-`WORKING.md` is the **temporary in-progress layer** located at **`.module-builder/WORKING.md`** (with per-module `.module-builder/<ModuleName>/WORKING.md` for minor/bugfix work). It captures:
-* The active task/project state, current goals, known issues, and checklists spanning multiple modules or test apps.
-* **What has been tried**: Specific solutions, approaches, or paths that were attempted and either discarded or selected, along with why. This prevents future AI runs from repeating failed paths.
+There is **exactly one** canonical `WORKING.md` at **`.module-builder/WORKING.md`**. It is the **router**: the first file a resuming agent reads, telling it *where we are* and *the minimal set of files to load next*. Point a fresh session (after a stop, a compact, or an entirely new session) at `.module-builder/` and say "proceed" — it reads `WORKING.md` and continues from where the last one left off. (A lightweight per-module `.module-builder/<ModuleName>/WORKING.md` may still be used for a tiny isolated bugfix; it is *not* a second global router.)
+
+It captures:
+* **Where we are** — active phase / slice / increment, and what to load next (staged loading keeps context lean).
+* **The slice map** (below) — for large builds, the feature slices, each with its status and acceptance check.
+* **The module version ledger** — one row per module touched (`version · online-published? · bumped-this-session?`), so a module isn't re-bumped every iteration. The bump rules themselves live in `module-increment-loop`.
+* **What has been tried** — approaches attempted and discarded/selected, with why, so no run repeats a dead end.
+
+**Entry state-machine (run on every task entry):**
+
+| Folder state | Action |
+|---|---|
+| Empty / clean | Fresh task — initialise the router and freeze the acceptance spec |
+| In-progress, **matches** the request | **Resume** via the router |
+| In-progress/complete, request **diverges** | 🛑 **Ask** — *"we were going in direction X; this looks like Y — new feature, extend, or start fresh?"* |
+| Completed but **not cleared** | Previous task failed to clean up — clear the transient files (keep `RETROSPECTIVE.md`), then treat as fresh |
+
+**Vertical slices (scaling to complexity).** When the scope of work is too big to build in one pass, decompose it into **vertical slices** — each a *feature* (which may span several modules) that can be modelled and proven end-to-end, carrying its own acceptance check. The slice is the tracking layer **above** the per-module `ATTACK-PLAN.md`; within a slice the spanning set covers distinct shapes, and each increment is one SF cycle: `PRD → slice → spanning set → increment`. Record the slice map in `WORKING.md`; the per-module Pattern-Doc and Attack-Plan are unchanged in scope.
 
 Both `WORKING.md` and `CONTEXT.md` are **managed and maintained entirely by the AI, for the AI**. 
 
@@ -181,11 +200,7 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 
 ### Module Building Skills (use in sequence when building a new module)
 
-> **Principle — Reference App First:** No module code (templates, factory extensions, NuGet
-> declarations) may be written or modified until `reference-app-builder` has produced a
-> reference application that builds with exit code 0 and exercises the handler at runtime.
-> This is the single most important sequencing rule in this framework. It is non-negotiable
-> and cannot be skipped under any circumstance.
+> Reference App First gates this entire chain — see the ⛔ callout at the top of this file.
 
 | Skill | When to use |
 | :--- | :--- |
@@ -195,6 +210,7 @@ Skills are auto-discovered from `.agents/skills/` (Copilot) and `.claude/skills/
 | **module-ecosystem-analyst** | **After all reference apps are green.** Uses the actual generated code — not abstract docs — to scan the Intent ecosystem: what existing modules generate, which SDK building blocks to use, which designer elements drive generation. Synthesizes across all reference app scenarios. Produces an Attack Plan. |
 | **intent-module-builder** | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
 | **module-increment-loop** | After intent-module-builder, AND whenever editing any existing template body or factory extension. Drives the iterative loop: change → build module → reinstall → SF on target → inspect staged diff → apply → build → run → verify. Must be followed for **any** `*TemplatePartial.cs` or `*FactoryExtension.cs` change, not only during new module builds. |
+| **module-auditor** | **Independent verification — runs after the reference app is green and again before wrap-up.** A clean-context reviewer (via `create_sub_agent` or the host harness's own sub-agent) grades the actual output against the frozen `acceptance-spec.md`, distrusting the trackers and the builder's self-report. Deviations go to `.module-builder/audit-findings.md` and back to the implementer. The primary quality gate in autonomous runs. |
 | **module-wrap-up** | **Final mandatory phase after all increments pass.** Version bump (assess impact, apply rule, align imodspec + csproj + designer), invoke `module-docs`, write `CONTEXT.md` (in the module folder), clear `.module-builder/WORKING.md`, confirm SF clean. Release notes header uses non-pre version. |
 | **module-retrospective** | Runs automatically throughout every build. Appends findings to `.module-builder/RETROSPECTIVE.md` (append-only) whenever a workaround, skill gap, missing requirement, or architecture problem is encountered — even when the task still completed. Notifies the user with a one-line note. At session end proposes targeted edits to SKILL.md files and module-kickoff Q&A. Four buckets: Intent gaps (flag for IA team), Process gaps (update relevant skill), Module Architecture gaps (flag for architecture owners / `module-building-strategies`), PRD/user gaps (strengthen kickoff questions). |
 

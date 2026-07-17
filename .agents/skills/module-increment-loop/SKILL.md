@@ -42,6 +42,7 @@ Every implementation decision must be grounded in the technology's documented pa
 - Check the Decision Log — do not re-derive or re-open any closed decision.
 - Check Open Questions — if one is now answerable, close it before proceeding.
 - Check the Progress Tracker — do not re-implement any increment marked ✅ Complete.
+- **If the build is sliced** (`WORKING.md` slice map), confirm which slice this increment serves — an increment belongs to exactly one slice. When a slice's increments are all done, run the slice's **integration check** (its acceptance check) before moving to the next slice, not just the per-increment checks.
 
 **`WORKING.md` is yours to maintain — reconcile on entry.** Ensure `.module-builder/WORKING.md` (or the per-module `.module-builder/<ModuleName>/WORKING.md`) exists; create it if not. Keep it a faithful mirror of the user's current intent. If the incoming request diverges *at all* from what it documents (different module, changed objective, dropped scope, a possible branch switch), **pause and confirm before touching anything** — *"we were on X; this looks like Y — still aligned?"* — then act on the answer. Never proceed on stale assumptions.
 
@@ -131,6 +132,8 @@ Intent Architect monitors the module's build output folder. When you recompile t
 
 ## Module Version Management (already-published modules)
 
+**First touch of any module → record it in the `WORKING.md` version ledger; do not bump.** You bump only when the version is confirmed published **online** (or a finalized release is being changed). A module-search "exists" result is *not* proof of online publish — it also sees your local build — so the **ledger, not the search, is the source of truth**. This is the anti-continuous-bump guard; the precedence below is how to apply it.
+
 The hot-reload above (recompile → IA picks up the new DLL at the **same** version) works for a **brand-new local module**. It does **not** work once a module version has been **published** — to the hosted registry *or* to your local package feed — at the version you're building: IA serves the already-published copy and silently ignores your rebuild. Then you must **bump the local pre-version** to force pickup. Use this precedence:
 
 1. **imodspec shows a normal (non-pre) version** → bump to the next **pre** version and proceed. **Record the bump in `WORKING.md`.**
@@ -177,6 +180,12 @@ When the increment changes an existing module (not a greenfield build):
 - Run the **existing** scenarios as well as the new one — a green build on the new path does not prove the old paths still generate correctly.
 - For `[IntentMerge]` files, diff the **entire** method body against the prior committed state; confirm no previously-present line was silently dropped.
 - The from-scratch (Phase 2) verification must cover the existing behaviour too, not only the modification.
+
+---
+
+## Consuming Audit Findings (hand-back loop)
+
+When `module-auditor` runs a gate and writes open deviations to `.module-builder/audit-findings.md`, those findings are your **work-list**: take each through the full increment cycle, then trigger a **re-audit** — do not self-clear. Bounded: after 2 revise-and-re-audit rounds without convergence, escalate to the developer; a finding marked `spec-ambiguity` escalates immediately rather than looping. Never edit `audit-findings.md` to mark something resolved yourself — the auditor owns the verdict.
 
 ---
 

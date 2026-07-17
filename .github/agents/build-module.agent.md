@@ -35,16 +35,20 @@ Before beginning, classify the task to determine the execution path:
 
 ## The Greenfield Chain
 
+For a large PRD, first **size-up** (in `module-kickoff`) and, if scope demands, decompose into **vertical slices** (features) recorded in `WORKING.md` — then run this chain **per slice**, integrating each slice before the next.
+
 ```
-1. module-kickoff           → Requirements Summary  (PRD or interactive)
-2. tech-pattern-researcher  → Pattern Document
-3. reference-app-builder    → Green Reference App(s)  ← NON-NEGOTIABLE HARD GATE
-   (loop — add scenarios before proceeding; see multi-scenario section in skill)
-4. module-ecosystem-analyst → Attack Plan
-5. intent-module-builder    → Compiled Module Skeleton
-6. module-increment-loop    → Verified Increments
-7. module-wrap-up           → Release-ready module
-8. module-retrospective     → .module-builder/RETROSPECTIVE.md  (internal — omit when packaging)
+1.  module-kickoff           → Requirements Summary + frozen acceptance-spec  (PRD or interactive)
+2.  tech-pattern-researcher  → Pattern Document
+3.  reference-app-builder    → Green Reference App(s)  ← NON-NEGOTIABLE HARD GATE
+    (loop — add scenarios before proceeding; see multi-scenario section in skill)
+3a. module-auditor (Gate 1)  → independent check: reference architecture matches the spec?
+4.  module-ecosystem-analyst → Attack Plan
+5.  intent-module-builder    → Compiled Module Skeleton
+6.  module-increment-loop    → Verified Increments
+6a. module-auditor (Gate 2)  → independent check: built module matches the spec?  (must PASS before wrap-up)
+7.  module-wrap-up           → Release-ready module
+8.  module-retrospective     → .module-builder/RETROSPECTIVE.md  (internal — omit when packaging)
 ```
 
 ## REFERENCE APP — NON-NEGOTIABLE HARD GATE
@@ -71,7 +75,7 @@ failure to the user. Do not proceed to any later step.
 
 1. Confirm repository identity (`AGENTS.md` at root).
 2. Classify the task (Greenfield vs Minor/Bugfix).
-3. **Reconcile the build state.** If a `.module-builder/WORKING.md` (global or localized) already exists, read it and check the incoming request against it. If the request **diverges** from what it documents (different module, changed objective, dropped/added scope, likely branch switch), pause and confirm with the user before any work — *"we were on X; this looks like Y — still aligned?"* WORKING.md is yours to maintain as a faithful mirror of the user's intent.
+3. **Read the router first (`.module-builder/WORKING.md`) and branch — the entry state-machine:** empty/clean → fresh task; in-progress and **matches** the request → **resume** from where it left off; in-progress/complete but the request **diverges** → **ask** *"we were on X; this looks like Y — new feature, extend, or start fresh?"*; completed-but-not-cleared → clear the transient files (keep `RETROSPECTIVE.md`), then treat as fresh. "Point a fresh session at the folder and say proceed" must just work — the router is the source of truth, not this conversation. WORKING.md is yours to maintain as a faithful mirror of the developer's intent.
 4. **Greenfield only — ask autonomy mode:** "Do you want me to run autonomously (stop only for Level 2+ pivots and unresolvable blockers), or with checkpoint reviews at Gate 1, 2, and 3?" Record in `.module-builder/WORKING.md` as `autonomy_mode: autonomous | checkpointed`.
 5. If Greenfield, initialize `.module-builder/WORKING.md` with active focus `module-kickoff`. If Minor/Bugfix, locate/create the localized `.module-builder/<ModuleName>/WORKING.md`.
 
@@ -91,6 +95,8 @@ Set at pre-flight. Stored in `.module-builder/WORKING.md` under `autonomy_mode`.
 - **Gate 2** — after reference app is green: presents what was built, waits before ecosystem analysis.
 - **Gate 3** — after all increments: presents full generated surface, waits before wrap-up.
 
+**The developer chooses the mode — never the AI** (see `module-kickoff`; the AI may suggest a default from the Size-up confidence). **The independent audit (`module-auditor`) runs in *both* modes** and precedes the human checkpoint: autonomy only changes whether a *passing* audit self-clears (autonomous) or is still surfaced (checkpointed). It always escalates on the revise cap or a spec ambiguity.
+
 ## Pivot Scale
 
 When the AI uncovers something that differs from what was described. Always name the level.
@@ -105,7 +111,7 @@ When the AI uncovers something that differs from what was described. Always name
 
 ## Module Wrap-up (Step 7)
 
-Mandatory final phase after all increments pass.
+Mandatory final phase after all increments pass **and `module-auditor` Gate 2 returns PASS** (no self-certified closeout).
 
 1. **Version bump** — state impact (patch / minor / major) and apply rule:
    - New module → `1.0.0-pre.0`
@@ -114,7 +120,7 @@ Mandatory final phase after all increments pass.
    Align imodspec + csproj + designer.
 2. **Invoke `module-docs`** — README.md and release-notes.md in same turn. Header uses non-pre version.
 3. **Write `CONTEXT.md`** — architectural decisions, generated files, cross-module interactions.
-4. **Clear `.module-builder/WORKING.md`** (or the localized `.module-builder/<ModuleName>/WORKING.md` for the bug-fix path).
+4. **Clear `.module-builder/` transient files** — `WORKING.md`, `acceptance-spec.md`, `audit-findings.md`, and per-module files (or the localized `.module-builder/<ModuleName>/WORKING.md` for the bug-fix path) — **keep `RETROSPECTIVE.md`** (the developer harvests it).
 5. **Confirm SF yields zero staged changes.**
 6. **Mark state file 100% complete.**
 

@@ -20,7 +20,7 @@ This skill holds the **WHY** (strategy/judgment). It deliberately does **not** e
 Read order — cheapest and most authoritative first:
 
 1. **`search_docs`** — IA features, designers, attributes, code-management, module concepts.
-2. **`search_available_modules` / `list_installed_modules`** — what's installed/available. *(Today these return limited metadata. The richer "AI-aware module discovery" capability is proposed in [`PROPOSAL-ai-aware-module-discovery.md`](../../../PROPOSAL-ai-aware-module-discovery.md); until it ships, supplement with steps 3–5.)*
+2. **`search_available_modules` / `list_installed_modules`** — what's installed/available. *(Today these return limited metadata; richer "AI-aware module discovery" is a known **Intent gap** — supplement with steps 3–5, and log the friction to `RETROSPECTIVE.md` for the IA team.)*
 3. **The reference module's own source** — `imodspec` (dependencies, interoperability, version), template registrations (roles, base classes, file cardinality), `NugetPackages.cs` (packages + conditions), factory extensions (what they enrich, which broadcast requests they publish/handle).
 4. **The reference app's actual generated output** — ground truth for what the ecosystem already produces; don't re-generate what's already provided.
 5. **`find_designer_elements` / `get_designer_element_details`** — element types, stereotypes, and settings that drive generation.
@@ -29,6 +29,10 @@ Cross-repo note: the common modules (`Intent.Common`, `Intent.Common.CSharp`, �
 
 > This protocol is the durable replacement for static per-type "playbooks": it stays current automatically, costs no developer time, and scales to any module.
 
+### Offload discovery to keep the orchestrator lean
+
+Reconnaissance and research are context-heavy and read-only — ideal to **delegate to a sub-agent** so the orchestrating agent's context stays lean for the work only it can do (designer / SF / model mutation). Use whichever sub-agent mechanism the harness offers — Intent's `create_sub_agent` or the host harness's own — hand it a focused discovery brief, and take back the distilled findings. Assume it works; if no sub-agent mechanism is available, do the discovery inline and log the limitation to `RETROSPECTIVE.md`.
+
 ### Resolve conflicts at the authoritative source
 
 When two modules **disagree** about how a stereotype (or property) is used — one reads it correctly, another (often a legacy or copied module) reads the wrong property — do **not** arbitrate by copying whichever sibling "looks right." Trace back to the **authoritative source: the stereotype's *definition*** (where it is declared), and let that decide which usage is correct. That trace is also what exposes the real culprit — the discrepancy usually points at a bug in a *different* module than the one you were changing. (This is why blind sibling-mimicry is unreliable: the sibling may be the one that's wrong.)
@@ -36,6 +40,14 @@ When two modules **disagree** about how a stereotype (or property) is used — o
 ---
 
 ## 1. Module Architecture & Decomposition
+
+### Vertical slices — decompose the *work* before the modules
+
+For a large PRD, don't build everything at once. Decompose the work into **vertical slices** — each a *feature* the developer can model and see work end-to-end, which may span **several modules** (e.g. one module for the designer elements, another for code extensibility, another for a different codegen aspect). A slice is the tracking layer **above** the per-module Attack Plan; the units nest:
+
+`PRD → vertical slice (a feature) → spanning set (distinct shapes within it) → increment (one SF cycle)`
+
+Cut a slice so it is **independently valuable and independently testable** — it carries its own acceptance check (what `module-auditor` grades). Build one slice to green, test it whole, then move to the next. `module-kickoff`'s size-up decides *whether* to slice and records the slice map in `WORKING.md`; *within* a slice, apply the module-decomposition judgment below.
 
 ### The dependency boundary is the module boundary
 
@@ -184,7 +196,7 @@ The AI should **attempt to create the app/solution itself** via the MCP creation
 These are known, deliberately-unsettled items. Surface them rather than assuming an answer:
 
 - **NuGet-exposed bridging interfaces** — is this the best long-term mechanism for cross-tech model bridging? Current convention, not doctrine.
-- **Common-module capability discovery** — how does the AI learn what the common modules (in the separate `Intent.Modules` repo) offer — their broadcast types, base classes, interfaces, extension points — *without* reading that repo's source? Addressed by the AI-aware module discovery proposal: [`PROPOSAL-ai-aware-module-discovery.md`](../../../PROPOSAL-ai-aware-module-discovery.md).
+- **Common-module capability discovery** — how does the AI learn what the common modules (in the separate `Intent.Modules` repo) offer — their broadcast types, base classes, interfaces, extension points — *without* reading that repo's source? Known **Intent gap**; log discovery friction to `RETROSPECTIVE.md` for the IA team.
 - **Shared-project → common-module migration backlog** — the HTTP client family and any other shared-project sharing should graduate to common modules.
 
 When the retrospective surfaces a finding touching these, route it through the new **Module Architecture** bucket in `module-retrospective`.
