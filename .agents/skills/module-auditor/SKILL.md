@@ -17,6 +17,12 @@ developer only ever reviews work that already survived an independent audit.
 > implementer's context, rationalisations, or trackers. It sees the frozen spec and the ground truth — nothing
 > the builder wrote *about* its own work.
 
+> **The verdict is authoritative only as the output of a *fresh* auditor run.** `audit-findings.md` is a durable
+> *log*, not the gate decision. A gate clears **only** when a new `module-auditor` run returns PASS — never from a
+> PASS stored (or typed) into the file. The implementer may **read** the findings as a work-list but must **never
+> write or edit a verdict** there; it fixes the module and **re-invokes the auditor**. Editing the file to say
+> "PASS" clears nothing — the next gate re-audits and reality wins.
+
 ## When to load — the two gates
 
 | Gate | When | Question it answers |

@@ -23,7 +23,7 @@ The chain that leads here:
 
 ## The Wrap-up Sequence (in order)
 
-**Precondition — `module-auditor` Gate 2 = PASS.** Wrap-up does not start until the independent audit passes against the frozen `acceptance-spec.md`. Open findings go back through `module-increment-loop`, not into wrap-up.
+**Precondition — a *fresh* `module-auditor` Gate 2 run returns PASS.** Wrap-up does not start until a **new** independent audit run passes against the frozen `acceptance-spec.md` — **never** a stored or hand-edited `PASS` in `audit-findings.md`. If the latest verdict isn't a clean PASS from a fresh run, open findings go back through `module-increment-loop` (fix the module → re-invoke the auditor), not into wrap-up. The implementer never authors this verdict.
 
 1. **Version bump** — assess impact and apply the rule (below); align imodspec + csproj + designer, reconciling against the `WORKING.md` version ledger.
 2. **`supportedClientVersions`** — apply the two-step rule (below) and confirm it survives any rename.

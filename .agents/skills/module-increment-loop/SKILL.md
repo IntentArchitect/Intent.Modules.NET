@@ -185,7 +185,7 @@ When the increment changes an existing module (not a greenfield build):
 
 ## Consuming Audit Findings (hand-back loop)
 
-When `module-auditor` runs a gate and writes open deviations to `.module-builder/audit-findings.md`, those findings are your **work-list**: take each through the full increment cycle, then trigger a **re-audit** — do not self-clear. Bounded: after 2 revise-and-re-audit rounds without convergence, escalate to the developer; a finding marked `spec-ambiguity` escalates immediately rather than looping. Never edit `audit-findings.md` to mark something resolved yourself — the auditor owns the verdict.
+`.module-builder/audit-findings.md` is your **read-only work-list** — never a file you write a verdict into. On any non-PASS verdict: **fix the module** (never hand-patch the generated app to clear a finding — that masks the module gap and won't survive regeneration), then **re-invoke `module-auditor`** for a fresh verdict. **You never author or edit a verdict**, and a PASS counts **only** as the output of a fresh auditor run — a PASS typed into the file clears nothing, because each gate re-audits rather than trusting the stored value. Bounded: after 2 revise-and-re-audit rounds without convergence, escalate to the developer; a `spec-ambiguity` finding escalates immediately.
 
 ---
 
