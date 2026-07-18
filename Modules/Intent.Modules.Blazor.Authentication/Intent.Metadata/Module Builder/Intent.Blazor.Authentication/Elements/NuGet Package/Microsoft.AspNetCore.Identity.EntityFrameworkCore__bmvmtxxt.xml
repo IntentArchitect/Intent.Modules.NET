@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="851b072a-6143-4aff-a99e-b715bdd1645a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,24 +47,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="59cc042e-72ea-4e88-a05a-5364901965fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
+        <childElement id="27666d16-847e-40fd-873f-9e27da794ad5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851b072a-6143-4aff-a99e-b715bdd1645a</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="27666d16-847e-40fd-873f-9e27da794ad5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
+        <childElement id="59cc042e-72ea-4e88-a05a-5364901965fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851b072a-6143-4aff-a99e-b715bdd1645a</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +79,7 @@
     </childElement>
     <childElement id="406fdf1f-455c-435f-80eb-04a4127a4320" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.11</name>
-      <display>2.3.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -96,33 +102,42 @@
       <childElements>
         <childElement id="1b3a2a2a-bb6a-4f69-a39e-dce0140ef987" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Identity</name>
+          <display>Microsoft.AspNetCore.Identity (2.3.10)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>406fdf1f-455c-435f-80eb-04a4127a4320</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="af94f599-0ea0-46c8-ab98-a6cb6cdbbc23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (2.1.14)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.14</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>406fdf1f-455c-435f-80eb-04a4127a4320</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="81f69b26-b631-4fe4-a84d-a7ddf2f6d672" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (2.3.10)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>406fdf1f-455c-435f-80eb-04a4127a4320</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -344,7 +359,7 @@
     </childElement>
     <childElement id="ceb0da62-abd2-499d-b2d0-9cfce56b92c3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.17</name>
-      <display>9.0.12 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -365,24 +380,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="35fe4f26-a375-4d58-b149-30719bf8a1bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
+        <childElement id="32aca998-9dd2-4658-bbc3-5d92f76b6959" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.17)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ceb0da62-abd2-499d-b2d0-9cfce56b92c3</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="32aca998-9dd2-4658-bbc3-5d92f76b6959" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
+        <childElement id="35fe4f26-a375-4d58-b149-30719bf8a1bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (9.0.17)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ceb0da62-abd2-499d-b2d0-9cfce56b92c3</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />

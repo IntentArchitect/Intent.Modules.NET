@@ -21,7 +21,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
-            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(template);
+            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(template) :
+                "ApplicationUser";
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor

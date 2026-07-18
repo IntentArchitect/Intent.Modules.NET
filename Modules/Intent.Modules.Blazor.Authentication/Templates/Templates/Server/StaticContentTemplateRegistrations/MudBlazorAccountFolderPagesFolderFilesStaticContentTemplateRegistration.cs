@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -51,7 +52,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data";
 
                 var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
-                var isJwt = securityType.IsJWT();
+                var isJwt = securityType.IsBearerTokenJWT();
 
                 replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
@@ -78,12 +79,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 return;
             }
 
-            if (auth.IsASPNETCoreIdentity())
+            if (auth.IsBuiltInLoginASPNETIdentity())
             {
                 // Identity: the full account page set (incl. Manage/*, 2FA, external login, email change).
                 RegisterAuthStaticContent(registry, application);
             }
-            else if (auth.IsJWT())
+            else if (auth.IsBearerTokenJWT())
             {
                 // JWT: only the account-pages layout wiring (_Imports → @layout AccountLayout). JWT's
                 // actual pages are RazorBuilder templates; the Identity-only static pages stay out, so

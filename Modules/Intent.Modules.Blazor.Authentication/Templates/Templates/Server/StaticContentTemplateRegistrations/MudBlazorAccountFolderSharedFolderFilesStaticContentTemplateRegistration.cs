@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -59,7 +60,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data";
 
                 var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
-                var isJwt = securityType.IsJWT();
+                var isJwt = securityType.IsBearerTokenJWT();
 
                 replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
@@ -86,13 +87,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 return;
             }
 
-            if (auth.IsASPNETCoreIdentity())
+            if (auth.IsBuiltInLoginASPNETIdentity())
             {
                 // Identity: the full shared set (Manage layouts, ExternalLoginPicker, recovery codes,
                 // AppUserMenu, StatusMessage, AccountLayout skin, _Imports…).
                 RegisterAuthStaticContent(registry, application);
             }
-            else if (auth.IsJWT())
+            else if (auth.IsBearerTokenJWT())
             {
                 // JWT: only the mode-independent account shell — the AccountLayout skin, StatusMessage
                 // (used by the RazorBuilder login/register), and the _Imports wiring. The Identity-only

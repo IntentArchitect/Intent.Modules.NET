@@ -20,7 +20,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
-            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(template);
+            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(template) :
+                "ApplicationUser";
             var redirectManager = template.GetIdentityRedirectManagerTemplateName();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
@@ -238,7 +240,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
+            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
+                "ApplicationUser";
 
             code.AddField("string", "LoginCallbackAction", f => f.Public("\"LoginCallback\"").Constant());
             code.AddField("string?", "message");

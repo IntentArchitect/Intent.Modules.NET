@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Settings;
@@ -14,7 +15,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -69,7 +69,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Applic
 
             var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
 
-            return base.CanRunTemplate() && securityType.IsASPNETCoreIdentity();
+            return base.CanRunTemplate() && securityType.IsBuiltInLoginASPNETIdentity();
         }
     }
 }

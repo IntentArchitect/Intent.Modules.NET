@@ -5,6 +5,7 @@ using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
+using Intent.Templates;
 using System.Linq;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
@@ -20,7 +21,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     {
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
-            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(template);
+            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(template) :
+                "ApplicationUser";
             var userAccessor = template.GetIdentityUserAccessorTemplateName();
             var redirectManager = template.GetIdentityRedirectManagerTemplateName();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
@@ -261,7 +264,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
+            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
+                "ApplicationUser";
 
             code.AddField("string", "AuthenticatorUriFormat", f => f.PrivateConstant("\"otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6\""));
             code.AddField("string?", "message");

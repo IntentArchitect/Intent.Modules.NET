@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0888156b-6645-49b6-8180-77095e20783c</correlationId>
-      <path>Intent.Modules.Blazor.Authentication/Api/SecurityConfigurationModelStereotypeExtensions.cs</path>
-      <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-15T10:13:24.931342Z</updatedAt>
-      <deviationsHash>861F99C751A5FD5C7F083E2CC6AAAC1AF47F84616970DEF6A1E2BD8CDBF7305A</deviationsHash>
-      <fileHash>64A29E007D01FCD8B3526132B908252B67452ACC73694FBBB9C050CA3E96D7F2</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#de4442b6-372c-43eb-a5c0-b4b3679b9c6a</correlationId>
       <path>Intent.Modules.Blazor.Authentication/FactoryExtensions/ServerAddAuthentication.cs</path>
       <count>1</count>
@@ -19,7 +9,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-08-06T18:56:33.0326044Z</updatedAt>
       <deviationsHash>363FDC10E81102641FED5DED37EB73492160D73B0114101B279DCC468AC55AF8</deviationsHash>
-      <fileHash>BCAD39C3A5A37EB3B65E76B76C0652B2457FD231E15EB94943ED3582E170CB89</fileHash>
+      <fileHash>55BB9444DEEA2C821CD180CB1AD3B148762985D3866CF4D165CE146B1669FB30</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d143f25-19e7-4729-9874-4ed876783a01</correlationId>
@@ -29,7 +19,7 @@
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-06-22T04:41:04.249068Z</updatedAt>
       <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
-      <fileHash>46B2B2B0B4DEB95A1188FBB8AB761E31A9F599CB420BCC6E6A562A30D1B9DFF5</fileHash>
+      <fileHash>3A00DF352FEC5D2181D7B365A317F7C02B8D91844441B319028643726359AEFE</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#b9d38f7c-7a8d-4007-b33d-7f386ccf119a</correlationId>
@@ -49,7 +39,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-07-14T13:23:33.4069962Z</updatedAt>
       <deviationsHash>170B3C3369C5CF281A48FB56BBB6DDC711A254575B894C425F2383BEE4BF7177</deviationsHash>
-      <fileHash>98DD1FD58C47C46A60570103396439B25A4CB3C9F5FF8BE779385DC14010CC32</fileHash>
+      <fileHash>6597F6402A8806FFB84E6F56CCAEC9D2395D26D7C77DAF81F4E3E89F05BDD9BC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1145f97b-3ae3-4bc4-8759-87905618b27f</correlationId>
@@ -59,7 +49,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-07-14T13:23:33.4070295Z</updatedAt>
       <deviationsHash>BAEEAE1E1B4BFF18540EA6BE8844D384E6A422FA2680E0464474E85BD5A04362</deviationsHash>
-      <fileHash>13705E2BA3169E4C005C1E9E752ED39D2C45F64681842CAB457E749C6DA5B6DE</fileHash>
+      <fileHash>1D905E25A1E087E22A23D1583D171A3DCC4C0A9AB298D7CB21E009F7300A0A20</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e732c8dd-113e-435c-bdae-f0558c601d5b</correlationId>
@@ -69,7 +59,7 @@
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-06-22T04:41:04.2493788Z</updatedAt>
       <deviationsHash>E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47</deviationsHash>
-      <fileHash>9906C0AA9CA7BEB6512023476F787FE8ED3E876310CADBB9CB9AA9F39FA70491</fileHash>
+      <fileHash>863DF044AD2E3A7ED075947A23BA5429C1C60E0BF463F66015193EC64B29A50E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7931ea0d-272b-4c4e-aaea-bfba5357534c</correlationId>
@@ -79,7 +69,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-07-15T10:13:24.932417Z</updatedAt>
       <deviationsHash>B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69</deviationsHash>
-      <fileHash>BE7C17BE9D3F565DD420090A1F8C2D2B92B340FA4BB49D871C231B77E3302440</fileHash>
+      <fileHash>F0FA03C1D0A52FF27FF85C179DF5316038E482DD323D7F127DA4CA19182AB508</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#9aa987fd-7b3c-45fe-b0d0-ffb2d572c8fa</correlationId>
@@ -89,7 +79,7 @@
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-06-22T04:41:04.2494073Z</updatedAt>
       <deviationsHash>818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55</deviationsHash>
-      <fileHash>125765F41507C46C03C7DA32CCD8E80648EB030E68122F27D07A62F41639595F</fileHash>
+      <fileHash>E412746EF11BE15FB9DBF42AC55321C7F888F9F26EA58DD34A5328932DB31B69</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#4a148b5d-ad6d-44ac-a4aa-0d1e94058dcc</correlationId>
@@ -99,7 +89,7 @@
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-06-22T04:41:04.2494228Z</updatedAt>
       <deviationsHash>38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C</deviationsHash>
-      <fileHash>F368E22F734794DDCCA338708C395340560FCECFCFBC56FF4265BF9DBD0E188A</fileHash>
+      <fileHash>7073E4289127762F83FB9EF372F24A191A8CFD85D6690DDCECABECEF2BE3060B</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
@@ -51,7 +52,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     {
                         identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
                     }
-                    else if (securityType.IsASPNETCoreIdentity())
+                    else if (securityType.IsBuiltInLoginASPNETIdentity())
                     {
                         identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
                     }
@@ -83,7 +84,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                         method.AddParameter("AuthenticationState", "authenticationState");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        if (securityType.IsASPNETCoreIdentity())
+                        if (securityType.IsBuiltInLoginASPNETIdentity())
                         {
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
 
@@ -96,7 +97,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                         }
                     });
 
-                    if (securityType.IsASPNETCoreIdentity())
+                    if (securityType.IsBuiltInLoginASPNETIdentity())
                     {
                         @class.AddMethod("Task<bool>", "ValidateSecurityStampAsync", method =>
                         {

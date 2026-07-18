@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -11,7 +12,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -33,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             // The MudBlazor variant of ux-account.css ships for MudBlazor apps with a local account
             // UI — Identity or JWT (!IsOidc()); OIDC redirects to an external IdP. The non-MudBlazor
             // case is handled by WireupAccountCssExtension.
-            if (securityType.IsOIDC())
+            if (securityType.IsSingleSignOnOpenIDConnect())
             {
                 return;
             }

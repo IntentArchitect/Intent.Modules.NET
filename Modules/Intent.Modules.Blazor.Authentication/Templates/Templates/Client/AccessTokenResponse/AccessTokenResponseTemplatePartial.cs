@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -13,7 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static System.Net.Mime.MediaTypeNames;
-using static Intent.Blazor.Authentication.Api.SecurityConfigurationModelStereotypeExtensions.SecurityType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -124,7 +124,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Access
             // JWT Auth Service 
             // OICD Auth Service
             // PersistentAuthenticationStateProviderTemplate
-            return base.CanRunTemplate() && (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || securityType.IsJWT() || securityType.IsOIDC());
+            return base.CanRunTemplate() && (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || securityType.IsBearerTokenJWT() || securityType.IsSingleSignOnOpenIDConnect());
         }
 
         [IntentManaged(Mode.Fully)]

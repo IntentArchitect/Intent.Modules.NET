@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
   <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->

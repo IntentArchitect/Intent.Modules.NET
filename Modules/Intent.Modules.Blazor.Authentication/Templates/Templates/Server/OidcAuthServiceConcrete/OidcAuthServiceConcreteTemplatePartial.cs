@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
@@ -136,7 +137,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
         public override bool CanRunTemplate()
         {
             var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
-            return base.CanRunTemplate() && securityType.IsOIDC();
+            return base.CanRunTemplate() && securityType.IsSingleSignOnOpenIDConnect();
         }
     }
 }

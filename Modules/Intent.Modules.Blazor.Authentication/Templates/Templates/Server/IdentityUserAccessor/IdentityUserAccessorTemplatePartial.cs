@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
@@ -92,7 +93,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
         public override bool CanRunTemplate()
         {
             var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
-            return base.CanRunTemplate() && securityType.IsASPNETCoreIdentity();
+            return base.CanRunTemplate() && securityType.IsBuiltInLoginASPNETIdentity();
         }
     }
 }

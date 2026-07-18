@@ -1,4 +1,5 @@
 using Intent.Blazor.Authentication.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
@@ -27,7 +28,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;
 
             var authService = template.GetAuthServiceInterfaceTemplateName();
-            var isAspnetcoreIdentity = template.GetAuthenticationType().IsASPNETCoreIdentity();
+            var isAspnetcoreIdentity = template.GetAuthenticationType().IsBuiltInLoginASPNETIdentity();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor

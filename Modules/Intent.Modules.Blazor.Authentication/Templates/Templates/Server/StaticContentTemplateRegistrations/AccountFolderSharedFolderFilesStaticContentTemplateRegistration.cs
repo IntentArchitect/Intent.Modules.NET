@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -70,7 +71,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 var dataNamespace = $"{accountNamespaceRoot}Data";
 
                 var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
-                var isJwt = securityType.IsJWT();
+                var isJwt = securityType.IsBearerTokenJWT();
 
                 replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
@@ -93,7 +94,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
-            if (auth.IsASPNETCoreIdentity())
+            if (auth.IsBuiltInLoginASPNETIdentity())
             {
                 if (!mudBlazorInstalled)
                 {
@@ -106,7 +107,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
                 return;
             }
 
-            if (auth.IsJWT())
+            if (auth.IsBearerTokenJWT())
             {
                 // JWT ships only the Identity-free account shell — the SignInManager-dependent
                 // ExternalLoginPicker/ManageNavMenu and the Manage components stay Identity-only.

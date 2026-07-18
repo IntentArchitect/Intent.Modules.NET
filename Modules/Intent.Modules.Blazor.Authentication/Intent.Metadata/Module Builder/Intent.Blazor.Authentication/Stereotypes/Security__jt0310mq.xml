@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="472c2df3-e807-4cf6-89b1-8213cd485c26" version="3.1.0">
   <comment>Configures which security implementation the modelled UI pages/policies should target.</comment>
-  <name>Security Type</name>
+  <name>Security</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="0888156b-6645-49b6-8180-77095e20783c">Security Configuration</type>
+    <type id="911c35b4-4ba3-404c-a0c6-e5258e53333a">User Interface Package</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
   <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>false</displayIcon>
-  <displayIconFunction>return false;</displayIconFunction>
+  <displayIconFunction>return Authentication != "None";</displayIconFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
@@ -36,9 +36,9 @@ function shared(id, name) { return { id: id, name: name }; }
 // generated file — distinct, so switching Authentication modes creates/removes the right components
 // instead of one mode's page silently reusing another mode's already-generated file.
 const SECURITY_TYPE_PREFIX = {
-    "ASP.NET Core Identity": "identity",
-    "JWT": "jwt",
-    "OIDC": "oidc",
+    "Built-in Login (ASP.NET Identity)": "identity",
+    "Bearer Token (JWT)": "jwt",
+    "Single Sign-On (OpenID Connect)": "oidc",
     "None": null
 };
 const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
@@ -121,9 +121,9 @@ const OIDC_SHARED = [
 ];
 
 const PAGE_DEFINITIONS = {
-    "ASP.NET Core Identity": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
-    "JWT": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
-    "OIDC": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
+    "Built-in Login (ASP.NET Identity)": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
+    "Bearer Token (JWT)": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
+    "Single Sign-On (OpenID Connect)": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
     "None": { pages: [], managePages: [], shared: [] }
 };
 
@@ -140,7 +140,7 @@ const SHARED_NAVIGATION_TEMPLATE = [
     ["resend-email-confirmation", "login"]
 ];
 
-// Edges only reachable under ASP.NET Core Identity (2FA, external login, Manage/*, etc.) — these also
+// Edges only reachable under Built-in Login (ASP.NET Identity) (2FA, external login, Manage/*, etc.) — these also
 // reference some of the six shared ids (e.g. "login"), so they are resolved with the Identity prefix too.
 const IDENTITY_ONLY_NAVIGATION = [
     ["login", "login-with-2fa"],
@@ -191,7 +191,7 @@ function getNavigationDefinitions(securityType) {
     const edges = SHARED_NAVIGATION_TEMPLATE.map(function (edge) {
         return [resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])];
     });
-    if (securityType === "ASP.NET Core Identity") {
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
         IDENTITY_ONLY_NAVIGATION.forEach(function (edge) {
             edges.push([resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])]);
         });
@@ -381,9 +381,9 @@ function shared(id, name) { return { id: id, name: name }; }
 // generated file — distinct, so switching Authentication modes creates/removes the right components
 // instead of one mode's page silently reusing another mode's already-generated file.
 const SECURITY_TYPE_PREFIX = {
-    "ASP.NET Core Identity": "identity",
-    "JWT": "jwt",
-    "OIDC": "oidc",
+    "Built-in Login (ASP.NET Identity)": "identity",
+    "Bearer Token (JWT)": "jwt",
+    "Single Sign-On (OpenID Connect)": "oidc",
     "None": null
 };
 const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
@@ -466,9 +466,9 @@ const OIDC_SHARED = [
 ];
 
 const PAGE_DEFINITIONS = {
-    "ASP.NET Core Identity": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
-    "JWT": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
-    "OIDC": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
+    "Built-in Login (ASP.NET Identity)": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
+    "Bearer Token (JWT)": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
+    "Single Sign-On (OpenID Connect)": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
     "None": { pages: [], managePages: [], shared: [] }
 };
 
@@ -485,7 +485,7 @@ const SHARED_NAVIGATION_TEMPLATE = [
     ["resend-email-confirmation", "login"]
 ];
 
-// Edges only reachable under ASP.NET Core Identity (2FA, external login, Manage/*, etc.) — these also
+// Edges only reachable under Built-in Login (ASP.NET Identity) (2FA, external login, Manage/*, etc.) — these also
 // reference some of the six shared ids (e.g. "login"), so they are resolved with the Identity prefix too.
 const IDENTITY_ONLY_NAVIGATION = [
     ["login", "login-with-2fa"],
@@ -536,7 +536,7 @@ function getNavigationDefinitions(securityType) {
     const edges = SHARED_NAVIGATION_TEMPLATE.map(function (edge) {
         return [resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])];
     });
-    if (securityType === "ASP.NET Core Identity") {
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
         IDENTITY_ONLY_NAVIGATION.forEach(function (edge) {
             edges.push([resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])]);
         });
@@ -724,7 +724,7 @@ const toAddCount = allTargets.filter(function (t) {
 
 try {
     await dialogService.confirm(
-    `Switching Security Type to "${securityType}" will modify the modelled Account pages/components by adding ${toAddCount} and removing ${toRemoveNow.length}. Continue?`
+    `Switching Authentication to "${securityType}" will modify the modelled Account pages/components by adding ${toAddCount} and removing ${toRemoveNow.length}. Continue?`
     );
     await runSync(securityType);
 } catch {
@@ -736,13 +736,14 @@ try {
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <defaultValue>ASP.NET Core Identity</defaultValue>
+      <defaultValue>None</defaultValue>
       <valueOptions>
-        <option>ASP.NET Core Identity</option>
-        <option>JWT</option>
-        <option>OIDC</option>
         <option>None</option>
+        <option>Bearer Token (JWT)</option>
+        <option>Single Sign-On (OpenID Connect)</option>
+        <option>Built-in Login (ASP.NET Identity)</option>
       </valueOptions>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>
