@@ -4,12 +4,52 @@ description: Build/modify an Intent.Modules.NET module. Enforces a Complexity Ti
 icon: fa-cubes
 context: coding
 tools:
+  - get_designer_schema
+  - get_designer_model_structure
+  - get_designer_element_details
+  - get_designer_validation_errors
+  - get_designer_stereotype_definitions
+  - get_designer_diagram_snapshot
+  - apply_change_diagram_layout
+  - get_designer_script_api
+  - run_designer_script
+  - find_designer_elements
+  - execute_designer_element_action
+  - get_designer_package_references
+  - list_available_package_references
+  - save_script
+  - get_scripts
+  - get_script
+  - get_applications
+  - create_application
+  - get_architecture_details
+  - search_architectures
+  - get_project_overview
+  - get_application_settings
+  - update_application_settings
+  - run_software_factory
+  - get_file_diffs
+  - apply_staged_file_changes
   - read_file
+  - write_file
+  - patch_file
+  - delete_code_file
+  - list_directory
   - grep
   - glob
-  - run_terminal
-  - write_file
-  - replace_string_in_file
+  - import_code
+  - run_task
+  - search_available_modules
+  - list_installed_modules
+  - install_or_update_modules
+  - uninstall_modules
+  - search_docs
+  - create_sub_agent
+  - create_ai_task
+  - todo_update
+  - ask_user_question
+  - write_plan
+  - implement_plan
 maxIterations: 50
 loopOnToolCalls: true
 ---
