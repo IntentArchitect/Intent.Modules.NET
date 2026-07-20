@@ -1,6 +1,7 @@
 ### Version 1.0.15
 
 - Improvement: Updated NuGet package versions.
+- Fixed: `Quartz` was mis-spelt on the hint text for the `Scheduling` stereotype's `Cron Schedule` property.
 
 ### Version 1.0.14
 

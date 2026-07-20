@@ -19,10 +19,10 @@ namespace Intent.Modules.QuartzScheduler
             NugetRegistry.Register(QuartzAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("3.18.2")
-                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.18.2")
+                        ( >= 10, >= 0) => new PackageVersion("3.18.3-pre.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0")
+                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.18.2"),
                         ( >= 9, >= 0) => new PackageVersion("3.18.2")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
@@ -41,8 +41,8 @@ namespace Intent.Modules.QuartzScheduler
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("3.18.2")
-                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.18.2")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.0")
+                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.18.2"),
                         ( >= 9, >= 0) => new PackageVersion("3.18.2")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.18.2"),
