@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -209,14 +209,21 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netSettings.GenerateRuntimeConfigurationFiles().Value);
             hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netSettings.GenerateDocumentationFile().Value);
 
-            if (netSettings.SuppressWarnings() is null or "$(NoWarn)")
+        {
+            var modelledNoWarn = netSettings.SuppressWarnings();
+            if (modelledNoWarn == "$(NoWarn)")
             {
-                hasChange |= SyncProperty(doc, "NoWarn", null, removeIfNullOrEmpty: true);
+                modelledNoWarn = null;
             }
-            else
-            {
-                hasChange |= SyncProperty(doc, "NoWarn", netSettings.SuppressWarnings());
-            }
+
+            var existingNoWarn = GetPropertyGroupElement(doc, "NoWarn")?.Value;
+
+            // Merging naturally covers every case: both empty removes the element, only one
+            // side having a value keeps that value untouched, and both having values merges
+            // them (modelled entries first).
+            var mergedNoWarn = MergeSemicolonDelimitedValues(modelledNoWarn, existingNoWarn);
+            hasChange |= SyncProperty(doc, "NoWarn", mergedNoWarn, removeIfNullOrEmpty: true);
+        }
 
             hasChange |= SyncUsings(doc, csharpProjectModel);
         }
@@ -228,8 +235,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
                 doc: doc,
                 propertyName: "LangVersion",
                 value: projectOptions.LanguageVersion().IsDefault()
-                    ? null
-                    : projectOptions.LanguageVersion().Value,
+                ? null
+                : projectOptions.LanguageVersion().Value,
                 removeIfNullOrEmpty: true);
 
             if (projectOptions.Nullable()?.Value == "(unspecified)")
@@ -355,7 +362,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         if (element == null)
         {
             var propertyGroupElement = GetPropertyGroupElement(doc, "TargetFramework")?.Parent ??
-                                       GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
+                GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
             if (propertyGroupElement == null)
             {
                 throw new Exception("Could not determine target property group element.");
@@ -374,6 +381,44 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         return true;
     }
 
+    /// <summary>
+    /// Merges a delimited modelled value with a delimited existing value, keeping modelled
+    /// entries first (in modelled order) followed by any additional existing entries (in
+    /// their existing order), with duplicates removed. Entries may be delimited by either
+    /// ';' or ',' (NoWarn accepts both); the output uses whichever delimiter the existing
+    /// value already used, falling back to the modelled value's delimiter, then ';'.
+    /// </summary>
+    private static string MergeSemicolonDelimitedValues(string modelledValue, string existingValue)
+    {
+        var modelledEntries = SplitEntries(modelledValue);
+        var existingEntries = SplitEntries(existingValue);
+        var separator = DetectSeparator(existingValue) ?? DetectSeparator(modelledValue) ?? ";";
+
+        return string.Join(separator, modelledEntries.Concat(existingEntries.Except(modelledEntries)));
+
+        static string[] SplitEntries(string value)
+        {
+            return string.IsNullOrWhiteSpace(value)
+                ? []
+                : value.Split([';', ','], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Distinct().ToArray();
+        }
+
+        static string DetectSeparator(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return null;
+            }
+
+            if (value.Contains(';'))
+            {
+                return ";";
+            }
+
+            return value.Contains(',') ? "," : null;
+        }
+    }
+
     /// <returns>True if there was a change.</returns>
     private static bool AddProperty(XDocument doc, string propertyName, string value)
     {
@@ -384,7 +429,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         }
 
         var propertyGroupElement = GetPropertyGroupElement(doc, "TargetFramework")?.Parent ??
-                                   GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
+            GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
         if (propertyGroupElement == null)
         {
             throw new Exception("Could not determine target property group element.");
@@ -411,7 +456,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         }
 
         var element = GetPropertyGroupElement(doc, "TargetFramework") ??
-                      GetPropertyGroupElement(doc, "TargetFrameworks");
+            GetPropertyGroupElement(doc, "TargetFrameworks");
         if (element == null)
         {
             return false;

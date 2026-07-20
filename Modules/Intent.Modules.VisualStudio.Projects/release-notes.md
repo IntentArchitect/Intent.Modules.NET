@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Improvement: Items manually added to `<NoWarn>` in the csproj will now be merged with items modelled in Intent Architect.
+
 ### Version 4.1.3
 
 - Improvement: Comments in the appsettings are preserved when running the Software Factory.
