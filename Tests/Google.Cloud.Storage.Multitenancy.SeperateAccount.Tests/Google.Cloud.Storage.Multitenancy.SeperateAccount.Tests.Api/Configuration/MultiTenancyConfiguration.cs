@@ -1,7 +1,6 @@
 using System;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
-using Finbuckle.MultiTenant.Stores;
 using Finbuckle.MultiTenant.Stores.InMemoryStore;
 using Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure.MultiTenant;
 using Intent.RoslynWeaver.Attributes;

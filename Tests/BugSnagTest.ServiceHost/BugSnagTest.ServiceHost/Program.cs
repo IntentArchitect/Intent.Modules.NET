@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.Extensions.Logging.EventLog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.WindowsServiceHost.Program", Version = "1.0")]
+[assembly: IntentTemplate("Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram", Version = "1.0")]
 
 namespace BugSnagTest.ServiceHost
 {
@@ -22,9 +22,9 @@ namespace BugSnagTest.ServiceHost
             builder.Services.ConfigureBugsnag(builder.Configuration);
             builder.Services.ConfigureQuartz(builder.Configuration);
             builder.Services.AddWindowsService(options =>
-            {
-                options.ServiceName = "BugSnagTest.ServiceHost";
-            });
+                {
+                    options.ServiceName = "BugSnagTest.ServiceHost";
+                });
 
             if (OperatingSystem.IsWindows())
             {
