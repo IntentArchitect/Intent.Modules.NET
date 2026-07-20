@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.WindowsServiceHost.Templates.Program;
 using Intent.Modules.WindowsServiceHost.Templates.ProgramPartial;
 using Intent.Modules.WindowsServiceHost.Templates.WindowsBackgroundService;
 using Intent.RoslynWeaver.Attributes;
@@ -13,10 +12,6 @@ namespace Intent.Modules.WindowsServiceHost.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetProgramName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(ProgramTemplate.TemplateId);
-        }
 
         public static string GetProgramPartialName(this IIntentTemplate template)
         {

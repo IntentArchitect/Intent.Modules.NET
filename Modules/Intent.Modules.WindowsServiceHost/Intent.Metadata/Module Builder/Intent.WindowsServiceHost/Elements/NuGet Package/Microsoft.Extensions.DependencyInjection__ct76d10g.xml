@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="e6ecca80-0a77-404a-b68a-77aaac15da52" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="70c57aa3-08bf-4dc0-9ec1-970e43b71f75" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e6ecca80-0a77-404a-b68a-77aaac15da52</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -62,7 +65,7 @@
     </childElement>
     <childElement id="36a6f3c6-00f5-47c3-bf67-844d7b274399" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -85,33 +88,42 @@
       <childElements>
         <childElement id="63e8c391-8ca8-453a-847a-ce7ea8440993" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>36a6f3c6-00f5-47c3-bf67-844d7b274399</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d0b0f4e4-1329-4e1c-b320-78ae9fae8a60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>36a6f3c6-00f5-47c3-bf67-844d7b274399</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="cfde2a9e-db19-47cf-9757-3c487308da40" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>36a6f3c6-00f5-47c3-bf67-844d7b274399</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,7 +132,7 @@
     </childElement>
     <childElement id="c646be43-1b9c-4e93-b0f3-c7ea8c2d2547" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -143,11 +155,14 @@
       <childElements>
         <childElement id="78f3d023-1193-442c-9980-08276a0660cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c646be43-1b9c-4e93-b0f3-c7ea8c2d2547</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -156,7 +171,7 @@
     </childElement>
     <childElement id="7087a53d-6534-483e-8504-3675133fea7d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -179,11 +194,14 @@
       <childElements>
         <childElement id="b45077ff-6a69-4bb4-bc3a-409558a2381e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7087a53d-6534-483e-8504-3675133fea7d</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -192,10 +210,14 @@
     </childElement>
     <childElement id="7f2ce67b-6aba-43d4-8ccb-8286df493595" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc10f0aa-7035-4dec-94da-683d55159bd5</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -211,11 +233,14 @@
       <childElements>
         <childElement id="982e4392-0092-483a-b610-5d291c646ea3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7f2ce67b-6aba-43d4-8ccb-8286df493595</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
           <stereotypes />
           <metadata />
           <childElements />

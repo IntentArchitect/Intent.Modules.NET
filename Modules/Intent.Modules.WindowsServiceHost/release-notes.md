@@ -1,5 +1,6 @@
 ### Version 1.0.17
 
+- Improvement: Updated to use `Intent.VisualStudio.Projects`'s `Program.cs` template instead of one inside this module.
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.0.16

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
@@ -9,36 +8,34 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
-
-namespace Intent.Modules.WindowsServiceHost.Templates.Program
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWorkerProgram
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate
+    public partial class ServiceWorkerProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate
     {
+        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram";
         private readonly IAppStartupFile _startupFile;
 
-        public const string TemplateId = "Intent.WindowsServiceHost.Program";
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public ServiceWorkerProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
             CSharpFile = useTopLevelStatements
                 ? new CSharpFile(string.Empty, this.GetFolderPath()).AddUsing(this.GetNamespace())
                 : new CSharpFile(this.GetNamespace(), this.GetFolderPath());
-            ProgramFile = new ProgramFile(this);
+            ProgramFile = new ProgramFile(
+                template: this,
+                usesMinimalHostingModel: true,
+                usesTopLevelStatements: useTopLevelStatements);
 
-            _startupFile = new AppStartupFile(this);
+            _startupFile = new AppStartupFile(
+                template: this,
+                usesMinimalHostingModel: true,
+                usesTopLevelStatements: useTopLevelStatements);
+
             AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingWindowsServices(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
+
             if (!useTopLevelStatements)
             {
                 CSharpFile
@@ -55,7 +52,7 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
                             method.Static();
                             method.AddParameter("string[]", "args");
 
-                            ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+                            ApplyStatements(_startupFile!, CSharpFile);
                         });
                     }, priority: int.MinValue);
             }
@@ -67,7 +64,7 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
                     .AddUsing("Microsoft.Extensions.Hosting")
                     .AddTopLevelStatements();
 
-                ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+                ApplyStatements(_startupFile!, CSharpFile);
             }
         }
 
@@ -79,44 +76,17 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
 
         public bool HasStartupFile => _startupFile is not null;
 
-        private void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
+        private void ApplyStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {
             startupFile.ConfigureServices((hasStatements, _) =>
             {
                 hasStatements.AddStatement("HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);",
                     s => s.AddMetadata("is-builder-statement", true));
-                hasStatements.AddStatement($@"builder.Services.AddWindowsService(options =>
-            {{
-                options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
-            }});");
-
-                AddUsing("System");
-                hasStatements.AddIfStatement("OperatingSystem.IsWindows()", ifs => 
-                {
-                    ifs.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
-                });
-
-                var addHostedServiceStatement = new CSharpStatement("builder.Services.AddHostedService<WindowsBackgroundService>();");
-                hasStatements.AddStatement(addHostedServiceStatement);
 
                 var addServicesComment = new CSharpStatement("// Add services to the container.");
                 hasStatements.AddStatement(addServicesComment, s => s
                     .AddMetadata("is-add-services-to-container-comment", true)
                     .SeparatedFromPrevious());
-
-                cSharpFile.AfterBuild(_ =>
-                {
-                    var statements = hasStatements.Statements;
-
-                    statements.Remove(addServicesComment);
-                    addHostedServiceStatement.InsertBelow(addServicesComment);
-
-                    var index = statements.IndexOf(addServicesComment);
-                    if (statements.Count > index + 1)
-                    {
-                        statements[index + 1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
-                    }
-                }, 100_000);
             });
 
             startupFile.ConfigureApp((hasStatements, _) =>
@@ -143,7 +113,6 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
         }
 
         public IProgramFile ProgramFile { get; }
-
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

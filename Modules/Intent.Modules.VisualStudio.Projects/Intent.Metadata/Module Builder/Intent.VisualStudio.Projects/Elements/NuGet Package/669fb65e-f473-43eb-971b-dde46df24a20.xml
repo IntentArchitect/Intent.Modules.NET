@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1bb23a79-75d8-4d62-b5fb-5e993d84aef1" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+<class id="669fb65e-f473-43eb-971b-dde46df24a20" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>Microsoft.Extensions.Hosting</name>
   <display>Microsoft.Extensions.Hosting</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9345009c-858e-47a3-baaa-d4a6cc237b24</parentFolderId>
-  <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-  <packageName>Intent.WindowsServiceHost</packageName>
+  <parentFolderId>7917fcfc-1981-48a2-ad25-19e0d21b285e</parentFolderId>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -17,23 +17,23 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
-        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
-        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" value="[]" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" value="[]" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="74258b8b-b5ff-40ad-8320-e01c4877ff2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="494772d6-96bc-41a2-986e-dd0fd49f72f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
       <display>10.0.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
+      <parentFolderId>669fb65e-f473-43eb-971b-dde46df24a20</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>
@@ -47,326 +47,326 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e8caf6c2-b123-41c0-a10a-bdc768d76371" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fedcda06-7551-43fc-9039-0b1ef0780b03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <display>Microsoft.Extensions.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d7c5a038-b37b-497d-810e-bdc59486eae0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="874c90c5-6d36-439a-91c4-65818c3535f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="81a614d3-fea3-43fa-ac86-078ff0fca161" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f2f22c7-1d5c-49f8-8db2-b74d43e8ead9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3ac4546e-fc17-42e4-9673-39558a0b0546" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1224bc02-c20e-4dfc-bc5a-657ca0cf43f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c14a4748-4b76-4d58-a756-384884d15949" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="13f91ed8-1585-45e0-b2db-4e1b44ccbd82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c751fdce-5dea-4f18-9923-bd8376df4217" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d7f1d1c8-ef34-407c-b38a-515e2080a367" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="99e489b1-39ca-4154-871f-d06c40e60ae9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3c05802d-f7e0-4848-9f82-2482f1888007" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="34d7cafa-b152-4578-84ee-e94b3f237882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b161c3f4-454e-4189-86d4-318387567f61" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7e1a94b4-81fb-49dc-9deb-b247be865bc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ee3f5370-339a-4b82-87d6-6bb6881b64e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fd986ae7-3f18-43a2-b568-7102481d4d65" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a42ba6e8-fba1-4c4e-9c03-666aada22853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b9329e40-d21f-490a-9a2b-bf8769097fdb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="197d2f19-44e6-4e44-8b41-5e498df43484" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c93e1f34-7ec6-4a36-94b7-7d5c77f74781" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1f02fcb3-094f-4511-aa49-55c263dde85e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="49584d6d-8c3c-42bb-8563-d476d1fdd23f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50268368-94f5-4fa6-baa3-7d9d12e801dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cf84b9f1-f1ee-4b16-9cad-23d658a29e67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a74cc08-3994-48fe-9187-09570994615b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="014f7eb6-10fa-49ea-a29e-cbe1df4101e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0d76453-731d-4d33-9ff8-175c0feaf258" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2c3efb6d-843c-4e4a-a81b-440fa400a0d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cfbd2eaa-ed52-4d93-9310-672e06850853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f529aaf3-a632-4e97-b56d-fe4b5e41cbe4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cab78539-0581-4bb4-aa3d-02ec28744b55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f8a88a0-1b6e-4d7d-89ee-4984e6239140" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0ec9d65a-ec9f-471d-919a-682f9de22b89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="df86b6b7-9d0c-474f-a4eb-cf900b63941b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d91d7ee-b0e4-4819-be23-0d85308f3e1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c9841b6e-1f5a-4612-a83d-ece3febf3b8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cbe52bbb-dbf7-4673-8181-1343af26b1ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="aee74e00-0cbe-42c3-8b3e-0c247b9faef1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b73c7173-ff07-45de-b923-5c6974f765e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ee3aeb37-8072-476a-9dbf-e2a6386beb46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0090e1a-d5b1-430c-be9e-3f75015059bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>494772d6-96bc-41a2-986e-dd0fd49f72f5</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="86e4993d-546a-4709-9b6e-343228489b29" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="8d4c8528-3252-48d6-9a23-b4c74c3c6351" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
       <display>10.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
+      <parentFolderId>669fb65e-f473-43eb-971b-dde46df24a20</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -380,354 +380,354 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="90168c7f-4ff8-4d25-bc4c-182c8c0d77c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3509c868-3157-426f-9cba-b56c2085de8e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <display>Microsoft.Bcl.AsyncInterfaces (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9ff6c69b-ee34-42ea-b791-b87c7c1ebfe8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="59ef13bd-40a2-4312-9941-2b024e49171f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <display>Microsoft.Extensions.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7581a9b0-e4f2-433e-86c1-aafe259644d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="32ee3c43-1317-45c7-aaac-c0a4b45e1706" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="018c613f-1bd6-4767-a0aa-27393b678669" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d205d2d-ed75-4edf-8084-374c19f4c217" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b273569d-039b-4750-a22f-2d3147f092ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="71c15993-3d10-4069-804d-5e2161a9682a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d0be5360-377a-46e3-a1ec-580f5390df01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3ba38c6-d7bd-4197-b6f6-19f69c1e50c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e5a78ca1-41da-4795-a706-394db5f0a6d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4ff80621-4f6a-4858-8ee9-62d7f3135780" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8f9852dc-a9c0-4b09-9419-04f427288fb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b5906450-6ba4-491b-93d5-0617242680f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b1f39283-20fd-4cdf-906a-6532604e4b2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4705e5da-b4d8-4579-979f-922d887de9de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0117d000-fe0e-4e4a-a102-ef65f9a2352e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8b851a09-4309-4173-b9cc-ec55b5b18d76" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="82469363-f223-468c-ad01-5a9b5dc0b4b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fa402b8a-6fa8-4266-abfa-18842c47750a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bc9d12b6-2724-4192-bd9e-29a0933438f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4f6baf90-c964-44d3-8312-3b1952ca85c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d134cf9-eec6-46d4-ae6a-8ff4abb6b55a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a84aa682-e067-4f41-bcb9-0742cff05f60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="42e54867-2b66-4238-b191-cdc074a61d48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="901c58cb-fb9c-420b-b55a-a4f62b2d07aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a09b98f9-24d2-4578-8ffd-b2f9ce765092" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d4fee199-905b-416a-b86f-16295eccfb63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="41141f3c-00b6-4c94-bab6-3117653a153f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf221f86-fba2-4246-b37b-9260a9390935" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="053fa1cc-ee55-4452-a572-2da84f38c1fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="eb376a34-d476-4dd6-9ee2-5e6515ccb91b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="63e2ea36-e68a-4c8f-a78b-e80a59d435b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="549265b7-0102-48e2-9eb1-a38189c90afd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d9ccfbd7-8fb8-44f8-bf70-2f10f4bf92f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cd90a900-a0d2-473f-a835-c8cfdb177820" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e1b3abd1-cc8e-4667-bd4d-ea48c9f5544a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb912a97-d4a5-4b33-a11e-0086bd95a59e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c183280c-e692-4490-a3a0-15abcc354063" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7e02808f-e54b-431b-884f-df9eb23422e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="844212b8-639a-461b-8d32-eaeda409137a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f651d75-d61d-4609-8237-4195394d8f1a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8cfecc5e-30a4-42f2-b55f-06e710f200c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c8845d8f-2a2b-480b-9cae-44c0b287997c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6f22d1e0-e8db-4db9-b3b6-b05a13007c89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ae15a750-fd80-4535-bc34-61bc6216820a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>8d4c8528-3252-48d6-9a23-b4c74c3c6351</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="ba7ce07f-6ec9-429c-bdc3-c9539c9029bc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="a6ac505a-a34b-47de-aaa9-565cbc354595" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
       <display>10.0.9 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
+      <parentFolderId>669fb65e-f473-43eb-971b-dde46df24a20</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -741,326 +741,326 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1aa104b2-1744-40af-b057-1851068eed62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93fb41e2-3534-454f-afac-3e38b5d9c4d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <display>Microsoft.Extensions.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="24a1734f-a6c8-47a7-a29a-5c0425016c64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ec9381f6-c217-4c5f-a730-1baf69672c31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a200822e-0433-4a9a-adef-dde3dc37e739" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dd823154-aca2-49ea-881e-5e1eea0713ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f47776f8-8bc7-42c0-a60a-9c5a7c8b225d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1f7b591d-7348-4867-b218-bb807d51c450" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="669af5f7-5c73-4c23-b836-3b46fbac435b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7fc18bdd-7ebf-4a65-91b1-8c9fe1095915" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4974d867-5bab-4d73-a115-0ddbca9c8abf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="092a5118-5ff9-47c5-b578-9aba6c82d121" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f5861bb1-f8a6-4b8d-9f47-6d2187f60b24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96b5968c-1246-4d08-8a79-bc71b6cccaed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="046f2b3a-15fa-4535-a691-5519ed1ff6f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cb6bd296-2c71-4ea0-9cbe-79de26f89779" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ecba7f8-8382-4069-b9d7-14f2b0bb2f86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ce39fb9b-7fc5-4486-a922-b340084cec1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ce97e98-ffb1-443a-becf-c1da093c2cf9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aaa37c43-8c5c-4256-8058-51483c96b685" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e66f5b56-6297-4be1-aee6-c6fc7485ac0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a03128d-735d-42af-9d2b-31c8e21db190" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7af6d491-41f7-48af-8ce1-e3270b624d4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7409e953-b637-4f01-8f58-05ab27aa615e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d71c6c7d-a589-40b8-93a5-700fd31aad77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="eebca089-4938-481b-8e30-b710c4b0625a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7adcf1a5-8871-4874-9deb-4cfc6b427231" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3452d3ae-857b-45d6-bb83-c3eef8123eb2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ce6c5d75-2807-4cce-8a21-de8336bbe16e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="216dfbfc-d593-44e8-b834-924a27266835" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1524c663-f71b-408b-b226-d4e0e2300eac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="91ba7125-3ef5-4585-93c1-c00ed7c50ef8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="54989e61-4ff0-43fb-91e3-cea87469dc6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="43a62ca3-57e3-4ee0-ba04-891d340c83b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fbf1e012-6bf7-43b0-aae7-4bf7748be0d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b7670547-077b-4874-b1cc-c0c29944efbf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c9394af0-6b03-49b4-83ea-10c60ded298b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3d67cd6d-2324-4e0a-9e7f-7f55a9643be4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e24eecb9-6fbb-4961-85a3-bf1dcdcf2e46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5107129e-3680-4d94-88ed-867dd774fdbf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="616b81e2-0dec-4a21-8f98-609c68c327d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="af55be9e-82cb-48b7-8ee1-8b44c59968e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb1c52cc-fadd-474d-9e13-cbda46eb1c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2034fc19-e649-4dbe-99ee-7fd9e2339cd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>a6ac505a-a34b-47de-aaa9-565cbc354595</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="356014a7-933f-453d-a101-fec47fda9b80" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="cfce7a6c-b9e8-4bfc-9103-055841fa4ed3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
       <display>10.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
+      <parentFolderId>669fb65e-f473-43eb-971b-dde46df24a20</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -1074,326 +1074,326 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3a67f6e9-65d6-42a1-8a86-c1d01168fcd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="946bf797-a6f1-4898-ba61-49cf9d4261f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <display>Microsoft.Extensions.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="94cb5b08-50fa-486c-abe4-24541967d675" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="000d4eec-6612-42b2-9ddd-016a3a87cf08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="96781699-b928-41df-bc3b-d3b748e761dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="acace464-41fd-43c3-be88-c0e0936fce15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="661e5b41-02c7-4813-87b5-107435ba7b89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c5d41131-05b4-424a-82aa-c0d011832623" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ffc9a8d-1c73-4e8f-9b19-e105f605757a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c936462b-60dc-41b4-a57e-1c99c9de4692" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="12c36d2b-bf6f-4893-8d62-a01f31cfa7cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b210fbd4-42cd-4fa9-a0af-39e5324c7c42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f526819c-f703-4259-8036-cbb8dd9feeff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="916d74ff-03fc-439f-a7aa-6ef4c677b045" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="54672c79-d49a-4ed3-b2b6-1f1a6d8caa21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3d4ba6ca-6a19-4000-b591-151571ddaf3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7d3c1112-58dc-4d43-8b89-ad3d7596f5bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ead503db-df6a-4448-be18-8c20f286a334" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6018efc-2c19-4e1b-873c-d37887ee73ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="820b656b-79ab-4b8c-aabc-dd060210d7f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7444fb5d-5cf6-4194-98b0-984f8ea60c0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8a6f4b64-1221-4e01-83e8-46c990d7fe74" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa858acf-fc4b-46d4-a4e0-d2d2ca437b1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7d55589e-2272-4698-b4d1-dccca21eae9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1bd6435b-e0b4-4d38-806d-c5c73d666d8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fdaea61d-d703-4be5-9dcc-8c514aada69f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb12e3cd-6638-4476-bf44-c7c135d46eec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d1e6c50-84f2-4167-a3d1-099ff618d57e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f6edd45-dd15-4a03-afe2-a3da58c85ea4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a9c3502d-96e1-4156-9176-0e1747841c1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0fbe413b-e140-4d8f-ad3a-69deb6949b34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3e884ffa-8096-4f3e-b7d3-e9f4d415cd71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="767f32a7-4fae-4a56-97b9-de7cbbad2ba8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="99af019d-1691-42b5-a235-d31e757b1a3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e17de570-0057-40dd-a637-5e07714e51ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3db90d41-0920-431b-a890-08a2b74dc641" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dc634bdb-eff0-4e7a-b677-eaf2abacef59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de5bc14e-60ba-42e2-9a87-adda099771f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d0a4e0f-9a3d-44f6-95e8-12b7588f3cbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ac3d3b43-4a7b-4e7f-bfc9-f597d9b2ebfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bb30fa8b-6287-4464-9e98-674b2104a223" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b7d5d764-ccd6-415e-ac1b-d3fed2357dd3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c8bbf5aa-bbf7-4227-9df1-70f12ce7675e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="56c8e15f-a242-4d1c-bf7c-156555ed5151" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>cfce7a6c-b9e8-4bfc-9103-055841fa4ed3</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="04cc0d73-3f46-46d4-b079-ea85a20c7de5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="86b3453c-002f-4f91-ae23-7e3b669cb298" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
       <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
+      <parentFolderId>669fb65e-f473-43eb-971b-dde46df24a20</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -1407,310 +1407,310 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7d5c9fb0-d9b3-4b20-be5b-42f269f65ac4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="34bb53eb-466f-4b74-9e56-fc2130a33bd6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <display>Microsoft.Extensions.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="62685b7f-1de0-45c8-bf95-b26f6ded53c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="545e8cc8-b264-4cc1-8431-0dd423d8ecc9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="932eac97-84ab-4200-8d67-08a45eca2868" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6c2fc344-1e58-4307-91b5-1127cdffffb0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2e980a6-5671-45a1-8e58-b15aee8c7bac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3abc28a3-4453-4921-bad3-85924ca24e43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c0ea5e90-da50-4143-9afc-0111c7a31bc8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c9295ae0-7344-4bf7-9f56-39e078618d71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="85e13d6b-9f18-4241-8549-d05c96a691f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f5050cc5-8fa9-4b66-b7e8-6f0b9f6ec4cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6b7c0d1-e6e9-4738-aae8-c722330083f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b9ac0a2d-e625-4a0e-b3ec-089808af9587" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bebfafb5-82a4-41e0-92a9-efa40200bbf5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cbf5fb80-83ea-494c-8e96-0c03b28d8486" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a963b35a-1d4d-46c1-b1ad-b282db7a135f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="04ecc4de-2702-402e-93fd-4a85da04db97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5aa1cddf-efda-49e8-8d96-a58e5a7ec2ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="42abd1cf-dd2d-485b-a5d2-5a26a7990503" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1446b7c9-a3e6-4cde-9cc3-da5e74992220" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8e7fdf6c-a576-4dec-93b7-219b0d76a211" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ec984c9-f7d1-4da8-a66c-afadf88389d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d159972f-5695-4322-a974-7f365556bd43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8a1a8f59-2855-4081-ad48-d5682559cabe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a0cbd397-7a70-4894-a7d9-357e7a5698f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2480a99-1e86-4445-b514-151c181c07b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fbe54d76-abf6-4286-b46e-2268ae7bafe2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8bb66a2b-2a71-4c3c-80b4-5637d018fdb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3693c6e8-d8b7-4cb4-86f4-c7863e58c1d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5aa84f3c-439b-47dc-b216-1328cf15479b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="90cf8c9c-96b3-409b-a3a7-dd6d85cd201c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="783ddcbf-c233-4d51-876a-85deab0a8b4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e3f91c3b-570c-4eaf-954f-c4ae99e1f54c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="704518c9-dd0e-4d3a-88d4-0b92b4d35a37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3ee500e9-b521-4738-a3b6-5c27efcc0813" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d10fd49b-f591-497c-b36d-49af6c953d86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b442579-9694-4104-b551-c6f1d3e5bf97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9e76588-7763-4376-b9a4-b9a8dac1c43d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2249bc23-b265-44d7-b770-35616f733f94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7cffccbd-557e-499c-9005-a334e8baff8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dab70b72-661b-4e59-87d2-7ccc71732d66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f4ec4000-3890-40e0-bba1-d12957cde448" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9f139127-2f1b-4057-b6ba-4e05a28660fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
+          <parentFolderId>86b3453c-002f-4f91-ae23-7e3b669cb298</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -84,6 +85,62 @@ namespace Intent.Modules.WindowsServiceHost.Templates.WindowsBackgroundService
 ".ConvertToStatements());
                     });
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName, OutputTarget);
+
+            appStartup.AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingWindowsServices(appStartup.OutputTarget));
+            appStartup.AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(appStartup.OutputTarget));
+            appStartup.AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(appStartup.OutputTarget));
+            appStartup.AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(appStartup.OutputTarget));
+
+            appStartup.AddUsing("System");
+            appStartup.AddUsing("Microsoft.Extensions.Logging");
+            appStartup.AddUsing("Microsoft.Extensions.Logging.EventLog");
+            appStartup.AddUsing("Microsoft.Extensions.Logging.Configuration");
+            appStartup.AddUsing("Microsoft.Extensions.DependencyInjection");
+
+            appStartup.CSharpFile.OnBuild(_ =>
+            {
+                appStartup.StartupFile.ConfigureServices((hasStatements, _) =>
+                {
+                    hasStatements.AddStatement($@"builder.Services.AddWindowsService(options =>
+                {{
+                    options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
+                }});");
+
+                    hasStatements.AddIfStatement("OperatingSystem.IsWindows()", ifs =>
+                    {
+                        ifs.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
+                    });
+
+                    var addHostedServiceStatement = new CSharpStatement("builder.Services.AddHostedService<WindowsBackgroundService>();");
+                    hasStatements.AddStatement<IHasCSharpStatements, CSharpStatement>(addHostedServiceStatement);
+
+                    var addServicesComment = new CSharpStatement("// Add services to the container.");
+                    hasStatements.AddStatement<IHasCSharpStatements, CSharpStatement>(addServicesComment, s => s
+                        .AddMetadata("is-add-services-to-container-comment", true)
+                        .SeparatedFromPrevious());
+
+                    appStartup.CSharpFile.AfterBuild(_ =>
+                    {
+                        var statements = hasStatements.Statements;
+
+                        statements.Remove(addServicesComment);
+                        addHostedServiceStatement.InsertBelow(addServicesComment);
+
+                        var index = statements.IndexOf(addServicesComment);
+                        if (statements.Count > index + 1)
+                        {
+                            statements[index + 1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
+                        }
+                    }, 100_000);
+                });
+            });
+
+            base.AfterTemplateRegistration();
         }
 
         [IntentManaged(Mode.Fully)]

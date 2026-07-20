@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b71e5bd-8848-4feb-a504-06139ffa24b2</correlationId>
-      <path>Intent.Modules.WindowsServiceHost/Templates/Program/ProgramTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-02-26T08:34:46.6949112Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2025-04-08T13:36:28.4182508Z</approvedAt>
-      <deviationsHash>827BDF19C93D48C7A8EB08EB554C70FF447AEDE80256B15A1346010B078A9E3F</deviationsHash>
-      <fileHash>54B9CE4C07AAE275A284E3EBC152F14AB2E3F5113DFD2B3BBD59CF35E66108CE</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

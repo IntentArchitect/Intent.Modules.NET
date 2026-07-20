@@ -1,6 +1,7 @@
 ### Version 4.1.4
 
 - Improvement: Items manually added to `<NoWarn>` in the csproj will now be merged with items modelled in Intent Architect.
+- Improvement: .NET C# Projects with their SDK set to `Microsoft.NET.Sdk.Worker` will now have `Program.cs` files generated for them.
 
 ### Version 4.1.3
 
