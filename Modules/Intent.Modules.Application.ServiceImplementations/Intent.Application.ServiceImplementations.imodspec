@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations</id>
-  <version>4.7.3-pre.1</version>
+  <version>4.7.3</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides a standard service implementation pattern for Application Contracts</summary>
   <description>Provides a standard service implementation pattern for Application Contracts</description>
@@ -37,22 +37,22 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore" version="5.0.47-pre.1" />
+        <package id="Intent.EntityFrameworkCore" version="5.0.47" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore.Repositories">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2-pre.1" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2" />
       </install>
     </detect>
     <detect id="Intent.Application.AutoMapper">
       <install>
-        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.2" />
+        <package id="Intent.Application.AutoMapper" version="5.3.10" />
       </install>
     </detect>
     <detect id="Intent.Application.Dtos.Mapperly">
       <install>
-        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.2" />
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

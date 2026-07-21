@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>5.1.1-pre.0</version>
+  <version>5.1.1</version>
   <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>
@@ -68,11 +68,11 @@
         <package id="Intent.MediatR.DomainEvents" version="5.3.0" />
       </install>
     </detect>
-	<detect id="Intent.Application.Wolverine">
+    <detect id="Intent.Application.Wolverine">
       <install>
-		<package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0-pre.3" />
-	  </install>
-	</detect>
+        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0" />
+      </install>
+    </detect>
   </interoperability>
   <moduleSettingsExtensions>
     <groupExtension id="260ae5b7-bced-4fff-8d10-922e3eb2fcbd" groupId="c4d1e35c-7c0d-4926-afe0-18f17563ce17" externalReference="260ae5b7-bced-4fff-8d10-922e3eb2fcbd">

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>2.0.1-pre.4</Version>
+    <Version>2.0.1</Version>
     <Authors>Intent Architect</Authors>
     <Description>Base classes and helpers for building templates for Blazor for Intent Architect.</Description>
     <Copyright>Copyright 2024</Copyright>
@@ -15,9 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Intent.Modules.Common" Version="3.11.3-pre.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9-pre.0" />
-    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.4-pre.1" />
+	<PackageReference Include="Intent.Modules.Common" Version="3.11.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9" />
+    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.4" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
@@ -58,8 +58,9 @@
       <DependentUpon>Blazor UI Extensions.designer.settings</DependentUpon>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
-    
+
   </ItemGroup>
 
 </Project>

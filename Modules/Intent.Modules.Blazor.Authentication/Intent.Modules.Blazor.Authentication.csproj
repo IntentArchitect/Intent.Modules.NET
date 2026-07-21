@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.3-pre.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.13.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.1">
       <PrivateAssets>all</PrivateAssets>
@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
+
   <ItemGroup>
     <Compile Remove="content\**\*.cs" />
     <None Include="content\**\*.cs" />
