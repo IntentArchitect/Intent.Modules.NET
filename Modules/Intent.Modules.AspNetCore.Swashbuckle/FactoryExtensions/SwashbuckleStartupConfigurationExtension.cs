@@ -5,8 +5,10 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -29,6 +31,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.FactoryExtensions
 
             foreach (var template in templates)
             {
+                if (!template.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+                {
+                    continue;
+                }
+
                 var configurationTemplate = template.OutputTarget.FindTemplateInstance<IClassProvider>(SwashbuckleConfigurationTemplate.TemplateId);
                 ((IntentTemplateBase)template).AddTemplateDependency(SwashbuckleConfigurationTemplate.TemplateId);
                 template.AddUsing(configurationTemplate.Namespace);

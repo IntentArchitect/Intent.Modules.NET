@@ -84,17 +84,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                     s => s.AddMetadata("is-builder-statement", true));
 
                 var addServicesComment = new CSharpStatement("// Add services to the container.");
-                hasStatements.AddStatement(addServicesComment, s => s
+                hasStatements.AddStatement<IHasCSharpStatements, CSharpStatement>(addServicesComment, s => s
                     .AddMetadata("is-add-services-to-container-comment", true)
                     .SeparatedFromPrevious());
             });
 
             startupFile.ConfigureApp((hasStatements, _) =>
             {
-                hasStatements.AddStatement("var app = builder.Build();", s => s
-                    .SeparatedFromPrevious());
-
-                hasStatements.AddStatement("// Configure the HTTP request pipeline.", s => s
+                hasStatements.AddStatement<IHasCSharpStatements, CSharpStatement>("var app = builder.Build();", s => s
+                    // Rather than adding a "// Configure the HTTP request pipeline" line below
+                    // this which looks weird when not using ASP.NET Core, we just attach the
+                    // metadata to this statement.
                     .AddMetadata("is-configure-request-pipeline-comment", true)
                     .SeparatedFromPrevious());
 

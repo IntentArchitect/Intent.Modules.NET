@@ -3,7 +3,9 @@ using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -31,6 +33,11 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtensions
 
             foreach (var template in templates)
             {
+                if (!template.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+                {
+                    continue;
+                }
+
                 template?.CSharpFile.OnBuild(_ =>
                 {
                     var startup = template.StartupFile;

@@ -1,3 +1,7 @@
+### Version 4.3.10
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 4.3.9
 
 - Improvement: Updated NuGet package versions.

@@ -62,16 +62,16 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 var dotNetVersion = OutputTarget.GetMaxNetAppVersion();
                 if (dotNetVersion.Major >= 8)
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:TokenEndpoint", "https://localhost:{sts_port}/connect/token"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("IdentityClients:default:TokenEndpoint", "https://localhost:{sts_port}/connect/token"));
                 }
                 else
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
                 }
 
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
+                EmitOrPublish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
+                EmitOrPublish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
+                EmitOrPublish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
             }
 
             var proxies = _typedModels.DistinctBy(x => x.Id);
@@ -79,12 +79,12 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
 
             foreach (var (GroupName, Url) in proxySettings)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Uri"), Url));
+                EmitOrPublish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Uri"), Url));
                 if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "IdentityClientKey"), "default"));
+                    EmitOrPublish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "IdentityClientKey"), "default"));
                 }
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Timeout"), "00:01:00"));
+                EmitOrPublish(new AppSettingRegistrationRequest(HttpClientSettingsHelper.GetConfigKey(GroupName, "Timeout"), "00:01:00"));
 
             }
         }

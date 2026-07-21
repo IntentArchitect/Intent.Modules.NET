@@ -507,14 +507,14 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         switch (ExecutionContext.Settings.GetMassTransitMessageBusSettings().RetryPolicy().AsEnum())
         {
             case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryImmediate:
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryImmediate",
+                EmitOrPublish(new AppSettingRegistrationRequest("MassTransit:RetryImmediate",
                     new
                     {
                         RetryLimit = 5
                     }));
                 break;
             case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryInterval:
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryInterval",
+                EmitOrPublish(new AppSettingRegistrationRequest("MassTransit:RetryInterval",
                     new
                     {
                         RetryCount = 10,
@@ -522,7 +522,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     }));
                 break;
             case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryIncremental:
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryIncremental",
+                EmitOrPublish(new AppSettingRegistrationRequest("MassTransit:RetryIncremental",
                     new
                     {
                         RetryLimit = 10,
@@ -532,7 +532,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 break;
             case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryExponential:
                 // I used the MassTransit algo to work out this one.
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryExponential",
+                EmitOrPublish(new AppSettingRegistrationRequest("MassTransit:RetryExponential",
                     new
                     {
                         RetryLimit = 10,
@@ -552,7 +552,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
         if (!requiresCompositeMessageBus)
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister(
+            EmitOrPublish(ServiceConfigurationRequest.ToRegister(
                     "AddMassTransitConfiguration",
                     ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
@@ -564,7 +564,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         var settings = _messageBroker.GetAppSettings();
         if (settings is not null)
         {
-            ExecutionContext.EventDispatcher.Publish(settings);
+            EmitOrPublish(settings);
         }
     }
 

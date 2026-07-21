@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.QuartzScheduler.Templates.ScheduledJob;
 using Intent.QuartzScheduler.Api;
@@ -38,7 +39,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
                 .AddUsing("Quartz")
                 .AddClass($"QuartzConfiguration", @class =>
                 {
-                    if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore"))
+                    if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
                     {
                         AddNugetDependency(NugetPackages.QuartzAspNetCore(OutputTarget));
                     }
@@ -99,7 +100,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
         {
             base.BeforeTemplateExecution();
 
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureQuartz", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
         }

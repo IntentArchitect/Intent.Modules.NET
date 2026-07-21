@@ -1,3 +1,7 @@
+### Version 7.1.14
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 7.1.13
 
 - Fixed: Generated controllers for multi-tenant POST actions no longer add a `Finbuckle.MultiTenant.ITenantInfo tenantInfo` action parameter. Finbuckle has never shipped an MVC model binder for `ITenantInfo`, so ASP.NET Core's API-behavior conventions inferred it as `[FromBody]`, conflicting with the command's own `[FromBody]` parameter ("Only one parameter per action may be bound from body"). The tenant id used in the `CreatedAtAction` route value is now resolved from `IMultiTenantContextAccessor` via `HttpContext.RequestServices` instead.

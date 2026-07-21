@@ -1,7 +1,4 @@
-using System;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks.Dataflow;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Logging.Serilog.Settings;
 using Intent.Modules.AspNetCore.Logging.Serilog.Templates;
@@ -13,10 +10,10 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -38,34 +35,44 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
 
         private static void ConfigureStartup(IApplication application)
         {
-            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            template.AddNugetDependency(NugetPackages.SerilogAspNetCore(template.OutputTarget));
-            template.AddUsing("Serilog");
+            var templates = application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsGraylog()))
+            foreach (var template in templates)
             {
-                template.AddNugetDependency(NugetPackages.SerilogSinksGraylog(template.OutputTarget));
-                template.AddNugetDependency(NugetPackages.SerilogEnrichersSpan(template.OutputTarget));
-            }
-            else
-            {
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksGraylog(template.OutputTarget).Name, template.OutputTarget));
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogEnrichersSpan(template.OutputTarget).Name, template.OutputTarget));
-            }
+                if (!template.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+                {
+                    continue;
+                }
 
-            if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsApplicationInsights()))
-            {
-                template.AddNugetDependency(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget));
-            }
-            else
-            {
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget).Name, template.OutputTarget));
-            }
+                template.AddNugetDependency(NugetPackages.SerilogAspNetCore(template.OutputTarget));
+                template.AddUsing("Serilog");
 
-            application.EventDispatcher.Publish(
-                ApplicationBuilderRegistrationRequest.ToRegister(
-                        extensionMethodName: "UseSerilogRequestLogging")
-                    .WithPriority(-100));
+                if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsGraylog()))
+                {
+                    template.AddNugetDependency(NugetPackages.SerilogSinksGraylog(template.OutputTarget));
+                    template.AddNugetDependency(NugetPackages.SerilogEnrichersSpan(template.OutputTarget));
+                }
+                else
+                {
+                    application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksGraylog(template.OutputTarget).Name, template.OutputTarget));
+                    application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogEnrichersSpan(template.OutputTarget).Name, template.OutputTarget));
+                }
+
+                if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsApplicationInsights()))
+                {
+                    template.AddNugetDependency(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget));
+                }
+                else
+                {
+                    application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget).Name, template.OutputTarget));
+                }
+
+
+                ((IntentTemplateBase)template).EmitOrPublish(
+                    ApplicationBuilderRegistrationRequest.ToRegister(
+                            extensionMethodName: "UseSerilogRequestLogging")
+                        .WithPriority(-100));
+            }
         }
 
         private static void ConfigureProgram(IApplication application)
@@ -80,27 +87,31 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
 
         private static void RegisterSerilogConfiguration(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
-            programTemplate?.CSharpFile.OnBuild(file =>
+            var programTemplates = application.FindTemplateInstances<IProgramTemplate>("App.Program");
+
+            foreach (var programTemplate in programTemplates)
             {
-                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],
-                    (lambdaBlock, parameters) =>
-                    {
-                        if (programTemplate.OutputTarget.FindTemplateInstance(BoundedLoggingDestructuringPolicyTemplate.TemplateId) != null)
+                programTemplate?.CSharpFile.OnBuild(file =>
+                {
+                    programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],
+                        (lambdaBlock, parameters) =>
                         {
-                            lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
-                                .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
-                                .AddChainStatement("ReadFrom.Services(services)")
-                                .AddChainStatement($"Destructure.With(new {programTemplate.GetBoundedLoggingDestructuringPolicyTemplateName()}())"));
-                        }
-                        else
-                        {
-                            lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
-                                .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
-                                .AddChainStatement("ReadFrom.Services(services)"));
-                        }
-                    });
-            }, 10);
+                            if (programTemplate.OutputTarget.FindTemplateInstance(BoundedLoggingDestructuringPolicyTemplate.TemplateId) != null)
+                            {
+                                lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
+                                    .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
+                                    .AddChainStatement("ReadFrom.Services(services)")
+                                    .AddChainStatement($"Destructure.With(new {programTemplate.GetBoundedLoggingDestructuringPolicyTemplateName()}())"));
+                            }
+                            else
+                            {
+                                lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
+                                    .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
+                                    .AddChainStatement("ReadFrom.Services(services)"));
+                            }
+                        });
+                }, 10);
+            }
         }
 
         private static void ConfigureProgramStructure(IApplication application)

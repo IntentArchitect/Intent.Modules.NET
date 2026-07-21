@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -47,12 +48,16 @@ namespace Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfi
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureApplicationSecurity", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
-            ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
-                .ToRegister("UseAuthentication")
-                .WithPriority(-10));
+
+            if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+            {
+                EmitOrPublish(ApplicationBuilderRegistrationRequest
+                    .ToRegister("UseAuthentication")
+                    .WithPriority(-10));
+            }
         }
 
         [IntentManaged(Mode.Fully)]

@@ -13,6 +13,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Helpers;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -33,15 +34,18 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dependencyInjectionTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
-            if (dependencyInjectionTemplate is null)
-            {
-                return;
-            }
-
             var dbContexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
-            ApplyApplicationSettings(dependencyInjectionTemplate, application, dbContexts);
-            ApplyConfigurationStatements(dependencyInjectionTemplate, dbContexts);
+            var dependencyInjectionTemplates = application.FindTemplateInstances<DbContextTemplate>(DbContextTemplate.TemplateId)
+                .Select(x => application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection, x.OutputTarget))
+                .Distinct()
+                .Where(x => x != null)
+                .ToArray();
+
+            foreach (var dependencyInjectionTemplate in dependencyInjectionTemplates)
+            {
+                ApplyApplicationSettings(dependencyInjectionTemplate, application, dbContexts);
+                ApplyConfigurationStatements(dependencyInjectionTemplate, dbContexts);
+            }
         }
 
         private static void ApplyApplicationSettings(ICSharpFileBuilderTemplate dependencyInjectionTemplate, IApplication application, IEnumerable<DbContextInstance> dbContexts)

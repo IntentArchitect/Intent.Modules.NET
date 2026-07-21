@@ -212,8 +212,8 @@
       </childElements>
     </childElement>
     <childElement id="2187c503-c744-4f7a-8afc-3f90a5d493f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.18.3-pre.0</name>
-      <display>3.18.3-pre.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>3.18.2</name>
+      <display>3.18.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

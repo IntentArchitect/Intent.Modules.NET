@@ -1,3 +1,7 @@
+### Version 3.6.3
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 3.6.2
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.

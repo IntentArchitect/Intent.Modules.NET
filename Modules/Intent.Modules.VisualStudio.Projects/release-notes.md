@@ -1,3 +1,7 @@
+### Version 4.1.5
+
+- Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 4.1.4
 
 - Improvement: Items manually added to `<NoWarn>` in the csproj will now be merged with items modelled in Intent Architect.

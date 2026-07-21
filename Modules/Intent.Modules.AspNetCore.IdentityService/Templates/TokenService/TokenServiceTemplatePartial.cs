@@ -37,11 +37,11 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.TokenService
                 .AddUsing("Microsoft.IdentityModel.Tokens")
                 .AddClass($"TokenService", @class =>
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Issuer", "https://localhost:{sts_port}"));
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Audience", "api"));
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:SigningKey", "aHHDYCTvyZVbdcGgaDvL+T6837pHCkciU0rLvUbE9a4="));
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:AuthTokenExpiryTimeSpan", "02:00:00"));
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:RefreshTokenExpiryTimeSpan", "3.00:00:00"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("JwtToken:Issuer", "https://localhost:{sts_port}"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("JwtToken:Audience", "api"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("JwtToken:SigningKey", "aHHDYCTvyZVbdcGgaDvL+T6837pHCkciU0rLvUbE9a4="));
+                    EmitOrPublish(new AppSettingRegistrationRequest("JwtToken:AuthTokenExpiryTimeSpan", "02:00:00"));
+                    EmitOrPublish(new AppSettingRegistrationRequest("JwtToken:RefreshTokenExpiryTimeSpan", "3.00:00:00"));
 
                     @class.ImplementsInterface(this.GetTokenServiceInterfaceName());
 

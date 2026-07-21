@@ -19,7 +19,7 @@ namespace Intent.Modules.QuartzScheduler
             NugetRegistry.Register(QuartzAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("3.18.3-pre.0")
+                        ( >= 10, >= 0) => new PackageVersion("3.18.2")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0")
                             .WithNugetDependency("Quartz.Extensions.Hosting", "3.18.2"),

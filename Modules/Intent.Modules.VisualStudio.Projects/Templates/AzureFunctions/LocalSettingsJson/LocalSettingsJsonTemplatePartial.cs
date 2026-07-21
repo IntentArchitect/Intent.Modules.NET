@@ -35,8 +35,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public LocalSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(Handle);
-            ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(Handle);
+            OnEmitOrPublished<AppSettingRegistrationRequest>(Handle);
+            OnEmitOrPublished<ConnectionStringRegistrationRequest>(Handle);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

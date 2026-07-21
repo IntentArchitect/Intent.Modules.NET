@@ -1,3 +1,7 @@
+### Version 6.1.5
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 6.1.4
 
 - Improvement: Updated module documentation to use centralized documentation site.

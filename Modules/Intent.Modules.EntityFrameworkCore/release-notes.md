@@ -1,3 +1,7 @@
+### Version 5.0.48
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 5.0.47
 
 - Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so EF-related guidance (data loading, unit of work, repository usage) is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.
