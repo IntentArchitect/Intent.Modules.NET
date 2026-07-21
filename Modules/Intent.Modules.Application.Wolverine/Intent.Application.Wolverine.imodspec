@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Wolverine</id>
-  <version>1.0.0-pre.5</version>
+  <version>1.0.0-pre.6</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</summary>
   <description>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</description>

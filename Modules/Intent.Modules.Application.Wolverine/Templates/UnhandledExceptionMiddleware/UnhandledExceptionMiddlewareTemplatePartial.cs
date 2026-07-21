@@ -41,6 +41,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddl
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
                         method.AddStatement("LogException(exception, envelope.Message, logger);");
+                        method.AddStatement("throw exception;");
                     });
 
                     @class.AddMethod("void", "LogException", method =>
