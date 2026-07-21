@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="325a1ae9-325d-42d9-bd86-e1d713ed2014" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>45c6cbe7-7df7-441d-b9d8-05a6f4f2a31d</parentFolderId>
+  <packageId>45c6cbe7-7df7-441d-b9d8-05a6f4f2a31d</packageId>
+  <packageName>WebAndWorker.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

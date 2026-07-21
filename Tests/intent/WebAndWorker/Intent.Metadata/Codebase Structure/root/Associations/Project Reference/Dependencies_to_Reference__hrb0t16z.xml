@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7b5dece3-6e39-432f-a466-2d5b89d33c92">
+  <sourceEnd id="73a6ab2d-82ca-4097-a43a-76bbd1d24b04" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+    <display>: Dependencies</display>
+    <order>0</order>
+    <typeReference id="1778dab5-d741-4376-842d-677566d4f455">
+      <typeId>6218ebc0-8d47-4e3a-b841-5a3d5e8a58e4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>root</typePackageName>
+      <typePackageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7b5dece3-6e39-432f-a466-2d5b89d33c92" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+    <name>Reference</name>
+    <display>Reference: WebAndWorker.Infrastructure</display>
+    <order>0</order>
+    <typeReference id="38927e67-4959-4d80-81bc-2c1e5743a799">
+      <typeId>3ba22042-4d75-4b5b-943b-a5917db687bc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>root</typePackageName>
+      <typePackageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Project Reference</associationType>
+  <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+  <stereotypes />
+</association>

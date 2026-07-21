@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="93ff6be7-6d31-436f-9a15-c6133571a42a">
+  <sourceEnd id="90ca3535-39d2-4673-bfc5-e40ef90ec7a2" type="Scheduled Command Publish Source End" typeId="cdc46a25-9f81-4ea8-9a5d-d9e9a283652b">
+    <display>publishes: WebAndWorker.Services.TestJob</display>
+    <order>0</order>
+    <typeReference id="9175d935-e864-4fe3-8828-ff9043aa9b54">
+      <typeId>ba07dde6-c3ec-43ae-bb2f-34cada1aaad0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WebAndWorker.Services</typePackageName>
+      <typePackageId>45c6cbe7-7df7-441d-b9d8-05a6f4f2a31d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="93ff6be7-6d31-436f-9a15-c6133571a42a" type="Scheduled Command Publish Target End" typeId="6c92ad1e-8353-4703-894f-12dc1db00acc">
+    <display>publishes: OnTestCommand</display>
+    <order>0</order>
+    <typeReference id="5a6a93a0-20b5-44fc-8c02-ccb030dd894c">
+      <typeId>38ab4197-32af-4f3b-a46f-5c55c05b4399</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WebAndWorker.Services</typePackageName>
+      <typePackageId>45c6cbe7-7df7-441d-b9d8-05a6f4f2a31d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>411881c2-8521-4d56-91a3-54bb48bce507</associationTypeId>
+  <stereotypes />
+</association>
