@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Wolverine</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</summary>
   <description>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</description>
@@ -130,6 +130,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Application.Wolverine.AITasksFactoryExtension" externalReference="88b405e8-e706-4633-b369-c2dbbfc4788b" />
     <factoryExtension id="Intent.Application.Wolverine.WolverineRegistrationFactoryExtension" externalReference="f6fee47f-5cd1-48b2-96f5-4f34ce653fa9" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>

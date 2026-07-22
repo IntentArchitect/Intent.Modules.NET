@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates.QueryHandlerSkill;
 using Intent.Modules.Application.Wolverine.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -60,10 +61,14 @@ namespace Intent.Modules.Application.Wolverine.Templates.QueryHandler
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile.GetConfig()
+                .WithAISummary("Wolverine Handler implementation for the " + Model.Name + " query.")
+                    .WithAIContext($"""
+                                   Use the `{QueryHandlerSkillTemplate.SkillName}` skill when modifying this handler.
+                                   """);
         }
 
         [IntentManaged(Mode.Fully)]

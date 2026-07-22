@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c92d8653-0047-4b7f-aa25-3c0b7dc89a79</correlationId>
+      <path>Intent.Modules.Application.Wolverine/Templates/CommandHandler/CommandHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-22T11:03:57.0240759Z</updatedAt>
+      <deviationsHash>7511EBD3CE69DBC2E7E5CEB7F46242DE60E9B01B261F647A670CAD58399B51EB</deviationsHash>
+      <fileHash>2813B2B84CC82DEA646CE4121B09DF6C9A0FD8F5211304061372E63859D3A23C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7a6337b1-83ee-4a9a-b3b7-e51a6a8d2263</correlationId>
+      <path>Intent.Modules.Application.Wolverine/Templates/QueryHandler/QueryHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-22T11:04:06.5562716Z</updatedAt>
+      <deviationsHash>DEBEC73C144F7540D53808ADED3C75AE5E88D39260FAEC7C319BB24D3EDF07F7</deviationsHash>
+      <fileHash>7AB14305E5F8B01559A9D51921D0CA7F494DA7D836D17008253520DCDD263817</fileHash>
+    </file>
+  </files>
 </deviationsLog>

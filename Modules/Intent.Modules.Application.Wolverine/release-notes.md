@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Improvement: Additional context for the AI around how to implement the handler for a Wolverine handler.
+
 ### Version 1.0.0
 
 - New Feature: Initial release of the Wolverine application module.
