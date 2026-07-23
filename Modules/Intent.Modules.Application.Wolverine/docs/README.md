@@ -101,6 +101,38 @@ public class ApplicationHandlerPolicy : IHandlerPolicy
 
 This module adds a reference to `WolverineFx` (version 5.39.5+) which supports .NET 8, 9, and 10.
 
+## Migrating from MediatR to Wolverine
+
+If your application currently uses MediatR, you can switch it to Wolverine. This is supported for **ASP.NET Core applications**, where the migration is straightforward.
+
+There are more MediatR modules than Wolverine modules, but this does **not** mean Wolverine lacks those capabilities — much of what MediatR splits across separate modules (dispatchers, CRUD, behaviours) is handled by the Wolverine core module or wired up automatically on install.
+
+### 1. Uninstall every MediatR module
+
+Remove all installed MediatR modules from the application, including the dispatchers, behaviours, domain events, dependency injection, CRUD, and FluentValidation:
+
+- `Intent.Application.MediatR`
+- `Intent.Application.DependencyInjection.MediatR`
+- `Intent.Application.MediatR.Behaviours`
+- `Intent.Application.MediatR.CRUD`
+- `Intent.Application.MediatR.FluentValidation`
+- `Intent.MediatR.DomainEvents`
+- `Intent.AspNetCore.Controllers.Dispatch.MediatR`
+- `Intent.FastEndpoints.Dispatch.MediatR` *(if installed)*
+- Any other `*.Dispatch.MediatR` module the application has installed
+
+### 2. Install the Wolverine core module
+
+Install `Intent.Application.Wolverine`. Once the MediatR modules have been uninstalled, installing the Wolverine core module automatically pulls in the relevant companion modules for you — the domain events, FluentValidation, and dispatch modules are added where relevant, based on what the application uses.
+
+The technology-agnostic `Intent.Application.CQRS.CRUD` module is shared by both stacks, so leave it installed.
+
+Once the MediatR modules are uninstalled and `Intent.Application.Wolverine` is installed, run the Software Factory to regenerate the application against Wolverine.
+
+> ⚠️ **Warning:** If you added any custom logic to the MediatR behaviours, it will **not** carry across the migration and will be lost. Migrate that logic manually into the corresponding Wolverine middleware (see the [Middleware Pipeline](#middleware-pipeline) section above) before removing the MediatR modules.
+
+Aside from the custom behaviour logic noted above, the migration is a safe drop-in replacement — everything else is handled automatically.
+
 ## Related Modules
 
 - [Intent.Application.Wolverine.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.FluentValidation/README.md) — adds FluentValidation validators for commands and queries.
