@@ -24,7 +24,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
             foreach (var model in models)
             {
                 var project = application.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new ServiceWorkerProgramTemplate(p));
+                registry.Register(TemplateId, project, p => new ServiceWorkerProgramTemplate(p, model));
             }
         }
     }

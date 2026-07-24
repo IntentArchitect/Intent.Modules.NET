@@ -17,7 +17,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
         private readonly IAppStartupFile _startupFile;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ServiceWorkerProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public ServiceWorkerProgramTemplate(IOutputTarget outputTarget, CSharpProjectNETModel model) : base(TemplateId, outputTarget, model)
         {
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
