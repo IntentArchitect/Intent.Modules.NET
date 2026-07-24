@@ -22,8 +22,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         public static string BuildRazorContent(RazorComponentTemplate template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                            IdentityHelperExtensions.GetIdentityUserClass(template) :
-                            "ApplicationUser";
+                IdentityHelperExtensions.GetIdentityUserClass(template) :
+                "ApplicationUser";
             var redirectManager = template.GetIdentityRedirectManagerTemplateName();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
@@ -31,6 +31,34 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 ? BuildMudBlazorContent(identityClass, redirectManager)
                 : BuildBootstrapContent(identityClass, redirectManager);
         }
+
+        public static string BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : BootstrapStyle;
+        }
+
+        private const string MudBlazorStyle = """
+            .external-login-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            }
+            """;
+
+        private const string BootstrapStyle = """
+            .form-horizontal {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            }
+
+            .form-horizontal p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            }
+            """;
 
         private static string BuildMudBlazorContent(string identityClass, string redirectManager)
         {
@@ -42,42 +70,34 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (externalLogins.Length == 0)
                 {
-                    <MudText Typo="Typo.body1">
-                        There are no external authentication services configured. See this <MudLink Href="https://go.microsoft.com/fwlink/?LinkID=532715" Typo="Typo.body1">article</MudLink> about setting up this ASP.NET application to support logging in via external services.
-                    </MudText>
+                <MudText Typo="Typo.body1">
+                There are no external authentication services configured. See this <MudLink Href="https://go.microsoft.com/fwlink/?LinkID=532715" Typo="Typo.body1">article</MudLink> about setting up this ASP.NET application to support logging in via external services.
+                </MudText>
                 }
                 else
                 {
-                    <form class="form-horizontal"
-                          action="Account/PerformExternalLogin"
-                          method="post">
-                        <AntiforgeryToken />
-                        <input type="hidden"
-                               name="ReturnUrl"
-                               value="@ReturnUrl" />
-                        <div class="external-login-buttons">
-                            @foreach (var provider in externalLogins)
-                            {
-                                <MudButton ButtonType="ButtonType.Submit"
-                                           Variant="Variant.Outlined"
-                                           Color="Color.Primary"
-                                           Name="provider"
-                                           Value="@provider.Name"
-                                           Title="@($"Log in using your {provider.DisplayName} account")">
-                                    @provider.DisplayName
-                                </MudButton>
-                            }
-                        </div>
-                    </form>
+                <form class="form-horizontal"
+                action="Account/PerformExternalLogin"
+                method="post">
+                <AntiforgeryToken />
+                <input type="hidden"
+                name="ReturnUrl"
+                value="@ReturnUrl" />
+                <div class="external-login-buttons">
+                @foreach (var provider in externalLogins)
+                {
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Outlined"
+                Color="Color.Primary"
+                Name="provider"
+                Value="@provider.Name"
+                Title="@($"Log in using your {provider.DisplayName} account")">
+                @provider.DisplayName
+                </MudButton>
                 }
-
-                <style>
-                    .external-login-buttons {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: var(--space-2);
-                    }
-                </style>
+                </div>
+                </form>
+                }
                 """;
         }
 
@@ -91,52 +111,38 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (externalLogins.Length == 0)
                 {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
+                <div>
+                <p>
+                There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                about setting up this ASP.NET application to support logging in via external services</a>.
+                </p>
+                </div>
                 }
                 else
                 {
-                    <form class="form-horizontal"
-                          action="Account/PerformExternalLogin"
-                          method="post">
-                        <div>
-                            <AntiforgeryToken />
-                            <input type="hidden"
-                                   name="ReturnUrl"
-                                   value="@ReturnUrl" />
-                            <p>
-                                @foreach (var provider in externalLogins)
-                                {
-                                    <button type="submit"
-                                            class="btn btn-primary"
-                                            name="provider"
-                                            value="@provider.Name"
-                                            title="Log in using your @provider.DisplayName account">
-                                        @provider.DisplayName
-                                    </button>
-                                }
-                            </p>
-                        </div>
-                    </form>
+                <form class="form-horizontal"
+                action="Account/PerformExternalLogin"
+                method="post">
+                <div>
+                <AntiforgeryToken />
+                <input type="hidden"
+                name="ReturnUrl"
+                value="@ReturnUrl" />
+                <p>
+                @foreach (var provider in externalLogins)
+                {
+                <button type="submit"
+                class="btn btn-primary"
+                name="provider"
+                value="@provider.Name"
+                title="Log in using your @provider.DisplayName account">
+                @provider.DisplayName
+                </button>
                 }
-
-                <style>
-                    .form-horizontal {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-3);
-                    }
-
-                    .form-horizontal p {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: var(--space-2);
-                    }
-                </style>
+                </p>
+                </div>
+                </form>
+                }
                 """;
         }
 

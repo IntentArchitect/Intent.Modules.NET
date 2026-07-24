@@ -31,6 +31,48 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass);
         }
 
+        public static string? BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? null : BootstrapStyle;
+        }
+
+        private const string BootstrapStyle = """
+            .nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            }
+
+            .nav ::deep .nav-link {
+            display: block;
+            padding: var(--space-2) var(--space-3);
+            color: var(--text-muted);
+            text-decoration: none;
+            border: var(--border-width) solid transparent;
+            border-radius: var(--radius-md);
+            transition: color var(--dur-med) var(--ease-out),
+            background-color var(--dur-med) var(--ease-out),
+            border-color var(--dur-med) var(--ease-out);
+            }
+
+            .nav ::deep .nav-link:hover {
+            color: var(--text);
+            background: var(--surface-2);
+            border-color: var(--border);
+            }
+
+            .nav ::deep .nav-link.active {
+            color: var(--primary);
+            font-weight: 500;
+            background: color-mix(in srgb, var(--primary) 12%, transparent);
+            border-color: transparent;
+            }
+            """;
+
         private static string BuildMudBlazorContent(string identityClass)
         {
             return $$"""
@@ -39,18 +81,18 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject SignInManager<{{identityClass}}> SignInManager
 
                 <MudNavMenu>
-                    <MudNavLink Href="Account/Manage"
-                                Match="NavLinkMatch.All">
-                        Profile
-                    </MudNavLink>
-                    <MudNavLink Href="Account/Manage/Email">Email</MudNavLink>
-                    <MudNavLink Href="Account/Manage/ChangePassword">Password</MudNavLink>
-                    @if (hasExternalLogins)
-                    {
-                        <MudNavLink Href="Account/Manage/ExternalLogins">External logins</MudNavLink>
-                    }
-                    <MudNavLink Href="Account/Manage/TwoFactorAuthentication">Two-factor authentication</MudNavLink>
-                    <MudNavLink Href="Account/Manage/PersonalData">Personal data</MudNavLink>
+                <MudNavLink Href="Account/Manage"
+                Match="NavLinkMatch.All">
+                Profile
+                </MudNavLink>
+                <MudNavLink Href="Account/Manage/Email">Email</MudNavLink>
+                <MudNavLink Href="Account/Manage/ChangePassword">Password</MudNavLink>
+                @if (hasExternalLogins)
+                {
+                <MudNavLink Href="Account/Manage/ExternalLogins">External logins</MudNavLink>
+                }
+                <MudNavLink Href="Account/Manage/TwoFactorAuthentication">Two-factor authentication</MudNavLink>
+                <MudNavLink Href="Account/Manage/PersonalData">Personal data</MudNavLink>
                 </MudNavMenu>
                 """;
         }
@@ -63,83 +105,47 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject SignInManager<{{identityClass}}> SignInManager
 
                 <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <NavLink class="nav-link"
-                                 href="Account/Manage"
-                                 Match="NavLinkMatch.All">
-                            Profile
-                        </NavLink>
-                    </li>
-                    <li class="nav-item">
-                        <NavLink class="nav-link"
-                                 href="Account/Manage/Email">
-                            Email
-                        </NavLink>
-                    </li>
-                    <li class="nav-item">
-                        <NavLink class="nav-link"
-                                 href="Account/Manage/ChangePassword">
-                            Password
-                        </NavLink>
-                    </li>
-                    @if (hasExternalLogins)
-                    {
-                        <li class="nav-item">
-                            <NavLink class="nav-link"
-                                     href="Account/Manage/ExternalLogins">
-                                External logins
-                            </NavLink>
-                        </li>
-                    }
-                    <li class="nav-item">
-                        <NavLink class="nav-link"
-                                 href="Account/Manage/TwoFactorAuthentication">
-                            Two-factor authentication
-                        </NavLink>
-                    </li>
-                    <li class="nav-item">
-                        <NavLink class="nav-link"
-                                 href="Account/Manage/PersonalData">
-                            Personal data
-                        </NavLink>
-                    </li>
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage"
+                Match="NavLinkMatch.All">
+                Profile
+                </NavLink>
+                </li>
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage/Email">
+                Email
+                </NavLink>
+                </li>
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage/ChangePassword">
+                Password
+                </NavLink>
+                </li>
+                @if (hasExternalLogins)
+                {
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage/ExternalLogins">
+                External logins
+                </NavLink>
+                </li>
+                }
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage/TwoFactorAuthentication">
+                Two-factor authentication
+                </NavLink>
+                </li>
+                <li class="nav-item">
+                <NavLink class="nav-link"
+                href="Account/Manage/PersonalData">
+                Personal data
+                </NavLink>
+                </li>
                 </ul>
-
-                <style>
-                    .nav {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-1);
-                        padding: 0;
-                        margin: 0;
-                        list-style: none;
-                    }
-
-                    .nav ::deep .nav-link {
-                        display: block;
-                        padding: var(--space-2) var(--space-3);
-                        color: var(--text-muted);
-                        text-decoration: none;
-                        border: var(--border-width) solid transparent;
-                        border-radius: var(--radius-md);
-                        transition: color var(--dur-med) var(--ease-out),
-                                    background-color var(--dur-med) var(--ease-out),
-                                    border-color var(--dur-med) var(--ease-out);
-                    }
-
-                    .nav ::deep .nav-link:hover {
-                        color: var(--text);
-                        background: var(--surface-2);
-                        border-color: var(--border);
-                    }
-
-                    .nav ::deep .nav-link.active {
-                        color: var(--primary);
-                        font-weight: 500;
-                        background: color-mix(in srgb, var(--primary) 12%, transparent);
-                        border-color: transparent;
-                    }
-                </style>
                 """;
         }
 

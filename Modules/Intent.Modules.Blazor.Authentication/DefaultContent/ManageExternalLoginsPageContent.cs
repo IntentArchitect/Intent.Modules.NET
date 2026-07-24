@@ -32,6 +32,34 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
+        public static string BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : BootstrapStyle;
+        }
+
+        private const string MudBlazorStyle = """
+            .external-login-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            }
+            """;
+
+        private const string BootstrapStyle = """
+            .form-horizontal {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            }
+
+            .form-horizontal p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            }
+            """;
+
         private static string BuildMudBlazorContent(string identityClass, string userAccessor, string redirectManager)
         {
             return $$"""
@@ -45,110 +73,102 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
-                    <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Link"
-                                 Class="mr-2" />
-                        External logins
-                    </MudText>
-                    <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
-                        Manage the external identity providers linked to your account.
-                    </MudText>
+                Elevation="0">
+                <MudText Typo="Typo.h4"
+                Class="text-white font-weight-bold mb-2">
+                <MudIcon Icon="@Icons.Material.Filled.Link"
+                Class="mr-2" />
+                External logins
+                </MudText>
+                <MudText Typo="Typo.body1"
+                Class="text-white opacity-90">
+                Manage the external identity providers linked to your account.
+                </MudText>
                 </MudPaper>
 
                 <StatusMessage />
                 @if (currentLogins?.Count > 0)
                 {
-                    <MudCard Class="ux-fade-in-up mb-4"
-                             Style="animation-delay: 0.1s"
-                             Outlined="true">
-                        <MudCardContent>
-                            <MudText Typo="Typo.h5"
-                                     Class="mb-3">
-                                Registered logins
-                            </MudText>
-                            <MudTable Items="currentLogins"
-                                      Hover="true"
-                                      Dense="true"
-                                      Class="mb-3">
-                                <HeaderContent>
-                                    <MudTh>Provider</MudTh>
-                                    <MudTh>Actions</MudTh>
-                                </HeaderContent>
-                                <RowTemplate>
-                                    <MudTd DataLabel="Provider">@context.ProviderDisplayName</MudTd>
-                                    <MudTd DataLabel="Actions">
-                                        @if (showRemoveButton)
-                                        {
-                                            <form @formname="@($"remove-login-{context.LoginProvider}")"
-                                                  @onsubmit="OnSubmitAsync"
-                                                  method="post">
-                                                <AntiforgeryToken />
-                                                <input type="hidden"
-                                                       name="@nameof(LoginProvider)"
-                                                       value="@context.LoginProvider" />
-                                                <input type="hidden"
-                                                       name="@nameof(ProviderKey)"
-                                                       value="@context.ProviderKey" />
-                                                <MudButton ButtonType="ButtonType.Submit"
-                                                           Variant="Variant.Outlined"
-                                                           Color="Color.Error"
-                                                           Size="Size.Small"
-                                                           Title="@($"Remove this {context.ProviderDisplayName} login from your account")">
-                                                    Remove
-                                                </MudButton>
-                                            </form>
-                                        }
-                                    </MudTd>
-                                </RowTemplate>
-                            </MudTable>
-                        </MudCardContent>
-                    </MudCard>
+                <MudCard Class="ux-fade-in-up mb-4"
+                Style="animation-delay: 0.1s"
+                Outlined="true">
+                <MudCardContent>
+                <MudText Typo="Typo.h5"
+                Class="mb-3">
+                Registered logins
+                </MudText>
+                <MudTable Items="currentLogins"
+                Hover="true"
+                Dense="true"
+                Class="mb-3">
+                <HeaderContent>
+                <MudTh>Provider</MudTh>
+                <MudTh>Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                <MudTd DataLabel="Provider">@context.ProviderDisplayName</MudTd>
+                <MudTd DataLabel="Actions">
+                @if (showRemoveButton)
+                {
+                <form @formname="@($"remove-login-{context.LoginProvider}")"
+                @onsubmit="OnSubmitAsync"
+                method="post">
+                <AntiforgeryToken />
+                <input type="hidden"
+                name="@nameof(LoginProvider)"
+                value="@context.LoginProvider" />
+                <input type="hidden"
+                name="@nameof(ProviderKey)"
+                value="@context.ProviderKey" />
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Outlined"
+                Color="Color.Error"
+                Size="Size.Small"
+                Title="@($"Remove this {context.ProviderDisplayName} login from your account")">
+                Remove
+                </MudButton>
+                </form>
+                }
+                </MudTd>
+                </RowTemplate>
+                </MudTable>
+                </MudCardContent>
+                </MudCard>
                 }
                 @if (otherLogins?.Count > 0)
                 {
-                    <MudCard Class="ux-fade-in-up"
-                             Style="animation-delay: 0.2s"
-                             Outlined="true">
-                        <MudCardContent>
-                            <MudText Typo="Typo.h6"
-                                     Class="mb-3">
-                                Add another service to log in
-                            </MudText>
-                            <MudText Typo="Typo.body2"
-                                     Class="mb-4">
-                                Connect another external provider for sign-in convenience.
-                            </MudText>
-                            <form action="Account/Manage/LinkExternalLogin"
-                                  method="post">
-                                <AntiforgeryToken />
-                                <div class="external-login-buttons">
-                                    @foreach (var provider in otherLogins)
-                                    {
-                                        <MudButton ButtonType="ButtonType.Submit"
-                                                   Variant="Variant.Outlined"
-                                                   Color="Color.Primary"
-                                                   Name="Provider"
-                                                   Value="@provider.Name"
-                                                   Title="@($"Log in using your {provider.DisplayName} account")">
-                                            @provider.DisplayName
-                                        </MudButton>
-                                    }
-                                </div>
-                            </form>
-                        </MudCardContent>
-                    </MudCard>
+                <MudCard Class="ux-fade-in-up"
+                Style="animation-delay: 0.2s"
+                Outlined="true">
+                <MudCardContent>
+                <MudText Typo="Typo.h6"
+                Class="mb-3">
+                Add another service to log in
+                </MudText>
+                <MudText Typo="Typo.body2"
+                Class="mb-4">
+                Connect another external provider for sign-in convenience.
+                </MudText>
+                <form action="Account/Manage/LinkExternalLogin"
+                method="post">
+                <AntiforgeryToken />
+                <div class="external-login-buttons">
+                @foreach (var provider in otherLogins)
+                {
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Outlined"
+                Color="Color.Primary"
+                Name="Provider"
+                Value="@provider.Name"
+                Title="@($"Log in using your {provider.DisplayName} account")">
+                @provider.DisplayName
+                </MudButton>
                 }
-
-                <style>
-                    .external-login-buttons {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: var(--space-2);
-                    }
-                </style>
+                </div>
+                </form>
+                </MudCardContent>
+                </MudCard>
+                }
                 """;
         }
 
@@ -167,78 +187,64 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <StatusMessage />
                 @if (currentLogins?.Count > 0)
                 {
-                    <h3>Registered logins</h3>
-                    <table class="table">
-                        <tbody>
-                            @foreach (var login in currentLogins)
-                            {
-                                <tr>
-                                    <td>@login.ProviderDisplayName</td>
-                                    <td>
-                                        @if (showRemoveButton)
-                                        {
-                                            <form @formname="@($"remove-login-{login.LoginProvider}")"
-                                                  @onsubmit="OnSubmitAsync"
-                                                  method="post">
-                                                <AntiforgeryToken />
-                                                <input type="hidden"
-                                                       name="@nameof(LoginProvider)"
-                                                       value="@login.LoginProvider" />
-                                                <input type="hidden"
-                                                       name="@nameof(ProviderKey)"
-                                                       value="@login.ProviderKey" />
-                                                <button type="submit"
-                                                        class="btn btn-danger"
-                                                        title="Remove this @login.ProviderDisplayName login from your account">
-                                                    <UxIcon Name="trash" /> Remove
-                                                </button>
-                                            </form>
-                                        }
-                                        else
-                                        {
-                                            @: &nbsp;
-                                        }
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                <h3>Registered logins</h3>
+                <table class="table">
+                <tbody>
+                @foreach (var login in currentLogins)
+                {
+                <tr>
+                <td>@login.ProviderDisplayName</td>
+                <td>
+                @if (showRemoveButton)
+                {
+                <form @formname="@($"remove-login-{login.LoginProvider}")"
+                @onsubmit="OnSubmitAsync"
+                method="post">
+                <AntiforgeryToken />
+                <input type="hidden"
+                name="@nameof(LoginProvider)"
+                value="@login.LoginProvider" />
+                <input type="hidden"
+                name="@nameof(ProviderKey)"
+                value="@login.ProviderKey" />
+                <button type="submit"
+                class="btn btn-danger"
+                title="Remove this @login.ProviderDisplayName login from your account">
+                <UxIcon Name="trash" /> Remove
+                </button>
+                </form>
+                }
+                else
+                {
+                @: &nbsp;
+                }
+                </td>
+                </tr>
+                }
+                </tbody>
+                </table>
                 }
                 @if (otherLogins?.Count > 0)
                 {
-                    <h4>Add another service to log in</h4>
-                    <form class="form-horizontal"
-                          action="Account/Manage/LinkExternalLogin"
-                          method="post">
-                        <AntiforgeryToken />
-                        <div class="ux-button-row">
-                            @foreach (var provider in otherLogins)
-                            {
-                                <button type="submit"
-                                        class="btn btn-primary"
-                                        name="Provider"
-                                        value="@provider.Name"
-                                        title="Log in using your @provider.DisplayName account">
-                                    @provider.DisplayName
-                                </button>
-                            }
-                        </div>
-                    </form>
+                <h4>Add another service to log in</h4>
+                <form class="form-horizontal"
+                action="Account/Manage/LinkExternalLogin"
+                method="post">
+                <AntiforgeryToken />
+                <div class="ux-button-row">
+                @foreach (var provider in otherLogins)
+                {
+                <button type="submit"
+                class="btn btn-primary"
+                name="Provider"
+                value="@provider.Name"
+                title="Log in using your @provider.DisplayName account">
+                @provider.DisplayName
+                </button>
                 }
-
-                <style>
-                    .form-horizontal {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-3);
-                    }
-
-                    .form-horizontal p {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: var(--space-2);
-                    }
-                </style>
+                </div>
+                </form>
+                }
                 """;
         }
 

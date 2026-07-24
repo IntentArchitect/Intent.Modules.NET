@@ -32,6 +32,43 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
+        public static string? BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : null;
+        }
+
+        private const string MudBlazorStyle = """
+            .auth-form-shell {
+            max-width: 720px;
+            box-shadow: var(--shadow-2);
+            border-radius: var(--radius-xl);
+            }
+
+            .auth-form-shell ::deep .mud-input-control-input-container,
+            .auth-form-shell ::deep .mud-input-slot {
+            background: var(--surface-2);
+            }
+
+            .auth-form-shell ::deep .mud-input-outlined-border {
+            border-color: var(--border);
+            }
+
+            .auth-form-shell ::deep .mud-input-label {
+            color: var(--text-muted);
+            }
+
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
+            border-color: var(--primary);
+            }
+
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
+            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+            border-radius: var(--radius-sm);
+            }
+            """;
+
         private static string BuildMudBlazorContent(string identityClass, string userAccessor, string redirectManager)
         {
             return $$"""
@@ -43,118 +80,87 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
-                    <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Password"
-                                 Class="mr-2" />
-                        Set password
-                    </MudText>
-                    <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
-                        Add a local password so you can sign in without an external provider.
-                    </MudText>
+                Elevation="0">
+                <MudText Typo="Typo.h4"
+                Class="text-white font-weight-bold mb-2">
+                <MudIcon Icon="@Icons.Material.Filled.Password"
+                Class="mr-2" />
+                Set password
+                </MudText>
+                <MudText Typo="Typo.body1"
+                Class="text-white opacity-90">
+                Add a local password so you can sign in without an external provider.
+                </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
                 <MudAlert Severity="Severity.Info"
-                          Class="mb-4">
-                    You do not have a local username/password for this site. Add a local
-                    account so you can log in without an external login.
+                Class="mb-4">
+                You do not have a local username/password for this site. Add a local
+                account so you can log in without an external login.
                 </MudAlert>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
-                    <MudCardContent>
-                        <EditForm Model="Input"
-                                  FormName="set-password"
-                                  OnValidSubmit="OnValidSubmitAsync"
-                                  method="post">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger"
-                                               role="alert" />
+                Style="animation-delay: 0.1s"
+                Outlined="true">
+                <MudCardContent>
+                <EditForm Model="Input"
+                FormName="set-password"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
 
-                            <MudGrid>
-                                <MudItem xs="12">
-                                    <MudText Typo="Typo.h5">Set your password</MudText>
-                                    <MudText Typo="Typo.body2"
-                                             Class="mb-4">
-                                        Choose a password for future sign-ins.
-                                    </MudText>
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <MudTextField T="string"
-                                                  @bind-Value="Input.NewPassword"
-                                                  Label="New password"
-                                                  Variant="Variant.Outlined"
-                                                  Adornment="Adornment.Start"
-                                                  AdornmentIcon="@Icons.Material.Filled.Lock"
-                                                  InputType="InputType.Password"
-                                                  Immediate="true"
-                                                  For="@(() => Input.NewPassword)" />
-                                    <ValidationMessage For="() => Input.NewPassword"
-                                                       class="text-danger" />
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <MudTextField T="string"
-                                                  @bind-Value="Input.ConfirmPassword"
-                                                  Label="Confirm password"
-                                                  Variant="Variant.Outlined"
-                                                  Adornment="Adornment.Start"
-                                                  AdornmentIcon="@Icons.Material.Filled.LockReset"
-                                                  InputType="InputType.Password"
-                                                  Immediate="true"
-                                                  For="@(() => Input.ConfirmPassword)" />
-                                    <ValidationMessage For="() => Input.ConfirmPassword"
-                                                       class="text-danger" />
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <MudStack Row="true"
-                                              Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit"
-                                                   Variant="Variant.Filled"
-                                                   Color="Color.Primary"
-                                                   StartIcon="@Icons.Material.Filled.Save">
-                                            Set password
-                                        </MudButton>
-                                    </MudStack>
-                                </MudItem>
-                            </MudGrid>
-                        </EditForm>
-                    </MudCardContent>
+                <MudGrid>
+                <MudItem xs="12">
+                <MudText Typo="Typo.h5">Set your password</MudText>
+                <MudText Typo="Typo.body2"
+                Class="mb-4">
+                Choose a password for future sign-ins.
+                </MudText>
+                </MudItem>
+                <MudItem xs="12">
+                <MudTextField T="string"
+                @bind-Value="Input.NewPassword"
+                Label="New password"
+                Variant="Variant.Outlined"
+                Adornment="Adornment.Start"
+                AdornmentIcon="@Icons.Material.Filled.Lock"
+                InputType="InputType.Password"
+                Immediate="true"
+                For="@(() => Input.NewPassword)" />
+                <ValidationMessage For="() => Input.NewPassword"
+                class="text-danger" />
+                </MudItem>
+                <MudItem xs="12">
+                <MudTextField T="string"
+                @bind-Value="Input.ConfirmPassword"
+                Label="Confirm password"
+                Variant="Variant.Outlined"
+                Adornment="Adornment.Start"
+                AdornmentIcon="@Icons.Material.Filled.LockReset"
+                InputType="InputType.Password"
+                Immediate="true"
+                For="@(() => Input.ConfirmPassword)" />
+                <ValidationMessage For="() => Input.ConfirmPassword"
+                class="text-danger" />
+                </MudItem>
+                <MudItem xs="12">
+                <MudStack Row="true"
+                Justify="Justify.FlexEnd">
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Filled"
+                Color="Color.Primary"
+                StartIcon="@Icons.Material.Filled.Save">
+                Set password
+                </MudButton>
+                </MudStack>
+                </MudItem>
+                </MudGrid>
+                </EditForm>
+                </MudCardContent>
                 </MudCard>
-
-                <style>
-                    .auth-form-shell {
-                        max-width: 720px;
-                        box-shadow: var(--shadow-2);
-                        border-radius: var(--radius-xl);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-control-input-container,
-                    .auth-form-shell ::deep .mud-input-slot {
-                        background: var(--surface-2);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-outlined-border {
-                        border-color: var(--border);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-label {
-                        color: var(--text-muted);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
-                        border-color: var(--primary);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
-                        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-                        border-radius: var(--radius-sm);
-                    }
-                </style>
                 """;
         }
 
@@ -171,45 +177,45 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <h3>Set your password</h3>
                 <StatusMessage Message="@message" />
                 <p class="ux-section-subtitle">
-                    You do not have a local username/password for this site. Add a local
-                    account so you can log in without an external login.
+                You do not have a local username/password for this site. Add a local
+                account so you can log in without an external login.
                 </p>
                 <EditForm Model="Input"
-                          FormName="set-password"
-                          OnValidSubmit="OnValidSubmitAsync"
-                          method="post">
-                    <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger"
-                                       role="alert" />
-                    <UxField Label="New password"
-                             Icon="lock"
-                             For="new-password">
-                        <InputText id="new-password"
-                                   type="password"
-                                   @bind-Value="Input.NewPassword"
-                                   class="ux-input"
-                                   autocomplete="new-password"
-                                   placeholder="Enter a new password" />
-                    </UxField>
-                    <ValidationMessage For="() => Input.NewPassword"
-                                       class="text-danger" />
-                    <UxField Label="Confirm password"
-                             Icon="lock"
-                             For="confirm-password">
-                        <InputText id="confirm-password"
-                                   type="password"
-                                   @bind-Value="Input.ConfirmPassword"
-                                   class="ux-input"
-                                   autocomplete="new-password"
-                                   placeholder="Confirm your new password" />
-                    </UxField>
-                    <ValidationMessage For="() => Input.ConfirmPassword"
-                                       class="text-danger" />
-                    <button type="submit"
-                            class="btn btn-primary">
-                        <UxIcon Name="lock" />
-                        Set password
-                    </button>
+                FormName="set-password"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
+                <UxField Label="New password"
+                Icon="lock"
+                For="new-password">
+                <InputText id="new-password"
+                type="password"
+                @bind-Value="Input.NewPassword"
+                class="ux-input"
+                autocomplete="new-password"
+                placeholder="Enter a new password" />
+                </UxField>
+                <ValidationMessage For="() => Input.NewPassword"
+                class="text-danger" />
+                <UxField Label="Confirm password"
+                Icon="lock"
+                For="confirm-password">
+                <InputText id="confirm-password"
+                type="password"
+                @bind-Value="Input.ConfirmPassword"
+                class="ux-input"
+                autocomplete="new-password"
+                placeholder="Confirm your new password" />
+                </UxField>
+                <ValidationMessage For="() => Input.ConfirmPassword"
+                class="text-danger" />
+                <button type="submit"
+                class="btn btn-primary">
+                <UxIcon Name="lock" />
+                Set password
+                </button>
                 </EditForm>
                 """;
         }

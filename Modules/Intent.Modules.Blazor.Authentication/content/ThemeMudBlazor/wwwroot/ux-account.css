@@ -52,19 +52,21 @@
 }
 
 /* ----------------------------------------------------------------------------
-   3. Single-card account pages: constrain to the shared 554px form width (matches
-      the non-MudBlazor app) and anchor the hero+card column to the upper third.
-      The base AccountLayout.razor.css caps the content at 1120px and centres it
-      horizontally; we narrow it and bias it down by 18vh (true vertical centring
-      left the short forms sitting too low). The .mud-layout .mud-main-content
-      ancestor chain outscores the scoped .account-layout-content rule so this
-      wins without !important.
+    3. Single-card account pages: constrain to the shared 554px form width (matches
+    the non-MudBlazor app) and anchor the hero+card column to the upper third.
+    MudMainContent is full-width, so with a max-width narrower than the viewport
+    the column needs its own horizontal centring (margin-inline: auto) — nothing
+    upstream provides it. We narrow it and bias it down by 18vh (true vertical
+    centring left the short forms sitting too low). The .mud-layout .mud-main-content
+    ancestor chain outscores the scoped .account-layout-content rule so this
+    wins without !important.
    ---------------------------------------------------------------------------- */
 .mud-layout .mud-main-content .account-layout-content {
     max-width: 554px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-inline: auto;
     padding-top: 18vh;
 }
 
@@ -79,13 +81,16 @@
 }
 
 /* ----------------------------------------------------------------------------
-   4. Two-column pages (Login, Register) keep the full width + side-by-side
-      columns. They are the only account pages whose content grid has TWO+
-      direct items, so :has() targets exactly them.
+4. Two-column pages (Login, Register) keep the full width + side-by-side
+columns. They are the only account pages whose content grid has TWO+
+direct items, so :has() targets exactly them. Same horizontal-centring
+need as rule 3 above — MudMainContent is full-width and this max-width
+leaves the column pinned left without margin-inline: auto.
    ---------------------------------------------------------------------------- */
 .mud-layout .mud-main-content .account-layout-content:has(> .mud-grid > .mud-grid-item + .mud-grid-item) {
     max-width: 1120px;
     display: block;
+    margin-inline: auto;
 }
 
 /* ----------------------------------------------------------------------------

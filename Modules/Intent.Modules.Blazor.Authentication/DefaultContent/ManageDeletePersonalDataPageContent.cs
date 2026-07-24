@@ -32,6 +32,43 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
+        public static string? BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : null;
+        }
+
+        private const string MudBlazorStyle = """
+            .auth-form-shell {
+            max-width: 720px;
+            box-shadow: var(--shadow-2);
+            border-radius: var(--radius-xl);
+            }
+
+            .auth-form-shell ::deep .mud-input-control-input-container,
+            .auth-form-shell ::deep .mud-input-slot {
+            background: var(--surface-2);
+            }
+
+            .auth-form-shell ::deep .mud-input-outlined-border {
+            border-color: var(--border);
+            }
+
+            .auth-form-shell ::deep .mud-input-label {
+            color: var(--text-muted);
+            }
+
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
+            border-color: var(--primary);
+            }
+
+            .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
+            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+            border-radius: var(--radius-sm);
+            }
+            """;
+
         private static string BuildMudBlazorContent(string identityClass, string userAccessor, string redirectManager)
         {
             return $$"""
@@ -44,108 +81,77 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<DeletePersonalData> Logger
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
-                    <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.DeleteForever"
-                                 Class="mr-2" />
-                        Delete personal data
-                    </MudText>
-                    <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
-                        Permanently remove your account and all associated personal data.
-                    </MudText>
+                Elevation="0">
+                <MudText Typo="Typo.h4"
+                Class="text-white font-weight-bold mb-2">
+                <MudIcon Icon="@Icons.Material.Filled.DeleteForever"
+                Class="mr-2" />
+                Delete personal data
+                </MudText>
+                <MudText Typo="Typo.body1"
+                Class="text-white opacity-90">
+                Permanently remove your account and all associated personal data.
+                </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
 
                 <MudAlert Severity="Severity.Warning"
-                          Class="mb-4">
-                    Deleting this data will permanently remove your account, and this cannot be recovered.
+                Class="mb-4">
+                Deleting this data will permanently remove your account, and this cannot be recovered.
                 </MudAlert>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
-                    <MudCardContent>
-                        <EditForm Model="Input"
-                                  FormName="delete-user"
-                                  OnValidSubmit="OnValidSubmitAsync"
-                                  method="post">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger"
-                                               role="alert" />
+                Style="animation-delay: 0.1s"
+                Outlined="true">
+                <MudCardContent>
+                <EditForm Model="Input"
+                FormName="delete-user"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
 
-                            <MudGrid>
-                                <MudItem xs="12">
-                                    <MudText Typo="Typo.h5">Confirm account deletion</MudText>
-                                    <MudText Typo="Typo.body2"
-                                             Class="mb-4">
-                                        Review this action carefully before continuing.
-                                    </MudText>
-                                </MudItem>
-                                @if (requirePassword)
-                                {
-                                    <MudItem xs="12">
-                                        <MudTextField T="string"
-                                                      @bind-Value="Input.Password"
-                                                      Label="Password"
-                                                      Variant="Variant.Outlined"
-                                                      Adornment="Adornment.Start"
-                                                      AdornmentIcon="@Icons.Material.Filled.Lock"
-                                                      InputType="InputType.Password"
-                                                      Immediate="true"
-                                                      For="@(() => Input.Password)" />
-                                        <ValidationMessage For="() => Input.Password"
-                                                           class="text-danger" />
-                                    </MudItem>
-                                }
-                                <MudItem xs="12">
-                                    <MudStack Row="true"
-                                              Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit"
-                                                   Variant="Variant.Filled"
-                                                   Color="Color.Error"
-                                                   StartIcon="@Icons.Material.Filled.DeleteForever">
-                                            Delete data and close my account
-                                        </MudButton>
-                                    </MudStack>
-                                </MudItem>
-                            </MudGrid>
-                        </EditForm>
-                    </MudCardContent>
+                <MudGrid>
+                <MudItem xs="12">
+                <MudText Typo="Typo.h5">Confirm account deletion</MudText>
+                <MudText Typo="Typo.body2"
+                Class="mb-4">
+                Review this action carefully before continuing.
+                </MudText>
+                </MudItem>
+                @if (requirePassword)
+                {
+                <MudItem xs="12">
+                <MudTextField T="string"
+                @bind-Value="Input.Password"
+                Label="Password"
+                Variant="Variant.Outlined"
+                Adornment="Adornment.Start"
+                AdornmentIcon="@Icons.Material.Filled.Lock"
+                InputType="InputType.Password"
+                Immediate="true"
+                For="@(() => Input.Password)" />
+                <ValidationMessage For="() => Input.Password"
+                class="text-danger" />
+                </MudItem>
+                }
+                <MudItem xs="12">
+                <MudStack Row="true"
+                Justify="Justify.FlexEnd">
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Filled"
+                Color="Color.Error"
+                StartIcon="@Icons.Material.Filled.DeleteForever">
+                Delete data and close my account
+                </MudButton>
+                </MudStack>
+                </MudItem>
+                </MudGrid>
+                </EditForm>
+                </MudCardContent>
                 </MudCard>
-
-                <style>
-                    .auth-form-shell {
-                        max-width: 720px;
-                        box-shadow: var(--shadow-2);
-                        border-radius: var(--radius-xl);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-control-input-container,
-                    .auth-form-shell ::deep .mud-input-slot {
-                        background: var(--surface-2);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-outlined-border {
-                        border-color: var(--border);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-label {
-                        color: var(--text-muted);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
-                        border-color: var(--primary);
-                    }
-
-                    .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
-                        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-                        border-radius: var(--radius-sm);
-                    }
-                </style>
                 """;
         }
 
@@ -163,46 +169,46 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <StatusMessage Message="@message" />
 
                 <div class="ux-section-head">
-                    <h3>Confirm account deletion</h3>
-                    <p class="ux-section-subtitle">Review this action carefully before continuing.</p>
+                <h3>Confirm account deletion</h3>
+                <p class="ux-section-subtitle">Review this action carefully before continuing.</p>
                 </div>
 
                 <div class="ux-callout ux-callout-warning"
-                     role="alert">
-                    <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
-                    <div class="ux-callout-body">
-                        <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-                    </div>
+                role="alert">
+                <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
+                <div class="ux-callout-body">
+                <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+                </div>
                 </div>
 
                 <EditForm Model="Input"
-                          FormName="delete-user"
-                          OnValidSubmit="OnValidSubmitAsync"
-                          method="post">
-                    <DataAnnotationsValidator />
-                    <ValidationSummary class="text-danger"
-                                       role="alert" />
-                    @if (requirePassword)
-                    {
-                        <UxField Label="Password"
-                                 Icon="lock"
-                                 For="password">
-                            <InputText id="password"
-                                       type="password"
-                                       @bind-Value="Input.Password"
-                                       class="ux-input"
-                                       autocomplete="current-password"
-                                       aria-required="true"
-                                       placeholder="Enter your password" />
-                        </UxField>
-                        <ValidationMessage For="() => Input.Password"
-                                           class="text-danger" />
-                    }
-                    <button class="btn btn-outline-danger"
-                            type="submit">
-                        <UxIcon Name="trash" />
-                        Delete data and close my account
-                    </button>
+                FormName="delete-user"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
+                @if (requirePassword)
+                {
+                <UxField Label="Password"
+                Icon="lock"
+                For="password">
+                <InputText id="password"
+                type="password"
+                @bind-Value="Input.Password"
+                class="ux-input"
+                autocomplete="current-password"
+                aria-required="true"
+                placeholder="Enter your password" />
+                </UxField>
+                <ValidationMessage For="() => Input.Password"
+                class="text-danger" />
+                }
+                <button class="btn btn-outline-danger"
+                type="submit">
+                <UxIcon Name="trash" />
+                Delete data and close my account
+                </button>
                 </EditForm>
                 """;
         }

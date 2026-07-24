@@ -1,0 +1,36 @@
+@* AppUserMenu — Auth project variant. Authentication module IS installed, so this is no longer the
+   NoAuth placeholder (a single "Add menu items" hint) — it's the real account dropdown: Profile,
+   My Account, and Logout. The <UserMenu><Trigger>/<ChildContent> shape is the same fixed scaffolding
+   used by the NoAuth default; only the ChildContent differs.
+
+   The Logout item MUST stay a <form method="post"> with <AntiforgeryToken/>, never an OnClick handler
+   or a client-side auth call — sign-out is a server-side POST that clears the auth cookie, and nothing
+   else observes it. Preserve this pattern exactly when editing this file (see Step 7 / Forbidden). *@
+
+<UserMenu>
+    <Trigger>
+        <MudIcon Icon="@Icons.Material.Filled.MoreVert" />
+    </Trigger>
+    <ChildContent>
+        <a class="ux-user-menu-item" href="Account/Login">
+            <MudIcon Icon="@Icons.Material.Filled.Person" Size="Size.Small" />
+            <span>Login</span>
+        </a>
+        <AuthorizeView>
+            <Authorized>
+                <a class="ux-user-menu-item" href="Account/Manage">
+                    <MudIcon Icon="@Icons.Material.Filled.ManageAccounts" Size="Size.Small" />
+                    <span>My Account</span>
+                </a>
+                <form class="ux-user-menu-logout-form" action="Account/Logout" method="post">
+                    <AntiforgeryToken />
+                    <input type="hidden" name="returnUrl" value="" />
+                    <button type="submit" class="ux-user-menu-item">
+                        <MudIcon Icon="@Icons.Material.Filled.Logout" Size="Size.Small" />
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </Authorized>
+        </AuthorizeView>
+    </ChildContent>
+</UserMenu>

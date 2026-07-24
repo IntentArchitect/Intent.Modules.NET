@@ -1,0 +1,28 @@
+@* AppHeader — Auth project variant. Two independent AuthorizeView decision points:
+   1. Any Header-placed nav item that carries its own authorization requirement (e.g. "Admin
+      Dashboard" below) — wrapped exactly like a gated Sider item, just using MudButton instead
+      of MudNavLink since MudAppBar is not a MudNavMenu.
+   2. The single, fixed user-menu slot — Authorized shows <AppUserMenu/>, NotAuthorized shows
+      Login/Register. This split is ALWAYS present in an Auth project's AppHeader regardless of
+      what the context says about other menu items — it is not something the context needs to
+      request, and it must not be removed. *@
+
+<MudAppBar>
+    <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                   Color="Color.Inherit"
+                   Edge="Edge.Start"
+                   OnClick="@(() => OnDrawerToggle.InvokeAsync())" />
+    <MudButton Href="/" Class="my-2 mr-2" Color="Color.Inherit">
+        <MudText Typo="Typo.h5">MyApp</MudText>
+    </MudButton>
+
+    <AuthorizeView Roles="Admin">
+        <Authorized>
+            <MudButton Href="/admin-dashboard" Color="Color.Inherit">Admin Dashboard</MudButton>
+        </Authorized>
+    </AuthorizeView>
+
+    <MudSpacer />
+    <ThemeToggle OnToggle="@(() => OnThemeToggle.InvokeAsync())" />
+    <MainLayoutProfile />
+</MudAppBar>

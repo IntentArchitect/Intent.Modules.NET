@@ -3,7 +3,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Components.MudBlazor.Templates.AppNav;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -90,23 +89,25 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             return;
         }
 
-        var appNav = _componentTemplate.ExecutionContext
-            .FindTemplateInstance<AppNavTemplate>(AppNavTemplate.TemplateId, layoutElement);
-        if (appNav == null)
-        {
-            return;
-        }
+        //var appNav = _componentTemplate.ExecutionContext
+        //    .FindTemplateInstance<AppNavTemplate>(AppNavTemplate.TemplateId, layoutElement);
+        //if (appNav == null)
+        //{
+        //    return;
+        //}
+
+        return;
 
         // Menu items which do not have a "Link-To" property set are excluded form the list
-        var menuEntries = navigationModel.MenuItems.Select(BuildNavItemExpression).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
-        // Items which just have a [navigate] association
-        var entries = AddNavigationItems(menuEntries, layoutElement, navigationModel);
+        //var menuEntries = navigationModel.MenuItems.Select(BuildNavItemExpression).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+        //// Items which just have a [navigate] association
+        //var entries = AddNavigationItems(menuEntries, layoutElement, navigationModel);
 
-        var initializer = entries.Count == 0
-            ? "[]"
-            : $"[\n            {string.Join(",\n            ", entries)}\n        ]";
+        //var initializer = entries.Count == 0
+        //    ? "[]"
+        //    : $"[\n            {string.Join(",\n            ", entries)}\n        ]";
 
-        appNav.SetNavItems(initializer);
+        //appNav.SetNavItems(initializer);
     }
 
     private string BuildNavItemExpression(MenuItemModel menuItemModel)

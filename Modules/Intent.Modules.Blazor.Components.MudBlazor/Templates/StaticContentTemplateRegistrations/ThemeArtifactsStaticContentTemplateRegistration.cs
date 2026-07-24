@@ -31,5 +31,11 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
             // NavLinks.razor.cs ships here and declares `namespace <#= Namespace #>Components.Layout`.
             { "Namespace", $"{outputTarget.GetNamespace()}." }
         };
+
+        [IntentIgnore]
+        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
+        {
+            return OverwriteBehaviour.OverwriteDisabled;
+        }
     }
 }

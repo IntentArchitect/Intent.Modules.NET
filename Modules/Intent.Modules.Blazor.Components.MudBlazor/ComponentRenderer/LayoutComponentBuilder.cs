@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Templates;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -50,72 +51,51 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
         if (layoutModel.Header != null)
         {
-            layoutHtml.AddHtmlElement("MudAppBar", appBar =>
+            layoutHtml.AddHtmlElement($"{layoutModel.Name}Header", header =>
             {
                 if (layoutModel.Sider != null)
                 {
-                    appBar.AddHtmlElement("MudIconButton", drawerToggle =>
+                    header.AddAttribute("OnDrawerToggle", "DrawerToggle");
+
+                    code.AddField("bool", "_drawerOpen", field => field.WithAssignment(new CSharpStatement("true")));
+                    code.AddMethod("void", "DrawerToggle", method =>
                     {
-                        drawerToggle.AddAttribute("Icon", "@Icons.Material.Filled.Menu");
-                        drawerToggle.AddAttribute("Color", "Color.Inherit");
-                        drawerToggle.AddAttribute("Edge", "Edge.Start");
-
-                        code.AddField("bool", "_drawerOpen", field => field.WithAssignment(new CSharpStatement("true")));
-                        code.AddMethod("void", "DrawerToggle", method =>
-                        {
-                            method.AddStatement("_drawerOpen = !_drawerOpen;");
-                        });
-
-                        drawerToggle.AddAttribute("OnClick", "@((e) => DrawerToggle())");
+                        method.AddStatement("_drawerOpen = !_drawerOpen;");
                     });
                 }
-                foreach (var child in layoutModel.Header.InternalElement.ChildElements)
+                if (enableThemeToggle)
                 {
-                    _componentResolver.BuildComponent(child, appBar);
+                    header.AddAttribute("OnThemeToggle", "ToggleTheme");
                 }
-
-                // User-menu slot — always appended last so it stays right of the spacer; the injected
-                // ThemeToggle (below) slots in just before it.
-                AddUserMenuSlot(appBar);
 
                 if (enableThemeToggle)
                 {
-                    var insertPosition = appBar.ChildNodes.Count - 1 < 0 ? 0 : appBar.ChildNodes.Count - 1;
-                    ConfigureThemeSelection(appBar, code, insertPosition);
+                    ConfigureThemeSelection(header, code);
                 }
             });
         }
-        //layoutHtml.AddHtmlElement("Layout", layoutHtml =>
-        //{
         if (layoutModel.Sider != null)
         {
-            layoutHtml.AddHtmlElement("MudDrawer", mudDrawer =>
+            layoutHtml.AddHtmlElement($"{layoutModel.Name}Sider", sider =>
             {
                 if (layoutModel.Header != null)
                 {
-                    mudDrawer.AddAttribute("@bind-Open", "_drawerOpen");
-                }
-
-                mudDrawer.AddAttribute("ClipMode", "DrawerClipMode.Always");
-                mudDrawer.AddAttribute("Elevation", "0");
-
-                foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
-                {
-                    _componentResolver.BuildComponent(child, mudDrawer);
+                    sider.AddAttribute("@bind-DrawerOpen", "_drawerOpen");
                 }
             });
         }
         layoutHtml.AddHtmlElement("MudMainContent", layoutContent =>
         {
             layoutContent.AddAttribute("Class", "mt-16 pa-4");
-
-            foreach (var child in layoutModel.Body.InternalElement.ChildElements)
-            {
-                _componentResolver.BuildComponent(child, layoutContent);
-            }
             layoutContent.WithText("@Body");
         });
-        //});
+
+        if (layoutModel.Footer != null)
+        {
+            layoutHtml.AddHtmlElement($"{layoutModel.Name}Footer", layoutContent =>
+            {
+            });
+        }
 
         return [layoutHtml];
 
@@ -131,15 +111,8 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         appBar.AddHtmlElement("AppUserMenu");
     }
 
-    private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code, int insertPosition)
+    private static void ConfigureThemeSelection(IHtmlElement appBar, IBuildsCSharpMembers code)
     {
-        // ThemeToggle wraps the native themeStorage.toggle() call so it is still usable on
-        // static SSR account pages, which ASP.NET Core Identity requires for auth cookies.
-        appBar.InsertHtmlElement(insertPosition, "ThemeToggle", themeToggle =>
-        {
-            themeToggle.AddAttribute("OnToggle", "ToggleTheme");
-        });
-
         var themeTemplate = code.File.Template.OutputTarget.FindTemplateInstance("Intent.Blazor.Templates.Common.ThemeServiceTemplate");
         // Really should never be null
         if (themeTemplate != null)

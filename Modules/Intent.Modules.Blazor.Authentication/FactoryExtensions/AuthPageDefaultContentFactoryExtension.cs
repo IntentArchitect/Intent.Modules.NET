@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.DefaultContent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentStyle;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
@@ -37,65 +38,65 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         // so every mode-specific id for the same page still maps to the same content builder below.
         // This mapping only needs to change if/when that in-content branching is split into separate
         // content builders per mode.
-        private static readonly Dictionary<string, (Func<RazorComponentTemplate, string> BuildRazorContent, Action<IBuildsCSharpMembers> BuildCodeBehind)> PageContentByPageId = new()
+        private static readonly Dictionary<string, (Func<RazorComponentTemplate, string> BuildRazorContent, Action<IBuildsCSharpMembers> BuildCodeBehind, Func<RazorComponentTemplate, string?>? BuildStyleContent)> PageContentByPageId = new()
         {
-            ["identity-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind),
-            ["jwt-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind),
-            ["oidc-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind),
-            ["identity-register"] = (RegisterPageContent.BuildRazorContent, RegisterPageContent.BuildCodeBehind),
-            ["jwt-register"] = (RegisterPageContent.BuildRazorContent, RegisterPageContent.BuildCodeBehind),
-            ["identity-forgot-password"] = (ForgotPasswordPageContent.BuildRazorContent, ForgotPasswordPageContent.BuildCodeBehind),
-            ["jwt-forgot-password"] = (ForgotPasswordPageContent.BuildRazorContent, ForgotPasswordPageContent.BuildCodeBehind),
-            ["identity-reset-password"] = (ResetPasswordPageContent.BuildRazorContent, ResetPasswordPageContent.BuildCodeBehind),
-            ["jwt-reset-password"] = (ResetPasswordPageContent.BuildRazorContent, ResetPasswordPageContent.BuildCodeBehind),
-            ["identity-confirm-email"] = (ConfirmEmailPageContent.BuildRazorContent, ConfirmEmailPageContent.BuildCodeBehind),
-            ["jwt-confirm-email"] = (ConfirmEmailPageContent.BuildRazorContent, ConfirmEmailPageContent.BuildCodeBehind),
-            ["identity-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind),
-            ["jwt-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind),
+            ["identity-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind, LoginPageContent.BuildStyleContent),
+            ["jwt-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind, LoginPageContent.BuildStyleContent),
+            ["oidc-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind, LoginPageContent.BuildStyleContent),
+            ["identity-register"] = (RegisterPageContent.BuildRazorContent, RegisterPageContent.BuildCodeBehind, RegisterPageContent.BuildStyleContent),
+            ["jwt-register"] = (RegisterPageContent.BuildRazorContent, RegisterPageContent.BuildCodeBehind, RegisterPageContent.BuildStyleContent),
+            ["identity-forgot-password"] = (ForgotPasswordPageContent.BuildRazorContent, ForgotPasswordPageContent.BuildCodeBehind, ForgotPasswordPageContent.BuildStyleContent),
+            ["jwt-forgot-password"] = (ForgotPasswordPageContent.BuildRazorContent, ForgotPasswordPageContent.BuildCodeBehind, ForgotPasswordPageContent.BuildStyleContent),
+            ["identity-reset-password"] = (ResetPasswordPageContent.BuildRazorContent, ResetPasswordPageContent.BuildCodeBehind, ResetPasswordPageContent.BuildStyleContent),
+            ["jwt-reset-password"] = (ResetPasswordPageContent.BuildRazorContent, ResetPasswordPageContent.BuildCodeBehind, ResetPasswordPageContent.BuildStyleContent),
+            ["identity-confirm-email"] = (ConfirmEmailPageContent.BuildRazorContent, ConfirmEmailPageContent.BuildCodeBehind, null),
+            ["jwt-confirm-email"] = (ConfirmEmailPageContent.BuildRazorContent, ConfirmEmailPageContent.BuildCodeBehind, null),
+            ["identity-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind, ResendEmailConfirmationPageContent.BuildStyleContent),
+            ["jwt-resend-email-confirmation"] = (ResendEmailConfirmationPageContent.BuildRazorContent, ResendEmailConfirmationPageContent.BuildCodeBehind, ResendEmailConfirmationPageContent.BuildStyleContent),
 
             // Informational/simple Account pages: the stereotype's page-tagging script only ever
             // creates these under ASP.NET Core Identity mode, so their page ids carry no mode prefix.
-            ["access-denied"] = (AccessDeniedPageContent.BuildRazorContent, AccessDeniedPageContent.BuildCodeBehind),
-            ["forgot-password-confirmation"] = (ForgotPasswordConfirmationPageContent.BuildRazorContent, ForgotPasswordConfirmationPageContent.BuildCodeBehind),
-            ["invalid-password-reset"] = (InvalidPasswordResetPageContent.BuildRazorContent, InvalidPasswordResetPageContent.BuildCodeBehind),
-            ["invalid-user"] = (InvalidUserPageContent.BuildRazorContent, InvalidUserPageContent.BuildCodeBehind),
-            ["lockout"] = (LockoutPageContent.BuildRazorContent, LockoutPageContent.BuildCodeBehind),
-            ["register-confirmation"] = (RegisterConfirmationPageContent.BuildRazorContent, RegisterConfirmationPageContent.BuildCodeBehind),
-            ["reset-password-confirmation"] = (ResetPasswordConfirmationPageContent.BuildRazorContent, ResetPasswordConfirmationPageContent.BuildCodeBehind),
+            ["access-denied"] = (AccessDeniedPageContent.BuildRazorContent, AccessDeniedPageContent.BuildCodeBehind, null),
+            ["forgot-password-confirmation"] = (ForgotPasswordConfirmationPageContent.BuildRazorContent, ForgotPasswordConfirmationPageContent.BuildCodeBehind, null),
+            ["invalid-password-reset"] = (InvalidPasswordResetPageContent.BuildRazorContent, InvalidPasswordResetPageContent.BuildCodeBehind, null),
+            ["invalid-user"] = (InvalidUserPageContent.BuildRazorContent, InvalidUserPageContent.BuildCodeBehind, null),
+            ["lockout"] = (LockoutPageContent.BuildRazorContent, LockoutPageContent.BuildCodeBehind, null),
+            ["register-confirmation"] = (RegisterConfirmationPageContent.BuildRazorContent, RegisterConfirmationPageContent.BuildCodeBehind, null),
+            ["reset-password-confirmation"] = (ResetPasswordConfirmationPageContent.BuildRazorContent, ResetPasswordConfirmationPageContent.BuildCodeBehind, null),
 
             // Auth-flow Account pages: also Identity-only, so no mode prefix on their page ids.
-            ["confirm-email-change"] = (ConfirmEmailChangePageContent.BuildRazorContent, ConfirmEmailChangePageContent.BuildCodeBehind),
-            ["external-login"] = (ExternalLoginPageContent.BuildRazorContent, ExternalLoginPageContent.BuildCodeBehind),
-            ["login-with-2fa"] = (LoginWith2faPageContent.BuildRazorContent, LoginWith2faPageContent.BuildCodeBehind),
-            ["login-with-recovery-code"] = (LoginWithRecoveryCodePageContent.BuildRazorContent, LoginWithRecoveryCodePageContent.BuildCodeBehind),
+            ["confirm-email-change"] = (ConfirmEmailChangePageContent.BuildRazorContent, ConfirmEmailChangePageContent.BuildCodeBehind, ConfirmEmailChangePageContent.BuildStyleContent),
+            ["external-login"] = (ExternalLoginPageContent.BuildRazorContent, ExternalLoginPageContent.BuildCodeBehind, ExternalLoginPageContent.BuildStyleContent),
+            ["login-with-2fa"] = (LoginWith2faPageContent.BuildRazorContent, LoginWith2faPageContent.BuildCodeBehind, LoginWith2faPageContent.BuildStyleContent),
+            ["login-with-recovery-code"] = (LoginWithRecoveryCodePageContent.BuildRazorContent, LoginWithRecoveryCodePageContent.BuildCodeBehind, LoginWithRecoveryCodePageContent.BuildStyleContent),
 
             // Manage/* Account pages: also Identity-only, so no mode prefix on their page ids.
-            ["manage"] = (ManageIndexPageContent.BuildRazorContent, ManageIndexPageContent.BuildCodeBehind),
-            ["manage-email"] = (ManageEmailPageContent.BuildRazorContent, ManageEmailPageContent.BuildCodeBehind),
-            ["manage-change-password"] = (ManageChangePasswordPageContent.BuildRazorContent, ManageChangePasswordPageContent.BuildCodeBehind),
-            ["manage-set-password"] = (ManageSetPasswordPageContent.BuildRazorContent, ManageSetPasswordPageContent.BuildCodeBehind),
-            ["manage-two-factor-authentication"] = (ManageTwoFactorAuthenticationPageContent.BuildRazorContent, ManageTwoFactorAuthenticationPageContent.BuildCodeBehind),
-            ["manage-disable-2fa"] = (ManageDisable2faPageContent.BuildRazorContent, ManageDisable2faPageContent.BuildCodeBehind),
-            ["manage-enable-authenticator"] = (ManageEnableAuthenticatorPageContent.BuildRazorContent, ManageEnableAuthenticatorPageContent.BuildCodeBehind),
-            ["manage-reset-authenticator"] = (ManageResetAuthenticatorPageContent.BuildRazorContent, ManageResetAuthenticatorPageContent.BuildCodeBehind),
-            ["manage-generate-recovery-codes"] = (ManageGenerateRecoveryCodesPageContent.BuildRazorContent, ManageGenerateRecoveryCodesPageContent.BuildCodeBehind),
-            ["manage-personal-data"] = (ManagePersonalDataPageContent.BuildRazorContent, ManagePersonalDataPageContent.BuildCodeBehind),
-            ["manage-delete-personal-data"] = (ManageDeletePersonalDataPageContent.BuildRazorContent, ManageDeletePersonalDataPageContent.BuildCodeBehind),
-            ["manage-external-logins"] = (ManageExternalLoginsPageContent.BuildRazorContent, ManageExternalLoginsPageContent.BuildCodeBehind),
+            ["manage"] = (ManageIndexPageContent.BuildRazorContent, ManageIndexPageContent.BuildCodeBehind, ManageIndexPageContent.BuildStyleContent),
+            ["manage-email"] = (ManageEmailPageContent.BuildRazorContent, ManageEmailPageContent.BuildCodeBehind, ManageEmailPageContent.BuildStyleContent),
+            ["manage-change-password"] = (ManageChangePasswordPageContent.BuildRazorContent, ManageChangePasswordPageContent.BuildCodeBehind, ManageChangePasswordPageContent.BuildStyleContent),
+            ["manage-set-password"] = (ManageSetPasswordPageContent.BuildRazorContent, ManageSetPasswordPageContent.BuildCodeBehind, ManageSetPasswordPageContent.BuildStyleContent),
+            ["manage-two-factor-authentication"] = (ManageTwoFactorAuthenticationPageContent.BuildRazorContent, ManageTwoFactorAuthenticationPageContent.BuildCodeBehind, ManageTwoFactorAuthenticationPageContent.BuildStyleContent),
+            ["manage-disable-2fa"] = (ManageDisable2faPageContent.BuildRazorContent, ManageDisable2faPageContent.BuildCodeBehind, ManageDisable2faPageContent.BuildStyleContent),
+            ["manage-enable-authenticator"] = (ManageEnableAuthenticatorPageContent.BuildRazorContent, ManageEnableAuthenticatorPageContent.BuildCodeBehind, ManageEnableAuthenticatorPageContent.BuildStyleContent),
+            ["manage-reset-authenticator"] = (ManageResetAuthenticatorPageContent.BuildRazorContent, ManageResetAuthenticatorPageContent.BuildCodeBehind, ManageResetAuthenticatorPageContent.BuildStyleContent),
+            ["manage-generate-recovery-codes"] = (ManageGenerateRecoveryCodesPageContent.BuildRazorContent, ManageGenerateRecoveryCodesPageContent.BuildCodeBehind, ManageGenerateRecoveryCodesPageContent.BuildStyleContent),
+            ["manage-personal-data"] = (ManagePersonalDataPageContent.BuildRazorContent, ManagePersonalDataPageContent.BuildCodeBehind, ManagePersonalDataPageContent.BuildStyleContent),
+            ["manage-delete-personal-data"] = (ManageDeletePersonalDataPageContent.BuildRazorContent, ManageDeletePersonalDataPageContent.BuildCodeBehind, ManageDeletePersonalDataPageContent.BuildStyleContent),
+            ["manage-external-logins"] = (ManageExternalLoginsPageContent.BuildRazorContent, ManageExternalLoginsPageContent.BuildCodeBehind, ManageExternalLoginsPageContent.BuildStyleContent),
 
             // Shared (non-Page) components: tagged by the stereotype's shared() helper, so they carry
             // no Page stereotype and RazorComponentTemplate skips the @page/<PageTitle> injection for
             // them. "account-layout" remains on its dedicated template pair, but now follows the same
             // default-content builder pattern as these component seeds.
-            ["status-message"] = (StatusMessageContent.BuildRazorContent, StatusMessageContent.BuildCodeBehind),
+            ["status-message"] = (StatusMessageContent.BuildRazorContent, StatusMessageContent.BuildCodeBehind, null),
 
-            ["manage-nav-menu"] = (ManageNavMenuContent.BuildRazorContent, ManageNavMenuContent.BuildCodeBehind),
-            ["external-login-picker"] = (ExternalLoginPickerContent.BuildRazorContent, ExternalLoginPickerContent.BuildCodeBehind),
-            ["show-recovery-codes"] = (ShowRecoveryCodesContent.BuildRazorContent, ShowRecoveryCodesContent.BuildCodeBehind),
-            ["app-user-menu"] = (AppUserMenuContent.BuildRazorContent, AppUserMenuContent.BuildCodeBehind),
-            ["account-hero"] = (AccountHeroContent.BuildRazorContent, AccountHeroContent.BuildCodeBehind),
-            ["ux-field"] = (UxFieldContent.BuildRazorContent, UxFieldContent.BuildCodeBehind),
-            ["ux-icon"] = (UxIconContent.BuildRazorContent, UxIconContent.BuildCodeBehind),
+            ["manage-nav-menu"] = (ManageNavMenuContent.BuildRazorContent, ManageNavMenuContent.BuildCodeBehind, ManageNavMenuContent.BuildStyleContent),
+            ["external-login-picker"] = (ExternalLoginPickerContent.BuildRazorContent, ExternalLoginPickerContent.BuildCodeBehind, ExternalLoginPickerContent.BuildStyleContent),
+            ["show-recovery-codes"] = (ShowRecoveryCodesContent.BuildRazorContent, ShowRecoveryCodesContent.BuildCodeBehind, ShowRecoveryCodesContent.BuildStyleContent),
+            ["app-user-menu"] = (AppUserMenuContent.BuildRazorContent, AppUserMenuContent.BuildCodeBehind, AppUserMenuContent.BuildStyleContent),
+            ["account-hero"] = (AccountHeroContent.BuildRazorContent, AccountHeroContent.BuildCodeBehind, null),
+            ["ux-field"] = (UxFieldContent.BuildRazorContent, UxFieldContent.BuildCodeBehind, null),
+            ["ux-icon"] = (UxIconContent.BuildRazorContent, UxIconContent.BuildCodeBehind, null),
         };
 
         public override string Id => "Intent.Blazor.Authentication.AuthPageDefaultContentFactoryExtension";
@@ -107,6 +108,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         {
             var pageTemplates = application.FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId).ToList();
             var codeBehindTemplates = application.FindTemplateInstances<RazorComponentCodeBehindTemplate>(RazorComponentCodeBehindTemplate.TemplateId).ToList();
+            var styleTemplates = application.FindTemplateInstances<RazorComponentStyleTemplate>(RazorComponentStyleTemplate.TemplateId).ToList();
 
             foreach (var pageTemplate in pageTemplates)
             {
@@ -124,6 +126,20 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     x => x.Model.InternalElement.Id == pageTemplate.Model.InternalElement.Id);
 
                 codeBehindTemplate?.CSharpFile.AfterBuild(file => content.BuildCodeBehind(file.Classes.Single()), ExtensionPriority);
+
+                if (content.BuildStyleContent is null)
+                {
+                    continue;
+                }
+
+                var styleTemplate = styleTemplates.FirstOrDefault(
+                    x => x.Model.InternalElement.Id == pageTemplate.Model.InternalElement.Id);
+
+                var styleContent = content.BuildStyleContent(pageTemplate);
+                if (styleTemplate is not null && !string.IsNullOrEmpty(styleContent))
+                {
+                    styleTemplate.StyleContentOverride = styleContent;
+                }
             }
         }
     }

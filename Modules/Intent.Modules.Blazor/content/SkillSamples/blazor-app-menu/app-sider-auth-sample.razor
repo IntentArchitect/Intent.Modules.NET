@@ -1,0 +1,26 @@
+@* AppSider — Auth project variant. Authentication module IS installed, so CascadingAuthenticationState
+   is registered app-wide and AuthorizeView is safe to use. Only items whose context carries an
+   authorization requirement get wrapped — everything else stays a plain, unwrapped MudNavLink.
+
+   This mirrors the exact context example this skill was written against:
+   - "a navigation link to the product list page with route '/product-list'" -> no requirement -> plain link
+   - "a navigation link to the order list page with route '/order-list' which requires roles
+      'Admin' or 'Write'" -> Roles-gated -> wrapped in AuthorizeView, Authorized-only, no NotAuthorized
+      fragment (the item simply doesn't render for a user who doesn't qualify). *@
+
+<MudDrawer Open="DrawerOpen"
+           OpenChanged="DrawerOpenChanged"
+           ClipMode="DrawerClipMode.Always"
+           Elevation="0">
+    <MudNavMenu>
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+
+        <MudNavLink Href="/product-list" Icon="@Icons.Material.Filled.Inventory2">Product List</MudNavLink>
+
+        <AuthorizeView Roles="Admin,Write">
+            <Authorized>
+                <MudNavLink Href="/order-list" Icon="@Icons.Material.Filled.ListAlt">Order List</MudNavLink>
+            </Authorized>
+        </AuthorizeView>
+    </MudNavMenu>
+</MudDrawer>

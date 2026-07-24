@@ -33,6 +33,61 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(authService, redirectManager, authServiceInterfaceBuilder.Namespace ?? "");
         }
 
+        public static string? BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : null;
+        }
+
+        private const string MudBlazorStyle = """
+            .reset-password-input-field {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            }
+
+            .reset-password-input-label {
+            color: var(--text);
+            font-size: var(--type-label-lg);
+            font-weight: 500;
+            }
+
+            .reset-password-input-shell {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            min-height: 44px;
+            padding: 0 0.875rem;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-1);
+            }
+
+            .reset-password-input-shell:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+            }
+
+            .reset-password-input-icon {
+            color: var(--text-muted);
+            flex-shrink: 0;
+            }
+
+            .reset-password-input-control {
+            width: 100%;
+            min-height: 42px;
+            color: var(--text);
+            background: transparent;
+            border: none;
+            outline: none;
+            }
+
+            .reset-password-input-control::placeholder {
+            color: var(--text-muted);
+            }
+            """;
+
         private static string BuildMudBlazorContent(string authService, string redirectManager, string authServiceNamespace)
         {
             return $$"""
@@ -41,185 +96,136 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
-                    <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Password"
-                                 Class="mr-2" />
-                        Reset password
-                    </MudText>
-                    <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
-                        Enter your email address and choose a new password.
-                    </MudText>
+                Elevation="0">
+                <MudText Typo="Typo.h4"
+                Class="text-white font-weight-bold mb-2">
+                <MudIcon Icon="@Icons.Material.Filled.Password"
+                Class="mr-2" />
+                Reset password
+                </MudText>
+                <MudText Typo="Typo.body1"
+                Class="text-white opacity-90">
+                Enter your email address and choose a new password.
+                </MudText>
                 </MudPaper>
 
                 <MudGrid Spacing="3">
-                    <MudItem xs="12"
-                             md="7"
-                             lg="6">
-                        <MudCard Class="ux-fade-in-up"
-                                 Style="animation-delay: 0.1s">
-                            <MudCardContent>
-                                <StatusMessage Message="@Message" />
-                                <EditForm Model="Input"
-                                          FormName="reset-password"
-                                          OnValidSubmit="OnValidSubmitAsync"
-                                          method="post">
-                                    <DataAnnotationsValidator />
-                                    <MudGrid>
-                                        <MudItem xs="12">
-                                            <MudText Typo="Typo.h5">Reset your password</MudText>
-                                            <MudText Typo="Typo.body2"
-                                                     Class="mb-2">
-                                                Enter your email address and your new password below.
-                                            </MudText>
-                                            <ValidationSummary class="text-danger"
-                                                               role="alert" />
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <div class="reset-password-input-field">
-                                                <label class="reset-password-input-label"
-                                                       for="email">
-                                                    Email
-                                                </label>
-                                                <div class="reset-password-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.Email"
-                                                             Class="reset-password-input-icon" />
-                                                    <InputText id="email"
-                                                               class="reset-password-input-control"
-                                                               @bind-Value="Input.Email"
-                                                               autocomplete="username"
-                                                               aria-required="true"
-                                                               placeholder="name@example.com"
-                                                               type="email" />
-                                                </div>
-                                                <ValidationMessage class="text-danger"
-                                                                   For="() => Input.Email" />
-                                            </div>
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <div class="reset-password-input-field">
-                                                <label class="reset-password-input-label"
-                                                       for="password">
-                                                    Password
-                                                </label>
-                                                <div class="reset-password-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.Lock"
-                                                             Class="reset-password-input-icon" />
-                                                    <InputText id="password"
-                                                               class="reset-password-input-control"
-                                                               @bind-Value="Input.Password"
-                                                               autocomplete="new-password"
-                                                               aria-required="true"
-                                                               placeholder="Enter your new password"
-                                                               type="password" />
-                                                </div>
-                                                <ValidationMessage class="text-danger"
-                                                                   For="() => Input.Password" />
-                                            </div>
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <div class="reset-password-input-field">
-                                                <label class="reset-password-input-label"
-                                                       for="confirm-password">
-                                                    Confirm password
-                                                </label>
-                                                <div class="reset-password-input-shell">
-                                                    <MudIcon Icon="@Icons.Material.Filled.LockReset"
-                                                             Class="reset-password-input-icon" />
-                                                    <InputText id="confirm-password"
-                                                               class="reset-password-input-control"
-                                                               @bind-Value="Input.ConfirmPassword"
-                                                               autocomplete="new-password"
-                                                               aria-required="true"
-                                                               placeholder="Confirm your new password"
-                                                               type="password" />
-                                                </div>
-                                                <ValidationMessage class="text-danger"
-                                                                   For="() => Input.ConfirmPassword" />
-                                            </div>
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <InputText id="code"
-                                                       class="d-none"
-                                                       @bind-Value="Input.Code"
-                                                       type="hidden" />
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <MudStack Row="true"
-                                                      Spacing="2"
-                                                      Justify="Justify.FlexEnd"
-                                                      AlignItems="AlignItems.Center">
-                                                <MudButton ButtonType="ButtonType.Submit"
-                                                           Color="Color.Primary"
-                                                           Variant="Variant.Filled"
-                                                           FullWidth="true"
-                                                           StartIcon="@Icons.Material.Filled.SaveAs">
-                                                    Reset password
-                                                </MudButton>
-                                            </MudStack>
-                                        </MudItem>
-                                        <MudItem xs="12">
-                                            <MudStack Spacing="1">
-                                                <MudLink Href="Account/Login">Back to log in</MudLink>
-                                            </MudStack>
-                                        </MudItem>
-                                    </MudGrid>
-                                </EditForm>
-                            </MudCardContent>
-                        </MudCard>
-                    </MudItem>
+                <MudItem xs="12"
+                md="7"
+                lg="6">
+                <MudCard Class="ux-fade-in-up"
+                Style="animation-delay: 0.1s">
+                <MudCardContent>
+                <StatusMessage Message="@Message" />
+                <EditForm Model="Input"
+                FormName="reset-password"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <MudGrid>
+                <MudItem xs="12">
+                <MudText Typo="Typo.h5">Reset your password</MudText>
+                <MudText Typo="Typo.body2"
+                Class="mb-2">
+                Enter your email address and your new password below.
+                </MudText>
+                <ValidationSummary class="text-danger"
+                role="alert" />
+                </MudItem>
+                <MudItem xs="12">
+                <div class="reset-password-input-field">
+                <label class="reset-password-input-label"
+                for="email">
+                Email
+                </label>
+                <div class="reset-password-input-shell">
+                <MudIcon Icon="@Icons.Material.Filled.Email"
+                Class="reset-password-input-icon" />
+                <InputText id="email"
+                class="reset-password-input-control"
+                @bind-Value="Input.Email"
+                autocomplete="username"
+                aria-required="true"
+                placeholder="name@example.com"
+                type="email" />
+                </div>
+                <ValidationMessage class="text-danger"
+                For="() => Input.Email" />
+                </div>
+                </MudItem>
+                <MudItem xs="12">
+                <div class="reset-password-input-field">
+                <label class="reset-password-input-label"
+                for="password">
+                Password
+                </label>
+                <div class="reset-password-input-shell">
+                <MudIcon Icon="@Icons.Material.Filled.Lock"
+                Class="reset-password-input-icon" />
+                <InputText id="password"
+                class="reset-password-input-control"
+                @bind-Value="Input.Password"
+                autocomplete="new-password"
+                aria-required="true"
+                placeholder="Enter your new password"
+                type="password" />
+                </div>
+                <ValidationMessage class="text-danger"
+                For="() => Input.Password" />
+                </div>
+                </MudItem>
+                <MudItem xs="12">
+                <div class="reset-password-input-field">
+                <label class="reset-password-input-label"
+                for="confirm-password">
+                Confirm password
+                </label>
+                <div class="reset-password-input-shell">
+                <MudIcon Icon="@Icons.Material.Filled.LockReset"
+                Class="reset-password-input-icon" />
+                <InputText id="confirm-password"
+                class="reset-password-input-control"
+                @bind-Value="Input.ConfirmPassword"
+                autocomplete="new-password"
+                aria-required="true"
+                placeholder="Confirm your new password"
+                type="password" />
+                </div>
+                <ValidationMessage class="text-danger"
+                For="() => Input.ConfirmPassword" />
+                </div>
+                </MudItem>
+                <MudItem xs="12">
+                <InputText id="code"
+                class="d-none"
+                @bind-Value="Input.Code"
+                type="hidden" />
+                </MudItem>
+                <MudItem xs="12">
+                <MudStack Row="true"
+                Spacing="2"
+                Justify="Justify.FlexEnd"
+                AlignItems="AlignItems.Center">
+                <MudButton ButtonType="ButtonType.Submit"
+                Color="Color.Primary"
+                Variant="Variant.Filled"
+                FullWidth="true"
+                StartIcon="@Icons.Material.Filled.SaveAs">
+                Reset password
+                </MudButton>
+                </MudStack>
+                </MudItem>
+                <MudItem xs="12">
+                <MudStack Spacing="1">
+                <MudLink Href="Account/Login">Back to log in</MudLink>
+                </MudStack>
+                </MudItem>
                 </MudGrid>
-
-                <style>
-                    .reset-password-input-field {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-2);
-                    }
-
-                    .reset-password-input-label {
-                        color: var(--text);
-                        font-size: var(--type-label-lg);
-                        font-weight: 500;
-                    }
-
-                    .reset-password-input-shell {
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-2);
-                        min-height: 44px;
-                        padding: 0 0.875rem;
-                        background: var(--surface-2);
-                        border: 1px solid var(--border);
-                        border-radius: var(--radius-sm);
-                        box-shadow: var(--shadow-1);
-                    }
-
-                    .reset-password-input-shell:focus-within {
-                        border-color: var(--primary);
-                        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-                    }
-
-                    .reset-password-input-icon {
-                        color: var(--text-muted);
-                        flex-shrink: 0;
-                    }
-
-                    .reset-password-input-control {
-                        width: 100%;
-                        min-height: 42px;
-                        color: var(--text);
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .reset-password-input-control::placeholder {
-                        color: var(--text-muted);
-                    }
-                </style>
+                </EditForm>
+                </MudCardContent>
+                </MudCard>
+                </MudItem>
+                </MudGrid>
                 """;
         }
 
@@ -231,63 +237,63 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <AccountHero Icon="lock"
-                             Title="Reset your password"
-                             Subtitle="Choose a new password for your account." />
+                Title="Reset your password"
+                Subtitle="Choose a new password for your account." />
 
                 <div class="ux-form-narrow">
-                    <section>
-                        <EditForm Model="Input"
-                                  FormName="reset-password"
-                                  OnValidSubmit="OnValidSubmitAsync"
-                                  method="post">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger"
-                                               role="alert" />
-                            <UxField Label="Email"
-                                     Icon="mail"
-                                     For="email">
-                                <InputText id="email"
-                                           class="ux-input"
-                                           @bind-Value="Input.Email"
-                                           autocomplete="username"
-                                           aria-required="true"
-                                           placeholder="name@example.com" />
-                            </UxField>
-                            <ValidationMessage class="text-danger"
-                                               For="() => Input.Email" />
-                            <UxField Label="Password"
-                                     Icon="lock"
-                                     For="password">
-                                <InputText id="password"
-                                           class="ux-input"
-                                           type="password"
-                                           @bind-Value="Input.Password"
-                                           autocomplete="new-password"
-                                           aria-required="true"
-                                           placeholder="Enter your new password" />
-                            </UxField>
-                            <ValidationMessage class="text-danger"
-                                               For="() => Input.Password" />
-                            <UxField Label="Confirm password"
-                                     Icon="lock"
-                                     For="confirm-password">
-                                <InputText id="confirm-password"
-                                           class="ux-input"
-                                           type="password"
-                                           @bind-Value="Input.ConfirmPassword"
-                                           autocomplete="new-password"
-                                           aria-required="true"
-                                           placeholder="Confirm your new password" />
-                            </UxField>
-                            <ValidationMessage class="text-danger"
-                                               For="() => Input.ConfirmPassword" />
-                            <button class="w-100 btn btn-primary"
-                                    type="submit">
-                                <UxIcon Name="lock" />
-                                Reset password
-                            </button>
-                        </EditForm>
-                    </section>
+                <section>
+                <EditForm Model="Input"
+                FormName="reset-password"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
+                <UxField Label="Email"
+                Icon="mail"
+                For="email">
+                <InputText id="email"
+                class="ux-input"
+                @bind-Value="Input.Email"
+                autocomplete="username"
+                aria-required="true"
+                placeholder="name@example.com" />
+                </UxField>
+                <ValidationMessage class="text-danger"
+                For="() => Input.Email" />
+                <UxField Label="Password"
+                Icon="lock"
+                For="password">
+                <InputText id="password"
+                class="ux-input"
+                type="password"
+                @bind-Value="Input.Password"
+                autocomplete="new-password"
+                aria-required="true"
+                placeholder="Enter your new password" />
+                </UxField>
+                <ValidationMessage class="text-danger"
+                For="() => Input.Password" />
+                <UxField Label="Confirm password"
+                Icon="lock"
+                For="confirm-password">
+                <InputText id="confirm-password"
+                class="ux-input"
+                type="password"
+                @bind-Value="Input.ConfirmPassword"
+                autocomplete="new-password"
+                aria-required="true"
+                placeholder="Confirm your new password" />
+                </UxField>
+                <ValidationMessage class="text-danger"
+                For="() => Input.ConfirmPassword" />
+                <button class="w-100 btn btn-primary"
+                type="submit">
+                <UxIcon Name="lock" />
+                Reset password
+                </button>
+                </EditForm>
+                </section>
                 </div>
                 """;
         }

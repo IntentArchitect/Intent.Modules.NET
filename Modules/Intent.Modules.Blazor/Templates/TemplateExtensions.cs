@@ -8,6 +8,13 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutFooter;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutFooterCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeaderCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutProfile;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSider;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSiderCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
@@ -70,6 +77,76 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetRazorLayoutCodeBehindTemplateName(this IIntentTemplate template, LayoutModel model)
         {
             return template.GetTypeName(RazorLayoutCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutFooterTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutFooterModel
+        {
+            return template.GetTypeName(RazorLayoutFooterTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutFooterTemplateName(this IIntentTemplate template, LayoutFooterModel model)
+        {
+            return template.GetTypeName(RazorLayoutFooterTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutFooterCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutFooterModel
+        {
+            return template.GetTypeName(RazorLayoutFooterCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutFooterCodeBehindTemplateName(this IIntentTemplate template, LayoutFooterModel model)
+        {
+            return template.GetTypeName(RazorLayoutFooterCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutHeaderTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutHeaderModel
+        {
+            return template.GetTypeName(RazorLayoutHeaderTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutHeaderTemplateName(this IIntentTemplate template, LayoutHeaderModel model)
+        {
+            return template.GetTypeName(RazorLayoutHeaderTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutProfileTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutProfileMenuModel
+        {
+            return template.GetTypeName(RazorLayoutProfileTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutProfileTemplateName(this IIntentTemplate template, LayoutProfileMenuModel model)
+        {
+            return template.GetTypeName(RazorLayoutProfileTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutHeaderCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutHeaderModel
+        {
+            return template.GetTypeName(RazorLayoutHeaderCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutHeaderCodeBehindTemplateName(this IIntentTemplate template, LayoutHeaderModel model)
+        {
+            return template.GetTypeName(RazorLayoutHeaderCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutSiderTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutSiderModel
+        {
+            return template.GetTypeName(RazorLayoutSiderTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutSiderTemplateName(this IIntentTemplate template, LayoutSiderModel model)
+        {
+            return template.GetTypeName(RazorLayoutSiderTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutSiderCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutSiderModel
+        {
+            return template.GetTypeName(RazorLayoutSiderCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutSiderCodeBehindTemplateName(this IIntentTemplate template, LayoutSiderModel model)
+        {
+            return template.GetTypeName(RazorLayoutSiderCodeBehindTemplate.TemplateId, model);
         }
 
         public static string GetScopedExecutorTemplateName(this IIntentTemplate template)

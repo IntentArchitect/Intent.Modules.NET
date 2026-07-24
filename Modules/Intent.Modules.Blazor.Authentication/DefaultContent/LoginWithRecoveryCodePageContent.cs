@@ -31,6 +31,67 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, redirectManager);
         }
 
+        public static string? BuildStyleContent(RazorComponentTemplate template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : null;
+        }
+
+        private const string MudBlazorStyle = """
+            .auth-form-shell {
+            max-width: 720px;
+            box-shadow: var(--shadow-2);
+            border-radius: var(--radius-xl);
+            }
+
+            .account-input-field {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            }
+
+            .account-input-label {
+            color: var(--text);
+            font-size: var(--type-label-lg);
+            font-weight: 500;
+            }
+
+            .account-input-shell {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            min-height: 44px;
+            padding: 0 0.875rem;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-1);
+            }
+
+            .account-input-shell:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+            }
+
+            .account-input-icon {
+            color: var(--text-muted);
+            flex-shrink: 0;
+            }
+
+            .account-input-control {
+            width: 100%;
+            min-height: 42px;
+            color: var(--text);
+            background: transparent;
+            border: none;
+            outline: none;
+            }
+
+            .account-input-control::placeholder {
+            color: var(--text-muted);
+            }
+            """;
+
         private static string BuildMudBlazorContent(string identityClass, string redirectManager)
         {
             return $$"""
@@ -42,136 +103,81 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<LoginWithRecoveryCode> Logger
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
-                    <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
-                        <MudIcon Icon="@Icons.Material.Filled.Key"
-                                 Class="mr-2" />
-                        Recovery code verification
-                    </MudText>
-                    <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
-                        Use a recovery code to complete sign-in when your authenticator app is unavailable.
-                    </MudText>
+                Elevation="0">
+                <MudText Typo="Typo.h4"
+                Class="text-white font-weight-bold mb-2">
+                <MudIcon Icon="@Icons.Material.Filled.Key"
+                Class="mr-2" />
+                Recovery code verification
+                </MudText>
+                <MudText Typo="Typo.body1"
+                Class="text-white opacity-90">
+                Use a recovery code to complete sign-in when your authenticator app is unavailable.
+                </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
                 <MudText Typo="Typo.body1"
-                         Class="mb-4">
-                    You have requested to log in with a recovery code. This login will not be remembered until you provide
-                    an authenticator app code at log in or disable 2FA and log in again.
+                Class="mb-4">
+                You have requested to log in with a recovery code. This login will not be remembered until you provide
+                an authenticator app code at log in or disable 2FA and log in again.
                 </MudText>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
-                    <MudCardContent>
-                        <EditForm Model="Input"
-                                  FormName="login-with-recovery-code"
-                                  OnValidSubmit="OnValidSubmitAsync"
-                                  method="post">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger"
-                                               role="alert" />
+                Style="animation-delay: 0.1s"
+                Outlined="true">
+                <MudCardContent>
+                <EditForm Model="Input"
+                FormName="login-with-recovery-code"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
 
-                            <MudGrid>
-                                <MudItem xs="12">
-                                    <MudText Typo="Typo.h5">Recovery code</MudText>
-                                    <MudText Typo="Typo.body2"
-                                             Class="mb-4">
-                                        Enter one of your saved recovery codes to continue.
-                                    </MudText>
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <div class="account-input-field">
-                                        <label class="account-input-label"
-                                               for="recovery-code">
-                                            Recovery code
-                                        </label>
-                                        <div class="account-input-shell">
-                                            <MudIcon Icon="@Icons.Material.Filled.VpnKey"
-                                                     Class="account-input-icon" />
-                                            <InputText id="recovery-code"
-                                                       class="account-input-control"
-                                                       @bind-Value="Input.RecoveryCode"
-                                                       autocomplete="off"
-                                                       aria-required="true"
-                                                       placeholder="Recovery code" />
-                                        </div>
-                                        <ValidationMessage For="() => Input.RecoveryCode"
-                                                           class="text-danger" />
-                                    </div>
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <MudStack Row="true"
-                                              Justify="Justify.FlexEnd">
-                                        <MudButton ButtonType="ButtonType.Submit"
-                                                   Variant="Variant.Filled"
-                                                   Color="Color.Primary"
-                                                   StartIcon="@Icons.Material.Filled.Login">
-                                            Log in
-                                        </MudButton>
-                                    </MudStack>
-                                </MudItem>
-                            </MudGrid>
-                        </EditForm>
-                    </MudCardContent>
+                <MudGrid>
+                <MudItem xs="12">
+                <MudText Typo="Typo.h5">Recovery code</MudText>
+                <MudText Typo="Typo.body2"
+                Class="mb-4">
+                Enter one of your saved recovery codes to continue.
+                </MudText>
+                </MudItem>
+                <MudItem xs="12">
+                <div class="account-input-field">
+                <label class="account-input-label"
+                for="recovery-code">
+                Recovery code
+                </label>
+                <div class="account-input-shell">
+                <MudIcon Icon="@Icons.Material.Filled.VpnKey"
+                Class="account-input-icon" />
+                <InputText id="recovery-code"
+                class="account-input-control"
+                @bind-Value="Input.RecoveryCode"
+                autocomplete="off"
+                aria-required="true"
+                placeholder="Recovery code" />
+                </div>
+                <ValidationMessage For="() => Input.RecoveryCode"
+                class="text-danger" />
+                </div>
+                </MudItem>
+                <MudItem xs="12">
+                <MudStack Row="true"
+                Justify="Justify.FlexEnd">
+                <MudButton ButtonType="ButtonType.Submit"
+                Variant="Variant.Filled"
+                Color="Color.Primary"
+                StartIcon="@Icons.Material.Filled.Login">
+                Log in
+                </MudButton>
+                </MudStack>
+                </MudItem>
+                </MudGrid>
+                </EditForm>
+                </MudCardContent>
                 </MudCard>
-
-                <style>
-                    .auth-form-shell {
-                        max-width: 720px;
-                        box-shadow: var(--shadow-2);
-                        border-radius: var(--radius-xl);
-                    }
-
-                    .account-input-field {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-2);
-                    }
-
-                    .account-input-label {
-                        color: var(--text);
-                        font-size: var(--type-label-lg);
-                        font-weight: 500;
-                    }
-
-                    .account-input-shell {
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-2);
-                        min-height: 44px;
-                        padding: 0 0.875rem;
-                        background: var(--surface-2);
-                        border: 1px solid var(--border);
-                        border-radius: var(--radius-sm);
-                        box-shadow: var(--shadow-1);
-                    }
-
-                    .account-input-shell:focus-within {
-                        border-color: var(--primary);
-                        box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-                    }
-
-                    .account-input-icon {
-                        color: var(--text-muted);
-                        flex-shrink: 0;
-                    }
-
-                    .account-input-control {
-                        width: 100%;
-                        min-height: 42px;
-                        color: var(--text);
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .account-input-control::placeholder {
-                        color: var(--text-muted);
-                    }
-                </style>
                 """;
         }
 
@@ -186,38 +192,38 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<LoginWithRecoveryCode> Logger
 
                 <AccountHero Icon="key"
-                             Title="Recovery code verification"
-                             Subtitle="Log in using one of your saved recovery codes." />
+                Title="Recovery code verification"
+                Subtitle="Log in using one of your saved recovery codes." />
 
                 <div class="ux-form-narrow">
-                    <section>
-                        <StatusMessage Message="@message" />
-                        <p class="ux-section-subtitle">This login won't be remembered until you provide an authenticator code or disable 2FA.</p>
-                        <EditForm Model="Input"
-                                  FormName="login-with-recovery-code"
-                                  OnValidSubmit="OnValidSubmitAsync"
-                                  method="post">
-                            <DataAnnotationsValidator />
-                            <ValidationSummary class="text-danger"
-                                               role="alert" />
-                            <UxField Label="Recovery code"
-                                     Icon="key"
-                                     For="recovery-code">
-                                <InputText id="recovery-code"
-                                           @bind-Value="Input.RecoveryCode"
-                                           class="ux-input"
-                                           autocomplete="off"
-                                           placeholder="Enter a recovery code" />
-                            </UxField>
-                            <ValidationMessage For="() => Input.RecoveryCode"
-                                               class="text-danger" />
-                            <button type="submit"
-                                    class="w-100 btn btn-primary">
-                                <UxIcon Name="log-in" />
-                                Log in
-                            </button>
-                        </EditForm>
-                    </section>
+                <section>
+                <StatusMessage Message="@message" />
+                <p class="ux-section-subtitle">This login won't be remembered until you provide an authenticator code or disable 2FA.</p>
+                <EditForm Model="Input"
+                FormName="login-with-recovery-code"
+                OnValidSubmit="OnValidSubmitAsync"
+                method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger"
+                role="alert" />
+                <UxField Label="Recovery code"
+                Icon="key"
+                For="recovery-code">
+                <InputText id="recovery-code"
+                @bind-Value="Input.RecoveryCode"
+                class="ux-input"
+                autocomplete="off"
+                placeholder="Enter a recovery code" />
+                </UxField>
+                <ValidationMessage For="() => Input.RecoveryCode"
+                class="text-danger" />
+                <button type="submit"
+                class="w-100 btn btn-primary">
+                <UxIcon Name="log-in" />
+                Log in
+                </button>
+                </EditForm>
+                </section>
                 </div>
                 """;
         }
