@@ -359,7 +359,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             code.AddField("string?", "errorMessage");
 
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", input =>
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", input =>
             {
                 input.Private();
                 input.WithInitialValue("default!");
@@ -381,10 +381,10 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "LoginUser", onValidSubmitAsync =>
             {
-                onValidSubmitAsync.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Mvc.IgnoreAntiforgeryTokenAttribute").RemoveSuffix("Attribute"));
+                //onValidSubmitAsync.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Mvc.IgnoreAntiforgeryTokenAttribute").RemoveSuffix("Attribute"));
                 onValidSubmitAsync.Async();
 
-                onValidSubmitAsync.AddStatement("await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);");
+                onValidSubmitAsync.AddStatement("await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl ?? string.Empty);");
             });
 
             code.AddClass("InputModel", inputModel =>

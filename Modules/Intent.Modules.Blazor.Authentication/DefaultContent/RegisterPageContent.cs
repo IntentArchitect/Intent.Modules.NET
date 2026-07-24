@@ -373,7 +373,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             {
                 onValidSubmitAsync.Async();
 
-                onValidSubmitAsync.AddStatement("await AuthService.Register(Input.Email, Input.Password, ReturnUrl);");
+                onValidSubmitAsync.AddStatement("identityErrors = await AuthService.Register(Input.Email, Input.Password, ReturnUrl ?? string.Empty);");
             });
 
             code.AddClass("InputModel", inputModel =>

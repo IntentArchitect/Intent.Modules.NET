@@ -62,7 +62,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddField("string?", "messageFromCookie");
 
             code.AddProperty("string?", "Message", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.ParameterAttribute").RemoveSuffix("Attribute")));
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.Private().WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", p => p.Private().WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("string?", "DisplayMessage", p => p.Private().WithoutSetter().Getter.WithExpressionImplementation("Message ?? messageFromCookie"));
 
             code.AddMethod("void", "OnInitialized", onInitialized =>

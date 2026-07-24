@@ -2,6 +2,8 @@
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Blazor.Templates.Templates.Client;
+using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -30,11 +32,13 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     {
         var layoutModel = new LayoutModel(component);
         var enableThemeToggle = _componentTemplate.ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
+        var template = parentNode.File.Template;
 
         if (enableThemeToggle)
         {
             var themeProvider = new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile);
-            themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
+            //themeProvider.AddAttribute("IsDarkMode", "@_themeService.IsDark");
+            themeProvider.AddAttribute("IsDarkMode", "@IsDarkMode");
             parentNode.AddChildNode(themeProvider);
         }
 
@@ -55,33 +59,83 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
             {
                 if (layoutModel.Sider != null)
                 {
-                    header.AddAttribute("OnDrawerToggle", "DrawerToggle");
-
-                    code.AddField("bool", "_drawerOpen", field => field.WithAssignment(new CSharpStatement("true")));
-                    code.AddMethod("void", "DrawerToggle", method =>
+                    //header.AddAttribute("OnDrawerToggle", "DrawerToggle");
+                    code.AddProperty(code.File.Template.GetTypeName(ThemeServiceTemplate.TemplateId), "_themeService", prop =>
                     {
-                        method.AddStatement("_drawerOpen = !_drawerOpen;");
+                        prop.WithInitialValue("default!");
+                        prop.AddAttribute(code.File.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+                        prop.Public();
+                    });
+
+                    code.AddProperty(code.File.Template.UseType("Microsoft.JSInterop.IJSRuntime"), "JS", prop =>
+                    {
+                        prop.WithInitialValue("default!");
+                        prop.AddAttribute(code.File.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+                        prop.Public();
+                    });
+
+                    code.AddProperty(code.File.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", prop =>
+                    {
+                        prop.AddAttribute(code.File.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameter"));
+                        prop.Public();
+                    });
+
+                    code.AddProperty("bool", "IsDarkMode", prop =>
+                    {
+                        prop.WithoutSetter();
+                        prop.Getter.WithExpressionImplementation("HttpContext is not null ? !(HttpContext.Request.Cookies.TryGetValue(\"theme\", out var theme) && theme == \"light\") : _themeService.IsDark");
+                        prop.Private().ReadOnly();
+                    });
+
+                    code.AddMethod("Task", "OnAfterRenderAsync", method =>
+                    {
+                        method.Override().Async().Protected();
+                        method.AddParameter("bool", "firstRender");
+
+                        method.AddIfStatement("firstRender && RendererInfo.IsInteractive", @if =>
+                        {
+                            @if.AddStatement("_themeService.OnChange += StateHasChanged;");
+                            @if.AddAssignmentStatement("var saved",
+                                new CSharpStatement(@"await JS.InvokeAsync<string>(""themeStorage.get"");"));
+                            @if.AddIfStatement(@"saved == ""dark""", innerIf =>
+                            {
+                                innerIf.AddInvocationStatement("_themeService.SetDark", inv => inv.AddArgument("true"));
+                            });
+                            @if.AddElseIfStatement("saved == \"light\"", elseIf =>
+                            {
+                                elseIf.AddInvocationStatement("_themeService.SetDark", inv => inv.AddArgument("false"));
+                            });
+                            @if.AddIfStatement("!string.IsNullOrEmpty(saved)", stateIf =>
+                            {
+                                stateIf.AddInvocationStatement("StateHasChanged");
+                            });
+                        });
+                    });
+
+                    code.AddMethod("void", "Dispose", method =>
+                    {
+                        method.AddStatement("_themeService.OnChange -= StateHasChanged;");
                     });
                 }
-                if (enableThemeToggle)
-                {
-                    header.AddAttribute("OnThemeToggle", "ToggleTheme");
-                }
+                //if (enableThemeToggle)
+                //{
+                //    header.AddAttribute("OnThemeToggle", "ToggleTheme");
+                //}
 
-                if (enableThemeToggle)
-                {
-                    ConfigureThemeSelection(header, code);
-                }
+                //if (enableThemeToggle)
+                //{
+                //    ConfigureThemeSelection(header, code);
+                //}
             });
         }
         if (layoutModel.Sider != null)
         {
             layoutHtml.AddHtmlElement($"{layoutModel.Name}Sider", sider =>
             {
-                if (layoutModel.Header != null)
-                {
-                    sider.AddAttribute("@bind-DrawerOpen", "_drawerOpen");
-                }
+                //if (layoutModel.Header != null)
+                //{
+                //    sider.AddAttribute("@bind-DrawerOpen", "_drawerOpen");
+                //}
             });
         }
         layoutHtml.AddHtmlElement("MudMainContent", layoutContent =>

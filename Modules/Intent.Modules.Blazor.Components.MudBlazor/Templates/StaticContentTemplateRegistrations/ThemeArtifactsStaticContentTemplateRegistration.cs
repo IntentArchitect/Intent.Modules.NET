@@ -29,7 +29,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
         {
             // NavLinks.razor.cs ships here and declares `namespace <#= Namespace #>Components.Layout`.
-            { "Namespace", $"{outputTarget.GetNamespace()}." }
+            { "Namespace", $"{outputTarget.GetNamespace()}." },
+            { "ApplicationName", $"{outputTarget.ExecutionContext.GetApplicationConfig().Name}" }
         };
 
         [IntentIgnore]

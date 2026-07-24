@@ -257,7 +257,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
             code.AddField("bool", "hasPassword");
 
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("InputModel", "Input", p =>
             {
                 p.Private();

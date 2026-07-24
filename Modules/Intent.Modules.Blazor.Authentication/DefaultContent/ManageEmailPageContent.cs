@@ -282,7 +282,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddField("string?", "email");
             code.AddField("bool", "isEmailConfirmed");
 
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("InputModel", "Input", p =>
             {
                 p.Private();

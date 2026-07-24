@@ -144,7 +144,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
 
             code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnSubmitAsync", onSubmitAsync =>
             {

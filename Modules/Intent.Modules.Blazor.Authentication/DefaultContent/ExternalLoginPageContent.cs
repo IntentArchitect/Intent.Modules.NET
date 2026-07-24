@@ -254,7 +254,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddField("string?", "message");
             code.AddField(code.Template.UseType("Microsoft.AspNetCore.Identity.ExternalLoginInfo"), "externalLoginInfo", f => f.WithAssignment(new CSharpStatement("default!")));
 
-            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", p => p.WithInitialValue("default!").AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute")));
             code.AddProperty("InputModel", "Input", p =>
             {
                 p.Private();

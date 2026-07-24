@@ -68,7 +68,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
                     if (renderModeMethod is not null)
                     {
-                        var cif = new CSharpIfStatement("HttpContext.Request.Path.StartsWithSegments(\"/Account\")");
+                        var cif = new CSharpIfStatement("!HttpContext.AcceptsInteractiveRouting()");
                         cif.AddReturn(new CSharpStatement("null"));
                         renderModeMethod.InsertStatement(0, cif);
                     }

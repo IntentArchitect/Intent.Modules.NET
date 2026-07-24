@@ -23,6 +23,7 @@
 const META_KEY = "blazor-auth-page-id";
 const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
 const PAGE_STEREOTYPE = "Page";
+const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
 const NAVIGATION_ASSOCIATION = "Navigation";
 
 function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
@@ -238,6 +239,50 @@ function syncNavigations(navigationDefinitions) {
     });
 }
 
+const LAYOUT_PLACEMENT_STEREOTYPE = "78475d50-f0e3-4fc7-96bd-1a6df1e8f71d";
+
+// Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
+// region: Login/Register for an anonymous user, Manage for an authenticated one. Built
+// from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
+// (which have no Manage page) simply contribute no authenticated-user entry.
+function syncProfileMenu(securityType) {
+    const layouts = findElements({ specialization: "Layout" });
+    const mainLayout = layouts.find(function (l) { return l.getName() === "MainLayout"; });
+    if (!mainLayout) {
+        console.log("syncProfileMenu: MainLayout not found (found " + layouts.length + " Layout element(s): " + layouts.map(function (l) { return l.getName(); }).join(", ") + ") - skipping profile menu wiring.");
+        return;
+    }
+    let profileMenu = mainLayout.getChildren("Layout Profile Menu")[0];
+    if (!profileMenu) {
+        profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
+    }
+
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    const menuPageIds = [];
+    if (prefix) {
+        menuPageIds.push(resolveNavigationId(prefix, "login"), resolveNavigationId(prefix, "register"));
+    }
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        menuPageIds.push("manage");
+    }
+
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    menuPageIds.forEach(function (id) {
+        const target = byId[id];
+        if (!target) {
+            return;
+        }
+        const navigation = addNavigation(mainLayout, target);
+        const targetEnd = navigation.getTargetEnd();
+        const placement = targetEnd.getStereotype(LAYOUT_PLACEMENT_STEREOTYPE) || targetEnd.ensureStereotype(LAYOUT_PLACEMENT_STEREOTYPE);
+        placement.setProperty("Regions", [profileMenu.id]);
+    });
+}
+
 async function runSync(securityType) {
     const definition = PAGE_DEFINITIONS[securityType];
     // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
@@ -296,7 +341,7 @@ async function runSync(securityType) {
         manageFolder = ensureChildFolder(pagesFolder, "Manage");
         sharedFolder = ensureChildFolder(accountFolder, "Shared");
 
-        function syncPage(def, folder) {
+        function syncPage(def, folder, secured) {
             let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
             if (!comp) {
                 comp = folder.addChild("Component", def.name);
@@ -307,6 +352,22 @@ async function runSync(securityType) {
             st.setProperty("Route", def.route);
             st.setProperty("Title", def.title);
             comp.setMetadata(META_KEY, def.id);
+            // Manage/* pages require an authenticated user; the pre-auth flow pages
+            // (Login, Register, ForgotPassword, AccessDenied, etc.) must stay reachable
+            // by anonymous users, so security is decided here per named page, not guessed.
+            if (secured) {
+                try {
+                    comp.ensureStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to apply Secured stereotype to " + def.name + " (non-fatal): " + e);
+                }
+            } else if (comp.hasStereotype(SECURED_STEREOTYPE)) {
+                try {
+                    comp.removeStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
+                }
+            }
         }
 
         function syncShared(def, folder) {
@@ -319,8 +380,8 @@ async function runSync(securityType) {
             comp.setMetadata(META_KEY, def.id);
         }
 
-        definition.pages.forEach(function (p) { syncPage(p, pagesFolder); });
-        definition.managePages.forEach(function (p) { syncPage(p, manageFolder); });
+        definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });
+        definition.managePages.forEach(function (p) { syncPage(p, manageFolder, true); });
         sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
     }
 
@@ -329,6 +390,11 @@ async function runSync(securityType) {
     if (accountFolder) {
         try {
             syncNavigations(getNavigationDefinitions(securityType));
+            try {
+                syncProfileMenu(securityType);
+            } catch (e) {
+                console.log("Profile menu sync failed (non-fatal): " + e);
+            }
 
             if (createdIds.length &gt; 0) {
                 const diagramElement = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
@@ -368,6 +434,7 @@ await runSync(securityType);</onAppliedScript>
 const META_KEY = "blazor-auth-page-id";
 const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
 const PAGE_STEREOTYPE = "Page";
+const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
 const NAVIGATION_ASSOCIATION = "Navigation";
 
 function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
@@ -583,6 +650,50 @@ function syncNavigations(navigationDefinitions) {
     });
 }
 
+const LAYOUT_PLACEMENT_STEREOTYPE = "78475d50-f0e3-4fc7-96bd-1a6df1e8f71d";
+
+// Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
+// region: Login/Register for an anonymous user, Manage for an authenticated one. Built
+// from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
+// (which have no Manage page) simply contribute no authenticated-user entry.
+function syncProfileMenu(securityType) {
+    const layouts = findElements({ specialization: "Layout" });
+    const mainLayout = layouts.find(function (l) { return l.getName() === "MainLayout"; });
+    if (!mainLayout) {
+        console.log("syncProfileMenu: MainLayout not found (found " + layouts.length + " Layout element(s): " + layouts.map(function (l) { return l.getName(); }).join(", ") + ") - skipping profile menu wiring.");
+        return;
+    }
+    let profileMenu = mainLayout.getChildren("Layout Profile Menu")[0];
+    if (!profileMenu) {
+        profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
+    }
+
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    const menuPageIds = [];
+    if (prefix) {
+        menuPageIds.push(resolveNavigationId(prefix, "login"), resolveNavigationId(prefix, "register"));
+    }
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        menuPageIds.push("manage");
+    }
+
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    menuPageIds.forEach(function (id) {
+        const target = byId[id];
+        if (!target) {
+            return;
+        }
+        const navigation = addNavigation(mainLayout, target);
+        const targetEnd = navigation.getTargetEnd();
+        const placement = targetEnd.getStereotype(LAYOUT_PLACEMENT_STEREOTYPE) || targetEnd.ensureStereotype(LAYOUT_PLACEMENT_STEREOTYPE);
+        placement.setProperty("Regions", [profileMenu.id]);
+    });
+}
+
 async function runSync(securityType) {
     const definition = PAGE_DEFINITIONS[securityType];
     // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
@@ -641,7 +752,7 @@ async function runSync(securityType) {
         manageFolder = ensureChildFolder(pagesFolder, "Manage");
         sharedFolder = ensureChildFolder(accountFolder, "Shared");
 
-        function syncPage(def, folder) {
+        function syncPage(def, folder, secured) {
             let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
             if (!comp) {
                 comp = folder.addChild("Component", def.name);
@@ -652,6 +763,22 @@ async function runSync(securityType) {
             st.setProperty("Route", def.route);
             st.setProperty("Title", def.title);
             comp.setMetadata(META_KEY, def.id);
+            // Manage/* pages require an authenticated user; the pre-auth flow pages
+            // (Login, Register, ForgotPassword, AccessDenied, etc.) must stay reachable
+            // by anonymous users, so security is decided here per named page, not guessed.
+            if (secured) {
+                try {
+                    comp.ensureStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to apply Secured stereotype to " + def.name + " (non-fatal): " + e);
+                }
+            } else if (comp.hasStereotype(SECURED_STEREOTYPE)) {
+                try {
+                    comp.removeStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
+                }
+            }
         }
 
         function syncShared(def, folder) {
@@ -664,8 +791,8 @@ async function runSync(securityType) {
             comp.setMetadata(META_KEY, def.id);
         }
 
-        definition.pages.forEach(function (p) { syncPage(p, pagesFolder); });
-        definition.managePages.forEach(function (p) { syncPage(p, manageFolder); });
+        definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });
+        definition.managePages.forEach(function (p) { syncPage(p, manageFolder, true); });
         sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
     }
 
@@ -674,6 +801,11 @@ async function runSync(securityType) {
     if (accountFolder) {
         try {
             syncNavigations(getNavigationDefinitions(securityType));
+            try {
+                syncProfileMenu(securityType);
+            } catch (e) {
+                console.log("Profile menu sync failed (non-fatal): " + e);
+            }
 
             if (createdIds.length &gt; 0) {
                 const diagramElement = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
