@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "WebAndWorker.AdditionalWorker": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
