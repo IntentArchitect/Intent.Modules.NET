@@ -474,3 +474,29 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
 }
+
+.mud-main-content {
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .mud-main-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
+}
+
+.ux-nav-drawer {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: var(--mud-drawer-width-left, 240px);
+    background-color: var(--mud-palette-drawer-background, var(--surface));
+    color: var(--mud-palette-drawer-text, var(--text));
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.225s cubic-bezier(0, 0, 0.2, 1);
+    z-index: var(--mud-zindex-drawer, 1100);
+}
+
+html.ux-drawer-open .ux-nav-drawer {
+    transform: translateX(0);
+}

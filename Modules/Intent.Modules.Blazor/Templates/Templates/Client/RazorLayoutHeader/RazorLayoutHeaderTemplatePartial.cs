@@ -45,13 +45,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                     // right now, dependency between the two
                     file.AddHtmlElement("MudAppBar", appBar =>
                     {
-                        appBar.AddHtmlElement("MudIconButton", @icon =>
+                        appBar.AddHtmlElement("span", span =>
                         {
-                            @icon.AddAttribute("Icon", "@Icons.Material.Filled.Menu")
-                            .AddAttribute("Color", "Color.Inherit")
-                            .AddAttribute("Edge", "Edge.Start")
-                            .AddAttribute("OnClick", "@(() => OnDrawerToggle.InvokeAsync())");
-
+                            span.AddAttribute("onclick", "navDrawer.toggle()");
+                            span.AddHtmlElement("MudIconButton", @icon =>
+                            {
+                                @icon.AddAttribute("Icon", "@Icons.Material.Filled.Menu")
+                                .AddAttribute("Color", "Color.Inherit")
+                                .AddAttribute("Edge", "Edge.Start");
+                            });
                         });
 
                         appBar.AddHtmlElement("MudButton", @button =>
@@ -70,7 +72,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                         appBar.AddHtmlElement("MudSpacer");
                         appBar.AddHtmlElement("ThemeToggle", toggle =>
                         {
-                            toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
+                            //toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
                         });
 
                         if (Model.InternalElement.ParentElement.AsLayoutModel().ProfileMenu is not null)

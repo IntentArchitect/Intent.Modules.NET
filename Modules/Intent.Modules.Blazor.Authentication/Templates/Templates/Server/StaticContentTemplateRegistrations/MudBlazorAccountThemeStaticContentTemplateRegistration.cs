@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
@@ -55,6 +56,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             {
                 RegisterAuthStaticContent(registry, application);
             }
+        }
+
+        protected override void RegisterTemplate(ITemplateInstanceRegistry registry, IApplication application, Func<IOutputTarget, ITemplate> createTemplateInstance)
+        {
+            // TODO: JPS, so template not registered for now
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
 
                     var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
 
-                    if (!securityType.IsSingleSignOnOpenIDConnect())
+                    if (!securityType.IsSingleSignOnOpenIDConnect() && !securityType.IsNone())
                     {
                         @interface.AddMethod("Task<string>", "ConfirmEmail", method =>
                         {
@@ -55,7 +55,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
                             method.AddParameter("string", "email");
                         });
 
-                        @interface.AddMethod("Task", "Register", method =>
+                        @interface.AddMethod("Task<IEnumerable<IdentityError>>", "Register", method =>
                         {
                             method.Async();
                             method.AddParameter("string", "email");

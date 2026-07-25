@@ -38,6 +38,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                     file.AddHtmlElement("html", html =>
                     {
                         html.AddAttribute("lang", "en");
+                        html.AddAttribute("class", "ux-drawer-open");
+                        html.AddAttribute("data-theme", "@_theme");
+                        html.AddAttribute("data-theme-storage", "cookie");
                         html.AddEmptyLine();
                         html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
@@ -73,6 +76,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "nav-drawer.js"));
                             body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
                         });
 
@@ -98,6 +102,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             {
                                 method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
                             }
+                        });
+
+                        code.AddProperty("string", "_theme", prop =>
+                        {
+                            prop.Private();
+                            prop.WithoutSetter();
+                            prop.Getter.WithExpressionImplementation("HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\"");
                         });
                     });
                 });

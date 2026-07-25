@@ -28,15 +28,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeaderCode
                 .AddClass($"{Model.InternalElement.ParentElement.Name}{Model.Name}", @class =>
                 {
                     @class.Partial();
-                    @class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback"), "OnDrawerToggle", prop =>
-                    {
-                        prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
-                    });
+                    //@class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback"), "OnDrawerToggle", prop =>
+                    //{
+                    //    prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
+                    //});
 
-                    @class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback"), "OnThemeToggle", prop =>
-                    {
-                        prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
-                    });
+                    //@class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback"), "OnThemeToggle", prop =>
+                    //{
+                    //    prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
+                    //});
                 });
         }
 

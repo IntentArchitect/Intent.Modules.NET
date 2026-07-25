@@ -27,15 +27,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSiderCodeB
                 .AddClass($"{Model.InternalElement.ParentElement.Name}{Model.Name}", @class =>
                 {
                     @class.Partial();
-                    @class.AddProperty("bool", "DrawerOpen", prop =>
-                    {
-                        prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
-                    });
+                    //@class.AddProperty("bool", "DrawerOpen", prop =>
+                    //{
+                    //    prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
+                    //});
 
-                    @class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback<bool>"), "DrawerOpenChanged", prop =>
-                    {
-                        prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
-                    });
+                    //@class.AddProperty(UseType("Microsoft.AspNetCore.Components.EventCallback<bool>"), "DrawerOpenChanged", prop =>
+                    //{
+                    //    prop.AddAttribute(UseType("Microsoft.AspNetCore.Components.Parameter"));
+                    //});
                 });
         }
 

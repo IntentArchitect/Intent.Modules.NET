@@ -41,18 +41,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 // ASP.NET Core Identity account pages must run as static SSR so Identity can issue auth cookies.
                 // Add theme attributes to <html> so those SSR pages render with the cookie-backed theme before interactivity.
                 var htmlElement = file.ChildNodes.FirstOrDefault(n => n is IHtmlElement) as IHtmlElement;
-                htmlElement?.AddAttribute("data-theme", "@_theme");
-                htmlElement?.AddAttribute("data-theme-storage", BlazorThemeCapabilities.CookieThemeStorageValue);
+                //htmlElement?.AddAttribute("data-theme", "@_theme");
+                //htmlElement?.AddAttribute("data-theme-storage", BlazorThemeCapabilities.CookieThemeStorageValue);
 
                 // The Mud manage shell (ManageLayout) uses a circuit-free overlay nav drawer toggled by
                 // nav-drawer.js (mirrors theme-storage.js). Only ship the <script> for MudBlazor apps —
                 // nav-drawer.js ships from the MudBlazor-gated ThemeMudBlazor wwwroot content.
-                if (application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
-                {
-                    var themeStorageScript = file.SelectHtmlElements("/html/body/script")
-                        .FirstOrDefault(s => s.HasAttribute("src", "theme-storage.js"));
-                    themeStorageScript?.AddBelow(new HtmlElement("script", app).AddAttribute("src", "nav-drawer.js"));
-                }
+                //if (application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+                //{
+                //    var themeStorageScript = file.SelectHtmlElements("/html/body/script")
+                //        .FirstOrDefault(s => s.HasAttribute("src", "theme-storage.js"));
+                //    //themeStorageScript?.AddBelow(new HtmlElement("script", app).AddAttribute("src", "nav-drawer.js"));
+                //}
 
                 var razorCodeBlock = file.ChildNodes.FirstOrDefault(n => n is IRazorCodeBlock);
 
@@ -61,8 +61,8 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     var codeBlock = razorCodeBlock as ICSharpClass;
 
                     // The cookie-backed theme is needed because ASP.NET Core Identity forces account pages through static SSR.
-                    codeBlock?.AddCodeBlock(
-                        "private string _theme => HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\";");
+                    //codeBlock?.AddCodeBlock(
+                    //    "private string _theme => HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\";");
 
                     var renderModeMethod = codeBlock?.FindMethod("GetRenderModeForPage");
 

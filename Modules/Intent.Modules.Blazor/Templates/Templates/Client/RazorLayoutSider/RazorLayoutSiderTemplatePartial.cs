@@ -37,11 +37,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSider
                 {
                     // TODO: This should be moved into Mudblazor module to seperate completely
                     // right now, dependency between the two
-                    file.AddHtmlElement("MudDrawer", drawer =>
+                    file.AddHtmlElement("nav", drawer =>
                     {
-                        drawer.AddAttribute("Open", "DrawerOpen")
-                        .AddAttribute("OpenChanged", "DrawerOpenChanged")
-                        .AddAttribute("ClipMode", "DrawerClipMode.Always");
+                        drawer.AddAttribute("class", "ux-nav-drawer");
+                        //drawer.AddAttribute("Open", "DrawerOpen")
+                        //.AddAttribute("OpenChanged", "DrawerOpenChanged")
+                        //.AddAttribute("ClipMode", "DrawerClipMode.Always");
 
                         drawer.AddHtmlElement("MudNavMenu", menu =>
                         {

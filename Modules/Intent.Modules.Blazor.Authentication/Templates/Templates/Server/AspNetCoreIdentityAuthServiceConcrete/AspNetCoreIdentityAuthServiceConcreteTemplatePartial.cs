@@ -146,7 +146,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         });
                     });
 
-                    @class.AddMethod("Task", "Register", method =>
+                    @class.AddMethod("Task<IEnumerable<IdentityError>>", "Register", method =>
                     {
                         method.Async();
                         method.AddParameter("string", "email");
@@ -165,7 +165,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
 
                         method.AddIfStatement("!result.Succeeded", @if =>
                         {
-                            @if.AddStatement("throw new Exception(\"Could not register user\");");
+                            @if.AddReturn("result.Errors");
                         });
 
                         method.AddAssignmentStatement("var userId", new CSharpStatement("await _userManager.GetUserIdAsync(user);"));
@@ -183,6 +183,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                             @else.AddStatement("await _signInManager.SignInAsync(user, isPersistent: false);");
                             @else.AddStatement("_redirectManager.RedirectTo(returnUrl);");
                         });
+
+                        method.AddReturn("Array.Empty<IdentityError>()");
                     });
 
                     @class.AddMethod(identityUserName, "CreateUser", method =>
