@@ -40,9 +40,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
             """;
 
@@ -59,55 +59,55 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
-                StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                        StatusMessage="@message" />
                 }
                 else
                 {
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.Key"
-                Class="mr-2" />
-                Generate recovery codes
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Create a new set of recovery codes for your two-factor authentication setup.
-                </MudText>
-                </MudPaper>
+                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                        Elevation="0">
+                        <MudText Typo="Typo.h4"
+                            Class="text-white font-weight-bold mb-2">
+                            <MudIcon Icon="@Icons.Material.Filled.Key"
+                                Class="mr-2" />
+                            Generate recovery codes
+                        </MudText>
+                        <MudText Typo="Typo.body1"
+                            Class="text-white opacity-90">
+                            Create a new set of recovery codes for your two-factor authentication setup.
+                        </MudText>
+                    </MudPaper>
 
-                <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Generate two-factor authentication (2FA) recovery codes
-                </MudText>
-                <MudAlert Severity="Severity.Warning"
-                Class="mb-4">
-                <MudText Typo="Typo.body1"><strong>Put these codes in a safe place.</strong></MudText>
-                <MudText Typo="Typo.body1">If you lose your device and don't have the recovery codes you will lose access to your account.</MudText>
-                <MudText Typo="Typo.body1">Generating new recovery codes does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
-                </MudAlert>
-                <form @formname="generate-recovery-codes"
-                @onsubmit="OnSubmitAsync"
-                method="post">
-                <AntiforgeryToken />
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Error"
-                StartIcon="@Icons.Material.Filled.Key">
-                Generate recovery codes
-                </MudButton>
-                </MudStack>
-                </form>
-                </MudCardContent>
-                </MudCard>
+                    <MudCard Class="ux-fade-in-up auth-form-shell"
+                        Style="animation-delay: 0.1s"
+                        Outlined="true">
+                        <MudCardContent>
+                            <MudText Typo="Typo.h5"
+                                Class="mb-3">
+                                Generate two-factor authentication (2FA) recovery codes
+                            </MudText>
+                            <MudAlert Severity="Severity.Warning"
+                                Class="mb-4">
+                                <MudText Typo="Typo.body1"><strong>Put these codes in a safe place.</strong></MudText>
+                                <MudText Typo="Typo.body1">If you lose your device and don't have the recovery codes you will lose access to your account.</MudText>
+                                <MudText Typo="Typo.body1">Generating new recovery codes does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
+                            </MudAlert>
+                            <form @formname="generate-recovery-codes"
+                                @onsubmit="OnSubmitAsync"
+                                method="post">
+                                <AntiforgeryToken />
+                                <MudStack Row="true"
+                                    Justify="Justify.FlexEnd">
+                                    <MudButton ButtonType="ButtonType.Submit"
+                                        Variant="Variant.Filled"
+                                        Color="Color.Error"
+                                        StartIcon="@Icons.Material.Filled.Key">
+                                        Generate recovery codes
+                                    </MudButton>
+                                </MudStack>
+                            </form>
+                        </MudCardContent>
+                    </MudCard>
                 }
 
                 """;
@@ -125,29 +125,29 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
-                StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                        StatusMessage="@message" />
                 }
                 else
                 {
-                <h3>Generate two-factor authentication (2FA) recovery codes</h3>
-                <div class="ux-callout ux-callout-warning">
-                <p><strong>Put these codes in a safe place.</strong></p>
-                <p>If you lose your device and don't have the recovery codes you will lose access to your account.</p>
-                <p>
-                Generating new recovery codes does not change the keys used in authenticator apps. If you wish to change the key
-                used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
-                </p>
-                </div>
-                <form @formname="generate-recovery-codes"
-                @onsubmit="OnSubmitAsync"
-                method="post">
-                <AntiforgeryToken />
-                <button class="btn btn-danger"
-                type="submit">
-                <UxIcon Name="key" /> Generate recovery codes
-                </button>
-                </form>
+                    <h3>Generate two-factor authentication (2FA) recovery codes</h3>
+                    <div class="ux-callout ux-callout-warning">
+                        <p><strong>Put these codes in a safe place.</strong></p>
+                        <p>If you lose your device and don't have the recovery codes you will lose access to your account.</p>
+                        <p>
+                            Generating new recovery codes does not change the keys used in authenticator apps. If you wish to change the key
+                            used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
+                        </p>
+                    </div>
+                    <form @formname="generate-recovery-codes"
+                        @onsubmit="OnSubmitAsync"
+                        method="post">
+                        <AntiforgeryToken />
+                        <button class="btn btn-danger"
+                            type="submit">
+                            <UxIcon Name="key" /> Generate recovery codes
+                        </button>
+                    </form>
                 }
                 """;
         }

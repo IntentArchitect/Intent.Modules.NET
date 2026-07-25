@@ -34,7 +34,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 {
                     var severity = DisplayMessage.StartsWith("Error") ? Severity.Error : Severity.Success;
                     <MudAlert Severity="@severity"
-                              Class="mb-3">
+                        Class="mb-3">
                         @DisplayMessage
                     </MudAlert>
                 }
@@ -48,7 +48,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 {
                     var statusMessageClass = DisplayMessage.StartsWith("Error") ? "danger" : "success";
                     <div class="alert alert-@statusMessageClass"
-                         role="alert">
+                        role="alert">
                         @DisplayMessage
                     </div>
                 }

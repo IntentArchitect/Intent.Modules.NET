@@ -41,38 +41,38 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
+                max-width: 720px;
             }
 
             .auth-form-shell ::deep .mud-input-control-input-container,
             .auth-form-shell ::deep .mud-input-slot {
-            background: var(--surface-2);
+                background: var(--surface-2);
             }
 
             .auth-form-shell ::deep .mud-input-outlined-border {
-            border-color: var(--border);
+                border-color: var(--border);
             }
 
             .auth-form-shell ::deep .mud-input-label {
-            color: var(--text-muted);
+                color: var(--text-muted);
             }
 
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
-            border-color: var(--primary);
+                border-color: var(--primary);
             }
 
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
-            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-            border-radius: var(--radius-sm);
+                box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+                border-radius: var(--radius-sm);
             }
 
             .auth-steps {
-            padding-left: var(--space-5);
+                padding-left: var(--space-5);
             }
 
             .auth-steps li {
-            margin-bottom: var(--space-4);
+                margin-bottom: var(--space-4);
             }
             """;
 
@@ -93,104 +93,104 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
-                StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                        StatusMessage="@message" />
                 }
                 else
                 {
-                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.QrCode2"
-                Class="mr-2" />
-                Configure authenticator app
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Set up an authenticator app to strengthen your account security.
-                </MudText>
-                </MudPaper>
+                    <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                        Elevation="0">
+                        <MudText Typo="Typo.h4"
+                            Class="text-white font-weight-bold mb-2">
+                            <MudIcon Icon="@Icons.Material.Filled.QrCode2"
+                                Class="mr-2" />
+                            Configure authenticator app
+                        </MudText>
+                        <MudText Typo="Typo.body1"
+                            Class="text-white opacity-90">
+                            Set up an authenticator app to strengthen your account security.
+                        </MudText>
+                    </MudPaper>
 
-                <StatusMessage Message="@message" />
-                <MudCard Class="ux-fade-in-up"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Configure authenticator app
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="mb-4">
-                To use an authenticator app go through the following steps:
-                </MudText>
-                <ol class="auth-steps">
-                <li>
-                <MudText Typo="Typo.body1">
-                Download a two-factor authenticator app like Microsoft Authenticator for
-                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
-                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
-                Google Authenticator for
-                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
-                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
-                </MudText>
-                </li>
-                <li>
-                <MudText Typo="Typo.body1">Scan the QR Code or enter this key <code>@sharedKey</code> into your two factor authenticator app. Spaces and casing do not matter.</MudText>
-                <MudAlert Severity="Severity.Info"
-                Class="mb-3">
-                Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.
-                </MudAlert>
-                <div data-url="@authenticatorUri"></div>
-                </li>
-                <li>
-                <MudText Typo="Typo.body1"
-                Class="mb-3">
-                Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below.
-                </MudText>
-                <div class="auth-form-shell">
-                <EditForm Model="Input"
-                FormName="send-code"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
+                    <StatusMessage Message="@message" />
+                    <MudCard Class="ux-fade-in-up"
+                        Style="animation-delay: 0.1s"
+                        Outlined="true">
+                        <MudCardContent>
+                            <MudText Typo="Typo.h5"
+                                Class="mb-3">
+                                Configure authenticator app
+                            </MudText>
+                            <MudText Typo="Typo.body1"
+                                Class="mb-4">
+                                To use an authenticator app go through the following steps:
+                            </MudText>
+                            <ol class="auth-steps">
+                                <li>
+                                    <MudText Typo="Typo.body1">
+                                        Download a two-factor authenticator app like Microsoft Authenticator for
+                                        <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
+                                            <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
+                                            Google Authenticator for
+                                            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
+                                            <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+                                            </MudText>
+                                        </li>
+                                        <li>
+                                            <MudText Typo="Typo.body1">Scan the QR Code or enter this key <code>@sharedKey</code> into your two factor authenticator app. Spaces and casing do not matter.</MudText>
+                                            <MudAlert Severity="Severity.Info"
+                                                Class="mb-3">
+                                                Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.
+                                            </MudAlert>
+                                            <div data-url="@authenticatorUri"></div>
+                                        </li>
+                                        <li>
+                                            <MudText Typo="Typo.body1"
+                                                Class="mb-3">
+                                                Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below.
+                                            </MudText>
+                                            <div class="auth-form-shell">
+                                                <EditForm Model="Input"
+                                                    FormName="send-code"
+                                                    OnValidSubmit="OnValidSubmitAsync"
+                                                    method="post">
+                                                    <DataAnnotationsValidator />
+                                                    <ValidationSummary class="text-danger"
+                                                        role="alert" />
 
-                <MudGrid>
-                <MudItem xs="12">
-                <MudTextField T="string"
-                @bind-Value="Input.Code"
-                Label="Verification code"
-                Placeholder="Please enter the code."
-                Variant="Variant.Outlined"
-                Adornment="Adornment.Start"
-                AdornmentIcon="@Icons.Material.Filled.Password"
-                Immediate="true"
-                For="@(() => Input.Code)" />
-                <ValidationMessage For="() => Input.Code"
-                class="text-danger" />
-                </MudItem>
-                <MudItem xs="12">
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Primary"
-                StartIcon="@Icons.Material.Filled.VerifiedUser">
-                Verify
-                </MudButton>
-                </MudStack>
-                </MudItem>
-                </MudGrid>
-                </EditForm>
-                </div>
-                </li>
-                </ol>
-                </MudCardContent>
-                </MudCard>
-                }
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            <MudTextField T="string"
+                                                                @bind-Value="Input.Code"
+                                                                Label="Verification code"
+                                                                Placeholder="Please enter the code."
+                                                                Variant="Variant.Outlined"
+                                                                Adornment="Adornment.Start"
+                                                                AdornmentIcon="@Icons.Material.Filled.Password"
+                                                                Immediate="true"
+                                                                For="@(() => Input.Code)" />
+                                                            <ValidationMessage For="() => Input.Code"
+                                                                class="text-danger" />
+                                                        </MudItem>
+                                                        <MudItem xs="12">
+                                                            <MudStack Row="true"
+                                                                Justify="Justify.FlexEnd">
+                                                                <MudButton ButtonType="ButtonType.Submit"
+                                                                    Variant="Variant.Filled"
+                                                                    Color="Color.Primary"
+                                                                    StartIcon="@Icons.Material.Filled.VerifiedUser">
+                                                                    Verify
+                                                                </MudButton>
+                                                            </MudStack>
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </EditForm>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </MudCardContent>
+                            </MudCard>
+                        }
 
                 """;
         }
@@ -211,62 +211,62 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 @if (recoveryCodes is not null)
                 {
-                <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
-                StatusMessage="@message" />
+                    <ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()"
+                        StatusMessage="@message" />
                 }
                 else
                 {
-                <StatusMessage Message="@message" />
-                <h3>Configure authenticator app</h3>
-                <p>To use an authenticator app go through the following steps:</p>
-                <ol class="ux-steps">
-                <li>
-                <p>
-                Download a two-factor authenticator app like Microsoft Authenticator for
-                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
-                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
-                Google Authenticator for
-                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
-                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
-                </p>
-                </li>
-                <li>
-                <p>Scan the QR Code or enter this key <kbd>@sharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
-                <div class="ux-callout ux-callout-info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div>
-                <div></div>
-                <div data-url="@authenticatorUri"></div>
-                </li>
-                <li>
-                <p>
-                Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
-                with a unique code. Enter the code in the confirmation box below.
-                </p>
-                <EditForm Model="Input"
-                FormName="send-code"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <DataAnnotationsValidator />
-                <UxField Label="Verification code"
-                Icon="shield"
-                For="code">
-                <InputText id="code"
-                @bind-Value="Input.Code"
-                class="ux-input"
-                autocomplete="off"
-                placeholder="Enter the code" />
-                </UxField>
-                <ValidationMessage For="() => Input.Code"
-                class="text-danger" />
-                <button type="submit"
-                class="btn btn-primary">
-                <UxIcon Name="check-circle" /> Verify
-                </button>
-                <ValidationSummary class="text-danger"
-                role="alert" />
-                </EditForm>
-                </li>
-                </ol>
-                }
+                    <StatusMessage Message="@message" />
+                    <h3>Configure authenticator app</h3>
+                    <p>To use an authenticator app go through the following steps:</p>
+                    <ol class="ux-steps">
+                        <li>
+                            <p>
+                                Download a two-factor authenticator app like Microsoft Authenticator for
+                                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
+                                    <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
+                                    Google Authenticator for
+                                    <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
+                                    <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Scan the QR Code or enter this key <kbd>@sharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
+                                    <div class="ux-callout ux-callout-info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div>
+                                    <div></div>
+                                    <div data-url="@authenticatorUri"></div>
+                                </li>
+                                <li>
+                                    <p>
+                                        Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
+                                        with a unique code. Enter the code in the confirmation box below.
+                                    </p>
+                                    <EditForm Model="Input"
+                                        FormName="send-code"
+                                        OnValidSubmit="OnValidSubmitAsync"
+                                        method="post">
+                                        <DataAnnotationsValidator />
+                                        <UxField Label="Verification code"
+                                            Icon="shield"
+                                            For="code">
+                                            <InputText id="code"
+                                                @bind-Value="Input.Code"
+                                                class="ux-input"
+                                                autocomplete="off"
+                                                placeholder="Enter the code" />
+                                        </UxField>
+                                        <ValidationMessage For="() => Input.Code"
+                                            class="text-danger" />
+                                        <button type="submit"
+                                            class="btn btn-primary">
+                                            <UxIcon Name="check-circle" /> Verify
+                                        </button>
+                                        <ValidationSummary class="text-danger"
+                                            role="alert" />
+                                    </EditForm>
+                                </li>
+                            </ol>
+                        }
                 """;
         }
 

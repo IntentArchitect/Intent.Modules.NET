@@ -35,16 +35,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
 
             .personal-data-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-3);
-            align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--space-3);
+                align-items: center;
             }
             """;
 
@@ -55,57 +55,57 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{userAccessor}} UserAccessor
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.FolderShared"
-                Class="mr-2" />
-                Personal data
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Review, download, or permanently delete the personal data linked to your account.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.FolderShared"
+                            Class="mr-2" />
+                        Personal data
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Review, download, or permanently delete the personal data linked to your account.
+                    </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Personal data
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="mb-3">
-                Your account contains personal data that you have given us. This page allows you to download or delete that data.
-                </MudText>
-                <MudAlert Severity="Severity.Warning"
-                Class="mb-4">
-                Deleting this data will permanently remove your account, and this cannot be recovered.
-                </MudAlert>
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5"
+                            Class="mb-3">
+                            Personal data
+                        </MudText>
+                        <MudText Typo="Typo.body1"
+                            Class="mb-3">
+                            Your account contains personal data that you have given us. This page allows you to download or delete that data.
+                        </MudText>
+                        <MudAlert Severity="Severity.Warning"
+                            Class="mb-4">
+                            Deleting this data will permanently remove your account, and this cannot be recovered.
+                        </MudAlert>
 
-                <div class="personal-data-actions">
-                <form action="Account/Manage/DownloadPersonalData"
-                method="post">
-                <AntiforgeryToken />
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Primary"
-                StartIcon="@Icons.Material.Filled.Download">
-                Download
-                </MudButton>
-                </form>
-                <MudButton Href="Account/Manage/DeletePersonalData"
-                Variant="Variant.Filled"
-                Color="Color.Error"
-                StartIcon="@Icons.Material.Filled.Delete">
-                Delete
-                </MudButton>
-                </div>
-                </MudCardContent>
+                        <div class="personal-data-actions">
+                            <form action="Account/Manage/DownloadPersonalData"
+                                method="post">
+                                <AntiforgeryToken />
+                                <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Primary"
+                                    StartIcon="@Icons.Material.Filled.Download">
+                                    Download
+                                </MudButton>
+                            </form>
+                            <MudButton Href="Account/Manage/DeletePersonalData"
+                                Variant="Variant.Filled"
+                                Color="Color.Error"
+                                StartIcon="@Icons.Material.Filled.Delete">
+                                Delete
+                            </MudButton>
+                        </div>
+                    </MudCardContent>
                 </MudCard>
 
                 """;
@@ -118,31 +118,31 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 <StatusMessage />
                 <div class="ux-section-head">
-                <h3>Personal data</h3>
-                <p class="ux-section-subtitle">Your account contains personal data that you have given us. This page lets you download or delete that data.</p>
+                    <h3>Personal data</h3>
+                    <p class="ux-section-subtitle">Your account contains personal data that you have given us. This page lets you download or delete that data.</p>
                 </div>
                 <div class="ux-callout ux-callout-warning"
-                role="alert">
-                <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
-                <div class="ux-callout-body">
-                <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-                </div>
+                    role="alert">
+                    <span class="ux-callout-icon"><UxIcon Name="alert" /></span>
+                    <div class="ux-callout-body">
+                        <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+                    </div>
                 </div>
                 <div class="ux-button-row">
-                <form action="Account/Manage/DownloadPersonalData"
-                method="post">
-                <AntiforgeryToken />
-                <button class="btn btn-primary"
-                type="submit">
-                <UxIcon Name="download" />
-                Download
-                </button>
-                </form>
-                <a href="Account/Manage/DeletePersonalData"
-                class="btn btn-outline-danger">
-                <UxIcon Name="trash" />
-                Delete
-                </a>
+                    <form action="Account/Manage/DownloadPersonalData"
+                        method="post">
+                        <AntiforgeryToken />
+                        <button class="btn btn-primary"
+                            type="submit">
+                            <UxIcon Name="download" />
+                            Download
+                        </button>
+                    </form>
+                    <a href="Account/Manage/DeletePersonalData"
+                        class="btn btn-outline-danger">
+                        <UxIcon Name="trash" />
+                        Delete
+                    </a>
                 </div>
                 """;
         }

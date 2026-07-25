@@ -40,32 +40,32 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
 
             .auth-form-shell ::deep .mud-input-control-input-container,
             .auth-form-shell ::deep .mud-input-slot {
-            background: var(--surface-2);
+                background: var(--surface-2);
             }
 
             .auth-form-shell ::deep .mud-input-outlined-border {
-            border-color: var(--border);
+                border-color: var(--border);
             }
 
             .auth-form-shell ::deep .mud-input-label {
-            color: var(--text-muted);
+                color: var(--text-muted);
             }
 
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start:hover .mud-input-outlined-border,
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-adorned-start.mud-input-focused .mud-input-outlined-border {
-            border-color: var(--primary);
+                border-color: var(--primary);
             }
 
             .auth-form-shell ::deep .mud-input-root.mud-input-outlined.mud-input-focused {
-            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
-            border-radius: var(--radius-sm);
+                box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+                border-radius: var(--radius-sm);
             }
             """;
 
@@ -81,77 +81,77 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.AccountCircle"
-                Class="mr-2" />
-                Profile
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Manage your personal account details.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.AccountCircle"
+                            Class="mr-2" />
+                        Profile
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Manage your personal account details.
+                    </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <EditForm Model="Input"
-                FormName="profile"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <EditForm Model="Input"
+                            FormName="profile"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            method="post">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
 
-                <MudGrid>
-                <MudItem xs="12">
-                <MudText Typo="Typo.h5">Profile details</MudText>
-                <MudText Typo="Typo.body2"
-                Class="mb-4">
-                Update the information associated with your account.
-                </MudText>
-                </MudItem>
-                <MudItem xs="12">
-                <MudTextField T="string"
-                Value="@username"
-                Label="Username"
-                Variant="Variant.Outlined"
-                Adornment="Adornment.Start"
-                AdornmentIcon="@Icons.Material.Filled.Badge"
-                Disabled="true" />
-                </MudItem>
-                <MudItem xs="12">
-                <MudTextField T="string"
-                @bind-Value="Input.PhoneNumber"
-                Label="Phone number"
-                Placeholder="Please enter your phone number."
-                Variant="Variant.Outlined"
-                Adornment="Adornment.Start"
-                AdornmentIcon="@Icons.Material.Filled.Phone"
-                Immediate="true"
-                For="@(() => Input.PhoneNumber)" />
-                <ValidationMessage For="() => Input.PhoneNumber"
-                class="text-danger" />
-                </MudItem>
-                <MudItem xs="12">
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Primary"
-                StartIcon="@Icons.Material.Filled.Save">
-                Save
-                </MudButton>
-                </MudStack>
-                </MudItem>
-                </MudGrid>
-                </EditForm>
-                </MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.h5">Profile details</MudText>
+                                    <MudText Typo="Typo.body2"
+                                        Class="mb-4">
+                                        Update the information associated with your account.
+                                    </MudText>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField T="string"
+                                        Value="@username"
+                                        Label="Username"
+                                        Variant="Variant.Outlined"
+                                        Adornment="Adornment.Start"
+                                        AdornmentIcon="@Icons.Material.Filled.Badge"
+                                        Disabled="true" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField T="string"
+                                        @bind-Value="Input.PhoneNumber"
+                                        Label="Phone number"
+                                        Placeholder="Please enter your phone number."
+                                        Variant="Variant.Outlined"
+                                        Adornment="Adornment.Start"
+                                        AdornmentIcon="@Icons.Material.Filled.Phone"
+                                        Immediate="true"
+                                        For="@(() => Input.PhoneNumber)" />
+                                    <ValidationMessage For="() => Input.PhoneNumber"
+                                        class="text-danger" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudStack Row="true"
+                                        Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                            Variant="Variant.Filled"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Material.Filled.Save">
+                                            Save
+                                        </MudButton>
+                                    </MudStack>
+                                </MudItem>
+                            </MudGrid>
+                        </EditForm>
+                    </MudCardContent>
                 </MudCard>
                 """;
         }
@@ -167,43 +167,43 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <div class="ux-section-head">
-                <h3>Profile details</h3>
-                <p class="ux-section-subtitle">Update the information associated with your account.</p>
+                    <h3>Profile details</h3>
+                    <p class="ux-section-subtitle">Update the information associated with your account.</p>
                 </div>
                 <StatusMessage />
 
                 <EditForm Model="Input"
-                FormName="profile"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
-                <UxField Label="Username"
-                Icon="user"
-                For="username">
-                <input id="username"
-                type="text"
-                value="@username"
-                class="ux-input"
-                placeholder="Your username"
-                disabled />
-                </UxField>
-                <UxField Label="Phone number"
-                Icon="phone"
-                For="phone-number">
-                <InputText id="phone-number"
-                @bind-Value="Input.PhoneNumber"
-                class="ux-input"
-                placeholder="Your phone number" />
-                </UxField>
-                <ValidationMessage For="() => Input.PhoneNumber"
-                class="text-danger" />
-                <button type="submit"
-                class="btn btn-primary">
-                <UxIcon Name="save" />
-                Save
-                </button>
+                    FormName="profile"
+                    OnValidSubmit="OnValidSubmitAsync"
+                    method="post">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary class="text-danger"
+                        role="alert" />
+                    <UxField Label="Username"
+                        Icon="user"
+                        For="username">
+                        <input id="username"
+                            type="text"
+                            value="@username"
+                            class="ux-input"
+                            placeholder="Your username"
+                            disabled />
+                    </UxField>
+                    <UxField Label="Phone number"
+                        Icon="phone"
+                        For="phone-number">
+                        <InputText id="phone-number"
+                            @bind-Value="Input.PhoneNumber"
+                            class="ux-input"
+                            placeholder="Your phone number" />
+                    </UxField>
+                    <ValidationMessage For="() => Input.PhoneNumber"
+                        class="text-danger" />
+                    <button type="submit"
+                        class="btn btn-primary">
+                        <UxIcon Name="save" />
+                        Save
+                    </button>
                 </EditForm>
                 """;
         }

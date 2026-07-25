@@ -39,9 +39,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
             """;
 
@@ -57,29 +57,29 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead"
-                Class="mr-2" />
-                Confirm email change
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                We are verifying your updated email address and applying the change.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailRead"
+                            Class="mr-2" />
+                        Confirm email change
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        We are verifying your updated email address and applying the change.
+                    </MudText>
                 </MudPaper>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Email change status
-                </MudText>
-                <StatusMessage Message="@message" />
-                </MudCardContent>
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5"
+                            Class="mb-3">
+                            Email change status
+                        </MudText>
+                        <StatusMessage Message="@message" />
+                    </MudCardContent>
                 </MudCard>
                 """;
         }
@@ -96,13 +96,13 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <AccountHero Icon="check-circle"
-                Title="Confirm email change"
-                Subtitle="Updating your email address." />
+                    Title="Confirm email change"
+                    Subtitle="Updating your email address." />
 
                 <div class="ux-form-narrow">
-                <section>
-                <StatusMessage Message="@message" />
-                </section>
+                    <section>
+                        <StatusMessage Message="@message" />
+                    </section>
                 </div>
                 """;
         }

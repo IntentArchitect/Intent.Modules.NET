@@ -29,25 +29,25 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             return """
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
+                    Elevation="0">
                     <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
+                        Class="text-white font-weight-bold mb-2">
                         <MudIcon Icon="@Icons.Material.Filled.ForwardToInbox"
-                                 Class="mr-2" />
+                            Class="mr-2" />
                         Forgot password confirmation
                     </MudText>
                     <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
+                        Class="text-white opacity-90">
                         Check your inbox for the next steps to reset your password.
                     </MudText>
                 </MudPaper>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
                     <MudCardContent>
                         <MudText Typo="Typo.h5"
-                                 Class="mb-3">
+                            Class="mb-3">
                             Email sent
                         </MudText>
                         <MudText Typo="Typo.body1">Please check your email to reset your password.</MudText>
@@ -60,8 +60,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             return """
                 <AccountHero Icon="mail-check"
-                             Title="Check your email"
-                             Subtitle="We've sent you a password reset link." />
+                    Title="Check your email"
+                    Subtitle="We've sent you a password reset link." />
                 <div class="ux-form-narrow">
                     <section>
                         <p>Please check your email to reset your password.</p>

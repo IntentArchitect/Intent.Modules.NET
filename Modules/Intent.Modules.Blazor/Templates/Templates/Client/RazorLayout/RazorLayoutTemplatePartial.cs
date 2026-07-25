@@ -7,6 +7,7 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -58,7 +59,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return RazorFile.GetConfig();
+            var config = RazorFile.GetConfig();
+            return new RazorFileConfig(config.ClassName, @namespace: config.Namespace, 
+                relativeLocation: config.LocationInProject,
+                overwriteBehaviour: Intent.Templates.OverwriteBehaviour.OverwriteDisabled);
         }
 
         /// <inheritdoc />

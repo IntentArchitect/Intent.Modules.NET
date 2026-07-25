@@ -39,56 +39,56 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
 
             .account-input-field {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2);
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-2);
             }
 
             .account-input-label {
-            color: var(--text);
-            font-size: var(--type-label-lg);
-            font-weight: 500;
+                color: var(--text);
+                font-size: var(--type-label-lg);
+                font-weight: 500;
             }
 
             .account-input-shell {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            min-height: 44px;
-            padding: 0 0.875rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-1);
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+                min-height: 44px;
+                padding: 0 0.875rem;
+                background: var(--surface-2);
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                box-shadow: var(--shadow-1);
             }
 
             .account-input-shell:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
             ::deep .account-input-icon {
-            color: var(--text-muted);
-            flex-shrink: 0;
+                color: var(--text-muted);
+                flex-shrink: 0;
             }
 
             ::deep .account-input-control {
-            width: 100%;
-            min-height: 42px;
-            color: var(--text);
-            background: transparent;
-            border: none;
-            outline: none;
+                width: 100%;
+                min-height: 42px;
+                color: var(--text);
+                background: transparent;
+                border: none;
+                outline: none;
             }
 
             ::deep .account-input-control::placeholder {
-            color: var(--text-muted);
+                color: var(--text-muted);
             }
             """;
 
@@ -109,82 +109,82 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<ExternalLogin> Logger
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1"
-                Class="mr-2" />
-                Complete registration
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Link your @ProviderDisplayName account and finish creating your profile.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1"
+                            Class="mr-2" />
+                        Complete registration
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Link your @ProviderDisplayName account and finish creating your profile.
+                    </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
                 <MudAlert Severity="Severity.Info"
-                Class="mb-4">
-                You've successfully authenticated with <strong>@ProviderDisplayName</strong>.
-                Please enter an email address for this site below and click the Register button to finish
-                logging in.
+                    Class="mb-4">
+                    You've successfully authenticated with <strong>@ProviderDisplayName</strong>.
+                    Please enter an email address for this site below and click the Register button to finish
+                    logging in.
                 </MudAlert>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <EditForm Model="Input"
-                OnValidSubmit="OnValidSubmitAsync"
-                FormName="confirmation"
-                method="post">
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <EditForm Model="Input"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            FormName="confirmation"
+                            method="post">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
 
-                <MudGrid>
-                <MudItem xs="12">
-                <MudText Typo="Typo.h5">Associate your @ProviderDisplayName account</MudText>
-                <MudText Typo="Typo.body2"
-                Class="mb-4">
-                Enter an email address to complete registration.
-                </MudText>
-                </MudItem>
-                <MudItem xs="12">
-                <div class="account-input-field">
-                <label class="account-input-label"
-                for="email">
-                Email
-                </label>
-                <div class="account-input-shell">
-                <MudIcon Icon="@Icons.Material.Filled.Email"
-                Class="account-input-icon" />
-                <InputText id="email"
-                class="account-input-control"
-                @bind-Value="Input.Email"
-                autocomplete="email"
-                aria-required="true"
-                placeholder="Please enter your email."
-                type="email" />
-                </div>
-                <ValidationMessage For="() => Input.Email"
-                class="text-danger" />
-                </div>
-                </MudItem>
-                <MudItem xs="12">
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Primary"
-                StartIcon="@Icons.Material.Filled.HowToReg">
-                Register
-                </MudButton>
-                </MudStack>
-                </MudItem>
-                </MudGrid>
-                </EditForm>
-                </MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.h5">Associate your @ProviderDisplayName account</MudText>
+                                    <MudText Typo="Typo.body2"
+                                        Class="mb-4">
+                                        Enter an email address to complete registration.
+                                    </MudText>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="account-input-field">
+                                        <label class="account-input-label"
+                                            for="email">
+                                            Email
+                                        </label>
+                                        <div class="account-input-shell">
+                                            <MudIcon Icon="@Icons.Material.Filled.Email"
+                                                Class="account-input-icon" />
+                                            <InputText id="email"
+                                                class="account-input-control"
+                                                @bind-Value="Input.Email"
+                                                autocomplete="email"
+                                                aria-required="true"
+                                                placeholder="Please enter your email."
+                                                type="email" />
+                                        </div>
+                                        <ValidationMessage For="() => Input.Email"
+                                            class="text-danger" />
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudStack Row="true"
+                                        Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                            Variant="Variant.Filled"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Material.Filled.HowToReg">
+                                            Register
+                                        </MudButton>
+                                    </MudStack>
+                                </MudItem>
+                            </MudGrid>
+                        </EditForm>
+                    </MudCardContent>
                 </MudCard>
                 """;
         }
@@ -206,40 +206,40 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<ExternalLogin> Logger
 
                 <AccountHero Icon="user-plus"
-                Title="Almost there"
-                Subtitle="@($"Associate your {ProviderDisplayName} account.")" />
+                    Title="Almost there"
+                    Subtitle="@($"Associate your {ProviderDisplayName} account.")" />
 
                 <div class="ux-form-narrow">
-                <section>
-                <StatusMessage Message="@message" />
-                <p class="ux-section-subtitle">
-                You've successfully authenticated with <strong>@ProviderDisplayName</strong>. Enter an email address for this site and select Register to finish.
-                </p>
-                <EditForm Model="Input"
-                OnValidSubmit="OnValidSubmitAsync"
-                FormName="confirmation"
-                method="post">
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
-                <UxField Label="Email"
-                Icon="mail"
-                For="email">
-                <InputText id="email"
-                @bind-Value="Input.Email"
-                class="ux-input"
-                autocomplete="email"
-                placeholder="name@example.com" />
-                </UxField>
-                <ValidationMessage For="() => Input.Email"
-                class="text-danger" />
-                <button type="submit"
-                class="w-100 btn btn-primary">
-                <UxIcon Name="user-plus" />
-                Register
-                </button>
-                </EditForm>
-                </section>
+                    <section>
+                        <StatusMessage Message="@message" />
+                        <p class="ux-section-subtitle">
+                            You've successfully authenticated with <strong>@ProviderDisplayName</strong>. Enter an email address for this site and select Register to finish.
+                        </p>
+                        <EditForm Model="Input"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            FormName="confirmation"
+                            method="post">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
+                            <UxField Label="Email"
+                                Icon="mail"
+                                For="email">
+                                <InputText id="email"
+                                    @bind-Value="Input.Email"
+                                    class="ux-input"
+                                    autocomplete="email"
+                                    placeholder="name@example.com" />
+                            </UxField>
+                            <ValidationMessage For="() => Input.Email"
+                                class="text-danger" />
+                            <button type="submit"
+                                class="w-100 btn btn-primary">
+                                <UxIcon Name="user-plus" />
+                                Register
+                            </button>
+                        </EditForm>
+                    </section>
                 </div>
                 """;
         }

@@ -39,70 +39,70 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
 
             .account-input-field {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2);
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-2);
             }
 
             .account-input-label,
             .account-checkbox-label {
-            color: var(--text);
-            font-size: var(--type-label-lg);
-            font-weight: 500;
+                color: var(--text);
+                font-size: var(--type-label-lg);
+                font-weight: 500;
             }
 
             .account-input-shell {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            min-height: 44px;
-            padding: 0 0.875rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-1);
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+                min-height: 44px;
+                padding: 0 0.875rem;
+                background: var(--surface-2);
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                box-shadow: var(--shadow-1);
             }
 
             .account-input-shell:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
             ::deep .account-input-icon {
-            color: var(--text-muted);
-            flex-shrink: 0;
+                color: var(--text-muted);
+                flex-shrink: 0;
             }
 
             ::deep .account-input-control {
-            width: 100%;
-            min-height: 42px;
-            color: var(--text);
-            background: transparent;
-            border: none;
-            outline: none;
+                width: 100%;
+                min-height: 42px;
+                color: var(--text);
+                background: transparent;
+                border: none;
+                outline: none;
             }
 
             ::deep .account-input-control::placeholder {
-            color: var(--text-muted);
+                color: var(--text-muted);
             }
 
             .account-checkbox-field {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
             }
 
             ::deep .account-checkbox-control {
-            width: 1rem;
-            height: 1rem;
-            accent-color: var(--primary);
-            flex-shrink: 0;
+                width: 1rem;
+                height: 1rem;
+                accent-color: var(--primary);
+                flex-shrink: 0;
             }
             """;
 
@@ -117,99 +117,99 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<LoginWith2fa> Logger
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.VerifiedUser"
-                Class="mr-2" />
-                Two-factor authentication
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Confirm your sign-in using the code from your authenticator app.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.VerifiedUser"
+                            Class="mr-2" />
+                        Two-factor authentication
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Confirm your sign-in using the code from your authenticator app.
+                    </MudText>
                 </MudPaper>
 
                 <StatusMessage Message="@message" />
                 <MudText Typo="Typo.body1"
-                Class="mb-4">
-                Your login is protected with an authenticator app. Enter your authenticator code below.
+                    Class="mb-4">
+                    Your login is protected with an authenticator app. Enter your authenticator code below.
                 </MudText>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <EditForm Model="Input"
-                FormName="login-with-2fa"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <input type="hidden"
-                name="ReturnUrl"
-                value="@ReturnUrl" />
-                <input type="hidden"
-                name="RememberMe"
-                value="@RememberMe" />
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <EditForm Model="Input"
+                            FormName="login-with-2fa"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            method="post">
+                            <input type="hidden"
+                                name="ReturnUrl"
+                                value="@ReturnUrl" />
+                            <input type="hidden"
+                                name="RememberMe"
+                                value="@RememberMe" />
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
 
-                <MudGrid>
-                <MudItem xs="12">
-                <MudText Typo="Typo.h5">Authenticator code</MudText>
-                <MudText Typo="Typo.body2"
-                Class="mb-4">
-                Enter the code generated by your authenticator app.
-                </MudText>
-                </MudItem>
-                <MudItem xs="12">
-                <div class="account-input-field">
-                <label class="account-input-label"
-                for="two-factor-code">
-                Authenticator code
-                </label>
-                <div class="account-input-shell">
-                <MudIcon Icon="@Icons.Material.Filled.Password"
-                Class="account-input-icon" />
-                <InputText id="two-factor-code"
-                class="account-input-control"
-                @bind-Value="Input.TwoFactorCode"
-                autocomplete="off"
-                aria-required="true"
-                placeholder="Enter your authenticator code" />
-                </div>
-                <ValidationMessage For="() => Input.TwoFactorCode"
-                class="text-danger" />
-                </div>
-                </MudItem>
-                <MudItem xs="12">
-                <div class="account-checkbox-field">
-                <InputCheckbox @bind-Value="Input.RememberMachine"
-                class="account-checkbox-control" />
-                <label class="account-checkbox-label">Remember this machine</label>
-                </div>
-                </MudItem>
-                <MudItem xs="12">
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Primary"
-                StartIcon="@Icons.Material.Filled.Login">
-                Log in
-                </MudButton>
-                </MudStack>
-                </MudItem>
-                </MudGrid>
-                </EditForm>
-                </MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.h5">Authenticator code</MudText>
+                                    <MudText Typo="Typo.body2"
+                                        Class="mb-4">
+                                        Enter the code generated by your authenticator app.
+                                    </MudText>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="account-input-field">
+                                        <label class="account-input-label"
+                                            for="two-factor-code">
+                                            Authenticator code
+                                        </label>
+                                        <div class="account-input-shell">
+                                            <MudIcon Icon="@Icons.Material.Filled.Password"
+                                                Class="account-input-icon" />
+                                            <InputText id="two-factor-code"
+                                                class="account-input-control"
+                                                @bind-Value="Input.TwoFactorCode"
+                                                autocomplete="off"
+                                                aria-required="true"
+                                                placeholder="Enter your authenticator code" />
+                                        </div>
+                                        <ValidationMessage For="() => Input.TwoFactorCode"
+                                            class="text-danger" />
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="account-checkbox-field">
+                                        <InputCheckbox @bind-Value="Input.RememberMachine"
+                                            class="account-checkbox-control" />
+                                        <label class="account-checkbox-label">Remember this machine</label>
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudStack Row="true"
+                                        Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                            Variant="Variant.Filled"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Material.Filled.Login">
+                                            Log in
+                                        </MudButton>
+                                    </MudStack>
+                                </MudItem>
+                            </MudGrid>
+                        </EditForm>
+                    </MudCardContent>
                 </MudCard>
 
                 <MudText Typo="Typo.body2"
-                Class="mt-3">
-                Don't have access to your authenticator device? You can
-                <MudLink Href="@($"Account/LoginWithRecoveryCode?ReturnUrl={ReturnUrl}")">log in with a recovery code</MudLink>.
-                </MudText>
+                    Class="mt-3">
+                    Don't have access to your authenticator device? You can
+                    <MudLink Href="@($"Account/LoginWithRecoveryCode?ReturnUrl={ReturnUrl}")">log in with a recovery code</MudLink>.
+                        </MudText>
 
                 """;
         }
@@ -225,56 +225,56 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<LoginWith2fa> Logger
 
                 <AccountHero Icon="shield"
-                Title="Two-factor authentication"
-                Subtitle="Your login is protected with an authenticator app." />
+                    Title="Two-factor authentication"
+                    Subtitle="Your login is protected with an authenticator app." />
 
                 <div class="ux-form-narrow">
-                <section>
-                <StatusMessage Message="@message" />
-                <p class="ux-section-subtitle">Enter your authenticator code below.</p>
-                <EditForm Model="Input"
-                FormName="login-with-2fa"
-                OnValidSubmit="OnValidSubmitAsync"
-                method="post">
-                <input type="hidden"
-                name="ReturnUrl"
-                value="@ReturnUrl" />
-                <input type="hidden"
-                name="RememberMe"
-                value="@RememberMe" />
-                <DataAnnotationsValidator />
-                <ValidationSummary class="text-danger"
-                role="alert" />
-                <UxField Label="Authenticator code"
-                Icon="shield"
-                For="two-factor-code">
-                <InputText id="two-factor-code"
-                @bind-Value="Input.TwoFactorCode"
-                class="ux-input"
-                autocomplete="off"
-                placeholder="Enter your code" />
-                </UxField>
-                <ValidationMessage For="() => Input.TwoFactorCode"
-                class="text-danger" />
-                <div class="form-check">
-                <InputCheckbox id="remember-machine"
-                class="form-check-input"
-                @bind-Value="Input.RememberMachine" />
-                <label for="remember-machine"
-                class="form-check-label">
-                Remember this machine
-                </label>
-                </div>
-                <button type="submit"
-                class="w-100 btn btn-primary">
-                <UxIcon Name="log-in" />
-                Log in
-                </button>
-                </EditForm>
-                <div class="ux-account-links">
-                <a href="Account/LoginWithRecoveryCode?ReturnUrl=@ReturnUrl">Log in with a recovery code instead</a>
-                </div>
-                </section>
+                    <section>
+                        <StatusMessage Message="@message" />
+                        <p class="ux-section-subtitle">Enter your authenticator code below.</p>
+                        <EditForm Model="Input"
+                            FormName="login-with-2fa"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            method="post">
+                            <input type="hidden"
+                                name="ReturnUrl"
+                                value="@ReturnUrl" />
+                            <input type="hidden"
+                                name="RememberMe"
+                                value="@RememberMe" />
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
+                            <UxField Label="Authenticator code"
+                                Icon="shield"
+                                For="two-factor-code">
+                                <InputText id="two-factor-code"
+                                    @bind-Value="Input.TwoFactorCode"
+                                    class="ux-input"
+                                    autocomplete="off"
+                                    placeholder="Enter your code" />
+                            </UxField>
+                            <ValidationMessage For="() => Input.TwoFactorCode"
+                                class="text-danger" />
+                            <div class="form-check">
+                                <InputCheckbox id="remember-machine"
+                                    class="form-check-input"
+                                    @bind-Value="Input.RememberMachine" />
+                                <label for="remember-machine"
+                                    class="form-check-label">
+                                    Remember this machine
+                                </label>
+                            </div>
+                            <button type="submit"
+                                class="w-100 btn btn-primary">
+                                <UxIcon Name="log-in" />
+                                Log in
+                            </button>
+                        </EditForm>
+                        <div class="ux-account-links">
+                            <a href="Account/LoginWithRecoveryCode?ReturnUrl=@ReturnUrl">Log in with a recovery code instead</a>
+                        </div>
+                    </section>
                 </div>
                 """;
         }

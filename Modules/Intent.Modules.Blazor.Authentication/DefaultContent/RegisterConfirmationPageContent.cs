@@ -46,25 +46,25 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                          Elevation="0">
+                    Elevation="0">
                     <MudText Typo="Typo.h4"
-                             Class="text-white font-weight-bold mb-2">
+                        Class="text-white font-weight-bold mb-2">
                         <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread"
-                                 Class="mr-2" />
+                            Class="mr-2" />
                         Register confirmation
                     </MudText>
                     <MudText Typo="Typo.body1"
-                             Class="text-white opacity-90">
+                        Class="text-white opacity-90">
                         Confirm your email address to activate your account.
                     </MudText>
                 </MudPaper>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
                     <MudCardContent>
                         <MudText Typo="Typo.h5"
-                                 Class="mb-3">
+                            Class="mb-3">
                             Confirmation status
                         </MudText>
                         <StatusMessage Message="@statusMessage" />
@@ -97,8 +97,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <AccountHero Icon="mail-check"
-                             Title="Check your email"
-                             Subtitle="One more step to activate your account." />
+                    Title="Check your email"
+                    Subtitle="One more step to activate your account." />
                 <div class="ux-form-narrow">
                     <section>
                         <StatusMessage Message="@statusMessage" />

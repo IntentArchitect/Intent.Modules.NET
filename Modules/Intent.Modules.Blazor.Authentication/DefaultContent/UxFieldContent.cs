@@ -18,13 +18,13 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             return """
                 @* Form field: label above + filled shell with an optional leading icon.
-                   Bootstrap-free; mirrors the MudBlazor app's .login-input-* fields.
-                   ChildContent is the input (placed inside the shell); Validation renders below. *@
+                Bootstrap-free; mirrors the MudBlazor app's .login-input-* fields.
+                ChildContent is the input (placed inside the shell); Validation renders below. *@
                 <div class="ux-field">
                     @if (!string.IsNullOrEmpty(Label))
                     {
                         <label class="ux-field-label"
-                               for="@For">
+                            for="@For">
                             @Label
                         </label>
                     }
@@ -32,7 +32,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                         @if (!string.IsNullOrEmpty(Icon))
                         {
                             <UxIcon Name="@Icon"
-                                    Class="ux-field-icon" />
+                                Class="ux-field-icon" />
                         }
                         @ChildContent
                     </div>

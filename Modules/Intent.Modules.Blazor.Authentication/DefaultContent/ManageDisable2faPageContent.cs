@@ -40,9 +40,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         private const string MudBlazorStyle = """
             .auth-form-shell {
-            max-width: 720px;
-            box-shadow: var(--shadow-2);
-            border-radius: var(--radius-xl);
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
             }
             """;
 
@@ -57,51 +57,51 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject ILogger<Disable2fa> Logger
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.GppBad"
-                Class="mr-2" />
-                Disable two-factor authentication
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Turn off 2FA for your account if you no longer wish to use it.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.GppBad"
+                            Class="mr-2" />
+                        Disable two-factor authentication
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Turn off 2FA for your account if you no longer wish to use it.
+                    </MudText>
                 </MudPaper>
 
                 <StatusMessage />
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Disable two-factor authentication (2FA)
-                </MudText>
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5"
+                            Class="mb-3">
+                            Disable two-factor authentication (2FA)
+                        </MudText>
 
-                <MudAlert Severity="Severity.Warning"
-                Class="mb-4">
-                <MudText Typo="Typo.body1"><strong>This action only disables 2FA.</strong></MudText>
-                <MudText Typo="Typo.body1">Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
-                </MudAlert>
+                        <MudAlert Severity="Severity.Warning"
+                            Class="mb-4">
+                            <MudText Typo="Typo.body1"><strong>This action only disables 2FA.</strong></MudText>
+                            <MudText Typo="Typo.body1">Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key used in an authenticator app you should <MudLink Href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</MudLink></MudText>
+                        </MudAlert>
 
-                <form @formname="disable-2fa"
-                @onsubmit="OnSubmitAsync"
-                method="post">
-                <AntiforgeryToken />
-                <MudStack Row="true"
-                Justify="Justify.FlexEnd">
-                <MudButton ButtonType="ButtonType.Submit"
-                Variant="Variant.Filled"
-                Color="Color.Error"
-                StartIcon="@Icons.Material.Filled.GppBad">
-                Disable 2FA
-                </MudButton>
-                </MudStack>
-                </form>
-                </MudCardContent>
+                        <form @formname="disable-2fa"
+                            @onsubmit="OnSubmitAsync"
+                            method="post">
+                            <AntiforgeryToken />
+                            <MudStack Row="true"
+                                Justify="Justify.FlexEnd">
+                                <MudButton ButtonType="ButtonType.Submit"
+                                    Variant="Variant.Filled"
+                                    Color="Color.Error"
+                                    StartIcon="@Icons.Material.Filled.GppBad">
+                                    Disable 2FA
+                                </MudButton>
+                            </MudStack>
+                        </form>
+                    </MudCardContent>
                 </MudCard>
 
                 """;
@@ -121,21 +121,21 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <h3>Disable two-factor authentication (2FA)</h3>
 
                 <div class="ux-callout ux-callout-warning">
-                <p><strong>This action only disables 2FA.</strong></p>
-                <p>
-                Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key
-                used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
-                </p>
+                    <p><strong>This action only disables 2FA.</strong></p>
+                    <p>
+                        Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key
+                        used in an authenticator app you should <a href="Account/Manage/ResetAuthenticator">reset your authenticator keys.</a>
+                    </p>
                 </div>
 
                 <form @formname="disable-2fa"
-                @onsubmit="OnSubmitAsync"
-                method="post">
-                <AntiforgeryToken />
-                <button class="btn btn-danger"
-                type="submit">
-                <UxIcon Name="shield-off" /> Disable 2FA
-                </button>
+                    @onsubmit="OnSubmitAsync"
+                    method="post">
+                    <AntiforgeryToken />
+                    <button class="btn btn-danger"
+                        type="submit">
+                        <UxIcon Name="shield-off" /> Disable 2FA
+                    </button>
                 </form>
                 """;
         }

@@ -29,12 +29,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         {
             return """
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                         Style="animation-delay: 0.1s"
-                         Outlined="true">
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
                     <MudCardContent>
                         <MudText Typo="Typo.h5"
-                                 Color="Color.Error"
-                                 Class="mb-3">
+                            Color="Color.Error"
+                            Class="mb-3">
                             Access denied
                         </MudText>
                         <MudText Typo="Typo.body1">You do not have access to this resource.</MudText>

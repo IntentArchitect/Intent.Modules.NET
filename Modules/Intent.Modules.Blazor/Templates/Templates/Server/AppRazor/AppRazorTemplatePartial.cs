@@ -77,6 +77,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "nav-drawer.js"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "user-menu.js"));
                             body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
                         });
 
