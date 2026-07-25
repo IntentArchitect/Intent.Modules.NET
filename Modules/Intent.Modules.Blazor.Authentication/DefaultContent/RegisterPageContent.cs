@@ -72,12 +72,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
-            .register-input-icon {
+            ::deep .register-input-icon {
             color: var(--text-muted);
             flex-shrink: 0;
             }
 
-            .register-input-control {
+            ::deep .register-input-control {
             width: 100%;
             min-height: 42px;
             color: var(--text);
@@ -86,7 +86,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             outline: none;
             }
 
-            .register-input-control::placeholder {
+            ::deep .register-input-control::placeholder {
             color: var(--text-muted);
             }
             """;

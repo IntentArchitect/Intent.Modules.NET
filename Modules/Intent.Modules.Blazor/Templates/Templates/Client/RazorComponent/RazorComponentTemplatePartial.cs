@@ -42,6 +42,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         // the modelled Login/Register/etc. Component/Page elements it creates (e.g. "jwt-login").
         private const string AuthPageIdMetadataKey = "blazor-auth-page-id";
 
+        // Namespaces required by directives this template emits (e.g. "@attribute [Authorize]"),
+        // reconciled against the existing file's usings when merge-regenerating in TransformText().
+        private readonly HashSet<string> _requiredUsings = new(StringComparer.Ordinal);
+
         /// <summary>
         /// Creates a new instance of <see cref="RazorComponentTemplate"/>.
         /// </summary>
@@ -181,6 +185,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             var stripped = RemoveManagedDirectives(baseContent);
             var (userDirectives, contentBody) = SplitLeadingDirectives(stripped);
             contentBody = contentBody.TrimStart('\r', '\n');
+            userDirectives = AddMissingUsings(userDirectives);
 
             var sb = new System.Text.StringBuilder();
             sb.Append(pageDirective);
@@ -212,7 +217,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             if (!Model.HasSecured()) return string.Empty;
             var sb = new System.Text.StringBuilder();
             foreach (var secure in Model.GetSecureds())
+            {
+                _requiredUsings.Add("Microsoft.AspNetCore.Authorization");
                 sb.Append("@attribute ").Append(secure.AuthorizationAttribute(this)).Append('\n');
+            }
             return sb.ToString();
         }
 
@@ -221,6 +229,29 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             if (!Model.HasPage()) return string.Empty;
             var title = Model.GetPage().Title();
             return string.IsNullOrWhiteSpace(title) ? string.Empty : $"<PageTitle>{title}</PageTitle>";
+        }
+
+        /// <summary>
+        /// Prepends any namespace registered in <see cref="_requiredUsings"/> (e.g. by
+        /// <see cref="BuildAttributeDirectives"/> for "@attribute [Authorize]") that isn't already
+        /// covered by an "@using" line in <paramref name="userDirectives"/>.
+        /// </summary>
+        private string AddMissingUsings(string userDirectives)
+        {
+            if (_requiredUsings.Count == 0) return userDirectives;
+
+            var existingUsings = UsingNamespaceRegex().Matches(userDirectives)
+                .Select(m => m.Groups[1].Value)
+                .ToHashSet(StringComparer.Ordinal);
+
+            var missingUsings = _requiredUsings.Where(ns => !existingUsings.Contains(ns)).ToList();
+            if (missingUsings.Count == 0) return userDirectives;
+
+            var sb = new System.Text.StringBuilder();
+            foreach (var ns in missingUsings)
+                sb.Append("@using ").Append(ns).Append('\n');
+            sb.Append(userDirectives);
+            return sb.ToString();
         }
 
         private static (string directives, string body) SplitLeadingDirectives(string content)
@@ -326,5 +357,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 
         [GeneratedRegex(@"^@(page|using|attribute|inject|implements|typeparam|layout|namespace|inherits|preservewhitespace|rendermode)\b")]
         private static partial Regex RazorDirectiveRegex();
+
+        [GeneratedRegex(@"^@using\s+(\S+)", RegexOptions.Multiline)]
+        private static partial Regex UsingNamespaceRegex();
     }
 }

@@ -74,12 +74,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
-            .login-input-icon {
+            ::deep .login-input-icon {
             color: var(--text-muted);
             flex-shrink: 0;
             }
 
-            .login-input-control {
+            ::deep .login-input-control {
             width: 100%;
             min-height: 42px;
             color: var(--text);
@@ -88,7 +88,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             outline: none;
             }
 
-            .login-input-control::placeholder {
+            ::deep .login-input-control::placeholder {
             color: var(--text-muted);
             }
 
@@ -98,7 +98,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             gap: var(--space-2);
             }
 
-            .login-checkbox-control {
+            ::deep .login-checkbox-control {
             width: 1rem;
             height: 1rem;
             accent-color: var(--primary);

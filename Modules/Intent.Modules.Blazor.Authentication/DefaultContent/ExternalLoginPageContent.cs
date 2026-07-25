@@ -73,12 +73,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
-            .account-input-icon {
+            ::deep .account-input-icon {
             color: var(--text-muted);
             flex-shrink: 0;
             }
 
-            .account-input-control {
+            ::deep .account-input-control {
             width: 100%;
             min-height: 42px;
             color: var(--text);
@@ -87,7 +87,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             outline: none;
             }
 
-            .account-input-control::placeholder {
+            ::deep .account-input-control::placeholder {
             color: var(--text-muted);
             }
             """;

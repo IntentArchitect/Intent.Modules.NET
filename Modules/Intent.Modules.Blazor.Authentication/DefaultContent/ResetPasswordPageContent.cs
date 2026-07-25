@@ -69,12 +69,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
             }
 
-            .reset-password-input-icon {
+            ::deep .reset-password-input-icon {
             color: var(--text-muted);
             flex-shrink: 0;
             }
 
-            .reset-password-input-control {
+            ::deep .reset-password-input-control {
             width: 100%;
             min-height: 42px;
             color: var(--text);
@@ -83,7 +83,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             outline: none;
             }
 
-            .reset-password-input-control::placeholder {
+            ::deep .reset-password-input-control::placeholder {
             color: var(--text-muted);
             }
             """;
