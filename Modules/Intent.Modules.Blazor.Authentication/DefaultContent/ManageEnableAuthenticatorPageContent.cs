@@ -82,6 +82,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @using System.Globalization
                 @using System.Text
                 @using System.Text.Encodings.Web
+                @using Microsoft.AspNetCore.Authorization
                 @using Microsoft.AspNetCore.Identity
 
                 @inject UserManager<{{identityClass}}> UserManager

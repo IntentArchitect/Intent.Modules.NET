@@ -63,6 +63,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         private static string BuildMudBlazorContent(string identityClass, string userAccessor, string redirectManager)
         {
             return $$"""
+                @using Microsoft.AspNetCore.Authorization
                 @using Microsoft.AspNetCore.Authentication
                 @using Microsoft.AspNetCore.Identity
 

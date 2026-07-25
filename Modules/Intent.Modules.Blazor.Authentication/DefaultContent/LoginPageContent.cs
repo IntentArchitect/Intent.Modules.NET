@@ -8,6 +8,7 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Templates;
 using System.Linq;
 using System.Threading;
 
@@ -358,6 +359,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
             code.AddField("string?", "errorMessage");
+
+            // only needs to be added for this as gets auto added for all others as there is navigation
+            if (code.Template is RazorComponentTemplate temp && temp.GetAuthenticationType().IsSingleSignOnOpenIDConnect())
+            {
+                code.AddProperty(code.Template.UseType("NavigationManager"), "NavigationManager", input =>
+                {
+                    input.Public();
+                    input.WithInitialValue("default!");
+                });
+            }
 
             code.AddProperty(code.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", input =>
             {

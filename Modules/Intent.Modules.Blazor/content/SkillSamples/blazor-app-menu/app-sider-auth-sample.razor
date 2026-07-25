@@ -1,4 +1,4 @@
-@* AppSider — Auth project variant. Authentication module IS installed, so CascadingAuthenticationState
+@* MainLayoutSider — Auth project variant. Authentication module IS installed, so CascadingAuthenticationState
    is registered app-wide and AuthorizeView is safe to use. Only items whose context carries an
    authorization requirement get wrapped — everything else stays a plain, unwrapped MudNavLink.
 
@@ -6,12 +6,13 @@
    - "a navigation link to the product list page with route '/product-list'" -> no requirement -> plain link
    - "a navigation link to the order list page with route '/order-list' which requires roles
       'Admin' or 'Write'" -> Roles-gated -> wrapped in AuthorizeView, Authorized-only, no NotAuthorized
-      fragment (the item simply doesn't render for a user who doesn't qualify). *@
+      fragment (the item simply doesn't render for a user who doesn't qualify).
 
-<MudDrawer Open="DrawerOpen"
-           OpenChanged="DrawerOpenChanged"
-           ClipMode="DrawerClipMode.Always"
-           Elevation="0">
+   The outer <nav class="ux-nav-drawer"> wrapper is the current scaffold's shape — there is no
+   MudDrawer/DrawerOpen/DrawerOpenChanged binding here (an older scaffold generation used one;
+   it no longer exists in MainLayout.razor or the code-behind, so don't reintroduce it). *@
+
+<nav class="ux-nav-drawer">
     <MudNavMenu>
         <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
 
@@ -23,4 +24,4 @@
             </Authorized>
         </AuthorizeView>
     </MudNavMenu>
-</MudDrawer>
+</nav>

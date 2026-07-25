@@ -1,17 +1,25 @@
-@* AppHeader — Auth project variant. Two independent AuthorizeView decision points:
+@* MainLayoutHeader — Auth project variant (identical fixed chrome in NoAuth, minus the gated
+   nav item below). Two independent concerns:
    1. Any Header-placed nav item that carries its own authorization requirement (e.g. "Admin
       Dashboard" below) — wrapped exactly like a gated Sider item, just using MudButton instead
       of MudNavLink since MudAppBar is not a MudNavMenu.
-   2. The single, fixed user-menu slot — Authorized shows <AppUserMenu/>, NotAuthorized shows
-      Login/Register. This split is ALWAYS present in an Auth project's AppHeader regardless of
-      what the context says about other menu items — it is not something the context needs to
-      request, and it must not be removed. *@
+   2. The Profile component slot (<MainLayoutProfile /> below) — included UNCONDITIONALLY,
+      with no AuthorizeView around it here, whenever the Layout has a modeled Profile Menu
+      element at all (regardless of whether Profile currently has any modeled nav items). Any
+      Login/Register-vs-Authorized branching for that surface lives entirely inside
+      MainLayoutProfile.razor itself (see app-user-menu-auth-sample.razor) — never here.
+
+   The drawer-toggle span/MudIconButton and the bare <ThemeToggle /> are fixed chrome with no
+   OnClick/OnToggle EventCallback wiring in the current scaffold — the drawer toggles via the
+   navDrawer.toggle() JS interop and the theme toggles internally. Don't reintroduce callbacks
+   that an older scaffold generation used here. *@
 
 <MudAppBar>
-    <MudIconButton Icon="@Icons.Material.Filled.Menu"
-                   Color="Color.Inherit"
-                   Edge="Edge.Start"
-                   OnClick="@(() => OnDrawerToggle.InvokeAsync())" />
+    <span onclick="navDrawer.toggle()">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start" />
+    </span>
     <MudButton Href="/" Class="my-2 mr-2" Color="Color.Inherit">
         <MudText Typo="Typo.h5">MyApp</MudText>
     </MudButton>
@@ -23,6 +31,6 @@
     </AuthorizeView>
 
     <MudSpacer />
-    <ThemeToggle OnToggle="@(() => OnThemeToggle.InvokeAsync())" />
+    <ThemeToggle />
     <MainLayoutProfile />
 </MudAppBar>

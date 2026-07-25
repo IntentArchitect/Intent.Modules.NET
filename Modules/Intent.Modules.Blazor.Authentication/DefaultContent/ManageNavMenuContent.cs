@@ -76,6 +76,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         private static string BuildMudBlazorContent(string identityClass)
         {
             return $$"""
+                @using Microsoft.AspNetCore.Authorization
                 @using Microsoft.AspNetCore.Identity
 
                 @inject SignInManager<{{identityClass}}> SignInManager

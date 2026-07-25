@@ -51,6 +51,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         private static string BuildMudBlazorContent(string userAccessor)
         {
             return $$"""
+                @using Microsoft.AspNetCore.Authorization
                 @inject {{userAccessor}} UserAccessor
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"

@@ -1,36 +1,62 @@
-@* AppUserMenu — Auth project variant. Authentication module IS installed, so this is no longer the
-   NoAuth placeholder (a single "Add menu items" hint) — it's the real account dropdown: Profile,
-   My Account, and Logout. The <UserMenu><Trigger>/<ChildContent> shape is the same fixed scaffolding
-   used by the NoAuth default; only the ChildContent differs.
+@* MainLayoutProfile — Auth project variant (the file may be named differently depending on the
+   modeled Profile Menu element's name — this is the common "MainLayoutProfile" case).
 
-   The Logout item MUST stay a <form method="post"> with <AntiforgeryToken/>, never an OnClick handler
-   or a client-side auth call — sign-out is a server-side POST that clears the auth cookie, and nothing
-   else observes it. Preserve this pattern exactly when editing this file (see Step 7 / Forbidden). *@
+   SAMPLE ONLY: this file demonstrates the structural layout of an Auth-profile dropdown.
 
-<UserMenu>
-    <Trigger>
-        <MudIcon Icon="@Icons.Material.Filled.MoreVert" />
-    </Trigger>
-    <ChildContent>
-        <a class="ux-user-menu-item" href="Account/Login">
-            <MudIcon Icon="@Icons.Material.Filled.Person" Size="Size.Small" />
-            <span>Login</span>
-        </a>
-        <AuthorizeView>
-            <Authorized>
-                <a class="ux-user-menu-item" href="Account/Manage">
-                    <MudIcon Icon="@Icons.Material.Filled.ManageAccounts" Size="Size.Small" />
-                    <span>My Account</span>
-                </a>
-                <form class="ux-user-menu-logout-form" action="Account/Logout" method="post">
-                    <AntiforgeryToken />
-                    <input type="hidden" name="returnUrl" value="" />
-                    <button type="submit" class="ux-user-menu-item">
-                        <MudIcon Icon="@Icons.Material.Filled.Logout" Size="Size.Small" />
-                        <span>Logout</span>
-                    </button>
-                </form>
-            </Authorized>
-        </AuthorizeView>
-    </ChildContent>
-</UserMenu>
+   Menu items must be generated ONLY from the provided context (or from modeled Navigation Target
+   End context routed to the Profile region). Do NOT add Login/Register/Manage/Logout unless they
+   are present in that context.
+
+   If the context requires auth-based gating, use AuthorizeView around the relevant items. If the
+   context does not describe auth items, do not invent them.
+
+   Notes:
+   - The outer UserMenu structure shows a common pattern: AccountCircle trigger and a stacked
+     list of buttons.
+   - The NotAuthorized block is OPTIONAL and should only be included when the context explicitly
+     includes signed-out links such as Login/Register.
+   - Any logout pattern (e.g. POST form + antiforgery) is app-specific; include it only when
+     the context explicitly asks for it.
+*@
+
+<AuthorizeView>
+    <Authorized>
+        <UserMenu>
+            <Trigger>
+                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+            </Trigger>
+            <ChildContent>
+                <MudStack Spacing="0">
+                    <MudButton Href="/my-orders" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        My Orders
+                    </MudButton>
+                    <MudButton Href="/account" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        Account
+                    </MudButton>
+                </MudStack>
+            </ChildContent>
+        </UserMenu>
+    </Authorized>
+</AuthorizeView>
+
+@* Optional structure example for signed-out state.
+   Include this ONLY if the context explicitly includes signed-out links (e.g. Login/Register). *@
+
+@* 
+<AuthorizeView>
+    <NotAuthorized>
+        <UserMenu Title="Account">
+            <Trigger>
+                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+            </Trigger>
+            <ChildContent>
+                <MudStack Spacing="0">
+                    <MudButton Href="/Account/Login" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        Login
+                    </MudButton>
+                </MudStack>
+            </ChildContent>
+        </UserMenu>
+    </NotAuthorized>
+</AuthorizeView>
+*@

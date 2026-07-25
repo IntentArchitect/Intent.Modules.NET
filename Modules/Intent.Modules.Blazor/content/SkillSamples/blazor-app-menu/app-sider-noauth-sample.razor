@@ -1,14 +1,15 @@
-@* AppSider — NoAuth project variant. No Authentication module installed, so there is NO
+@* MainLayoutSider — NoAuth project variant. No Authentication module installed, so there is NO
    AuthorizeView, no CascadingAuthenticationState, and no auth-conditional rendering anywhere
-   in this file. Every item renders unconditionally, in the order given by the context. *@
+   in this file. Every item renders unconditionally, in the order given by the context.
 
-<MudDrawer Open="DrawerOpen"
-           OpenChanged="DrawerOpenChanged"
-           ClipMode="DrawerClipMode.Always"
-           Elevation="0">
+   The outer <nav class="ux-nav-drawer"> wrapper is the current scaffold's shape — there is no
+   MudDrawer/DrawerOpen/DrawerOpenChanged binding here (an older scaffold generation used one;
+   it no longer exists in MainLayout.razor or the code-behind, so don't reintroduce it). *@
+
+<nav class="ux-nav-drawer">
     <MudNavMenu>
         <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
         <MudNavLink Href="/product-list" Icon="@Icons.Material.Filled.Inventory2">Product List</MudNavLink>
         <MudNavLink Href="/order-list" Icon="@Icons.Material.Filled.ListAlt">Order List</MudNavLink>
     </MudNavMenu>
-</MudDrawer>
+</nav>

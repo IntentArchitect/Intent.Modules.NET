@@ -121,7 +121,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                         });
                     });
 
-                    @class.AddMethod("Task", "Register", method =>
+                    @class.AddMethod($"Task<IEnumerable<{UseType("Microsoft.AspNetCore.Identity.IdentityError")}>>", "Register", method =>
                     {
                         method.Async();
                         method.AddParameter("string", "email");
@@ -135,6 +135,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                         });
 
                         method.AddStatement("_redirectManager.RedirectTo(returnUrl);");
+
+                        method.AddReturn("[]");
                     });
 
 
