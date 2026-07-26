@@ -5,14 +5,40 @@
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#c22e8240-e744-4522-b39a-03e707054765</correlationId>
       <path>Solace.Tests.Application/IntegrationEvents/EventHandlers/Customers/CustomerCreatedHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-12-03T22:01:46.2650033Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-12-03T22:18:18.3197749Z</approvedAt>
-      <deviationsHash>0A6D036A13B516E591965518AE22B69A100F290D34E3AFB385337FD201249B95</deviationsHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:43.6578771Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.0382873Z</approvedAt>
+      <deviationsHash>34B83A65B64F8F7CC9F29FE82C740553DB19E658A5F867594B23B7865B984336</deviationsHash>
       <fileHash>AAAEBBDA922524FDA6C3698ED25413A106652290BB799DE82A7DDE55F2C9974B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#8912ca43-636f-429f-ae4e-bba36cca0173</correlationId>
+      <path>Solace.Tests.Application/IntegrationEvents/EventHandlers/GeneralHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:43.6578945Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.0620807Z</approvedAt>
+      <deviationsHash>CD046D955634FB6876B842DF524A9AE609085A4884A47E2E6CE1A971F4EC34F0</deviationsHash>
+      <fileHash>E923598168C611A0AFE62340B6D07BACA62D9D3C6C6297CD981CE2FEA8ACD84F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.EntityFrameworkCore.Repositories.Repository#add7afb7-e3ce-4b1d-a0fc-31296f8cb518</correlationId>
+      <path>Solace.Tests.Infrastructure/Repositories/CustomerRepository.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:43.658377Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.0863234Z</approvedAt>
+      <deviationsHash>ABE90C4BFEADD40B843CB2D4FAD2DA8AC7721D1C11843B52C87C78DAA293A47F</deviationsHash>
+      <fileHash>41F7A01B3C43AD9F441EB1C97AE8958755F97F35B71FED9DFFD8C24B8AAEC8EC</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#09a258ac-0d55-4b5b-b63d-9aa3cc8afa0e</correlationId>

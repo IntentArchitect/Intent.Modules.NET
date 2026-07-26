@@ -27,5 +27,44 @@
       <deviationsHash>70411D16BCC7159C4D7D0BD76D9B3BC0FE252E9B9192571246B391BB656E2275</deviationsHash>
       <fileHash>627AD11DF0A227559C1C5259A6CD14E6AC71FF7906C40F9274177E766FC28D93</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#48e84690-9c37-4663-b2fb-bdb3eab8cb79</correlationId>
+      <path>AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedByNameOptionalTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:08:04.2835791Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.0461659Z</approvedAt>
+      <deviationsHash>A2FDB02695C53FB78CA83A86C103E56A630F0D9477965310FA370F368C5F1929</deviationsHash>
+      <fileHash>4935D95CF8C8B9ABE2E3B66B8301B68ADE44CFD48B7CA0441D00723AB361B8A6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</correlationId>
+      <path>AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:08:04.2836289Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.0690965Z</approvedAt>
+      <deviationsHash>F37513D00EB5F26116E57B20863944645332DF7A6CBE3C8D87F8F73C754DE656</deviationsHash>
+      <fileHash>0B289E78A199311EBE150DAAFB52F2216CCC56A9B222280394515696022F1FED</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</correlationId>
+      <path>AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedWithOrderTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:08:04.2836455Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.0982205Z</approvedAt>
+      <deviationsHash>289BCD280FEFB4F7936D2A2B5C81A4C6595F5E0B82D747E4EC2777B929A0D195</deviationsHash>
+      <fileHash>6D671B330DB6C26E49BE08130BC8F61EBC438D24473B6F7D4AF0B667E075E631</fileHash>
+    </file>
   </files>
 </deviationsLog>

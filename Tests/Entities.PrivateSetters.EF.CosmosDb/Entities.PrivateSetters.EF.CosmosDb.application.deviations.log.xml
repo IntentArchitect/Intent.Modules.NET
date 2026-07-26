@@ -2,6 +2,45 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#598f0e68-49ad-45ad-b1a7-2cea8ebba18c</correlationId>
+      <path>Entities.PrivateSetters.EF.CosmosDb.Application/Implementation/InvoiceService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:56.2561556Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:20.5419596Z</approvedAt>
+      <deviationsHash>ED7FC54B1FAC83A87580D836B360B67A040E54015208F2DEDB0602B75D31CDFA</deviationsHash>
+      <fileHash>12C9A9686968B922EC18540465B022AF6CD6B65D8996ACB8948E8165F5524957</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#7b885831-36a1-417a-800a-b68382ee3153</correlationId>
+      <path>Entities.PrivateSetters.EF.CosmosDb.Application/Implementation/TagService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:56.2561684Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:20.6008902Z</approvedAt>
+      <deviationsHash>95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752</deviationsHash>
+      <fileHash>BA2C6A278B2078B569BD47CE1D436576053F3C81E1F35CF77E0640B08441B134</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#87892ef1-c976-4169-b2f9-13f5338198f9</correlationId>
+      <path>Entities.PrivateSetters.EF.CosmosDb.Domain/Entities/Invoice.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:56.2562705Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:21.4670551Z</approvedAt>
+      <deviationsHash>B0F05116FF7F884C1B33DBF6B886F71A8E2499BFDE0CB0FB12A23373D1833FDE</deviationsHash>
+      <fileHash>234D39267305A1CE08A46566677CF6EE7BB4B7E843CB6E0766B363C4CB63B923</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#10646b37-332c-468f-b03c-7904547633a6</correlationId>
       <path>Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj</path>
       <count>1</count>

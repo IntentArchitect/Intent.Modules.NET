@@ -4,14 +4,14 @@
     <file>
       <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#cfdf78be-ef35-45a3-9245-ab63975fb532</correlationId>
       <path>MudBlazor.ExampleApp.Api/Components/App.razor</path>
-      <count>2</count>
+      <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-09-02T22:41:20.6059619Z</updatedAt>
+      <updatedAt>2026-07-26T18:15:02.1492627Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-09-02T22:41:20.6060966Z</approvedAt>
-      <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
+      <approvedAt>2026-07-26T18:33:31.9896748Z</approvedAt>
+      <deviationsHash>C6831CA92631EB71C8A413C47CB0B25B33D71D4EF7DA54E950E7E36FF54083FB</deviationsHash>
       <fileHash>14A3957C2B6F9D7880F1E7F26DE906815AB600BAED56D8AE1DCE3FD05EE4AAD5</fileHash>
     </file>
     <file>
@@ -26,6 +26,19 @@
       <approvedAt>2026-07-10T19:05:37.4160495Z</approvedAt>
       <deviationsHash>0542540AAE022CE82D5340E606CD6BF6BB02F0A729F200817924B8D27669FA1D</deviationsHash>
       <fileHash>B897DCF9E67FA26C1E56A286251F6F5225F43E48AB3A9444DA0A12F53D3DE549</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
+      <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:02.1509169Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.0158126Z</approvedAt>
+      <deviationsHash>CF7104BBCDE03F31B2E624FD6E50198AFA15863729013E396FBCD91EBE200756</deviationsHash>
+      <fileHash>A15EC9F9573F070A99A53B494A744C7E49E820D61474457B000648DD5934A133</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#483e2214-6448-40b1-b393-da28db541f1c</correlationId>

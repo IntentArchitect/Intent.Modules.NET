@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModularMonolith.Host.ModuleConfiguration#6e49e943-c6d7-4b93-b19a-78861f6e1b01</correlationId>
+      <path>Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:27:51.7724295Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.6332962Z</approvedAt>
+      <deviationsHash>7033EDAC466FDC9598BAE7AF0F2C180C51CF877B7D5D2EA0C6DF8AE60D0FAF6C</deviationsHash>
+      <fileHash>2B50E45CBBF004BAB2583539522F0433939582964BD03D5F8DA205FCD8D7B131</fileHash>
+    </file>
+  </files>
 </deviationsLog>

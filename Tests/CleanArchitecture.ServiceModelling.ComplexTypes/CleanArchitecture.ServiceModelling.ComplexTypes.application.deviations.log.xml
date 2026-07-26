@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Entities.DomainEntity#498614a7-bfd0-4011-be4a-eaaaa0ee46d2</correlationId>
+      <path>CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerRich.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:10:54.9943482Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:24.0679134Z</approvedAt>
+      <deviationsHash>423144468A59CB8A4CA976379F2C1F197B1DF36503DCF288DD9F9A0EB23E50EA</deviationsHash>
+      <fileHash>E0A22F62725917B5F0DBBF09D3780AAE7798919EB427922F73471C327054D1D6</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#9dc8c190-797f-42d4-8315-7aedc4a3c1a2</correlationId>
       <path>CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj</path>
       <count>1</count>

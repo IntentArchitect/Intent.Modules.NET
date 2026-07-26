@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a8d68edd-36fb-4f52-94f8-30234641f3f2</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Implementation/UsersService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:28:35.3682073Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:20.2857368Z</approvedAt>
+      <deviationsHash>2FD440A570E6F7273F1A069272D8D1A9379547F1CCF4B3F9AF0A0B56DF4261D1</deviationsHash>
+      <fileHash>0B2D1281734458FEEF6DF9B6B5CE0FBDD1F03DE8E33B606E81711A1A2AC64622</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#bf4c0648-086e-4b03-a1f8-da4c3bd0773a</correlationId>
       <path>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj</path>
       <count>1</count>

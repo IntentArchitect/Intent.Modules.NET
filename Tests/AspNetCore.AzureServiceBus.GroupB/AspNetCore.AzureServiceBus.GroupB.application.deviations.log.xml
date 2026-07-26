@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#1cc4f22b-ba48-4209-81bf-91d9ab28b443</correlationId>
+      <path>AspNetCore.AzureServiceBus.GroupB.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:20:25.7541477Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.9543736Z</approvedAt>
+      <deviationsHash>596D9C922F63C734521AABEEA778F0DC77039EC435F857A2C330BD4E4E71E278</deviationsHash>
+      <fileHash>4A6B2E5BC1456835AD9F19EC844897AAF89CFBDE7A5E8E8605F4631780C961E2</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#11cd8dfa-6bfe-4bb4-a2fd-300870b79f4e</correlationId>
       <path>AspNetCore.AzureServiceBus.GroupB.Infrastructure/AspNetCore.AzureServiceBus.GroupB.Infrastructure.csproj</path>
       <count>1</count>

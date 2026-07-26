@@ -1,4 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.QuartzScheduler.ScheduledJob#898b3d28-540a-4764-b4ba-482bb2014a00</correlationId>
+      <path>WindowsServiceHost.Tests/Jobs/NonConcurrentJob.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:59.4296228Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.1744432Z</approvedAt>
+      <deviationsHash>18EB6C32280C6971165F6AF9D5C3A6C457178CFB92C61E4A97C79AC471365D28</deviationsHash>
+      <fileHash>8BC1FFC148C775AD7A126C0D74DDE6BF4085956276F9AD5A082E9CCE5D146A1E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.QuartzScheduler.ScheduledJob#285a5c4a-203e-47ae-8c8a-fddc15c7b1c9</correlationId>
+      <path>WindowsServiceHost.Tests/Jobs/RunEvery15Seconds.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:59.4296367Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.2028485Z</approvedAt>
+      <deviationsHash>A620B0FFAE841A20452E7C4A97A0284DAA212A72C89E966BCA6B237343AB490B</deviationsHash>
+      <fileHash>DFD7CDF6812E726A1D021A3A537EDA66173ACEF062762C135466C823B079812C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#bb6f5d37-756f-4127-8c9a-a832472aa945</correlationId>
+      <path>WindowsServiceHost.Tests/MyScheduled/MyScheduledCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:59.4292444Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.2320134Z</approvedAt>
+      <deviationsHash>01B2231E692A3049E62D8F1F201069618F89B65BD0ABA3E4C194864DACA6D1BB</deviationsHash>
+      <fileHash>9C86BB88C23E69E2937A4AFD8DCAB10F8A2653CC42185249ED559C14691C3862</fileHash>
+    </file>
+  </files>
 </deviationsLog>

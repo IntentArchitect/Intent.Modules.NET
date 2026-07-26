@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#eaf4ea64-a790-4498-87cf-c395d7a7f1ca</correlationId>
+      <path>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:21:46.0312712Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:20.4471996Z</approvedAt>
+      <deviationsHash>60D36A63CC2A2936C4D3760D04B440D68A997E284E12E6D2E8C62D4792FF3D9F</deviationsHash>
+      <fileHash>6088BED3C019C72D4DCAC4C6F0137235867FB4A5587B5D2AF58750DF639ABF23</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#9a02c2c1-32c1-4dfa-ad06-519222669804</correlationId>
       <path>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj</path>
       <count>1</count>

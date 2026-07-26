@@ -7,12 +7,38 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T09:19:10.6622421Z</updatedAt>
+      <updatedAt>2026-07-26T18:19:43.483343Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T09:19:10.662346Z</approvedAt>
-      <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
+      <approvedAt>2026-07-26T18:33:32.8172567Z</approvedAt>
+      <deviationsHash>65A8AACE8E283E760A3E0FD1F75E3FE92F58BF0C7859BF4ECE9BC82D3C725F39</deviationsHash>
       <fileHash>05C9D7DFF2AA5F9369A3015F62BC5922A5EE4EF5519DA6D9B1068DA02570DF64</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:19:43.4843122Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.8386215Z</approvedAt>
+      <deviationsHash>1EE5EDE162717EA38123AAE2AC73EFC8C67A78D18098139B27457F3C1FBDAF24</deviationsHash>
+      <fileHash>54FC440ECD0F6391077546F70B0309BEC9DF5BE67ADED5F83EB4D0C2814E5892</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#8a259139-702a-4f1c-8cc0-8c93fe618080</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:19:43.4843287Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.8654603Z</approvedAt>
+      <deviationsHash>0A2D63F09954F5C651919794BAC98467DB45C525736317ED7C5B8AF0E8791703</deviationsHash>
+      <fileHash>4E174A13ACBC05E1D7B57018C1228DCE3EDEDD4D1690EE0AC98674F9E6745517</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#53ddaa35-c94d-4f45-a584-723be91d5ea6</correlationId>

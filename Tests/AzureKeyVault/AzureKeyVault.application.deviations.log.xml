@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
+      <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:02.525733Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.1402981Z</approvedAt>
+      <deviationsHash>81F3EB666AB631110C2D6698065186DD954F156800A85482B66F0F859285D218</deviationsHash>
+      <fileHash>9E18F958E9AA04B3EFDCCEAF01B016DF1B5F5EB53D2F6DD688DF5293A81C1EAF</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#bbcfcc93-d849-4d1c-a6f3-5532a74de617</correlationId>
       <path>AzureKeyVault.Infrastructure/AzureKeyVault.Infrastructure.csproj</path>
       <count>1</count>

@@ -7,12 +7,25 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T15:17:46.7482923Z</updatedAt>
+      <updatedAt>2026-07-26T18:14:41.2722594Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T15:17:46.7486617Z</approvedAt>
-      <deviationsHash>27F327EF59C8165415235EBD7624BA54DF96967871F79D2E5C5969879FC9ED16</deviationsHash>
+      <approvedAt>2026-07-26T18:33:31.8948274Z</approvedAt>
+      <deviationsHash>3CE6C197F9A4F7BDC90D478F7CE297B42112D60ECD68610B8304289F1EC7984C</deviationsHash>
       <fileHash>39ADACDAE8A019EC51EA2384E6E1154C893E211358B50DB2767ECAD8977EB46A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#0cc52610-4c2f-45e9-9283-922882c3ad18</correlationId>
+      <path>AzureFunctions.NET8.Api/Queues/Bindings/QueueClientBinding.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:41.2725326Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.9132902Z</approvedAt>
+      <deviationsHash>31F9868BA60ECD3272883F1766070A6E164A3A00DAB1C28B0161F70876423059</deviationsHash>
+      <fileHash>A9EB5BA248F750A2B8887981D87460CDFEF44491AC0F7A65F728EF588A570A6F</fileHash>
     </file>
     <file>
       <correlationId>Intent.AzureFunctions.AzureFunctionClass#9e636440-d5fd-4b08-ac78-47b0e306892b</correlationId>
@@ -20,11 +33,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T15:17:46.7810049Z</updatedAt>
+      <updatedAt>2026-07-26T18:14:41.2725667Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T15:17:46.7810218Z</approvedAt>
-      <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
+      <approvedAt>2026-07-26T18:33:31.9532276Z</approvedAt>
+      <deviationsHash>5398976649ECAC5897CDF1278EEB2EAC04C72FE02907F06CD2979092872D3988</deviationsHash>
       <fileHash>6B2369A209DB3B84CCB883304D27520880B7E1266AB1A90967D959734D1E159F</fileHash>
     </file>
     <file>

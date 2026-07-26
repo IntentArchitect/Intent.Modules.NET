@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#8f20bcf3-e37f-4ff9-90f7-6b4453c0ca5d</correlationId>
+      <path>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:21:48.0242759Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:24.1555613Z</approvedAt>
+      <deviationsHash>1F6602B6E6387BC9891794417ADFF0305735FCA0014589D9F97DB826283C32E0</deviationsHash>
+      <fileHash>3BD3337A97F87B7B6BBB4B1BBBD4958E68AAFCC2435B162D57242CE53753395D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#6ec6529d-f2f0-459e-9eef-2d685935900f</correlationId>
+      <path>MassTransit.AzureServiceBus.Application/RequestResponse/CQRS/CommandDtoReturn/CommandDtoReturnHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:21:48.0231908Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:25.2271568Z</approvedAt>
+      <deviationsHash>61F3A30D7BEE3E025BFCAD61E0EDF9928B95E44AF8D78FB91EB1C31EDF87AA8F</deviationsHash>
+      <fileHash>DEDE30FB2A43C6398D93190F51F1332CC25E9B9098052EFDD617EF81CFE7A73B</fileHash>
+    </file>
+  </files>
 </deviationsLog>

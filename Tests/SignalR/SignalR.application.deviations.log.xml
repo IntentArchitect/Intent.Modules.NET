@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</correlationId>
+      <path>SignalR.Application/TestSendMessage/TestSendMessageCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:29:33.3958711Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:26.3368446Z</approvedAt>
+      <deviationsHash>B54945EC4B4A5B43F80615F32955CC7DC5654B7D6E390425322E74DD2828CE8F</deviationsHash>
+      <fileHash>03BF791B0BA57F1CE74EB6E8044CBDD3D99BF49AC19812062051B7DDA61EC205</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#404a8dbd-1db7-48c3-b5ca-6b409a34abce</correlationId>
       <path>SignalR.Infrastructure/SignalR.Infrastructure.csproj</path>
       <count>1</count>

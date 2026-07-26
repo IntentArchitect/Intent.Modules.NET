@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#28cb765f-a610-4733-8fb8-714627f8a707</correlationId>
+      <path>N_ServiceBus.RabbitMQ.Application/IntegrationEvents/EventHandlers/OrderAnimalHandler.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:00.4940695Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.6538611Z</approvedAt>
+      <deviationsHash>F2A649A8CB6CDCAAFC87DA194809BE83DAE142657782E76981AE23CE75DEE0B5</deviationsHash>
+      <fileHash>534F36DE22440403A85BEE23F6875CD1123A494DE58391D65176BD1F6C5C3EEC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#97be2f09-cdb6-496c-9ae6-7fd8b66a4b6e</correlationId>
+      <path>N_ServiceBus.RabbitMQ.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:26:00.494086Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.6740862Z</approvedAt>
+      <deviationsHash>62BA217B025BB13355C17F69D84D39B159396B570E65A6BE5C80FBC49971890E</deviationsHash>
+      <fileHash>60B3FA4B65A727213F421C64034126191464277816C330AE2F30E392CD3E1884</fileHash>
+    </file>
+  </files>
 </deviationsLog>
