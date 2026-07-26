@@ -56,7 +56,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         protected override string CodeBehindTemplateId => RazorLayoutCodeBehindTemplate.TemplateId;
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
             var config = RazorFile.GetConfig();

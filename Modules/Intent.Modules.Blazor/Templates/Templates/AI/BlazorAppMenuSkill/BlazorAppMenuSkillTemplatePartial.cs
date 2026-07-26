@@ -190,6 +190,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
 
                     `UserMenu` is a shared presentational component shipped from the UI-component library (not auth-specific — it carries no auth knowledge itself): a circuit-free `<details>`-based dropdown taking a `Title` (string, defaults to "Account menu"), a `Trigger` render fragment (the closed-state icon/content), and a `ChildContent` render fragment (the dropdown's items). It works identically on static-SSR Account pages and interactive pages.
 
+                    **MANDATORY**: Any generated `<UserMenu>` markup MUST include a `<Trigger>...</Trigger>` node (as shown in `app-user-menu-auth-sample.razor`). The trigger is not optional; without it the menu surface is incomplete and may render incorrectly.
+
+
                     This menu is populated from `Navigation Target End`s whose `Layout Placement` -> `Regions` is set to `Profile`. It's primarily meant for profile/account-related pages (e.g. "My Profile", "Settings"), but it can hold any navigable page the context/model assigns to it — apply the same Label/Href/Icon/Authorization extraction as Step 2.
 
                     - _NoAuth project_*: render ONLY what the context assigns to the Profile region. No `<AuthorizeView>` anywhere in this file. If Profile currently has zero qualifying items, leave the scaffolded placeholder as-is — do not invent content.
@@ -201,30 +204,30 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
 
                     ```
                     <AuthorizeView>
-                        <Authorized>
-                            <UserMenu>
-                                <Trigger>...</Trigger>
-                                <ChildContent>
-                                    <MudStack Spacing="0">
-                                        <!-- one item per modeled Profile nav link -->
-                                        <!-- fixed Logout form, always last -->
-                                    </MudStack>
-                                </ChildContent>
-                            </UserMenu>
-                        </Authorized>
+                    <Authorized>
+                    <UserMenu>
+                    <Trigger>...</Trigger>
+                    <ChildContent>
+                    <MudStack Spacing="0">
+                    <!-- one item per modeled Profile nav link -->
+                    <!-- fixed Logout form, always last -->
+                    </MudStack>
+                    </ChildContent>
+                    </UserMenu>
+                    </Authorized>
                     </AuthorizeView>
 
                     <AuthorizeView>
-                        <NotAuthorized>
-                            <UserMenu Title="Account">
-                                <Trigger>...</Trigger>
-                                <ChildContent>
-                                    <MudStack Spacing="0">
-                                        <!-- fixed Login + Register buttons -->
-                                    </MudStack>
-                                </ChildContent>
-                            </UserMenu>
-                        </NotAuthorized>
+                    <NotAuthorized>
+                    <UserMenu Title="Account">
+                    <Trigger>...</Trigger>
+                    <ChildContent>
+                    <MudStack Spacing="0">
+                    <!-- fixed Login + Register buttons -->
+                    </MudStack>
+                    </ChildContent>
+                    </UserMenu>
+                    </NotAuthorized>
                     </AuthorizeView>
                     ```
 
@@ -233,21 +236,21 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
 
                     ```
                     <form method="post" action="/Account/Logout">
-                        <AntiforgeryToken />
-                        <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
-                            Logout
-                        </MudButton>
+                    <AntiforgeryToken />
+                    <input type="hidden" name="ReturnUrl" value="@ReturnUrl" />
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                    Logout
+                    </MudButton>
                     </form>
                     ```
 
                     This requires a `ReturnUrl` code-behind member — if not already present, add to the file's `@code` block:
 
                     ```
-                      [CascadingParameter]
-                      private HttpContext? HttpContext { get; set; }
+                    [CascadingParameter]
+                    private HttpContext? HttpContext { get; set; }
 
-                      private string? ReturnUrl => HttpContext is null ? null : $"{HttpContext.Request.Path}{HttpContext.Request.QueryString}";
+                    private string? ReturnUrl => HttpContext is null ? null : $"{HttpContext.Request.Path}{HttpContext.Request.QueryString}";
                     ```
 
                     - **The fixed Login/Register block** — always the entire content of the `NotAuthorized` block's `UserMenu` (`Title="Account"`), never gated further, never removed:
@@ -280,9 +283,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
                     - Reconcile only **which region components are referenced**: `<MainLayoutHeader />`, `<MainLayoutSider />`, and `<MainLayoutFooter />`. Nothing else in this file is this skill's concern.
                     - `<MainLayoutHeader />` and `<MainLayoutSider />` are core — they should always be present. Do not remove them.
                     - `<MainLayoutFooter />` is conditional on whether `MainLayoutFooter.razor` exists for this Layout (per the MANDATORY read above):
-                      - File exists, reference missing → add `<MainLayoutFooter />` as the last sibling inside the layout wrapper (see the sample).
-                      - File does not exist (no Footer modeled, or it was removed), reference present → remove the stale `<MainLayoutFooter />` reference.
-                      - File exists and reference already present → leave it alone.
+                    - File exists, reference missing → add `<MainLayoutFooter />` as the last sibling inside the layout wrapper (see the sample).
+                    - File does not exist (no Footer modeled, or it was removed), reference present → remove the stale `<MainLayoutFooter />` reference.
+                    - File exists and reference already present → leave it alone.
                     - Never add or remove a `<MainLayoutProfile />` reference here — that belongs solely in `MainLayoutHeader.razor` (Step 4), never in `MainLayout.razor` itself.
                     - Never touch anything else in the file: the provider components (e.g. `MudThemeProvider`/`MudDialogProvider`/etc.), the layout wrapper (e.g. `<MudLayout>`, `<MudMainContent>`), its CSS classes, or where `@Body` sits inside that wrapper are whatever the first scaffold generation produced — preserve them exactly, even if they look different from the sample. Do not rewrite, reorder, reformat, or "clean up" any of it.
                     - If `MainLayout.razor` already correctly references exactly the region files that exist, make no change to it at all.
@@ -300,10 +303,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
                     Treat a menu item as a duplicate if **any** of the following match:
 
                     1. **Same route/href** (preferred):
-                       - `Href="/Account/Login"` matches any existing item with `Href` equal to `/Account/Login`.
-                       - Match case-insensitively and ignoring a trailing `/`.
+                    - `Href="/Account/Login"` matches any existing item with `Href` equal to `/Account/Login`.
+                    - Match case-insensitively and ignoring a trailing `/`.
                     2. **Same label** (fallback):
-                       - Visible text label matches case-insensitively after trimming whitespace (e.g. `Login` == `login`).
+                    - Visible text label matches case-insensitively after trimming whitespace (e.g. `Login` == `login`).
 
                     ### De-duplication scope
 

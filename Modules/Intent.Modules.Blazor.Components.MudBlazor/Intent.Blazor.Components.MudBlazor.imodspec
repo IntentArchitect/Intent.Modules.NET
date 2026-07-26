@@ -50,7 +50,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor" version="2.0.1-pre.4" />
+    <dependency id="Intent.Blazor" version="2.0.2-pre.0" />
     <dependency id="Intent.Common" version="3.11.3-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.9-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

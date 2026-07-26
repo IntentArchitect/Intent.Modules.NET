@@ -15,6 +15,16 @@
       <fileHash>6A4202BCD930019EE7BB312E412D6CB531B917F84BE7363ED8980A80684B5216</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#293641d0-f5c2-490c-8aa6-74f2bda0fbe8</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/AI/BlazorAppMenuSkill/BlazorAppMenuSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-07-25T18:26:46.5358222Z</updatedAt>
+      <deviationsHash>5A241603159C58328CA5CFCC5E2124E7BAE5A33A0ED1237DC6E713B369DF1872</deviationsHash>
+      <fileHash>511BDE349F7603E951CEDDF1C3E36F800808B8DBDFE3489ADFA9ADFC27D42483</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>
@@ -60,12 +70,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
-      <count>2</count>
+      <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-13T11:46:45.1271308Z</updatedAt>
-      <deviationsHash>87B0BD82374587D9034ADF30243947DD972E71D765E74E7442607A89914C8FAD</deviationsHash>
-      <fileHash>CD20288642973D3B972EDAB2A1C9933118191F711A4CD72D1F38E4342F8EE39F</fileHash>
+      <updatedAt>2026-07-25T18:26:41.5283336Z</updatedAt>
+      <deviationsHash>EBB493E406CCB6B3E22C4DB3097FAC0926559D351E8E0D5504577FA5DD52FAC5</deviationsHash>
+      <fileHash>63C6B8129AFD6858DB9F028F49F711A90A1355C3B4ABC799EA913C4B88E4CCB5</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#684d3513-65f1-4d75-b31c-cc0f600eb289</correlationId>
