@@ -1,3 +1,7 @@
+### Version 4.12.2
+
+- Fixed: Generated validators now reference the correct `fluent-validation-custom-validation` AI skill in their AI context (previously referenced a non-existent `custom-fluent-validation` skill).
+
 ### Version 4.12.1
 
 - Fixed: Resolved CS1574 XML doc comment warning on `IBypassPipelineValidation` where the `cref` attribute for `ValidationBehaviour{TRequest, TResponse}` could not be resolved.

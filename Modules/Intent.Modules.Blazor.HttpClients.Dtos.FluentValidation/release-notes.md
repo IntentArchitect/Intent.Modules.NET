@@ -1,6 +1,7 @@
 ### Version 1.4.2
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Generated validators now reference the correct `fluent-validation-custom-validation` AI skill in their AI context (previously referenced a non-existent `custom-fluent-validation` skill).
 
 ### Version 1.4.1
 

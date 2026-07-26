@@ -1,3 +1,7 @@
+### Version 3.13.3
+
+- Fixed: Generated validators now reference the correct `fluent-validation-custom-validation` AI skill in their AI context (previously referenced a non-existent `custom-fluent-validation` skill).
+
 ### Version 3.13.2
 
 - Improvement: `Numeric Limits` domain constraint stereotype now supports `Exclusive` boundary types, generating `GreaterThan`, `LessThan`, and `ExclusiveBetween` rules as appropriate.

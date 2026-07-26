@@ -1,0 +1,14 @@
+{
+    "tasks": {
+        "build": {
+            "label": "Build",
+            "command": "dotnet build",
+            "icon": "fa-hourglass-end",
+            "workingDirectory": "./Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation",
+            "aiAutoFix": {
+                "enabled": true,
+                "errorParser": "dotnet"
+            }
+        }
+    }
+}

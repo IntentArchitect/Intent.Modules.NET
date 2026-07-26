@@ -132,7 +132,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             .WithAISummary("Custom Fluent Validation implementation for " + Model.Name + ".")
             .WithAIContext(
                         """
-                        Use the custom-fluent-validation skill when implementing custom validation methods in this class.
+                        Use the fluent-validation-custom-validation skill when implementing custom validation methods in this class.
                         """);
     }
 

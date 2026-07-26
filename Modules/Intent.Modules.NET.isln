@@ -189,4 +189,7 @@
     <application id="97b031c5-c4db-4ee0-9b65-17e441a9bfa7" name="Intent.Modules.Integration.HttpClients.Stubs" solutionFolder="Direct Integration" relativePath="Intent.Modules.Integration.HttpClients.Stubs/Intent.Modules.Integration.HttpClients.Stubs.application.config" />
     <application id="e5ece418-cf71-484a-a5ad-706affe51df3" name="Intent.Modules.Application.CQRS.CRUD" solutionFolder="Application" relativePath="Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.application.config" />
   </applications>
+  <folders>
+    <folder path="C:/Dev/Intent.Modules.NET" />
+  </folders>
 </solution>
