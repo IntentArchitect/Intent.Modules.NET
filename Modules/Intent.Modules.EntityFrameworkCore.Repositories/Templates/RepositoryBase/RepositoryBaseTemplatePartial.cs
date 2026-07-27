@@ -99,6 +99,24 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddStatement($"return await QueryInternal(filterExpression, queryOptions).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
 
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(filterExpression).FirstOrDefaultAsync<{tDomain}>(cancellationToken);");
+                    });
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(filterExpression, queryOptions).FirstOrDefaultAsync<{tDomain}>(cancellationToken);");
+                    });
+
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
@@ -198,6 +216,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return await QueryInternal(queryOptions).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(queryOptions).FirstOrDefaultAsync<{tDomain}>(cancellationToken);");
+                    });
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
@@ -255,6 +281,20 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                                 .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions");
                             method.AddStatement($"return QueryInternal(filterExpression, queryOptions).SingleOrDefault<{tDomain}>();");
+                        });
+
+                        @class.AddMethod($"{tDomain}{nullableChar}", "FindFirst", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                            method.AddStatement($"return QueryInternal(filterExpression).FirstOrDefault<{tDomain}>();");
+                        });
+                        @class.AddMethod($"{tDomain}{nullableChar}", "FindFirst", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(filterExpression, queryOptions).FirstOrDefault<{tDomain}>();");
                         });
 
                         @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
@@ -335,6 +375,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.Virtual();
                             method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
                             method.AddStatement($"return QueryInternal(queryOptions).SingleOrDefault<{tDomain}>();");
+                        });
+                        @class.AddMethod($"{tDomain}{nullableChar}", "FindFirst", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(queryOptions).FirstOrDefault<{tDomain}>();");
                         });
                         @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
                         {

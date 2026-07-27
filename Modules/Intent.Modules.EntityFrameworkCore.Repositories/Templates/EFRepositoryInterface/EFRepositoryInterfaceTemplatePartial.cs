@@ -53,6 +53,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
@@ -95,6 +104,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindFirstAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
@@ -128,6 +141,13 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
+                        .AddMethod($"{tDomain}{nullableChar}", "FindFirst", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
+                        .AddMethod($"{tDomain}{nullableChar}", "FindFirst", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                        )
                         .AddMethod($"List<{tDomain}>", "FindAll")
                         .AddMethod($"List<{tDomain}>", "FindAll", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
@@ -158,6 +178,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                         )
                         .AddMethod($"{tDomain}{nullableChar}", "Find", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                        )
+                        .AddMethod($"{tDomain}{nullableChar}", "FindFirst", method => method
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
                         .AddMethod($"List<{tDomain}>", "FindAll", method => method
