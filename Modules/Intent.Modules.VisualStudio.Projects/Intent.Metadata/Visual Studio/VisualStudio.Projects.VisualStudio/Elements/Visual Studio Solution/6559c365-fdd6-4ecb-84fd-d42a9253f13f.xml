@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6559c365-fdd6-4ecb-84fd-d42a9253f13f" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
-  <name>VisualStudio.Projects.VisualStudio</name>
-  <display>VisualStudio.Projects.VisualStudio</display>
+  <name>Intent.Modules.NET</name>
+  <display>Intent.Modules.NET</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

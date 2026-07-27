@@ -193,12 +193,22 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8b11dd91-de7f-48c0-a4a9-206b1108d703</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/FactoryExtensions/VisualStudioSolutionSyncProcessor.cs</path>
-      <count>3</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0084727Z</updatedAt>
-      <deviationsHash>5B57F4FDCB7E80EC2013BD399FA00153D21B1B471390C4CA6BA9B2B702AA97F4</deviationsHash>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7711152Z</updatedAt>
+      <deviationsHash>CE218AB28201E621454814A7B5FADA888938AAD88E71E9B937C131158F1798B6</deviationsHash>
       <fileHash>832B535D9EC094EB3C26C3F45A91B443BD46E02CB78ED5FCB33A6F6520073858</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#1b363e2e-7027-4c88-a488-be51864a8eae</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/NugetPackages.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7698364Z</updatedAt>
+      <deviationsHash>B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104</deviationsHash>
+      <fileHash>FD85FAAE2245BBE9262FB4E83C61C29C0FAFCA3F88401F9B1E28DE0D45D7EF24</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e305389f-befa-46ce-96d3-1f50fe7199ea</correlationId>
@@ -383,11 +393,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-05-08T10:09:27.0975313Z</updatedAt>
-      <deviationsHash>0CBC0EC0AFC3D47B1EB1FB5B35A6A9735DA09E4AA6E5498376C365348E8B975A</deviationsHash>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7789031Z</updatedAt>
+      <deviationsHash>9D865C1AD3502E297A4BB245F05119D34E47FD40E31B84FC3FC4A305441725C3</deviationsHash>
       <fileHash>B2F09AD37E7A2491CFD4C06422D11FC8765700EE545973B363DAD6422C6FD704</fileHash>
     </file>
     <file>

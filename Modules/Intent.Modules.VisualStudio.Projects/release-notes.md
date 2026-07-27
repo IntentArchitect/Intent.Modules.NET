@@ -1,6 +1,12 @@
-### Version 4.1.5
+### Version 4.1.6
 
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
+### Version 4.1.5
+
+- Fixed: Generating the `.slnx` (XML Solution) format could duplicate a `<Project>` entry across two `<Folder>` elements when a project was renamed, moved to a different Solution Folder, or had its containing Solution Folder renamed, in a subsequent Software Factory run. The duplicate then caused all further generation for the application to fail, since `.slnx` does not allow the same project to appear under two folders. Renaming a project's containing Solution Folder now also renames the folder entry in place instead of leaving an empty, orphaned one behind.
+- Improvement: A `.slnx` file that fails to parse now surfaces a clear, actionable error instead of an opaque native exception, tailored to the cause - a duplicate `<Project>`/`<Folder>` entry, invalid (not well-formed) XML, or any other unreadable file - and includes the file's current content so the problem can be seen without leaving Intent Architect.
+- Fixed: The `.slnx` merge logic could incorrectly run against a classic `.sln` solution's output and fail, since the `.slnx` and classic `.sln` templates intentionally share the same template Id (so switching format replaces the same logical output). The Software Factory now correctly applies `.slnx`-specific merging only when the solution is actually configured to use the `.slnx` format.
 
 ### Version 4.1.4
 
