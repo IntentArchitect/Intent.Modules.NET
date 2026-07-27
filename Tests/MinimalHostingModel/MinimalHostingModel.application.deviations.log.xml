@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#06ff362e-48c0-4db7-8d1a-f7502dcab5b5</correlationId>
-      <path>MinimalHostingModel.Api/MinimalHostingModel.Api.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-15T08:38:39.6862266Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-07-15T09:20:20.6311105Z</approvedAt>
-      <deviationsHash>7F20E3BA217C081FA2ACA9CB3BC7C8B772D19A459EF5B9B61A7CA50120BB7EE4</deviationsHash>
-      <fileHash>68217E76A6D9676E2211F9512C3D3C9E5E4454E406F458B6675D2263C0D2861A</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#ab446e12-3ba4-46b6-9a71-b649eefab17e</correlationId>
-      <path>MinimalHostingModel.Infrastructure/MinimalHostingModel.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-15T08:38:39.6866921Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-07-15T09:20:21.3569658Z</approvedAt>
-      <deviationsHash>0CF365909EC4BD887CE0AEAC96655B332C84CC92F9EC4CC2C7B7EB0E0D971DB6</deviationsHash>
-      <fileHash>B2DB79BA83607649871057E7541B2AA366A936B5CC5BB6B326D1D05304E8B72A</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

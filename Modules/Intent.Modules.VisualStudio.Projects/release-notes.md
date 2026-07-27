@@ -1,3 +1,8 @@
+### Version 4.1.5
+
+- Fixed: Generating the `.slnx` (XML Solution) format could duplicate a `<Project>` entry across two `<Folder>` elements when a project was renamed, moved to a different Solution Folder, or had its containing Solution Folder renamed, in a subsequent Software Factory run. The duplicate then caused all further generation for the application to fail, since `.slnx` does not allow the same project to appear under two folders. Renaming a project's containing Solution Folder now also renames the folder entry in place instead of leaving an empty, orphaned one behind.
+- Improvement: A `.slnx` file that fails to parse (most commonly due to a manually-introduced duplicate `<Project>`/`<Folder>` entry) now surfaces a clear, actionable error explaining the likely cause and how to fix it, instead of an opaque native exception.
+
 ### Version 4.1.4
 
 - Improvement: Items manually added to `<NoWarn>` in the csproj will now be merged with items modelled in Intent Architect.

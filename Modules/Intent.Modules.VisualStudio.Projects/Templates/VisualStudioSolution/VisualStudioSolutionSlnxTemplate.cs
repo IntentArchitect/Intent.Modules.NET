@@ -14,6 +14,13 @@ using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 {
+    /// <summary>
+    /// Generates the .slnx (XML Solution) file content purely from the Intent model - it has no
+    /// awareness of, and never reads, any existing file on disk. Reconciling that fresh output
+    /// with whatever is already on disk (preserving manual edits, detecting renames/moves) is the
+    /// job of <c>VisualStudioSolutionSlnxWeaver</c>, which runs as a post-processing step over this
+    /// template's raw output.
+    /// </summary>
     public class VisualStudioSolutionSlnxTemplate : ITemplate, IConfigurableTemplate
     {
         public const string Identifier = "Intent.VisualStudio.Projects.VisualStudioSolution";
@@ -37,89 +44,56 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 
         public string RunTemplate()
         {
-            var targetFile = GetMetadata().GetFilePath();
+            var solutionModel = new SolutionModel();
+            SyncFoldersAndProjects(solutionModel, Model.Folders, Projects);
 
-            var slnxModel = File.Exists(targetFile)
-                ? ReadExisting(targetFile)
-                : new SolutionModel();
-
-            SyncFoldersAndProjects(slnxModel, Model.Folders, Projects.ToList());
-
-            var serializer = SolutionSerializers.SlnXml;
             using var stream = new MemoryStream();
-            serializer.SaveAsync(stream, slnxModel, CancellationToken.None).GetAwaiter().GetResult();
+            SolutionSerializers.SlnXml.SaveAsync(stream, solutionModel, CancellationToken.None).GetAwaiter().GetResult();
             return Encoding.UTF8.GetString(stream.ToArray());
         }
 
-        private static SolutionModel ReadExisting(string targetFile)
-        {
-            using var stream = File.OpenRead(targetFile);
-            return SolutionSerializers.SlnXml.OpenAsync(stream, CancellationToken.None).GetAwaiter().GetResult();
-        }
-
+        /// <remarks>
+        /// <see langword="internal"/> so it can be unit tested directly.
+        /// </remarks>
         internal static void SyncFoldersAndProjects(
-            SolutionModel slnxModel,
+            SolutionModel solutionModel,
             IEnumerable<Api.SolutionFolderModel> intentFolders,
             IReadOnlyList<IVisualStudioSolutionProject> allProjects)
         {
-            var intentProjectPaths = new HashSet<string>(
-                allProjects.Select(GetProjectRelativePath),
-                StringComparer.OrdinalIgnoreCase);
-
-            // Projects and folders are NOT removed when absent from the Intent model so that
-            // manually-added projects and solution folders are preserved across SF runs.
-
-            // Add root-level projects (no parent folder)
             foreach (var project in allProjects.Where(p => p.ParentFolder == null))
-            {
-                var path = GetProjectRelativePath(project);
-                if (slnxModel.SolutionProjects.All(p => !string.Equals(p.FilePath, path, StringComparison.OrdinalIgnoreCase)))
-                    slnxModel.AddProject(path);
-            }
+                AddProject(solutionModel, project, parentFolder: null);
 
-            // Add folders and their projects recursively
             foreach (var folder in intentFolders)
-                SyncIntentFolder(slnxModel, folder, allProjects, parentPath: "");
+                AddFolder(solutionModel, folder, allProjects, parentPath: "");
         }
 
-        private static void SyncIntentFolder(
-            SolutionModel slnxModel,
+        private static void AddFolder(
+            SolutionModel solutionModel,
             Api.SolutionFolderModel intentFolder,
             IReadOnlyList<IVisualStudioSolutionProject> allProjects,
             string parentPath)
         {
             var folderPath = $"{parentPath}/{intentFolder.Name}/";
-
-            var slnxFolder = slnxModel.SolutionFolders.FirstOrDefault(
-                f => string.Equals(f.Path, folderPath, StringComparison.OrdinalIgnoreCase))
-                ?? slnxModel.AddFolder(folderPath);
+            var slnxFolder = solutionModel.AddFolder(folderPath);
+            if (Guid.TryParse(intentFolder.Id, out var folderId))
+                slnxFolder.Id = folderId;
 
             foreach (var project in allProjects.Where(p => p.ParentFolder?.Id == intentFolder.Id))
-            {
-                var path = GetProjectRelativePath(project);
-                var alreadyExists = slnxModel.SolutionProjects.Any(p =>
-                    string.Equals(p.FilePath, path, StringComparison.OrdinalIgnoreCase) ||
-                    (p.Parent == slnxFolder && string.Equals(
-                        Path.GetFileNameWithoutExtension(p.FilePath),
-                        project.Name,
-                        StringComparison.OrdinalIgnoreCase)));
-                if (!alreadyExists)
-                    slnxModel.AddProject(path, null, slnxFolder);
-            }
+                AddProject(solutionModel, project, slnxFolder);
 
             foreach (var childFolder in intentFolder.Folders)
-                SyncIntentFolder(slnxModel, childFolder, allProjects, folderPath.TrimEnd('/'));
+                AddFolder(solutionModel, childFolder, allProjects, folderPath.TrimEnd('/'));
         }
 
-        private static IEnumerable<string> GetAllFolderPaths(IEnumerable<Api.SolutionFolderModel> folders, string parentPath)
+        private static void AddProject(
+            SolutionModel solutionModel,
+            IVisualStudioSolutionProject project,
+            Microsoft.VisualStudio.SolutionPersistence.Model.SolutionFolderModel parentFolder)
         {
-            foreach (var folder in folders)
-            {
-                var path = $"{parentPath}/{folder.Name}/";
-                yield return path;
-                foreach (var child in GetAllFolderPaths(folder.Folders, path.TrimEnd('/')))
-                    yield return child;
-            }
+            var path = GetProjectRelativePath(project);
+            var slnxProject = solutionModel.AddProject(path, null, parentFolder);
+            if (Guid.TryParse(project.Id, out var projectId))
+                slnxProject.Id = projectId;
         }
 
         private static string GetProjectRelativePath(IVisualStudioSolutionProject project)

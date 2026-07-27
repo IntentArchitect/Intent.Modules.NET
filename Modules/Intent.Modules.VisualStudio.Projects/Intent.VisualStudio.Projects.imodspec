@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>4.1.4</version>
+  <version>4.1.5</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -25,6 +25,7 @@
       <location></location>
     </template>
     <template id="Intent.VisualStudio.Projects.ConsoleApp.Program" />
+    <template id="Intent.VisualStudio.Projects.CSharpProject" />
     <template id="Intent.VisualStudio.Projects.CoreLibrary.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd">
       <role></role>
@@ -132,6 +133,7 @@
       </config>
     </factoryExtension>
     <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
+    <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSlnxWeaver" />
     <factoryExtension id="Intent.VSProjects.FrameworkDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectFrameworkManager" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectPropertiesManager" />
