@@ -1,6 +1,7 @@
 ### Version 3.13.3
 
 - Fixed: Generated validators now reference the correct `fluent-validation-custom-validation` AI skill in their AI context (previously referenced a non-existent `custom-fluent-validation` skill).
+- Improvement: Put `ConfigureValidationRules` method in `Merge` mode to reduce friction with AI changes.
 
 ### Version 3.13.2
 

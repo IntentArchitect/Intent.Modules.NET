@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Improvement: Put `ConfigureValidationRules` method in `Merge` mode to reduce friction with AI changes.
+
 ### Version 1.0.0
 
 - Fixed: Corrected the declared `Intent.Common`/`Intent.Common.CSharp` module dependency versions, and added the missing `Intent.Modelers.Domain` dependency declaration required by the generated validators.
