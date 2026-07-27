@@ -1,3 +1,7 @@
+### Version 1.2.9
+
+- Fixed: Software Factory crash (`NullReferenceException`) when generating Update or Delete entity interactions if `Intent.Common.UnitOfWork` is not installed.
+
 ### Version 1.2.8
 
 - Improvement: Better error handling in SF around Update Entity Actions with Update Mappings but missing Query Mapping.

@@ -11,9 +11,15 @@ namespace Intent.Modules.Common.UnitOfWork.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static UnitOfWorkSettings GetUnitOfWorkSettings(this IApplicationSettingsProvider settings)
+        [IntentIgnore]
+        public static UnitOfWorkSettings? GetUnitOfWorkSettings(this IApplicationSettingsProvider settings)
         {
-            return new UnitOfWorkSettings(settings.GetGroup("c4b7e545-eaac-42bc-8f06-2768ac8dad99"));
+            var groupSetting = settings.GetGroup("c4b7e545-eaac-42bc-8f06-2768ac8dad99");
+            if (groupSetting == null)
+            {
+                return null;
+            }
+            return new UnitOfWorkSettings(groupSetting);
         }
     }
 
