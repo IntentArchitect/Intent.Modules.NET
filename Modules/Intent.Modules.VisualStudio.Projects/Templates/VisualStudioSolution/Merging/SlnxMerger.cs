@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Xml;
 using Intent.Engine;
-using Intent.Exceptions;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 
@@ -247,18 +247,81 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             {
                 return Parse(content);
             }
-            catch (SolutionException ex)
+            catch (XmlException ex)
+            {
+                // The file isn't well-formed XML at all (e.g. a mismatched/unclosed tag) - this is
+                // thrown by the underlying XML reader before Microsoft.VisualStudio.SolutionPersistence
+                // ever gets to validate it as a solution, so it never carries a SolutionErrorType.
+                throw new Exception(WithFileContent(
+                    $"Could not read the existing Visual Studio Solution file: it is not valid XML ({ex.Message}) " +
+                    "Fix the XML directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
+                    content));
+            }
+            catch (SolutionException ex) when (IsDuplicateEntryError(ex))
             {
                 // Most commonly a manually-introduced duplicate <Project>/<Folder> entry (the same
                 // path listed under two folders), which Microsoft.VisualStudio.SolutionPersistence
                 // refuses to parse. There is no way to recover the file's manual customisations
                 // automatically here - fix the duplicate by hand, or delete the file to let the
                 // Software Factory regenerate it from scratch (this discards any manual additions).
-                throw new FriendlyException(
+                throw new Exception(WithFileContent(
                     $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
                     "This is usually caused by a manually-edited entry that duplicates a Project or Folder path. " +
-                    "Fix the duplicate entry in the file directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).");
+                    "Fix the duplicate entry in the file directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
+                    content));
             }
+            catch (SolutionException ex)
+            {
+                // Some other structural problem with the file (unsupported version, invalid folder
+                // path, etc.) that isn't specific enough to give targeted advice for - surface the
+                // library's own message rather than a generic one.
+                throw new Exception(WithFileContent(
+                    $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
+                    "Fix the underlying issue directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
+                    content));
+            }
+            catch (Exception ex)
+            {
+                // Anything unforeseen - still present it as a friendly, actionable error rather than
+                // letting an opaque native exception surface to the user.
+                throw new Exception(WithFileContent(
+                    $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
+                    "Delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
+                    content));
+            }
+        }
+
+        /// <summary>
+        /// Duplicate Project/Folder paths are the one case worth calling out by name, since the fix
+        /// is always the same (remove the duplicate entry). Microsoft.VisualStudio.SolutionPersistence
+        /// doesn't consistently set <see cref="SolutionException.ErrorType"/> for this case (it can
+        /// come back Undefined even for a duplicate Project path), so the message text is checked as
+        /// well as the handful of ErrorType values that do get set for duplicate Folder/name clashes.
+        /// </summary>
+        private static bool IsDuplicateEntryError(SolutionException ex) =>
+            ex.ErrorType is SolutionErrorType.DuplicateItemRef
+                or SolutionErrorType.DuplicateName
+                or SolutionErrorType.DuplicateProjectName
+                or SolutionErrorType.DuplicateProjectPath
+                or SolutionErrorType.DuplicateExtension
+                or SolutionErrorType.DuplicateDefaultProjectType
+                or SolutionErrorType.DuplicateProjectTypeId
+            || ex.Message.Contains("Duplicate item", StringComparison.OrdinalIgnoreCase);
+
+        private static string WithFileContent(string message, string content)
+        {
+            // A plain Exception rather than FriendlyException specifically: the panel that renders
+            // FriendlyException flows the message as a single Markdown paragraph, collapsing the
+            // file dump's newlines into one run-on line. The plain-exception panel preserves line
+            // breaks as-is, so no special handling of the content is needed here.
+            var normalized = content.Replace("\r\n", "\n");
+            return $"""
+                {message}
+
+                Existing file content:
+
+                {normalized}
+                """;
         }
 
         private static SolutionModel? TryParse(string content)

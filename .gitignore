@@ -288,3 +288,8 @@ Spikes/
 .mcp.json
 
 Modules/Intent.Modules/
+/.claude/skills
+/.codex/instructions
+/.codex/skills
+/.github/instructions
+/.github/prompts

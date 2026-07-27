@@ -25,7 +25,6 @@
       <location></location>
     </template>
     <template id="Intent.VisualStudio.Projects.ConsoleApp.Program" />
-    <template id="Intent.VisualStudio.Projects.CSharpProject" />
     <template id="Intent.VisualStudio.Projects.CoreLibrary.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd">
       <role></role>
@@ -33,6 +32,7 @@
     </template>
     <template id="Intent.VisualStudio.Projects.CoreWeb.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+    <template id="Intent.VisualStudio.Projects.CSharpProject" />
     <template id="Intent.VisualStudio.Projects.DirectoryPackagesProps" externalReference="807ee533-3ab8-4fe6-a06c-30d45eecf014">
       <role></role>
       <location></location>
@@ -132,8 +132,8 @@
         <add key="Warn On Multiple Versions of Same Package" description="When true, the installer will show warnings if multiple versions of the same NuGet package are installed within the solution. Only applicable when 'Consolidate Package Versions' is set to false. (true | false)" type="boolean" default="true" />
       </config>
     </factoryExtension>
-    <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
     <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSlnxWeaver" />
+    <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
     <factoryExtension id="Intent.VSProjects.FrameworkDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectFrameworkManager" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectPropertiesManager" />

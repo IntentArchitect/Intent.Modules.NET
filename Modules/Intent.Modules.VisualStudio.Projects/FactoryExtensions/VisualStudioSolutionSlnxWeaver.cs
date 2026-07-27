@@ -24,8 +24,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
+        // VisualStudioSolutionTemplate (classic .sln) and VisualStudioSolutionSlnxTemplate share the
+        // same Id by design, so switching format replaces the same logical output instead of Intent
+        // seeing two unrelated files - which means Id alone can't tell them apart here. Match on the
+        // actual template type instead (the same disambiguation VisualStudioSolutionSyncProcessor
+        // already uses), otherwise this would try to parse classic .sln content as XML.
         public bool CanTransform(IOutputFile output) =>
-            output.Template?.Id == VisualStudioSolutionSlnxTemplate.Identifier;
+            output.Template is VisualStudioSolutionSlnxTemplate;
 
         public void Transform(IOutputFile output)
         {

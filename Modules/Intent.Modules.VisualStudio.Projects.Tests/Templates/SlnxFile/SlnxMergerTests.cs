@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using Intent.Engine;
-using Intent.Exceptions;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Merging;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
@@ -676,7 +675,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         // ----- Crash / corruption -----
 
         [Fact]
-        public void WhenExistingFileHasDuplicateProjectEntry_ShouldThrowFriendlyException()
+        public void WhenExistingFileHasDuplicateProjectEntry_ShouldThrowExplainingDuplicate()
         {
             var generated = Build(m => { });
             const string existing = """
@@ -690,8 +689,40 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
                 </Solution>
                 """;
 
-            var ex = Should.Throw<FriendlyException>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
+            var ex = Should.Throw<Exception>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
             ex.Message.ShouldContain("duplicate");
+            ex.Message.ShouldContain(Normalized(existing));
+        }
+
+        [Fact]
+        public void WhenExistingFileIsNotValidXml_ShouldThrowExplainingInvalidXml()
+        {
+            var generated = Build(m => { });
+            const string existing = """
+                <Solution>
+                  <Folder Name="/3 - Domain/">
+                    <Project Path="MyApp.Domain/MyApp.Domain.csproj" />
+                  </Folder>
+                """; // missing closing </Solution> - not well-formed XML
+
+            var ex = Should.Throw<Exception>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
+            ex.Message.ShouldContain("not valid XML");
+            ex.Message.ShouldContain(Normalized(existing));
+        }
+
+        [Fact]
+        public void WhenExistingFileIsWellFormedXmlButNotASolution_ShouldThrowWithLibraryMessage()
+        {
+            var generated = Build(m => { });
+            const string existing = """
+                <NotASolution>
+                </NotASolution>
+                """;
+
+            var ex = Should.Throw<Exception>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
+            ex.Message.ShouldContain("Not a solution file");
+            ex.Message.ShouldNotContain("duplicate");
+            ex.Message.ShouldContain(Normalized(existing));
         }
 
         // ----- Output guarantee -----
@@ -765,6 +796,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         // ----- Helpers -----
+
+        private static string Normalized(string content) =>
+            content.Replace("\r\n", "\n");
 
         private static string Build(Action<SolutionModel> configure)
         {
