@@ -74,7 +74,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                             userIdentityProperty = syncMethodsAvailable ? "UserName" : "Name";
                             break;
                         case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
-                        default:
+                            default:
                             userIdentityProperty = syncMethodsAvailable ? "UserId" : "Id";
                             break;
                     }
@@ -97,33 +97,43 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                     }
 
                     method.AddStatements(new[]
-                        {
+                    {
                         "var timestamp = DateTimeOffset.UtcNow;",
                         "",
                         "return (userIdentifier, timestamp);"
                     });
                 });
 
+                var auditSettings = template.ExecutionContext.Settings.GetBasicAuditing();
+                var hasCreatedBy = auditSettings.HasCreatedByField();
+                var hasCreatedDate = auditSettings.HasCreatedDateField();
+                var hasUpdatedBy = auditSettings.HasUpdatedByField();
+                var hasUpdatedDate = auditSettings.HasUpdatedDateField();
+
                 // Add
+                if (hasCreatedBy || hasCreatedDate)
                 {
                     var method = @class.FindMethod("Add");
                     var enqueueStatement = method.Statements.OfType<CSharpInvocationStatement>().First(x => x.HasMetadata(MetadataNames.EnqueueStatement));
                     var invocationArgument = (CSharpLambdaBlock)enqueueStatement.Statements[0];
 
+                    var args = string.Join(", ", new[] { hasCreatedBy ? "_auditDetails.Value.UserIdentifier" : null, hasCreatedDate ? "_auditDetails.Value.TimeStamp" : null }.Where(a => a != null));
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetCreated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
+                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetCreated({args});");
                 }
 
                 // Update
+                if (hasUpdatedBy || hasUpdatedDate)
                 {
                     var method = @class.FindMethod("Update");
                     var enqueueStatement = method.Statements.OfType<CSharpInvocationStatement>().First(x => x.HasMetadata(MetadataNames.EnqueueStatement));
                     var invocationArgument = (CSharpLambdaBlock)enqueueStatement.Statements[0];
 
+                    var args = string.Join(", ", new[] { hasUpdatedBy ? "_auditDetails.Value.UserIdentifier" : null, hasUpdatedDate ? "_auditDetails.Value.TimeStamp" : null }.Where(a => a != null));
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
+                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated({args});");
                 }
             }, 1000);
         }

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.10</version>
+  <version>1.0.11-pre.3</version>
   <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
@@ -28,13 +28,57 @@
   <moduleSettings>
     <group id="e51c0868-816d-432b-9cc3-c597fdb1ef0d" title="Basic Auditing" externalReference="e51c0868-816d-432b-9cc3-c597fdb1ef0d" type="application-settings">
       <settings>
-        <setting id="5f617e3b-b027-4b23-aeb5-5ee4c7968173" title="User Identity to Audit" type="select">
+        <setting id="5f617e3b-b027-4b23-aeb5-5ee4c7968173" title="User Identity to Audit" type="select" orderPriority="20">
           <hint>Which data would you like to audit to identify the user.</hint>
           <defaultValue>user-id</defaultValue>
           <options>
             <option value="user-id" description="User Id" />
             <option value="user-name" description="User Name" />
           </options>
+        </setting>
+        <setting id="43a36ffb-2085-4cf5-a255-f95c19368fa8" title="Apply Basic Auditing to Entities" type="select" orderPriority="10">
+          <hint>Controls how the Basic Auditing stereotype (and its audit attributes) is applied to entities.</hint>
+          <defaultValue>manually</defaultValue>
+          <options>
+            <option value="manually" description="Manually" />
+            <option value="automatically-when-created" description="Automatically when created" />
+          </options>
+        </setting>
+        <setting id="739d748f-1e78-4588-8ff8-375b0438ec5e" title="CreatedBy Field Name" type="text" orderPriority="31">
+          <hint>Name of the Created By attribute added to a Class for auditing. Only used when 'Include CreatedBy Field' is enabled.</hint>
+          <defaultValue>CreatedBy</defaultValue>
+          <isActiveFunction>return getProperty("16565573-5078-41c7-b083-e68b51154782").value !== "false";</isActiveFunction>
+        </setting>
+        <setting id="16109f2c-5ce0-43fc-aded-a1ca2bde6525" title="CreatedDate Field Name" type="text" orderPriority="33">
+          <hint>Name of the Created Date attribute added to a Class for auditing. Only used when 'Include CreatedDate Field' is enabled.</hint>
+          <defaultValue>CreatedDate</defaultValue>
+          <isActiveFunction>return getProperty("fb3a6f03-017f-499d-b44b-cb519b653ca6").value !== "false";</isActiveFunction>
+        </setting>
+        <setting id="2b583725-0e06-42f8-824c-f1922e8af1ba" title="UpdatedBy Field Name" type="text" orderPriority="35">
+          <hint>Name of the Updated By attribute added to a Class for auditing. Only used when 'Include UpdatedBy Field' is enabled.</hint>
+          <defaultValue>UpdatedBy</defaultValue>
+          <isActiveFunction>return getProperty("5e86a4ca-df1d-4f63-a1db-c90a4fb70d24").value !== "false";</isActiveFunction>
+        </setting>
+        <setting id="60c8ed40-0b0d-4bdf-8e08-56c126835438" title="UpdatedDate Field Name" type="text" orderPriority="37">
+          <hint>Name of the Updated Date attribute added to a Class for auditing. Only used when 'Include UpdatedDate Field' is enabled.</hint>
+          <defaultValue>UpdatedDate</defaultValue>
+          <isActiveFunction>return getProperty("f936421d-7f37-4205-a98b-deea631a9291").value !== "false";</isActiveFunction>
+        </setting>
+        <setting id="16565573-5078-41c7-b083-e68b51154782" title="Include CreatedBy Field" type="switch" orderPriority="30">
+          <hint>Controls whether the Created By attribute is added to audited entities.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="fb3a6f03-017f-499d-b44b-cb519b653ca6" title="Include CreatedDate Field" type="switch" orderPriority="32">
+          <hint>Controls whether the Created Date attribute is added to audited entities.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="5e86a4ca-df1d-4f63-a1db-c90a4fb70d24" title="Include UpdatedBy Field" type="switch" orderPriority="34">
+          <hint>Controls whether the Updated By attribute is added to audited entities.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="f936421d-7f37-4205-a98b-deea631a9291" title="Include UpdatedDate Field" type="switch" orderPriority="36">
+          <hint>Controls whether the Updated Date attribute is added to audited entities.</hint>
+          <defaultValue>true</defaultValue>
         </setting>
       </settings>
     </group>
