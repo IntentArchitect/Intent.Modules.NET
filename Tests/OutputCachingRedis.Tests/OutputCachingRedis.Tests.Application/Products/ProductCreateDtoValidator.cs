@@ -15,6 +15,7 @@ namespace OutputCachingRedis.Tests.Application.Products
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

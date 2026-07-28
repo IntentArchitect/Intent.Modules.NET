@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.Db1E
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

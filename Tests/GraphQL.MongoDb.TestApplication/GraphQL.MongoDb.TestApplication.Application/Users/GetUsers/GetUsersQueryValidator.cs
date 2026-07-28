@@ -16,6 +16,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUsers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

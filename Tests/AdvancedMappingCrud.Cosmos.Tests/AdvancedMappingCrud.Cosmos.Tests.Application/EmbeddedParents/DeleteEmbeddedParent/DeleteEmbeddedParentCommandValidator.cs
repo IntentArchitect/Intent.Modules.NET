@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.EmbeddedParents.DeleteEmb
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

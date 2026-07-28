@@ -15,6 +15,7 @@ namespace MassTransit.AzureServiceBus.Application.Animals
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

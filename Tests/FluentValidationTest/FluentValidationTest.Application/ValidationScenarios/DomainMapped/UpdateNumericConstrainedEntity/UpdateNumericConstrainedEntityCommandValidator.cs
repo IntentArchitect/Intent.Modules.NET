@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Age)

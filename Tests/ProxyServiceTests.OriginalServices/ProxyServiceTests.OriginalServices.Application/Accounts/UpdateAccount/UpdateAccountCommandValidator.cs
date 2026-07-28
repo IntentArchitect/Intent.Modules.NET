@@ -16,6 +16,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.UpdateAccount
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Number)

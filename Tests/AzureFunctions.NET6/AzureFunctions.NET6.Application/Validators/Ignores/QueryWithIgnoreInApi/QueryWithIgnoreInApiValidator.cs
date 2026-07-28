@@ -16,6 +16,7 @@ namespace AzureFunctions.NET6.Application.Validators.Ignores.QueryWithIgnoreInAp
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

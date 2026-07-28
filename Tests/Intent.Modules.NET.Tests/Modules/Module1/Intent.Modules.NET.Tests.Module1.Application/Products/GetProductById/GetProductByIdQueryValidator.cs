@@ -16,6 +16,7 @@ namespace Intent.Modules.NET.Tests.Module1.Application.Products.GetProductById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

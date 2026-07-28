@@ -16,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestCommandV1
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.Pagination.GetPeoplePagina
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
         private void ConfigureValidationRules()
         {

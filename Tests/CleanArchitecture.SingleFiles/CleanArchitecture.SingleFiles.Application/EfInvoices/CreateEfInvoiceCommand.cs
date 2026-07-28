@@ -66,6 +66,7 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Description)

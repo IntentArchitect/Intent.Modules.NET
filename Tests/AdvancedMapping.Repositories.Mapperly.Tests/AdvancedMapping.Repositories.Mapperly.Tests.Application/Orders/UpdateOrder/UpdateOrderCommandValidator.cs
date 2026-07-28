@@ -15,6 +15,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.UpdateO
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Status)

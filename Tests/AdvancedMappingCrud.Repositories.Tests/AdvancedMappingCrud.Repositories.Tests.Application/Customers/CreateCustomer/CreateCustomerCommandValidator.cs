@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateCus
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

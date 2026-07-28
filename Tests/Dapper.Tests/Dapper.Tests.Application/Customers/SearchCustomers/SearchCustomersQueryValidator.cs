@@ -15,6 +15,7 @@ namespace Dapper.Tests.Application.Customers.SearchCustomers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SearchTerm)

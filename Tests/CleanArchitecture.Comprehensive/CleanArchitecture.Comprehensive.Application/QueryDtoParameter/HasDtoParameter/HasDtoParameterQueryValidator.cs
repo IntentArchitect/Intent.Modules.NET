@@ -18,6 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.QueryDtoParameter.HasDtoPa
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Arg)

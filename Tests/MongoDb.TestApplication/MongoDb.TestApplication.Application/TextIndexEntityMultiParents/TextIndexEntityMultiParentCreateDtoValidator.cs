@@ -18,6 +18,7 @@ namespace MongoDb.TestApplication.Application.TextIndexEntityMultiParents
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SomeField)

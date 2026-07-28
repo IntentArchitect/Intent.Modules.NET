@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableS
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

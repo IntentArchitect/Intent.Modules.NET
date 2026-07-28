@@ -15,6 +15,7 @@ namespace N_ServiceBus.AzureServiceBus.Application.ExternalMessagePublish.Publis
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

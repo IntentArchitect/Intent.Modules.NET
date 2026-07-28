@@ -15,6 +15,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.GetDocuments
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

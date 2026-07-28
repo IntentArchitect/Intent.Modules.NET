@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Up
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

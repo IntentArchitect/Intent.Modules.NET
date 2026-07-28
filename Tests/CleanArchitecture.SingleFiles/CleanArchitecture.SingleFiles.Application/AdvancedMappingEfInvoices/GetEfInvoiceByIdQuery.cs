@@ -58,6 +58,7 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

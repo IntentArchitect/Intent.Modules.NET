@@ -15,6 +15,7 @@ namespace EfCore.SecondLevelCaching.Application.Invoices.CreateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Notes)

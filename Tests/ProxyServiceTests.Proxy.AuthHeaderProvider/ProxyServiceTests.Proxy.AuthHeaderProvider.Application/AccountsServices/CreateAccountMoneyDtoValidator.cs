@@ -15,6 +15,7 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Currency)

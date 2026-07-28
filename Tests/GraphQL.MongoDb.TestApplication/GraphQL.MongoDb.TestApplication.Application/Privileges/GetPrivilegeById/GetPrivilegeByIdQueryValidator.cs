@@ -16,6 +16,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivilegeByI
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

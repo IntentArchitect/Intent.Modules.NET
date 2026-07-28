@@ -71,6 +71,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.MongoInvoiceId)

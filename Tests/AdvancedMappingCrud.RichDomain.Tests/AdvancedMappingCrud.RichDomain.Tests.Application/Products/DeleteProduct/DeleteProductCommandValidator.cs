@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Products.DeleteProduc
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

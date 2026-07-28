@@ -16,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.GetCameraByIdemiaId
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.IdemiaId)

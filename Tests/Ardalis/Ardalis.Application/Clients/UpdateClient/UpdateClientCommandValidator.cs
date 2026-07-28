@@ -15,6 +15,7 @@ namespace Ardalis.Application.Clients.UpdateClient
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

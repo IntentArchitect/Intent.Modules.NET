@@ -17,6 +17,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Number)

@@ -15,6 +15,7 @@ namespace SharedKernel.Consumer.Tests.Application.Currencies.UpdateCurrency
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

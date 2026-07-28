@@ -15,6 +15,7 @@ namespace CompositeMessageBus.Application.Test8
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

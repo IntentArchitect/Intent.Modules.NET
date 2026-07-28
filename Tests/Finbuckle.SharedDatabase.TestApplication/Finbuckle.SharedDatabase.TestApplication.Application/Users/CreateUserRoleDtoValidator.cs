@@ -16,6 +16,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

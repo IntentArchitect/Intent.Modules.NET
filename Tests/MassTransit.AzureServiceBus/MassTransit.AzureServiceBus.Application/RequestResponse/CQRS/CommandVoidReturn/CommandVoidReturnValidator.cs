@@ -15,6 +15,7 @@ namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandVo
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Input)

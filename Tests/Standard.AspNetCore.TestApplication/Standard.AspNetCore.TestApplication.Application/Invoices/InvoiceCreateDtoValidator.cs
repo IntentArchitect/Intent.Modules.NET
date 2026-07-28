@@ -16,6 +16,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Invoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Number)

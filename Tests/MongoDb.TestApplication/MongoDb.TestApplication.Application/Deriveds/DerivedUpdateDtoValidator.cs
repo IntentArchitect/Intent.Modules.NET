@@ -16,6 +16,7 @@ namespace MongoDb.TestApplication.Application.Deriveds
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

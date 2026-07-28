@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.BasicOrderBies.DeleteBasi
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

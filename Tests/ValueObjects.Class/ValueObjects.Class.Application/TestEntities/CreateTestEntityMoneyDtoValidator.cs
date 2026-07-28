@@ -15,6 +15,7 @@ namespace ValueObjects.Class.Application.TestEntities
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Currency)

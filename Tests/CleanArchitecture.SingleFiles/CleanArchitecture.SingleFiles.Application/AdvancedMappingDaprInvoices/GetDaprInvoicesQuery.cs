@@ -51,6 +51,7 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingDaprInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

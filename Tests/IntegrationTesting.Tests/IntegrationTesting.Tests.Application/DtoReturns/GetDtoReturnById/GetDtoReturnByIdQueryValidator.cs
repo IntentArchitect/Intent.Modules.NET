@@ -15,6 +15,7 @@ namespace IntegrationTesting.Tests.Application.DtoReturns.GetDtoReturnById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

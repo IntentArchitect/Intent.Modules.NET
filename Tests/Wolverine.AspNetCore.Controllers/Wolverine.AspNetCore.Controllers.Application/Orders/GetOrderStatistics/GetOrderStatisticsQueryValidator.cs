@@ -15,6 +15,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.GetOrderStatistics
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

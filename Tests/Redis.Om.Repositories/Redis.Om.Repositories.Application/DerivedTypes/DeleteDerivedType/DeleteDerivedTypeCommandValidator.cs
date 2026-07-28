@@ -15,6 +15,7 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.DeleteDerivedType
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

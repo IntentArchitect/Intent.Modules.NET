@@ -15,6 +15,7 @@ namespace AwsLambdaFunction.Application.EfClients.UpdateEfClient
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

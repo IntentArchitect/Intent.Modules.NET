@@ -16,6 +16,7 @@ namespace CosmosDB.Application.Invoices.DeleteInvoiceLineItem
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.InvoiceId)

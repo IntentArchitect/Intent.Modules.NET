@@ -16,6 +16,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Description)

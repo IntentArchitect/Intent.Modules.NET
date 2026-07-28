@@ -17,6 +17,7 @@ namespace AzureFunctions.NET6.Application.Validators.SampleDomains
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

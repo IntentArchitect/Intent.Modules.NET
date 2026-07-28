@@ -16,6 +16,7 @@ namespace AzureFunctions.NET8.Application.Validators.ResponseCodes.DeleteRespons
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

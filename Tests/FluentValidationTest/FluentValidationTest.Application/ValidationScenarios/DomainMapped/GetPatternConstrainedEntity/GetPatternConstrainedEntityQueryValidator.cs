@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.GetP
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

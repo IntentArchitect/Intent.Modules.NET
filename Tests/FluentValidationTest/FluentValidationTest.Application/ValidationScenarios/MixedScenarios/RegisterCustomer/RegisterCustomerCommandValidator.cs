@@ -16,6 +16,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.MixedScenarios.Re
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.CustomerRegistration)

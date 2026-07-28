@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.ComponentTypes.UpdateCompo
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.PropertyName)

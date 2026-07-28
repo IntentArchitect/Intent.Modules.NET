@@ -18,6 +18,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.StressSuite.Updat
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Tags)

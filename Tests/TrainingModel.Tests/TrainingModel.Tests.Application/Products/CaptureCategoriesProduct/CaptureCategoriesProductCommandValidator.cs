@@ -15,6 +15,7 @@ namespace TrainingModel.Tests.Application.Products.CaptureCategoriesProduct
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.CategoryNames)

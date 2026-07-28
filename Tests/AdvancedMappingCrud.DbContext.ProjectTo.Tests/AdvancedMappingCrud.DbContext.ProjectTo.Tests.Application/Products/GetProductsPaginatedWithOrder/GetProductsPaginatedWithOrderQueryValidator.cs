@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.OrderBy)

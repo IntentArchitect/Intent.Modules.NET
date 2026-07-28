@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Ge
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

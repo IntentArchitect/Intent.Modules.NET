@@ -15,6 +15,7 @@ namespace N_ServiceBus.SqlServer.Application.ExternalMessagePublish.PublishExter
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

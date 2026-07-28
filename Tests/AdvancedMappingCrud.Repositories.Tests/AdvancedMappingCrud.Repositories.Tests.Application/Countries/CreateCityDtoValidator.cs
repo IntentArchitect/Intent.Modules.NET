@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Countries
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

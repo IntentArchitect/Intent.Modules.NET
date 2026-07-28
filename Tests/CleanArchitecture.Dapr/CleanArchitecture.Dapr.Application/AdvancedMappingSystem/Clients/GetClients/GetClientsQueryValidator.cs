@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.GetCl
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

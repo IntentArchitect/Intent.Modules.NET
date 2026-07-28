@@ -21,6 +21,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             _aggregateWithUniqueConstraintIndexStereotypeRepository = aggregateWithUniqueConstraintIndexStereotypeRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SingleUniqueField)

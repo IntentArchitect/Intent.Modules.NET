@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

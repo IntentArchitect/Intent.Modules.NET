@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.ExplicitRules.Val
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.PrimaryValue)

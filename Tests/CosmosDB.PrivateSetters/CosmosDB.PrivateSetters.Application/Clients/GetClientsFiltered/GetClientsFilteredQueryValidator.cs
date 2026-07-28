@@ -15,6 +15,7 @@ namespace CosmosDB.PrivateSetters.Application.Clients.GetClientsFiltered
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Type)

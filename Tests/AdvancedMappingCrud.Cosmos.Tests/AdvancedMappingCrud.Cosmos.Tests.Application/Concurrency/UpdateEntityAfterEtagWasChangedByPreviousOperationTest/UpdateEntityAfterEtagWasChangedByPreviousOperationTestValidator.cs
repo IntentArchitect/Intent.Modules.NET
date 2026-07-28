@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Concurrency.UpdateEntityA
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

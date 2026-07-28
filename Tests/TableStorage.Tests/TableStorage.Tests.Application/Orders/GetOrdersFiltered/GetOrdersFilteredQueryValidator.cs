@@ -15,6 +15,7 @@ namespace TableStorage.Tests.Application.Orders.GetOrdersFiltered
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.PartitionKey)

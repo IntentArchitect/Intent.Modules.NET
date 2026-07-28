@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.Clients.CreateClientByCtor
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Type)

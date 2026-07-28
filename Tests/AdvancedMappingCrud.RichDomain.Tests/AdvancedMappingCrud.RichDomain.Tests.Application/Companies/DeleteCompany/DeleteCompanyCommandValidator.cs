@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Companies.DeleteCompa
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

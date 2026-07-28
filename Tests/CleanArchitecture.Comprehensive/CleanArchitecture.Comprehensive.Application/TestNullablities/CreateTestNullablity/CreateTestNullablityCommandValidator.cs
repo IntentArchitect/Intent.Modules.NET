@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.TestNullablities.CreateTes
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.MyEnum)

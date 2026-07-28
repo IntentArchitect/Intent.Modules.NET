@@ -15,6 +15,7 @@ namespace RichDomain.Application.People.UpdatePersonPerson
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.SimpleOdata.CreateSimpleO
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

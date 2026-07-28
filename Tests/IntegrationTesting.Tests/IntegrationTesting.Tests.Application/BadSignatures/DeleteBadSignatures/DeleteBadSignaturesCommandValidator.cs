@@ -15,6 +15,7 @@ namespace IntegrationTesting.Tests.Application.BadSignatures.DeleteBadSignatures
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.More)

@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Products.DeleteProduct
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -15,6 +15,7 @@ namespace CleanArchitecture.QueueStorage.Application.Products.UpdateProduct
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

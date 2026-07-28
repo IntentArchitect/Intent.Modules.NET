@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.CompanyContacts.Upd
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

@@ -21,6 +21,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Clas
             _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SingleUniqueField)

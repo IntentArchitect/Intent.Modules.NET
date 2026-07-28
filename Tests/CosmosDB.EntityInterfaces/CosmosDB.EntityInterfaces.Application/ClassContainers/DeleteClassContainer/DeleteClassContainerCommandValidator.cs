@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.ClassContainers.DeleteClassConta
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

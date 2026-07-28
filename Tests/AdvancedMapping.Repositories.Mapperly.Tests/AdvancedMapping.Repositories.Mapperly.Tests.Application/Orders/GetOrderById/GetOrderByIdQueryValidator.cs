@@ -15,6 +15,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetOrde
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

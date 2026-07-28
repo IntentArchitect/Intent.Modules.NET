@@ -16,6 +16,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)

@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             Include(provider.GetValidator<BaseStockDto>());

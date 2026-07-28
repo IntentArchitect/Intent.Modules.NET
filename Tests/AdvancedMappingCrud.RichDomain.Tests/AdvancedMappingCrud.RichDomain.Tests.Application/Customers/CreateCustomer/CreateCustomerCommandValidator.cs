@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Customers.CreateCusto
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.User)

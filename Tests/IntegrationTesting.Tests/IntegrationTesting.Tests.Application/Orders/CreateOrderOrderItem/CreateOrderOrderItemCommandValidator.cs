@@ -15,6 +15,7 @@ namespace IntegrationTesting.Tests.Application.Orders.CreateOrderOrderItem
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Description)

@@ -15,6 +15,7 @@ namespace OutputCachingRedis.Tests.Application.Files.CreateFiles
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Content)

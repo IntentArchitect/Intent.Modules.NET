@@ -15,6 +15,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.DeleteDocument
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

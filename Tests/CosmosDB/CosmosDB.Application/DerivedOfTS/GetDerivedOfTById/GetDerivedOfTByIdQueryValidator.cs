@@ -16,6 +16,7 @@ namespace CosmosDB.Application.DerivedOfTS.GetDerivedOfTById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

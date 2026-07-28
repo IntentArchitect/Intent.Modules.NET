@@ -16,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateTestNoIdReturns.U
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

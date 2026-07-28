@@ -15,6 +15,7 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.GetRootEntityById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -15,6 +15,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Theme)

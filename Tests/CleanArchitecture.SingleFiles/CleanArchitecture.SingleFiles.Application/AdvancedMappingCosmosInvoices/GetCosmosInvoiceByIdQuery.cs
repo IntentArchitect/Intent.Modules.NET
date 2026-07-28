@@ -58,6 +58,7 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -19,6 +19,7 @@ namespace AzureFunctions.NET6.Application.Validators.Validation.InboundQueVal
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RangeStr)

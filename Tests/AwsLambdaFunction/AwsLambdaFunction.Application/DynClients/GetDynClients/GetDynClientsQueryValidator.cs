@@ -15,6 +15,7 @@ namespace AwsLambdaFunction.Application.DynClients.GetDynClients
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

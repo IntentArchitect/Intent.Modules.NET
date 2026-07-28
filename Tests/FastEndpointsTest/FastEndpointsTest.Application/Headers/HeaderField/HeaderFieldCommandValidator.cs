@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.Headers.HeaderField
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Header)

@@ -15,6 +15,7 @@ namespace Entities.Interfaces.EF.Application.Orders.DeleteOrder
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

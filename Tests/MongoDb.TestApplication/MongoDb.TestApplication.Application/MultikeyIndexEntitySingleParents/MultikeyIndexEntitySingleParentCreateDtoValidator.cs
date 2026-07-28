@@ -18,6 +18,7 @@ namespace MongoDb.TestApplication.Application.MultikeyIndexEntitySingleParents
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SomeField)

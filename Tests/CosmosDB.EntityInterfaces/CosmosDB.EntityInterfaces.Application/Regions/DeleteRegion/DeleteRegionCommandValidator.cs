@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.Regions.DeleteRegion
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

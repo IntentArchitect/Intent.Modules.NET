@@ -15,6 +15,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Peo
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

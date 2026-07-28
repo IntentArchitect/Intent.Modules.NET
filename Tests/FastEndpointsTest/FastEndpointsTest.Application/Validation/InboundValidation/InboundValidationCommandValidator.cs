@@ -18,6 +18,7 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RangeStr)

@@ -17,6 +17,7 @@ namespace AzureFunctions.NET8.Application.Validators.Customers.DeleteCustomer
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

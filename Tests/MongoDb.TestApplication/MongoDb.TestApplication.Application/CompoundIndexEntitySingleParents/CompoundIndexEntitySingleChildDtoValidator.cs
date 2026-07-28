@@ -16,6 +16,7 @@ namespace MongoDb.TestApplication.Application.CompoundIndexEntitySingleParents
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.CompoundOne)

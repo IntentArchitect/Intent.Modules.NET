@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Parents.CreateParent
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)

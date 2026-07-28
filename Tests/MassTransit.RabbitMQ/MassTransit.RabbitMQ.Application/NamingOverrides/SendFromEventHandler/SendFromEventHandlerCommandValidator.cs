@@ -15,6 +15,7 @@ namespace MassTransit.RabbitMQ.Application.NamingOverrides.SendFromEventHandler
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

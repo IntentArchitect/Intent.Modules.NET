@@ -15,6 +15,7 @@ namespace RichDomain.Application.People.GetPersonById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

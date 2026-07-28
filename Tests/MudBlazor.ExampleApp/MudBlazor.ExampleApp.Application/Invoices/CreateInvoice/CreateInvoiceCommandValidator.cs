@@ -15,6 +15,7 @@ namespace MudBlazor.ExampleApp.Application.Invoices.CreateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.InvoiceNo)

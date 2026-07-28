@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Invoices.CreateInv
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.ClientId)

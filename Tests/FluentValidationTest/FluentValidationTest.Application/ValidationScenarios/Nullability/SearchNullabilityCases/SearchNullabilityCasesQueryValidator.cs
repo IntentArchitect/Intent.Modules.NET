@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.Nullability.Searc
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.TenantId)

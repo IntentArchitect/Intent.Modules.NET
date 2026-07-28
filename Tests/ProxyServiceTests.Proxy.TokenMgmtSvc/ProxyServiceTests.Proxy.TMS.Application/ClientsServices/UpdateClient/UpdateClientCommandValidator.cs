@@ -15,6 +15,7 @@ namespace ProxyServiceTests.Proxy.TMS.Application.ClientsServices.UpdateClient
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

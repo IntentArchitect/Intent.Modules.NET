@@ -15,6 +15,7 @@ namespace CleanArchitecture.IdentityService.Application.Identity
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Email)

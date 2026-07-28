@@ -16,6 +16,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

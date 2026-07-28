@@ -17,6 +17,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.TestValidat
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Att100)

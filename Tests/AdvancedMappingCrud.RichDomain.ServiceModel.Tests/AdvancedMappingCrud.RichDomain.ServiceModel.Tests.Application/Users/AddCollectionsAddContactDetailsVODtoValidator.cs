@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Users
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Cell)

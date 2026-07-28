@@ -15,6 +15,7 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.DeleteClassContain
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

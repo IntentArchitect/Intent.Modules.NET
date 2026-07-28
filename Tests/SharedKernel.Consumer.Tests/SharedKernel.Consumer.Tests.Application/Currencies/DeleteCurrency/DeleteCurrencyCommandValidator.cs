@@ -15,6 +15,7 @@ namespace SharedKernel.Consumer.Tests.Application.Currencies.DeleteCurrency
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

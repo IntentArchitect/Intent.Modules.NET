@@ -21,6 +21,7 @@ namespace IntegrationTesting.Tests.Application.UniqueConVals.UpdateUniqueConVal
             _uniqueConValRepository = uniqueConValRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Att1)

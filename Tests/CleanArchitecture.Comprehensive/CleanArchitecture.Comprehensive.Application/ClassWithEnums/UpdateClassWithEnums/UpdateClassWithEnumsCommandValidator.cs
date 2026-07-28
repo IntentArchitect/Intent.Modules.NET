@@ -16,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.ClassWithEnums.UpdateClass
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.EnumWithDefaultLiteral)

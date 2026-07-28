@@ -16,6 +16,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Line1)

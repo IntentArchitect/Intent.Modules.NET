@@ -15,6 +15,7 @@ namespace AwsLambdaFunction.Application.DynClients.DeleteDynClient
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

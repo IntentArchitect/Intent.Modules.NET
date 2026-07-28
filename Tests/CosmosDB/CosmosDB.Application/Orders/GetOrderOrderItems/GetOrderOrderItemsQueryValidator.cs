@@ -15,6 +15,7 @@ namespace CosmosDB.Application.Orders.GetOrderOrderItems
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.OrderId)

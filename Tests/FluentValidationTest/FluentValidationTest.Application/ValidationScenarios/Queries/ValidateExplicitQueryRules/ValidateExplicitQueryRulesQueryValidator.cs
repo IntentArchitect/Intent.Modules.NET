@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.Queries.ValidateE
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RequiredFilter)

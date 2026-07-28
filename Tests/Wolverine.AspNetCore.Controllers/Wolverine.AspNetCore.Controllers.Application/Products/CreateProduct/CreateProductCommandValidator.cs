@@ -15,6 +15,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.CreateProduct
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

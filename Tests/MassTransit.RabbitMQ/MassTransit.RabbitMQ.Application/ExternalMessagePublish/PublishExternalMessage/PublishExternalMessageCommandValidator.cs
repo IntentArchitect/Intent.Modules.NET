@@ -15,6 +15,7 @@ namespace MassTransit.RabbitMQ.Application.ExternalMessagePublish.PublishExterna
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required
