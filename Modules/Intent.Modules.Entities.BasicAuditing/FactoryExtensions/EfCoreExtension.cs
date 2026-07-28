@@ -139,13 +139,13 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             AddAuditMethod(
                 @class, entityTemplate, auditableInterfaceName, userIdType,
                 "SetCreated", auditSettings.HasCreatedByField(), auditSettings.HasCreatedDateField(),
-                model.GetAuditField(CreatedBy), model.GetAuditField(CreatedDate),
+                model.GetAuditField(CreatedBy, auditSettings.CreatedByFieldName()), model.GetAuditField(CreatedDate, auditSettings.CreatedDateFieldName()),
                 "createdBy", "createdDate");
 
             AddAuditMethod(
                 @class, entityTemplate, auditableInterfaceName, userIdType,
                 "SetUpdated", auditSettings.HasUpdatedByField(), auditSettings.HasUpdatedDateField(),
-                model.GetAuditField(UpdatedBy), model.GetAuditField(UpdatedDate),
+                model.GetAuditField(UpdatedBy, auditSettings.UpdatedByFieldName()), model.GetAuditField(UpdatedDate, auditSettings.UpdatedDateFieldName()),
                 "updatedBy", "updatedDate");
         }
 
