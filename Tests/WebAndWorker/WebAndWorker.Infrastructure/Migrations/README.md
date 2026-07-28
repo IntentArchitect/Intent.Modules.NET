@@ -15,13 +15,13 @@ executing these commands.
 ### Create a new migration (VS PMC)
 
 ```powershell
-Add-Migration -Name {ChangeName} -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Add-Migration -Name {ChangeName} -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ### Update the schema to the latest version (VS PMC)
 
 ```powershell
-Update-Database -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Update-Database -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ## .NET CLI quick reference
@@ -29,13 +29,13 @@ Update-Database -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAnd
 ### Create a new migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations add {ChangeName} --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef migrations add {ChangeName} --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ### Update the schema to the latest version (.NET CLI)
 
 ```powershell
-dotnet ef database update --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef database update --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ## Visual Studio Package Manager Console additional commands
@@ -43,25 +43,25 @@ dotnet ef database update --startup-project "WebAndWorker.AdditionalWorker" --pr
 ### Generate a script which detects the current database schema version and updates it to the latest (VS PMC)
 
 ```powershell
-Script-Migration -Idempotent -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Script-Migration -Idempotent -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (VS PMC)
 
 ```powershell
-Script-Migration {Source} {Target} -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Script-Migration {Source} {Target} -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ### Upgrade/downgrade the schema to a specific version (VS PMC)
 
 ```powershell
-Update-Database -Migration {Target} -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Update-Database -Migration {Target} -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ### Remove the last created migration (VS PMC)
 
 ```powershell
-Remove-Migration -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAndWorker.Infrastructure"
+Remove-Migration -StartupProject "AspireHostExe" -Project "WebAndWorker.Infrastructure"
 ```
 
 ## .NET CLI additional commands
@@ -69,25 +69,25 @@ Remove-Migration -StartupProject "WebAndWorker.AdditionalWorker" -Project "WebAn
 ### Generate a script which detects the current database schema version and updates it to the latest (.NET CLI)
 
 ```powershell
-dotnet ef migrations script --idempotent --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef migrations script --idempotent --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (.NET CLI)
 
 ```powershell
-dotnet ef migrations script {Source} {Target} --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef migrations script {Source} {Target} --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ### Upgrade/downgrade the schema to a specific version (.NET CLI)
 
 ```powershell
-dotnet ef database update {Target} --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef database update {Target} --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ### Remove the last created migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations remove --startup-project "WebAndWorker.AdditionalWorker" --project "WebAndWorker.Infrastructure"
+dotnet ef migrations remove --startup-project "AspireHostExe" --project "WebAndWorker.Infrastructure"
 ```
 
 ## Drop all tables in a schema
