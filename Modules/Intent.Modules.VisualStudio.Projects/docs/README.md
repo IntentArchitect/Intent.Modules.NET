@@ -140,6 +140,12 @@ When enabled `Startup.cs` will no longer be generated, and all start-up will be 
 > [!NOTE]
 > Requires at least version `6.0.0` of the `Intent.Modules.AspNetCore` to be installed in order for changes to take effect.
 
+#### The `Output Type` property
+
+Sets the `<OutputType />` element in the `.csproj` file (`Class Library`, `Console Application`, or `Windows Application`, mapped to `Library`, `Exe`, and `WinExe` respectively). Leave it unset to fall back to the SDK's own default.
+
+This property is settable regardless of the selected `SDK`, including `Aspire.AppHost.Sdk`. An Aspire AppHost project must build as an executable to run as the orchestrator, so leave it unset (the Aspire SDK defaults it to `Exe`) or set it to `Console Application` explicitly — `Class Library` and `Windows Application` will produce a non-runnable AppHost.
+
 ### The *Visual Studio Solution Options* stereotype
 
 This stereotype is applied to **Visual Studio Solution** elements.

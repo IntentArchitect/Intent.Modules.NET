@@ -12,5 +12,6 @@
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Modules/Visual Studio" relativePath="Intent.Modules.VisualStudio.Projects/VisualStudio.Projects.application.config" />
     <application id="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" name="CleanArchitecture.Dapr" solutionFolder="Tests" relativePath="../Tests/CleanArchitecture.Dapr/CleanArchitecture.Dapr.application.config" />
     <application id="51d44bee-1a4b-4c0a-897e-41261c2bfb9c" name="MinimalHostingModel" solutionFolder="Tests" relativePath="../Tests/MinimalHostingModel/MinimalHostingModel.application.config" />
+    <application id="5f842e69-c59b-43e7-b132-33858a9fa3eb" name="WebAndWorker" solutionFolder="Tests" relativePath="../Tests/intent/WebAndWorker/WebAndWorker.application.config" />
   </applications>
 </solution>

@@ -104,5 +104,8 @@
     <application id="75cf5e5a-53b1-4fa4-8f66-a81e38fc3356" name="BasicAuditing.CustomUserId.Tests" solutionFolder="Tests" relativePath="../Tests/BasicAuditing.CustomUserId.Tests/BasicAuditing.CustomUserId.Tests.application.config" />
     <application id="74dbe983-f492-4a82-909e-005cf26e9110" name="SqlDbProject" solutionFolder="Tests" relativePath="../Tests/SqlDbProject/SqlDbProject.application.config" />
     <application id="46ad474b-c39f-4be9-be67-cca851ffabe0" name="SqlDbProject.Sdk" solutionFolder="Tests" relativePath="../Tests/SqlDbProject.Sdk/SqlDbProject.Sdk.application.config" />
+    <application id="4d989763-0499-4e06-a75d-af159dea70cd" name="Module1" solutionFolder="Tests" relativePath="../Tests/Module1/Module1.application.config" />
+    <application id="42bb3d2c-d940-43c9-8d76-95250d6ee17e" name="Module2" solutionFolder="Tests" relativePath="../Tests/Module2/Module2.application.config" />
+    <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Tests" relativePath="../Tests/ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
   </applications>
 </solution>

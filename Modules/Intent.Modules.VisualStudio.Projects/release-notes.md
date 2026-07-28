@@ -1,6 +1,7 @@
 ### Version 4.1.6
 
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+- Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
 
 ### Version 4.1.5
 
