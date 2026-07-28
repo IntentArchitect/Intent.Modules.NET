@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.11-pre.3</version>
-  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
+  <version>1.0.11-pre.0</version>
+  <supportedClientVersions>[4.5.18-a,6.0.0-a)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
   <tags>csharp dotnet entities auditing</tags>

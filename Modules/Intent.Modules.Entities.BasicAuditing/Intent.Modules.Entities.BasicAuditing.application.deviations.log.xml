@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5c2b2464-aaf2-40bb-8c23-f3608e8ed4aa</correlationId>
-      <path>Intent.Modules.Entities.BasicAuditing/FactoryExtensions/EfCoreExtension.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-28T09:43:37.2450256Z</updatedAt>
-      <deviationsHash>49F7DB11EE5903F66A7DE3E81688058BC92A014503C6CC22C50C16921F3C13B4</deviationsHash>
-      <fileHash>1F8EEFA4C9A4525ED5B68EEC8BDB0EDD4C96D6A00E30BE6AE663EBD8BCD3D3E4</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

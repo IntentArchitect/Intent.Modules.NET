@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using Intent.Engine;
 using Intent.Entities.BasicAuditing.Api;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.Identity.Templates;
 using Intent.Modules.Common;
@@ -74,7 +75,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                 var priClass = file.Classes.First();
 
-                AddSetAuditableFieldsMethod(dbContext, priClass);
+                AddSetAuditableFieldsMethod(application, dbContext, priClass);
 
                 var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
                 var normalSaveChanges = dbContext.GetSaveChangesMethod();
@@ -139,13 +140,13 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             AddAuditMethod(
                 @class, entityTemplate, auditableInterfaceName, userIdType,
                 "SetCreated", auditSettings.HasCreatedByField(), auditSettings.HasCreatedDateField(),
-                model.GetAuditField(CreatedBy, auditSettings.CreatedByFieldName()), model.GetAuditField(CreatedDate, auditSettings.CreatedDateFieldName()),
+                model.GetAuditField(CreatedBy), model.GetAuditField(CreatedDate),
                 "createdBy", "createdDate");
 
             AddAuditMethod(
                 @class, entityTemplate, auditableInterfaceName, userIdType,
                 "SetUpdated", auditSettings.HasUpdatedByField(), auditSettings.HasUpdatedDateField(),
-                model.GetAuditField(UpdatedBy, auditSettings.UpdatedByFieldName()), model.GetAuditField(UpdatedDate, auditSettings.UpdatedDateFieldName()),
+                model.GetAuditField(UpdatedBy), model.GetAuditField(UpdatedDate),
                 "updatedBy", "updatedDate");
         }
 
@@ -196,6 +197,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
         }
 
         private static void AddSetAuditableFieldsMethod(
+            IApplication application,
             ICSharpFileBuilderTemplate template,
             CSharpClass priClass)
         {
@@ -240,7 +242,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                         userIdentityProperty = "Name";
                         break;
                     case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
-                        default:
+                    default:
                         userIdentityProperty = "Id";
                         break;
                 }
@@ -274,11 +276,11 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                                 }
                                 if (hasCreatedBy)
                                 {
-                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(auditSettings.CreatedByFieldName(), CreatedBy)}\").IsModified = false;");
+                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(application, CreatedBy)}\").IsModified = false;");
                                 }
                                 if (hasCreatedDate)
                                 {
-                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(auditSettings.CreatedDateFieldName(), CreatedDate)}\").IsModified = false;");
+                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(application, CreatedDate)}\").IsModified = false;");
                                 }
                                 block.WithBreak();
                             });
@@ -290,9 +292,28 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             });
         }
 
-        private static string ResolveFieldName(string configuredName, string defaultName)
+        private static string ResolveFieldName(IApplication application, string role)
         {
-            return string.IsNullOrWhiteSpace(configuredName) ? defaultName : configuredName;
+            var resolutions = application.MetadataManager.Domain(application).GetClassModels()
+                .Where(m => m.HasBasicAuditing())
+                .Select(m => (Model: m, Field: m.GetAuditField(role)))
+                .Where(x => x.Field != null)
+                .ToArray();
+
+            var distinctNames = resolutions.Select(x => x.Field.Name).Distinct().ToArray();
+            if (distinctNames.Length <= 1)
+            {
+                return distinctNames.FirstOrDefault() ?? role;
+            }
+
+            var summary = string.Join(", ", resolutions
+                .GroupBy(x => x.Field.Name)
+                .Select(g => $"{g.Key} ({string.Join(", ", g.Select(x => x.Model.Name))})"));
+
+            throw new FriendlyException(
+                $"Audited entities disagree on the name used for the '{role}' audit field: {summary}. " +
+                "This happens when the field name setting is changed without running Synchronize Auditing Identifiers on every audited entity. " +
+                "Run Synchronize Auditing Identifiers, or manually rename the mismatched attribute(s) so every audited entity agrees, then try again.");
         }
     }
 }
