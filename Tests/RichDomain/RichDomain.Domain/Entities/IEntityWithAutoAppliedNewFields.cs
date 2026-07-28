@@ -8,26 +8,16 @@ using RichDomain.Domain.Common.Interfaces;
 
 namespace RichDomain.Domain.Entities
 {
-    public interface IPerson : IHasDomainEvent, IAuditable
+    public interface IEntityWithAutoAppliedNewFields : IHasDomainEvent, IAuditable
     {
         Guid Id { get; }
 
-        string FirstName { get; }
-
         string CreatedByName { get; }
-
-        Guid DepartmentId { get; }
 
         DateTimeOffset CreatedDate { get; }
 
         string? UpdatedBy { get; }
 
         DateTimeOffset? UpdatedDate { get; }
-
-        IDepartment Department { get; }
-
-        void UpdatePerson(string firstName);
-
-        void UpdatePerson(string firstName, IDepartment department);
     }
 }

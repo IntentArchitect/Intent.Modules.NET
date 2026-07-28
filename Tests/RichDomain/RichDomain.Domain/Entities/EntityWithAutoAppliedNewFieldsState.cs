@@ -9,25 +9,11 @@ using RichDomain.Domain.Common.Interfaces;
 
 namespace RichDomain.Domain.Entities
 {
-    public partial class Person : IPerson, IHasDomainEvent
+    public partial class EntityWithAutoAppliedNewFields : IEntityWithAutoAppliedNewFields, IHasDomainEvent
     {
-        /// <summary>
-        /// Required by Entity Framework.
-        /// </summary>
-        [IntentManaged(Mode.Fully)]
-        protected Person()
-        {
-            FirstName = null!;
-            CreatedByName = null!;
-            Department = null!;
-        }
         public Guid Id { get; private set; }
 
-        public string FirstName { get; private set; }
-
         public string CreatedByName { get; private set; }
-
-        public Guid DepartmentId { get; private set; }
 
         public DateTimeOffset CreatedDate { get; private set; }
 
@@ -35,16 +21,7 @@ namespace RichDomain.Domain.Entities
 
         public DateTimeOffset? UpdatedDate { get; private set; }
 
-        public virtual Department Department { get; private set; }
-
-        IDepartment IPerson.Department => Department;
-
         public List<DomainEvent> DomainEvents { get; set; } = [];
-
-        void IPerson.UpdatePerson(string firstName, IDepartment department)
-        {
-            UpdatePerson(firstName, (Department)department);
-        }
 
         void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedByName, CreatedDate) = (createdBy, createdDate);
 

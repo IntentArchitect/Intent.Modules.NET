@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c63ed2ed-49c6-499a-8bfe-ec129af893eb" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>EntityWithAutoAppliedNewFields</name>
+  <display>EntityWithAutoAppliedNewFields</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</parentFolderId>
+  <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+  <packageName>RichDomain.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.BasicAuditing</definitionPackageName>
+      <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="17037bdb-ab65-495b-a3ec-a08abad11a72" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2f4c6e2f-b0c1-4560-a9f9-8111fc7e108f">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c63ed2ed-49c6-499a-8bfe-ec129af893eb</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f803a350-fa54-4693-a5e6-a0e8a7225a6b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedByName</name>
+      <display>CreatedByName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="490bd1ae-0f18-4c4f-b93c-1c5fc4c696a8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c63ed2ed-49c6-499a-8bfe-ec129af893eb</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+        <entry key="basic-auditing-role" value="CreatedBy" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="437e241a-4734-406b-8b65-19f8723129ab" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedDate</name>
+      <display>CreatedDate: datetimeoffset</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="544ef7a3-a4cf-435f-958f-ba426e527fd4">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c63ed2ed-49c6-499a-8bfe-ec129af893eb</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+        <entry key="basic-auditing-role" value="CreatedDate" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3618c3f7-b5f2-42e8-a3b4-b43c1b1475d5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedBy</name>
+      <display>UpdatedBy: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c1f197eb-2a34-4a84-9707-3e67dba1ff2d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c63ed2ed-49c6-499a-8bfe-ec129af893eb</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+        <entry key="basic-auditing-role" value="UpdatedBy" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="eb0473dc-8e5f-44dd-8f24-7a30f991c230" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedDate</name>
+      <display>UpdatedDate: datetimeoffset?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="53dbf799-d0f2-4e54-9c35-e67b08219ead">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c63ed2ed-49c6-499a-8bfe-ec129af893eb</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+        <entry key="basic-auditing-role" value="UpdatedDate" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

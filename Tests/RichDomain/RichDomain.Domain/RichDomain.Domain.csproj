@@ -66,6 +66,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Department.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\IEntityWithAutoAppliedNewFields.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityWithAutoAppliedNewFields.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EntityWithAutoAppliedNewFieldsState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityWithAutoAppliedNewFields.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

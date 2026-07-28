@@ -2,10 +2,10 @@
 <association id="ae25ba7c-2fcf-4af6-a24d-95a6a525609e">
   <sourceEnd id="6c917cbb-51b5-45dc-8425-08b4696039dc" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
     <display>published by : Person.UpdatePerson</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="91d481bb-79f3-4c07-8e59-618c2b938b4e">
       <typeId>6cfdb123-1db4-4c8d-bff5-f3a634833e55</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -35,19 +35,19 @@
     <stereotypes />
     <mappings>
       <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
-        <source elementId="c2056685-3725-4ae1-a9cc-cc7621296e32" location="[RichDomain].[Domain].[Person]" />
-        <target elementId="28296d86-174b-447d-8945-241fc02ff073" location="[RichDomain].[Domain].[PersonUpdatedEvent]" />
+        <source applicationId="38950864-1930-4a7f-9a21-57f1b4043ad1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c2056685-3725-4ae1-a9cc-cc7621296e32" location="[RichDomain].[Domain].[Person]" />
+        <target applicationId="38950864-1930-4a7f-9a21-57f1b4043ad1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28296d86-174b-447d-8945-241fc02ff073" location="[RichDomain].[Domain].[PersonUpdatedEvent]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Person}</expression>
             <path>
-              <target id="28296d86-174b-447d-8945-241fc02ff073" name="PersonUpdatedEvent" type="element" specialization="Domain Event" />
-              <target id="ca6784f6-6f9e-4e6e-8890-f69d6df8f10e" name="Person" type="element" specialization="Property" />
+              <target id="28296d86-174b-447d-8945-241fc02ff073" name="PersonUpdatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="ca6784f6-6f9e-4e6e-8890-f69d6df8f10e" name="Person" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
             </path>
             <sources>
               <source identifier="Person" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
                 <path>
-                  <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" />
+                  <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
                 </path>
               </source>
             </sources>

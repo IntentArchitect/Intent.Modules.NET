@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="612239a0-8eb2-4b6c-b572-c979b9e741d4" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
   <name>SuperContract</name>
-  <display>SuperContract : BaseContract</display>
+  <display>SuperContract</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
