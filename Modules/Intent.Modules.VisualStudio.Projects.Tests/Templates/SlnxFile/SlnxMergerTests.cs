@@ -28,9 +28,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing: null, previousOutput: null);
 
-            result.HasDestructiveChanges.ShouldBe(HasDestructiveChanges.False);
-            result.Content.ShouldNotContain("Id=");
-            var model = Parse(result.Content);
+            result.ShouldNotContain("Id=");
+            var model = Parse(result);
             model.SolutionProjects.Single().FilePath.Replace('\\', '/').ShouldBe("MyApp.Domain/MyApp.Domain.csproj");
         }
 
@@ -59,8 +58,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput: null);
 
-            result.Content.ShouldNotContain("Id=");
-            var model = Parse(result.Content);
+            result.ShouldNotContain("Id=");
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["MyApp.Domain/MyApp.Domain.csproj", "MyApp.NewThing/MyApp.NewThing.csproj"],
                 ignoreOrder: true);
@@ -96,7 +95,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["MyApp.Domain/MyApp.Domain.csproj", "MyApp.Core/MyApp.Core.csproj"],
                 ignoreOrder: true);
@@ -116,11 +115,11 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             });
 
             var firstRun = SlnxMerger.Merge(Generate(), existing: null, previousOutput: null);
-            var secondRun = SlnxMerger.Merge(Generate(), existing: firstRun.Content, previousOutput: Generate());
+            var secondRun = SlnxMerger.Merge(Generate(), existing: firstRun, previousOutput: Generate());
 
-            var model = Parse(secondRun.Content);
+            var model = Parse(secondRun);
             model.SolutionProjects.Count().ShouldBe(1);
-            secondRun.Content.ShouldNotContain("Id=");
+            secondRun.ShouldNotContain("Id=");
         }
 
         // ----- Project-level changes -----
@@ -156,7 +155,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["MyApp.Api/MyApp.Api.csproj", "MyApp.Domain/MyApp.Domain.csproj"],
                 ignoreOrder: true);
@@ -196,7 +195,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["MyApp.Api/MyApp.Api.csproj", "MyApp.Domain/MyApp.Domain.csproj"],
                 ignoreOrder: true);
@@ -229,12 +228,12 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Count().ShouldBe(1, "the renamed project must update the existing entry, not orphan it");
             var project = model.SolutionProjects.Single();
             project.FilePath.Replace('\\', '/').ShouldBe("MyApp.Core/MyApp.Core.csproj");
             project.Parent!.Path.ShouldBe("/3 - Domain/");
-            result.Content.ShouldNotContain("Id=");
+            result.ShouldNotContain("Id=");
         }
 
         [Fact]
@@ -267,7 +266,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Count().ShouldBe(1);
             var project = model.SolutionProjects.Single();
             project.Parent!.Path.ShouldBe("/tests/");
@@ -303,7 +302,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Count().ShouldBe(1);
             var project = model.SolutionProjects.Single();
             project.FilePath.Replace('\\', '/').ShouldBe("tests/MyApp.Api.Tests/MyApp.Api.Tests.csproj");
@@ -339,7 +338,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["MyApp.HandRenamed/MyApp.HandRenamed.csproj", "MyApp.Core/MyApp.Core.csproj"],
                 ignoreOrder: true);
@@ -379,7 +378,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Count().ShouldBe(2, "the swap must not collapse or duplicate either entry");
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(
                 ["Foo/Foo.csproj", "Bar/Bar.csproj"],
@@ -418,7 +417,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldBe(["/3 - Core/"], "the folder must be renamed in place, not left as an orphan alongside a new one");
             model.SolutionProjects.Single().Parent!.Path.ShouldBe("/3 - Core/");
         }
@@ -453,7 +452,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldContain("/B/Shared/");
             model.SolutionFolders.Select(f => f.Path).ShouldNotContain("/A/Shared/");
         }
@@ -488,7 +487,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldBe(["/Database/", "/Database/Persistence/"], ignoreOrder: true);
         }
 
@@ -529,7 +528,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldBe(["/Persistence/", "/Persistence/Infrastructure/"], ignoreOrder: true);
             model.SolutionProjects.Single().Parent!.Path.ShouldBe("/Persistence/Infrastructure/");
         }
@@ -556,7 +555,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldBe(["/3 - Domain Hand-Renamed/", "/3 - Core/"], ignoreOrder: true);
         }
 
@@ -590,7 +589,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Count().ShouldBe(2, "the swap must not collapse or duplicate either folder");
         }
 
@@ -624,7 +623,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldContain("MyApp.External/MyApp.External.csproj");
         }
 
@@ -637,7 +636,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Select(f => f.Path).ShouldContain("/NewFolder1/");
         }
 
@@ -667,7 +666,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            var model = Parse(result.Content);
+            var model = Parse(result);
             model.SolutionFolders.Single(f => f.Path == "/0 - Solution Items/").Files.ShouldContain("README.md");
             model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldContain("MyApp.Api/MyApp.Api.csproj");
         }
@@ -708,6 +707,38 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             var ex = Should.Throw<Exception>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
             ex.Message.ShouldContain("not valid XML");
             ex.Message.ShouldContain(Normalized(existing));
+        }
+
+        [Fact]
+        public void WhenPreviousOutputIsClassicSlnFormat_SwitchedFromSlnToSlnx_ShouldIgnoreHistoryRatherThanThrow()
+        {
+            // Real-world case: the Intent model was switched from the classic .sln format to .slnx.
+            // The cached previous-output for this template's Id/CorrelationId is still the OLD raw
+            // .sln text (not XML at all), since both formats share the same output Id by design. This
+            // must degrade to "no usable history" like any other corrupt previousOutput, not crash.
+            const string previousOutput = """
+                Microsoft Visual Studio Solution File, Format Version 12.00
+                # Visual Studio Version 17
+                Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Domain", "MyApp.Domain\MyApp.Domain.csproj", "{11111111-1111-1111-1111-111111111111}"
+                EndProject
+                """;
+
+            var existing = Build(m =>
+            {
+                var folder = m.AddFolder("/3 - Domain/");
+                m.AddProject("MyApp.Domain/MyApp.Domain.csproj", null, folder);
+            });
+
+            var generated = Build(m =>
+            {
+                var folder = m.AddFolder("/3 - Domain/");
+                m.AddProject("MyApp.Domain/MyApp.Domain.csproj", null, folder);
+            });
+
+            var result = SlnxMerger.Merge(generated, existing, previousOutput);
+
+            var model = Parse(result);
+            model.SolutionProjects.Select(p => p.FilePath.Replace('\\', '/')).ShouldBe(["MyApp.Domain/MyApp.Domain.csproj"]);
         }
 
         [Fact]
@@ -759,7 +790,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            result.Content.ShouldNotContain("Id=");
+            result.ShouldNotContain("Id=");
         }
 
         [Fact]
@@ -792,7 +823,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 
             var result = SlnxMerger.Merge(generated, existing, previousOutput);
 
-            result.Content.ShouldNotContain("Id=");
+            result.ShouldNotContain("Id=");
         }
 
         // ----- Helpers -----
