@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3CB18B6E-CD25-421A-A985-9A699CBE2E5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.CustomPrimaryConnectionString.Api", "EntityFrameworkCore.CustomPrimaryConnectionString.Api\EntityFrameworkCore.CustomPrimaryConnectionString.Api.csproj", "{36940598-73DD-4FC2-8924-2EF502BB8036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{417078F1-3563-437F-972E-D2FFA0097443}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.CustomPrimaryConnectionString.Application", "EntityFrameworkCore.CustomPrimaryConnectionString.Application\EntityFrameworkCore.CustomPrimaryConnectionString.Application.csproj", "{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.CustomPrimaryConnectionString.Application.UnitTests", "EntityFrameworkCore.CustomPrimaryConnectionString.Application.UnitTests\EntityFrameworkCore.CustomPrimaryConnectionString.Application.UnitTests.csproj", "{C975680D-DE8B-4FAA-9F84-E17B3107B74C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{063426E4-7C6B-459B-ACE1-9C08CC060DCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.CustomPrimaryConnectionString.Domain", "EntityFrameworkCore.CustomPrimaryConnectionString.Domain\EntityFrameworkCore.CustomPrimaryConnectionString.Domain.csproj", "{1A3AA19B-0632-4707-9B5D-459F7A6D269D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A6271BFB-6405-48F9-9822-CEB2C3237303}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.CustomPrimaryConnectionString.Infrastructure", "EntityFrameworkCore.CustomPrimaryConnectionString.Infrastructure\EntityFrameworkCore.CustomPrimaryConnectionString.Infrastructure.csproj", "{F095240A-61E9-4C31-8161-FAAC23EDDEF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36940598-73DD-4FC2-8924-2EF502BB8036} = {3CB18B6E-CD25-421A-A985-9A699CBE2E5C}
+		{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA} = {417078F1-3563-437F-972E-D2FFA0097443}
+		{C975680D-DE8B-4FAA-9F84-E17B3107B74C} = {417078F1-3563-437F-972E-D2FFA0097443}
+		{1A3AA19B-0632-4707-9B5D-459F7A6D269D} = {063426E4-7C6B-459B-ACE1-9C08CC060DCE}
+		{F095240A-61E9-4C31-8161-FAAC23EDDEF8} = {A6271BFB-6405-48F9-9822-CEB2C3237303}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36940598-73DD-4FC2-8924-2EF502BB8036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36940598-73DD-4FC2-8924-2EF502BB8036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36940598-73DD-4FC2-8924-2EF502BB8036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36940598-73DD-4FC2-8924-2EF502BB8036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBA01F0-7E60-4599-903B-FD9DC9D87DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C975680D-DE8B-4FAA-9F84-E17B3107B74C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C975680D-DE8B-4FAA-9F84-E17B3107B74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C975680D-DE8B-4FAA-9F84-E17B3107B74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C975680D-DE8B-4FAA-9F84-E17B3107B74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3AA19B-0632-4707-9B5D-459F7A6D269D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3AA19B-0632-4707-9B5D-459F7A6D269D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3AA19B-0632-4707-9B5D-459F7A6D269D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3AA19B-0632-4707-9B5D-459F7A6D269D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F095240A-61E9-4C31-8161-FAAC23EDDEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F095240A-61E9-4C31-8161-FAAC23EDDEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F095240A-61E9-4C31-8161-FAAC23EDDEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F095240A-61E9-4C31-8161-FAAC23EDDEF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

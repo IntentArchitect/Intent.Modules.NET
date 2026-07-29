@@ -8,48 +8,5 @@
   <parentFolderId>8817d69f-712c-4502-a270-f1fd66d469ee</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="14474937-336b-4ec0-ad5b-04c9a1dc3000" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</display>
-      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2985a429-a49f-4c46-a8fc-a10ca5cf6be9</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="0c7b541e-c68f-4442-ac1d-6a31a88c8c58" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate</display>
-      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2985a429-a49f-4c46-a8fc-a10ca5cf6be9</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="ec24cfd6-96db-490f-888d-8616fbc42ea6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</display>
-      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2985a429-a49f-4c46-a8fc-a10ca5cf6be9</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>
