@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Intent.Engine;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
@@ -35,13 +37,25 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         public void Transform(IOutputFile output)
         {
             var generated = output.Content;
-            var existing = output.GetPreviousFilePathContent();
-            var previousOutput = output.GetPreviousTemplateOutput();
 
-            var result = SlnxMerger.Merge(generated, existing, previousOutput);
+            // VisualStudioSolutionTemplate and VisualStudioSolutionSlnxTemplate share the same output
+            // Id, so PreviousFilePath still resolves to the OLD file's location when the model was just
+            // switched from .sln to .slnx (or back) - but that file's content is a completely different,
+            // non-XML format that has nothing to do with this template's own merge history. Treat that
+            // case as if there is no history at all, rather than feeding cross-format content into the
+            // .slnx-specific merge logic.
+            var isFormatSwitch = !string.Equals(
+                Path.GetExtension(output.PreviousFilePath),
+                Path.GetExtension(output.TargetFilePath),
+                StringComparison.OrdinalIgnoreCase);
 
-            output.SetHasDestructiveChanges(result.HasDestructiveChanges);
-            output.ChangeContent(result.Content);
+            var existing = isFormatSwitch ? null : output.GetPreviousFilePathContent();
+            var previousOutput = isFormatSwitch ? null : output.GetPreviousTemplateOutput();
+
+            // The merge only ever rearranges/preserves entries already present in Existing or
+            // Generated - it never discards user content - so its output is never destructive.
+            output.SetHasDestructiveChanges(HasDestructiveChanges.False);
+            output.ChangeContent(SlnxMerger.Merge(generated, existing, previousOutput));
         }
     }
 }

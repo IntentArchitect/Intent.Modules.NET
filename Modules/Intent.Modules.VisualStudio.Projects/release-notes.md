@@ -1,13 +1,17 @@
-### Version 4.1.6
+### Version 4.1.7
 
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 - Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
 
+### Version 4.1.6
+
+- Fixed: Switching a solution's format from classic `.sln` to `.slnx` crashed the Software Factory on the first run after the switch. Since both templates share the same output Id, the old `.sln` file's content was still being handed to the `.slnx` merger as its file/merge history; that content isn't XML at all, so it failed to parse and the run crashed. A format switch is now detected and treated as a fresh generation instead.
+
 ### Version 4.1.5
 
-- Fixed: Generating the `.slnx` (XML Solution) format could duplicate a `<Project>` entry across two `<Folder>` elements when a project was renamed, moved to a different Solution Folder, or had its containing Solution Folder renamed, in a subsequent Software Factory run. The duplicate then caused all further generation for the application to fail, since `.slnx` does not allow the same project to appear under two folders. Renaming a project's containing Solution Folder now also renames the folder entry in place instead of leaving an empty, orphaned one behind.
-- Improvement: A `.slnx` file that fails to parse now surfaces a clear, actionable error instead of an opaque native exception, tailored to the cause - a duplicate `<Project>`/`<Folder>` entry, invalid (not well-formed) XML, or any other unreadable file - and includes the file's current content so the problem can be seen without leaving Intent Architect.
-- Fixed: The `.slnx` merge logic could incorrectly run against a classic `.sln` solution's output and fail, since the `.slnx` and classic `.sln` templates intentionally share the same template Id (so switching format replaces the same logical output). The Software Factory now correctly applies `.slnx`-specific merging only when the solution is actually configured to use the `.slnx` format.
+- Fixed: Renaming a project, moving it to a different Solution Folder, or renaming its Solution Folder could duplicate the project across two folders in `.slnx`, breaking all further generation.
+- Improvement: Unparsable `.slnx` files now raise a clear, actionable error (with the file's content) instead of an opaque exception.
+- Fixed: `.slnx` merging could incorrectly run against a classic `.sln` file's output and fail, since both templates share the same template Id.
 
 ### Version 4.1.4
 

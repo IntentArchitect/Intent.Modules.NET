@@ -6,14 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Xml;
-using Intent.Engine;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Merging
 {
-    internal record SlnxMergeResult(string Content, HasDestructiveChanges HasDestructiveChanges);
-
     /// <summary>
     /// Reconciles the template's freshly-generated ("Ours") .slnx content with the real file on
     /// disk ("Existing"), using the template's own previous raw output ("Base") to tell renames
@@ -21,17 +18,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
     /// Base and Ours carry an Id (the Intent element's own persistent Id) that lets the same
     /// project/folder be recognised across a rename - but that Id is purely private bookkeeping
     /// between merge runs: it is never read from or written to Existing, so the file a user opens
-    /// never contains it.
+    /// never contains it. The merge only ever rearranges/preserves entries already present in
+    /// Existing or Generated - it never discards user content - so its output is never destructive.
     /// </summary>
     internal static class SlnxMerger
     {
-        public static SlnxMergeResult Merge(string generated, string? existing, string? previousOutput)
+        public static string Merge(string generated, string? existing, string? previousOutput)
         {
             var generatedModel = Parse(generated);
 
             if (existing == null)
             {
-                return new SlnxMergeResult(Serialize(Rebuild(generatedModel)), HasDestructiveChanges.False);
+                return Serialize(Rebuild(generatedModel));
             }
 
             var existingModel = ParseExisting(existing);
@@ -43,7 +41,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             // attribute ever reaches the file a user opens, regardless of whether one was already
             // present in Existing from some other source (e.g. a stray leftover from a different
             // module version) that this reconciliation pass never had reason to touch.
-            return new SlnxMergeResult(Serialize(Rebuild(existingModel)), HasDestructiveChanges.False);
+            return Serialize(Rebuild(existingModel));
         }
 
         private static void Reconcile(SolutionModel generatedModel, SolutionModel existingModel, SolutionModel? previousOutputModel)
@@ -330,11 +328,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             {
                 return Parse(content);
             }
-            catch (SolutionException)
+            catch (Exception ex) when (ex is XmlException or SolutionException)
             {
                 // The cached previous template output is corrupt/unparsable - treat as if there is
                 // no usable history to correlate against rather than failing the whole run over
-                // stale internal state that is only ever an optimisation, never load-bearing.
+                // stale internal state that is only ever an optimisation, never load-bearing. This
+                // includes the format-switch case: VisualStudioSolutionTemplate (.sln) and
+                // VisualStudioSolutionSlnxTemplate (.slnx) share the same output Id by design, so
+                // switching the model from .sln to .slnx hands back the OLD classic .sln text here -
+                // not XML at all, which fails at the XmlException stage before it ever reaches
+                // SolutionPersistence's own SolutionException validation.
                 return null;
             }
         }
