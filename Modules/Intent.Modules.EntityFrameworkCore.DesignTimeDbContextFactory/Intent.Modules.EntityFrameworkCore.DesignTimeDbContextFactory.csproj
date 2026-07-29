@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
-    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="5.1.0-pre.3" />
+    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="5.1.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
