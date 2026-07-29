@@ -1,3 +1,7 @@
+### Version 1.0.11
+
+- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager.GetDbContext` signature change (new `Primary Connection String Name` module setting support).
+
 ### Version 1.0.10
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.

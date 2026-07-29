@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
         public override IEnumerable<DataContractModel> GetModels(IApplication application)
         {
             var spModels = _metadataManager.Domain(application).GetRepositoryModels()
-                .SelectMany(repository => repository.GetStoredProcedureModels())
+                .SelectMany(repository => repository.GetStoredProcedureModels(application.Settings))
                 .ToArray();
             var dcModels = spModels
                 .SelectMany(storedProcedure => storedProcedure.Parameters

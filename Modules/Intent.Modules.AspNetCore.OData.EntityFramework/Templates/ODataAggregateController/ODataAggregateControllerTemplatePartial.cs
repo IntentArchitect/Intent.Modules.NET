@@ -44,7 +44,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                     @class.AddAttribute("[EnableQuery]");
                     @class.AddAttribute("""[ODataRouteComponent("odata")]""");
 
-                    var dbContextInstance = DbContextManager.GetDbContext(Model);
+                    var dbContextInstance = DbContextManager.GetDbContext(Model, ExecutionContext.Settings);
 
                     @class.AddConstructor(constructor =>
                     {

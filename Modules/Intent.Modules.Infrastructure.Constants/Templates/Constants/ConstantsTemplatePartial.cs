@@ -18,7 +18,7 @@ namespace Intent.Modules.Infrastructure.Constants.Templates.Constants
     public partial class ConstantsTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Infrastructure.Constants.ConstantsTemplate";
-        private readonly HashSet<string> _connectionStringNames = new(StringComparer.Ordinal);
+        private readonly Dictionary<string, string> _connectionStringNames = new(StringComparer.Ordinal);
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ConstantsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -35,9 +35,9 @@ namespace Intent.Modules.Infrastructure.Constants.Templates.Constants
             {
                 var constantsClass = file.Classes.First();
 
-                foreach (var connectionStringName in _connectionStringNames.OrderBy(x => x))
+                foreach (var (connectionStringName, fieldName) in _connectionStringNames.OrderBy(x => x.Value))
                 {
-                    constantsClass.AddField("string", connectionStringName,
+                    constantsClass.AddField("string", fieldName,
                         field => field.Constant($@"""{connectionStringName}"""));
                 }
 
@@ -89,7 +89,7 @@ namespace Intent.Modules.Infrastructure.Constants.Templates.Constants
             if (@event.Properties.TryGetValue(propertyName, out var connectionStringName) &&
                 !string.IsNullOrWhiteSpace(connectionStringName))
             {
-                _connectionStringNames.Add(connectionStringName.ToPascalCase());
+                _connectionStringNames[connectionStringName] = connectionStringName.ToPascalCase();
             }
         }
 
@@ -115,16 +115,16 @@ namespace Intent.Modules.Infrastructure.Constants.Templates.Constants
             }
 
             var connectionStringText = connectionStringStatement.GetText(string.Empty);
-            var connectionStringName = _connectionStringNames
-                .FirstOrDefault(name => connectionStringText.Contains($@"""{name}""", StringComparison.Ordinal));
-            if (string.IsNullOrWhiteSpace(connectionStringName))
+            var match = _connectionStringNames
+                .FirstOrDefault(kvp => connectionStringText.Contains($@"""{kvp.Key}""", StringComparison.Ordinal));
+            if (match.Key is null)
             {
                 return null;
             }
 
             var replacementExpression = connectionStringText.Replace(
-                $@"""{connectionStringName}""",
-                $"{constantsTypeName}.{connectionStringName}",
+                $@"""{match.Key}""",
+                $"{constantsTypeName}.{match.Value}",
                 StringComparison.Ordinal);
 
             return statement.GetText(string.Empty).Replace(

@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- New Feature: Added a `Primary Connection String Name` module setting that lets you override the connection string name used to identify the primary/`ApplicationDbContext`, instead of it always being the literal `DefaultConnection`.
+
 ### Version 5.0.48
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.

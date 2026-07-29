@@ -113,6 +113,10 @@ When enabled, this setting prevents automatic registration of connection string 
 
 By default, this setting is **disabled**, meaning connection strings are automatically registered. When **enabled**, connection string settings will not be added to the application configuration.
 
+### Database Settings - `Primary Connection String Name`
+
+Overrides the connection string name that identifies the primary/`ApplicationDbContext` (see [Multiple Database support](#multiple-database-support)). By default this is left blank, which resolves to the literal `DefaultConnection`, exactly as before. Set it to your own value (e.g. `AppDb`) if you'd prefer a more meaningful connection string name while keeping that Domain package treated as the primary DbContext.
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
@@ -264,7 +268,7 @@ Applying the `Database Settings` stereotype on a Domain package will allow you t
 
 ![Database Settings Stereotype](images/database-settings-stereotype.png)
 
-Having a `(default)` Connection String Name will make use of the connection string `DefaultConnection` and will generate the `ApplicationDbContext` type. The `Default` Database Provider will defer to the Module Database setting to determine which Database Provider to use.
+Having a `(default)` Connection String Name will make use of the connection string `DefaultConnection` (or the value configured via the [`Primary Connection String Name`](#database-settings---primary-connection-string-name) module setting, if set) and will generate the `ApplicationDbContext` type. The `Default` Database Provider will defer to the Module Database setting to determine which Database Provider to use.
 
 Changing the Connection String name will allow you to specify a connection string for connecting to another database and you may alter the Database Provider by choose the specific one in the dropdown menu. This will also generate a DbContext type specifically for that Connection String.
 

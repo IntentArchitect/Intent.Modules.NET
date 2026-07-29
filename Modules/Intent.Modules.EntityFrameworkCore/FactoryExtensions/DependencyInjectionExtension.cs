@@ -34,7 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dbContexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
+            var dbContexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager, application.Settings);
             var dependencyInjectionTemplates = application.FindTemplateInstances<DbContextTemplate>(DbContextTemplate.TemplateId)
                 .Select(x => application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection, x.OutputTarget))
                 .Distinct()

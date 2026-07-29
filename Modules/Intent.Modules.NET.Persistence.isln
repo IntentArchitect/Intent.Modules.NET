@@ -107,5 +107,6 @@
     <application id="4d989763-0499-4e06-a75d-af159dea70cd" name="Module1" solutionFolder="Tests" relativePath="../Tests/Module1/Module1.application.config" />
     <application id="42bb3d2c-d940-43c9-8d76-95250d6ee17e" name="Module2" solutionFolder="Tests" relativePath="../Tests/Module2/Module2.application.config" />
     <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Tests" relativePath="../Tests/ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
+    <application id="33b2e15a-2501-436c-938f-382242d367f3" name="EntityFrameworkCore.CustomPrimaryConnectionString" solutionFolder="Tests" relativePath="../Tests/intent/EntityFrameworkCore.CustomPrimaryConnectionString/EntityFrameworkCore.CustomPrimaryConnectionString.application.config" />
   </applications>
 </solution>

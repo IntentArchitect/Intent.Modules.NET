@@ -239,7 +239,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         {
             get
             {
-                var dbContextInstance = DbContextManager.GetDbContext(Model);
+                var dbContextInstance = DbContextManager.GetDbContext(Model, ExecutionContext.Settings);
                 return dbContextInstance.GetTypeName(this);
             }
         }

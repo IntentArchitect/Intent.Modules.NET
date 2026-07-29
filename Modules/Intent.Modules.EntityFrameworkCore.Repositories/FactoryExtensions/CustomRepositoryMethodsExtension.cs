@@ -44,7 +44,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             foreach (var dbContextTemplate in dbContextTemplates)
             {
                 var hasTypeDefinitionResults = repositoryModels
-                    .SelectMany(EntityFrameworkRepositoryHelpers.GetStoredProcedureModels)
+                    .SelectMany(repository => EntityFrameworkRepositoryHelpers.GetStoredProcedureModels(repository, application.Settings))
                     .Where(x => dbContextTemplate.ClassName == x.DbContextInstance.DbContextName)
                     .Select(x => x.ReturnType?.Element.AsTypeDefinitionModel())
                     .Any(x => x != null);

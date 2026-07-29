@@ -1,3 +1,7 @@
+### Version 4.8.4
+
+- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager`/`DbContextInstance` changes (new `Primary Connection String Name` module setting support).
+
 ### Version 4.8.3
 
 - Improvement: Added `FindFirstAsync` repository methods for Entity Framework Core repositories. These mirror the existing `FindAsync` overloads (by filter expression, by filter expression with query options, and by query options) but resolve the query with `FirstOrDefaultAsync` instead of `SingleOrDefaultAsync`, so they return the first matching record without throwing when more than one row matches. Equivalent synchronous `FindFirst` methods are also generated when "Add Synchronous Methods To Repositories" is enabled.

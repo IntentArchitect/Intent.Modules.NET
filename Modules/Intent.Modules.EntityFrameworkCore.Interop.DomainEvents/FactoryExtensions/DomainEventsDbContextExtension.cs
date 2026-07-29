@@ -35,7 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var contexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
+            var contexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager, application.Settings);
             foreach (var context in contexts)
             {                
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, context);

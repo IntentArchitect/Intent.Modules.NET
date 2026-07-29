@@ -222,5 +222,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
         }
 
         public static bool SuppressConnectionStringSetting(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("f34e458f-70c6-4c01-8361-834d35a77b64")?.Value.ToPascalCase(), out var result) && result;
+
+        public static string PrimaryConnectionStringName(this DatabaseSettings groupSettings) => groupSettings.GetSetting("ad9681ea-9388-4415-9b94-de2ced2b7307")?.Value;
     }
 }
