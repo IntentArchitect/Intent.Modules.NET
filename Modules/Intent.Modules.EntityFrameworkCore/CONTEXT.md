@@ -111,6 +111,34 @@ already-compiled callers. The old overloads are `[Obsolete]` (warning, not error
 old one working via delegation, mark the old one `[Obsolete]`. Don't delete an obsolete overload
 without an explicit user decision to accept the break (e.g. at a major version bump).
 
+### Dependency Floors Protect Install-Order Safety — Keep Them in Sync
+
+`install_or_update_modules` auto-resolves dependencies based on each module's own declared
+`<dependency id="Intent.EntityFrameworkCore" version="X" />` floor in its `.imodspec` (a bare
+version string, interpreted as a NuGet-style minimum — no module in this repo uses bracket-range
+syntax for `<dependency>`, unlike `supportedClientVersions`). If a module updates its own code to
+call a *new* capability from `Intent.EntityFrameworkCore` (e.g. the settings-aware
+`GetDbContext`/`GetDbContexts` overloads), its declared floor **must** be bumped to at least the
+version that introduced that capability in the same change — otherwise IA has no signal to
+cascade-upgrade an older already-installed `Intent.EntityFrameworkCore`, and the dependent
+module's compiled call to the missing overload throws `MissingMethodException` at SF runtime if
+someone updates the dependent before the core module.
+
+Caught a real instance of this omission on 2026-07-29: `AspNetCore.OData.EntityFramework`'s call
+site was updated to the settings-aware overload but its imodspec still declared
+`<dependency id="Intent.EntityFrameworkCore" version="5.0.20" />` (pre-feature). Fixed to match
+the other three dependents (`5.1.0-pre.2`). **When bumping `Intent.Modules.EntityFrameworkCore`
+because of an API surface change, grep the whole repo for
+`dependency id="Intent.EntityFrameworkCore"` and re-check every hit** — not just the modules you
+remember touching.
+
+The seven other modules depending on `Intent.EntityFrameworkCore` in this repo (`AspNetCore.Identity`,
+`AspNetCore.IdentityService`, `AspNetCore.Identity.AccountController`, `AzureFunctions.EntityFrameworkCore`,
+`EntityFrameworkCore.DataMasking`, `SharedKernel`, `Eventing.MassTransit.EntityFrameworkCore`) were
+correctly left at their pre-feature floors — they only call the preserved, backward-compatible
+old overloads, so they need no floor bump and are safe to install/update in any order relative to
+`Intent.EntityFrameworkCore`.
+
 ### In-Repo Call Sites Threaded Through `IApplicationSettingsProvider`
 
 `EntityFrameworkCore` (`DependencyInjectionExtension`, `DbContextTemplatePartial`,
