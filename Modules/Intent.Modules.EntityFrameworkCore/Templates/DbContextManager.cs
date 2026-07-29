@@ -19,7 +19,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates;
 
 public static class DbContextManager
 {
-    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Primary Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
+    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
     public static IList<DbContextInstance> GetDbContexts(string applicationId, IMetadataManager metadataManager)
     {
         return GetDbContexts(metadataManager.Domain(applicationId));
@@ -30,7 +30,7 @@ public static class DbContextManager
         return GetDbContexts(metadataManager.Domain(applicationId), settings);
     }
 
-    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Primary Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
+    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
     public static DbContextInstance GetDbContext(ClassModel classModel)
     {
         return new DbContextInstance(GetDomainPackageModel(classModel));
@@ -118,31 +118,31 @@ public class DbContextInstance : IMetadataModel
     private const string ApplicationDbContext = "ApplicationDbContext";
     private const string DefaultConnection = "DefaultConnection";
 
-    [Obsolete("Use the constructor that accepts an IApplicationSettingsProvider so the \"Primary Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
+    [Obsolete("Use the constructor that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
     public DbContextInstance(DomainPackageModel domainPackageModel) : this(domainPackageModel, DefaultConnection)
     {
     }
 
     public DbContextInstance(DomainPackageModel domainPackageModel, IApplicationSettingsProvider settings)
-        : this(domainPackageModel, ResolvePrimaryConnectionStringName(settings))
+        : this(domainPackageModel, ResolveDefaultConnectionStringName(settings))
     {
     }
 
-    private DbContextInstance(DomainPackageModel domainPackageModel, string primaryConnectionStringName)
+    private DbContextInstance(DomainPackageModel domainPackageModel, string defaultConnectionStringName)
     {
         var dbSettings = domainPackageModel.GetDatabaseSettings();
 
         var connectionStringInput = dbSettings?.ConnectionStringName();
         if (string.IsNullOrWhiteSpace(connectionStringInput))
         {
-            connectionStringInput = primaryConnectionStringName;
+            connectionStringInput = defaultConnectionStringName;
         }
         ConnectionStringName = connectionStringInput;
 
         Id = ConnectionStringName;
         DbProvider = dbSettings?.DatabaseProvider().AsEnum() ?? PackageDbProvider.Default;
         DomainPackageModel = domainPackageModel;
-        PrimaryConnectionStringName = primaryConnectionStringName;
+        DefaultConnectionStringName = defaultConnectionStringName;
     }
 
     public string Id { get; }
@@ -154,10 +154,10 @@ public class DbContextInstance : IMetadataModel
     /// <summary>
     /// The connection string name that identifies the "primary" DbContext (the one that receives the
     /// <c>ApplicationDbContext</c> name, unit-of-work role, etc.). Resolved from the
-    /// <c>Primary Connection String Name</c> module setting, falling back to the literal
+    /// <c>Default Connection String Name</c> module setting, falling back to the literal
     /// <c>"DefaultConnection"</c> when that setting is left blank.
     /// </summary>
-    private string PrimaryConnectionStringName { get; }
+    private string DefaultConnectionStringName { get; }
 
     public bool IsApplicationDbContext => DbContextName == ApplicationDbContext;
 
@@ -172,7 +172,7 @@ public class DbContextInstance : IMetadataModel
                 return _dbContextName;
             }
 
-            if (ConnectionStringName == PrimaryConnectionStringName)
+            if (ConnectionStringName == DefaultConnectionStringName)
             {
                 _dbContextName = ApplicationDbContext;
                 return _dbContextName;
@@ -187,9 +187,9 @@ public class DbContextInstance : IMetadataModel
         }
     }
 
-    private static string ResolvePrimaryConnectionStringName(IApplicationSettingsProvider settings)
+    private static string ResolveDefaultConnectionStringName(IApplicationSettingsProvider settings)
     {
-        var configured = settings.GetDatabaseSettings().PrimaryConnectionStringName();
+        var configured = settings.GetDatabaseSettings().DefaultConnectionStringName();
         return string.IsNullOrWhiteSpace(configured) ? DefaultConnection : configured;
     }
     

@@ -66,14 +66,14 @@ over both roles, not `FindTemplateInstance` (singular) over the primary role onl
 
 ---
 
-## `Primary Connection String Name` — Overriding the "Primary DbContext" Identifier
+## `Default Connection String Name` — Overriding the "Primary DbContext" Identifier
 
 ### What It Is
 
 `DbContextManager` used to hardcode the literal `"DefaultConnection"` as the connection string
 name that identifies the "primary" DbContext — the one named `ApplicationDbContext`, that
 participates in the `HasDbTransaction` co-existence logic above, and that keeps a package out of
-multi-DbContext mode. The `Primary Connection String Name` module setting (Database Settings
+multi-DbContext mode. The `Default Connection String Name` module setting (Database Settings
 group, setting id `ad9681ea-9388-4415-9b94-de2ced2b7307`) lets a developer override that
 identifier.
 
@@ -87,10 +87,14 @@ Design decisions (already settled — do not re-litigate without an explicit new
   Blazor.Authentication depend only on the `TemplateRoles.Infrastructure.Data.DbContext` /
   `.ConnectionStringDbContext` role abstraction, not the connection-string-name literal.
 
-Resolution lives in `DbContextInstance.ResolvePrimaryConnectionStringName(IApplicationSettingsProvider)`,
-which reads `settings.GetDatabaseSettings().PrimaryConnectionStringName()` and falls back to the
+Resolution lives in `DbContextInstance.ResolveDefaultConnectionStringName(IApplicationSettingsProvider)`,
+which reads `settings.GetDatabaseSettings().DefaultConnectionStringName()` and falls back to the
 `DefaultConnection` const when blank. `DbContextName`/`IsApplicationDbContext` compare
 `ConnectionStringName` against this resolved value instead of a hardcoded literal.
+
+Renamed from `Primary Connection String Name` on 2026-07-29 (user request) — the setting, its
+generated extension method, and the internal `DbContextManager.cs` property/method/params were
+all renamed together (`DefaultConnectionStringName` throughout) to stay consistent.
 
 ### Backward Compatibility — `DbContextManager` / `DbContextInstance` Are Public
 
@@ -127,7 +131,7 @@ someone updates the dependent before the core module.
 Caught a real instance of this omission on 2026-07-29: `AspNetCore.OData.EntityFramework`'s call
 site was updated to the settings-aware overload but its imodspec still declared
 `<dependency id="Intent.EntityFrameworkCore" version="5.0.20" />` (pre-feature). Fixed to match
-the other three dependents (`5.1.0-pre.2`). **When bumping `Intent.Modules.EntityFrameworkCore`
+the other three dependents' floor. **When bumping `Intent.Modules.EntityFrameworkCore`
 because of an API surface change, grep the whole repo for
 `dependency id="Intent.EntityFrameworkCore"` and re-check every hit** — not just the modules you
 remember touching.

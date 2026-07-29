@@ -1,6 +1,6 @@
 ### Version 5.1.0
 
-- New Feature: Added a `Primary Connection String Name` module setting that lets you override the connection string name used to identify the primary/`ApplicationDbContext`, instead of it always being the literal `DefaultConnection`.
+- New Feature: Added a `Default Connection String Name` module setting that lets you override the connection string name used to identify the primary/`ApplicationDbContext`, instead of it always being the literal `DefaultConnection`.
 
 ### Version 5.0.48
 

@@ -1,6 +1,6 @@
 ### Version 1.0.11
 
-- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager.GetDbContext` signature change (new `Primary Connection String Name` module setting support).
+- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager.GetDbContext` signature change (new `Default Connection String Name` module setting support).
 
 ### Version 1.0.10
 

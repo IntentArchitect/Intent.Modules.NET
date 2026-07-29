@@ -1,6 +1,6 @@
 ### Version 4.8.4
 
-- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager`/`DbContextInstance` changes (new `Primary Connection String Name` module setting support).
+- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager`/`DbContextInstance` changes (new `Default Connection String Name` module setting support).
 
 ### Version 4.8.3
 

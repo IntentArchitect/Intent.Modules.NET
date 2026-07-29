@@ -564,8 +564,8 @@
       <childElements />
     </childElement>
     <childElement id="ad9681ea-9388-4415-9b94-de2ced2b7307" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Primary Connection String Name</name>
-      <display>Primary Connection String Name</display>
+      <name>Default Connection String Name</name>
+      <display>Default Connection String Name</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
