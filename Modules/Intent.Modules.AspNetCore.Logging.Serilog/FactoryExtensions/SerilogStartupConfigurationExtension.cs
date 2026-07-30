@@ -116,17 +116,23 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
 
         private static void ConfigureProgramStructure(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
+            // Each host project has its own Program file, and the hosting model is configured per
+            // project, so the structure must be resolved independently for each one.
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("App.Program");
 
-            var usesMinimalHostingModel = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseMinimalHostingModel() == true;
-            if (usesMinimalHostingModel)
+            foreach (var template in templates)
             {
-                var usesTopLevelStatements = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
-                template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template), 10);
-                return;
-            }
+                var netSettings = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings();
 
-            template.CSharpFile.OnBuild(file => ClassicProgramSerilogSetup(file, template), 10);
+                if (netSettings?.UseMinimalHostingModel() == true)
+                {
+                    var usesTopLevelStatements = netSettings.UseTopLevelStatements() == true;
+                    template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template), 10);
+                    continue;
+                }
+
+                template.CSharpFile.OnBuild(file => ClassicProgramSerilogSetup(file, template), 10);
+            }
         }
 
         private static void ClassicProgramSerilogSetup(CSharpFile file, ICSharpFileBuilderTemplate template)

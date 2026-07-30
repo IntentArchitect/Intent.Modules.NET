@@ -1,5 +1,6 @@
 ### Version 1.1.14
 
+- Fixed: Applications hosting more than one web API project (e.g. a separate `App.Api` and `Mobile.Api`) no longer fail the Software Factory with `More than one instance of template Distribution.SwashbuckleConfiguration was found`. The versioning Swagger configuration is now applied to each host's Swashbuckle configuration independently.
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 
 ### Version 1.1.13

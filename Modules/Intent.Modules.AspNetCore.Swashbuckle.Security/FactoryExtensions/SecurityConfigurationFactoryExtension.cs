@@ -51,12 +51,18 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
-            if (template == null)
-            {
-                return;
-            }
+            // There is one Swashbuckle configuration per host project, so each must have the
+            // security schemes applied independently.
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
 
+            foreach (var template in templates)
+            {
+                ConfigureSecuritySchemes(application, template);
+            }
+        }
+
+        private void ConfigureSecuritySchemes(IApplication application, ICSharpFileBuilderTemplate template)
+        {
             var @class = template.CSharpFile.Classes.First();
 
             var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);

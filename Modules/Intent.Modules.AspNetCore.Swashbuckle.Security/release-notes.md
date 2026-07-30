@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Fixed: Applications hosting more than one web API project (e.g. a separate `App.Api` and `Mobile.Api`) no longer fail the Software Factory with `More than one instance of template Distribution.SwashbuckleConfiguration was found`. Swagger security schemes are now applied to each host's Swashbuckle configuration independently.
+
 ### Version 5.0.0
 
 - Improvement: Now supports OAuth2 - Authorization Code flow with improved code generation using builder patterns.

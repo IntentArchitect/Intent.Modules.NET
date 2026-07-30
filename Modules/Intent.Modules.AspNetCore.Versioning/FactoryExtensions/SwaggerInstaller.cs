@@ -23,24 +23,29 @@ public class SwaggerInstaller : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        var configTemplate =
-            application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+        // There is one Swashbuckle configuration per host project, so each must be configured
+        // independently (e.g. an application hosting both a public and a mobile API).
+        var configTemplates =
+            application.FindTemplateInstances<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
 
-        configTemplate?.CSharpFile.OnBuild(file =>
+        foreach (var configTemplate in configTemplates)
         {
-            file.AddUsing("Asp.Versioning");
-            file.AddUsing("Asp.Versioning.ApiExplorer");
-            file.AddUsing("Microsoft.Extensions.Options");
-            file.AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
-            file.AddUsing("System.Linq");
+            configTemplate.CSharpFile.OnBuild(file =>
+            {
+                file.AddUsing("Asp.Versioning");
+                file.AddUsing("Asp.Versioning.ApiExplorer");
+                file.AddUsing("Microsoft.Extensions.Options");
+                file.AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
+                file.AddUsing("System.Linq");
 
-            var priClass = file.Classes.First();
+                var priClass = file.Classes.First();
 
-            UpdateConfigureSwaggerMethod(priClass, configTemplate.GetApiVersionSwaggerGenOptionsName());
-            UpdateUseSwashbuckleMethod(priClass);
-            IntroduceAddSwaggerEndpointMethod(priClass);
-        });
+                UpdateConfigureSwaggerMethod(priClass, configTemplate.GetApiVersionSwaggerGenOptionsName());
+                UpdateUseSwashbuckleMethod(priClass);
+                IntroduceAddSwaggerEndpointMethod(priClass);
+            });
+        }
     }
 
     private static void UpdateConfigureSwaggerMethod(CSharpClass priClass, string apiVersionSwaggerGenOptionsName)
