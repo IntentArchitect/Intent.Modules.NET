@@ -71,6 +71,11 @@
 				<package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.1.0" />
 			</install>
 		</detect>
+		<detect id="Intent.EntityFrameworkCore.Repositories">
+			<install>
+				<package id="Intent.EntityFrameworkCore.Repositories" version="4.8.4-pre.2" />
+			</install>
+		</detect>
 		<detect id="Intent.Entities">
 			<install>
 				<package id="Intent.Entities" version="4.4.2" />
