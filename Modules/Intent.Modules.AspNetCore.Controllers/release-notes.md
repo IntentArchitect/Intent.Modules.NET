@@ -1,6 +1,6 @@
 ### Version 7.1.14
 
-- Fixed: The `BinaryContentFilter` template no longer fails the Software Factory in applications hosting more than one web API project (e.g. a separate `App.Api` and `Mobile.Api`). Its Swashbuckle availability check now tests whether any host has a Swashbuckle configuration instead of requiring exactly one.
+- Fixed: `BinaryContentFilter` no longer fails the Software Factory when an application has multiple ASP.NET Core projects.
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 
 ### Version 7.1.13

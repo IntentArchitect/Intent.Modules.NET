@@ -1,6 +1,6 @@
 ### Version 5.0.1
 
-- Fixed: Applications hosting more than one web API project (e.g. a separate `App.Api` and `Mobile.Api`) no longer fail the Software Factory with `More than one instance of template Distribution.SwashbuckleConfiguration was found`. Swagger security schemes are now applied to each host's Swashbuckle configuration independently.
+- Fixed: Swagger security schemes are now applied to each ASP.NET Core project's Swashbuckle configuration, instead of failing the Software Factory when an application has more than one.
 
 ### Version 5.0.0
 

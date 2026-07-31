@@ -1,6 +1,6 @@
 ### Version 6.1.5
 
-- Improvement: Ability to disable `UseAuthorization` in the application's HTTP pipeline, through the new `Enable Authorization` setting. Enabled by default, and only an explicit opt-out removes the statement.
+- Improvement: Ability to disable `Authorization` in the application's HTTP pipeline, through the new `Enable Authorization` setting which is enabled by default.
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 
 ### Version 6.1.4

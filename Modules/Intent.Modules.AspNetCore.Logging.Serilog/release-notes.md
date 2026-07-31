@@ -1,6 +1,6 @@
 ### Version 5.3.9
 
-- Fixed: Applications hosting more than one web API project (e.g. a separate `App.Api` and `Mobile.Api`) no longer fail the Software Factory when configuring the Serilog program structure. Each host's `Program` file is now resolved and configured independently, so the hosting model (minimal vs classic) is honoured per project rather than one project's setting being applied to all of them.
+- Fixed: Serilog configuration no longer fails the Software Factory when an application has multiple ASP.NET Core projects. Each project's `Program` file is now configured independently, so its own hosting model is honoured.
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 
 ### Version 5.3.8
