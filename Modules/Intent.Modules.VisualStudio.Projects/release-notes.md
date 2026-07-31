@@ -4,6 +4,7 @@
 - Fixed: Setting `Solution Relative Location` moved the `.sln`/`.slnx` file without updating the project reference paths inside it, producing invalid, unresolvable project references.
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 - Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
+- Fixed: An existing `launchSettings.json` containing a `Container (.NET SDK)` profile (`commandName` of `SdkContainer`, added by `dotnet publish`/Visual Studio container tooling) failed to parse, crashing the Software Factory for the affected project. `SdkContainer` is now a recognized `commandName` value.
 
 ### Version 4.1.6
 
