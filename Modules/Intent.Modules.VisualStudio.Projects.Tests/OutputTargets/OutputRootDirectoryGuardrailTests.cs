@@ -29,10 +29,14 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.OutputTargets
                 "constructor null-fallback: builds an unshifted OutputLocationOptions when the registration didn't supply one",
             [("Templates/VisualStudioSolution/VisualStudioSolutionSlnxTemplate.cs", 56)] =
                 "relative-math base: the anchor both the project's and the .sln's shift offsets are already expressed relative to - not an absolute placement",
+            [("Templates/VisualStudioSolution/VisualStudioSolutionSlnxTemplate.cs", 192)] =
+                "fileLocation stays unshifted - LocationInProject (GetEffectiveSolutionOffset) is the only mechanism proven to actually move the .slnx; splitting the shift across both double- or under-counted it",
             [("Templates/VisualStudioSolution/VisualStudioSolutionTemplate.cs", 35)] =
                 "constructor null-fallback: builds an unshifted OutputLocationOptions when the registration didn't supply one",
             [("Templates/VisualStudioSolution/VisualStudioSolutionTemplate.cs", 68)] =
                 "relative-math base: the anchor both the project's and the .sln's shift offsets are already expressed relative to - not an absolute placement",
+            [("Templates/VisualStudioSolution/VisualStudioSolutionTemplate.cs", 298)] =
+                "fileLocation stays unshifted - LocationInProject (GetEffectiveSolutionOffset) is the only mechanism proven to actually move the .sln; splitting the shift across both double- or under-counted it",
         };
 
         [Fact]
