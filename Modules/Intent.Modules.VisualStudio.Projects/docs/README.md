@@ -158,7 +158,7 @@ By default, your **Visual Studio Solution** name will be the same as your `Visua
 
 #### Solution Relative Location
 
-By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location.
+By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location. Project references inside the generated `.sln`/`.slnx` are automatically kept correct relative to wherever this setting places the file.
 
 #### Solution File Format
 
@@ -171,6 +171,26 @@ To switch formats, apply the `Visual Studio Solution Options` stereotype to the 
 
 > [!NOTE]
 > The `.slnx` format requires Visual Studio 2022 17.10 or later, or the .NET 10 SDK.
+
+### The *Root Folder Options* stereotype
+
+This stereotype is applied to the **Root Folder** element (shown as `root` at the top of the Codebase Structure Designer).
+
+#### Relative Location
+
+Shifts the application's absolute output root (`OutputRootDirectory`) uniformly for every consumer that resolves a location relative to it — the `.sln`/`.slnx` file, `.gitignore`, and centrally-managed `Directory.Packages.props` all move together, while a project relying on its default (Name-based) location generates back at its original location.
+
+This is intended for scenarios where the application's own `Relative Output Location` setting has been pointed at a specific project's own leaf folder — for example, so that tooling resolving a project's location (such as Reveal in Code Base Explorer) can pinpoint it directly — while the `.sln`/`.slnx` and other shared files still need to be generated one or more levels up, in a folder shared with sibling applications.
+
+For example, if `OutputRootDirectory` has been set to `Container\MyProject` and you want the `.sln` generated at `Container\MyProject.sln` (alongside `MyProject`, not inside it), set `Relative Location` to `..`.
+
+Leave `Relative Location` blank for no shift — this is the default and matches all prior behavior.
+
+> [!NOTE]
+> A project with its own explicit `Relative Location` (for example, one placed inside a materialized `Solution Folder`) is not affected by this shift — only a project relying on its default location participates.
+
+> [!WARNING]
+> If `Intent.Modules.SharedKernel.Consumer` is also installed, its solution-patching feature scans for the `.sln` file directly under `OutputRootDirectory` and will not find it once `Relative Location` is non-blank, silently skipping that step.
 
 ### The *Folder Options* stereotype
 

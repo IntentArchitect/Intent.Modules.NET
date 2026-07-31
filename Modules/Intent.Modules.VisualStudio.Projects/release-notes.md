@@ -1,5 +1,7 @@
 ### Version 4.1.7
 
+- New Feature: Added a `Root Folder Options` stereotype with a `Relative Location` property, letting an application's output root be shifted uniformly so the `.sln`/`.slnx`, `.gitignore`, and centrally-managed `Directory.Packages.props` can be generated in a shared container folder distinct from the application's own output location.
+- Fixed: Setting `Solution Relative Location` moved the `.sln`/`.slnx` file without updating the project reference paths inside it, producing invalid, unresolvable project references.
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 - Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
 
