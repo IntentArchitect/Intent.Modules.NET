@@ -5,6 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebAndWorker.Application.Common.Behaviours;
 using WebAndWorker.Application.Common.Validation;
+using WebAndWorker.Application.Implementation.App;
+using WebAndWorker.Application.Implementation.Mobile;
+using WebAndWorker.Application.Interfaces.App;
+using WebAndWorker.Application.Interfaces.Mobile;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -29,6 +33,8 @@ namespace WebAndWorker.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IAppCatalogService, AppCatalogService>();
+            services.AddTransient<IMobileCatalogService, MobileCatalogService>();
             return services;
         }
     }

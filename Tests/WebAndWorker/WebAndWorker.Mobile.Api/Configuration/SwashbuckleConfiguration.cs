@@ -7,14 +7,14 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using WebAndWorker.Api.Filters;
 using WebAndWorker.Application;
 using WebAndWorker.Domain.Common.Exceptions;
+using WebAndWorker.Mobile.Api.Filters;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration", Version = "1.0")]
 
-namespace WebAndWorker.Api.Configuration
+namespace WebAndWorker.Mobile.Api.Configuration
 {
     public static class SwashbuckleConfiguration
     {

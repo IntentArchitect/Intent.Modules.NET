@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="37913453-5ae5-469e-b7af-b8711423c700" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+<class id="cc74e7c5-bda0-471b-bd34-7ea7d8babc6e" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
   <name>Controllers</name>
   <display>Controllers</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>2a771f93-b51f-402d-8ae8-423e9390a95c</parentFolderId>
+  <parentFolderId>4b244475-625c-4c0e-b06d-bc5cb068e712</parentFolderId>
   <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
   <packageName>root</packageName>
   <stereotypes>
@@ -21,14 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f49b0d7d-bc16-4909-ba62-5344a57b82c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="e53de794-12b7-45da-9739-4974e409a9aa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.Controller</name>
       <display>Intent.AspNetCore.Controllers.Controller</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>37913453-5ae5-469e-b7af-b8711423c700</parentFolderId>
+      <parentFolderId>cc74e7c5-bda0-471b-bd34-7ea7d8babc6e</parentFolderId>
       <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -38,7 +37,7 @@
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
             <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Folder.Name) == &quot;App&quot;" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Folder.Name) == &quot;Mobile&quot;" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
