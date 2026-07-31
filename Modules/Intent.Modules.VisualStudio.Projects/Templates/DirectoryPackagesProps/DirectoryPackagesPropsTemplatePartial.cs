@@ -13,6 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;
+using OutputLocationOptions = Intent.Modules.VisualStudio.Projects.OutputTargets.OutputLocationOptions;
 using static Intent.Modules.VisualStudio.Projects.Api.VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]
@@ -40,11 +41,28 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         {
         }
 
+        internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, OutputLocationOptions outputLocationOptions)
+            : this(
+                application: application,
+                model: model,
+                canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true,
+                fileOperations: new StandardFileOperations(),
+                outputLocationOptions: outputLocationOptions)
+        {
+        }
+
         // Allow for testability
         internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate,
             IFileOperations fileOperations)
+            : this(application, model, canRunTemplate, fileOperations, outputLocationOptions: null)
         {
-            var outputLocation = GetOutputLocation(application, model);
+        }
+
+        internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate,
+            IFileOperations fileOperations, OutputLocationOptions outputLocationOptions)
+        {
+            var rootDirectory = (outputLocationOptions ?? new OutputLocationOptions(application.OutputRootDirectory, relativeLocation: "")).RootDirectory;
+            var outputLocation = GetOutputLocation(model, rootDirectory);
 
             _fileOperations = fileOperations;
             _application = application;
@@ -220,15 +238,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             }
         }
 
-        private string GetOutputLocation(IApplication application, VisualStudioSolutionModel model)
+        private string GetOutputLocation(VisualStudioSolutionModel model, string rootDirectory)
         {
             if (!model.HasVisualStudioSolutionOptions() ||
                     string.IsNullOrWhiteSpace(model.GetVisualStudioSolutionOptions().OutputLocation()?.Value))
             {
-                return application.OutputRootDirectory;
+                return rootDirectory;
             }
 
-            var outputLocation = application.OutputRootDirectory;
+            var outputLocation = rootDirectory;
             switch (model.GetVisualStudioSolutionOptions().OutputLocation().AsEnum())
             {
                 case OutputLocationOptionsEnum.CheckParentFolders:
@@ -237,12 +255,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                     break;
                 case OutputLocationOptionsEnum.RelativePath:
                     outputLocation = string.IsNullOrEmpty(model.GetVisualStudioSolutionOptions().RelativePath()) ?
-                        application.OutputRootDirectory :
-                        Path.Combine(application.OutputRootDirectory, model.GetVisualStudioSolutionOptions().RelativePath());
+                        rootDirectory :
+                        Path.Combine(rootDirectory, model.GetVisualStudioSolutionOptions().RelativePath());
                     break;
                 case OutputLocationOptionsEnum.SameAsSlnFile:
                 default:
-                    outputLocation = application.OutputRootDirectory;
+                    outputLocation = rootDirectory;
                     break;
             }
 

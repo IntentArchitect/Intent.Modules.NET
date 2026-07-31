@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
@@ -16,10 +17,16 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         private readonly IVisualStudioProject _project;
+        private readonly OutputLocationOptions _outputLocationOptions;
 
-        public ProjectConfig(IVisualStudioProject project)
+        public ProjectConfig(IVisualStudioProject project) : this(project, outputLocationOptions: null)
+        {
+        }
+
+        internal ProjectConfig(IVisualStudioProject project, OutputLocationOptions outputLocationOptions)
         {
             _project = project;
+            _outputLocationOptions = outputLocationOptions ?? OutputLocationOptions.None;
             Metadata = new Dictionary<string, object>()
             {
                 ["Language Version"] = _project.LanguageVersion,
@@ -42,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string Id => _project.Id;
         public string Type => _project.ProjectTypeId;
         public string Name => _project.Name;
-        public string RelativeLocation => string.IsNullOrWhiteSpace(_project.RelativeLocation) ? _project.Name : _project.RelativeLocation;
+        public string RelativeLocation => _outputLocationOptions.GetEffectiveRelativeLocation(_project.RelativeLocation, _project.Name);
         public string ParentId => null;
 
         public IEnumerable<string> SupportedFrameworks => _project.TargetFrameworkVersion()

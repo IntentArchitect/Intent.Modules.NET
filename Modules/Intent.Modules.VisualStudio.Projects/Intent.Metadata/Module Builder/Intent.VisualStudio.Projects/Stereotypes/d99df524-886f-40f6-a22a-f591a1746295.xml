@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="d99df524-886f-40f6-a22a-f591a1746295" version="3.1.0">
+  <comment>Shifts this app's absolute output root so the shared .sln/.slnx/.gitignore/Directory.Packages.props can be recovered at the container level.</comment>
+  <name>Root Folder Options</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>f0d6fe41-55fc-486f-998b-5b49efa2e07f</parentFolderId>
+  <order>0</order>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <properties>
+    <property id="2302bf7e-69ff-4621-94a4-0ac3551a34b7">
+      <hint>Shift applied to OutputRootDirectory to recover the container root (e.g. '..'). Blank = no shift.</hint>
+      <name>Relative Location</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+    </property>
+  </properties>
+</stereotypeDefinition>

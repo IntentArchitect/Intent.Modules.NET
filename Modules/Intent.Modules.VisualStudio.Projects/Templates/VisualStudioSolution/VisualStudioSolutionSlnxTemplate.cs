@@ -8,6 +8,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Templates;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
@@ -26,13 +27,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
         public const string Identifier = "Intent.VisualStudio.Projects.VisualStudioSolution";
 
         private IFileMetadata _fileMetadata;
+        private readonly OutputLocationOptions _outputLocationOptions;
 
         public VisualStudioSolutionSlnxTemplate(IApplication application, VisualStudioSolutionModel model, IEnumerable<IVisualStudioSolutionProject> projects)
+            : this(application, model, projects, outputLocationOptions: null)
+        {
+        }
+
+        internal VisualStudioSolutionSlnxTemplate(IApplication application, VisualStudioSolutionModel model, IEnumerable<IVisualStudioSolutionProject> projects, OutputLocationOptions outputLocationOptions)
         {
             Application = application;
             Model = model;
             BindingContext = new TemplateBindingContext(new VisualStudioSolutionTemplateModel(Application));
             Projects = projects.ToList();
+            _outputLocationOptions = outputLocationOptions ?? new OutputLocationOptions(application.OutputRootDirectory, relativeLocation: "");
         }
 
         public string Id => Identifier;
@@ -45,11 +53,41 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
         public string RunTemplate()
         {
             var solutionModel = new SolutionModel();
-            SyncFoldersAndProjects(solutionModel, Model.Folders, Projects);
+            SyncFoldersAndProjects(solutionModel, Model.Folders, Projects, Application.OutputRootDirectory, GetEffectiveSolutionOffset(), _outputLocationOptions);
 
             using var stream = new MemoryStream();
             SolutionSerializers.SlnXml.SaveAsync(stream, solutionModel, CancellationToken.None).GetAwaiter().GetResult();
             return Encoding.UTF8.GetString(stream.ToArray());
+        }
+
+        private string GetLegacySolutionRelativeLocation()
+        {
+            return Model.HasVisualStudioSolutionOptions() && !string.IsNullOrWhiteSpace(Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation())
+                ? Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation()
+                : null;
+        }
+
+        /// <remarks>
+        /// The full offset from <see cref="IApplication.OutputRootDirectory"/> to the .slnx's actual
+        /// resolved directory, folding together the Root Folder shift with the legacy per-solution
+        /// <c>Solution Relative Location</c> shift. This is the ONE value used both for
+        /// <see cref="ITemplateFileConfig.LocationInProject"/> (which is what actually moves the .slnx -
+        /// always relative to <see cref="IApplication.OutputRootDirectory"/>, regardless of
+        /// <c>fileLocation</c>) and by <see cref="GetProjectRelativePath"/> to place project entries
+        /// correctly relative to wherever that puts the .slnx. Keeping both consumers on this single
+        /// value is what prevents the shift being counted twice or once too few times.
+        /// </remarks>
+        private string GetEffectiveSolutionOffset()
+        {
+            var legacy = GetLegacySolutionRelativeLocation();
+            var rootShift = _outputLocationOptions.RelativeLocation;
+
+            if (string.IsNullOrEmpty(rootShift))
+            {
+                return legacy;
+            }
+
+            return string.IsNullOrEmpty(legacy) ? rootShift : Path.Combine(rootShift, legacy);
         }
 
         /// <remarks>
@@ -58,20 +96,28 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
         internal static void SyncFoldersAndProjects(
             SolutionModel solutionModel,
             IEnumerable<Api.SolutionFolderModel> intentFolders,
-            IReadOnlyList<IVisualStudioSolutionProject> allProjects)
+            IReadOnlyList<IVisualStudioSolutionProject> allProjects,
+            string outputRootDirectory = null,
+            string locationInProject = null,
+            OutputLocationOptions outputLocationOptions = null)
         {
+            outputLocationOptions ??= OutputLocationOptions.None;
+
             foreach (var project in allProjects.Where(p => p.ParentFolder == null))
-                AddProject(solutionModel, project, parentFolder: null);
+                AddProject(solutionModel, project, parentFolder: null, outputRootDirectory, locationInProject, outputLocationOptions);
 
             foreach (var folder in intentFolders)
-                AddFolder(solutionModel, folder, allProjects, parentPath: "");
+                AddFolder(solutionModel, folder, allProjects, parentPath: "", outputRootDirectory, locationInProject, outputLocationOptions);
         }
 
         private static void AddFolder(
             SolutionModel solutionModel,
             Api.SolutionFolderModel intentFolder,
             IReadOnlyList<IVisualStudioSolutionProject> allProjects,
-            string parentPath)
+            string parentPath,
+            string outputRootDirectory,
+            string locationInProject,
+            OutputLocationOptions outputLocationOptions)
         {
             var folderPath = $"{parentPath}/{intentFolder.Name}/";
             var slnxFolder = solutionModel.AddFolder(folderPath);
@@ -79,29 +125,48 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 slnxFolder.Id = folderId;
 
             foreach (var project in allProjects.Where(p => p.ParentFolder?.Id == intentFolder.Id))
-                AddProject(solutionModel, project, slnxFolder);
+                AddProject(solutionModel, project, slnxFolder, outputRootDirectory, locationInProject, outputLocationOptions);
 
             foreach (var childFolder in intentFolder.Folders)
-                AddFolder(solutionModel, childFolder, allProjects, folderPath.TrimEnd('/'));
+                AddFolder(solutionModel, childFolder, allProjects, folderPath.TrimEnd('/'), outputRootDirectory, locationInProject, outputLocationOptions);
         }
 
         private static void AddProject(
             SolutionModel solutionModel,
             IVisualStudioSolutionProject project,
-            Microsoft.VisualStudio.SolutionPersistence.Model.SolutionFolderModel parentFolder)
+            Microsoft.VisualStudio.SolutionPersistence.Model.SolutionFolderModel parentFolder,
+            string outputRootDirectory,
+            string locationInProject,
+            OutputLocationOptions outputLocationOptions)
         {
-            var path = GetProjectRelativePath(project);
+            var path = GetProjectRelativePath(project, outputRootDirectory, locationInProject, outputLocationOptions);
             var slnxProject = solutionModel.AddProject(path, null, parentFolder);
             if (Guid.TryParse(project.Id, out var projectId))
                 slnxProject.Id = projectId;
         }
 
-        private static string GetProjectRelativePath(IVisualStudioSolutionProject project)
+        /// <remarks>
+        /// When <paramref name="locationInProject"/> is unset, this reproduces the exact historical
+        /// string format byte-for-byte. It only switches to resolving via absolute paths - which
+        /// normalizes that format - once the .slnx file's own location has actually been shifted away
+        /// from <paramref name="outputRootDirectory"/>, since only then do the two need reconciling.
+        /// </remarks>
+        private static string GetProjectRelativePath(IVisualStudioSolutionProject project, string outputRootDirectory, string locationInProject, OutputLocationOptions outputLocationOptions)
         {
-            var location = project.ToOutputTargetConfig().RelativeLocation;
-            return string.IsNullOrEmpty(location)
-                ? $"{project.Name}.{project.FileExtension}"
-                : $"{location.Replace('\\', '/')}/{project.Name}.{project.FileExtension}";
+            var location = outputLocationOptions.GetEffectiveRelativeLocation(project.RelativeLocation, project.Name);
+
+            if (string.IsNullOrEmpty(locationInProject) || string.IsNullOrEmpty(outputRootDirectory))
+            {
+                return string.IsNullOrEmpty(location)
+                    ? $"{project.Name}.{project.FileExtension}"
+                    : $"{location.Replace('\\', '/')}/{project.Name}.{project.FileExtension}";
+            }
+
+            var solutionDirectory = Path.GetFullPath(Path.Combine(outputRootDirectory, locationInProject));
+            var projectDirectory = Path.GetFullPath(Path.Combine(outputRootDirectory, location ?? project.Name));
+            var relativeToSolution = Path.GetRelativePath(solutionDirectory, projectDirectory).Replace('\\', '/');
+
+            return $"{relativeToSolution}/{project.Name}.{project.FileExtension}";
         }
 
         public IFileMetadata GetMetadata()
@@ -127,8 +192,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 fileLocation: Application.OutputRootDirectory,
                 fileExtension: "slnx");
 
-            if (Model.HasVisualStudioSolutionOptions() && !string.IsNullOrWhiteSpace(Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation()))
-                solutionFileMetadata.LocationInProject = Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation();
+            // LocationInProject (not fileLocation) is what actually moves the .slnx, always relative to
+            // OutputRootDirectory - so the Root Folder shift and the legacy Solution Relative Location
+            // must both be folded into this single value, not split across the two.
+            var offset = GetEffectiveSolutionOffset();
+            if (!string.IsNullOrEmpty(offset))
+                solutionFileMetadata.LocationInProject = offset;
 
             return solutionFileMetadata;
         }

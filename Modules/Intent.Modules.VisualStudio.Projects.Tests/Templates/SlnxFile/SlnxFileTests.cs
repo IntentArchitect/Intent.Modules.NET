@@ -11,6 +11,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
 using Intent.Templates;
 using OverwriteBehaviour = Intent.Templates.OverwriteBehaviour;
@@ -98,6 +99,30 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
+        public void WhenRootFolderShiftIsActive_ShouldAvoidDoubleNestingAndMatchOriginalLayout()
+        {
+            // Reproduces the real module-building scenario: OutputRootDirectory has been forced down
+            // to this module's own leaf folder (so the platform's "Reveal in Code Base Explorer" can
+            // pinpoint it), and Root Folder Options.Relative Location = ".." recovers the shared
+            // container so the .sln and the project entry land exactly where they always did.
+            const string outputRootDirectory = @"C:\Container\Intent.Modules.Foo";
+            var outputLocationOptions = new OutputLocationOptions(outputRootDirectory, relativeLocation: "..");
+
+            var model = new SolutionModel();
+            var project = CreateProject("Intent.Modules.Foo", relativeLocation: null);
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(
+                model,
+                [],
+                [project],
+                outputRootDirectory: outputRootDirectory,
+                locationInProject: "..",
+                outputLocationOptions: outputLocationOptions);
+
+            model.SolutionProjects.Single().FilePath.ShouldBe("Intent.Modules.Foo/Intent.Modules.Foo.csproj");
+        }
+
+        [Fact]
         public void WhenFolderHasNoProjects_ShouldStillCreateFolder()
         {
             var model = new SolutionModel();
@@ -114,13 +139,17 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         {
             var model = new SolutionModel();
             var srcFolder = CreateFolder("src");
-            var rootProject = CreateProject("MyApp.Build", relativeLocation: "", parentFolder: null);
+            // null = no explicit override (the real IVisualStudioProject.RelativeLocation value when
+            // unset), which now falls back to "<Name>" - matching ProjectConfig's own pre-existing
+            // Name-fallback convention, just applied directly by the template instead of hidden behind
+            // a mocked IOutputTargetConfig.
+            var rootProject = CreateProject("MyApp.Build", relativeLocation: null, parentFolder: null);
             var folderProject = CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder);
 
             VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], [rootProject, folderProject]);
 
             var rootProjects = model.SolutionProjects.Where(p => p.Parent == null).Select(p => p.FilePath).ToArray();
-            rootProjects.ShouldContain("MyApp.Build.csproj");
+            rootProjects.ShouldContain("MyApp.Build/MyApp.Build.csproj");
 
             var srcSlnxFolder = model.SolutionFolders.Single(f => f.Path == "/src/");
             model.SolutionProjects
@@ -354,14 +383,11 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             string fileExtension = "csproj",
             string id = null)
         {
-            var outputTargetConfig = Substitute.For<IOutputTargetConfig>();
-            outputTargetConfig.RelativeLocation.Returns(relativeLocation);
-
             var project = Substitute.For<IVisualStudioSolutionProject>();
             project.Id.Returns(id ?? Guid.NewGuid().ToString());
             project.Name.Returns(name);
             project.FileExtension.Returns(fileExtension);
-            project.ToOutputTargetConfig().Returns(outputTargetConfig);
+            project.RelativeLocation.Returns(relativeLocation);
             project.ParentFolder.Returns(parentFolder);
             return project;
         }

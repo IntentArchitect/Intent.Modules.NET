@@ -230,5 +230,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return new FolderConfig(solutionFolder);
         }
+
+        [IntentManaged(Mode.Ignore)]
+        internal static FolderConfig ToOutputTarget(this SolutionFolderModel solutionFolder, OutputTargets.OutputLocationOptions outputLocationOptions)
+        {
+            return new FolderConfig(solutionFolder, outputLocationOptions);
+        }
     }
 }
