@@ -1,5 +1,6 @@
 ### Version 3.6.3
 
+- Improvement: Ability to disable `UseAuthentication` in the application's HTTP pipeline, through the new `Enable Authentication` setting. It is contributed into the ASP.NET Core settings group so that it sits alongside `Enable Authorization`, without this module taking a dependency on `Intent.AspNetCore`. Enabled by default, and only an explicit opt-out removes the statement.
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 
 ### Version 3.6.2

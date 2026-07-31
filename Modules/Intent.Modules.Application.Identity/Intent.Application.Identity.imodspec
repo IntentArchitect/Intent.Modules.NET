@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Identity</id>
-  <version>3.6.3-pre.0</version>
+  <version>3.6.3-pre.2</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Application level identity and security components</summary>
   <description>Application level identity and security components</description>
@@ -118,7 +118,17 @@
       </settings>
     </group>
   </moduleSettings>
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="7df877c2-ad5d-43e3-9127-a00eb1485139" groupId="9677c813-b334-4b0d-be2c-3b149f1f6ae8" externalReference="7df877c2-ad5d-43e3-9127-a00eb1485139">
+      <settings>
+        <setting id="25718607-fca5-47ae-adce-3231e0c6e755" title="Enable Authentication" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Controls if the UseAuthentication behavior is part of the application's HTTP pipeline or not.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <tags />
   <migrations has-on-install-migration="true">
     <migration version="3.6.0-pre.0" />

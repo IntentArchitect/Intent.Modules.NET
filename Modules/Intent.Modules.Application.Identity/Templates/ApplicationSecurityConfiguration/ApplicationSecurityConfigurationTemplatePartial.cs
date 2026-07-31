@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Application.Identity.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -52,7 +53,12 @@ namespace Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfi
                 .ToRegister("ConfigureApplicationSecurity", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
 
-            if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+            // "Enable Authentication" is contributed by this module into the ASP.NET Core settings group,
+            // which Intent.AspNetCore owns. Only an explicit "false" suppresses the registration — it stays
+            // enabled both when the setting has never been persisted and when that module (and therefore
+            // the group) is absent.
+            if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb() &&
+                ExecutionContext.Settings.GetASPNETCoreSettings().EnableAuthenticationOrDefault())
             {
                 EmitOrPublish(ApplicationBuilderRegistrationRequest
                     .ToRegister("UseAuthentication")
