@@ -15,16 +15,6 @@
       <fileHash>6A4202BCD930019EE7BB312E412D6CB531B917F84BE7363ED8980A80684B5216</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#293641d0-f5c2-490c-8aa6-74f2bda0fbe8</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/BlazorAppMenuSkill/BlazorAppMenuSkillTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-25T18:26:46.5358222Z</updatedAt>
-      <deviationsHash>5A241603159C58328CA5CFCC5E2124E7BAE5A33A0ED1237DC6E713B369DF1872</deviationsHash>
-      <fileHash>511BDE349F7603E951CEDDF1C3E36F800808B8DBDFE3489ADFA9ADFC27D42483</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>
@@ -73,9 +63,9 @@
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-25T18:26:41.5283336Z</updatedAt>
+      <updatedAt>2026-07-31T06:21:25.3129311Z</updatedAt>
       <deviationsHash>EBB493E406CCB6B3E22C4DB3097FAC0926559D351E8E0D5504577FA5DD52FAC5</deviationsHash>
-      <fileHash>63C6B8129AFD6858DB9F028F49F711A90A1355C3B4ABC799EA913C4B88E4CCB5</fileHash>
+      <fileHash>E389A49B88B63958AB782BC2F2177718667A4C91B8715EB16E749D66BB21858D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#684d3513-65f1-4d75-b31c-cc0f600eb289</correlationId>
@@ -83,9 +73,9 @@
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-23T07:45:36.9486381Z</updatedAt>
+      <updatedAt>2026-07-31T06:21:25.3122111Z</updatedAt>
       <deviationsHash>BF27E53BA3228829E748F0ADBCE8B56E23AE9D2F05D4B9321E45E54527D24E65</deviationsHash>
-      <fileHash>9C9B0BFF1E9D20D11408037BAE6D61673E6EBB3D821A2F45A784AAB94B4F2F44</fileHash>
+      <fileHash>E7A27EC53F093B2F3D181033FE6DB2C5261523DE7C1E870DAB5F67BDD704F001</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#67b50dcc-2f02-4442-8118-acaf4210771e</correlationId>
@@ -103,9 +93,9 @@
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-23T18:08:08.2614154Z</updatedAt>
+      <updatedAt>2026-07-31T06:21:25.3127344Z</updatedAt>
       <deviationsHash>06EBBA5B8B60905E643BC362C82263ED9BACE6F6BC5F2DB93634FF5C9F68BF80</deviationsHash>
-      <fileHash>9A5B50B65A244D1272F1A010D7F5543DA62A868E3232D1EA08ED8849D061F099</fileHash>
+      <fileHash>66F9F8B9B104535BF1C4D9E6CAEED7924458BD6D85ED7209B872E95AFE93DAB7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#418b471a-55c3-44ad-abf0-9f11e952e416</correlationId>
@@ -123,9 +113,9 @@
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-23T18:08:08.2616943Z</updatedAt>
+      <updatedAt>2026-07-31T06:21:25.3128412Z</updatedAt>
       <deviationsHash>2736E1C9C8A61B30213B7A7001442D6E7519E3209F8DB523D04236DC1DB72D90</deviationsHash>
-      <fileHash>2A5B4F8025C232D4DF337561E1F6A2B7B82F7A6B18BA0CE755F2BA4F952251B1</fileHash>
+      <fileHash>E6EAC8513718D1F5407922F2678D408FB044F2864ADEC3F6D670D43A3AB4C23C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#50c2e619-7acf-4ccd-a6cb-ed4d4e91b4fd</correlationId>
@@ -133,9 +123,9 @@
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-23T07:45:13.2554905Z</updatedAt>
+      <updatedAt>2026-07-31T06:21:25.3128832Z</updatedAt>
       <deviationsHash>75EE85B280F31B4871163A706C372E089BC0A2D8AE4E1C6459B39B3E3D2A9C7E</deviationsHash>
-      <fileHash>72582DD28A66C6E3C59C1821EBE87576085BC10FCA11DB9CB2EDD16B995484A7</fileHash>
+      <fileHash>37F0F30E5D6B1A610E3BBC9704F44398B9B2116F7934A83A94AB793E74F1A2E5</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4458103d-493e-4fd8-8785-3302ba99ce7d</correlationId>

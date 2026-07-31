@@ -180,9 +180,9 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           - Add a `Navigation` association from `MainLayout` to the page, which creates a `Navigation Target End` on `MainLayout` for that page.
           - The presence of a `Navigation Target End` on `MainLayout` is itself the signal that a menu item should be created for that page — no separate modeling of Navigation items is required.
-          - The region(s) a menu item is placed in are controlled by the `Layout Placement` -> `Regions` stereotype property on the `Navigation Target End`.
-            - If `Regions` is blank, the menu item defaults to the **Sider** region.
-            - Set `Regions` to `Profile` when the page should appear in the **Profile/account dropdown** menu.
+          - State which region (Header/Sider/Footer/Profile) the menu item belongs in directly in the association's own Comment (e.g. "Navigate to the product list page from the sider menu"). There is no stereotype for this any more — the comment is the sole placement signal.
+          - If the comment doesn't state a region, the menu item defaults to the **Sider** region.
+          - State the region as **Profile** in the comment when the page should appear in the **Profile/account dropdown** menu.
           - After adding the `MainLayout → Page` `Navigation` association for a root page, queue `updating-app-menu` to run ONCE at the end of the unit of work.
 
           ### Non-root / workflow pages (create/edit/detail/manage)
@@ -195,7 +195,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           If the user explicitly models it anyway:
 
-          - If the user explicitly instructs that a non-root/workflow page must appear in global navigation (including **Sider**, **Header**, **Footer**, or **Profile**), you MUST model it by adding a `Navigation` association from `MainLayout` to that page and setting the `Layout Placement` -> `Regions` on the resulting `Navigation Target End` as required.
+          - If the user explicitly instructs that a non-root/workflow page must appear in global navigation (including **Sider**, **Header**, **Footer**, or **Profile**), you MUST model it by adding a `Navigation` association from `MainLayout` to that page and stating the required region in that association's Comment.
           - In all such cases, you MUST still run the `updating-app-menu` skill (the same as for any other `MainLayout` navigation change). The **Profile** region is not treated as special for triggering or processing menu updates.
 
           ### Ambiguity

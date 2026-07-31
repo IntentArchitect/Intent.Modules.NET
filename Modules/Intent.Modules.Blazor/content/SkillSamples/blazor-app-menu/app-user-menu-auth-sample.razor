@@ -17,6 +17,7 @@
      includes signed-out links such as Login/Register.
    - Any logout pattern (e.g. POST form + antiforgery) is app-specific; include it only when
      the context explicitly asks for it.
+   - NEVER use a MudIconButton instead of the MudIcon in the trigger, as it will break the layout and styling of the menu.
 *@
 
 <AuthorizeView>

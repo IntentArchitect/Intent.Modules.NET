@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
@@ -49,63 +48,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutProfile
             var config = RazorFile.GetConfig();
 
             return new RazorFileConfig($"{Model.InternalElement.ParentElement.Name}{Model.Name}", string.Empty,
-                 fileName: $"{Model.InternalElement.ParentElement.Name}{Model.Name}",
-                 relativeLocation: GetRelativeLocation(),
-                 overwriteBehaviour: Intent.Templates.OverwriteBehaviour.OverwriteDisabled)
-                .WithAIContext(GetIntentionContext());
-        }
-
-        private string GetIntentionContext()
-        {
-            var intention = new StringBuilder();
-            AddProfileMenuNavigationContext(intention);
-            return intention.ToString();
-        }
-
-        private void AddProfileMenuNavigationContext(StringBuilder intention)
-        {
-            intention.AppendLine("The profile menu consists of the following:");
-            foreach (var associationEnd in Model.InternalElement.ParentElement.AssociatedElements
-                .Where(a => a.IsNavigationTargetEndModel()
-                && a.AsNavigationTargetEndModel().HasLayoutPlacement()
-                && a.AsNavigationTargetEndModel().GetLayoutPlacement().Regions().Any(e => e.Name == "Profile")))
-            {
-                var navTarget = associationEnd.AsNavigationTargetEndModel();
-                // the target should always be a components
-                var targetComponent = navTarget?.Association?.SourceEnd?.InternalElement?.ParentElement?.AsComponentModel();
-
-                if (targetComponent is null || !targetComponent.HasPage())
-                {
-                    continue;
-                }
-
-                var pageRoute = targetComponent.GetPage().Route();
-                var isSecured = targetComponent.HasSecured();
-                var roles = targetComponent.HasSecured() ? targetComponent.GetSecured().Roles()?.Split(',') : [];
-                var policies = targetComponent.HasSecured() ? targetComponent.GetSecured().Policy()?.Split(',') : [];
-
-                intention.AppendLine($"- a navigation link to the {targetComponent.Name} with route '{pageRoute}'");
-
-                if (isSecured)
-                {
-                    intention.Append(" and requires authorization");
-                }
-
-                if (roles is not null && roles?.Length != 0)
-                {
-                    intention.Append($" with required role(s): {string.Join(',', roles)}");
-
-                    if (policies is not null && policies?.Length != 0)
-                    {
-                        intention.Append(" and ");
-                    }
-                }
-
-                if (policies is not null && policies?.Length != 0)
-                {
-                    intention.Append($" with required policies(s): {string.Join(',', policies)}");
-                }
-            }
+                fileName: $"{Model.InternalElement.ParentElement.Name}{Model.Name}",
+                relativeLocation: GetRelativeLocation(),
+                overwriteBehaviour: Intent.Templates.OverwriteBehaviour.OverwriteDisabled);
         }
 
         private string GetRelativeLocation()

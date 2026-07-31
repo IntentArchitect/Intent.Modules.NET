@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
@@ -51,16 +50,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                             span.AddHtmlElement("MudIconButton", @icon =>
                             {
                                 @icon.AddAttribute("Icon", "@Icons.Material.Filled.Menu")
-                                .AddAttribute("Color", "Color.Inherit")
-                                .AddAttribute("Edge", "Edge.Start");
+                                    .AddAttribute("Color", "Color.Inherit")
+                                    .AddAttribute("Edge", "Edge.Start");
                             });
                         });
 
                         appBar.AddHtmlElement("MudButton", @button =>
                         {
                             button.AddAttribute("Href", "/")
-                            .AddAttribute("Class", "my-2 mr-2")
-                            .AddAttribute("Color", "Color.Inherit");
+                                .AddAttribute("Class", "my-2 mr-2")
+                                .AddAttribute("Color", "Color.Inherit");
 
                             button.AddHtmlElement("MudText", text =>
                             {
@@ -72,7 +71,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                         appBar.AddHtmlElement("MudSpacer");
                         appBar.AddHtmlElement("ThemeToggle", toggle =>
                         {
-                            //toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
+                        //toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
                         });
 
                         if (Model.InternalElement.ParentElement.AsLayoutModel().ProfileMenu is not null)
@@ -95,61 +94,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
             return new RazorFileConfig($"{Model.InternalElement.ParentElement.Name}{Model.Name}", string.Empty,
                 fileName: $"{Model.InternalElement.ParentElement.Name}{Model.Name}",
                 relativeLocation: GetRelativeLocation(),
-                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled)
-                .WithAIContext(GetIntentionContext());
-        }
-
-        private string GetIntentionContext()
-        {
-            var intention = new StringBuilder();
-            AddHeaderNavigationContext(intention);
-            return intention.ToString();
-        }
-
-        private void AddHeaderNavigationContext(StringBuilder intention)
-        {
-            intention.AppendLine("The header menu consists of the following:");
-            foreach (var associationEnd in Model.InternalElement.ParentElement.AssociatedElements
-                .Where(a => a.IsNavigationTargetEndModel()
-                && a.AsNavigationTargetEndModel().HasLayoutPlacement()
-                && a.AsNavigationTargetEndModel().GetLayoutPlacement().Regions().Any(e => e.Name == "Header")))
-            {
-                var navTarget = associationEnd.AsNavigationTargetEndModel();
-                // the target should always be a components
-                var targetComponent = navTarget?.Association?.SourceEnd?.InternalElement?.ParentElement?.AsComponentModel();
-
-                if (targetComponent is null || !targetComponent.HasPage())
-                {
-                    continue;
-                }
-
-                var pageRoute = targetComponent.GetPage().Route();
-                var isSecured = targetComponent.HasSecured();
-                var roles = targetComponent.HasSecured() ? targetComponent.GetSecured().Roles()?.Split(',') : [];
-                var policies = targetComponent.HasSecured() ? targetComponent.GetSecured().Policy()?.Split(',') : [];
-
-                intention.AppendLine($"- a navigation link to the {targetComponent.Name} with route '{pageRoute}'");
-
-                if (isSecured)
-                {
-                    intention.Append(" and requires authorization");
-                }
-
-                if (roles is not null && roles?.Length != 0)
-                {
-                    intention.Append($" with required role(s): {string.Join(',', roles)}");
-
-                    if (policies is not null && policies?.Length != 0)
-                    {
-                        intention.Append(" and ");
-                    }
-                }
-
-                if (policies is not null && policies?.Length != 0)
-                {
-                    intention.Append($" with required policies(s): {string.Join(',', policies)}");
-                }
-            }
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled);
         }
 
         private string GetRelativeLocation()
