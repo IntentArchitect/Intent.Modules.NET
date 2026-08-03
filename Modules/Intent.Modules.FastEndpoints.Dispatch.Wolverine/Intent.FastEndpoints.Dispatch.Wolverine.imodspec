@@ -15,7 +15,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.11.2" />
-    <dependency id="Intent.Common.CSharp" version="3.10.10-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.15" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.7" />

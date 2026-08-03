@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageVersion>7.1.13</PackageVersion>
+    <PackageVersion>7.1.14</PackageVersion>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.10-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.10" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.7.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">

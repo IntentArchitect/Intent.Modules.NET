@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Subscribe.Domain\N_ServiceBus.OutboxPattern.Subscribe.Domain.csproj" />
     <ProjectReference Include="..\N_ServiceBus.Persistence.Sql.Subscribe.Domain\N_ServiceBus.Persistence.Sql.Subscribe.Domain.csproj" />
   </ItemGroup>
 

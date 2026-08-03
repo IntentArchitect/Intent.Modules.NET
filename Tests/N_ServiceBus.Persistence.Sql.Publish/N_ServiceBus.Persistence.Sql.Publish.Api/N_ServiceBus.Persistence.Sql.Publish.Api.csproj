@@ -9,9 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Publish.Application\N_ServiceBus.OutboxPattern.Publish.Application.csproj" />
-    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Publish.Infrastructure\N_ServiceBus.OutboxPattern.Publish.Infrastructure.csproj" />
-    <ProjectReference Include="..\N_ServiceBus.OutboxPattern.Publish.Domain\N_ServiceBus.OutboxPattern.Publish.Domain.csproj" />
     <ProjectReference Include="..\N_ServiceBus.Persistence.Sql.Publish.Application\N_ServiceBus.Persistence.Sql.Publish.Application.csproj" />
     <ProjectReference Include="..\N_ServiceBus.Persistence.Sql.Publish.Infrastructure\N_ServiceBus.Persistence.Sql.Publish.Infrastructure.csproj" />
     <ProjectReference Include="..\N_ServiceBus.Persistence.Sql.Publish.Domain\N_ServiceBus.Persistence.Sql.Publish.Domain.csproj" />

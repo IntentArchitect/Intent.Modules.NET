@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Infrastructure.Constants</id>
-  <version>1.0.2-pre.0</version>
+  <version>1.0.2</version>
   <supportedClientVersions>[4.4.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates a Constants class with extension points for runtime constant registration</summary>
   <description>This module provides a Constants class template that can be extended by other modules to register constants (like connection string names) at software factory runtime. The first use case is Entity Framework connection string constants.</description>

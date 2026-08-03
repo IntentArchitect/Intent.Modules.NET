@@ -7,10 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.10-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.10" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.12.14" />
     <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="4.4.7" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.15" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.16" />
 	<PackageReference Include="Intent.Modules.Modelers.Services.DomainInteractions" Version="2.4.1" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
