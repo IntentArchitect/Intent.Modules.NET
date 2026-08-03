@@ -57,7 +57,7 @@ To use Azurite locally, you have a few installation options:
    ```bash
    npm install -g azurite
    ```
-   
+
    **Simply run**
 
    ```bash
@@ -65,9 +65,10 @@ To use Azurite locally, you have a few installation options:
    ```
 
 2. **IDE Options**:
-    - **Visual Studio**: Use the Azure development workload, which supports storage emulators.
+   - **Visual Studio**: Use the Azure development workload, which supports storage emulators.
 
 After installation, configure your application to use the default Azurite settings as follows in your `appsettings.json`:
+
 ```json
 "AzureBlobStorage": "UseDevelopmentStorage=true"
 ```
@@ -81,6 +82,7 @@ For production environments, you typically obtain an Azure Blob Storage connecti
 3. Copy the connection string provided in the "key1" or "key2" section.
 
 A typical Azure connection string looks like this:
+
 ```json
 "ConnectionStrings": {
     "AzureBlobStorage": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=myaccountkey;EndpointSuffix=core.windows.net;"
@@ -88,6 +90,21 @@ A typical Azure connection string looks like this:
 ```
 
 This connection string should replace `"UseDevelopmentStorage=true"` in your `appsettings.json` for production deployments.
+
+## Module Settings
+
+### Blob Storage Settings
+
+The `Authentication Methods` setting controls how the generated `AzureBlobStorage` client authenticates against Azure Blob Storage:
+
+- **Key-based** (default) — the client is constructed from a connection string read from the `AzureBlobStorage` app setting, as described above.
+- **Managed Identity** — the client is constructed from a service URI and `Azure.Identity`'s `DefaultAzureCredential`, avoiding the need to manage a connection string or access key:
+
+```csharp
+_client = new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlobStorageServiceUri")), new DefaultAzureCredential());
+```
+
+When this option is selected, set the `AzureBlobStorageServiceUri` app setting to your storage account's blob endpoint (e.g. `https://myaccountname.blob.core.windows.net`) and grant the identity `DefaultAzureCredential` resolves (a system/user-assigned managed identity in Azure, or your developer credentials locally) the `Storage Blob Data Contributor` role on the account.
 
 ## Azure Storage Explorer
 

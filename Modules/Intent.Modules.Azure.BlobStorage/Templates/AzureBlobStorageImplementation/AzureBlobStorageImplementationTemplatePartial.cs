@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Azure.BlobStorage.Settings;
 using Intent.Modules.Azure.BlobStorage.Templates.BlobStorageInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -28,7 +30,17 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.AzureBlobStorageImplementat
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
+            var useManagedIdentity = ExecutionContext.Settings.GetBlobStorageSettings().AuthenticationMethods()?.Any(x => x.IsManagedIdentity()) ?? false;
+
+            if (useManagedIdentity)
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorageServiceUri", "https://<storage-account>.blob.core.windows.net"));
+            }
+            else
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
+            }
+
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForInterface(GetTemplate<IClassProvider>(BlobStorageInterfaceTemplate.TemplateId))
                 .ForConcern("Infrastructure"));

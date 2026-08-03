@@ -111,6 +111,19 @@ When you're publishing using Azure Service Bus, you will need to configure it in
 }
 ```
 
+## Module Settings
+
+### Azure Service Bus Settings
+
+The `Authentication Methods` setting controls how the generated `ServiceBusClient` authenticates against Azure Service Bus:
+
+- **Key-based** (default) — the client is constructed from a connection string read from the `AzureServiceBus:ConnectionString` app setting, as shown above.
+- **Managed Identity** — the client is constructed from the namespace's fully qualified DNS name and `Azure.Identity`'s `DefaultAzureCredential`, avoiding the need to manage a shared access key:
+  ```csharp
+  services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:FullyQualifiedNamespace"], new DefaultAzureCredential()));
+  ```
+  When this option is selected, set the `AzureServiceBus:FullyQualifiedNamespace` app setting to your namespace's DNS name (e.g. `your-namespace.servicebus.windows.net`) and grant the identity `DefaultAzureCredential` resolves (a system/user-assigned managed identity in Azure, or your developer credentials locally) the `Azure Service Bus Data Owner` role (or a more scoped Sender/Receiver role) on the namespace.
+
 ## Related Modules
 
 ### Intent.AzureFunctions.AzureServiceBus

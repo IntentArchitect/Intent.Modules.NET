@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d41a6705-d747-4d9b-be2f-a2026082bd21" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.29.1</name>
-      <display>12.23.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>12.29.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,24 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8d65427c-f13c-43e9-aa9c-5b75efe6a9f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="a180fd0a-9412-4545-87d5-32cc64ce2c35" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.55.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.55.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="93a4c353-709f-4f71-9c27-b0b8c9557957" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
+          <display>Azure.Identity (1.21.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.21.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8d65427c-f13c-43e9-aa9c-5b75efe6a9f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.28.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.28.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +93,7 @@
     </childElement>
     <childElement id="4b336f30-3758-49a7-a3d1-2a371873015d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.29.1</name>
-      <display>12.23.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <display>12.29.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -94,24 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="eb448899-2976-4a17-8337-aeb760d8f080" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="95723e2b-929d-46c9-ac51-55f86414eb09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.55.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.55.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="393d9a4d-3bba-4067-91b2-4ec3bc886503" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
+          <display>Azure.Identity (1.21.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.21.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb448899-2976-4a17-8337-aeb760d8f080" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.28.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.28.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,10 +160,14 @@
     </childElement>
     <childElement id="d0a26aeb-0404-4b11-b891-e706d94c5650" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.29.1</name>
+      <display>12.29.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cec74916-1b78-4b6f-8fcd-f6504625c391</parentFolderId>
+      <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+      <packageName>Intent.Azure.BlobStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -137,24 +181,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="164cedf7-b01a-4004-8dc7-61824f9f8200" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="e4c6549b-498e-46c0-a7ab-556244373ec9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.55.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.55.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5c5d68ca-5569-4ce7-b84c-404620b74141" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
+          <display>Azure.Identity (1.21.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.21.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="164cedf7-b01a-4004-8dc7-61824f9f8200" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.28.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.28.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -163,10 +227,14 @@
     </childElement>
     <childElement id="6b2f528c-7ff2-4a76-a529-a3bfc350f494" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.29.1</name>
+      <display>12.29.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cec74916-1b78-4b6f-8fcd-f6504625c391</parentFolderId>
+      <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+      <packageName>Intent.Azure.BlobStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -180,24 +248,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a5c486c9-a429-4c34-b956-12ec39bf8bb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="dc67845d-2add-4129-8185-ea288e709b60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.55.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.55.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e8d26288-0d53-4c4a-b747-98c8588eb266" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
+          <display>Azure.Identity (1.21.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.21.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a5c486c9-a429-4c34-b956-12ec39bf8bb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.28.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.28.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

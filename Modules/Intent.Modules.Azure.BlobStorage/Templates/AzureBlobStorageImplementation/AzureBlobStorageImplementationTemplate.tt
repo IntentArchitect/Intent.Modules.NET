@@ -8,12 +8,14 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+<#@ import namespace="Intent.Modules.Azure.BlobStorage.Settings" #>
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.Extensions.Configuration;
@@ -27,9 +29,16 @@ namespace <#= Namespace #>
         private const PublicAccessType ContainerPublicAccessType = PublicAccessType.None;
         private readonly BlobServiceClient _client;
 
+<#
+    var useManagedIdentity = ExecutionContext.Settings.GetBlobStorageSettings().AuthenticationMethods()?.Any(x => x.IsManagedIdentity()) ?? false;
+#>
         public <#= ClassName #>(IConfiguration configuration)
         {
+<# if (useManagedIdentity) { #>
+            _client = new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlobStorageServiceUri")), new DefaultAzureCredential());
+<# } else { #>
             _client = new BlobServiceClient(configuration.GetValue<string>("AzureBlobStorage"));
+<# } #>
         }
 
         public async Task<Uri> GetAsync(string containerName, string blobName, CancellationToken cancellationToken = default)

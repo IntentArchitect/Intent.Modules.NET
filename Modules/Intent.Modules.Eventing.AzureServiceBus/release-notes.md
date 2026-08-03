@@ -1,3 +1,7 @@
+### Version 1.3.0
+
+- New Feature: Added `Authentication Methods` module setting to support Managed Identity authentication via `DefaultAzureCredential`, alongside the existing connection string.
+
 ### Version 1.2.1
 
 - Fixed: Minimum client version.

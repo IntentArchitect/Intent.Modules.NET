@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8e1e66fa-9235-442f-80e2-8f5646d05541</correlationId>
+      <path>Templates/AzureServiceBusConfiguration/AzureServiceBusConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-03T19:45:47.9166242Z</updatedAt>
+      <deviationsHash>B1CCF299B8F1B8A2DEFB10B04F613B46157A75301C46EED2B03FD473452CA841</deviationsHash>
+      <fileHash>F2822934E2DB982CD6BF04709B3AD19185F94135224F9ABBB4BDBBDFCAE2325B</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#a4513b61-ab69-473b-98ff-5b61821b1781</correlationId>
       <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
