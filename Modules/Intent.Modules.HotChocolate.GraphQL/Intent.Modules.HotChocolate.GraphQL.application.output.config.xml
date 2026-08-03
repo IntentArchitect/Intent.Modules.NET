@@ -4,5 +4,8 @@
     <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/MutationType/MutationTypeTemplateRegistration.cs" state="ignored" />
     <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/QueryType/QueryTypeTemplatePartial.cs" state="ignored" />
     <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/QueryType/QueryTypeTemplateRegistration.cs" state="ignored" />
+    <file relativePath="Templates/MutationType/MutationTypeTemplateRegistration.cs" state="ignored" />
+    <file relativePath="Templates/QueryType/QueryTypeTemplatePartial.cs" state="ignored" />
+    <file relativePath="Templates/QueryType/QueryTypeTemplateRegistration.cs" state="ignored" />
   </files>
 </outputFiles>

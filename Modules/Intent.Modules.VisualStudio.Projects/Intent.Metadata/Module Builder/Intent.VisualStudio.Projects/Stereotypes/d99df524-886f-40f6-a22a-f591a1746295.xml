@@ -21,7 +21,7 @@
   <packageName>Intent.VisualStudio.Projects</packageName>
   <properties>
     <property id="2302bf7e-69ff-4621-94a4-0ac3551a34b7">
-      <hint>Shift applied to OutputRootDirectory to recover the container root (e.g. '..'). Blank = no shift.</hint>
+      <hint>OutputRootDirectory is the base. Adjust the VS Solution relative to the base.</hint>
       <name>Relative Location</name>
       <type>string</type>
       <controlType>text</controlType>

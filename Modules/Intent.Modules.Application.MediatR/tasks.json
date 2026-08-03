@@ -4,7 +4,7 @@
         "label": "Build",
         "command": "dotnet build",
         "icon": "fa-cogs",
-        "workingDirectory": "./Intent.Modules.Application.MediatR",
+        "workingDirectory": ".",
         "aiAutoFix": {
           "enabled": false,
           "errorParser": "dotnet"

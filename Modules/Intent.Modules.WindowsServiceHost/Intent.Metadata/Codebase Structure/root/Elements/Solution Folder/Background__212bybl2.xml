@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5cc2701d-c239-4863-83b9-8e02fe47987c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Background</name>
+  <display>Background</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1b7d9355-eabb-455b-8b2d-12d6bee6597a</parentFolderId>
+  <packageId>4c3bd7ec-3b90-4df9-aec7-68756f566161</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

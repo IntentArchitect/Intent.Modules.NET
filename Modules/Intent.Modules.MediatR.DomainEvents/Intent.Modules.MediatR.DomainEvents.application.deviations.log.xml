@@ -3,17 +3,17 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
-      <count>6</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-09-13T06:35:29.1295519Z</updatedAt>
-      <deviationsHash>FAF138549BA5B5640D17327BD80CB0CF7D2BF80BA96E369685AB9F70A120B625</deviationsHash>
+      <path>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:20:54.2449954Z</updatedAt>
+      <deviationsHash>9C96B675E42AB8384A26B8DA6A3DE0CB0A56E094E91A0322EDBF28A33E071928</deviationsHash>
       <fileHash>80916D2217B524CD1B93A3451FBF5F58D57A93D8335E1139B291004CFAD0AA62</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs</path>
+      <path>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -26,7 +26,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aa7baa8c-29eb-4986-8a70-c002a6ef5c69</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</path>
+      <path>Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -36,34 +36,31 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#facf0926-17f5-4e56-b647-5718e15fcbb4</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplatePartial.cs</path>
-      <count>6</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-09-13T06:35:29.129602Z</updatedAt>
-      <deviationsHash>A113A322B10C053123FAAA50E189C562DDB8043DC5F1836B8052D7F0AC31AD3B</deviationsHash>
+      <path>Templates/DomainEventNotification/DomainEventNotificationTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:20:54.2450948Z</updatedAt>
+      <deviationsHash>B0F2F1BB5262ED771F1C8C9B8735505B8B7CB89C3D50B552C6743DBA1757A41E</deviationsHash>
       <fileHash>08615DF862D2F9565AC192308746F3698E61CADD8CC6BFB98303AC936D0199FC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5749322-7ef9-4947-95dd-9a9c01131077</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
-      <count>6</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-09-13T06:35:29.1296279Z</updatedAt>
-      <deviationsHash>317A07DBB5882837B1997B132AE6092513C3B302932DC82FFDF16A67451D4553</deviationsHash>
+      <path>Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:20:54.2451517Z</updatedAt>
+      <deviationsHash>34859814ABA4BC3437F6C3DAEBA1EDF1F794874E2F15B99F7DD9B314E2D8C7B3</deviationsHash>
       <fileHash>8C7D074EC5B777BF8795F0A0DCDD69781C67CEF744F7D4DC8EFFE7E92F752F42</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#7c607162-1668-421a-9bc0-65dd80f3f2a1</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:11:57.6145935Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:25:22.4671599Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:20:54.2454238Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>0B0E3EE3D1BA2ECFD705F6C2C3EA8E0FC3445D8F2F4994302FEB6C166389B9DF</fileHash>
     </file>

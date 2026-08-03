@@ -18,8 +18,6 @@ using FolderModel = Intent.Modules.Common.Types.Api.FolderModel;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-#nullable enable
-
 namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]

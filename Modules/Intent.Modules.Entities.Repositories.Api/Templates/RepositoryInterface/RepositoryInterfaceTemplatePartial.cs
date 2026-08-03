@@ -19,8 +19,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
         public const string TemplateId = "Intent.Entities.Repositories.Api.RepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null)
-            : base(TemplateId, outputTarget, model)
+        public RepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface("IRepository", @interface =>

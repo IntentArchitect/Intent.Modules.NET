@@ -106,13 +106,13 @@
       <fileHash>470AB6B81A736C643824419B9384B9BF055A84E15D30FC3E8405EF69A3841D4A</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#334c1308-4ec0-40eb-a796-8ee6cd5a6eec</correlationId>
       <path>Intent.Modules.Blazor.HttpClients/Templates/TemplateExtensions.cs</path>
       <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-29T15:36:22.1216153Z</updatedAt>
-      <deviationsHash>FE458AAD87CACEE101B5783CEC62F098ACB02BC401188D20C6B0F9322B59267D</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T07:46:29.0546507Z</updatedAt>
+      <deviationsHash>BB61372AE2D1710A3CA6D07E39D53DEC84E31EA0BBF2E2703A55BBA270955B08</deviationsHash>
       <fileHash>00280E3E55A41D9ED80D8453973E4BD928C7BD63E66A02BCCDC947E9F3C55D41</fileHash>
     </file>
   </files>

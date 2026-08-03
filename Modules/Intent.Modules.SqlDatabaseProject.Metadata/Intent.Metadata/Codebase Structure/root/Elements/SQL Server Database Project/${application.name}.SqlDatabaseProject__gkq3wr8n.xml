@@ -18,6 +18,15 @@
         <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="475ed40d-d952-4056-9509-afdec875a10f" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="b8201720-882a-42ad-abb6-870a97815334" name="SQL Server Database Project">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="2099930c-69b8-4989-bb60-e2c252f8b7ac" display="Project Type" value=".NET Framework" isActive="true" />
+        <property name="fcf08ff1-cd64-415e-9285-ed8b0de225ea" display="Version" value="2.1.0" isActive="false" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>

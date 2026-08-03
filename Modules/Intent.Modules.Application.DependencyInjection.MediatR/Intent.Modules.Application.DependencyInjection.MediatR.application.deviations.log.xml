@@ -2,16 +2,13 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
-      <path>Intent.Modules.Application.DependencyInjection.MediatR/NugetPackages.cs</path>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#70bb932c-d9b9-4a00-833b-6d7b43e8f319</correlationId>
+      <path>NugetPackages.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-08-12T16:33:15.8888134Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-08-12T16:33:15.8893253Z</approvedAt>
-      <deviationsHash>8AB814A19093A071B2CD86E50C62BDFEAEB4C92917E14168899DBC753BD8AAFB</deviationsHash>
+      <updatedAt>2026-08-02T08:55:14.0092598Z</updatedAt>
+      <deviationsHash>D2DCD6A6013EF4160C6DD2E6BF2F15B28126B8BAEEF66DE6E8F130C8A12D3928</deviationsHash>
       <fileHash>D59EE9D12C254AC61068A3F2E574A7C5AAC999BC7AFF74177DD48C6EC8C1DDCD</fileHash>
     </file>
   </files>

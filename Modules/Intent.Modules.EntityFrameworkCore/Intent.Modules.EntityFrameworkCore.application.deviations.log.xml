@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5e6a2761-b883-495c-a3b9-1309933b6f43</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</path>
+      <path>FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -13,13 +13,13 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c1877186-0dcd-40c7-9c3e-4756dc0dae42</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs</path>
+      <path>FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-07-06T12:32:39.3288898Z</updatedAt>
       <deviationsHash>55B564D16D3D08EBA3FA2654DC3D85452C03D417126C3DF4AFCC2D8FB133F952</deviationsHash>
-      <fileHash>AA03219D6C60B70C0683E436A186F7FD96354E6E48A005400AB25837F708BE1B</fileHash>
+      <fileHash>FD812AFEAC78A3CF36E8774CF544132B73DD3540EF3E6A98C75A4E0D3EDDD185</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#a5803c32-0454-4111-9e1d-168e5bf6cb10</correlationId>
@@ -33,7 +33,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextTemplatePartial.cs</path>
+      <path>Templates/DbContext/DbContextTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -43,7 +43,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextTemplateRegistration.cs</path>
+      <path>Templates/DbContext/DbContextTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -56,7 +56,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#8dca43ad-a912-4d76-aca9-4eaf77d6127a</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
+      <path>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -69,7 +69,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
+      <path>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -79,7 +79,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</path>
+      <path>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -89,7 +89,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/PagedList/PagedListTemplatePartial.cs</path>
+      <path>Templates/PagedList/PagedListTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

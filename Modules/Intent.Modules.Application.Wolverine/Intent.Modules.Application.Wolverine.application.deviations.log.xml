@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c92d8653-0047-4b7f-aa25-3c0b7dc89a79</correlationId>
-      <path>Intent.Modules.Application.Wolverine/Templates/CommandHandler/CommandHandlerTemplatePartial.cs</path>
+      <path>Templates/CommandHandler/CommandHandlerTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7a6337b1-83ee-4a9a-b3b7-e51a6a8d2263</correlationId>
-      <path>Intent.Modules.Application.Wolverine/Templates/QueryHandler/QueryHandlerTemplatePartial.cs</path>
+      <path>Templates/QueryHandler/QueryHandlerTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>

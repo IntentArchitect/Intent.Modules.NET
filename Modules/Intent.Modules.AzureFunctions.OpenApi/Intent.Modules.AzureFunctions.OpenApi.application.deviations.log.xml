@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a15ba959-650a-4afd-8958-1bcd5c73cf15</correlationId>
-      <path>Intent.Modules.AzureFunctions.OpenApi/Decorators/OpenApiAttributeDecorator.cs</path>
+      <path>Decorators/OpenApiAttributeDecorator.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#371be07c-ba65-4c08-aff6-8c1a9aa1ba4f</correlationId>
-      <path>Intent.Modules.Common.UnitOfWork/Settings/ModuleSettingsExtensions.cs</path>
+      <path>Settings/ModuleSettingsExtensions.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

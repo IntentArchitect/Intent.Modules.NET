@@ -15,5 +15,10 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
         {
             return new RootFolderOutputTarget(model);
         }
+
+        internal static IOutputTargetConfig ToOutputTargetConfig(this RootFolderModel model, OutputLocationOptions outputLocationOptions)
+        {
+            return new RootFolderOutputTarget(model, outputLocationOptions);
+        }
     }
 }

@@ -108,7 +108,8 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                             ctor.Protected();
                         });
                     }
-                };
+                }
+                ;
             });
         }
 

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#2b7880a4-d400-404b-b02b-04ed6a199767</correlationId>
-      <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprComponentFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/StaticContentTemplateRegistrations/DaprComponentFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7f8f1a8e-b5a8-4d62-9f0e-f2a8aed6e913</correlationId>
-      <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/StaticContentTemplateRegistrations/DaprFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1547a142-247a-49b6-be59-b3aa2b157fdd</correlationId>
-      <path>Intent.Modules.FastEndpoints/Templates/Endpoint/EndpointTemplatePartial.cs</path>
+      <path>Templates/Endpoint/EndpointTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

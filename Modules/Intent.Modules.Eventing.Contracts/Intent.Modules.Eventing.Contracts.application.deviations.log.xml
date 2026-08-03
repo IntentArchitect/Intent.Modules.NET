@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f1467209-d74e-4e04-85fa-11883ef28bce</correlationId>
-      <path>Intent.Modules.Eventing.Contracts/Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</path>
+      <path>Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>

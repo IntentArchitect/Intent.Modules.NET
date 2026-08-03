@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4d920a6b-8adf-4ea1-a9f4-2131f8316ce3</correlationId>
-      <path>Intent.Modules.AspNetCore.Logging.Serilog/Decorators/ConfigurationSettingsSerilogLoggingDecorator.cs</path>
+      <path>Decorators/ConfigurationSettingsSerilogLoggingDecorator.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

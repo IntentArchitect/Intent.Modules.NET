@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#16fa2952-79e6-4150-b5ab-45aa4c106de4</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</path>
+      <path>Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -23,7 +23,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#2bc7e478-1e47-4553-91c7-827a842e55ad</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/NugetPackages.cs</path>
+      <path>NugetPackages.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

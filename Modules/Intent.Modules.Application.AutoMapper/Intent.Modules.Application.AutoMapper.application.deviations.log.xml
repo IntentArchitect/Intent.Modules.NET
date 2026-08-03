@@ -2,18 +2,18 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/NugetPackages.cs</path>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#836f2cec-ddae-4daa-80f4-22c0844312ec</correlationId>
+      <path>NugetPackages.cs</path>
       <count>3</count>
-      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
-      <updatedAt>2026-05-26T06:41:36.8950963Z</updatedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:42:25.9510913Z</updatedAt>
       <deviationsHash>D2DCD6A6013EF4160C6DD2E6BF2F15B28126B8BAEEF66DE6E8F130C8A12D3928</deviationsHash>
-      <fileHash>5FC8671CF15F95DA0CFD49A91EBBDE9FEA5EF239B5C89008A69D9BCE09F829D7</fileHash>
+      <fileHash>B4B7340DE62FF6F389135F78DA132BB3F88EC5CB8D1881FD5EE40ACA403FE967</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs</path>
+      <path>Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
@@ -23,7 +23,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/Templates/MapFromInterface/MapFromInterfaceTemplateRegistration.cs</path>
+      <path>Templates/MapFromInterface/MapFromInterfaceTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -36,7 +36,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/Templates/MappingProfile/MappingProfileTemplatePartial.cs</path>
+      <path>Templates/MappingProfile/MappingProfileTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
@@ -46,7 +46,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/Templates/MappingProfile/MappingProfileTemplateRegistration.cs</path>
+      <path>Templates/MappingProfile/MappingProfileTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -58,15 +58,12 @@
       <fileHash>1FB29A5819FAB817338647471C2E9831274A315A309057C8A2656C4016C0D226</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Application.AutoMapper/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#b325f6b5-6692-4002-b000-f5580cc78b18</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T09:33:28.9414701Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:55:49.5386337Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:42:25.9528796Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>F7790D38C8CE1A7715CBADCD6289FB20647F507CFBA9B59E8D1B99F7DA7BD727</fileHash>
     </file>

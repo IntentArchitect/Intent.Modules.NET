@@ -28,8 +28,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         private const string RepositoryInterfaceTemplateId = "Repository.Interface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EntityRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model)
-            : base(TemplateId, outputTarget, model)
+        public EntityRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole(TemplateRoles.Repository.Interface.Entity);
 

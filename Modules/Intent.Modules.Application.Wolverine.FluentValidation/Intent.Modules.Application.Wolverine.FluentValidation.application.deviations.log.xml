@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f837be03-784a-485f-8831-14be8f167812</correlationId>
-      <path>Intent.Modules.Application.Wolverine.FluentValidation/Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
+      <path>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e697c72c-c021-4729-a9c9-85e25447b111</correlationId>
-      <path>Intent.Modules.Application.Wolverine.FluentValidation/Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
+      <path>Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

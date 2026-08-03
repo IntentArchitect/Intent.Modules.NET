@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#66093775-df28-4c61-9ab6-3104da348e17</correlationId>
-      <path>Intent.Modules.AspNetCore.Docker/Templates/Dockerfile/DockerfileTemplatePartial.cs</path>
+      <path>Templates/Dockerfile/DockerfileTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>

@@ -3,15 +3,12 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9247df07-c11b-4082-8659-1fa0f19bc5e1</correlationId>
-      <path>Intent.Modules.Application.FluentValidation.Dtos/Templates/DTOValidator/DTOValidatorTemplatePartial.cs</path>
-      <count>6</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T10:04:51.6725461Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:58:16.2375215Z</approvedAt>
-      <deviationsHash>9119F075DA3A129EC54CCA54F58B4E28019346F0CA5231FC6AD642B399E19EC1</deviationsHash>
+      <path>Templates/DTOValidator/DTOValidatorTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:54:33.6929748Z</updatedAt>
+      <deviationsHash>29A52FB9A426391AE9F695CE561D5C33419084AA5E6119C32ECF3B6B3167DD07</deviationsHash>
       <fileHash>1FC5DA3E559638FDD22DEB42D45DAECDABE14A82A23F15AFD7090F433728170C</fileHash>
     </file>
   </files>

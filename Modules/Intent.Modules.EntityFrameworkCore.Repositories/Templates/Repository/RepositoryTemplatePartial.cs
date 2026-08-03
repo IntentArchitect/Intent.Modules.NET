@@ -34,8 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.Repository";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RepositoryTemplate(IOutputTarget outputTarget, ClassModel model)
-            : base(TemplateId, outputTarget, model)
+        public RepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole(TemplateRoles.Repository.Implementation.Entity);
 

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#90eb0073-c577-4253-9e76-0039622affa9</correlationId>
-      <path>Intent.Modules.Blazor.FluentValidation/Settings/ModuleSettingsExtensions.cs</path>
+      <path>Settings/ModuleSettingsExtensions.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a34e1a2-e62f-422a-b393-6cfcfe186871</correlationId>
-      <path>Intent.Modules.Blazor.FluentValidation/Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</path>
+      <path>Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>

@@ -1,0 +1,14 @@
+{
+    "tasks": {
+        "build": {
+            "label": "Build",
+            "icon": "fa-cogs",
+            "command": "dotnet build",
+            "workingDirectory": ".",
+            "aiAutoFix": {
+                "enabled": false,
+                "errorParser": "dotnet"
+            }
+        }
+    }
+}

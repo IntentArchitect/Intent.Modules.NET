@@ -2,8 +2,18 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cc70cbf5-cdba-41f3-a082-24dc1d260eeb</correlationId>
+      <path>FactoryExtensions/HomePageDefaultHtmlExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-01T07:33:07.1186902Z</updatedAt>
+      <deviationsHash>B013B641D632264F3FF3F8DA066AD1FB00F6417661B643BFBB3CEC83FB1198F2</deviationsHash>
+      <fileHash>6714C738181FB356237EF8A941320A74B20E69A92CEAD3DC653800C7717BAAE7</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cdfa2128-cc5d-4fba-a736-f60d7c446179</correlationId>
-      <path>Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/WireupCssExtension.cs</path>
+      <path>FactoryExtensions/WireupCssExtension.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -13,13 +23,13 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1cc30ee8-4c1a-4019-acf2-9b8886094775</correlationId>
-      <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/UserMenuDefaultStaticContentTemplateRegistration.cs</path>
+      <path>Templates/StaticContentTemplateRegistrations/UserMenuDefaultStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-06-25T12:15:47.3911933Z</updatedAt>
       <deviationsHash>684688181EE1AE0B83510308DA9392CAF5DECE7FC813251DE2A4312E94A0BFE2</deviationsHash>
-      <fileHash>1904D7EE7937CBC270E6715A63205D9C595E57718FDD2A14679640C1F8D584C4</fileHash>
+      <fileHash>A2C3E01C3EEF752A2BEF3D977550FDA46BC26C5FF7F050913B5EF88C9D1613BB</fileHash>
     </file>
   </files>
 </deviationsLog>

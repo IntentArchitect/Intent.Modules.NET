@@ -5,6 +5,7 @@
 - Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
 - Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
 - Fixed: An existing `launchSettings.json` containing a `Container (.NET SDK)` profile (`commandName` of `SdkContainer`, added by `dotnet publish`/Visual Studio container tooling) failed to parse, crashing the Software Factory for the affected project. `SdkContainer` is now a recognized `commandName` value.
+- Fixed: When a Root Folder's `Relative Location` shifted the output root, static files anchored directly to the Root Folder (rather than to a Project or Solution Folder) - for example loose files dropped outside the VS Solution - stayed at the old, unshifted location instead of moving with everything else, producing duplicate/orphaned files. The Root Folder's own output target now shifts along with the rest of the tree.
 
 ### Version 4.1.6
 

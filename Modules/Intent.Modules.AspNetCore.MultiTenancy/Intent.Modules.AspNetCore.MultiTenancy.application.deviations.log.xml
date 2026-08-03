@@ -3,17 +3,17 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a3891593-98b6-49e4-86ee-98d138f3527e</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</path>
+      <path>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-07-16T08:02:33.5438602Z</updatedAt>
       <deviationsHash>79BED6D6BD01B6B2E78BB121FDAC54550632960687A9D5DF252FA380F21DBEAD</deviationsHash>
-      <fileHash>0C5AE337DD73453EE8D3B0EA5507B0BC902CFB4333E1C14249C5217223DE7AD1</fileHash>
+      <fileHash>53FF6E1D54853049ED0E434BF7FB93B7CAFA473118AD9D908BB546E57BC9D404</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplatePartial.cs</path>
+      <path>Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -23,7 +23,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplateRegistration.cs</path>
+      <path>Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -33,17 +33,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f59f1208-0510-4564-9121-b0695b3450be</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TemplateExtensions.cs</path>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-15T07:54:57.9747124Z</updatedAt>
-      <deviationsHash>CDDA496E5727EF0648B161C866C8B75ED2C0D59643D78C8AF981E4FD82730097</deviationsHash>
+      <updatedAt>2026-07-31T20:23:46.2261058Z</updatedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>40047C9CFA704D905FE9A82408B8F90D6FA868840361A568CCE4F6D82D4C5614</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</path>
+      <path>Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -53,7 +53,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
-      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</path>
+      <path>Templates/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

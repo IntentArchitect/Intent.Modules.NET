@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8d97669a-b03f-4f1c-907f-8dbb94dca221</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <path>Templates/HttpClient/HttpClientTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8d97669a-b03f-4f1c-907f-8dbb94dca221</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <path>Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,17 +29,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e9b86a42-6ac3-412f-96e9-8521215ffe55</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-09T09:57:06.6680428Z</updatedAt>
-      <deviationsHash>95322CE7370ED401E14EE20F1A6CF9C3FCA0BA829CA3DFBE62BC3A3EF5ADF712</deviationsHash>
-      <fileHash>BCD4113C4F34C2F8B7F14A9BEE0349AA141F3313CC9995A51BF710E99821AFB3</fileHash>
+      <path>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:05:15.1436067Z</updatedAt>
+      <deviationsHash>EAED7E50080B09C3C4E81A77CDBB8A2842A2DE7DFA523E1631DF5F100E605E01</deviationsHash>
+      <fileHash>9BC5569FC9B7E98CC27DC6CB2846923978302058088D734863D7F41EA57F9EAB</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2de50976-c2bf-4bdd-9c10-a222a6b59ebf</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</path>
+      <path>Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -52,7 +52,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cc5d11e5-be38-40cb-b020-2b748e031a14</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <path>Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -65,7 +65,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb39fd49-934d-4b91-9b0f-d8bc3586242d</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <path>Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -78,7 +78,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ce41bc1-e95c-4392-8a8c-0086dcaba43c</correlationId>
-      <path>Intent.Modules.Integration.HttpClients/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <path>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
       <count>5</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

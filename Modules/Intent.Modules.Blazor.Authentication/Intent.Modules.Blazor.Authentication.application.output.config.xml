@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/Components/Account/Pages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/Components/Account/Shared/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentsMudBlazor/Account/Pages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentsMudBlazor/Account/Shared/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentsMudBlazor/Layout/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/Theme/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ThemeMudBlazor/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/wwwroot/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Authentication/content/Components/Account/Pages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Authentication/content/Components/Account/Shared/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Account/Pages/readme.txt" state="ignored;once-off-generated" />
@@ -10,5 +18,6 @@
     <file relativePath="Intent.Modules.Blazor.Authentication/content/ThemeMudBlazor/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Authentication/content/wwwroot/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Authentication/release-notes.md" state="ignored;once-off-generated" />
+    <file relativePath="release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

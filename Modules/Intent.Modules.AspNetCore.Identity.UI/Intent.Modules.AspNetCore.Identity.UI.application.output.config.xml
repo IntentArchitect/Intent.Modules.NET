@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/IdentityUiFiles/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.AspNetCore.Identity.UI/content/IdentityUiFiles/readme.txt" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

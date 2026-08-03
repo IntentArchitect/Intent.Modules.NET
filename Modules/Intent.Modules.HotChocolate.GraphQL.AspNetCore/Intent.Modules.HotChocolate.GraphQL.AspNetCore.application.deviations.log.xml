@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</correlationId>
-      <path>Intent.Modules.HotChocolate.GraphQL.AspNetCore/Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</path>
+      <path>Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

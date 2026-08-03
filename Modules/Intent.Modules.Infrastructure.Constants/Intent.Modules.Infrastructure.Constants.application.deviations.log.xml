@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#835e121a-d120-457c-b1c7-750bfccadc5b</correlationId>
+      <path>Templates/Constants/ConstantsTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:37:32.097723Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>EA7CC56A16B3DE65755B20E82538D985609EEEC0CA9B8D9E208E09BBD7A417D5</fileHash>
+    </file>
+  </files>
 </deviationsLog>

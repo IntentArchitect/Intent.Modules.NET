@@ -2,13 +2,13 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Eventing.AzureEventGrid/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#166448cc-a95b-4606-b78c-fac154d48d41</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-06-07T18:21:27.2822662Z</updatedAt>
-      <deviationsHash>C228C0D8040C900C15B7A33C0389F89FEFD1CDEBC07D8939F60266430BA0D0F9</deviationsHash>
+      <updatedAt>2026-08-02T10:34:33.7855586Z</updatedAt>
+      <deviationsHash>088D8F6E751CE5C05A74AFE54BE08B8104932939A81228EB24246AD9F3E667C7</deviationsHash>
       <fileHash>961F6845F403E1951DB65E1F0D303A3CF8B94C2F6947AF0DC7B0EFB20ADFEC62</fileHash>
     </file>
   </files>

@@ -2,18 +2,8 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#e18a801d-8b65-406e-ba1b-4280d754f5d3</correlationId>
-      <path>Intent.Modules.MongoDb.MongoFramework/Intent.Modules.MongoDb.MongoFramework.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-10T16:57:58.1486147Z</updatedAt>
-      <deviationsHash>D2363E0FA3B3612062BC0863781DCCB78A0EAA844862A348CC391B14207AED5B</deviationsHash>
-      <fileHash>6163029A75581C38D0C859CDEBE366EB8E0D9B19C59CC6D596B6E159A26902AC</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#63e01c93-3b4d-4be3-ae05-acb0dea50b33</correlationId>
-      <path>Intent.Modules.MongoDb.MongoFramework/Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
+      <path>Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>

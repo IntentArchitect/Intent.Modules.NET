@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplatePartial.cs</path>
+      <path>Templates/Repository/RepositoryTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -22,11 +22,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:21:14.5857304Z</approvedAt>
       <deviationsHash>E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7</deviationsHash>
-      <fileHash>BD81E11D0DDD7645AEF6B3A5231056E30B063366D94548BA0001E55F876AE93A</fileHash>
+      <fileHash>68A778AB679DE22106BE0552420349ABA9C4BDEB39ACD4A32BE98FF57EC0E23A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplateRegistration.cs</path>
+      <path>Templates/Repository/RepositoryTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -39,7 +39,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs</path>
+      <path>Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -48,7 +48,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:21:14.5916394Z</approvedAt>
       <deviationsHash>07ECB8B32D962EB82E840D368D86B0866652DC876BB523AB46826AC4815236F8</deviationsHash>
-      <fileHash>781B203FB394A1860B22068EBD5F6538A7112B19802FF21024EA54D373AD1C10</fileHash>
+      <fileHash>35BC2BFE9EFD9558D211A376F1092B6CE420236AA1102A0CFFE372D30BEC05CB</fileHash>
     </file>
   </files>
 </deviationsLog>

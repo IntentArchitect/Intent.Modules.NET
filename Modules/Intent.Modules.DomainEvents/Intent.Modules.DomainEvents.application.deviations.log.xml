@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#94b7bbc1-1590-4480-8545-955310b729a5</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEvent/DomainEventTemplatePartial.cs</path>
+      <path>Templates/DomainEvent/DomainEventTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#94b7bbc1-1590-4480-8545-955310b729a5</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEvent/DomainEventTemplateRegistration.cs</path>
+      <path>Templates/DomainEvent/DomainEventTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,7 +29,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4668477c-4627-465d-8a21-d68540ce00db</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs</path>
+      <path>Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -42,7 +42,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4668477c-4627-465d-8a21-d68540ce00db</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEventBase/DomainEventBaseTemplateRegistration.cs</path>
+      <path>Templates/DomainEventBase/DomainEventBaseTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -55,7 +55,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</path>
+      <path>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -68,7 +68,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</path>
+      <path>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -81,7 +81,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7633ea57-224c-4f93-a512-32243d21d216</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs</path>
+      <path>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -94,7 +94,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7633ea57-224c-4f93-a512-32243d21d216</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs</path>
+      <path>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -106,16 +106,13 @@
       <fileHash>1A908ABCAEA648F43240FAF130B16A30FA3BDD448E2273FE4521CBD8EB4A575A</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.DomainEvents/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#cf76a257-7937-4cc5-adf2-bfd57933e383</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>6</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:47:32.4046111Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:19:08.6159006Z</approvedAt>
-      <deviationsHash>EEE211BA87709F0B18F8BF7CB5245A99BCB238314E749BFC275BD767FE290456</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:13:50.7839882Z</updatedAt>
+      <deviationsHash>AAC535C4F006117430074F2BC7642287EE490383B6E0980826283A32253653BC</deviationsHash>
       <fileHash>E46F6A3605B84E0FFB7759529D40FDC4C92355825C614EFA2959D1305BF292FD</fileHash>
     </file>
   </files>

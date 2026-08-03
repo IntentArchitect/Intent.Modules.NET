@@ -2,5 +2,6 @@
 <outputFiles>
   <files>
     <file relativePath="Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerTemplateRegistration.cs" state="ignored" />
+    <file relativePath="Templates/Controller/ControllerTemplateRegistration.cs" state="ignored" />
   </files>
 </outputFiles>

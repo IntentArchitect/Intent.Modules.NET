@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#18e4bf9f-2cff-41f4-a98a-333dc4c1178a</correlationId>
-      <path>Intent.Modules.Application.ServiceImplementations/Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs</path>
+      <path>Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -22,7 +22,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2026-04-30T13:26:06.6731485Z</approvedAt>
       <deviationsHash>B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896</deviationsHash>
-      <fileHash>421057D648789317925C2918EAF74376263CA2E1F731386B688504BE283F31E3</fileHash>
+      <fileHash>5BB473E3FEB3748E696B6AAD403C399449DF46D5A858EEE95ACB0B7A1DA2515B</fileHash>
     </file>
   </files>
 </deviationsLog>

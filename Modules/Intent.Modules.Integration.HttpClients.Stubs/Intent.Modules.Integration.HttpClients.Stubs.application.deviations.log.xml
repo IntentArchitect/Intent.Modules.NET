@@ -3,13 +3,43 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b8c1ef43-3669-4e36-bd75-b4853e467c24</correlationId>
-      <path>Intent.Modules.Integration.HttpClients.Stubs/Templates/HttpClientStub/HttpClientStubTemplatePartial.cs</path>
+      <path>Templates/HttpClientStub/HttpClientStubTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
       <updatedAt>2026-06-30T15:34:11.4057098Z</updatedAt>
       <deviationsHash>4E14793F67A268E8EC85AF128F55FB5F77C29467EAF48631FFDBC8F921E93C2D</deviationsHash>
-      <fileHash>018B190229E12595DD84059C3CB636A094522B93A9C65634CAE67336835A22B8</fileHash>
+      <fileHash>D5A6C6CD56CC55B7247F1B2572DD2ECEECF7788EC459A0CC28463140BC6F0C52</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b8c1ef43-3669-4e36-bd75-b4853e467c24</correlationId>
+      <path>Templates/HttpClientStub/HttpClientStubTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:05:27.3126677Z</updatedAt>
+      <deviationsHash>AE25A6DDEB9A19932176E551684DE3D0BC3F461857504616BDADB923BCD4B64A</deviationsHash>
+      <fileHash>80808BA0B066668E2A610817F3EE1991AC9696B11DD11FFDE04C925CA14AAB75</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#109604ef-d1c3-4f1c-8a9b-e8bbc73edf4d</correlationId>
+      <path>Templates/StubHttpClientConfiguration/StubHttpClientConfigurationTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:05:27.3126415Z</updatedAt>
+      <deviationsHash>703DF773CB28C1CD18CF55B16683C79E72128E09175E239A4B875409C5539631</deviationsHash>
+      <fileHash>73F4CB6A11AB4162DC912DD25290518F0CC329E6227B71C3C0A1C6592F6441BD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#109604ef-d1c3-4f1c-8a9b-e8bbc73edf4d</correlationId>
+      <path>Templates/StubHttpClientConfiguration/StubHttpClientConfigurationTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:05:27.3126964Z</updatedAt>
+      <deviationsHash>A9DD359252704048EFFE395137B423D036D70936D45B364EAF9B08BB4B09C6C4</deviationsHash>
+      <fileHash>050BEBC807B3DC433C17BEDA7FBC4DB8D4869E15AC31E1140DC940B14317175E</fileHash>
     </file>
   </files>
 </deviationsLog>

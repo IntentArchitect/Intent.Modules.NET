@@ -4,10 +4,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.HotChocolate.GraphQL.Models;
-using Intent.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using GraphQLQueryTypeModel = Intent.Modules.HotChocolate.GraphQL.Models.GraphQLQueryTypeModel;
@@ -29,6 +29,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
 
         public override string TemplateId => QueryTypeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IGraphQLQueryTypeModel model)
         {
             return new QueryTypeTemplate(outputTarget, model);
