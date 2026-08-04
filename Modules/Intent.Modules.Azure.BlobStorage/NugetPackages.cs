@@ -20,19 +20,15 @@ namespace Intent.Modules.Azure.BlobStorage
                     {
                         ( >= 10, >= 0) => new PackageVersion("12.29.1")
                             .WithNugetDependency("Azure.Core", "1.55.0")
-                            .WithNugetDependency("Azure.Identity", "1.21.0")
                             .WithNugetDependency("Azure.Storage.Common", "12.28.0"),
                         ( >= 8, >= 0) => new PackageVersion("12.29.1")
                             .WithNugetDependency("Azure.Core", "1.55.0")
-                            .WithNugetDependency("Azure.Identity", "1.21.0")
                             .WithNugetDependency("Azure.Storage.Common", "12.28.0"),
                         ( >= 2, >= 1) => new PackageVersion("12.29.1")
                             .WithNugetDependency("Azure.Core", "1.55.0")
-                            .WithNugetDependency("Azure.Identity", "1.21.0")
                             .WithNugetDependency("Azure.Storage.Common", "12.28.0"),
                         ( >= 2, >= 0) => new PackageVersion("12.29.1")
                             .WithNugetDependency("Azure.Core", "1.55.0")
-                            .WithNugetDependency("Azure.Identity", "1.21.0")
                             .WithNugetDependency("Azure.Storage.Common", "12.28.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureStorageBlobsPackageName}'"),
                     }

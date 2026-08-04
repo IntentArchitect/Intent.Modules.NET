@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Fixed: Pinned an explicit `Azure.Identity` dependency (1.21.0) instead of relying solely on `IEvangelist.Azure.CosmosRepository`'s own transitive `Azure.Identity 1.13.1`. Older `Azure.Identity` releases ship a full `DefaultAzureCredential` implementation that collides (`CS0433`) with the copy `Azure.Core 1.53.0+` now embeds internally; `Azure.Identity 1.21.0` is a thin facade over that same implementation and does not conflict.
+
 ### Version 2.0.0
 
 - **Breaking change**: Upgraded Finbuckle.MultiTenant from 6.13.1 to 9.4.10, in line with `Intent.Modules.AspNetCore.MultiTenancy` 6.0.0. .NET 6 and .NET 7 are no longer supported by generated multi-tenancy code — applications must target .NET 8 or later.
