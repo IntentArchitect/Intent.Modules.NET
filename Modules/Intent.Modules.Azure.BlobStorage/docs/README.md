@@ -106,6 +106,16 @@ _client = new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlo
 
 When this option is selected, set the `AzureBlobStorageServiceUri` app setting to your storage account's blob endpoint (e.g. `https://myaccountname.blob.core.windows.net`) and grant the identity `DefaultAzureCredential` resolves (a system/user-assigned managed identity in Azure, or your developer credentials locally) the `Storage Blob Data Contributor` role on the account.
 
+Selecting **both** methods generates a runtime switch instead of picking one at compile time:
+
+```csharp
+_client = string.Equals(configuration.GetValue<string>("AzureBlobStorageAuthenticationMethod"), "managed-identity", StringComparison.OrdinalIgnoreCase)
+    ? new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlobStorageServiceUri")), new DefaultAzureCredential())
+    : new BlobServiceClient(configuration.GetValue<string>("AzureBlobStorage"));
+```
+
+Set the `AzureBlobStorageAuthenticationMethod` app setting to `managed-identity` or `key-based` (defaults to key-based) to choose which one is used at runtime — both the `AzureBlobStorage` connection string and `AzureBlobStorageServiceUri` settings are generated so either can be populated per environment.
+
 ## Azure Storage Explorer
 
 Connect to either your production Azure Blob Storage or Azurite using [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/) for previewing and managing your storage containers and blobs.

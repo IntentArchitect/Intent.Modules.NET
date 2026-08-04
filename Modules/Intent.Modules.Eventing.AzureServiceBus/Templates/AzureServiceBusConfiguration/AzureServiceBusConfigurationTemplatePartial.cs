@@ -39,7 +39,10 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
     {
         FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
-        var useManagedIdentity = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods()?.Any(x => x.IsManagedIdentity()) ?? false;
+        var authMethods = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods() ?? [];
+        var useManagedIdentity = authMethods.Any(x => x.IsManagedIdentity());
+        var useKeyBased = !useManagedIdentity || authMethods.Any(x => x.IsKeyBased());
+        var isDualAuthMode = useManagedIdentity && useKeyBased;
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -66,7 +69,17 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                 }
 
-                if (useManagedIdentity)
+                if (isDualAuthMode)
+                {
+                    method.AddIfStatement(
+                        @"string.Equals(configuration[""AzureServiceBus:AuthenticationMethod""], ""managed-identity"", StringComparison.OrdinalIgnoreCase)",
+                        @if => @if.AddStatement(
+                            $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:FullyQualifiedNamespace""], new DefaultAzureCredential()));"));
+                    method.AddElseStatement(
+                        @else => @else.AddStatement(
+                            $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));"));
+                }
+                else if (useManagedIdentity)
                 {
                     method.AddStatement(
                         $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:FullyQualifiedNamespace""], new DefaultAzureCredential()));");

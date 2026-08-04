@@ -124,15 +124,23 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
         
         public override void BeforeTemplateExecution()
         {
-            var useManagedIdentity = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods()?.Any(x => x.IsManagedIdentity()) ?? false;
+            var authMethods = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods() ?? [];
+            var useManagedIdentity = authMethods.Any(x => x.IsManagedIdentity());
+            var useKeyBased = !useManagedIdentity || authMethods.Any(x => x.IsKeyBased());
 
             if (useManagedIdentity)
             {
                 this.ApplyAppSetting("AzureServiceBus:FullyQualifiedNamespace", "your-namespace.servicebus.windows.net");
             }
-            else
+
+            if (useKeyBased)
             {
                 this.ApplyAppSetting("AzureServiceBus:ConnectionString", "");
+            }
+
+            if (useManagedIdentity && useKeyBased)
+            {
+                this.ApplyAppSetting("AzureServiceBus:AuthenticationMethod", "key-based");
             }
         }
 

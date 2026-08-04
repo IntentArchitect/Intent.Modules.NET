@@ -124,6 +124,19 @@ The `Authentication Methods` setting controls how the generated `ServiceBusClien
   ```
   When this option is selected, set the `AzureServiceBus:FullyQualifiedNamespace` app setting to your namespace's DNS name (e.g. `your-namespace.servicebus.windows.net`) and grant the identity `DefaultAzureCredential` resolves (a system/user-assigned managed identity in Azure, or your developer credentials locally) the `Azure Service Bus Data Owner` role (or a more scoped Sender/Receiver role) on the namespace.
 
+Selecting **both** methods generates a runtime switch instead of picking one at compile time:
+```csharp
+if (string.Equals(configuration["AzureServiceBus:AuthenticationMethod"], "managed-identity", StringComparison.OrdinalIgnoreCase))
+{
+    services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:FullyQualifiedNamespace"], new DefaultAzureCredential()));
+}
+else
+{
+    services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
+}
+```
+Set the `AzureServiceBus:AuthenticationMethod` app setting to `managed-identity` or `key-based` (defaults to key-based) to choose which one is used at runtime — both the `AzureServiceBus:ConnectionString` and `AzureServiceBus:FullyQualifiedNamespace` settings are generated so either can be populated per environment.
+
 ## Related Modules
 
 ### Intent.AzureFunctions.AzureServiceBus

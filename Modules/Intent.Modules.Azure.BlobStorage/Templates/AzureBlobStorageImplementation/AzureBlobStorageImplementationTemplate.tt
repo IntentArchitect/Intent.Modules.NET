@@ -30,11 +30,18 @@ namespace <#= Namespace #>
         private readonly BlobServiceClient _client;
 
 <#
-    var useManagedIdentity = ExecutionContext.Settings.GetBlobStorageSettings().AuthenticationMethods()?.Any(x => x.IsManagedIdentity()) ?? false;
+    var blobAuthMethods = ExecutionContext.Settings.GetBlobStorageSettings().AuthenticationMethods() ?? [];
+    var useManagedIdentity = blobAuthMethods.Any(x => x.IsManagedIdentity());
+    var useKeyBased = !useManagedIdentity || blobAuthMethods.Any(x => x.IsKeyBased());
+    var isDualAuthMode = useManagedIdentity && useKeyBased;
 #>
         public <#= ClassName #>(IConfiguration configuration)
         {
-<# if (useManagedIdentity) { #>
+<# if (isDualAuthMode) { #>
+            _client = string.Equals(configuration.GetValue<string>("AzureBlobStorageAuthenticationMethod"), "managed-identity", StringComparison.OrdinalIgnoreCase)
+                ? new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlobStorageServiceUri")), new DefaultAzureCredential())
+                : new BlobServiceClient(configuration.GetValue<string>("AzureBlobStorage"));
+<# } else if (useManagedIdentity) { #>
             _client = new BlobServiceClient(new Uri(configuration.GetValue<string>("AzureBlobStorageServiceUri")), new DefaultAzureCredential());
 <# } else { #>
             _client = new BlobServiceClient(configuration.GetValue<string>("AzureBlobStorage"));
