@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapper.Templates.CustomRepositoryInterface;
+using Intent.Modules.Dapper.Templates.StoredProcedures;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,14 +26,37 @@ namespace Intent.Modules.Dapper.Templates.CustomRepository
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CustomRepositoryTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            // The file is assigned up-front so that it is available to anything (e.g. RepositoryOperationHelper)
+            // which needs to add usings while the class is being built:
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+            CSharpFile
                 .AddClass($"{Model.Name.EnsureSuffixedWith("Repository")}", @class =>
                 {
                     @class.ImplementsInterface(this.GetCustomRepositoryInterfaceName());
-                    @class.AddConstructor(ctor =>
+
+                    // A "classless" repository has no entity and so gets no base class by default. When it
+                    // has anything which needs to talk to the database, inherit RepositoryBase for its
+                    // connection string handling and GetConnection():
+                    if (model.HasStoredProcedures())
                     {
+                        AddNugetDependency(NugetPackages.Dapper(OutputTarget));
+                        CSharpFile.AddUsing("Microsoft.Extensions.Configuration");
+
+                        @class.WithBaseType(this.GetRepositoryBaseName());
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.AddParameter("IConfiguration", "configuration");
+                            ctor.CallsBase(b => b.AddArgument("configuration"));
+                        });
+                    }
+                    else
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
                         //ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
-                    });
+                        });
+                    }
+
                     RepositoryOperationHelper.ApplyMethods(this, @class, model);
                 })
                 .AfterBuild(file =>

@@ -38,7 +38,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
                 {
                     @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
-                    @class.WithBaseType($"RepositoryBase<{EntityName}>");
+                    @class.WithBaseType(this.GetRepositoryBaseName());
                     @class.ImplementsInterface(this.GetEntityRepositoryInterfaceName());
                     @class.AddConstructor(ctor =>
                     {
