@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0226985c-fe15-4bf8-b031-dcdda38a00ea" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0194caaf-1bc8-4a7f-b873-852bff4b81e8</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8070b9a2-c730-4fb1-bb73-c5bedaaba1f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b5a82322-81f5-4396-a060-0dc1015bedb4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration</display>
+      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e503e3ca-2cbb-4519-bc16-7836ff8b5932" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</display>
+      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="544b4fa8-dd05-4f86-ae93-544c0295ebea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</display>
+      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="04552eb9-513e-45a1-bc17-1774a10fc799" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBConfiguration</name>
+      <display>Intent.CosmosDB.CosmosDBConfiguration</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="65b160f5-c418-4de5-a01b-27a0e5782bc1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBMultiTenancyConfiguration</name>
+      <display>Intent.CosmosDB.CosmosDBMultiTenancyConfiguration</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0226985c-fe15-4bf8-b031-dcdda38a00ea</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

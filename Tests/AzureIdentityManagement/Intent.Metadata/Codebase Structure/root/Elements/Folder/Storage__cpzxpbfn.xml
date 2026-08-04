@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a28a6da9-cab2-42f3-93bb-2132ba2e610d" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Storage</name>
+  <display>Storage</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>955f0ec7-132a-42d2-b955-3cbf23a94c65</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1eb14670-4a64-49cf-9e3e-634c47e002c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.BlobStorage.BlobStorageExtensions</name>
+      <display>Intent.Azure.BlobStorage.BlobStorageExtensions</display>
+      <externalReference>Intent.Azure.BlobStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a28a6da9-cab2-42f3-93bb-2132ba2e610d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2bf89870-3b8b-4793-ba9f-2dae6bb6cb1a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.BlobStorage.BlobStorageInterface</name>
+      <display>Intent.Azure.BlobStorage.BlobStorageInterface</display>
+      <externalReference>Intent.Azure.BlobStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a28a6da9-cab2-42f3-93bb-2132ba2e610d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

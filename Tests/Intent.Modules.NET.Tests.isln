@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.16-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.16" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="ASP.NET Core" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" solutionFolder="Azure Functions" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -219,5 +219,6 @@
     <application id="5f842e69-c59b-43e7-b132-33858a9fa3eb" name="WebAndWorker" solutionFolder="Hosting" relativePath="intent/WebAndWorker/WebAndWorker.application.config" />
     <application id="33b2e15a-2501-436c-938f-382242d367f3" name="EntityFrameworkCore.CustomPrimaryConnectionString" solutionFolder="Data Access/Entity Framework" relativePath="intent/EntityFrameworkCore.CustomPrimaryConnectionString/EntityFrameworkCore.CustomPrimaryConnectionString.application.config" />
     <application id="2cb9a48b-f484-4d52-918e-54a8be38b3d1" name="AspNetCoreNoAuth" solutionFolder="ASP.NET Core" relativePath="AspNetCoreNoAuth/AspNetCoreNoAuth.application.config" />
+    <application id="e4c57f5d-51d8-409d-ab16-3379db38995c" name="AzureIdentityManagement" solutionFolder="Azure" relativePath="AzureIdentityManagement/AzureIdentityManagement.application.config" />
   </applications>
 </solution>
