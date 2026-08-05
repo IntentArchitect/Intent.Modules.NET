@@ -63,6 +63,46 @@ adding a factory-extension-level workaround in this module — confirm which bef
 `DtoContractTemplateBase` directly, since `Intent.Modules.Contracts.Clients.Shared` is consumed
 by other modules too (see below).
 
+## Why the SQLite fixture passes a connection object, not a connection string
+
+`EFContainerFixture` serves every EF-backed provider, but SQLite is the only one that is not
+container-backed — it runs in-process. `DbStrategy` was therefore generalised away from
+container-only vocabulary into two factories: `ForContainer` (a Testcontainers container, started
+and stopped via `StartAsync`/`StopAsync`, connection supplied as `_dbContainer.GetConnectionString()`)
+and `ForConnection` (a live `DbConnection`, opened and disposed, supplied as the field itself).
+
+Anything that only resolves against the `Testcontainers` package must be emitted from the container
+side of that split, never from the shared body of the template. `DotNet.Testcontainers.Builders` and
+`DotNet.Testcontainers.Configurations` were originally added unconditionally; under SQLite there is no
+Testcontainers reference for them to bind to, so they now live in `DbStrategy.ContainerUsings` and are
+merged in by `ForContainer` only. The same rule applies to any future NuGet package or using.
+
+The SQLite arm uses `Filename=:memory:` and hands EF Core **the open `SqliteConnection` object**
+rather than a connection string. This is load-bearing, not stylistic: an in-memory SQLite database
+exists only while a connection to it is open. Given a connection *string*, EF opens and closes its own
+connection per operation, and the database — including the schema just built by
+`context.Database.EnsureCreated()` in `ConfigureTestServices` — is destroyed before the first test
+runs. The failure surfaces as `SqliteException: no such table`, which reads like a migration problem
+rather than a lifetime problem. Do not "simplify" this back to a connection string.
+
+Ordering that makes this safe: xUnit awaits `IntegrationTestWebAppFactory.InitializeAsync()` (which
+awaits the fixture's, opening the connection) before any test body calls
+`BaseIntegrationTest.CreateClient()`, and `CreateClient()` is what triggers `ConfigureWebHost` →
+`ConfigureTestServices` → `EnsureCreated()`. The connection is therefore always open by the time the
+schema is created.
+
+Two related consequences worth knowing before changing this area:
+
+- **No NuGet package is declared** for the SQLite arm. `Intent.EntityFrameworkCore` adds
+  `Microsoft.EntityFrameworkCore.Sqlite` to the Infrastructure project whenever the provider is
+  selected, and it reaches the test project transitively through the project reference. This differs
+  deliberately from the Testcontainers arms, where nothing else brings the package in.
+- **Schema comes from `EnsureCreated()`, not migrations**, so SQLite runs are blind to anything
+  expressed only in a migration. Combined with SQLite's divergence from SQL Server/PostgreSQL on
+  `decimal` precision, `DateTimeOffset`, schemas, computed columns and sequences, SQLite is the
+  fast/container-free option, not the faithful one. The generated `integration-test` skill states this
+  explicitly so agents report provider quirks as findings instead of bending tests around them.
+
 ## Related/affected modules
 
 - `Intent.Modules.Contracts.Clients.Shared` — owns `DtoContractTemplateBase`; this module's

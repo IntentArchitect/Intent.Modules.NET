@@ -2,6 +2,46 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#db56e8ef-4412-4219-8de8-b5a0a2d5ab58</correlationId>
+      <path>Migrations/Migration_02_00_20_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8267072Z</updatedAt>
+      <deviationsHash>6328C659F9D0C3383C2F9D94289EF554C9B9A5CEB646D5A3B83CDC32AF998C27</deviationsHash>
+      <fileHash>44C9A57B34D5AB118A6227EED7C3DB4C8D7BE287223644877C16A49D014BB18D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#260607e5-778d-4d71-8e39-28d207978270</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8266897Z</updatedAt>
+      <deviationsHash>E36E9C172941E719E72881642D27028B052E6B29A15A57046E19DA4019EB87B6</deviationsHash>
+      <fileHash>F557825B03FFEA11379D2C094FFFE55B8497290267A3A3A0D8C58D50C19649F4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#866c5d0e-7064-4d6d-a409-782cfbf89519</correlationId>
+      <path>Templates/ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8267662Z</updatedAt>
+      <deviationsHash>074559E3E21F87824D5CC8A3AD8B500AE11EB51305FEBF5B965780EF4C8FF9FC</deviationsHash>
+      <fileHash>D24C2405A54D3B02395BD8D02A93F2AE1255CEF6A150BBB2C14B8687191DC1B7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0b99c31a-6949-440c-8cf7-174149011e11</correlationId>
+      <path>Templates/CosmosContainerFixture/CosmosContainerFixtureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8267908Z</updatedAt>
+      <deviationsHash>8238D09147D66D70B9B00B407C290FEFAE61ACA0BB794A5A438B7FCDCD74081C</deviationsHash>
+      <fileHash>A14D860FB22C597228392D14FD7C89D7E7E8102FEC15F2537442DB113B2270F6</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#54832b8a-b8c8-415b-912e-8d6d37874ce4</correlationId>
       <path>Templates/DtoContract/DtoContractTemplatePartial.cs</path>
       <count>2</count>
@@ -10,6 +50,19 @@
       <updatedAt>2026-07-31T20:21:39.9644277Z</updatedAt>
       <deviationsHash>F8E6CE5DD75029FF39CC9B5FB88D3A7085D951CFAB69617AF4B9C76CB3AB20B1</deviationsHash>
       <fileHash>76E33B943B10D2B73532F947988FE90821B93EA2AC2A6102187CF790172DA1B2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6912e8b6-2499-4dd6-9796-2c6cb15d3445</correlationId>
+      <path>Templates/EFContainerFixture/EFContainerFixtureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8270763Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-05T11:40:54.228395Z</approvedAt>
+      <deviationsHash>6BF56FF94D85BD96CA130F57257536DD03EF8F9FE88EB3E15B1AE691A430E6F3</deviationsHash>
+      <fileHash>9C2567A923432B845F9A457617563FC8DDB56024A11349A34F1627F1E2DC48C8</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0c17e058-e10e-4916-9120-71fb34c4e19c</correlationId>
@@ -58,6 +111,36 @@
       <fileHash>BB9D371970BE084D11AD43C6A7C8AC71CF46CF3FC61F9441804C8EFA50F2E1D5</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a4302909-1646-4550-96ae-ae2028a5b82b</correlationId>
+      <path>Templates/HttpClientRequestException/HttpClientRequestExceptionTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8274524Z</updatedAt>
+      <deviationsHash>DF976318DBF892E8D3D388DEC24F1B7077C8B85E199C02A264580110C94C18CB</deviationsHash>
+      <fileHash>147BB49B1E4E50B01F853D1928090ED2E9EE991F992AEDA0EA2F6E886333F92B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#81f3bc7d-12ec-49c7-bf71-93cb77df0972</correlationId>
+      <path>Templates/IntegrationTestSkill/IntegrationTestSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8273252Z</updatedAt>
+      <deviationsHash>FD082DADEAF2702030B25E690294C2474C4F492BD83F0B37A5CA4E003D197F30</deviationsHash>
+      <fileHash>9528E936AA0CA1919620FAD6D831F9EE6E475C80361ACD7B55705DC0BA94EC32</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a6ab8bff-6ffb-4e2b-858d-55e7ab920611</correlationId>
+      <path>Templates/IntegrationTestWebAppFactory/IntegrationTestWebAppFactoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8271551Z</updatedAt>
+      <deviationsHash>0C0F1487FF4C786DE273834EFEAD9930D2AC9E37FE0A5C8CE8FEF760DE30DB41</deviationsHash>
+      <fileHash>D72A68500C5D8EC7198C2FF0E4FC5FCBF02502ED0438FD324C91B2632EE51F7A</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b6cd8740-54cb-4d7f-a99a-0d31c33cccaa</correlationId>
       <path>Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
       <count>2</count>
@@ -66,6 +149,26 @@
       <updatedAt>2026-07-31T20:21:39.964604Z</updatedAt>
       <deviationsHash>FD0D81A6077C6BCCD81831AE9658EDF8740717ABB9617D51077625B8D13F635A</deviationsHash>
       <fileHash>428952E0790B44E10625C91684E96FA82716B915E86538A16F659B5B49D2E398</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3c64cae7-aa94-4577-997a-99aaae48ce84</correlationId>
+      <path>Templates/MongoDbContainerFixture/MongoDbContainerFixtureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8271888Z</updatedAt>
+      <deviationsHash>2940BBB29B62AE1ABC4C8A07437010A154E5BEFC7F5F45337B1ECABD6A49C96F</deviationsHash>
+      <fileHash>210F2BC7419E199513DBA707254DC546DF0E9F02139C33DE5FA555B2B96234FC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9efd9fb0-4462-46b2-814b-52c9aa6976c0</correlationId>
+      <path>Templates/MongoDbFrameworkContainerFixture/MongoDbFrameworkContainerFixtureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8272048Z</updatedAt>
+      <deviationsHash>2F4B3476BF35D20010192D35E9327C4A3C8482F65FE2C1724D6CF4BEE1DF7268</deviationsHash>
+      <fileHash>7D433603C6BA25D62D6B5003635EC33CF23BAC18DBB36FA3E850FBEEA11E8244</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d4aff178-7a0d-417c-99fc-315657b140f5</correlationId>
@@ -86,6 +189,16 @@
       <updatedAt>2026-07-31T20:21:39.9646922Z</updatedAt>
       <deviationsHash>D02B09EB33961DD147EF80C222D735613E4B0DD8DC54C7A2B3E102F022AC253D</deviationsHash>
       <fileHash>2427A37EA885FAD32DD67B4712766F2DF4D390B70C7715FB3D6DD02D79933E23</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#82910940-c88d-4d88-810c-4d059eea25a5</correlationId>
+      <path>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8275251Z</updatedAt>
+      <deviationsHash>1B63AA564766D8A9D69CBF4645E24EA23766312CE3846E69C7B2FE2984A1E22F</deviationsHash>
+      <fileHash>1AE6CCCCEB4364D2783C3054FEC6045AB3BE316103A6A69A8544408088A591C2</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d445f76-f30e-4651-8d9b-df3a51c23390</correlationId>
@@ -139,8 +252,46 @@
       <deviationsHash>4DD25FBD39EB360FFA2EDA116CC86A413488469DE5953D87753DD57C0B12D464</deviationsHash>
       <fileHash>A4A888DAB8D03ECCB084CA51D7290D942198E38E31C7BD6D0842C34BF8927E75</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5c0dd717-a98d-49c4-8051-a73277edf999</correlationId>
+      <path>Templates/SharedContainerFixture/SharedContainerFixtureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T11:35:39.8272904Z</updatedAt>
+      <deviationsHash>4237ADCE6139372435DEEE1EC48383D785FB0FF12F10187069D6A01893CA14BA</deviationsHash>
+      <fileHash>BDB0CB3EE0D87CA0A62CA0BD3C7D721B445AC788E35A860A60FC9C84317A5363</fileHash>
+    </file>
   </files>
   <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/CONTEXT.md</path>
+      <fileHash>F7E464C6272AC2427B30F2CFBDA347FD6FD1ED26B23AFD80498AA1BEC59AB8B5</fileHash>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-05T10:28:25.6756619Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/docs/README.md</path>
+      <fileHash>8E9FF0A32D2FCD01C9663F609A78A2EC351593B49F9FF2FDD0CF04A77E8FF4B0</fileHash>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-05T10:28:25.2133306Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/Templates/ContainerHelper.cs</path>
+      <fileHash>6C9CBE35C4941581BF738E5EB8A8E00744689F55705FB8AF1253B66FE021BE2C</fileHash>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-05T10:28:24.3978121Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/Templates/EFContainerFixture/DbStrategy.cs</path>
+      <fileHash>E804D2BC0FFC5B9F090B07AB4C26F385038AC2351F53202EB94019473BC2C94C</fileHash>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-05T11:40:46.404786Z</approvedAt>
+    </customFile>
     <customFile>
       <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/Templates/ElementExtensions.cs</path>
       <fileHash>BF29659D244A83A439138EE37B0ACB102AA84A518E08C74F3B7A2C7E9C730E68</fileHash>

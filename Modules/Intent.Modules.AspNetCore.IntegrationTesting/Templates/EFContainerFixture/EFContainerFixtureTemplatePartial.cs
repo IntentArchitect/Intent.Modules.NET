@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -25,18 +26,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EFContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var dbStrategy = GetDbStrategy(outputTarget);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"EFContainerFixture", @class =>
                 {
-                    var dbStrategy = ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum() switch
-                    {
-                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => GetSqlServerStrategy(outputTarget),
-                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => GetPostgresStrategy(outputTarget),
-                        _ => throw new Exception($"Integration Testings patterns do not currently support : {ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().Value}"),
-                    };
                     AddUsing("System.Reflection");
-                    AddUsing("DotNet.Testcontainers.Builders");
-                    AddUsing("DotNet.Testcontainers.Configurations");
                     AddUsing("Microsoft.Extensions.DependencyInjection");
                     AddUsing("Microsoft.Extensions.Options");
                     foreach (var clause in dbStrategy.Usings)
@@ -47,11 +42,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                     {
                         AddNugetDependency(nuGet);
                     }
-                    @class.AddField(dbStrategy.ContainerType, "_dbContainer", f => f.PrivateReadOnly());
+                    @class.AddField(dbStrategy.FieldType, dbStrategy.FieldName, f => f.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddStatements(dbStrategy.ContainerInitialization);
+                        ctor.AddStatements(dbStrategy.FieldInitialization);
                     });
 
                     @class.AddMethod("void", "ConfigureTestServices", method =>
@@ -85,14 +80,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                         {
                             method
                                 .Async()
-                                .AddStatement("await _dbContainer.StartAsync();");
+                                .AddStatements(dbStrategy.InitializeStatements);
                         });
 
                         @class.AddMethod("Task", "DisposeAsync", method =>
                         {
                             method
                                 .Async()
-                                .AddStatement("await _dbContainer.StopAsync();");
+                                .AddStatements(dbStrategy.DisposeStatements);
                         });
                     });
                 })
@@ -128,7 +123,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                         }
 
                         var connectionStringText = (dbContextStatement as IHasCSharpStatements)?.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
-                        string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()").Replace("                               ", "            ");
+                        string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, dbStrategy.ConnectionExpression).Replace("                               ", "            ");
                         method.InsertStatements(method.Statements.IndexOf((CSharpStatement)statement), dbContextReconfigure.ConvertToStatements().ToList());
                         statement.Remove();
                     }
@@ -136,9 +131,23 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 }, 10000);
         }
 
+        private DbStrategy GetDbStrategy(IOutputTarget outputTarget)
+        {
+            var databaseProvider = ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider();
+            return databaseProvider.AsEnum() switch
+            {
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => GetSqlServerStrategy(outputTarget),
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => GetPostgresStrategy(outputTarget),
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLLite => GetSqliteStrategy(),
+                _ => throw new FriendlyException(
+                    $"Integration Testing patterns do not currently support the '{databaseProvider.Value}' database provider. " +
+                    "Change the Database Provider in Database Settings to SQL Server, PostgreSQL or SQLite, or uninstall Intent.AspNetCore.IntegrationTesting."),
+            };
+        }
+
         private DbStrategy GetPostgresStrategy(IOutputTarget outputTarget)
         {
-            var containerInitialization = @"_dbContainer = new PostgreSqlBuilder()
+            var containerInitialization = $@"{DbStrategy.ContainerFieldName} = new PostgreSqlBuilder()
         .WithImage(""postgres:14.7"")
         .WithDatabase(""db"")
         .WithUsername(""postgres"")
@@ -147,7 +156,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
         .Build();"
                 .ConvertToStatements();
 
-            return new DbStrategy(
+            return DbStrategy.ForContainer(
                 containerType: "PostgreSqlContainer ",
                 usings: new() { "Testcontainers.PostgreSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql(outputTarget) },
@@ -157,17 +166,42 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
 
         private DbStrategy GetSqlServerStrategy(IOutputTarget outputTarget)
         {
-            var containerInitialization = @"_dbContainer = new MsSqlBuilder()
+            var containerInitialization = $@"{DbStrategy.ContainerFieldName} = new MsSqlBuilder()
                 .WithImage(""mcr.microsoft.com/mssql/server:2022-latest"")
                 .WithPassword(""Strong_password_123!"")
                 .Build();"
                 .ConvertToStatements();
 
-            return new DbStrategy(
+            return DbStrategy.ForContainer(
                 containerType: "MsSqlContainer",
                 usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersMsSql(outputTarget) },
                 containerInitialization: containerInitialization
+                );
+        }
+
+        /// <summary>
+        /// SQLite runs in-process, so there is no container to start — the fixture instead owns a
+        /// <c>SqliteConnection</c> which is held open for its lifetime. An in-memory SQLite database
+        /// exists only while a connection to it is open, so the connection itself (rather than a
+        /// connection string) is what gets handed to EF Core; were EF to open and close its own
+        /// connection per operation, the schema created below would be discarded before the first test ran.
+        /// <para>
+        /// No NuGet package is declared here: <c>Microsoft.EntityFrameworkCore.Sqlite</c> is added to the
+        /// Infrastructure project by Intent.EntityFrameworkCore whenever this provider is selected, and
+        /// flows transitively to the test project through its project reference.
+        /// </para>
+        /// </summary>
+        private static DbStrategy GetSqliteStrategy()
+        {
+            var connectionInitialization = $@"{DbStrategy.ConnectionFieldName} = new SqliteConnection(""Filename=:memory:"");"
+                .ConvertToStatements();
+
+            return DbStrategy.ForConnection(
+                connectionType: "SqliteConnection",
+                usings: new() { "Microsoft.Data.Sqlite", "Microsoft.EntityFrameworkCore" },
+                nuGetPackages: new(),
+                connectionInitialization: connectionInitialization
                 );
         }
 

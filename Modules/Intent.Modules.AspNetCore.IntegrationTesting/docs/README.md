@@ -1,6 +1,6 @@
 # Intent.AspNetCore.IntegrationTesting
 
-This module adds Integration Testing for ASP.NET core applications with container support for database (MS MSQL, PostGres, CosmosDB).
+This module adds Integration Testing for ASP.NET core applications with container support for databases (MS SQL, PostGres, CosmosDB, MongoDb), plus a container-free in-memory SQLite option.
 
 ## What is Integration Testing
 
@@ -11,6 +11,8 @@ This module adds an xUnit testing project to you ASP.NET Core application which 
 This module uses `Test.containers` to spin up and host infrastructure in docker containers.
 
 For more information on Test.containers read the official [documentation](https://testcontainers.com/).
+
+The exception is `SQLite`, which runs in-process and therefore needs no container runtime at all — see [Testing against SQLite](#testing-against-sqlite).
 
 ## Module Settings
 
@@ -49,7 +51,7 @@ This module consumes your `Exposed HTTP Endpoints`, in the `Service Designer` an
 
 - Adds Integration xUnit Testing project.
 - Generates service proxies for all service end points, to use to interact with the Application under test (when `Generate Service Proxies for Testing` is enabled).
-- Add container support for `MS SQL Server`, `Postgres`, `MongoDb` and `CosmosDB`
+- Add container support for `MS SQL Server`, `Postgres`, `MongoDb` and `CosmosDB`, or a container-free in-memory `SQLite` database
 - Generates test classes for each modelled service end point (or only for those marked with the `Integration Test` stereotype, per `Integration Test Generation Mode`).
 
 ## Testing Isolation
@@ -81,6 +83,52 @@ If your application is using our `Intent.EntityFrameworkCore` module, the follow
 - Postgres
 
 If your application is using our `Intent.CosmosDB` module, the tests will be run against a dockerized CosmosDB Emulator. If your application is using our `Intent.MongoDb` module, the tests will be run against a dockerized MongoDb instance.
+
+## Testing against SQLite
+
+If your application is using our `Intent.EntityFrameworkCore` module with the `Database Provider` set to `SQLite`, the generated database fixture does **not** use a container. SQLite runs in-process, so the tests need no Docker (or other container runtime) installed — which makes this the fastest option, and the only one that works on a machine without a container runtime.
+
+The generated `EFContainerFixture` holds a `SqliteConnection` to an in-memory database open for its lifetime and hands that live connection to EF Core:
+
+```csharp
+public class EFContainerFixture
+{
+    private readonly SqliteConnection _dbConnection;
+
+    public EFContainerFixture()
+    {
+        _dbConnection = new SqliteConnection("Filename=:memory:");
+    }
+
+    public async Task InitializeAsync()
+    {
+        await _dbConnection.OpenAsync();
+    }
+
+    public void ConfigureTestServices(IServiceCollection services)
+    {
+        // ... the application's DbContext registration, re-pointed at the fixture's connection
+        services.AddDbContext<ApplicationDbContext>((sp, options) =>
+            options.UseSqlite(_dbConnection, b => b.MigrationsAssembly(/* ... */)));
+
+        // Schema Creation
+        // ...
+        context.Database.EnsureCreated();
+    }
+
+    public async Task DisposeAsync()
+    {
+        await _dbConnection.DisposeAsync();
+    }
+}
+```
+
+The connection object is passed rather than a connection string on purpose: an in-memory SQLite database exists only for as long as a connection to it is open. If EF Core were allowed to open and close its own connection per operation, the schema created by `EnsureCreated()` would be discarded before the first test ran.
+
+The `Container Isolation` setting still applies — `Container per Test Class` gives each test class a brand-new, empty in-memory database, which is considerably cheaper than spinning up a container per class.
+
+> [!IMPORTANT]
+> SQLite is not a faithful stand-in for SQL Server or PostgreSQL. Expect behavioural differences around schemas, `decimal` precision (stored as `REAL`), `DateTimeOffset`, computed columns, sequences and some constraint enforcement. Schema is created with `EnsureCreated()` rather than by running migrations, so anything expressed only in a migration (raw SQL, seed data, provider-specific DDL) will not be present. Choose SQLite when you want fast, container-free feedback; keep a container-backed provider where fidelity to production matters.
 
 ## Adding Tests
 

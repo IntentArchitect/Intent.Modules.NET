@@ -1,4 +1,5 @@
 ### Version 2.0.20
+- New Feature: Added support for `SQLite` when using `Intent.EntityFrameworkCore`. The generated database fixture runs SQLite in-process against an in-memory database, so no container runtime (e.g. Docker) is required to run the tests.
 - New Feature: Added a `integration test` skill to guide AI Agents around implementations.
 - New Feature: Added a `Generate Service Proxies for Testing` setting which controls whether the HTTP client proxies (and their supporting DTO, enum, `ProblemDetailsWithErrors` and `HttpClientRequestException` contracts) are generated into the test project.
 - New Feature: Added an `Integration Test Generation Mode` setting which controls whether test classes are scaffolded for all exposed endpoints (`all`) or only for Commands, Queries, Services and Operations explicitly marked with the new `Integration Test` stereotype (`explicit`).

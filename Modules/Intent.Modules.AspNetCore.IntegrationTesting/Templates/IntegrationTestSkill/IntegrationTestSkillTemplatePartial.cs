@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,6 +27,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
         public IntegrationTestSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
+
+            var databaseGuidance = UsesInProcessDatabase() ? SqliteDatabaseGuidance : TestcontainersDatabaseGuidance;
+
             MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($"""
 ---
@@ -35,9 +39,9 @@ template-id: {TemplateId}
 ---
 # API Integration Tests
 
-Implement integration tests that exercise the API end-to-end over HTTP, against the real application host and a real containerised database. Favor testing the observable HTTP contract, self-contained arrangement through the API, and deterministic isolation over shortcuts that couple tests to implementation details.
+Implement integration tests that exercise the API end-to-end over HTTP, against the real application host and a real database. Favor testing the observable HTTP contract, self-contained arrangement through the API, and deterministic isolation over shortcuts that couple tests to implementation details.
 
-The generated test project typically already contains the host plumbing: a `WebApplicationFactory` subclass, a container-backed database fixture, a shared collection fixture, a `BaseIntegrationTest` exposing `CreateClient()`, and one empty test class per endpoint (marked for merge). Populate those test classes in place; add reusable helpers as new, non-generated files.
+The generated test project typically already contains the host plumbing: a `WebApplicationFactory` subclass, a database fixture, a shared collection fixture, a `BaseIntegrationTest` exposing `CreateClient()`, and one empty test class per endpoint (marked for merge). Populate those test classes in place; add reusable helpers as new, non-generated files.
 
 ## Core rules
 
@@ -74,7 +78,7 @@ For each endpoint, extract and note:
 
 ## Test isolation guidance
 
-The container database is normally shared across the whole test collection and is NOT reset between tests, so tests must not assume an empty or fixed dataset.
+The test database is normally shared across the whole test collection and is NOT reset between tests, so tests must not assume an empty or fixed dataset.
 
 - Tag every entity a test creates with a unique, collision-free token (e.g. a short GUID-derived string) embedded in a searchable field.
 - Scope all queries and assertions to that token (filter list endpoints by it; assert `Single`/`Contains` on it). Never assert on total counts.
@@ -100,11 +104,7 @@ While writing the tests you will discover real defects and surprises. Do not sil
 - For preconditions/assertions the API cannot express, resolve a scoped service (e.g. the `DbContext`) from the factory's `Services` inside a `using` scope, exactly as a real request would. Detach entities before returning them if lazy-loading proxies are in play.
 - Confirm the auth posture: if endpoints are anonymous, no token is needed; if `[Authorize]` (or a fallback policy) applies, arrange an authenticated client and add unauthorized/forbidden cases.
 
-## Testcontainers database guidance
-
-- The database fixture (container image, credentials, schema creation) is generated — do not re-implement it. Ensure the container runtime (e.g. Docker) is available before running.
-- Test parallelization is typically disabled because one database is shared; keep it that way.
-- *(Swap this section if the solution uses a different container/database or an in-memory provider.)*
+{databaseGuidance}
 
 ## Validation guidance
 
@@ -136,7 +136,7 @@ Produce concrete test code that:
 - fills in the empty per-endpoint test classes with a happy path and the relevant edge cases
 - adds only the missing, reusable harness/helpers as new files
 - arranges preconditions through the API and isolates data with a unique token
-- compiles, and passes when run against the container
+- compiles, and passes when run against the generated database fixture
 - is accompanied by a findings list for any real defects discovered
 
 ## Review checklist
@@ -153,6 +153,37 @@ Before finishing, check that:
 
 """);
         }
+
+        /// <summary>
+        /// True when the EF database fixture runs the database in-process rather than in a container,
+        /// which changes what the agent needs from its environment (no container runtime) and what
+        /// fidelity it can expect from the database.
+        /// </summary>
+        private bool UsesInProcessDatabase()
+        {
+            return ExecutionContext.InstalledModules.Any(p => p.ModuleId == EntityFrameworkCoreModuleId)
+                   && ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsSQLLite();
+        }
+
+        private const string EntityFrameworkCoreModuleId = "Intent.EntityFrameworkCore";
+
+        private const string TestcontainersDatabaseGuidance = """
+## Testcontainers database guidance
+
+- The database fixture (container image, credentials, schema creation) is generated — do not re-implement it. Ensure the container runtime (e.g. Docker) is available before running.
+- Test parallelization is typically disabled because one database is shared; keep it that way.
+- *(Swap this section if the solution uses a different container/database or an in-memory provider.)*
+""";
+
+        private const string SqliteDatabaseGuidance = """
+## SQLite database guidance
+
+- The database fixture is generated — do not re-implement it. It runs SQLite **in-process, in memory**, so there is NO container runtime to start: do not install, launch, or wait on Docker, and do not report a missing container runtime as the cause of a failure.
+- The fixture owns a `SqliteConnection` that is held open for its lifetime, and hands that live connection to EF Core. An in-memory SQLite database exists only while a connection to it is open. Never close, dispose, or replace that connection from a test, and never re-register the `DbContext` with a connection string of your own — either will silently drop the schema and every subsequent query fails with "no such table".
+- Schema is created via `EnsureCreated()`, NOT by running migrations. Anything expressed only in a migration (raw SQL, seed scripts, provider-specific DDL) will not be present.
+- Test parallelization is typically disabled because one database is shared; keep it that way.
+- SQLite is not a faithful stand-in for SQL Server or PostgreSQL. Expect real behavioural differences in schemas, `decimal` precision (SQLite stores it as `REAL`, so comparisons and ordering can drift), `DateTimeOffset`, computed columns, sequences, and some FK/constraint enforcement. When a test fails in a way that looks like a provider quirk rather than an API defect, say so in findings instead of contorting the API or the test to match SQLite.
+""";
 
         [IntentManaged(Mode.Fully)]
         public override IMarkdownFile MarkdownFile { get; }
