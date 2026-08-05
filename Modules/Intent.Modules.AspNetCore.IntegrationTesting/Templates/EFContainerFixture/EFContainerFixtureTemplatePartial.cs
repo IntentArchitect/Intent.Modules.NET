@@ -26,11 +26,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EFContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var dbStrategy = GetDbStrategy(outputTarget);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"EFContainerFixture", @class =>
                 {
+                    var dbStrategy = GetDbStrategy(outputTarget);
+
                     AddUsing("System.Reflection");
                     AddUsing("Microsoft.Extensions.DependencyInjection");
                     AddUsing("Microsoft.Extensions.Options");
@@ -93,6 +94,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 })
                 .OnBuild(f =>
                 {
+                    var dbStrategy = GetDbStrategy(outputTarget);
+
                     var @class = f.TypeDeclarations.First();
                     var method = @class.FindMethod("ConfigureTestServices");
                     var statement = method.FindStatement(s => s.HasMetadata("db-context-reconfigure"));
