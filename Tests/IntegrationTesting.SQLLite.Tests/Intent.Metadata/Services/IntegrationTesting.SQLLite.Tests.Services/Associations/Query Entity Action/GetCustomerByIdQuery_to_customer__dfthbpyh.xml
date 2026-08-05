@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="801fcf05-b806-427b-a1d5-57738ae09df1">
+  <sourceEnd id="d1b15c1a-38b7-4d71-af26-847d5aee9afa" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="9237f902-5833-4e37-acec-f192c8e0be44">
+      <typeId>b10daa94-663d-4322-9a30-519a3fe83230</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.SQLLite.Tests.Services</typePackageName>
+      <typePackageId>4f2b4b3c-6164-444c-b78c-bb26782864b7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="801fcf05-b806-427b-a1d5-57738ae09df1" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="56c34e5e-b6d1-4ed8-9662-7be91de346af">
+      <typeId>e388554b-282d-40fb-8c26-892198d3ca9a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.SQLLite.Tests.Domain</typePackageName>
+      <typePackageId>0e5bab0b-e21a-4198-a350-d959bb15f061</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

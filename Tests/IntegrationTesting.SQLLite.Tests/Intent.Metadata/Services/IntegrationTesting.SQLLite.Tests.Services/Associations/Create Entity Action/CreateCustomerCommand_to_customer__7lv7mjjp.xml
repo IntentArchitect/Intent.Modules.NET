@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c8a3146e-8618-4e17-aaf7-ac1c37661145">
+  <sourceEnd id="afbff675-d1f1-4893-91f5-89a1e2b2bcb9" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Customers.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="2d196519-b7ab-45d8-a1c6-d04c300bf498">
+      <typeId>d662cfcd-ef05-4c57-97a6-71a35226f97a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.SQLLite.Tests.Services</typePackageName>
+      <typePackageId>4f2b4b3c-6164-444c-b78c-bb26782864b7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c8a3146e-8618-4e17-aaf7-ac1c37661145" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>customer</name>
+    <display>[create] customer: Customer</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3fb84c39-0dda-4a7b-87de-41faa0a6e9fe">
+      <typeId>e388554b-282d-40fb-8c26-892198d3ca9a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.SQLLite.Tests.Domain</typePackageName>
+      <typePackageId>0e5bab0b-e21a-4198-a350-d959bb15f061</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d662cfcd-ef05-4c57-97a6-71a35226f97a</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/CreateCustomerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1844928Z</updatedAt>
+      <deviationsHash>CF87F2F738206C3C49292B6F7E657CA1772071FBB9FDB9F363E61B2E49DE3FA5</deviationsHash>
+      <fileHash>541E121716B71E2282DE6D162FEDA5489BF3EE93514E456E846BF22169860FC9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d0d98454-572b-49f2-9911-8d9c1834b389</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/DeleteCustomerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1845007Z</updatedAt>
+      <deviationsHash>4015AFBA6D357C935AE91153207045C1510B197815948E03E56ECCFBC0B242EB</deviationsHash>
+      <fileHash>C0DAB15CBB1E6DE3C53F323C6AB93FD0CBDAD25B13973D4817996C776FFDD7DC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#b10daa94-663d-4322-9a30-519a3fe83230</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomerByIdTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1845209Z</updatedAt>
+      <deviationsHash>2C722BB863B8B1B244FB316B0806B59EB6AA5BB351ECDFB6E27181450FEE27B9</deviationsHash>
+      <fileHash>481DF15711B1A39B68457EF22D057BE3E2723EB834EA4DB7BA5BDCCCE215BD70</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#0de9eac5-82fa-4226-9758-f79e63fb2099</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomersTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1845276Z</updatedAt>
+      <deviationsHash>5788787062A81FA2242901BCF8E4C87832DB09FA3B26C5FA5FD23E53E6B6C762</deviationsHash>
+      <fileHash>CCD0CBFBD5CC4B77CDA10A972D0711740EC913884E56C720CB441A4FB0CFF4C7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#389850ac-8664-4866-bd67-d7b21a0308a6</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/UpdateCustomerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1845133Z</updatedAt>
+      <deviationsHash>8162989B862B77389385886C99ECBC179C79DEE326D506036F58120E2257527B</deviationsHash>
+      <fileHash>14E2D48D05FB7C28AA6DDAD396CCD543A005507F82A2EE8ECE6D9EA81336E50C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#d662cfcd-ef05-4c57-97a6-71a35226f97a</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1844144Z</updatedAt>
+      <deviationsHash>0B37353CE0EB9D7A926B8E02743F3377AC25FE98FFB927E61A6386160714AE99</deviationsHash>
+      <fileHash>4FC8C234344A4C4B37D89C10D036209741A55F5BD7A739064C6B95AF17E7F00A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#d0d98454-572b-49f2-9911-8d9c1834b389</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.184422Z</updatedAt>
+      <deviationsHash>9AF86BBECA9B6BE4F2CC57EE1A4919E7012E0ACBCC2ABA0DF002013274215737</deviationsHash>
+      <fileHash>E7AFDE5F6054180BEF88A7235F8D11F40874087901FB3D847061B33521764890</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#b10daa94-663d-4322-9a30-519a3fe83230</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1844463Z</updatedAt>
+      <deviationsHash>3004911F9D42642822B08E9F66B0BC74FBEC8BEB3D9B168B90A7FAAA50560CFE</deviationsHash>
+      <fileHash>51B8700A132C031C647213144D851139627C192E8C2142BB987A1FC2F9326356</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#0de9eac5-82fa-4226-9758-f79e63fb2099</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1844524Z</updatedAt>
+      <deviationsHash>2FCA2A8C696DBE677FE845863B8503B0894F71361D1C37EDD955E87684D03257</deviationsHash>
+      <fileHash>0C04F1736E07A395DC7C269A6DDFE367562AAAA5C4691537C021E4272DCD1D70</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#389850ac-8664-4866-bd67-d7b21a0308a6</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-05T13:38:51.1844281Z</updatedAt>
+      <deviationsHash>900144CA1E90199974E9B448BE54681047BD08308B54C6644C22E0A90C840BAF</deviationsHash>
+      <fileHash>039402A972F48075DD75162776FFC0F84A1C9541777E2E84F3D2BA75BB8879E9</fileHash>
+    </file>
+  </files>
+</deviationsLog>

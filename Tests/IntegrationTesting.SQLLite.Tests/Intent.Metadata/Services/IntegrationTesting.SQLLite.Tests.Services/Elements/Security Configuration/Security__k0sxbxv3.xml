@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04c059f6-c8b3-43ae-899e-275b8e497604" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f2b4b3c-6164-444c-b78c-bb26782864b7</parentFolderId>
+  <packageId>4f2b4b3c-6164-444c-b78c-bb26782864b7</packageId>
+  <packageName>IntegrationTesting.SQLLite.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
