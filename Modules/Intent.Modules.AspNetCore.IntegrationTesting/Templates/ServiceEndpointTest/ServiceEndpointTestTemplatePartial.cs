@@ -8,6 +8,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientRequestException;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTestSkill;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -59,7 +60,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile.GetConfig()
+                    .WithAISummary("Integration testing class for the " + Model.Name + " service end point.")
+                    .WithAIContext(
+                                $"""
+                                Use the `{IntegrationTestSkillTemplate.SkillName}` skill when modifying this handler.
+                                """);
+            ;
         }
 
         [IntentManaged(Mode.Fully)]

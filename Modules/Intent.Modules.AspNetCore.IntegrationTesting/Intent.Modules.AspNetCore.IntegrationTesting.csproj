@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.1" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.4" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.5.9" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.7.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
@@ -24,9 +24,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.Persistence.SDK" Version="1.0.2" />
+    <PackageReference Include="Intent.Persistence.SDK" Version="1.0.3" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
   </ItemGroup>
 
   <ItemGroup>

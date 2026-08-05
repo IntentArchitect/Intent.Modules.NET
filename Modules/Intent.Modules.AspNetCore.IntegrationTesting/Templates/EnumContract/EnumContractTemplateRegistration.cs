@@ -5,6 +5,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Types.Api;
@@ -37,6 +38,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                return Enumerable.Empty<EnumModel>();
+            }
+
             return _metadataManager.GetServicesAsProxyModels(application).SelectMany(RegistrationHelper.GetReferencedEnumModels).Distinct()
                 .ToList();
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -34,7 +35,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
 
         public override IEnumerable<IHttpEndpointModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(s => s.Endpoints);
+            var generationMode = application.Settings.GetIntegrationTestSettings().IntegrationTestGenerationMode().AsEnum();
+
+            return _metadataManager.GetServicesAsProxyModels(application)
+                .SelectMany(s => s.Endpoints)
+                .Where(e => generationMode == IntegrationTestSettings.IntegrationTestGenerationModeOptionsEnum.All ||
+                    e.InternalElement.HasIntegrationTestStereotype());
         }
     }
 }

@@ -1,3 +1,9 @@
+### Version 2.0.20
+- New Feature: Added a `integration test` skill to guide AI Agents around implementations.
+- New Feature: Added a `Generate Service Proxies for Testing` setting which controls whether the HTTP client proxies (and their supporting DTO, enum, `ProblemDetailsWithErrors` and `HttpClientRequestException` contracts) are generated into the test project.
+- New Feature: Added an `Integration Test Generation Mode` setting which controls whether test classes are scaffolded for all exposed endpoints (`all`) or only for Commands, Queries, Services and Operations explicitly marked with the new `Integration Test` stereotype (`explicit`).
+- Improvement: Existing applications upgrading to this version are migrated to `Generate Service Proxies for Testing = true` and `Integration Test Generation Mode = all` to preserve their previous behaviour.
+
 ### Version 2.0.19
 
 - Improvement: Updated NuGet package versions.
@@ -38,13 +44,12 @@
 - Improvement: Updated NuGet package versions.
 - Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.
 
-
 ### Version 2.0.10
 
 - Improvement: Updated NuGet package versions.
 - Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
 - Improvement: Updated referenced projects.
- 
+
 ### Version 2.0.9
 
 - Improvement: Service proxies will now generate within any folders they are modelled within.
@@ -69,7 +74,6 @@
 
 ### Version 2.0.4
 
-
 - Improvement: Adjusted text namespaces to align with folders, which were causing xunit issues in some scenarios.
 - Improvement: Updated NuGet package versions.
 
@@ -88,13 +92,11 @@
 
 ### Version 2.0.0
 
-- Improvement: Upgraded to XUnit v3. 
+- Improvement: Upgraded to XUnit v3.
 
 > ⚠️ **NOTE**
 >
-> This module update may cause a compilation breaks if you are using xUnit v2 features which are not supported on v3.
-> Any generated code will be migrated to be v3 compliant.
-> For details on what the breaking changes are check out the [XUnit documentation on migrating from v2 to v3](https://xunit.net/docs/getting-started/v3/migration).
+> This module update may cause a compilation breaks if you are using xUnit v2 features which are not supported on v3. Any generated code will be migrated to be v3 compliant. For details on what the breaking changes are check out the [XUnit documentation on migrating from v2 to v3](https://xunit.net/docs/getting-started/v3/migration).
 
 - Fixed: If the `HTTP endpoint` is versioned, the version number is added to the test class and filename to avoid naming conflicts.
 

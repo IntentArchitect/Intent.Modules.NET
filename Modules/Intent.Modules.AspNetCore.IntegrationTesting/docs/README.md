@@ -1,4 +1,4 @@
-﻿# Intent.AspNetCore.IntegrationTesting
+# Intent.AspNetCore.IntegrationTesting
 
 This module adds Integration Testing for ASP.NET core applications with container support for database (MS MSQL, PostGres, CosmosDB).
 
@@ -25,14 +25,32 @@ This setting determines the default container isolation level for your test.
 - `Shared Container`, the tests share a container, i.e. 1 database container is spun up and all Test Class run against this container
 - `Container per Test Class`, Each Test Class spins up a new container to execute it's tests against.
 
+### Generate Service Proxies for Testing
+
+This setting controls whether the strongly-typed HTTP client proxies (and their supporting DTO, enum, `ProblemDetailsWithErrors` and `HttpClientRequestException` types) are generated into the test project.
+
+- `On`, a proxy interface and HTTP client is generated per service, along with the DTO/enum contracts they need. Use these to invoke the application under test in a strongly-typed way.
+- `Off` (default for new installs), no proxies are generated. Tests interact with the application under test using the raw `HttpClient` returned by `CreateClient()`.
+
+Applications that had this module installed before version `2.0.20` are automatically pinned to `On` by a migration, preserving the previous behaviour.
+
+### Integration Test Generation Mode
+
+This setting controls which modelled endpoints get a scaffolded test class.
+
+- `Generate for all Commands, Queries and Service Operations` (`all`), a test class is generated for every exposed HTTP endpoint.
+- `Generate only when explicitly marked with Integration Test stereotype` (`explicit`), a test class is only generated for a Command, Query, Service or Operation that has the `Integration Test` stereotype applied in the Services designer. Applying the stereotype to a Service opts all of its operations in.
+
+Applications that had this module installed before version `2.0.20` are automatically pinned to `all` by a migration, preserving the previous behaviour.
+
 ## What's in this module?
 
 This module consumes your `Exposed HTTP Endpoints`, in the `Service Designer` and generates the following implementation:-
 
 - Adds Integration xUnit Testing project.
-- Generates service proxies for all service end points, to use to interact with the Application under test.
+- Generates service proxies for all service end points, to use to interact with the Application under test (when `Generate Service Proxies for Testing` is enabled).
 - Add container support for `MS SQL Server`, `Postgres`, `MongoDb` and `CosmosDB`
-- Generates test classes for each modelled service end point.
+- Generates test classes for each modelled service end point (or only for those marked with the `Integration Test` stereotype, per `Integration Test Generation Mode`).
 
 ## Testing Isolation
 
@@ -45,15 +63,14 @@ The default isolation can be configured with the following implications :
 If you are running `Shared Container`, you can set up specific Test Class's to require a Clean Container. This hybrid model can give you the best of both worlds. To setup such a test ensure the Test Class implements `IClassFixture<IntegrationTestWebAppFactory>` and remove the `Collection("SharedContainer")` attribute.
 
 ```csharp
-
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class IsolatedTests : BaseIntegrationTest, IClassFixture<IntegrationTestWebAppFactory>
+[IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+public class IsolatedTests : BaseIntegrationTest, IClassFixture<IntegrationTestWebAppFactory>
+{
+    public CustomerServiceTests(IntegrationTestWebAppFactory factory) : base(factory)
     {
-        public CustomerServiceTests(IntegrationTestWebAppFactory factory) : base(factory)
-        {
-        }
-        ...
     }
+    ...
+}
 ```
 
 ## Testing against containerized data stores
@@ -63,16 +80,13 @@ If your application is using our `Intent.EntityFrameworkCore` module, the follow
 - SQL Server
 - Postgres
 
-If your application is using our `Intent.CosmosDB` module, the tests will be run against a dockerized CosmosDB Emulator.
-If your application is using our `Intent.MongoDb` module, the tests will be run against a dockerized MongoDb instance.
+If your application is using our `Intent.CosmosDB` module, the tests will be run against a dockerized CosmosDB Emulator. If your application is using our `Intent.MongoDb` module, the tests will be run against a dockerized MongoDb instance.
 
 ## Adding Tests
 
-You can then simply add your integration tests to the test classes as required.
-Our `Intent.AspNetCore.IntegrationTesting.CRUD` module can be used to generate integration test implementations for CRUD orientated services.
+You can then simply add your integration tests to the test classes as required. Our `Intent.AspNetCore.IntegrationTesting.CRUD` module can be used to generate integration test implementations for CRUD orientated services.
 
 ```csharp
-
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
     public class MyCustomEndpointTests : BaseIntegrationTest

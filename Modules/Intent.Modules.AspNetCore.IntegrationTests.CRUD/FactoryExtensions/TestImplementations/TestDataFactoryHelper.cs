@@ -90,7 +90,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         }
 
                         method
-                            .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
+                            .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
                             .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();");
 
                         string parameters = $"command";

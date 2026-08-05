@@ -1,3 +1,8 @@
+### Version 1.0.21
+
+- Improvement: The Software Factory now fails with a clear error when the `Intent.AspNetCore.IntegrationTesting` module's `Generate Service Proxies for Testing` setting is off, since this module's tests are implemented against those proxies.
+- Improvement: Test implementations are now skipped for endpoints that have no generated test class, so this module works with `Integration Test Generation Mode` set to `explicit`.
+
 ### Version 1.0.20
 
 - Fixed: Minimum client version.

@@ -3,5 +3,6 @@
   <files>
     <file relativePath="content/static-content/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.AspNetCore.IntegrationTesting/content/static-content/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

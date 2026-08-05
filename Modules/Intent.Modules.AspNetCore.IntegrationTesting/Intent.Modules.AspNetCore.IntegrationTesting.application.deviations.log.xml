@@ -45,7 +45,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:03:28.281203Z</approvedAt>
       <deviationsHash>D9C2FD2A71D6339DFEF2068474FA6474054089252394B87F289716943C351FE2</deviationsHash>
-      <fileHash>E86DF6F30E1C1618513B68DE44B4359E793787E6F602DDA519677CD2DEAAD0E7</fileHash>
+      <fileHash>99BF60B5DBA5EBDA4C701C1AE7ED470394D072D78682D49639206A20A24E9633</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a4302909-1646-4550-96ae-ae2028a5b82b</correlationId>
@@ -111,7 +111,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:03:28.2970264Z</approvedAt>
       <deviationsHash>88853A6AEB487AA6BFDF7B2A9C84C1C6DB81722F9EB7E213863F4A057D4F0066</deviationsHash>
-      <fileHash>64E8580798B1A94C823BE5AC4889721F4B61934FBD153FC20CCA31FAD638616E</fileHash>
+      <fileHash>C1900993A2D0951D0D4637E325545618202E33283508398B73179F9320003B68</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e0586df8-b1e3-4f5d-b2f1-3632fdd9fcd3</correlationId>
@@ -124,7 +124,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:03:28.2930385Z</approvedAt>
       <deviationsHash>759645E2C00BBD30803FC611836F4BE40EB922D2B143945A7C1DBE3A21CE190F</deviationsHash>
-      <fileHash>36D7CF1D4969A282E6D013FC5EEEA499118142B64CBE75D145864CE924D76494</fileHash>
+      <fileHash>570E620500A650FF3864DB81375116A53ACAF297ABDD415001900D5FEDF3AEFF</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e0586df8-b1e3-4f5d-b2f1-3632fdd9fcd3</correlationId>
@@ -137,7 +137,16 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:03:28.2951787Z</approvedAt>
       <deviationsHash>4DD25FBD39EB360FFA2EDA116CC86A413488469DE5953D87753DD57C0B12D464</deviationsHash>
-      <fileHash>E3F2AFCCF0A354037698E4026B1F643EAC0738AB53FF88D2B5C73C995315F49D</fileHash>
+      <fileHash>A4A888DAB8D03ECCB084CA51D7290D942198E38E31C7BD6D0842C34BF8927E75</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/Templates/ElementExtensions.cs</path>
+      <fileHash>BF29659D244A83A439138EE37B0ACB102AA84A518E08C74F3B7A2C7E9C730E68</fileHash>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-04T13:29:39.5458757Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>
