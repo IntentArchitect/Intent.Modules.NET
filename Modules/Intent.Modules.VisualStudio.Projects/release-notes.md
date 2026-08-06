@@ -1,6 +1,7 @@
 ### Version 4.1.8
 
 - Fixed: When a Root Folder's `Relative Location` shifted the output root, static files anchored directly to the Root Folder (rather than to a Project or Solution Folder) - for example loose files dropped outside the VS Solution - stayed at the old, unshifted location instead of moving with everything else, producing duplicate/orphaned files. The Root Folder's own output target now shifts along with the rest of the tree.
+- Fixed: `AddFrameworkDependency`, `AddDependency`, `AddReference`, `AddImplicitUsing`, and similar `Metadata`-backed methods silently lost their write when called from a template constructor, since `InitializeVSMetadata` reset those collections afterward. The reset now runs earlier (`BeforeTemplateRegistrations`), so these methods are safe to call from a constructor.
 
 ### Version 4.1.7
 

@@ -1,3 +1,8 @@
+### Version 1.0.2
+
+- Fixed: The generated `using NServiceBus;` was nondeterministically stripped or kept depending on whether `obj`/`bin` existed. NServiceBus now registers itself as an implicit using directly, so generation is consistent regardless of build state.
+
+
 ### Version 1.0.1
 
 - Improvement: Shortened and clarified the Module Settings hints for `Recoverability Policy`, `Persistence`, `Enable Outbox`, `Enable Audit Queue`, and `Enable Instance Identification`.
