@@ -20,7 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.10" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.CodebaseStructure" Version="1.0.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.2">
       <PrivateAssets>all</PrivateAssets>
