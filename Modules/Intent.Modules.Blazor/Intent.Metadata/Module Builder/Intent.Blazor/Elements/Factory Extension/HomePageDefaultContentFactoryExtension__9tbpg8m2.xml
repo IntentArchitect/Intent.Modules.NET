@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fd4c0d8e-c164-4923-8bcd-c6869fd2a175" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Seeds the once-off default Home page content (hero + bento grid) and its companion Home.razor.css when the Home component is first generated. Stands down when a component library module (e.g. MudBlazor) is installed.</comment>
+  <name>HomePageDefaultContentFactoryExtension</name>
+  <display>HomePageDefaultContentFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

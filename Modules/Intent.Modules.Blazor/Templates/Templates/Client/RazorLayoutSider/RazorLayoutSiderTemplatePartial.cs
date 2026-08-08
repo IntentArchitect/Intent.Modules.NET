@@ -34,25 +34,50 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSider
             RazorFile = IRazorFile.Create(this, $"{Model.InternalElement.ParentElement.Name}{Model.Name}")
                 .Configure(file =>
                 {
-                    // TODO: This should be moved into Mudblazor module to seperate completely
-                    // right now, dependency between the two
-                    file.AddHtmlElement("nav", drawer =>
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                     {
-                        drawer.AddAttribute("class", "ux-nav-drawer");
-                        //drawer.AddAttribute("Open", "DrawerOpen")
-                        //.AddAttribute("OpenChanged", "DrawerOpenChanged")
-                        //.AddAttribute("ClipMode", "DrawerClipMode.Always");
-
-                        drawer.AddHtmlElement("MudNavMenu", menu =>
+                        file.AddHtmlElement("nav", drawer =>
                         {
-                            menu.AddHtmlElement("MudNavLink", link =>
+                            drawer.AddAttribute("class", "ux-nav-drawer");
+                            //drawer.AddAttribute("Open", "DrawerOpen")
+                            //.AddAttribute("OpenChanged", "DrawerOpenChanged")
+                            //.AddAttribute("ClipMode", "DrawerClipMode.Always");
+
+                            drawer.AddHtmlElement("MudNavMenu", menu =>
                             {
-                                link.AddAttribute("Href", "/")
-                                    .AddAttribute("Match", "NavLinkMatch.All")
-                                    .WithText("Home");
+                                menu.AddHtmlElement("MudNavLink", link =>
+                                {
+                                    link.AddAttribute("Href", "/")
+                                        .AddAttribute("Match", "NavLinkMatch.All")
+                                        .WithText("Home");
+                                });
                             });
                         });
-                    });
+                    }
+                    else
+                    {
+                        file.AddHtmlElement("nav", drawer =>
+                        {
+                            drawer.AddAttribute("class", "ux-nav-drawer");
+
+                            drawer.AddHtmlElement("ul", list =>
+                            {
+                                list.AddAttribute("class", "nav flex-column");
+
+                                list.AddHtmlElement("li", item =>
+                                {
+                                    item.AddAttribute("class", "nav-item");
+                                    item.AddHtmlElement("NavLink", link =>
+                                    {
+                                        link.AddAttribute("class", "nav-link")
+                                            .AddAttribute("href", "/")
+                                            .AddAttribute("Match", "NavLinkMatch.All")
+                                            .WithText("Home");
+                                    });
+                                });
+                            });
+                        });
+                    }
                 });
         }
 

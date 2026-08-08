@@ -1,137 +1,130 @@
 @using UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
 @using UI.AI.Samples.Domain
-<MudDialog>
-    <TitleContent>
-        <MudText Typo="Typo.h6">
-            Edit Customer
-        </MudText>
-    </TitleContent>
-    <DialogContent>
-        <MudStack Spacing="2" Class="pa-2">
-            @if (Model == null)
-            {
-                <MudProgressCircular Size="Size.Medium" Indeterminate/>
-            }
-            else
-            {
-                <MudForm @ref="_form">
-                    <MudStack Spacing="2">
-                        <MudStack Row Spacing="2">
-                            <MudTextField Label="First Name"
-                                          @bind-Value="Model.Name"
-                                          For="@(() => Model.Name)"
-                                          Required="true"
-                                          Immediate
-                                          Variant="Variant.Text" />
-                            <MudTextField Label="Surname"
-                                          @bind-Value="Model.Surname"
-                                          For="@(() => Model.Surname)"
-                                          Required="true"
-                                          Immediate
-                                          Variant="Variant.Text" />
-                        </MudStack>
-                        <MudTextField Label="Email"
-                                      @bind-Value="Model.Email"
-                                      For="@(() => Model.Email)"
-                                      Required="true"
-                                      Immediate
-                                      Variant="Variant.Text"
-                                      Validation="@((string? v) => string.IsNullOrWhiteSpace(v) ? new[] { "Email is required" } : !v.Contains("@") ? new[] { "Enter a valid email address" } : Array.Empty<string>())" />
-                        <MudSwitch T="bool" @bind-Checked="Model.IsActive" Color="Color.Primary">Active</MudSwitch>
-                        <MudPaper Elevation="1" Class="pa-2 my-2">
-                            <MudText Typo="Typo.subtitle2" Class="mb-1">Preferences</MudText>
-                            <MudStack Row Spacing="2">
-                                <MudSwitch T="bool" @bind-Checked="Model.Preference.NewsLetter" Color="Color.Primary">Newsletter</MudSwitch>
-                                <MudSwitch T="bool" @bind-Checked="Model.Preference.Specials" Color="Color.Secondary">Specials</MudSwitch>
-                            </MudStack>
-                        </MudPaper>
+
+<div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Customer</h5>
+                <button type="button" class="btn-icon" aria-label="Close" @onclick="OnCancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                @if (Model == null)
+                {
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status" aria-hidden="true"></div>
+                    </div>
+                }
+                else
+                {
+                    <EditForm Model="Model">
+                        <DataAnnotationsValidator />
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <label class="form-label">First Name</label>
+                                <InputText class="form-control" @bind-Value="Model.Name" />
+                                <ValidationMessage For="@(() => Model.Name)" />
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Surname</label>
+                                <InputText class="form-control" @bind-Value="Model.Surname" />
+                                <ValidationMessage For="@(() => Model.Surname)" />
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label class="form-label">Email</label>
+                            <InputText class="form-control" @bind-Value="Model.Email" />
+                            <ValidationMessage For="@(() => Model.Email)" />
+                        </div>
+                        <div class="form-check form-switch mt-2">
+                            <InputCheckbox class="form-check-input" @bind-Value="Model.IsActive" />
+                            <label class="form-check-label">Active</label>
+                        </div>
+                        <div class="ux-inner-panel p-2 my-2">
+                            <div class="fw-semibold mb-1">Preferences</div>
+                            <div class="d-flex gap-3">
+                                <div class="form-check form-switch">
+                                    <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
+                                    <label class="form-check-label">Newsletter</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.Specials" />
+                                    <label class="form-check-label">Specials</label>
+                                </div>
+                            </div>
+                        </div>
                         @if (Model.Loyalty != null)
                         {
-                            <MudPaper Elevation="1" Class="pa-2 my-2">
-                                <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
-                                    <MudText Typo="Typo.subtitle2" Class="mb-1">Loyalty</MudText>
-                                    <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@(() => RemoveLoyalty())" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small">Remove</MudButton>
-                                </MudStack>
-                                <MudStack Row Spacing="2">
-                                    <MudTextField Label="Loyalty No"
-                                                  @bind-Value="Model.Loyalty.LoyaltyNo"
-                                                  For="@(() => Model.Loyalty.LoyaltyNo)"
-                                                  Immediate
-                                                  Variant="Variant.Text"/>
-                                    <MudNumericField @bind-Value="Model.Loyalty.Points"
-                                                    Label="Points"
-                                                    For="@(() => Model.Loyalty.Points)"
-                                                    Immediate/>
-                                </MudStack>
-                            </MudPaper>
+                            <div class="ux-inner-panel p-2 my-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="fw-semibold mb-1">Loyalty</div>
+                                    <button type="button" class="btn btn-outline-danger" @onclick="RemoveLoyalty">Remove</button>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <label class="form-label">Loyalty No</label>
+                                        <InputText class="form-control" @bind-Value="Model.Loyalty.LoyaltyNo" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">Points</label>
+                                        <InputNumber class="form-control" @bind-Value="Model.Loyalty.Points" />
+                                    </div>
+                                </div>
+                            </div>
                         }
                         else
                         {
-                            <MudButton Color="Color.Primary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Add" OnClick="@(() => AddLoyalty())">
-                                Add Loyalty
-                            </MudButton>
+                            <button type="button" class="btn btn-outline-primary mt-2" @onclick="AddLoyalty">Add Loyalty</button>
                         }
-                        <MudPaper Elevation="1" Class="pa-2 my-2">
-                            <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
-                                <MudText Typo="Typo.subtitle2" Class="mb-1">Addresses</MudText>
-                                <MudButton Color="Color.Primary" Variant="Variant.Text" OnClick="@(() => AddAddress())" StartIcon="@Icons.Material.Filled.Add" Size="Size.Small">Add Address</MudButton>
-                            </MudStack>
-                            <MudTable T="UpdateCustomerCommandAddressesModel"
-                                      Items="@Model.Addresses"
-                                      Dense="true"
-                                      Hover="true"
-                                      Elevation="0">
-                                <HeaderContent>
-                                    <MudTh>Line 1</MudTh>
-                                    <MudTh>Line 2</MudTh>
-                                    <MudTh>City</MudTh>
-                                    <MudTh>Postal</MudTh>
-                                    <MudTh>Type</MudTh>
-                                    <MudTh></MudTh>
-                                </HeaderContent>
-                                <RowTemplate>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.Line1" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.Line2" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.City" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.Postal" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudSelect T="AddressType" @bind-Value="context.AddressType" Dense Class="pa-0">
-                                            <MudSelectItem T="AddressType" Value="@AddressType.Deliver">Delivery</MudSelectItem>
-                                            <MudSelectItem T="AddressType" Value="@AddressType.Billing">Billing</MudSelectItem>
-                                        </MudSelect>
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => RemoveAddress(context))" Size="Size.Small" />
-                                    </MudTd>
-                                </RowTemplate>
-                            </MudTable>
-                            <MudText Class="mt-1" Color="Color.Error" Typo="Typo.caption" Style="min-height:20px">@(_showAtLeastOneDeliveryMessage ? "At least one delivery address is required." : string.Empty)</MudText>
-                        </MudPaper>
-                    </MudStack>
-                </MudForm>
-            }
-        </MudStack>
-    </DialogContent>
-    <DialogActions>
-        <MudButton Color="Color.Secondary"
-                   Variant="Variant.Outlined"
-                   OnClick="@OnCancel"
-                   Disabled="_isSaving">
-            Cancel
-        </MudButton>
-        <MudButton Color="Color.Primary"
-                   Variant="Variant.Filled"
-                   OnClick="@OnSubmit"
-                   Disabled="_isSaving || Model == null">
-            Save
-        </MudButton>
-    </DialogActions>
-</MudDialog>
+                        <div class="ux-inner-panel p-2 my-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="fw-semibold mb-1">Addresses</div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="AddAddress">Add Address</button>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Line 1</th>
+                                        <th>Line 2</th>
+                                        <th>City</th>
+                                        <th>Postal</th>
+                                        <th>Type</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var context in Model.Addresses)
+                                    {
+                                        <tr>
+                                            <td><input class="form-control" @bind="context.Line1" /></td>
+                                            <td><input class="form-control" @bind="context.Line2" /></td>
+                                            <td><input class="form-control" @bind="context.City" /></td>
+                                            <td><input class="form-control" @bind="context.Postal" /></td>
+                                            <td>
+                                                <select class="form-select" @bind="context.AddressType">
+                                                    <option value="@AddressType.Deliver">Delivery</option>
+                                                    <option value="@AddressType.Billing">Billing</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn-icon" @onclick="@(() => RemoveAddress(context))">&times;</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @if (_showAtLeastOneDeliveryMessage)
+                            {
+                                <div class="text-danger small">At least one delivery address is required.</div>
+                            }
+                        </div>
+                    </EditForm>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" disabled="@_isSaving" @onclick="OnCancel">Cancel</button>
+                <button type="button" class="btn btn-primary" disabled="@(_isSaving || Model == null)" @onclick="OnSubmit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

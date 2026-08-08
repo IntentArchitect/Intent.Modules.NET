@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,6 +23,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new BlazorAppMenuSkillTemplate(outputTarget);
+        }
+
+        protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            {
+                return;
+            }
+
+            base.Register(registry, application);
         }
     }
 }

@@ -146,7 +146,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         {
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(JwtAuthServiceConcreteTemplate.TemplateId)}>();");
                         }
-                        else if(securityType.IsSingleSignOnOpenIDConnect())
+                        else if (securityType.IsSingleSignOnOpenIDConnect())
                         {
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(OidcAuthServiceConcreteTemplate.TemplateId)}>();");
                         }

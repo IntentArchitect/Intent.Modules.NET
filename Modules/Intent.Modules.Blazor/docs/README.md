@@ -1,11 +1,20 @@
-﻿---
+---
 uid: modules-dotnet.intent-blazor
 ---
+
 # Intent.Blazor
 
 Blazor is a modern web framework from Microsoft that enables you to build rich, interactive web UIs using C# instead of JavaScript. It runs on WebAssembly (Blazor WebAssembly) or on the server via SignalR (Blazor Server), allowing you to share code and libraries across your client and server.
 
 This module generates the foundational Blazor configuration and functionality for your application. Additional modules, such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html), can then be used to realize the UI design as code.
+
+## Default Home Page
+
+The first time the modelled `Home` page is generated, this module seeds it with a styled landing page — a hero section and a set of quick-link tiles pointing at the Intent Architect documentation, tutorials and GitHub — along with a co-located `Home.razor.css` for its [scoped styles](https://learn.microsoft.com/aspnet/core/blazor/components/css-isolation). Both files are written **once off**: on every subsequent Software Factory run they are left exactly as you have edited them, and deleting a file regenerates the default.
+
+This applies to all render modes (Interactive Server, Interactive WebAssembly and Interactive Auto). The page uses only the theme classes this module already ships (`ux-base.css` / `ux-components.css`), so it renders correctly in both light and dark mode.
+
+> 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library seeds its own home page instead.
 
 ## Securing Pages and UI Elements
 
@@ -30,7 +39,7 @@ You can apply multiple `Secured` stereotypes to an element if multiple `policies
 
 ### AuthenticationStateProvider Configuration
 
-For authorization to work correctly, an `AuthenticationStateProvider` implementation *must* be registered with the DI container. Without this, your application’s navigation and authorization checks will not function properly.
+For authorization to work correctly, an `AuthenticationStateProvider` implementation _must_ be registered with the DI container. Without this, your application’s navigation and authorization checks will not function properly.
 
 The implementation you register should be based on your specific user authentication method. However, below are examples for development purposes, simulating a **non-authenticated user** and an **always-authenticated user**.
 
@@ -40,7 +49,7 @@ The following `AuthenticationStateProvider` implementation simulates an unauthor
 
 Create this class in the `.Client` project (for example under `Common/Auth/`):
 
-``` csharp
+```csharp
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
@@ -58,7 +67,7 @@ public class NeverAuthenticatedAuthStateProvider : AuthenticationStateProvider
 
 Then register it with DI. In Program.cs of the client project:
 
-``` csharp
+```csharp
 .
 .
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
@@ -76,7 +85,7 @@ The following `AuthenticationStateProvider` implementation simulates an always-a
 
 Create this class in the .Client project (for example under Common/Auth/):
 
-``` csharp
+```csharp
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
@@ -103,7 +112,7 @@ Finally, register this provider in `Program.cs` of the client project.
 
 > 💡 Only the `// IntentIgnore` comment and the line directly below it need to be added — all other lines will be generated automatically.
 
-``` csharp
+```csharp
 .
 .
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });

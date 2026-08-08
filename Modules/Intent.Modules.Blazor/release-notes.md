@@ -1,3 +1,8 @@
+### Version 2.0.2
+
+- New Feature: The `Home` page is now seeded once off with a styled default landing page (hero section and quick-link tiles) and a co-located `Home.razor.css`, in all render modes. Both files are only written when they don't already exist, so your edits are never overwritten.
+- Improvement: Removed the static WebAssembly sample `Pages/Home.razor`, so the modelled `Home` component is now the single source of the home page in every render mode.
+
 ### Version 2.0.1
 
 - Improvement: Updated NuGet package versions.

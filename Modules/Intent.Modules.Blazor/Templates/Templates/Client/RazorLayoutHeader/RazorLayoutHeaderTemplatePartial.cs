@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -40,46 +41,91 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
             RazorFile = IRazorFile.Create(this, $"{Model.InternalElement.ParentElement.Name}{Model.Name}")
                 .Configure(file =>
                 {
-                    // TODO: This should be moved into Mudblazor module to seperate completely
-                    // right now, dependency between the two
-                    file.AddHtmlElement("MudAppBar", appBar =>
+                    if (ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                     {
-                        appBar.AddHtmlElement("span", span =>
+                        file.AddHtmlElement("MudAppBar", appBar =>
                         {
-                            span.AddAttribute("onclick", "navDrawer.toggle()");
-                            span.AddHtmlElement("MudIconButton", @icon =>
+                            appBar.AddHtmlElement("span", span =>
                             {
-                                @icon.AddAttribute("Icon", "@Icons.Material.Filled.Menu")
-                                    .AddAttribute("Color", "Color.Inherit")
-                                    .AddAttribute("Edge", "Edge.Start");
+                                span.AddAttribute("onclick", "navDrawer.toggle()");
+                                span.AddHtmlElement("MudIconButton", @icon =>
+                                {
+                                    @icon.AddAttribute("Icon", "@Icons.Material.Filled.Menu")
+                                        .AddAttribute("Color", "Color.Inherit")
+                                        .AddAttribute("Edge", "Edge.Start");
+                                });
                             });
-                        });
 
-                        appBar.AddHtmlElement("MudButton", @button =>
-                        {
-                            button.AddAttribute("Href", "/")
-                                .AddAttribute("Class", "my-2 mr-2")
-                                .AddAttribute("Color", "Color.Inherit");
-
-                            button.AddHtmlElement("MudText", text =>
+                            appBar.AddHtmlElement("MudButton", @button =>
                             {
-                                text.AddAttribute("Typo.h5");
-                                text.Text = ExecutionContext.GetApplicationConfig().Name;
+                                button.AddAttribute("Href", "/")
+                                    .AddAttribute("Class", "my-2 mr-2")
+                                    .AddAttribute("Color", "Color.Inherit");
+
+                                button.AddHtmlElement("MudText", text =>
+                                {
+                                    text.AddAttribute("Typo.h5");
+                                    text.Text = ExecutionContext.GetApplicationConfig().Name;
+                                });
                             });
+
+                            appBar.AddHtmlElement("MudSpacer");
+                            if (ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                            {
+                                appBar.AddHtmlElement("ThemeToggle", toggle =>
+                                {
+                                //toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
+                                });
+                            }
+
+                            if (Model.InternalElement.ParentElement.AsLayoutModel().ProfileMenu is not null)
+                            {
+                                appBar.AddHtmlElement("UserMenu");
+                            }
                         });
-
-                        appBar.AddHtmlElement("MudSpacer");
-                        appBar.AddHtmlElement("ThemeToggle", toggle =>
+                    }
+                    else
+                    {
+                        file.AddHtmlElement("header", header =>
                         {
-                        //toggle.AddAttribute("OnToggle", "@(() => OnThemeToggle.InvokeAsync())");
+                            header.AddAttribute("class", "ux-app-header ux-gradient-primary d-flex align-items-center gap-2 px-3 py-2");
+
+                            header.AddHtmlElement("button", button =>
+                            {
+                                button.AddAttribute("type", "button")
+                                    .AddAttribute("class", "btn-icon text-white")
+                                    .AddAttribute("onclick", "navDrawer.toggle()")
+                                    .AddAttribute("aria-label", "Toggle navigation");
+
+                                button.AddHtmlElement("span", span =>
+                                {
+                                    span.AddAttribute("class", "navbar-toggler-icon");
+                                });
+                            });
+
+                            header.AddHtmlElement("a", link =>
+                            {
+                                link.AddAttribute("href", "/")
+                                    .AddAttribute("class", "fw-bold fs-5 text-white text-decoration-none");
+                                link.Text = ExecutionContext.GetApplicationConfig().Name;
+                            });
+
+                            header.AddHtmlElement("div", spacer =>
+                            {
+                                spacer.AddAttribute("class", "flex-grow-1");
+                            });
+
+                            if (ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                            {
+                                header.AddHtmlElement("ThemeToggle");
+                            }
+
+                            if (Model.InternalElement.ParentElement.AsLayoutModel().ProfileMenu is not null)
+                            {
+                                header.AddHtmlElement("UserMenu");
+                            }
                         });
-
-                        if (Model.InternalElement.ParentElement.AsLayoutModel().ProfileMenu is not null)
-                        {
-                            appBar.AddHtmlElement("UserMenu");
-                        }
-                    });
-
+                    }
                 });
         }
 

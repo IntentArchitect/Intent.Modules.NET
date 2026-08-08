@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.Templates.StaticContent;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,6 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations
 {
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class BlazorSkillSampleFilesStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration";
@@ -26,5 +29,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistr
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
         {
         };
+
+        [IntentIgnore]
+        protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(module => module.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            {
+                return;
+            }
+
+            base.Register(registry, application);
+        }
     }
 }

@@ -1,6 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using MudBlazor;
 using UI.AI.Samples.Application.Customers;
 using UI.AI.Samples.Application.Customers.GetCustomerById;
 using UI.AI.Samples.Infrastructure.Services;
@@ -15,12 +14,11 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         [Parameter]
         public Guid CustomerId { get; set; }
         public CustomerDto? CustomerByIdModels { get; set; }
+        public string? ErrorMessage { get; set; }
         [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
-        [Inject]
-        public ISnackbar Snackbar { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -36,7 +34,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             }
             catch (Exception e)
             {
-                Snackbar.Add(e.Message, Severity.Error);
+                ErrorMessage = e.Message;
             }
         }
 

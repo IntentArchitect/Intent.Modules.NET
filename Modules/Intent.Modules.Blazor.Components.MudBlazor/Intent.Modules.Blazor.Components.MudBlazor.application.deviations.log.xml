@@ -12,16 +12,6 @@
       <fileHash>F7052CAA8FD0E35223D1A8B7C5BA4D46E3D9B067C5BD1A7631E23FFBE4FCCB2A</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#04082817-074d-45e4-b35b-a4d3f5e01340</correlationId>
-      <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/BlazorMudBlazorGeneralInstructions/BlazorMudBlazorGeneralInstructionsTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-30T10:08:54.2985583Z</updatedAt>
-      <deviationsHash>2836BEA3BE524A42FFB1B32CB373D98486AF330D50F9EBAFAFDDAB4D8666C1A7</deviationsHash>
-      <fileHash>2987C04FAF2E0155F9EF53C3CA04BEBBF0D35F6E2962BE5C48A56721D9399BF9</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#586ea57e-986e-42e7-857a-6adfb025ed4a</correlationId>
       <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs</path>
       <count>1</count>
@@ -30,6 +20,16 @@
       <updatedAt>2026-07-23T13:16:48.3778923Z</updatedAt>
       <deviationsHash>5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1</deviationsHash>
       <fileHash>CC9D84D48E0DDE71BB5EBAB12A7F2616524E332AF1BE8C7AD17651ACB317FFE5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#59c0ac52-09f9-4d41-8257-e0951e92b0c7</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-07T13:27:21.4273237Z</updatedAt>
+      <deviationsHash>EE96CA27619CF6039718006027152C225225E3AACC174479A426B06788FFEAD1</deviationsHash>
+      <fileHash>878EE81DAB8DDBAE1363B2D8E8A2BB72F2C9B0EEEDB3A678DB63713F11E2FA48</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -1,172 +1,196 @@
 @using UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
 @using UI.AI.Samples.Application.Customers
 @using UI.AI.Samples.Domain
-<MudDialog>
-    <TitleContent>
-        <MudText Typo="Typo.h6">
-            <MudIcon Icon="@Icons.Material.Filled.PersonAdd" Class="mr-2" />
-            Add Customer
-        </MudText>
-    </TitleContent>
-    <DialogContent>
-        <MudAlert Severity="Severity.Info" Variant="Variant.Text" Dense Class="mb-2">
-            Enter the details for the new customer.
-        </MudAlert>
-        <MudForm @ref="_form" Model="@Model">
-            <MudGrid>
-                <MudItem xs="12" md="6">
-                    <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter name" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Badge" Immediate Required RequiredError="Name is required" />
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudTextField @bind-Value="Model.Surname" Label="Surname" Placeholder="Enter surname" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Person" Immediate Required RequiredError="Surname is required" />
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudTextField @bind-Value="Model.Email" Label="Email" InputType="InputType.Email" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Email" Required="true" RequiredError="Email is required" Validation="@EmailRule" Immediate DebounceInterval="250" />
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudSelect T="Guid?"
-                               Value="Model.CategoryId"
-                               ValueChanged="OnCategoryChanged"
-                               Label="Category"
-                               Placeholder="Select..."
-                               Required="true"
-                               RequiredError="Category is required">
 
-                        @if (CategoryLookup is { Count: > 0 })
-                        {
-                            @foreach (var pc in CategoryLookup)
-                            {
-                                <MudSelectItem T="Guid?" Value="@pc.Id">@pc.Name</MudSelectItem>
-                            }
-                        }
-                    </MudSelect>
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudSelect Guid T="Guid?"
-                               @bind-Value="Model.SubCategoryId"
-                               Label="Sub Category"
-                               Placeholder="Select..."
-                               Required
-                               RequiredError="Sub Category is required">
-                        @if (SubCategoryLookup is { Count: > 0 })
-                        {
-                            @foreach (var bpt in SubCategoryLookup)
-                            {
-                                <MudSelectItem T="Guid?" Value="@bpt.Id">@bpt.Name</MudSelectItem>
-                            }
-                        }
-                    </MudSelect>
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active customer?" Class="mt-4" />
-                </MudItem>
-                <MudItem xs="12">
-                    <MudDivider Class="my-4" />
-                    <MudText Typo="Typo.h6">Preferences</MudText>
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudSwitch T="bool" @bind-Value="Model.Preference.Specials" Color="Color.Primary" Label="Receive specials" />
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudSwitch T="bool" @bind-Value="Model.Preference.NewsLetter" Color="Color.Primary" Label="Subscribe to newsletter" />
-                </MudItem>
-                <MudItem xs="12">
-                    <MudDivider Class="my-4" />
-                    <MudText Typo="Typo.h6">Addresses</MudText>
-                </MudItem>
-                <MudItem xs="12">
-                    <MudTable T="CreateCustomerCommandAddressesModel1" Items="@Model.Addresses" Elevation="1" Dense Hover Striped>
-                        <HeaderContent>
-                            <MudTh>Type</MudTh>
-                            <MudTh>Line 1</MudTh>
-                            <MudTh>Line 2</MudTh>
-                            <MudTh>City</MudTh>
-                            <MudTh>Postal</MudTh>
-                            <MudTh></MudTh>
-                        </HeaderContent>
-                        <RowTemplate>
-                            <MudTd DataLabel="Type">@context.AddressType.ToString()</MudTd>
-                            <MudTd DataLabel="Line 1">@context.Line1</MudTd>
-                            <MudTd DataLabel="Line 2">@context.Line2</MudTd>
-                            <MudTd DataLabel="City">@context.City</MudTd>
-                            <MudTd DataLabel="Postal">@context.Postal</MudTd>
-                            <MudTd>
-                                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => RemoveAddress(context))" Size="Size.Small" Edge="Edge.End" Disabled="@_saving" />
-                            </MudTd>
-                        </RowTemplate>
-                    </MudTable>
-                </MudItem>
-            </MudGrid>
-        </MudForm>
-        <MudGrid>
-            <MudItem xs="12">
-                <MudExpansionPanels>
-                    <MudExpansionPanel Text="Add Address" Disabled="@_saving">
-                        <MudForm @ref="_addressForm" Model="@_newAddress">
-                            <MudGrid>
-                                <MudItem xs="12" md="6">
-                                    <MudSelect T="AddressType" @bind-Value="_newAddress.AddressType" Label="Address Type" Required RequiredError="Type required">
-                                        <MudSelectItem T="AddressType" Value="AddressType.Deliver">Delivery</MudSelectItem>
-                                        <MudSelectItem T="AddressType" Value="AddressType.Billing">Billing</MudSelectItem>
-                                    </MudSelect>
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.Line1" Label="Address line 1" Required RequiredError="Required" />
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.Line2" Label="Address line 2" />
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.City" Label="City" Required RequiredError="Required" />
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.Postal" Label="Postal code" Required RequiredError="Required" />
-                                </MudItem>
-                                <MudItem xs="12">
-                                    <MudButton OnClick="AddAddress" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_saving">
-                                        <MudIcon Icon="@Icons.Material.Filled.Add" class="mr-1" /> Add address
-                                    </MudButton>
-                                </MudItem>
-                            </MudGrid>
-                        </MudForm>
-                    </MudExpansionPanel>
-                </MudExpansionPanels>
-            </MudItem>
-        </MudGrid>
-        <MudDivider Class="my-5" />
-        <MudExpansionPanels>
-            <MudExpansionPanel Text="Loyalty (Optional)" Disabled="@_saving" Expanded="@_showLoyalty" >
-                <MudSwitch T="bool" @bind-Value="_showLoyalty" Color="Color.Primary" Class="mb-3" Label="Capture loyalty information?" />
-                @if (_showLoyalty)
+<div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Customer</h5>
+                <button type="button" class="btn-icon" aria-label="Close" @onclick="Cancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">Enter the details for the new customer.</div>
+                <EditForm Model="Model" OnValidSubmit="SaveAsync">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary class="alert alert-danger" />
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Name</label>
+                            <InputText class="form-control" @bind-Value="Model.Name" placeholder="Enter name" />
+                            <ValidationMessage For="@(() => Model.Name)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Surname</label>
+                            <InputText class="form-control" @bind-Value="Model.Surname" placeholder="Enter surname" />
+                            <ValidationMessage For="@(() => Model.Surname)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Email</label>
+                            <InputText class="form-control" @bind-Value="Model.Email" placeholder="name@company.com" />
+                            <ValidationMessage For="@(() => Model.Email)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Category</label>
+                            <InputSelect class="form-select" Value="Model.CategoryId" ValueChanged="OnCategoryChanged" ValueExpression="@(() => Model.CategoryId)">
+                                <option value="">Select...</option>
+                                @if (CategoryLookup is { Count: > 0 })
+                                {
+                                    @foreach (var pc in CategoryLookup)
+                                    {
+                                        <option value="@pc.Id">@pc.Name</option>
+                                    }
+                                }
+                            </InputSelect>
+                            <ValidationMessage For="@(() => Model.CategoryId)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Sub Category</label>
+                            <InputSelect class="form-select" @bind-Value="Model.SubCategoryId">
+                                <option value="">Select...</option>
+                                @if (SubCategoryLookup is { Count: > 0 })
+                                {
+                                    @foreach (var bpt in SubCategoryLookup)
+                                    {
+                                        <option value="@bpt.Id">@bpt.Name</option>
+                                    }
+                                }
+                            </InputSelect>
+                            <ValidationMessage For="@(() => Model.SubCategoryId)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch mt-4">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.IsActive" />
+                                <label class="form-check-label">Active customer?</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <hr class="my-4" />
+                            <h6>Preferences</h6>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.Specials" />
+                                <label class="form-check-label">Receive specials</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
+                                <label class="form-check-label">Subscribe to newsletter</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <hr class="my-4" />
+                            <h6>Addresses</h6>
+                        </div>
+                        <div class="col-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line 1</th>
+                                        <th>Line 2</th>
+                                        <th>City</th>
+                                        <th>Postal</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var context in Model.Addresses)
+                                    {
+                                        <tr>
+                                            <td>@context.AddressType.ToString()</td>
+                                            <td>@context.Line1</td>
+                                            <td>@context.Line2</td>
+                                            <td>@context.City</td>
+                                            <td>@context.Postal</td>
+                                            <td>
+                                                <button type="button" class="btn-icon" disabled="@_saving" @onclick="@(() => RemoveAddress(context))">&times;</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </EditForm>
+
+                <details class="mt-3">
+                    <summary>Add Address</summary>
+                    <EditForm Model="_newAddress" class="mt-2">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address Type</label>
+                                <InputSelect class="form-select" @bind-Value="_newAddress.AddressType">
+                                    <option value="@AddressType.Deliver">Delivery</option>
+                                    <option value="@AddressType.Billing">Billing</option>
+                                </InputSelect>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address line 1</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Line1" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address line 2</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Line2" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">City</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.City" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Postal code</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Postal" />
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary" disabled="@_saving" @onclick="AddAddress">Add address</button>
+                            </div>
+                        </div>
+                    </EditForm>
+                </details>
+
+                <hr class="my-4" />
+                <details open="@_showLoyalty">
+                    <summary>Loyalty (Optional)</summary>
+                    <div class="form-check form-switch mb-3 mt-2">
+                        <InputCheckbox class="form-check-input" @bind-Value="_showLoyalty" />
+                        <label class="form-check-label">Capture loyalty information?</label>
+                    </div>
+                    @if (_showLoyalty)
+                    {
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Loyalty Number</label>
+                                <input class="form-control" @bind="_loyaltyModel.LoyaltyNo" placeholder="Enter loyalty number" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Points</label>
+                                <input type="number" class="form-control" @bind="_loyaltyModel.Points" placeholder="0" min="0" />
+                            </div>
+                        </div>
+                    }
+                </details>
+
+                @if (!string.IsNullOrEmpty(ErrorMessage))
                 {
-                    <MudForm @ref="_loyaltyForm" Model="@_loyaltyModel">
-                        <MudGrid>
-                            <MudItem xs="12" md="6">
-                                <MudTextField @bind-Value="_loyaltyModel.LoyaltyNo" Label="Loyalty Number" Placeholder="Enter loyalty number" />
-                            </MudItem>
-                            <MudItem xs="12" md="6">
-                                <MudNumericField T="int" @bind-Value="_loyaltyModel.Points" Label="Points" Placeholder="0" Min="0" />
-                            </MudItem>
-                        </MudGrid>
-                    </MudForm>
+                    <div class="alert alert-danger mt-3">@ErrorMessage</div>
                 }
-            </MudExpansionPanel>
-        </MudExpansionPanels>
-    </DialogContent>
-    <DialogActions>
-        <MudButton OnClick="SaveAsync" Disabled="@_saving" Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save">
-            @if (_saving)
-            {
-                <MudProgressCircular Size="Size.Small" Indeterminate Class="mr-2" />
-                <span>Saving…</span>
-            }
-            else
-            {
-                <span>Save</span>
-            }
-        </MudButton>
-        <MudButton OnClick="Cancel" Disabled="@_saving" Color="Color.Secondary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Close">
-            Cancel
-        </MudButton>
-    </DialogActions>
-</MudDialog>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" disabled="@_saving" @onclick="SaveAsync">
+                    @if (_saving)
+                    {
+                        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        <span>Saving…</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </button>
+                <button type="button" class="btn btn-outline" disabled="@_saving" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

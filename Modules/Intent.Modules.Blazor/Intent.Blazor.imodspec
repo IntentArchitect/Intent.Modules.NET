@@ -231,6 +231,10 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" externalReference="0d78e82b-2c2b-442f-8d5b-02fad7055c00">
+      <role>Blazor.ThemeStorage</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="c7e3e3af-11e5-4fc0-b380-50442e0e0587">
       <role>Blazor.ThemeToggle</role>
       <location></location>
@@ -248,6 +252,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.AITasksFactoryExtension" externalReference="5629f5e2-99c2-4d40-aec6-e52e0ada2663" />
     <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
+    <factoryExtension id="Intent.Blazor.HomePageDefaultContentFactoryExtension" externalReference="fd4c0d8e-c164-4923-8bcd-c6869fd2a175" />
   </factoryExtensions>
   <moduleSettings>
     <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor Settings" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
@@ -278,7 +283,6 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.2-pre.0" />
     <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
     <dependency id="Intent.Common" version="3.11.3-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.9-pre.0" />

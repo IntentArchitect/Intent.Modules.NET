@@ -1,6 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using MudBlazor;
 using UI.AI.Samples.Application.Customers;
 using UI.AI.Samples.Application.Customers.GetCustomerById;
 using UI.AI.Samples.Application.Customers.UpdateCustomer;
@@ -17,66 +16,54 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         [Parameter]
         public Guid CustomerId { get; set; }
         public UpdateCustomerModel? Model { get; set; }
+        public string? ErrorMessage { get; set; }
         [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
-        [Inject]
-        public ISnackbar Snackbar { get; set; } = default!;
-        [CascadingParameter]
-        public IMudDialogInstance Dialog { get; set; }
+        [Parameter]
+        public EventCallback<bool> OnClosed { get; set; }
 
-        private MudForm? _form;
-        private bool _isLoading = false;
-        private bool _showAtLeastOneDeliveryMessage = false;
+        private bool _isSaving;
+        private bool _showAtLeastOneDeliveryMessage;
 
         protected override async Task OnInitializedAsync()
         {
-            _isLoading = true;
             await LoadCustomerById(CustomerId);
-            _isLoading = false;
         }
 
         private async Task UpdateCustomer()
         {
-            try
-            {
-                await Mediator.Send(new UpdateCustomerCommand(
-                    id: Model.Id,
-                    name: Model.Name,
-                    surname: Model.Surname,
-                    email: Model.Email,
-                    isActive: Model.IsActive,
-                    preference: new UpdateCustomerPreferenceDto
+            await Mediator.Send(new UpdateCustomerCommand(
+                id: Model.Id,
+                name: Model.Name,
+                surname: Model.Surname,
+                email: Model.Email,
+                isActive: Model.IsActive,
+                preference: new UpdateCustomerPreferenceDto
+                {
+                    Id = Model.Preference.Id,
+                    NewsLetter = Model.Preference.NewsLetter,
+                    Specials = Model.Preference.Specials
+                },
+                loyalty: Model?.Loyalty is not null
+                ? new UpdateCustomerCommandLoyaltyDto
+                {
+                    Id = Model.Loyalty.Id,
+                    LoyaltyNo = Model.Loyalty.LoyaltyNo,
+                    Points = Model.Loyalty.Points
+                }
+                : null,
+                addresses: Model.Addresses
+                    .Select(a => new UpdateCustomerCommandAddressesDto
                     {
-                        Id = Model.Preference.Id,
-                        NewsLetter = Model.Preference.NewsLetter,
-                        Specials = Model.Preference.Specials
-                    },
-                    loyalty: Model?.Loyalty is not null
-                        ? new UpdateCustomerCommandLoyaltyDto
-                        {
-                            Id = Model.Loyalty.Id,
-                            LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                            Points = Model.Loyalty.Points
-                        }
-                        : null,
-                    addresses: Model.Addresses
-                        .Select(a => new UpdateCustomerCommandAddressesDto
-                        {
-                            Id = a.Id,
-                            Line1 = a.Line1,
-                            Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
-                            AddressType = a.AddressType
-                        })
-                        .ToList()));
-                Snackbar.Add("Customer updated.", Severity.Success);
-                Dialog.Close(DialogResult.Ok(true));
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
+                        Id = a.Id,
+                        Line1 = a.Line1,
+                        Line2 = a.Line2,
+                        City = a.City,
+                        Postal = a.Postal,
+                        AddressType = a.AddressType
+                    })
+                    .ToList()));
+            await OnClosed.InvokeAsync(true);
         }
 
         private async Task LoadCustomerById(Guid id)
@@ -85,10 +72,43 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             {
                 var customerDto = await Mediator.Send(new GetCustomerByIdQuery(
                     id: id));
+                Model = new UpdateCustomerModel
+                {
+                    Id = customerDto.Id,
+                    Name = customerDto.Name,
+                    Surname = customerDto.Surname,
+                    Email = customerDto.Email,
+                    IsActive = customerDto.IsActive,
+                    Preference = new UpdateCustomerPreferenceModel
+                    {
+                        Id = customerDto.Preference.Id,
+                        NewsLetter = customerDto.Preference.NewsLetter,
+                        Specials = customerDto.Preference.Specials
+                    },
+                    Loyalty = customerDto.Loyalty is not null
+                    ? new UpdateCustomerCommandLoyaltyModel
+                    {
+                        Id = customerDto.Loyalty.Id,
+                        LoyaltyNo = customerDto.Loyalty.LoyaltyNo,
+                        Points = customerDto.Loyalty.Points
+                    }
+                    : null,
+                    Addresses = customerDto.Addresses
+                        .Select(a => new UpdateCustomerCommandAddressesModel
+                        {
+                            Id = a.Id,
+                            Line1 = a.Line1,
+                            Line2 = a.Line2,
+                            City = a.City,
+                            Postal = a.Postal,
+                            AddressType = a.AddressType
+                        })
+                        .ToList()
+                };
             }
             catch (Exception e)
             {
-                Snackbar.Add(e.Message, Severity.Error);
+                ErrorMessage = e.Message;
             }
         }
 
@@ -127,9 +147,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
 
         private async Task OnSubmit()
         {
-            if (_form == null)
-                return;
-
             _showAtLeastOneDeliveryMessage = false;
 
             if (Model is not null)
@@ -138,21 +155,28 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                 if (deliveryCount < 1)
                 {
                     _showAtLeastOneDeliveryMessage = true;
-                    await _form.Validate();
-                    StateHasChanged();
                     return;
                 }
             }
-            await _form.Validate();
-            if (_form.IsValid && !_showAtLeastOneDeliveryMessage)
+
+            _isSaving = true;
+            try
             {
                 await UpdateCustomer();
             }
+            catch (Exception e)
+            {
+                ErrorMessage = e.Message;
+            }
+            finally
+            {
+                _isSaving = false;
+            }
         }
 
-        private void OnCancel()
+        private async Task OnCancel()
         {
-            Dialog.Cancel();
+            await OnClosed.InvokeAsync(false);
         }
 
         private void AddLoyalty()
@@ -196,19 +220,16 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         {
             if (Model == null)
                 return;
-            // Only allow removal if not violating delivery address rule
             if (address.AddressType == AddressType.Deliver)
             {
                 int deliveryAddresses = Model.Addresses.Count(a => a.AddressType == AddressType.Deliver);
                 if (deliveryAddresses <= 1)
                 {
                     _showAtLeastOneDeliveryMessage = true;
-                    StateHasChanged();
                     return;
                 }
             }
             Model.Addresses.Remove(address);
-            // Check again after removal and clear message if now valid
             if (Model.Addresses.Count(a => a.AddressType == AddressType.Deliver) >= 1)
             {
                 _showAtLeastOneDeliveryMessage = false;

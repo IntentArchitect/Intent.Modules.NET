@@ -1,14 +1,14 @@
 /* ============================================================================
-   ux-components.css
-   Reusable component primitives and utility classes.
-   Utilities are intentionally last so they can override component styles.
-   Requires: ux-tokens.css, ux-base.css
-   ============================================================================ */
+ux-components.css
+Reusable component primitives and utility classes.
+Utilities are intentionally last so they can override component styles.
+Requires: ux-tokens.css, ux-base.css
+============================================================================ */
 
 
 /* ============================================================================
-   SECTION 1: Standard Form Controls
-   ============================================================================ */
+SECTION 1: Standard Form Controls
+============================================================================ */
 
 .form-control,
 .form-select {
@@ -21,7 +21,7 @@
     transition: border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
 }
 
-    .form-control:focus,
+.form-control:focus,
     .form-select:focus {
         color: var(--text);
         background-color: var(--surface);
@@ -30,8 +30,8 @@
         outline: 0;
     }
 
-    .form-control:disabled,
-    .form-control[disabled],
+.form-control:disabled,
+.form-control[disabled],
     .form-select:disabled {
         color: var(--text-muted);
         background-color: var(--surface-2);
@@ -110,8 +110,8 @@
 
 
 /* ============================================================================
-   SECTION 2: Buttons
-   ============================================================================ */
+SECTION 2: Buttons
+============================================================================ */
 
 .btn {
     display: inline-flex;
@@ -168,7 +168,7 @@
     }
 
 /* Coloured outline / "inverted" variants — transparent fill + coloured border + text.
-   Mirrors how the MudBlazor app renders its outlined action buttons. */
+Mirrors how the MudBlazor app renders its outlined action buttons. */
 .btn-outline-primary {
     background: transparent;
     color: var(--primary);
@@ -253,8 +253,8 @@
 
 
 /* ============================================================================
-   SECTION 3: Feedback & Data Display
-   ============================================================================ */
+SECTION 3: Feedback & Data Display
+============================================================================ */
 
 .alert {
     padding: var(--space-3) var(--space-4);
@@ -318,9 +318,9 @@
 
 
 /* ============================================================================
-   SECTION 4: Utility Classes
-   Last so they can override component styles above without needing !important.
-   ============================================================================ */
+SECTION 4: Utility Classes
+Last so they can override component styles above without needing !important.
+============================================================================ */
 
 /* Gradient utilities */
 .ux-gradient-text {
@@ -475,11 +475,11 @@
     border-radius: var(--radius-lg);
 }
 
-.mud-main-content {
+.ux-app-content {
     transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
 }
 
-html.ux-drawer-open .mud-main-content {
+html.ux-drawer-open .ux-app-content {
     margin-left: var(--mud-drawer-width-left, 240px);
 }
 
@@ -489,7 +489,9 @@ html.ux-drawer-open .mud-main-content {
     left: 0;
     bottom: 0;
     width: var(--mud-drawer-width-left, 240px);
-    background-color: var(--mud-palette-drawer-background, var(--surface));
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 50%);
+    border-right: 1px solid var(--border);
+    box-shadow: var(--shadow-3), 1px 0 0 var(--border-light);
     color: var(--mud-palette-drawer-text, var(--text));
     overflow-y: auto;
     transform: translateX(-100%);

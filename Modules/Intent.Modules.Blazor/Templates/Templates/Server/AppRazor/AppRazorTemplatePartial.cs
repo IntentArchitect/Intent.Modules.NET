@@ -37,10 +37,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                 {
                     file.AddHtmlElement("html", html =>
                     {
+                        var enableThemeToggle = ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
+
                         html.AddAttribute("lang", "en");
                         html.AddAttribute("class", "ux-drawer-open");
-                        html.AddAttribute("data-theme", "@_theme");
-                        html.AddAttribute("data-theme-storage", "cookie");
+                        if (enableThemeToggle)
+                        {
+                            html.AddAttribute("data-theme", "@_theme");
+                            html.AddAttribute("data-theme-storage", "cookie");
+                        }
                         html.AddEmptyLine();
                         html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
@@ -75,10 +80,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
-                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            if (enableThemeToggle)
+                            {
+                                body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            }
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "nav-drawer.js"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "user-menu.js"));
-                            body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
+                            if (enableThemeToggle)
+                            {
+                                body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
+                            }
                         });
 
                         html.AddEmptyLine();
@@ -105,12 +116,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             }
                         });
 
-                        code.AddProperty("string", "_theme", prop =>
+                        if (ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
                         {
-                            prop.Private();
-                            prop.WithoutSetter();
-                            prop.Getter.WithExpressionImplementation("HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\"");
-                        });
+                            code.AddProperty("string", "_theme", prop =>
+                            {
+                                prop.Private();
+                                prop.WithoutSetter();
+                                prop.Getter.WithExpressionImplementation("HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\"");
+                            });
+                        }
                     });
                 });
         }
@@ -131,9 +145,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         public override string TransformText()
         {
             return $"""
-                    <!DOCTYPE html>
-                    {RazorFile.ToString().Trim()}
-                    """;
+                <!DOCTYPE html>
+                {RazorFile.ToString().Trim()}
+                """;
         }
 
         private static string GetRenderModeConfiguration(RenderModeOptionsEnum? renderMode) => renderMode switch

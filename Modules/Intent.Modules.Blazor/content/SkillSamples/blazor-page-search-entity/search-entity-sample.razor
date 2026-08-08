@@ -1,120 +1,95 @@
 @page "/templates/pages/customers"
 @using UI.AI.Samples.Application.Customers
 
-<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
-    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
-        <MudIcon Icon="@Icons.Material.Filled.Person" Class="mr-2" />
-        Customers Management
-    </MudText>
-    <MudText Typo="Typo.body1" Class="text-white opacity-90">
-        View and manage your customer list.
-    </MudText>
-</MudPaper>
+<div class="ux-gradient-primary ux-rounded-lg p-4 mb-4">
+    <h1 class="h4 fw-bold text-white mb-2">Customers Management</h1>
+    <p class="text-white mb-0" style="opacity:.9">View and manage your customer list.</p>
+</div>
 
-<MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
-    <MudCardContent>
-        <MudGrid>
-            <MudItem xs="12" md="6">
-                <MudTextField @bind-Value="SearchText"
-                              Placeholder="Search by name"
-                              Label="Search"
-                              Adornment="Adornment.Start"
-                              AdornmentIcon="@Icons.Material.Filled.Search"
-                              Margin="Margin.Normal"
-                              Immediate="true"
-                              OnKeyDown="@(async e => { if(e.Key=="Enter" && _table!=null) await _table.ReloadServerData(); })"
-                              Class="mb-4" />
-            </MudItem>
-            <MudItem xs="12" md="6">
-                <MudSelect T="bool?" @bind-Value="IsActive" Label="Active status" Placeholder="All" Margin="Margin.Normal" Class="mb-4" Dense>
-                    <MudSelectItem T="bool?" Value="null">All</MudSelectItem>
-                    <MudSelectItem T="bool?" Value="true">Active</MudSelectItem>
-                    <MudSelectItem T="bool?" Value="false">Inactive</MudSelectItem>
-                </MudSelect>
-            </MudItem>
-            <MudItem xs="12">
-                <MudButton Variant="Variant.Filled"
-                        StartIcon="@Icons.Material.Filled.Add"
-                        Color="Color.Primary"
-                        OnClick="@NavigateToCustomerAddPage"
-                        Class="mb-4 ml-md-4">
-                    <MudText>Add Customer</MudText>
-                </MudButton>
-                <MudButton Variant="Variant.Outlined"
-                           StartIcon="@Icons.Material.Filled.Search"
-                           Color="Color.Primary"
-                           OnClick="@(async () => { if (_table != null) await _table.ReloadServerData(); })"
-                           Class="mb-4 ml-md-4">
-                    <MudText>Search</MudText>
-                </MudButton>
-            </MudItem>
-            <MudItem xs="12">
-                <MudTable T="CustomerSummaryDto"
-                          @ref="_table"
-                          ServerData="LoadServerData"
-                          Dense="true"
-                          Hover="true"
-                          Striped
-                          Elevation="2">
-                    <HeaderContent>
-                        <MudTh>
-                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Name)">
-                                Name
-                            </MudTableSortLabel>
-                        </MudTh>
-                        <MudTh>
-                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Surname)">
-                                Surname
-                            </MudTableSortLabel>
-                        </MudTh>
-                        <MudTh>
-                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Email)">
-                                Email
-                            </MudTableSortLabel>
-                        </MudTh>
-                        <MudTh>Status</MudTh>
-                        <MudTh>Actions</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="Name">@context.Name</MudTd>
-                        <MudTd DataLabel="Surname">@context.Surname</MudTd>
-                        <MudTd DataLabel="Email">@context.Email</MudTd>
-                        <MudTd DataLabel="Status">
-                            @if (context.IsActive)
+<div class="card ux-fade-in-up">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="search">Search</label>
+                <input id="search" class="form-control" placeholder="Search by name" @bind="SearchText" @bind:event="oninput" @onkeydown="OnSearchKeyDown" />
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="activeStatus">Active status</label>
+                <select id="activeStatus" class="form-select" @bind="IsActiveText">
+                    <option value="">All</option>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-primary me-2" @onclick="NavigateToCustomerAddPage">Add Customer</button>
+                <button type="button" class="btn btn-outline-primary" @onclick="ReloadAsync">Search</button>
+            </div>
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (CustomersModels?.Data is { Count: > 0 })
+                        {
+                            @foreach (var context in CustomersModels.Data)
                             {
-                                <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">Active</MudChip>
+                                <tr>
+                                    <td>@context.Name</td>
+                                    <td>@context.Surname</td>
+                                    <td>@context.Email</td>
+                                    <td>
+                                        @if (context.IsActive)
+                                        {
+                                            <span class="badge-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge-danger">Inactive</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline" title="View" @onclick="@(() => NavigateToCustomerViewPage(context.Id))">View</button>
+                                        <button type="button" class="btn btn-outline-primary" title="Edit" @onclick="@(() => NavigateToCustomerEditPage(context.Id))">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger" title="Delete" @onclick="@(() => OnDeleteCustomer(context.Id))">Delete</button>
+                                    </td>
+                                </tr>
                             }
-                            else
-                            {
-                                <MudChip T="string" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small">Inactive</MudChip>
-                            }
-                        </MudTd>
-                        <MudTd DataLabel="Actions">
-                            <MudTooltip Text="View Customer">
-                                <MudIconButton Icon="@Icons.Material.Filled.Visibility"
-                                               Color="Color.Info"
-                                               OnClick="@(() => NavigateToCustomerViewPage(context.Id))"
-                                               Title="View" />
-                            </MudTooltip>
-                            <MudTooltip Text="Edit Customer">
-                                <MudIconButton Icon="@Icons.Material.Filled.Edit"
-                                               Color="Color.Primary"
-                                               OnClick="@(() => NavigateToCustomerEditPage(context.Id))"
-                                               Title="Edit" />
-                            </MudTooltip>
-                            <MudTooltip Text="Delete Customer">
-                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
-                                               Color="Color.Error"
-                                               OnClick="@(() => OnDeleteCustomer(context.Id))"
-                                               Title="Delete" />
-                            </MudTooltip>
-                        </MudTd>
-                    </RowTemplate>
-                    <PagerContent>
-                        <MudTablePager PageSizeOptions="new int[] {10, 25, 50, 100}" />
-                    </PagerContent>
-                </MudTable>
-            </MudItem>
-        </MudGrid>
-    </MudCardContent>
-</MudCard>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">No customers found.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (CustomersModels is not null && CustomersModels.TotalCount > PageSize)
+                {
+                    <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-outline" disabled="@(PageNo <= 1)" @onclick="PreviousPage">Previous</button>
+                        <button type="button" class="btn btn-outline" disabled="@(PageNo * PageSize >= CustomersModels.TotalCount)" @onclick="NextPage">Next</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (_showDeleteConfirm)
+{
+    <div class="alert alert-warning d-flex justify-content-between align-items-center">
+        <span>Are you sure you want to delete this customer?</span>
+        <span>
+            <button type="button" class="btn btn-danger me-2" @onclick="ConfirmDeleteAsync">Delete</button>
+            <button type="button" class="btn btn-outline" @onclick="CancelDelete">Cancel</button>
+        </span>
+    </div>
+}

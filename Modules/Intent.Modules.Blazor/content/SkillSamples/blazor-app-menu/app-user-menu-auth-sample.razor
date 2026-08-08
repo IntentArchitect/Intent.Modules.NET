@@ -11,30 +11,26 @@
    context does not describe auth items, do not invent them.
 
    Notes:
-   - The outer UserMenu structure shows a common pattern: AccountCircle trigger and a stacked
-     list of buttons.
+   - UserMenu is a shared, technology-neutral presentational component (a native <details>
+     dropdown) shipped from the component module — the trigger icon/content and the menu items
+     come in as @Trigger / @ChildContent.
    - The NotAuthorized block is OPTIONAL and should only be included when the context explicitly
      includes signed-out links such as Login/Register.
    - Any logout pattern (e.g. POST form + antiforgery) is app-specific; include it only when
      the context explicitly asks for it.
-   - NEVER use a MudIconButton instead of the MudIcon in the trigger, as it will break the layout and styling of the menu.
 *@
 
 <AuthorizeView>
     <Authorized>
         <UserMenu>
             <Trigger>
-                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+                <span class="ux-user-menu-icon" aria-hidden="true">&#9679;</span>
             </Trigger>
             <ChildContent>
-                <MudStack Spacing="0">
-                    <MudButton Href="/my-orders" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
-                        My Orders
-                    </MudButton>
-                    <MudButton Href="/account" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
-                        Account
-                    </MudButton>
-                </MudStack>
+                <div class="d-flex flex-column">
+                    <a href="/my-orders" class="btn btn-link text-start">My Orders</a>
+                    <a href="/account" class="btn btn-link text-start">Account</a>
+                </div>
             </ChildContent>
         </UserMenu>
     </Authorized>
@@ -43,19 +39,17 @@
 @* Optional structure example for signed-out state.
    Include this ONLY if the context explicitly includes signed-out links (e.g. Login/Register). *@
 
-@* 
+@*
 <AuthorizeView>
     <NotAuthorized>
         <UserMenu Title="Account">
             <Trigger>
-                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+                <span class="ux-user-menu-icon" aria-hidden="true">&#9679;</span>
             </Trigger>
             <ChildContent>
-                <MudStack Spacing="0">
-                    <MudButton Href="/Account/Login" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
-                        Login
-                    </MudButton>
-                </MudStack>
+                <div class="d-flex flex-column">
+                    <a href="/Account/Login" class="btn btn-link text-start">Login</a>
+                </div>
             </ChildContent>
         </UserMenu>
     </NotAuthorized>

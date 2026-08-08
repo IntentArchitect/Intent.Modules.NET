@@ -115,12 +115,11 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
             app.OnBuild(file =>
             {
-                // Add Blazorise dependencies
-                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
+                // Add MudBlazor dependencies above every ux-*.css override so those overrides always win the cascade
+                var baseElement = file.SelectHtmlElements("/html/head/link").FirstOrDefault();
                 if (baseElement != null)
                 {
                     baseElement.AddAbove(
-                        new EmptyLine(app),
                         new HtmlElement("link", app)
                             .AddAttribute("rel", "stylesheet")
                             .AddAttribute("href", "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"),
@@ -158,15 +157,15 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
             routes.OnBuild(file =>
             {
-                //var routerNode = file.ChildNodes.SingleOrDefault(x => x is HtmlElement html && html.Name == "Router");
-                //file.ChildNodes.Remove(routerNode);
-                //file.AddHtmlElement("Blazorise.ThemeProvider", themeProvider =>
-                //{
-                //    themeProvider.AddAttribute("Theme", "@theme");
-                //    themeProvider.AddChildNode(routerNode);
-                //    themeProvider.AddHtmlElement("MessageProvider");
-                //    themeProvider.AddHtmlElement("PageProgressProvider");
-                //});
+            //var routerNode = file.ChildNodes.SingleOrDefault(x => x is HtmlElement html && html.Name == "Router");
+            //file.ChildNodes.Remove(routerNode);
+            //file.AddHtmlElement("Blazorise.ThemeProvider", themeProvider =>
+            //{
+            //    themeProvider.AddAttribute("Theme", "@theme");
+            //    themeProvider.AddChildNode(routerNode);
+            //    themeProvider.AddHtmlElement("MessageProvider");
+            //    themeProvider.AddHtmlElement("PageProgressProvider");
+            //});
             });
         }
     }

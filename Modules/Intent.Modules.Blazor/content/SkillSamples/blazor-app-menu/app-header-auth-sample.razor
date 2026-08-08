@@ -1,36 +1,32 @@
 @* MainLayoutHeader — Auth project variant (identical fixed chrome in NoAuth, minus the gated
-   nav item below). Two independent concerns:
+   nav item below). Two independent concerns live in this file — do not conflate them:
    1. Any Header-placed nav item that carries its own authorization requirement (e.g. "Admin
-      Dashboard" below) — wrapped exactly like a gated Sider item, just using MudButton instead
-      of MudNavLink since MudAppBar is not a MudNavMenu.
+      Dashboard" below) — wrapped exactly like a gated Sider item, using a plain link since the
+      header isn't a nav list.
    2. The Profile component slot (<MainLayoutProfile /> below) — included UNCONDITIONALLY,
       with no AuthorizeView around it here, whenever the Layout has a modeled Profile Menu
       element at all (regardless of whether Profile currently has any modeled nav items). Any
       Login/Register-vs-Authorized branching for that surface lives entirely inside
       MainLayoutProfile.razor itself (see app-user-menu-auth-sample.razor) — never here.
 
-   The drawer-toggle span/MudIconButton and the bare <ThemeToggle /> are fixed chrome with no
+   The drawer-toggle button and the bare <ThemeToggle /> are fixed chrome with no
    OnClick/OnToggle EventCallback wiring in the current scaffold — the drawer toggles via the
    navDrawer.toggle() JS interop and the theme toggles internally. Don't reintroduce callbacks
    that an older scaffold generation used here. *@
 
-<MudAppBar>
-    <span onclick="navDrawer.toggle()">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu"
-                       Color="Color.Inherit"
-                       Edge="Edge.Start" />
-    </span>
-    <MudButton Href="/" Class="my-2 mr-2" Color="Color.Inherit">
-        <MudText Typo="Typo.h5">MyApp</MudText>
-    </MudButton>
+<header class="ux-app-header ux-gradient-primary d-flex align-items-center gap-2 px-3 py-2">
+    <button type="button" class="btn-icon text-white" onclick="navDrawer.toggle()" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/" class="fw-bold fs-5 text-white text-decoration-none">MyApp</a>
 
     <AuthorizeView Roles="Admin">
         <Authorized>
-            <MudButton Href="/admin-dashboard" Color="Color.Inherit">Admin Dashboard</MudButton>
+            <a href="/admin-dashboard" class="text-white text-decoration-none">Admin Dashboard</a>
         </Authorized>
     </AuthorizeView>
 
-    <MudSpacer />
+    <div class="flex-grow-1"></div>
     <ThemeToggle />
     <MainLayoutProfile />
-</MudAppBar>
+</header>
