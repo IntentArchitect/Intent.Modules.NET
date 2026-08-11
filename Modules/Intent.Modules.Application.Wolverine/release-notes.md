@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Fixed: `WolverineRegistrationFactoryExtension` threw `More than one instance of template App.Program was found` in applications with more than one ASP.NET Core host; Wolverine is now registered on every host's `Program` file.
+
 ### Version 1.0.1
 
 - Improvement: Additional context for the AI around how to implement the handler for a Wolverine handler.

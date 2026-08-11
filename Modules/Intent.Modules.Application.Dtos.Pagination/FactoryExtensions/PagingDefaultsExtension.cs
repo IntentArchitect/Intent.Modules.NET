@@ -11,6 +11,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
@@ -86,27 +87,35 @@ namespace Intent.Modules.Application.Dtos.Pagination.FactoryExtensions
 
         private static void UpdateController(IApplication application, int pageNumberDefault, string pageSizeDefault, string orderByDefault, IElement queryModel)
         {
-            var controllerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", queryModel.ParentElement?.Id);
-            controllerTemplate?.CSharpFile.AfterBuild(file =>
+            // Controller is host-scoped (one instance per ASP.NET Core project), so a folder can have
+            // more than one instance in a multi-host application. FindTemplateInstance(templateId, modelId)
+            // throws "more than one instance" in that case, so filter matches by model ourselves instead.
+            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller")
+                .Where(t => t.TryGetModel<IMetadataModel>(out var model) && model.Id == queryModel.ParentElement?.Id);
+
+            foreach (var controllerTemplate in controllerTemplates)
             {
-                var @class = file.Classes.First();
-                var method = @class.FindMethod(m => m.HasMetadata("modelId") && m.GetMetadata<string>("modelId") == queryModel.Id);
-
-                if (method is null)
+                controllerTemplate.CSharpFile.AfterBuild(file =>
                 {
-                    return;
-                }
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod(m => m.HasMetadata("modelId") && m.GetMetadata<string>("modelId") == queryModel.Id);
 
-                if (TryGetInvalidParametersAfterPaging(method.Parameters, out var invalidParameters))
-                {
-                    Logging.Log.Warning($"Could not apply default paging values to controller '{controllerTemplate.ClassName}', operation '{method.Name}'.");
-                    Logging.Log.Warning($"The following parameters without default values appear after parameters that have default values: {string.Join(',', invalidParameters)}");
+                    if (method is null)
+                    {
+                        return;
+                    }
 
-                    return;
-                }
+                    if (TryGetInvalidParametersAfterPaging(method.Parameters, out var invalidParameters))
+                    {
+                        Logging.Log.Warning($"Could not apply default paging values to controller '{controllerTemplate.ClassName}', operation '{method.Name}'.");
+                        Logging.Log.Warning($"The following parameters without default values appear after parameters that have default values: {string.Join(',', invalidParameters)}");
 
-                UpdateMethodParameters(application, pageNumberDefault, pageSizeDefault, orderByDefault, method);
-            });
+                        return;
+                    }
+
+                    UpdateMethodParameters(application, pageNumberDefault, pageSizeDefault, orderByDefault, method);
+                });
+            }
         }
 
         private static void UpdateServiceOperation(IApplication application, int pageNumberDefault, string pageSizeDefault, string orderByDefault, IElement operationModel)
