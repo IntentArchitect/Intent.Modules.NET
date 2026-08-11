@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="aa074ccb-388e-4fde-a585-3ac9e95c6ced">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Intent.Blazor.Wasm.imodspec" />
+  <file path="Intent.Modules.Blazor.Wasm.csproj" />
+  <file path="Migrations/OnInstallMigration.cs" />
+  <file path="Migrations/OnUninstallMigration.cs" />
+  <file path="release-notes.md" />
+</managedFiles>

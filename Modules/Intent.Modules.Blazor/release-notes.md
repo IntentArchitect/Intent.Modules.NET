@@ -1,3 +1,7 @@
+### Version 2.0.2
+
+- Fixed: Software Factory crashed wiring up `Program`/startup registrations when Blazor components were generated into an application with more than one ASP.NET Core host. Startup and theme service registration now apply to each Blazor host correctly.
+
 ### Version 2.0.1
 
 - Improvement: Updated NuGet package versions.

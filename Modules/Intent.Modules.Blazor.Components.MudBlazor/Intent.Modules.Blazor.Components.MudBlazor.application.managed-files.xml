@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="9a7240ce-a75e-4913-8630-d06afa4e7cae">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/ButtonModelStereotypeExtensions.cs" />
+  <file path="Api/DataGridColumnModel.cs" />
+  <file path="Api/DataGridModel.cs" />
+  <file path="Api/DataGridModelStereotypeExtensions.cs" />
+  <file path="Api/DataGridToolbarModel.cs" />
+  <file path="Api/IconModelStereotypeExtensions.cs" />
+  <file path="Api/ImageModelStereotypeExtensions.cs" />
+  <file path="Api/MenuItemModelStereotypeExtensions.cs" />
+  <file path="Api/NavigationMenuModelStereotypeExtensions.cs" />
+  <file path="Api/SpacerModel.cs" />
+  <file path="Api/TextInputModelStereotypeExtensions.cs" />
+  <file path="Api/UserMenuModel.cs" />
+  <file path="FactoryExtensions/HomePageDefaultHtmlExtension.cs" deviationsHash="B013B641D632264F3FF3F8DA066AD1FB00F6417661B643BFBB3CEC83FB1198F2" />
+  <file path="FactoryExtensions/MudBlazorComponentInstaller.cs" />
+  <file path="FactoryExtensions/MudBlazorInstaller.cs" />
+  <file path="FactoryExtensions/SnackbarInstaller.cs" />
+  <file path="FactoryExtensions/WireupCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
+  <file path="Intent.Blazor.Components.MudBlazor.imodspec" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor.csproj" />
+  <file path="Migrations/Migration_01_00_00_Beta_22.cs" />
+  <file path="Migrations/Migration_02_00_00_Pre_00.cs" />
+  <file path="NugetPackages.cs" />
+  <file path="Templates/BlazorMudBlazorGeneralInstructions/BlazorMudBlazorGeneralInstructionsTemplatePartial.cs" />
+  <file path="Templates/BlazorMudBlazorGeneralInstructions/BlazorMudBlazorGeneralInstructionsTemplateRegistration.cs" />
+  <file path="Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplatePartial.cs" />
+  <file path="Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplateRegistration.cs" />
+  <file path="Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplatePartial.cs" />
+  <file path="Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplateRegistration.cs" />
+  <file path="Templates/StaticContentTemplateRegistrations/HomeStyleStaticContentTemplateRegistration.cs" />
+  <file path="Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" />
+  <file path="Templates/StaticContentTemplateRegistrations/UserMenuDefaultStaticContentTemplateRegistration.cs" deviationsHash="684688181EE1AE0B83510308DA9392CAF5DECE7FC813251DE2A4312E94A0BFE2" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="content/SamplePages/readme.txt" />
+  <file path="content/Theme/readme.txt" />
+  <file path="content/UserMenuDefault/readme.txt" />
+  <file path="modelers/MudBlazor Core Components.designer.settings" />
+  <file path="modelers/MudBlazor Data Grid Component.designer.settings" />
+  <file path="release-notes.md" />
+  <file path="resources/documentation.json" />
+</managedFiles>

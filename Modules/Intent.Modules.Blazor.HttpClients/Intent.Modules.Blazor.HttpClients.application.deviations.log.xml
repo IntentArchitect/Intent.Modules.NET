@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1914f670-b1fc-49c1-9821-3bd4038d128c</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/DtoContract/DtoContractTemplatePartial.cs</path>
+      <path>Templates/DtoContract/DtoContractTemplatePartial.cs</path>
       <count>7</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9eac68b-92fa-42be-b77f-d86812e42d83</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <path>Templates/HttpClient/HttpClientTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,7 +29,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f9eac68b-92fa-42be-b77f-d86812e42d83</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <path>Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -42,7 +42,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3986d9ae-05f9-4329-98b6-c8a0e67f7c4b</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <path>Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -55,7 +55,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#026e4511-da6e-495a-91b8-5fc30e46db22</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <path>Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -68,7 +68,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0da9ce-a23d-4c7b-8d80-40957e6378cc</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <path>Templates/PagedResult/PagedResultTemplatePartial.cs</path>
       <count>5</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -81,7 +81,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c33352d-d0c8-414d-8335-6b5c28318ae5</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <path>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -94,7 +94,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#25beaf48-777a-4ccd-bd1c-7c64df00b41d</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/ServiceContract/ServiceContractTemplatePartial.cs</path>
+      <path>Templates/ServiceContract/ServiceContractTemplatePartial.cs</path>
       <count>6</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -107,7 +107,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#334c1308-4ec0-40eb-a796-8ee6cd5a6eec</correlationId>
-      <path>Intent.Modules.Blazor.HttpClients/Templates/TemplateExtensions.cs</path>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

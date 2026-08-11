@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="3f08d954-b821-4c2d-871f-ac109217513a">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/ChangeRenderMode.cs" />
+  <file path="FactoryExtensions/ClientAddAuthentication.cs" />
+  <file path="FactoryExtensions/CurrentUserServiceImplementation.cs" />
+  <file path="FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="363FDC10E81102641FED5DED37EB73492160D73B0114101B279DCC468AC55AF8" />
+  <file path="FactoryExtensions/WireupAccountCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
+  <file path="FactoryExtensions/WireupMudBlazorAccountCss.cs" />
+  <file path="Intent.Blazor.Authentication.imodspec" />
+  <file path="Intent.Modules.Blazor.Authentication.csproj" />
+  <file path="NugetPackages.cs" />
+  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplatePartial.cs" />
+  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplateRegistration.cs" />
+  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplatePartial.cs" />
+  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplateRegistration.cs" />
+  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplatePartial.cs" />
+  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplateRegistration.cs" />
+  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplatePartial.cs" />
+  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ConfirmEmail/ConfirmEmailTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ConfirmEmail/ConfirmEmailTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ConfirmEmailCodeBehind/ConfirmEmailCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ConfirmEmailCodeBehind/ConfirmEmailCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ForgotPassword/ForgotPasswordTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ForgotPassword/ForgotPasswordTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ForgotPasswordCodeBehind/ForgotPasswordCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ForgotPasswordCodeBehind/ForgotPasswordCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/Login/LoginTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/Login/LoginTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/LoginCodeBehind/LoginCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/LoginCodeBehind/LoginCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/Register/RegisterTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/Register/RegisterTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/RegisterCodeBehind/RegisterCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/RegisterCodeBehind/RegisterCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ResendEmailConfirmation/ResendEmailConfirmationTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ResendEmailConfirmation/ResendEmailConfirmationTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ResendEmailConfirmationCodeBehind/ResendEmailConfirmationCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ResendEmailConfirmationCodeBehind/ResendEmailConfirmationCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ResetPassword/ResetPasswordTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ResetPassword/ResetPasswordTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/ResetPasswordCodeBehind/ResetPasswordCodeBehindTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/ResetPasswordCodeBehind/ResetPasswordCodeBehindTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplatePartial.cs" />
+  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplateRegistration.cs" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="FB078BB9866E6C6AE7D864D8543C1F84D6B1DEBD26D0759F0634FA7AFE37022C" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="A47646E105D8BE64E594D2CDDDDC7009DF3FA16C36006954992B12E494563F0C" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs" deviationsHash="E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs" deviationsHash="38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C" />
+  <file path="content/Components/Account/Pages/readme.txt" />
+  <file path="content/Components/Account/Shared/readme.txt" />
+  <file path="content/ComponentsMudBlazor/Account/Pages/readme.txt" />
+  <file path="content/ComponentsMudBlazor/Account/Shared/readme.txt" />
+  <file path="content/Theme/readme.txt" />
+  <file path="content/ThemeMudBlazor/readme.txt" />
+  <file path="release-notes.md" />
+  <file path="resources/documentation.json" />
+</managedFiles>

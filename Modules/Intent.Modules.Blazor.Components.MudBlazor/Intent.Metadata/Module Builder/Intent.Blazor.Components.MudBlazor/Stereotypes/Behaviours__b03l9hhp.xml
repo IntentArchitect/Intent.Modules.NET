@@ -25,7 +25,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>False</defaultValue>
+      <defaultValue>false</defaultValue>
     </property>
     <property id="a4523682-d4d6-4c7f-a40a-b3437a3d7abe">
       <name>Debounce Interval</name>
