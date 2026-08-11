@@ -16,6 +16,12 @@ This applies to all render modes (Interactive Server, Interactive WebAssembly an
 
 > 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library seeds its own home page instead.
 
+## Default Layout
+
+The first time a modelled `Layout`'s `MainLayout.razor` is generated, this module composes it from that Layout's regions: `<MainLayoutHeader />` and `<MainLayoutSider />` are always referenced, and `<MainLayoutFooter />` is referenced when a Footer is modeled, wrapped in a `ux-app-shell` / `ux-app-content` shell that uses the theme classes this module already ships. The file is written **once off** — it is never regenerated, so you are free to restructure it afterwards.
+
+> 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library composes `MainLayout.razor` with its own components instead.
+
 ## Securing Pages and UI Elements
 
 The `Secured` stereotype can be used to secure specific UI elements or entire pages so that only users with the required `policy` or `roles` can access or view them.

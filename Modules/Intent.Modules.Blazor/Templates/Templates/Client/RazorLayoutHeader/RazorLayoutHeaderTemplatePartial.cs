@@ -88,12 +88,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                     {
                         file.AddHtmlElement("header", header =>
                         {
-                            header.AddAttribute("class", "ux-app-header ux-gradient-primary d-flex align-items-center gap-2 px-3 py-2");
+                            header.AddAttribute("class", "ux-app-header d-flex align-items-center gap-2 px-3 py-2");
 
                             header.AddHtmlElement("button", button =>
                             {
                                 button.AddAttribute("type", "button")
-                                    .AddAttribute("class", "btn-icon text-white")
+                                    .AddAttribute("class", "btn-icon")
                                     .AddAttribute("onclick", "navDrawer.toggle()")
                                     .AddAttribute("aria-label", "Toggle navigation");
 
@@ -106,7 +106,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
                             header.AddHtmlElement("a", link =>
                             {
                                 link.AddAttribute("href", "/")
-                                    .AddAttribute("class", "fw-bold fs-5 text-white text-decoration-none");
+                                    .AddAttribute("class", "navbar-brand fw-bold fs-5 text-decoration-none");
                                 link.Text = ExecutionContext.GetApplicationConfig().Name;
                             });
 

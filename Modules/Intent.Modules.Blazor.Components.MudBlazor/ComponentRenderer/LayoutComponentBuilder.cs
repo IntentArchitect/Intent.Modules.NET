@@ -71,6 +71,8 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 prop.Public();
             });
 
+            code.File.Template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreHttpAbstractions(code.File.Template.OutputTarget));
+
             code.AddProperty(code.File.Template.UseType("Microsoft.AspNetCore.Http.HttpContext?"), "HttpContext", prop =>
             {
                 prop.AddAttribute(code.File.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameter"));
@@ -84,7 +86,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 prop.Private().ReadOnly();
             });
 
-            code.AddMethod("Task", "OnAfterRenderAsync", method =>
+            code.AddMethod(code.File.Template.UseType("System.Threading.Tasks.Task"), "OnAfterRenderAsync", method =>
             {
                 method.Override().Async().Protected();
                 method.AddParameter("bool", "firstRender");

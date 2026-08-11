@@ -475,7 +475,44 @@ Last so they can override component styles above without needing !important.
     border-radius: var(--radius-lg);
 }
 
+.ux-app-shell {
+    min-height: 100vh;
+}
+
+.ux-app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+    z-index: var(--mud-zindex-appbar, 1300);
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-3);
+}
+
+.ux-app-header .navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ux-gradient-primary {
+    background: var(--gradient-brand);
+    color: var(--primary-contrast);
+}
+
 .ux-app-content {
+    padding-top: 64px;
     transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -501,4 +538,88 @@ html.ux-drawer-open .ux-app-content {
 
 html.ux-drawer-open .ux-nav-drawer {
     transform: translateX(0);
+}
+
+    .ux-nav-drawer .nav.flex-column {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: var(--space-2) 0;
+    }
+
+    .ux-nav-drawer .nav-item {
+        padding: 0.125rem 0.75rem;
+    }
+
+        .ux-nav-drawer .nav-item .nav-link {
+            color: var(--text-muted);
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 0.875rem;
+            display: flex;
+            align-items: center;
+            font-size: var(--type-body-sm);
+            font-weight: 500;
+            text-decoration: none;
+            transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+        }
+
+            .ux-nav-drawer .nav-item .nav-link:hover {
+                background: var(--hover-overlay);
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            .ux-nav-drawer .nav-item .nav-link.active {
+                background: var(--primary-subtle);
+                color: var(--primary);
+            }
+
+/* App-header layout utilities (Bootstrap-equivalent, token-driven) */
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.gap-2 {
+    gap: var(--space-2) !important;
+}
+
+.px-3 {
+    padding-left: var(--space-3) !important;
+    padding-right: var(--space-3) !important;
+}
+
+.py-2 {
+    padding-top: var(--space-2) !important;
+    padding-bottom: var(--space-2) !important;
+}
+
+.flex-grow-1 {
+    flex-grow: 1 !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fs-5 {
+    font-size: var(--type-body-lg) !important;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center / 1.5rem;
+    -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center / 1.5rem;
 }

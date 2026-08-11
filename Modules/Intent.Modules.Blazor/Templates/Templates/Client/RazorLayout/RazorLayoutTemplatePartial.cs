@@ -43,7 +43,31 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 
                     if (file.ChildNodes.All(x => x is not IHtmlElement))
                     {
-                        file.AddHtmlElement("div", div => div.WithText("@Body"));
+                        file.AddHtmlElement("div", div =>
+                        {
+                            div.AddAttribute("class", "ux-app-shell");
+
+                            if (Model.Header is not null)
+                            {
+                                div.AddHtmlElement($"{Model.Name}Header");
+                            }
+
+                            if (Model.Sider is not null)
+                            {
+                                div.AddHtmlElement($"{Model.Name}Sider");
+                            }
+
+                            div.AddHtmlElement("main", main =>
+                            {
+                                main.AddAttribute("class", "ux-app-content");
+                                main.WithText("@Body");
+                            });
+
+                            if (Model.Footer is not null)
+                            {
+                                div.AddHtmlElement($"{Model.Name}Footer");
+                            }
+                        });
                     }
 
                     var block = GetCodeBehind();

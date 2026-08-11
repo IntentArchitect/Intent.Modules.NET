@@ -31,10 +31,6 @@
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.HomeStyleStaticContentTemplateRegistration" externalReference="3e6901d8-7e66-437b-b373-46106219c3c9">
-      <role>Blazor</role>
-      <location>Components/Pages</location>
-    </template>
     <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="2815c770-6653-4a02-920c-5373c3175ea8">
       <role>AI.Context.Skills</role>
       <location></location>

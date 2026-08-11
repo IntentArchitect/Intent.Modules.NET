@@ -46,14 +46,22 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
 
                 // Two-project (Auto/Wasm): the model-generated MainLayout lives in .Client/Components/Layout and
                 // resolves the co-located atoms (NavLinks/ThemeToggle) natively, but also injects <AppUserMenu/>.
-                // The no-op AppUserMenu scaffold ships to a SIBLING .Client/Layout folder (kept out of
-                // Components/Layout on purpose, so the server's real AppUserMenu atoms-import doesn't collide), so
-                // BOTH namespaces must be imported here or <AppUserMenu/> is RZ10012 = inert HTML (menu missing).
-                // Gated on MudBlazor (which ships these); the namespaces must exist.
+                // .Components.Layout (MainLayout's own namespace) is always populated for MudBlazor two-project
+                // apps, so that using is gated on MudBlazor alone.
                 if (ExecutionContext.GetInstalledModules().Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
                 {
                     file.AddUsing($"{OutputTarget.GetNamespace()}.Components.Layout");
-                    file.AddUsing($"{OutputTarget.GetNamespace()}.Layout");
+
+                    // The no-op AppUserMenu scaffold ships to a SIBLING .Client/Layout folder (kept out of
+                    // Components/Layout on purpose, so the server's real AppUserMenu atoms-import doesn't collide),
+                    // but only when Authentication is installed (see
+                    // UserMenuDefaultClientStaticContentTemplateRegistration.Register) - that's the only case
+                    // <AppUserMenu/> is referenced at all. Without Authentication the .Layout namespace is never
+                    // generated, so importing it unconditionally would be RZ... CS0234 (namespace doesn't exist).
+                    if (ExecutionContext.GetInstalledModules().Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
+                    {
+                        file.AddUsing($"{OutputTarget.GetNamespace()}.Layout");
+                    }
                 }
             });
         }

@@ -2,6 +2,7 @@
 
 - New Feature: The `Home` page is now seeded once off with a styled default landing page (hero section and quick-link tiles) and a co-located `Home.razor.css`, in all render modes. Both files are only written when they don't already exist, so your edits are never overwritten.
 - Improvement: Removed the static WebAssembly sample `Pages/Home.razor`, so the modelled `Home` component is now the single source of the home page in every render mode.
+- Fixed: The Software Factory no longer deletes a component's `.razor.css` file once it exists. Previously, any component whose scoped style content is only seeded once (e.g. the default `Home.razor.css`) was deleted on every Software Factory run after the first.
 
 ### Version 2.0.1
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="3f08d954-b821-4c2d-871f-ac109217513a">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="Intent.Modules.Blazor.Authentication/Api/UserInterfacePackageModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/AuthPageDefaultContentFactoryExtension.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/ChangeRenderMode.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/ClientAddAuthentication.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/CurrentUserServiceImplementation.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="363FDC10E81102641FED5DED37EB73492160D73B0114101B279DCC468AC55AF8" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/WireupAccountCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
+  <file path="Intent.Modules.Blazor.Authentication/FactoryExtensions/WireupMudBlazorAccountCss.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Intent.Blazor.Authentication.imodspec" />
+  <file path="Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.csproj" />
+  <file path="Intent.Modules.Blazor.Authentication/NugetPackages.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Settings/ModuleSettingsExtensions.cs" deviationsHash="39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/TemplateExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/UserInfo/UserInfoTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/UserInfo/UserInfoTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" deviationsHash="BDB1589E1BD7F1DEC3B730AC69405E632BE544CC75D4930DC1344E8B0C7C720F" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayout/AccountLayoutTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/ApplicationUser/ApplicationUserTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/ApplicationUser/ApplicationUserTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="170B3C3369C5CF281A48FB56BBB6DDC711A254575B894C425F2383BEE4BF7177" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="BAEEAE1E1B4BFF18540EA6BE8844D384E6A422FA2680E0464474E85BD5A04362" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs" deviationsHash="E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs" deviationsHash="38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C" />
+  <file path="Intent.Modules.Blazor.Authentication/content/Components/Account/Pages/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/Components/Account/Shared/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Account/Pages/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Account/Shared/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Layout/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/Theme/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/ThemeMudBlazor/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/content/wwwroot/readme.txt" />
+  <file path="Intent.Modules.Blazor.Authentication/release-notes.md" />
+  <file path="Intent.Modules.Blazor.Authentication/resources/documentation.json" />
+  <file path="Intent.Modules.NET.sln" />
+</managedFiles>

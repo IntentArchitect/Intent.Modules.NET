@@ -239,8 +239,6 @@ function syncNavigations(navigationDefinitions) {
     });
 }
 
-const LAYOUT_PLACEMENT_STEREOTYPE = "78475d50-f0e3-4fc7-96bd-1a6df1e8f71d";
-
 // Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
 // region: Login/Register for an anonymous user, Manage for an authenticated one. Built
 // from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
@@ -256,7 +254,6 @@ function syncProfileMenu(securityType) {
     if (!profileMenu) {
         profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
     }
-
     const prefix = SECURITY_TYPE_PREFIX[securityType];
     const menuPageIds = [];
     if (prefix) {
@@ -276,10 +273,15 @@ function syncProfileMenu(securityType) {
         if (!target) {
             return;
         }
-        const navigation = addNavigation(mainLayout, target);
-        const targetEnd = navigation.getTargetEnd();
-        const placement = targetEnd.getStereotype(LAYOUT_PLACEMENT_STEREOTYPE) || targetEnd.ensureStereotype(LAYOUT_PLACEMENT_STEREOTYPE);
-        placement.setProperty("Regions", [profileMenu.id]);
+        const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
+        const nav = addNavigation(mainLayout, target);
+        if (isLoginPage) {
+            try {
+                nav.setComment("Navigable from the Profile menu.");
+            } catch (e) {
+                console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+            }
+        }
     });
 }
 
@@ -650,8 +652,6 @@ function syncNavigations(navigationDefinitions) {
     });
 }
 
-const LAYOUT_PLACEMENT_STEREOTYPE = "78475d50-f0e3-4fc7-96bd-1a6df1e8f71d";
-
 // Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
 // region: Login/Register for an anonymous user, Manage for an authenticated one. Built
 // from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
@@ -667,7 +667,6 @@ function syncProfileMenu(securityType) {
     if (!profileMenu) {
         profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
     }
-
     const prefix = SECURITY_TYPE_PREFIX[securityType];
     const menuPageIds = [];
     if (prefix) {
@@ -687,10 +686,15 @@ function syncProfileMenu(securityType) {
         if (!target) {
             return;
         }
-        const navigation = addNavigation(mainLayout, target);
-        const targetEnd = navigation.getTargetEnd();
-        const placement = targetEnd.getStereotype(LAYOUT_PLACEMENT_STEREOTYPE) || targetEnd.ensureStereotype(LAYOUT_PLACEMENT_STEREOTYPE);
-        placement.setProperty("Regions", [profileMenu.id]);
+        const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
+        const nav = addNavigation(mainLayout, target);
+        if (isLoginPage) {
+            try {
+                nav.setComment("Navigable from the Profile menu.");
+            } catch (e) {
+                console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+            }
+        }
     });
 }
 

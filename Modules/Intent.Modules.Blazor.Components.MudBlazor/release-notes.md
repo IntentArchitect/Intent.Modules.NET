@@ -1,3 +1,7 @@
+### Version 2.0.2-pre.0
+
+- Fixed: Creating a WASM (`interactive-web-assembly` / `interactive-auto`) application without the `Intent.Blazor.Authentication` module installed no longer throws `DirectoryNotFoundException` during generation.
+
 ### Version 2.0.1
 
 - Improvement: Updated NuGet package versions.

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="Intent.Modules.Blazor/FactoryExtensions/AITasksFactoryExtension.cs" />
+  <file path="Intent.Modules.Blazor/FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs" deviationsHash="4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04" />
+  <file path="Intent.Modules.Blazor/FactoryExtensions/HomePageDefaultContentFactoryExtension.cs" deviationsHash="2E5D072DD1713EDA9E0982A533F05C5A90431BFA50EB266097A2E46D4FD746DE" />
+  <file path="Intent.Modules.Blazor/Intent.Blazor.imodspec" />
+  <file path="Intent.Modules.Blazor/Intent.Modules.Blazor.csproj" deviationsHash="95080E7D591FA68FB4084699CAF5415C19C93E042193C413339DE582075EAEEA" />
+  <file path="Intent.Modules.Blazor/Migrations/OnInstallMigration.cs" />
+  <file path="Intent.Modules.Blazor/NugetPackages.cs" />
+  <file path="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" />
+  <file path="Intent.Modules.Blazor/Templates/TemplateExtensions.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorAppMenuSkill/BlazorAppMenuSkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorAppMenuSkill/BlazorAppMenuSkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorDialogAddingEntitySkill/BlazorDialogAddingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorDialogAddingEntitySkill/BlazorDialogAddingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorDialogEditingEntitySkill/BlazorDialogEditingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorDialogEditingEntitySkill/BlazorDialogEditingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorGeneralInstructions/BlazorGeneralInstructionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorGeneralInstructions/BlazorGeneralInstructionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageAddingEntitySkill/BlazorPageAddingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageAddingEntitySkill/BlazorPageAddingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageEditingEntitySkill/BlazorPageEditingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageEditingEntitySkill/BlazorPageEditingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageSearchEntitySkill/BlazorPageSearchEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageSearchEntitySkill/BlazorPageSearchEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageViewEntitySkill/BlazorPageViewEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageViewEntitySkill/BlazorPageViewEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs" deviationsHash="A4F5136A30731788357B9A86C069F7A7A0ABBD3F765C948E38BB30EBF50EF3D6" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorSkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="9658AE30FFA72EA3BFBD923A6143006A68B004063DB56C3D50592785DC7C278F" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs" deviationsHash="E46261A70D2FDC7594373165DC5704C64E3D651855F2D99CDCA0D47F12DF11D8" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/DependencyInjection/DependencyInjectionTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/DependencyInjection/DependencyInjectionTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/ModelDefinition/ModelDefinitionTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/ModelDefinition/ModelDefinitionTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs" deviationsHash="5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs" deviationsHash="8EA7CA6765207822EF0AFCBBC972CBCAE11F97DD542CED4B370E05D03A6A68AE" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplateRegistration.cs" deviationsHash="C7387633408EF74314BAD37F65241AC4064F7B0086877EED5E83C1F72501359A" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentStyle/RazorComponentStyleTemplate.cs" deviationsHash="25035ED4CC4F1C3FDD1A994CDCA440B50AAF605C49241EA2CC9F38FE547F256D" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentStyle/RazorComponentStyleTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentStyle/RazorComponentStyleTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs" deviationsHash="EBB493E406CCB6B3E22C4DB3097FAC0926559D351E8E0D5504577FA5DD52FAC5" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooter/RazorLayoutFooterTemplatePartial.cs" deviationsHash="BF27E53BA3228829E748F0ADBCE8B56E23AE9D2F05D4B9321E45E54527D24E65" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooter/RazorLayoutFooterTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooterCodeBehind/RazorLayoutFooterCodeBehindTemplatePartial.cs" deviationsHash="3DDC48AF5B25BBE571552F6D260A6A8197E0BBB96DFFB21DF613A3D3BB72D3BC" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooterCodeBehind/RazorLayoutFooterCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeader/RazorLayoutHeaderTemplatePartial.cs" deviationsHash="06EBBA5B8B60905E643BC362C82263ED9BACE6F6BC5F2DB93634FF5C9F68BF80" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeader/RazorLayoutHeaderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeaderCodeBehind/RazorLayoutHeaderCodeBehindTemplatePartial.cs" deviationsHash="F99EC4D65E3CDE984C505039D9859356C0B2F044233986A4355A93F5B33A7BAD" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeaderCodeBehind/RazorLayoutHeaderCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutProfile/RazorLayoutProfileTemplatePartial.cs" deviationsHash="2736E1C9C8A61B30213B7A7001442D6E7519E3209F8DB523D04236DC1DB72D90" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutProfile/RazorLayoutProfileTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSider/RazorLayoutSiderTemplatePartial.cs" deviationsHash="75EE85B280F31B4871163A706C372E089BC0A2D8AE4E1C6459B39B3E3D2A9C7E" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSider/RazorLayoutSiderTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSiderCodeBehind/RazorLayoutSiderCodeBehindTemplatePartial.cs" deviationsHash="EB0FA3DF2C372C6E90BE921B572CC2CB87D8E8B8E822EDD785ECB313DA6492D5" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSiderCodeBehind/RazorLayoutSiderCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs" deviationsHash="54A1C27F1CF048A4FA7369BF01D455FE04C3E36F1F8742A570EE7BF090964567" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs" deviationsHash="4A7941FA142D922B5263843EFF6BD4DDE69E32C70272FCF899E909CCFC852CDD" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeStorageStaticContentTemplateRegistration.cs" deviationsHash="D41A8C9B10300111D688F9C3FA363697EA86FA0D7DDA5465DADA1C1932948455" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="6099918C4E85829BF70B400A80E48F5CBD4431A8C09C3422823886F43D5AD711" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Common/ThemeService/ThemeServiceTemplatePartial.cs" deviationsHash="932F0D75E54EA9EF501B4B0E0668AB360C43C7BBE36AC1101FEE1CAFFED447F7" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Common/ThemeService/ThemeServiceTemplateRegistration.cs" deviationsHash="20AB76068A5350ACCC8A76A215CDB05EB1A47C882A566CFEAB91EC9D59DA8D9F" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs" deviationsHash="EB677E52EC84423A6AC719FAD686B65C99C5244DC6B8964C899617CE3749B8D2" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutor/ScopedExecutorTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutor/ScopedExecutorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutorInterface/ScopedExecutorInterfaceTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutorInterface/ScopedExecutorInterfaceTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedMediator/ScopedMediatorTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedMediator/ScopedMediatorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedMediatorInterface/ScopedMediatorInterfaceTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedMediatorInterface/ScopedMediatorInterfaceTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs" deviationsHash="A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3" />
+  <file path="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/SamplePages/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/SkillSamples/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/Theme/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/ThemeStorage/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/ThemeToggle/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/UserMenuDefault/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" />
+  <file path="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" />
+  <file path="Intent.Modules.Blazor/modelers/Blazor UI Extensions.designer.settings" />
+  <file path="Intent.Modules.Blazor/release-notes.md" />
+  <file path="Intent.Modules.Blazor/resources/documentation.json" />
+  <file path="Intent.Modules.NET.sln" />
+</managedFiles>

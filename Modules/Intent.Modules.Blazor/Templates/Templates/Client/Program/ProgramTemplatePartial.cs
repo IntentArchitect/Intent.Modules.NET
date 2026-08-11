@@ -153,8 +153,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
             hasStatements.AddStatement("builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });");
             hasStatements.AddStatement("builder.Services.AddClientServices(builder.Configuration);");
             hasStatements.AddStatement("builder.Services.AddAuthorizationCore();");
-            hasStatements.AddAssignmentStatement("var host", new CSharpInvocationStatement("builder.Build()"));
-            hasStatements.AddStatement("await host.RunAsync();", stmt => stmt.AddMetadata("run-builder", "true"));
+            hasStatements.AddStatement("var host = builder.Build();", 
+                stmt => stmt.AddMetadata("run-builder", "true"));
+            hasStatements.AddStatement("await host.RunAsync();");
         }
 
         private static void AddLoadAppSettingsStatements(IHasCSharpStatements hasStatements)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="9a7240ce-a75e-4913-8630-d06afa4e7cae">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/ButtonModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/DataGridColumnModel.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/DataGridModel.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/DataGridModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/DataGridToolbarModel.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/IconModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/ImageModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/MenuItemModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/NavigationMenuModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/SpacerModel.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/TextInputModelStereotypeExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/UserMenuModel.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/HomePageDefaultHtmlExtension.cs" deviationsHash="4297270544B0589C24EECE63710A5F772C3EC856D21BAE9D96C2575D08DBC8F3" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/MudBlazorComponentInstaller.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/MudBlazorInstaller.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/SnackbarInstaller.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/WireupCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Intent.Blazor.Components.MudBlazor.imodspec" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.csproj" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Migrations/Migration_01_00_00_Beta_22.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Migrations/Migration_02_00_00_Pre_00.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/NugetPackages.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/BlazorMudBlazorGeneralInstructions/BlazorMudBlazorGeneralInstructionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/BlazorMudBlazorGeneralInstructions/BlazorMudBlazorGeneralInstructionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorAppMenuSkill/MudBlazorAppMenuSkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorAppMenuSkill/MudBlazorAppMenuSkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorSkillSampleFilesStaticContentTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="EE96CA27619CF6039718006027152C225225E3AACC174479A426B06788FFEAD1" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/TemplateExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SamplePages/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/Theme/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/ThemeToggle/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/UserMenuDefault/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/modelers/MudBlazor Core Components.designer.settings" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/modelers/MudBlazor Data Grid Component.designer.settings" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/release-notes.md" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/resources/documentation.json" />
+  <file path="Intent.Modules.NET.sln" />
+</managedFiles>
