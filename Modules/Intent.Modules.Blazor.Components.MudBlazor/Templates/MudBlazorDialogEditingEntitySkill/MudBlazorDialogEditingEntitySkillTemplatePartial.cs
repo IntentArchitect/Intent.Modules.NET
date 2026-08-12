@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorDialogEditingEntitySkill
 {
   [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorDialogEditingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+  public class MudBlazorDialogEditingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
   {
     [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorDialogEditingEntitySkillTemplate";
+    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.MudBlazorDialogEditingEntitySkillTemplate";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorDialogEditingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public MudBlazorDialogEditingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
       WithContentHashing = true;
       MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-dialog-editing-entity")
         .FromMarkdown("""
           ---
           name: blazor-dialog-editing-entity
-          description: Implements Blazor edit or update entity dialogs using Bootstrap modal dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly through the dialog's OnClosed callback. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
+          description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
           paths:
           - "**/*.razor"
           - "**/*.razor.cs"
@@ -61,9 +61,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
 
           ## Assess The .razor.cs Before Writing
 
-          Use for: Edit or update entity dialogs in Blazor
+          Use for: Edit or update entity dialogs in Blazor with MudBlazor
           Do NOT use for: Full pages, search pages, add dialogs, or non-Blazor projects
-          This is a dialog: close through the dialog's `OnClosed` callback rather than navigation
+          This is a dialog: close or cancel through MudBlazor dialog APIs rather than navigation
 
           Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
 
@@ -71,8 +71,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
           - Add `[Parameter]` properties needed for the dialog (e.g. entity ID)
           - Add a model field or property matching the sample pattern
           - Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
-          - Add `Save()` / `SaveAsync()` that validates the form, calls the existing update service method, and invokes `OnClosed.InvokeAsync(true)` on success
-          - Add `Cancel()` that only invokes `OnClosed.InvokeAsync(false)`
+          - Add `Save()` / `SaveAsync()` that validates the form, calls the existing update service method, and closes the dialog with `MudDialog.Close(DialogResult.Ok(true))` on success
+          - Add `Cancel()` that only calls `MudDialog.Cancel()`
           - Add supporting methods only when they exist in the sample and the relevant service methods exist in the project
 
           **If implemented** — preserve all existing logic exactly:
@@ -90,15 +90,14 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
 
           ## 1. Dialog Structure And Data Loading
 
-          This component is a Bootstrap modal dialog, not a page.
+          This component is a MudBlazor dialog, not a page.
 
           Dialog rules:
-          - In `.razor.cs`, expose a `[Parameter] EventCallback<bool> OnClosed` so the caller can react to close/save
-          - In `.razor`, use the Bootstrap modal structure: an outer `<div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">` wrapping `<div class="modal-dialog">`/`<div class="modal-content">`, with `modal-header`, `modal-body`, and `modal-footer` sections
-          - While the entity is loading, render a centered `spinner-border` in the modal body instead of the form, matching the sample
-          - Do not use MudBlazor dialog APIs (`IMudDialogInstance`, `MudDialog.Close`/`MudDialog.Cancel`, `TitleContent`/`DialogContent`/`DialogActions`) — this project has no MudBlazor dependency
-          - For success, invoke `OnClosed.InvokeAsync(true)`
-          - For cancel, invoke `OnClosed.InvokeAsync(false)`
+          - In `.razor.cs`, use `IMudDialogInstance`
+          - In `.razor`, use `TitleContent`, `DialogContent`, and `DialogActions`
+          - Do not use old dialog tags such as `MudDialogTitle`, `MudDialogContent`, or `MudDialogActions`
+          - For success, close with `MudDialog.Close(DialogResult.Ok(true))`
+          - For cancel, use `MudDialog.Cancel()`
 
           Data loading:
           - Receive dialog input through `[Parameter]` properties — add them if absent in a skeleton
@@ -112,11 +111,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
           `Save()` or `SaveAsync()` — add if absent in a skeleton:
           1. Validate the form
           2. Call the existing update service method without modification
-          3. On success, invoke `OnClosed.InvokeAsync(true)`
-          4. On error, keep the dialog open and set existing error state such as `ErrorMessage`
+          3. On success, close the dialog with a success result
+          4. On error, keep the dialog open and set existing error state such as `serviceErrors.*`
 
           `Cancel()` — add if absent in a skeleton:
-          - Only invoke `OnClosed.InvokeAsync(false)`
+          - Only cancel or close the dialog
           - Do not reset model state
           - Do not call services
 
@@ -146,16 +145,19 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
 
           | Property Type | Control |
           |---------------|---------|
-          | String | `InputText` (`class="form-control"`) |
-          | Boolean | `InputCheckbox` rendered inside a `form-check form-switch` wrapper |
-          | Enum | `InputSelect` with verified members as literal `<option value="@EnumType.Member">` entries |
-          | Lookup | `InputSelect` from real option sources only |
-          | Array | Repeatable Bootstrap blocks (a `<table>` row per item, or a bordered `<div>` block) |
-          | Date | `InputDate`, or a plain `<input type="date">` bound with `@bind` for non-validated fields |
+          | String | `MudTextField` |
+          | Boolean | `MudSwitch` or `MudCheckBox` |
+          | Enum | `MudSelect` with verified numeric values |
+          | Lookup | `MudSelect` from real option sources only |
+          | Array | Repeatable MudBlazor blocks |
+          | Date | `MudDatePicker` |
 
-          Rules:
-          - Bind directly to the enum member as the `<option value="@EnumType.Member">` value — no numeric casting needed
-          - Never assume enum members from sample code without verifying against the real enum definition
+          MudBlazor rules:
+          - Declare `T` explicitly for generic controls when required
+          - Add placeholders to `MudSelect`
+          - Every `MudDatePicker` must include `Placeholder="Select date"`
+          - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
+          - Never assume enum members from sample code
 
           ---
 
@@ -173,8 +175,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
           - Keep component-specific styles minimal
           - Never modify existing shared styles or theme values
           - Match the sample dialog layout closely
-          - Cancel button in the modal footer must use the `btn btn-outline` class
-          - Save button must use the `btn btn-primary` class with `disabled` bound to the saving flag
+          - Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
+          - Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
 
           **Design and styling context**
 
@@ -186,14 +188,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorDialogEditingEntity
 
           - [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
           - [ ] No `@code` block was introduced in `.razor`
-          - [ ] Dialog uses the Bootstrap modal structure and an `OnClosed` callback, not MudBlazor dialog APIs
+          - [ ] Dialog uses `IMudDialogInstance` and modern MudBlazor dialog sections
           - [ ] Entity data is loaded or prepopulated through lifecycle or backing methods (implemented or added if the skeleton had none)
-          - [ ] Save invokes `OnClosed.InvokeAsync(true)` on success
-          - [ ] Cancel only invokes `OnClosed.InvokeAsync(false)`
+          - [ ] Save closes with `DialogResult.Ok(true)` on success
+          - [ ] Cancel only cancels the dialog
           - [ ] Existing update service methods were not modified
           - [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
           - [ ] No service classes or interfaces were invented that don't exist in the project
           - [ ] Enum options were verified against the real enum definition
+          - [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
           - [ ] Validation prevents service calls when invalid
           - [ ] Shared styles were preserved and component styling remained minimal
 

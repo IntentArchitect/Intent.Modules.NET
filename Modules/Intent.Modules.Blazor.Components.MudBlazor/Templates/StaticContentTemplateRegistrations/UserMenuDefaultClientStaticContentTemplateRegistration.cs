@@ -33,6 +33,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
+            return;
+
             // Two-project render modes only (InteractiveAuto / InteractiveWebAssembly). The interactive MainLayout
             // lives in the .Client (flat Layout/ folder) and injects <AppUserMenu/>, but the Authentication module
             // ships its real AppUserMenu to the server (Components/Account/Shared) and cannot target the .Client.

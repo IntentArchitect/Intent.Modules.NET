@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorPageAddingEntitySkill
 {
   [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorPageAddingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+  public class MudBlazorPageAddingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
   {
     [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate";
+    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.MudBlazorPageAddingEntitySkillTemplate";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorPageAddingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public MudBlazorPageAddingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
       WithContentHashing = true;
       MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-page-adding-entity")
         .FromMarkdown("""
           ---
           name: blazor-page-adding-entity
-          description: Implements Blazor add or create entity pages using Bootstrap/EditForm forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
+          description: Implements Blazor add or create entity pages using MudBlazor forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
           paths:
           - "**/*.razor"
           - "**/*.razor.cs"
@@ -77,7 +77,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           ## Assess The .razor.cs Before Writing
 
-          Use for: Add or create entity pages in Blazor
+          Use for: Add or create entity pages in Blazor with MudBlazor
           Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects
 
           Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
@@ -113,23 +113,27 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           ---
 
-          ## 2. Map Properties to Controls
+          ## 2. Map Properties to MudBlazor Controls
 
           | Property Type | Control |
           |---------------|---------|
-          | String | `InputText`, or `InputTextArea` for multi-line values |
-          | Boolean | `InputCheckbox` rendered inside a `form-check form-switch` wrapper |
-          | Enum | `InputSelect` with verified members as literal `<option value="@EnumType.Member">` entries |
-          | Lookup | `InputSelect` using real service-loaded options only |
-          | Array | Repeatable Bootstrap blocks, each keyed with `@key` |
-          | Date | `InputDate`, or a plain `<input type="date">` bound with `@bind` |
+          | String | `MudTextField` or `MudTextField Lines="..."` |
+          | Boolean | `MudSwitch` or `MudCheckBox` |
+          | Enum | `MudSelect` with explicit numeric values |
+          | Lookup | `MudSelect` using real service-loaded options only |
+          | Array | Repeatable MudBlazor blocks |
+          | Date | `MudDatePicker` |
 
           Enum rules:
           1. Locate the enum definition from imports or project search
           2. Read the enum file and verify exact member names and values
           3. Use only verified enum members
-          4. Bind directly to the enum member as the `<option value="@EnumType.Member">` value — no numeric casting needed
+          4. For `MudSelect`, prefer numeric values with explicit casts such as `Value="@((int)AddressType.Delivery)"`
           5. Never invent enum members from samples
+
+          MudBlazor rules:
+          - For MudBlazor generic controls such as `MudSelect`, declare `T` explicitly when required
+          - Every `MudDatePicker` must include `Placeholder="Select date"`
 
           ---
 
@@ -166,7 +170,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           ## 5. Child Collections
 
-          Render child collections in repeatable Bootstrap UI blocks.
+          Render child collections in repeatable MudBlazor UI blocks.
 
           Buttons:
           - Add buttons only if a corresponding `AddX()` or `AddXAsync()` method already exists
@@ -204,6 +208,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
           - [ ] No service classes or interfaces were invented that don't exist in the project
           - [ ] Child collection buttons exist only when backing methods exist
           - [ ] Enum options were verified against the real enum definition
+          - [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
           - [ ] Validation is wired and Save is disabled when invalid or loading
           - [ ] Shared styles were preserved and component styling remained minimal
           - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested

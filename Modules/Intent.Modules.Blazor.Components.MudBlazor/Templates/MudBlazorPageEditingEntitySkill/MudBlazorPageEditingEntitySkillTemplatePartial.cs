@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorPageEditingEntitySkill
 {
   [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorPageAddingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+  public class MudBlazorPageEditingEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
   {
     [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageAddingEntitySkillTemplate";
+    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.MudBlazorPageEditingEntitySkillTemplate";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorPageAddingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public MudBlazorPageEditingEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
       WithContentHashing = true;
-      MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-page-adding-entity")
+      MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-page-editing-entity")
         .FromMarkdown("""
           ---
-          name: blazor-page-adding-entity
-          description: Implements Blazor add or create entity pages using Bootstrap/EditForm forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
+          name: blazor-page-editing-entity
+          description: Implements Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing edit, update, or modify entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
           paths:
           - "**/*.razor"
           - "**/*.razor.cs"
@@ -43,8 +43,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
           STOP — you MUST read ALL of the following before writing ANY code:
 
           **Samples** (in the SAME folder as this SKILL.md):
-          1. `add-entity-sample.razor`
-          2. `add-entity-sample.razor.cs`
+          1. `edit-entity-sample.razor`
+          2. `edit-entity-sample.razor.cs`
 
           **Target component and project files:**
           3. The target `.razor` and `.razor.cs`
@@ -77,16 +77,17 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           ## Assess The .razor.cs Before Writing
 
-          Use for: Add or create entity pages in Blazor
-          Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects
+          Use for: Edit or update entity pages in Blazor with MudBlazor
+          Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects
 
-          Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
+          Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
 
           **If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
-          - Add a model field or property (initialized to a new instance) matching the sample pattern
-          - Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing create service method, and navigates on success
-          - Add supporting lookup loading in `OnInitializedAsync()` if lookups are required and the service exists in the project
-          - Add add/remove collection item methods only when they exist in the sample and matching service methods exist
+          - Add `[Parameter]` properties needed for the page (e.g. entity ID)
+          - Add a model field or property matching the sample pattern
+          - Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
+          - Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing update service method, and navigates on success using an existing or added navigation method
+          - Add supporting methods (cancel, add/remove collection items) only when they exist in the sample and the relevant service methods exist in the project
 
           **If implemented** — preserve all existing logic exactly:
           - Do NOT modify existing methods, service calls, or payload construction
@@ -95,56 +96,62 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           **Always forbidden** (skeleton or implemented):
           - Inventing service classes or interfaces that don't exist in the project
-          - Inventing fake option data or hardcoded list values
           - Calling services directly from the `.razor` file
           - Putting C# logic in `.razor` using `@code`
 
           ---
 
-          ## 1. Form: Build From The Model
+          ## 1. Data Loading And Form
 
-          Bind inputs only to properties that exist on `model` — adding the model field first if it does not yet exist in the skeleton.
+          If `OnInitializedAsync()` is empty or a stub, implement it to load the entity via the appropriate service method. If the method already has a body, leave it unchanged.
+
+          Build the form from the model structure — adding the model field if it does not yet exist in the skeleton.
 
           Nullable objects:
-          - Render a toggle or checkbox section only when the target model supports that nullable object pattern
-          - Toggle OFF should set the object to null
+          - Render conditional sections only when supported by the existing model and state
+          - Toggle OFF should set the object to null when that pattern already exists
           - Toggle ON should initialize it if null
-          - Do not render nested fields as always visible or required unless the existing backing model already requires that behavior
+          - Keep the exact conditional logic from `.razor.cs`
 
           ---
 
-          ## 2. Map Properties to Controls
+          ## 2. Map Properties To MudBlazor Controls
 
           | Property Type | Control |
           |---------------|---------|
-          | String | `InputText`, or `InputTextArea` for multi-line values |
-          | Boolean | `InputCheckbox` rendered inside a `form-check form-switch` wrapper |
-          | Enum | `InputSelect` with verified members as literal `<option value="@EnumType.Member">` entries |
-          | Lookup | `InputSelect` using real service-loaded options only |
-          | Array | Repeatable Bootstrap blocks, each keyed with `@key` |
-          | Date | `InputDate`, or a plain `<input type="date">` bound with `@bind` |
+          | String | `MudTextField` |
+          | Boolean | `MudSwitch` or `MudCheckBox` |
+          | Enum | `MudSelect` with verified numeric values |
+          | Lookup | `MudSelect` using real loaded options |
+          | Array | Repeatable MudBlazor blocks |
+          | Date | `MudDatePicker` |
+
+          MudBlazor rules:
+          - Declare `T` explicitly for generic controls when required
+          - Add placeholders to `MudSelect`
+          - Every `MudDatePicker` must include `Placeholder="Select date"`
+          - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
+          - Keep `Dense`, `Variant`, and `Margin` settings consistent across the form when used
 
           Enum rules:
-          1. Locate the enum definition from imports or project search
-          2. Read the enum file and verify exact member names and values
-          3. Use only verified enum members
-          4. Bind directly to the enum member as the `<option value="@EnumType.Member">` value — no numeric casting needed
-          5. Never invent enum members from samples
+          - Locate and read the real enum definition before using it
+          - Use only verified enum members and values
+          - Never copy enum members from sample code without verification
 
           ---
 
-          ## 3. Form Validation
+          ## 3. Validation
 
-          Use valid Blazor form patterns with `EditForm` and the component's existing validation conventions.
+          Use valid Blazor `EditForm` patterns with the project's existing validation approach.
 
           Required fields must have:
-          - Model validation attributes or existing validator wiring
-          - Validation components such as `DataAnnotationsValidator` when the component pattern uses them
+          - Validation wiring from model annotations or existing validators
           - Visible validation messages when invalid
+          - Save disabled when invalid
 
-          Save button state:
-          - Disable Save when the form is invalid
-          - Disable Save when a save operation is already in progress, for example `isLoading`
+          If using MudBlazor validation delegates, ensure signatures and nullability are correct.
+
+          If multiple forms are used, they must not be nested.
 
           ---
 
@@ -152,41 +159,38 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           The Save button must call `Save()` or `SaveAsync()`. If neither exists in `.razor.cs`, add it following the sample pattern.
 
-          That save flow must:
-          1. Validate before saving
-          2. Call the existing create service method without modifying it
+          That flow must:
+          1. Validate the form
+          2. Call the existing update service method without modifying it
           3. Navigate on success using an existing or added navigation method
 
           Forbidden:
-          - Calling service methods directly from the Razor template
-          - Modifying existing service-calling methods
-          - Changing payload construction
+          - Calling services directly from the Razor template
+          - Modifying existing update service methods
+          - Changing request payloads
 
           ---
 
           ## 5. Child Collections
 
-          Render child collections in repeatable Bootstrap UI blocks.
+          Render child collections in repeatable MudBlazor UI blocks.
 
           Buttons:
-          - Add buttons only if a corresponding `AddX()` or `AddXAsync()` method already exists
-          - Remove buttons only if a corresponding `RemoveX()` or `RemoveXAsync()` method already exists
-          - Do not invent collection manipulation methods
+          - Add buttons only if matching `AddX()` or `AddXAsync()` methods exist
+          - Remove buttons only if matching `RemoveX()` or `RemoveXAsync()` methods exist
 
-          For `for` loops:
-          - Declare `var index = i;` inside each iteration
-          - Use `index` for bindings, `@key`, and callbacks
-          - Never bind or pass `i` directly inside the loop body
+          Indexed bindings:
+          - Use `for` loops with `var index = i;`
+          - Never reference `i` directly in bindings, `@key`, or callbacks
 
           ---
 
           ## 6. Styling
 
-          - Prefer existing global or shared utility styles first
+          - Prefer shared utility styles first
           - Keep component-specific styles minimal
-          - You may add new shared utility styles only when a reusable pattern is missing
           - Never modify existing shared styles, variables, or theme values
-          - Match the sample layout closely without introducing unnecessary wrappers
+          - Match the sample layout closely
 
           **Design and styling context**
 
@@ -198,14 +202,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageAddingEntitySki
 
           - [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
           - [ ] No `@code` block was introduced in `.razor`
+          - [ ] Data is loaded through lifecycle or backing methods (implemented or added if the skeleton had none)
           - [ ] Save button calls `Save()` or `SaveAsync()` in `.razor.cs`, not a service directly
-          - [ ] Existing create service methods were not modified
+          - [ ] Existing update service methods were not modified
           - [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
           - [ ] No service classes or interfaces were invented that don't exist in the project
+          - [ ] Conditional sections follow the backing logic
           - [ ] Child collection buttons exist only when backing methods exist
           - [ ] Enum options were verified against the real enum definition
+          - [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
           - [ ] Validation is wired and Save is disabled when invalid or loading
-          - [ ] Shared styles were preserved and component styling remained minimal
           - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
           - [ ] Sample utility classes were verified to exist in the target project and reused when available
 

@@ -25,16 +25,6 @@
       <fileHash>EE528862DE20D2533E9F50DCA94245E64E1BB4E471CF5A4FDA155060ABB73BF1</fileHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#dab870d2-16e4-46ee-82d9-e78558ed569d</correlationId>
-      <path>Intent.Modules.Blazor/Intent.Modules.Blazor.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-09T13:14:11.6904435Z</updatedAt>
-      <deviationsHash>95080E7D591FA68FB4084699CAF5415C19C93E042193C413339DE582075EAEEA</deviationsHash>
-      <fileHash>A3E5682A302C9FE7BA0FD88301FDF45AD37A0F3203C3D3E90F4E28C63201ACFA</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#71dd8fd0-e402-452c-b33e-718d4c3b9991</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs</path>
       <count>1</count>

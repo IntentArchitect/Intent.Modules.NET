@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.2-pre.2</version>
+  <version>2.0.2-pre.1</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -40,6 +40,10 @@
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate" externalReference="4a16b11d-f73c-4bd8-87f3-7202c891752f">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorUpdatingStylingSkillTemplate" externalReference="4cc7bdd3-5ca7-45f8-a2f1-905c8ed2e5c9">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
@@ -313,7 +317,7 @@
     </detect>
     <detect id="Intent.Blazor.Components.MudBlazor">
       <install>
-        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.1-pre.0" />
+        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.2-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Blazor.Authentication">

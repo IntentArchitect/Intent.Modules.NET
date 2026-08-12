@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorPageViewEntitySkill
 {
   [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorPageViewEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+  public class MudBlazorPageViewEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
   {
     [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageViewEntitySkillTemplate";
+    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.MudBlazorPageViewEntitySkillTemplate";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorPageViewEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public MudBlazorPageViewEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
       WithContentHashing = true;
       MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-page-view-entity")
         .FromMarkdown("""
           ---
           name: blazor-page-view-entity
-          description: Implements Blazor read-only view entity pages using plain Bootstrap layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when creating or implementing view, detail, inspect, or read-only display entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
+          description: Implements Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when creating or implementing view, detail, inspect, or read-only display entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
           paths:
           - "**/*.razor"
           - "**/*.razor.cs"
@@ -66,24 +66,24 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
           Required process:
 
           1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-          2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
+          2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
 
           Required baseline layout (when supported by the target app):
 
-          - A hero header `<div class="ux-gradient-primary ux-rounded-lg p-4 mb-4">` with an `<h1>`/`<p>`
-          - A main content card `<div class="card ux-fade-in-up">` with a `<div class="card-body">`
+          - A hero header using `MudPaper` with `Class="pa-4 mb-4 ux-gradient-primary"` and `Elevation="0"`
+          - A main content card using `MudCard` with `Class="ux-fade-in-up"` and `Style="animation-delay: 0.1s"`
 
           Forbidden:
 
-          - Replacing the hero header with a different structure unless explicitly requested
+          - Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
           - Dropping the sample's utility classes when they exist in the target project
 
           ---
 
           ## Preserve Existing Implementation
 
-          Use for: Read-only view or detail entity pages in Blazor
-          Do NOT use for: Add or edit forms, search pages, dialogs, or non-Blazor projects
+          Use for: Read-only view or detail entity pages in Blazor with MudBlazor  
+          Do NOT use for: Add or edit forms, search pages, dialogs, or non-Blazor projects  
           Source of truth: Existing `.razor.cs` file defines data loading, service calls, navigation, and the DTO structure
 
           ### You MUST NOT:
@@ -101,7 +101,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
 
           Load data through existing lifecycle methods and backing methods such as `OnInitializedAsync()`, `OnParametersSetAsync()`, or explicit load methods already present in `.razor.cs`.
 
-          Show a loading indicator while the data object is null, using the same pattern as the sample (a Bootstrap `spinner-border` centered in a flex column, with a short loading message).
+          Show a loading indicator while the data object is null, using the same pattern as the sample (`MudProgressCircular` inside a centered `MudStack`).
 
           Do not display entity content until the data object is non-null.
 
@@ -109,19 +109,20 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
 
           ## 2. Map DTO Properties to Read-Only Display
 
-          Render all scalar DTO properties as labeled read-only fields:
+          Render all scalar DTO properties as labeled read-only fields using `MudText`:
 
           | Property Type | Display |
           |---------------|---------|
-          | String / number | Plain `<div>` with the value, preceded by a `<div class="form-label text-uppercase small">` label |
-          | Boolean / status | A badge `<span>` using the sample's utility classes (`badge-success`, `badge-danger`, `badge-neutral`) |
-          | Enum | Resolved display label (not raw integer), as plain text or a badge span matching sample conventions |
+          | String / number | `MudText Typo="Typo.body1"` with `MudText Typo="Typo.overline"` label above |
+          | Boolean / status | `MudChip` with conditional `Color` and `Variant` |
+          | Enum | Resolved display label (not raw integer) in `MudChip` or `MudText` |
           | Nullable object | Conditional section rendered only when non-null |
-          | Collection | Iterated with `@foreach`, each item in a `ux-inner-panel` block |
+          | Collection | Iterated with `@foreach`, each item in a `MudPaper` card |
 
-          Badge rules:
-          - Use the sample's existing badge utility classes rather than inventing new ones
-          - Match semantics: success/positive states use `badge-success`, inactive/negative use `badge-danger` or `badge-neutral`
+          Chip rules:
+          - Use `T="string"` on every `MudChip`
+          - Match `Color` semantics: `Color.Success` for positive/active, `Color.Default` or `Color.Error` for inactive/negative
+          - Match `Variant` semantics: `Variant.Filled` for active, `Variant.Outlined` for inactive or neutral
 
           Enum rules:
           - Locate the real enum definition before referencing it
@@ -141,19 +142,23 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
 
           Render child collections with `@foreach` inside a guarded `@if` block.
 
-          - When the collection has items, render each inside a `ux-inner-panel p-3` `<div>`, using the sample's `row g-3`/`col-12 col-md-*` grid for its fields
-          - When the collection is empty or null, render a `<span class="text-muted">` fallback message
+          - When the collection has items, render each in a `MudPaper` with `Class="pa-3 ux-inner-panel"` and `Elevation="0"` using `MudGrid` — do not use `Outlined="true"` or hardcode a `Style` border-radius
+          - When the collection is empty or null, render a `MudText` fallback message using `Color.Secondary`
           - Never use `for` loops with index variables for read-only collections — `@foreach` is correct here
 
           ---
 
           ## 5. Navigation Actions
 
-          Render navigation buttons at the bottom of the card in a right-aligned `d-flex justify-content-end gap-2` wrapper:
+          Render navigation buttons at the bottom of the card in a right-aligned `MudStack`:
 
-          - Render an **Edit** button (`btn btn-primary`) only when a matching edit route or method exists in `.razor.cs`
-          - Always render a **Back** button (`btn btn-outline`) that calls the existing `Cancel()` or equivalent navigation method
+          - Render an **Edit** button only when a matching edit route or method exists in `.razor.cs`
+          - Always render a **Back** button that calls the existing `Cancel()` or equivalent navigation method
           - Never invent navigation methods or routes
+
+          Button placement:
+          - Use `Justify="Justify.FlexEnd"` on `MudStack`
+          - `Row="true"`, `Spacing="2"`, `AlignItems="AlignItems.Center"`
 
           ---
 
@@ -175,7 +180,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
 
           - [ ] All properties displayed in `.razor` exist on the DTO returned by the backing class
           - [ ] No `@code` block was introduced in `.razor`
-          - [ ] No editable inputs (e.g. `InputText`, `InputSelect`) were rendered
+          - [ ] No editable inputs (e.g. `MudTextField`, `MudSelect`) were rendered
           - [ ] Data is loaded through existing lifecycle or backing methods only
           - [ ] A loading state is shown while the data object is null
           - [ ] Nullable object sections are guarded by `@if` matching existing backing logic

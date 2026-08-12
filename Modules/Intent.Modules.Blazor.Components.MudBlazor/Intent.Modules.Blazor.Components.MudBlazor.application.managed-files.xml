@@ -29,17 +29,27 @@
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorAppMenuSkill/MudBlazorAppMenuSkillTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorAppMenuSkill/MudBlazorAppMenuSkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorDialogAddingEntitySkill/MudBlazorDialogAddingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorDialogAddingEntitySkill/MudBlazorDialogAddingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorDialogEditingEntitySkill/MudBlazorDialogEditingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorDialogEditingEntitySkill/MudBlazorDialogEditingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageAddingEntitySkill/MudBlazorPageAddingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageAddingEntitySkill/MudBlazorPageAddingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageEditingEntitySkill/MudBlazorPageEditingEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageEditingEntitySkill/MudBlazorPageEditingEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageSearchEntitySkill/MudBlazorPageSearchEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageSearchEntitySkill/MudBlazorPageSearchEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageViewEntitySkill/MudBlazorPageViewEntitySkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageViewEntitySkill/MudBlazorPageViewEntitySkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorSkillSampleFilesStaticContentTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="EE96CA27619CF6039718006027152C225225E3AACC174479A426B06788FFEAD1" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/TemplateExtensions.cs" />
-  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SamplePages/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/Theme/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/ThemeToggle/readme.txt" />
-  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/UserMenuDefault/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/modelers/MudBlazor Core Components.designer.settings" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/modelers/MudBlazor Data Grid Component.designer.settings" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/release-notes.md" />

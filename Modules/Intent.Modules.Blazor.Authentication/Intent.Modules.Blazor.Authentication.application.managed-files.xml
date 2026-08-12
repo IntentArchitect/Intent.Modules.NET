@@ -68,11 +68,8 @@
   <file path="Intent.Modules.Blazor.Authentication/content/Components/Account/Shared/readme.txt" />
   <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Account/Pages/readme.txt" />
   <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Account/Shared/readme.txt" />
-  <file path="Intent.Modules.Blazor.Authentication/content/ComponentsMudBlazor/Layout/readme.txt" />
   <file path="Intent.Modules.Blazor.Authentication/content/Theme/readme.txt" />
   <file path="Intent.Modules.Blazor.Authentication/content/ThemeMudBlazor/readme.txt" />
-  <file path="Intent.Modules.Blazor.Authentication/content/wwwroot/readme.txt" />
-  <file path="Intent.Modules.Blazor.Authentication/release-notes.md" />
   <file path="Intent.Modules.Blazor.Authentication/resources/documentation.json" />
   <file path="Intent.Modules.NET.sln" />
 </managedFiles>

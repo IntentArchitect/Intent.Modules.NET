@@ -60,6 +60,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           - Keep component styling minimal and specific to the component.
           - You may add new utility classes, patterns, styles, or theme values when they do not already exist.
           - Do not modify, override, or change existing styles, classes, variables, or theme values.
+          - Any request to update styling, the theme, colours/branding, typography, or `design.md` itself is out of scope to edit directly — see "Updating Styling" below; it must go through the `updating-styling` skill and a `coding` sub-agent.
 
           ### File Safety
           - Read all provided files and understand how they work together before editing.
@@ -165,7 +166,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           > **Scope guard:** This section applies only when you are explicitly asked to model UI navigation in the Intent User Interface designer. Skip this section during component code generation.
 
-          > **Trigger (must run `updating-app-menu`):** If you create, delete, rename, or change any `Navigation` association where the source is `MainLayout` (i.e. any change that creates/changes a `Navigation Target End` on `MainLayout`), you MUST run the `updating-app-menu` skill before finishing.
+          > **Trigger (must gather app-menu context):** If you create, delete, rename, or change any `Navigation` association where the source is `MainLayout` (i.e. any change that creates/changes a `Navigation Target End` on `MainLayout`), you MUST gather the app-menu context described in "Updating the app menu" below and hand it to a `coding` sub-agent before finishing.
 
           ### Root-level entry pages
 
@@ -183,7 +184,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           - State which region (Header/Sider/Footer/Profile) the menu item belongs in directly in the association's own Comment (e.g. "Navigate to the product list page from the sider menu"). There is no stereotype for this any more — the comment is the sole placement signal.
           - If the comment doesn't state a region, the menu item defaults to the **Sider** region.
           - State the region as **Profile** in the comment when the page should appear in the **Profile/account dropdown** menu.
-          - After adding the `MainLayout → Page` `Navigation` association for a root page, queue `updating-app-menu` to run ONCE at the end of the unit of work.
+          - After adding the `MainLayout → Page` `Navigation` association for a root page, queue the app-menu context hand-off (see "Updating the app menu" below) to run ONCE at the end of the unit of work.
 
           ### Non-root / workflow pages (create/edit/detail/manage)
 
@@ -196,7 +197,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           If the user explicitly models it anyway:
 
           - If the user explicitly instructs that a non-root/workflow page must appear in global navigation (including **Sider**, **Header**, **Footer**, or **Profile**), you MUST model it by adding a `Navigation` association from `MainLayout` to that page and stating the required region in that association's Comment.
-          - In all such cases, you MUST still run the `updating-app-menu` skill (the same as for any other `MainLayout` navigation change). The **Profile** region is not treated as special for triggering or processing menu updates.
+          - In all such cases, you MUST still gather the app-menu context and hand it to a `coding` sub-agent (the same as for any other `MainLayout` navigation change). The **Profile** region is not treated as special for triggering or processing menu updates.
 
           ### Ambiguity
 
@@ -204,12 +205,26 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           ### Updating the app menu
 
-          - The `updating-app-menu` skill MUST ALWAYS be run once you (the main agent) have finished implementing all pages for the current unit of work — never per-page, and never immediately after a single modeling change.
-          - You, the main agent, must run this skill yourself. Never delegate execution to a `coding` sub-agent — a sub agent may be instructed to implement the menu triggered from the skill, but you MUST execute the skill first.
-          - Do not consider the task complete until the `updating-app-menu` skill has been called to determine if the menu structure should be updated.
-          - **CRITICAL Enforcement:** If you add or modify any `Navigation` association from `MainLayout` (i.e., create/modify a `Navigation Target End`), you MUST run the `updating-app-menu` skill before marking the work complete, even if the page already existed or no code generation changes were detected.
+          - The main agent (you) must NEVER run the `blazor-app-menu` skill and must NEVER edit menu files (`MainLayout*.razor` or the Profile menu file) directly — that implementation work belongs to a `coding` sub-agent.
+          - Once you have finished implementing all pages for the current unit of work — never per-page, and never immediately after a single modeling change — gather the context that skill needs and hand it to a `coding` sub-agent in a dedicated task:
+          - For every `Navigation Target End` currently modeled on `MainLayout`: the target page's label and route, any required roles/policies, and the association's own Comment (the item's verbatim placement text).
+          - Whether the project is an Auth or NoAuth project and its hosting model — inspect `Program.cs` for `AddAuthorizationCore()`/`AddAuthorization()` and `AddCascadingAuthenticationState()`, and check whether a separate `.Client` project exists.
+          - Instruct the `coding` sub-agent to call `use_skill` for the `blazor-app-menu` skill before making any change, and pass it the gathered context verbatim so it does not need to re-derive it.
+          - Do not consider the task complete until this context has been gathered and handed to a `coding` sub-agent to reconcile the menu.
+          - **CRITICAL Enforcement:** If you add or modify any `Navigation` association from `MainLayout` (i.e., create/modify a `Navigation Target End`), you MUST gather this context and dispatch a `coding` sub-agent with it before marking the work complete, even if the page already existed or no code generation changes were detected.
+
+          ## Updating Styling
+
+          > **Scope guard:** This section applies whenever you are asked to update styling, the theme, colours/branding, typography, or `design.md` itself — not to ordinary component styling that already follows the Styling rules above.
+
+          > **Trigger (must hand off):** Any request to change the palette, typography, theme, or `design.md` — including a supplied replacement, a detected drift between `design.md` and the CSS, or a from-scratch styling interview — MUST be handled by calling `use_skill` for the project's `updating-styling` skill before making any change. Do not edit `design.md` or any CSS/theme file directly, and do not translate design intent into CSS yourself.
+
+          - Call `use_skill` for `updating-styling` first and follow its intake process exactly as written.
+          - `updating-styling` itself dispatches a `coding` sub-agent to execute the project's `*-ux-theme-sync` skill — never perform that CSS/token translation yourself, and never skip or shortcut that hand-off.
+          - Do not consider a styling/theme/design.md request complete until `updating-styling` has run its full intake-to-dispatch flow and the `coding` sub-agent it dispatched has reported back.
 
           ## Validation Checklist
+          - [ ] If styling, the theme, colours/branding, typography, or `design.md` was requested, the `updating-styling` skill was used and a `coding` sub-agent was dispatched to run the `*-ux-theme-sync` skill.
           - [ ] All bindings and event handlers used in `.razor` exist in `.razor.cs`.
           - [ ] No `@code` blocks were added to `.razor` files.
           - [ ] `[IntentManaged]` attributes are preserved.
@@ -218,7 +233,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           - [ ] Existing global styles and theme values were not changed.
           - [ ] Component styles remain minimal and component-specific.
           - [ ] Forms are validated for create, save, and update flows.
-          - [ ] If a `Navigation Target End` was added to MainLayout, the `updating-app-menu` skill was run by the main agent (after all pages were implemented) to reconcile the menu
+          - [ ] If a `Navigation Target End` was added to MainLayout, the app-menu context was gathered and handed to a `coding` sub-agent (after all pages were implemented) to reconcile the menu
 
           """);
     }

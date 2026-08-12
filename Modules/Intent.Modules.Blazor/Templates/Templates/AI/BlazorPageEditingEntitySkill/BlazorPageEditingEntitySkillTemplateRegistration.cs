@@ -24,5 +24,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageEditingEntitySk
         {
             return new BlazorPageEditingEntitySkillTemplate(outputTarget);
         }
+
+        protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            {
+                return;
+            }
+
+            base.Register(registry, application);
+        }
     }
 }

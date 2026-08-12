@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySkill
+namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorPageSearchEntitySkill
 {
   [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorPageSearchEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
+  public class MudBlazorPageSearchEntitySkillTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
   {
     [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Templates.AI.BlazorPageSearchEntitySkillTemplate";
+    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.MudBlazorPageSearchEntitySkillTemplate";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorPageSearchEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public MudBlazorPageSearchEntitySkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
       WithContentHashing = true;
       MarkdownFile = new MarkdownFile($"SKILL", "md", "blazor-page-search-entity")
         .FromMarkdown("""
           ---
           name: blazor-page-search-entity
-          description: Implements Blazor search and list entity pages using a plain Bootstrap table with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
+          description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
           paths:
           - "**/*.razor"
           - "**/*.razor.cs"
@@ -61,28 +61,28 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           ## MANDATORY: Match Sample Layout (Visual Structure)
 
-          When a sample exists, you MUST match the sample's visual structure, not only its data-loading behavior.
+          When a sample exists, you MUST match the sample’s visual structure, not only its data-loading behavior.
 
           Required process:
 
-          1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-          2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
+          1. Reuse the sample’s top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
+          2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
 
           Required baseline layout (when supported by the target app):
 
-          - A hero header `<div class="ux-gradient-primary ux-rounded-lg p-4 mb-4">` with an `<h1>`/`<p>`
-          - A main content card `<div class="card ux-fade-in-up">` with a `<div class="card-body">`
+          - A hero header using `MudPaper` with `Class="pa-4 mb-4 ux-gradient-primary"` and `Elevation="0"`
+          - A main content card using `MudCard` with `Class="ux-fade-in-up"` and `Style="animation-delay: 0.1s"`
 
           Forbidden:
 
-          - Replacing the hero header with a different structure unless explicitly requested
-          - Dropping the sample's utility classes when they exist in the target project
+          - Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
+          - Dropping the sample’s utility classes when they exist in the target project
 
           ---
 
           ## Preserve Existing Implementation
 
-          Use for: Search or list entity pages in Blazor\
+          Use for: Search or list entity pages in Blazor with MudBlazor\
           Do NOT use for: Add or edit forms, dialogs, or non-Blazor projects\
           Source of truth: Existing `.razor.cs` file defines search criteria, paging, sorting, service calls, row actions, and navigation
 
@@ -108,7 +108,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           Required process:
 
-          1. Identify the primary search or load method such as `LoadEntities` or `SearchEntities`
+          1. Identify the primary search or load method such as `LoadServerData`, `LoadEntities`, or `SearchEntities`
           2. Inspect the request DTO or backing search model used by that method
           3. Render only supported filter properties
 
@@ -116,7 +116,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           - Inventing filters
           - Modifying service signatures to support UI filters
-          - Rendering paging fields like `pageNo` or `pageSize` as normal filter inputs
+          - Rendering paging or sorting fields like `pageNo`, `pageSize`, or `orderBy` as normal filter inputs
 
           ---
 
@@ -124,35 +124,41 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           There are two list-page patterns and you must choose the one that matches the backing class.
 
-          Use the searchable/paged pattern when the component exposes:
+          Use the searchable pattern when the component exposes:
 
-          - `PageNo`/`PageSize` backing properties and a load method that requests a paged result (e.g. returns a `PagedResult<T>`)
+          - `LoadServerData(TableState state, CancellationToken cancellationToken)`
+          - Paging or sorting request fields
           - Real search or filter properties
 
           Use the simple grid pattern when the component:
 
           - Loads a plain collection directly
-          - Has no paging request model
+          - Has no paging or sorting request model
           - Has no real search or filter fields
 
           Do not mix the two patterns in one page.
 
           ---
 
-          ## 3. Map Criteria And Fields To Controls
+          ## 3. Map Criteria And Fields To MudBlazor Controls
 
-          | Type | Control |
-          |------|---------|
-          | `string` named like search or keyword | Single search `<input class="form-control">` bound with `@bind`/`@bind:event="oninput"`, with `@onkeydown` triggering search on Enter |
-          | Other `string` | Plain `<input class="form-control">` |
-          | `bool` or nullable bool | `<select class="form-select">` with All, Yes, and No options |
-          | Enum or lookup | `<select class="form-select">` with real options only |
-          | Number | `<input type="number" class="form-control">` |
-          | Date | `<input type="date" class="form-control">` |
+          | Type                                  | Control                            |
+          | -------------------------------------- | ----------------------------------- |
+          | `string` named like search or keyword | Single search `MudTextField`       |
+          | Other `string`                        | `MudTextField`                     |
+          | `bool` or nullable bool               | `MudSelect` with All, Yes, and No  |
+          | Enum or lookup                        | `MudSelect` with real options only |
+          | Number                                 | `MudNumericField`                  |
+          | Date                                   | `MudDatePicker`                    |
 
-          Rules:
-          - Bind filters directly to their backing properties
-          - Bind enum/lookup `<option>` values to the real member or id, never a string literal guess
+          MudBlazor rules:
+
+          - Declare `T` explicitly for generic controls when required
+          - Add placeholders to `MudSelect`
+          - Every `MudDatePicker` must include `Placeholder="Select date"`
+          - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
+          - Bind enum values numerically, not as string literals
+          - Enum component properties such as `Justify`, `AlignItems`, `Direction`, `Variant`, and `Color` must use explicit enum values
 
           ---
 
@@ -160,14 +166,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           Search behavior:
 
-          - Search button must call the existing load or search method (e.g. `ReloadAsync()`)
-          - Pressing Enter in the main search field should trigger the same search behavior via `@onkeydown`
+          - Search button must call the existing load or search method
+          - Pressing Enter in the main search field should trigger the same search behavior
           - Do not auto-query on every keystroke unless that behavior already exists and must be preserved
 
           Button placement:
 
-          - Keep Search and Add actions inline in the card body, left-aligned, using plain buttons (e.g. `btn btn-primary` for Add, `btn btn-outline-primary` for Search)
-          - Keep action buttons left-aligned; do not right-align them
+          - With filter fields, keep Search and Add actions inline in the card body with the filters
+          - Without filter fields, place Add and Refresh actions in `CardHeaderContent` using `MudStack` with `Row="true"` and `Justify="Justify.FlexStart"`
+          - Keep action buttons left-aligned
+          - Never use `CardHeaderActions` — it right-aligns content by default
 
           Refresh behavior:
 
@@ -183,24 +191,23 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
           - Render only fields that actually exist on the returned DTO or view model
           - Never invent columns
 
-          Searchable/paged pattern:
+          Searchable pattern:
 
-          - Render results in a plain `<table class="table">` with `<thead>`/`<tbody>`
-          - Use manual Previous/Next paging buttons (`btn btn-outline`, disabled at the bounds) bound to `PageNo`/`PageSize` when paging is supported
-          - Only add sortable columns if the backing method actually supports sorting — there is no built-in sortable-header convention in this pattern
+          - Use `MudTable` with `ServerData` when `LoadServerData` exists
+          - Use sortable headers only when sorting is supported
+          - Use pager content only when paging is supported
 
           Simple grid pattern:
 
-          - Bind rows from the existing collection directly
-          - Do not add paging controls
+          - Bind `Items` to the existing collection
+          - Do not use `ServerData`, sortable headers, or pager content
 
           Row actions:
 
           - Inspect all existing methods on the backing component, not only public methods
-          - Render View, Edit, Delete, Open, or similar row actions only when matching methods actually exist, using plain buttons (e.g. `btn btn-outline` for View, `btn btn-outline-primary` for Edit, `btn btn-outline-danger` for Delete)
+          - Render View, Edit, Delete, Open, or similar row actions only when matching methods actually exist
           - If the row DTO exposes an ID field and a matching edit method exists, the Edit action is required
           - Never invent row action methods or placeholder buttons
-          - A destructive action such as Delete should confirm before calling the backing method — follow the sample's inline confirmation pattern (an `alert alert-warning` with Confirm/Cancel buttons) rather than a modal dialog, unless the project already has a different confirmation convention
 
           ---
 
@@ -210,7 +217,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
           - Keep component-specific styles minimal
           - Never modify existing shared styles or theme values
           - Match the sample layout without introducing unnecessary wrappers
-          - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (usually under `wwwroot`) and reuse them
+          - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (usually under `wwwroot`) and reuse them
 
           **Design and styling context**
 
@@ -221,14 +228,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
           ## Definition of Done
 
           - [ ] All filters come from the real backing search model or request DTO
-          - [ ] The correct pattern was chosen: searchable/paged table or simple grid
+          - [ ] The correct pattern was chosen: searchable table or simple grid
           - [ ] Columns represent only actual DTO fields
           - [ ] Search button calls an existing load or search method
           - [ ] Refresh is surfaced when a matching method exists
           - [ ] Row-level actions are rendered only for existing matching methods
           - [ ] No CRUD or navigation methods were invented in `.razor.cs`
           - [ ] Enum values and select options were verified against real types
-          - [ ] Paging was kept as Previous/Next controls bound to `PageNo`/`PageSize` rather than exposed as normal filter inputs
+          - [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
+          - [ ] Paging and sorting were kept in table flow rather than exposed as normal filter inputs
           - [ ] Shared styles were preserved and component styling remained minimal
           - [ ] Sample visual structure was matched (hero header + main card), not replaced with an alternative header structure unless explicitly requested
           - [ ] Sample utility classes were verified to exist in the target project and reused when available (e.g. grep for `ux-gradient-primary` and `ux-fade-in-up`)

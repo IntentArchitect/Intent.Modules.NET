@@ -138,7 +138,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
 
                     Rules:
 
-                    - Preserve the outer `<nav class="ux-nav-drawer">` wrapper and the single `<ul class="nav flex-column">` inside it exactly — do not reintroduce a `<MudDrawer Open="DrawerOpen" OpenChanged="DrawerOpenChanged" ...>` wrapper or any `DrawerOpen`/`DrawerOpenChanged` binding; that belonged to an older generation of this scaffold and no longer exists in `MainLayout.razor` or the code-behind. This applies identically when creating `MainLayoutSider.razor` from scratch (per the MANDATORY section) — take the wrapper verbatim from the matching sample, never improvised.
+                    - Preserve the outer `<nav class="ux-nav-drawer">` wrapper and the single `<ul class="nav flex-column">` inside it exactly — do not reintroduce a stateful drawer wrapper bound via `Open`/`OpenChanged` parameters, or any `DrawerOpen`/`DrawerOpenChanged` binding; that belonged to an older generation of this scaffold and no longer exists in `MainLayout.razor` or the code-behind. This applies identically when creating `MainLayoutSider.razor` from scratch (per the MANDATORY section) — take the wrapper verbatim from the matching sample, never improvised.
                     - Every item is a plain `<li class="nav-item"><NavLink class="nav-link" href="...">Label</NavLink></li>` inside that single `<ul class="nav flex-column">`.
                     - The root/home link should get `Match="NavLinkMatch.All"` (so it doesn't stay highlighted on every route); other links should omit `Match` and take `NavLink`'s default (`Prefix`).
                     - **Auth project, gated item**: wrap only that `<li>`/`<NavLink>` in `<AuthorizeView Roles="..."> <Authorized> ... </Authorized> </AuthorizeView>` (or `Policy="..."`, or bare `<AuthorizeView>` for "any authenticated user"). Do **not** add a `<NotAuthorized>` fragment — the item should render nothing when the viewer doesn't qualify, not an alternate message.
@@ -335,7 +335,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
                     ## Forbidden
 
                     - Reintroducing a shared nav-item model (`NavItem` record, `AppNav` static class, or any `Items` parameter feeding a generic loop) — every menu surface is literal markup by design.
-                    - Reintroducing a `<MudDrawer Open="..." OpenChanged="...">` wrapper around the Sider's nav list, or `OnClick`/`OnToggle` `EventCallback` parameters on the Header's drawer-toggle button or `ThemeToggle` — these belonged to an older scaffold generation and no longer exist in the code-behind.
+                    - Reintroducing a stateful drawer wrapper bound via `Open`/`OpenChanged` parameters around the Sider's nav list, or `OnClick`/`OnToggle` `EventCallback` parameters on the Header's drawer-toggle button or `ThemeToggle` — these belonged to an older scaffold generation and no longer exist in the code-behind.
                     - Adding `<AuthorizeView>`, `AddAuthorizationCore()`, or `AddCascadingAuthenticationState()` to a project that doesn't already have them, in order to make a described role/policy requirement "work".
                     - Adding an `<AuthorizeView>` split to `MainLayoutHeader.razor` for the Profile slot — that branching lives inside the Profile file itself (Step 6), never in the Header.
                     - Adding a `<NotAuthorized>` fragment to a gated **nav item** (Sider/Header/Footer link, or an individual modeled Profile item) — items should disappear, not show a fallback message.
@@ -364,7 +364,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorAppMenuSkill
                     - [ ] Each item's region was resolved from its own placement comment (Step 2's "Region resolution"), not assumed from which file it happened to be read alongside
                     - [ ] Any item whose comment resolved to a recognized region (Header/Sider/Footer/Profile) with a missing file had that file (and its trivial `.razor.cs` code-behind) created and populated, matching `MainLayout.razor`/sibling conventions and the matching sample's structural chrome verbatim
                     - [ ] Any item whose comment did not resolve to any of the four canonical regions was handled via the fallback (placed in the nearest existing menu, stated plainly in the response) — no file was created for it
-                    - [ ] `MainLayoutSider.razor`'s `<nav class="ux-nav-drawer">`/`<ul class="nav flex-column">` wrapper was left unchanged, with no `MudDrawer`/`DrawerOpen` reintroduced
+                    - [ ] `MainLayoutSider.razor`'s `<nav class="ux-nav-drawer">`/`<ul class="nav flex-column">` wrapper was left unchanged, with no stateful drawer wrapper/`DrawerOpen` reintroduced
                     - [ ] Gated Sider/Header/Footer items, and individual gated Profile items, use `<AuthorizeView>` with only an `<Authorized>` fragment — no `<NotAuthorized>` (except the Profile file's own fixed pair of blocks)
                     - [ ] `AuthorizeView.Roles` is a comma-joined string, not an array literal
                     - [ ] No `AuthorizeView`/auth service registration was added to a NoAuth project, even if the context implied a role requirement

@@ -24,5 +24,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageViewEntitySkill
         {
             return new BlazorPageViewEntitySkillTemplate(outputTarget);
         }
+
+        protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+            {
+                return;
+            }
+
+            base.Register(registry, application);
+        }
     }
 }

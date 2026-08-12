@@ -1012,12 +1012,16 @@ SECTION 4: MudBlazor Page Header Utility
     border-radius: 0 !important;
     box-shadow: none !important;
     backdrop-filter: blur(20px) !important;
-    margin: -1rem -1rem 1.5rem calc(-1rem - var(--mud-drawer-width-left, 240px)) !important;
-    padding: 1.5rem 2.5rem 3rem calc(var(--mud-drawer-width-left, 240px) + 2.5rem) !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
+    margin: -1rem -1rem 1.5rem -1rem !important;
+    padding: 1.5rem 2.5rem 3rem 2.5rem !important;
     position: relative !important;
     overflow: hidden !important;
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1), padding-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .mud-paper.ux-gradient-primary {
+    margin-left: calc(-1rem - var(--mud-drawer-width-left, 240px)) !important;
+    padding-left: calc(var(--mud-drawer-width-left, 240px) + 2.5rem) !important;
 }
 
 /* Decorative glow orb behind the title */

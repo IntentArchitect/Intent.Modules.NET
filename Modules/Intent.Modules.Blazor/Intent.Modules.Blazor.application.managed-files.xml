@@ -5,7 +5,7 @@
   <file path="Intent.Modules.Blazor/FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs" deviationsHash="4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04" />
   <file path="Intent.Modules.Blazor/FactoryExtensions/HomePageDefaultContentFactoryExtension.cs" deviationsHash="2E5D072DD1713EDA9E0982A533F05C5A90431BFA50EB266097A2E46D4FD746DE" />
   <file path="Intent.Modules.Blazor/Intent.Blazor.imodspec" />
-  <file path="Intent.Modules.Blazor/Intent.Modules.Blazor.csproj" deviationsHash="95080E7D591FA68FB4084699CAF5415C19C93E042193C413339DE582075EAEEA" />
+  <file path="Intent.Modules.Blazor/Intent.Modules.Blazor.csproj" />
   <file path="Intent.Modules.Blazor/Migrations/OnInstallMigration.cs" />
   <file path="Intent.Modules.Blazor/NugetPackages.cs" />
   <file path="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" />
@@ -26,6 +26,8 @@
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageSearchEntitySkill/BlazorPageSearchEntitySkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageViewEntitySkill/BlazorPageViewEntitySkillTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorPageViewEntitySkill/BlazorPageViewEntitySkillTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUpdatingStylingSkill/BlazorUpdatingStylingSkillTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUpdatingStylingSkill/BlazorUpdatingStylingSkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs" deviationsHash="A4F5136A30731788357B9A86C069F7A7A0ABBD3F765C948E38BB30EBF50EF3D6" />
@@ -86,16 +88,12 @@
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs" deviationsHash="A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3" />
   <file path="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" />
-  <file path="Intent.Modules.Blazor/content/SamplePages/readme.txt" />
   <file path="Intent.Modules.Blazor/content/SkillSamples/readme.txt" />
   <file path="Intent.Modules.Blazor/content/Theme/readme.txt" />
   <file path="Intent.Modules.Blazor/content/ThemeStorage/readme.txt" />
   <file path="Intent.Modules.Blazor/content/ThemeToggle/readme.txt" />
-  <file path="Intent.Modules.Blazor/content/UserMenuDefault/readme.txt" />
   <file path="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" />
-  <file path="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" />
   <file path="Intent.Modules.Blazor/modelers/Blazor UI Extensions.designer.settings" />
-  <file path="Intent.Modules.Blazor/release-notes.md" />
   <file path="Intent.Modules.Blazor/resources/documentation.json" />
   <file path="Intent.Modules.NET.sln" />
 </managedFiles>
