@@ -23,17 +23,34 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ApplicationSecurityConfigurationTemplate>(TemplateDependency.OnTemplate(ApplicationSecurityConfigurationTemplate.TemplateId));
-            if (template == null)
+            // ApplicationSecurityConfiguration is host-scoped, and a multi-host application can have
+            // more than one instance - loop every instance instead of the singular, application-wide
+            // lookup, which throws once a second host exists.
+            foreach (var template in application.FindTemplateInstances<ApplicationSecurityConfigurationTemplate>(ApplicationSecurityConfigurationTemplate.TemplateId))
             {
-                return;
+                ConfigureTemplate(template);
             }
+        }
 
+        private static void ConfigureTemplate(ApplicationSecurityConfigurationTemplate template)
+        {
             template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationOpenIdConnect(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWeb(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebMicrosoftGraph(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebUI(template.OutputTarget));
+
+            // Intent.Security.JWT's ApplicationSecurityConfigurationFactoryExtension also adds a
+            // "ConfigureAuthorization" method to this same template when both modules are installed
+            // together. Claim it synchronously here (before scheduling AfterBuild) so whichever
+            // extension runs second skips adding it - checking inside the AfterBuild callback itself
+            // wouldn't work, since each extension's callback runs against its own isolated view and
+            // can't see the other's additions.
+            var canAddConfigureAuthorization = !template.CSharpFile.TryGetMetadata<bool>("configure-authorization-method-added", out _);
+            if (canAddConfigureAuthorization)
+            {
+                template.CSharpFile.AddMetadata("configure-authorization-method-added", true);
+            }
 
             template.CSharpFile.AfterBuild(file =>
             {
@@ -74,13 +91,16 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 configMethod.AddMethodChainStatement("services.AddAuthorization(ConfigureAuthorization)", stmt => stmt.AddMetadata("add-authorization", true));
                 configMethod.AddStatement("return services;", s => s.SeparatedFromPrevious());
 
-                priClass.AddMethod("void", "ConfigureAuthorization", method => method
-                    .Private().Static()
-                    .AddAttribute(CSharpIntentManagedAttribute.Ignore())
-                    .AddParameter("AuthorizationOptions", "options")
-                    .AddStatement("//Configure policies and other authorization options here. For example:")
-                    .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"roles\", \"employee\"));")
-                    .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"roles\", \"admin\"));"));
+                if (canAddConfigureAuthorization)
+                {
+                    priClass.AddMethod("void", "ConfigureAuthorization", method => method
+                        .Private().Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Ignore())
+                        .AddParameter("AuthorizationOptions", "options")
+                        .AddStatement("//Configure policies and other authorization options here. For example:")
+                        .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"roles\", \"employee\"));")
+                        .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"roles\", \"admin\"));"));
+                }
             });
 
             template.ApplyAppSetting("AzureAd", new

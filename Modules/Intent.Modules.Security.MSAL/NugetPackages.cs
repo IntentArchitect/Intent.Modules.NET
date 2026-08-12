@@ -79,8 +79,8 @@ namespace Intent.Modules.Security.MSAL
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("4.12.2")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "4.12.2")
                             .WithNugetDependency("Microsoft.Identity.Web.Certificate", "4.12.2")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "4.12.2")
                             .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "4.12.2")
                             .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "4.12.2")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.19.1")
@@ -124,8 +124,8 @@ namespace Intent.Modules.Security.MSAL
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("4.12.2")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "4.12.2")
-                            .WithNugetDependency("Microsoft.Graph", "4.36.0"),
+                            .WithNugetDependency("Microsoft.Graph", "4.36.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "4.12.2"),
                         ( >= 9, >= 0) => new PackageVersion("4.12.2")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
                             .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "4.12.2"),

@@ -1,3 +1,7 @@
+### Version 4.3.12
+
+- Fixed: Software Factory crashed wiring up application security configuration and the current user service when generated into an application with more than one ASP.NET Core host. Both are now wired up for each host correctly.
+
 ### Version 4.3.11
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.

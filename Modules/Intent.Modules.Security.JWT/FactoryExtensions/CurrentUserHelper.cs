@@ -21,6 +21,16 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                     continue;
                 }
 
+                // Both Intent.Security.JWT and Intent.Security.MSAL call this helper independently.
+                // Mark the file synchronously (before scheduling AfterBuild) so a second call for the
+                // same template in the same run is a no-op, rather than relying on checks inside the
+                // AfterBuild callback, which run in isolation and won't see each other's additions.
+                if (template.CSharpFile.TryGetMetadata<bool>("current-user-service-wired-up", out _))
+                {
+                    continue;
+                }
+                template.CSharpFile.AddMetadata("current-user-service-wired-up", true);
+
                 var currentUserTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Application.Identity.CurrentUserInterface"));
                 if (currentUserTemplate == null)
                 {
@@ -107,52 +117,65 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                         roleMethod.Statements.Add("return await Task.FromResult(GetClaimsPrincipal()?.IsInRole(role) ?? false);");
                     }
 
-                    priClass.AddMethod("ClaimsPrincipal?", "GetClaimsPrincipal", method =>
+                    if (priClass.FindMethod("GetClaimsPrincipal") is null)
                     {
-                        method.Private();
-                        method.WithExpressionBody("_httpContextAccessor?.HttpContext?.User");
-                    });
+                        priClass.AddMethod("ClaimsPrincipal?", "GetClaimsPrincipal", method =>
+                        {
+                            method.Private();
+                            method.WithExpressionBody("_httpContextAccessor?.HttpContext?.User");
+                        });
+                    }
 
-                    priClass.AddMethod("IAuthorizationService?", "GetAuthorizationService", method =>
+                    if (priClass.FindMethod("GetAuthorizationService") is null)
                     {
-                        method.Private();
-                        method.WithExpressionBody("_httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService");
-                    });
+                        priClass.AddMethod("IAuthorizationService?", "GetAuthorizationService", method =>
+                        {
+                            method.Private();
+                            method.WithExpressionBody("_httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService");
+                        });
+                    }
 
-                    priClass.AddMethod($"string?", "GetUserName", method =>
+                    if (priClass.FindMethod("GetUserName") is null)
                     {
-                        method
-                            .Static()
-                            .Private()
-                            .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
+                        priClass.AddMethod($"string?", "GetUserName", method =>
+                        {
+                            method
+                                .Static()
+                                .Private()
+                                .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
 
-                        method.WithExpressionBody("claimsPrincipal ?.FindFirst(JwtClaimTypes.Name)?.Value");
-                    });
+                            method.WithExpressionBody("claimsPrincipal ?.FindFirst(JwtClaimTypes.Name)?.Value");
+                        });
+                    }
 
-
-                    priClass.AddMethod(contractedUserIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                    if (priClass.FindMethod("GetUserId") is null)
                     {
-                        method
-                            .Static()
-                            .Private()
-                            .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
+                        priClass.AddMethod(contractedUserIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                        {
+                            method
+                                .Static()
+                                .Private()
+                                .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
 
-                        method.WithExpressionBody(GetUserIdImplimentation(contractedUserIdProperty));
-                    });
+                            method.WithExpressionBody(GetUserIdImplimentation(contractedUserIdProperty));
+                        });
+                    }
 
-                    file.AddRecord("CurrentUser", @record =>
+                    if (!file.Records.Any(r => r.Name == "CurrentUser"))
                     {
-
-                        record
-                            .ImplementsInterface(template.GetTypeName(currentUserTemplate))
-                            .AddPrimaryConstructor(ctor =>
-                            {
-                                ctor
-                                    .AddParameter(contractedUserIdProperty.Type.Replace("?", "") + "?", "Id")
-                                    .AddParameter("string?", "Name")
-                                    .AddParameter("ClaimsPrincipal", "Principal");
-                            });
-                    });
+                        file.AddRecord("CurrentUser", @record =>
+                        {
+                            record
+                                .ImplementsInterface(template.GetTypeName(currentUserTemplate))
+                                .AddPrimaryConstructor(ctor =>
+                                {
+                                    ctor
+                                        .AddParameter(contractedUserIdProperty.Type.Replace("?", "") + "?", "Id")
+                                        .AddParameter("string?", "Name")
+                                        .AddParameter("ClaimsPrincipal", "Principal");
+                                });
+                        });
+                    }
                 });
             }
         }

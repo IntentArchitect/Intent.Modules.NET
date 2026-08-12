@@ -41,7 +41,19 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
 
             template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
-        
+
+            // Intent.Security.MSAL's ApplicationSecurityConfigurationFactoryExtension also adds a
+            // "ConfigureAuthorization" method to this same template when both modules are installed
+            // together. Claim it synchronously here (before scheduling AfterBuild) so whichever
+            // extension runs second skips adding it - checking inside the AfterBuild callback itself
+            // wouldn't work, since each extension's callback runs against its own isolated view and
+            // can't see the other's additions.
+            var canAddConfigureAuthorization = !template.CSharpFile.TryGetMetadata<bool>("configure-authorization-method-added", out _);
+            if (canAddConfigureAuthorization)
+            {
+                template.CSharpFile.AddMetadata("configure-authorization-method-added", true);
+            }
+
             template.CSharpFile.AfterBuild(file =>
             {
             file.AddUsing("System")
@@ -102,13 +114,16 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
                     .AddMethodChainStatement("services.AddAuthorization(ConfigureAuthorization)", stmt => stmt.AddMetadata("add-authorization", true))
                     .AddStatement("return services;", s => s.SeparatedFromPrevious());
 
-                priClass.AddMethod("void", "ConfigureAuthorization", method => method
-                    .Private().Static()
-                    .AddAttribute(CSharpIntentManagedAttribute.Ignore())
-                    .AddParameter("AuthorizationOptions", "options")
-                    .AddStatement("// Configure policies and other authorization options here. For example:")
-                    .AddStatement("// options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
-                    .AddStatement("// options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
+                if (canAddConfigureAuthorization)
+                {
+                    priClass.AddMethod("void", "ConfigureAuthorization", method => method
+                        .Private().Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Ignore())
+                        .AddParameter("AuthorizationOptions", "options")
+                        .AddStatement("// Configure policies and other authorization options here. For example:")
+                        .AddStatement("// options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
+                        .AddStatement("// options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
+                }
             }, 1);
         }
     }

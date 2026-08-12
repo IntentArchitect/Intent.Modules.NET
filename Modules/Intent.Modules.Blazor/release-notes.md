@@ -1,6 +1,7 @@
 ### Version 2.0.2
 
 - Fixed: Software Factory crashed wiring up `Program`/startup registrations when Blazor components were generated into an application with more than one ASP.NET Core host. Startup and theme service registration now apply to each Blazor host correctly.
+- Improvement: The `.Web` launch profile added for server-rendered Blazor no longer leaks into non-ASP.NET Core host projects (e.g. worker services) in a multi-host application. Note: it can still appear in sibling ASP.NET Core hosts.
 
 ### Version 2.0.1
 

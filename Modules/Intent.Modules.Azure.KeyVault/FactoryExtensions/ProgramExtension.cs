@@ -34,81 +34,80 @@ public class ProgramExtension : FactoryExtensionBase
 
     private void DoAzureFunctionsProgramFile(IApplication application)
     {
-        var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("Intent.AzureFunctions.Isolated.Program"));
-        if (programTemplate == null)
+        // Program is host-scoped, and a multi-host application can have more than one Azure
+        // Functions isolated worker host - loop every instance instead of the singular,
+        // application-wide lookup, which throws once a second host exists.
+        foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("Intent.AzureFunctions.Isolated.Program"))
         {
-            return;
-        }
-
-        var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
-        if (configTemplate == null)
-        {
-            return;
-        }
-
-        programTemplate.CSharpFile.OnBuild(file =>
-        {
-            file.AddUsing(configTemplate.Namespace);
-            file.AddUsing("Microsoft.Extensions.Configuration");
-
-            programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+            var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
+            if (configTemplate == null)
             {
-                statements.AddStatement($"var built = {parameters[^1]}.Build();");
-                statements.AddIfStatement(@"built.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
-                    {
-                        @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(built);");
-                    });
-            }, -10);
+                continue;
+            }
 
-        }, 30);
+            programTemplate.CSharpFile.OnBuild(file =>
+            {
+                file.AddUsing(configTemplate.Namespace);
+                file.AddUsing("Microsoft.Extensions.Configuration");
 
+                programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+                {
+                    statements.AddStatement($"var built = {parameters[^1]}.Build();");
+                    statements.AddIfStatement(@"built.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
+                        {
+                            @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(built);");
+                        });
+                }, -10);
+
+            }, 30);
+        }
     }
 
     private static void DoAspNetCoreProgramFile(IApplication application)
     {
-        var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("App.Program"));
-        if (programTemplate == null)
+        // AppStartup/Program is host-scoped, and a multi-host application can have more than one
+        // ASP.NET Core host - loop every instance instead of the singular, application-wide lookup,
+        // which throws once a second host exists.
+        foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("App.Program"))
         {
-            return;
-        }
-
-        var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
-        if (configTemplate == null)
-        {
-            return;
-        }
-
-        programTemplate.CSharpFile.OnBuild(file =>
-        {
-            file.AddUsing(configTemplate.Namespace);
-            file.AddUsing("Microsoft.Extensions.Configuration");
-
-            if (programTemplate.ProgramFile.UsesMinimalHostingModel)
+            var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
+            if (configTemplate == null)
             {
-                programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(new CSharpIfStatement("builder.Configuration.GetValue<bool?>(\"KeyVault:Enabled\") == true"), @if =>
-                {
-                    @if.AddStatement("builder.Configuration.ConfigureAzureKeyVault(builder.Configuration);");
-                });
+                continue;
             }
-            else
+
+            programTemplate.CSharpFile.OnBuild(file =>
             {
-                programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+                file.AddUsing(configTemplate.Namespace);
+                file.AddUsing("Microsoft.Extensions.Configuration");
+
+                if (programTemplate.ProgramFile.UsesMinimalHostingModel)
                 {
-                    var builder = statements.FindStatement(s => s.HasMetadata("configuration-builder"));
-                    if (builder is null)
+                    programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(new CSharpIfStatement("builder.Configuration.GetValue<bool?>(\"KeyVault:Enabled\") == true"), @if =>
                     {
-                        builder = new CSharpStatement($"var configuration = {parameters[^1]}.Build();")
-                            .AddMetadata("configuration-builder", true)
-                            .SeparatedFromNext();
-                        statements.InsertStatement(0, builder);
-                    }
-                    statements
-                        .AddIfStatement(@"configuration.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
+                        @if.AddStatement("builder.Configuration.ConfigureAzureKeyVault(builder.Configuration);");
+                    });
+                }
+                else
+                {
+                    programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+                    {
+                        var builder = statements.FindStatement(s => s.HasMetadata("configuration-builder"));
+                        if (builder is null)
                         {
-                            @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(configuration);");
-                        });
-                });
-            }
-        }, 30);
+                            builder = new CSharpStatement($"var configuration = {parameters[^1]}.Build();")
+                                .AddMetadata("configuration-builder", true)
+                                .SeparatedFromNext();
+                            statements.InsertStatement(0, builder);
+                        }
+                        statements
+                            .AddIfStatement(@"configuration.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
+                            {
+                                @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(configuration);");
+                            });
+                    });
+                }
+            }, 30);
+        }
     }
 }

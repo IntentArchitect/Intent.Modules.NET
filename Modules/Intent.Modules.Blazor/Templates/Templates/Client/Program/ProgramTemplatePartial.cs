@@ -122,6 +122,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                     var profileName = OutputTarget.GetProject().ApplicationName() + ".Web";
                     ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
                     {
+                        ForProjectWithRole = "Startup",
                         Name = profileName,
                         CommandName = "Project",
                         DotnetRunMessages = true,
