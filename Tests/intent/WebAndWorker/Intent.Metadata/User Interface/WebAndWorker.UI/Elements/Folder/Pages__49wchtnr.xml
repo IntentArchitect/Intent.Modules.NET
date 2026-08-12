@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="084a7d3e-3be0-4e25-9e31-d7609a3af078" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Pages</name>
+  <display>Pages</display>
+  <externalReference>7c76fa0c-59ee-4111-9166-68faafc2dcf7</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="8e71f18e-8600-4d19-86a7-bad167b413fc" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+      <name>Home</name>
+      <display>Home</display>
+      <externalReference>5cf35899-5d12-4e0c-8642-ba734abbf14d</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>084a7d3e-3be0-4e25-9e31-d7609a3af078</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/" isActive="true" />
+            <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Home" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

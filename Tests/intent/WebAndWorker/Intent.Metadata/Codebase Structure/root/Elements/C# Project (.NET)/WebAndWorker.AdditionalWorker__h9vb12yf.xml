@@ -4,6 +4,7 @@
   <name>WebAndWorker.AdditionalWorker</name>
   <display>WebAndWorker.AdditionalWorker</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4a466c12-03bb-4bee-be7c-1f078c064204</parentFolderId>
@@ -59,5 +60,19 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="95e7b899-594d-435b-a2cf-96363323f4be" type="Dependencies" typeId="3a50f114-9bb7-4f58-98ce-5ecd0089b947">
+      <name>Dependencies</name>
+      <display>Dependencies</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>085da2dd-f7b6-4602-88c6-5ed701c277df</parentFolderId>
+      <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

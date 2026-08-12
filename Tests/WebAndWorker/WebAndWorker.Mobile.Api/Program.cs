@@ -27,6 +27,12 @@ namespace WebAndWorker.Mobile.Api
                 var builder = WebApplication.CreateBuilder(args);
 
                 // Add services to the container.
+                if (builder.Configuration.GetValue<bool?>("KeyVault:Enabled") == true)
+                {
+                    builder.Configuration.ConfigureAzureKeyVault(builder.Configuration);
+                }
+
+                // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)

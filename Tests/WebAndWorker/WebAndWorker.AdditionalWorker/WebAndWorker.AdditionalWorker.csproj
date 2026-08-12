@@ -20,4 +20,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
   </ItemGroup>
 
-</Project>
+  <ItemGroup>
+    <ProjectReference Include="..\WebAndWorker.Application\WebAndWorker.Application.csproj" />
+    <ProjectReference Include="..\WebAndWorker.Infrastructure\WebAndWorker.Infrastructure.csproj" />
+  </ItemGroup>
+  </Project>

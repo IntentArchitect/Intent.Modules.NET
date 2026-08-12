@@ -1,0 +1,476 @@
+/* ============================================================================
+   ux-components.css
+   Reusable component primitives and utility classes.
+   Utilities are intentionally last so they can override component styles.
+   Requires: ux-tokens.css, ux-base.css
+   ============================================================================ */
+
+
+/* ============================================================================
+   SECTION 1: Standard Form Controls
+   ============================================================================ */
+
+.form-control,
+.form-select {
+    font-family: var(--font-primary);
+    color: var(--text);
+    background-color: var(--surface);
+    background-clip: padding-box;
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        color: var(--text);
+        background-color: var(--surface);
+        border-color: var(--border-focus);
+        box-shadow: 0 0 0 3px var(--primary-subtle);
+        outline: 0;
+    }
+
+    .form-control:disabled,
+    .form-control[disabled],
+    .form-select:disabled {
+        color: var(--text-muted);
+        background-color: var(--surface-2);
+        opacity: 1;
+    }
+
+    .form-control::placeholder {
+        color: var(--text-secondary);
+        opacity: 1;
+    }
+
+.form-label {
+    display: inline-block;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+    color: var(--text-muted);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.form-check-input {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary);
+}
+
+.form-check-label {
+    color: var(--text);
+    font-size: var(--type-body-sm);
+}
+
+.checkbox label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text);
+    font-size: var(--type-body-sm);
+}
+
+.checkbox input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary);
+}
+
+.input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+    .input-group > .form-control {
+        min-width: 0;
+    }
+
+.input-group-append {
+    display: flex;
+}
+
+.input-group-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-3);
+    color: var(--text);
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+
+/* ============================================================================
+   SECTION 2: Buttons
+   ============================================================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+    .btn:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+
+    .btn:active {
+        transform: translateY(0) !important;
+        box-shadow: var(--shadow-1) !important;
+    }
+
+.btn-primary {
+    background: var(--gradient-brand);
+    color: #fff;
+    box-shadow: var(--shadow-1);
+}
+
+    .btn-primary:hover {
+        box-shadow: var(--glow-primary), var(--shadow-2);
+        transform: translateY(-1px);
+        color: #fff;
+        text-decoration: none;
+    }
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+    .btn-outline:hover {
+        background: var(--hover-overlay);
+        color: var(--text);
+        border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+/* Coloured outline / "inverted" variants — transparent fill + coloured border + text.
+   Mirrors how the MudBlazor app renders its outlined action buttons. */
+.btn-outline-primary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+    .btn-outline-primary:hover {
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+.btn-outline-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+    .btn-outline-danger:hover {
+        background: color-mix(in srgb, var(--danger) 10%, transparent);
+        color: var(--danger);
+        border-color: var(--danger);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+    flex-shrink: 0;
+}
+
+    .btn-icon:hover {
+        background: var(--hover-overlay);
+        color: var(--text);
+    }
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+    box-shadow: var(--shadow-1);
+}
+
+    .btn-danger:hover {
+        box-shadow: var(--shadow-2);
+        transform: translateY(-1px);
+        color: #fff;
+        text-decoration: none;
+    }
+
+.btn-link {
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    box-shadow: none;
+    padding-inline: 0;
+}
+
+    .btn-link:hover {
+        color: var(--primary-dark);
+        background: transparent;
+        text-decoration: underline;
+        box-shadow: none;
+        transform: none;
+    }
+
+.btn-lg {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--type-body-lg);
+}
+
+
+/* ============================================================================
+   SECTION 3: Feedback & Data Display
+   ============================================================================ */
+
+.alert {
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-4);
+    color: var(--text);
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.alert-danger {
+    color: var(--danger);
+    background: var(--danger-subtle);
+    border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+.alert-success {
+    color: var(--success);
+    background: var(--success-subtle);
+    border-color: color-mix(in srgb, var(--success) 30%, transparent);
+}
+
+.alert-warning {
+    color: var(--warning);
+    background: var(--warning-subtle);
+    border-color: color-mix(in srgb, var(--warning) 30%, transparent);
+}
+
+.table {
+    width: 100%;
+    margin-bottom: var(--space-4);
+    border-collapse: collapse;
+    font-size: var(--type-body-sm);
+}
+
+    .table thead th {
+        text-align: left;
+        padding: 0.875rem 1rem;
+        font-size: var(--type-label-md);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        border-bottom: var(--border-width) solid var(--border);
+        background: var(--surface-2);
+    }
+
+    .table tbody td {
+        padding: 0.875rem 1rem;
+        color: var(--text);
+        border-bottom: var(--border-width) solid var(--border-light);
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .table tbody tr:hover td {
+        background: var(--hover-overlay);
+    }
+
+
+/* ============================================================================
+   SECTION 4: Utility Classes
+   Last so they can override component styles above without needing !important.
+   ============================================================================ */
+
+/* Gradient utilities */
+.ux-gradient-text {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ux-text-primary {
+    color: var(--primary) !important;
+}
+
+.ux-bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.ux-shadow-sm {
+    box-shadow: var(--shadow-1);
+}
+
+.ux-shadow {
+    box-shadow: var(--shadow-2);
+}
+
+.ux-shadow-lg {
+    box-shadow: var(--shadow-4);
+}
+
+.ux-rounded {
+    border-radius: var(--radius-sm);
+}
+
+.ux-rounded-lg {
+    border-radius: var(--radius-md);
+}
+
+.ux-rounded-xl {
+    border-radius: var(--radius-lg);
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+    .cursor-pointer:hover {
+        opacity: 0.80;
+        transition: opacity var(--dur-fast) var(--ease-out);
+    }
+
+.text-white {
+    color: var(--primary-contrast) !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.mb-3 {
+    margin-bottom: var(--space-3) !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.text-info {
+    color: var(--info) !important;
+}
+
+/* Status badges */
+.badge-success {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    font-size: var(--type-label-md);
+    font-weight: 500;
+    padding: .2em .65em;
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb,var(--success) 14%,transparent);
+    color: var(--success);
+    border: 1px solid color-mix(in srgb,var(--success) 28%,transparent);
+}
+
+.badge-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    font-size: var(--type-label-md);
+    font-weight: 500;
+    padding: .2em .65em;
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb,var(--danger) 14%,transparent);
+    color: var(--danger);
+    border: 1px solid color-mix(in srgb,var(--danger) 28%,transparent);
+}
+
+.badge-warning {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    font-size: var(--type-label-md);
+    font-weight: 500;
+    padding: .2em .65em;
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb,var(--warning) 14%,transparent);
+    color: var(--warning);
+    border: 1px solid color-mix(in srgb,var(--warning) 28%,transparent);
+}
+
+.badge-info {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    font-size: var(--type-label-md);
+    font-weight: 500;
+    padding: .2em .65em;
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb,var(--info) 14%,transparent);
+    color: var(--info);
+    border: 1px solid color-mix(in srgb,var(--info) 28%,transparent);
+}
+
+.badge-neutral {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    font-size: var(--type-label-md);
+    font-weight: 500;
+    padding: .2em .65em;
+    border-radius: var(--radius-full);
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.ux-inner-panel {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}

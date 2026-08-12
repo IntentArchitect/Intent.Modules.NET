@@ -1,7 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
 using WebAndWorker.Api.Services;
 using WebAndWorker.Application.Common.Interfaces;
@@ -18,6 +20,29 @@ namespace WebAndWorker.Api.Configuration
             IConfiguration configuration)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+            services.AddHttpContextAccessor();
+
+            services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(options =>
+                {
+                    options.TokenValidationParameters.RoleClaimType = "roles";
+                    options.TokenValidationParameters.NameClaimType = "name";
+                }, identityOptions =>
+                {
+                    configuration.GetSection("AzureAd").Bind(identityOptions);
+                });
+
+            services.Configure<OpenIdConnectOptions>(
+                OpenIdConnectDefaults.AuthenticationScheme,
+                options =>
+                {
+                    options.TokenValidationParameters.RoleClaimType = "roles";
+                    options.TokenValidationParameters.NameClaimType = "name";
+                });
+
+            services.AddAuthorization(ConfigureAuthorization);
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
 
