@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.8" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilderAiSkills" version="1.0.0-pre.2" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" solutionFolder="Application" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />
@@ -188,5 +188,6 @@
     <application id="a4ef8894-c485-4353-bfcd-df19c3d450a9" name="Intent.Modules.FastEndpoints.Dispatch.Wolverine" solutionFolder="API Frameworks" relativePath="Intent.Modules.FastEndpoints.Dispatch.Wolverine/Intent.Modules.FastEndpoints.Dispatch.Wolverine.application.config" />
     <application id="97b031c5-c4db-4ee0-9b65-17e441a9bfa7" name="Intent.Modules.Integration.HttpClients.Stubs" solutionFolder="Direct Integration" relativePath="Intent.Modules.Integration.HttpClients.Stubs/Intent.Modules.Integration.HttpClients.Stubs.application.config" />
     <application id="e5ece418-cf71-484a-a5ad-706affe51df3" name="Intent.Modules.Application.CQRS.CRUD" solutionFolder="Application" relativePath="Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.application.config" />
+    <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" solutionFolder="AI Skills" relativePath="ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
   </applications>
 </solution>
