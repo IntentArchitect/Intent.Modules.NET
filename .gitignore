@@ -269,12 +269,7 @@ Spikes/
 
 # AI tooling symlinks materialized by .agents/setup.ps1
 # Source of truth lives in /.agents — these paths are local junctions/symlinks.
-/.claude/skills/
-/.github/instructions/
-/.github/prompts/
-/.codex/instructions/
-/.codex/skills/
-/Modules/.agents/
+
 /plans/**
 .agent-native/
 /plan-blocks.md
@@ -288,8 +283,4 @@ Spikes/
 .mcp.json
 
 Modules/Intent.Modules/
-/.claude/skills
-/.codex/instructions
-/.codex/skills
-/.github/instructions
-/.github/prompts
+
