@@ -67,8 +67,8 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
             // canonical shift) both defensively resolve to the first non-blank value found, or "" (no-op).
             var relativeLocation = metadataManager.CodebaseStructure(application)
                 .GetRootFolderModels()
-                .Select(rootFolder => rootFolder.GetRootFolderOptions()?.RelativeLocation())
-                .FirstOrDefault(value => !string.IsNullOrWhiteSpace(value)) ?? "";
+                .Select(rootFolder => rootFolder.HasRootFolderOptions() ? rootFolder.GetRootFolderOptions()?.RelativeLocation() : null)
+                .FirstOrDefault(value => !string.IsNullOrWhiteSpace(value)) ?? string.Empty;
 
             return new OutputLocationOptions(application.OutputRootDirectory, relativeLocation);
         }

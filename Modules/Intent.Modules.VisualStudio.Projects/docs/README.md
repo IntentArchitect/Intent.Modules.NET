@@ -174,23 +174,9 @@ To switch formats, apply the `Visual Studio Solution Options` stereotype to the 
 
 ### The *Root Folder Options* stereotype
 
-This stereotype is applied to the **Root Folder** element (shown as `root` at the top of the Codebase Structure Designer).
+This stereotype is applied to the **Root Folder** element (shown as `root` at the top of the Codebase Structure Designer) and is owned by the `Intent.Modelers.CodebaseStructure` module. Its `Relative Location` property lets you shift the application's absolute output root (`OutputRootDirectory`) so that the `.sln`/`.slnx` file, `.gitignore`, and a centrally-managed `Directory.Packages.props` can be generated one or more levels up from the application's own output location, in a folder shared with sibling applications.
 
-#### Relative Location
-
-Shifts the application's absolute output root (`OutputRootDirectory`) uniformly for every consumer that resolves a location relative to it — the `.sln`/`.slnx` file, `.gitignore`, and centrally-managed `Directory.Packages.props` all move together, while a project relying on its default (Name-based) location generates back at its original location.
-
-This is intended for scenarios where the application's own `Relative Output Location` setting has been pointed at a specific project's own leaf folder — for example, so that tooling resolving a project's location (such as Reveal in Code Base Explorer) can pinpoint it directly — while the `.sln`/`.slnx` and other shared files still need to be generated one or more levels up, in a folder shared with sibling applications.
-
-For example, if `OutputRootDirectory` has been set to `Container\MyProject` and you want the `.sln` generated at `Container\MyProject.sln` (alongside `MyProject`, not inside it), set `Relative Location` to `..`.
-
-Leave `Relative Location` blank for no shift — this is the default and matches all prior behavior.
-
-> [!NOTE]
-> A project with its own explicit `Relative Location` (for example, one placed inside a materialized `Solution Folder`) is not affected by this shift — only a project relying on its default location participates.
-
-> [!WARNING]
-> If `Intent.Modules.SharedKernel.Consumer` is also installed, its solution-patching feature scans for the `.sln` file directly under `OutputRootDirectory` and will not find it once `Relative Location` is non-blank, silently skipping that step.
+See the [*Root Folder Options* stereotype](https://docs.intentarchitect.com/articles/modules-dotnet/intent-modelers-codebasestructure/intent-modelers-codebasestructure.html) section of the `Intent.Modelers.CodebaseStructure` module's documentation for the full property details, an example, and known caveats (including an `Intent.Modules.SharedKernel.Consumer` interaction).
 
 ### The *Folder Options* stereotype
 
