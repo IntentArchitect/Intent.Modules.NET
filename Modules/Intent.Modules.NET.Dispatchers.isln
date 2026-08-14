@@ -45,5 +45,6 @@
     <application id="e4d9754f-9a44-441e-bc46-454f4441b184" name="Application.ServiceImplementations.CRUD" solutionFolder="Modules/Traditional Services" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD/Intent.Application.ServiceImplementations.Conventions.CRUD.application.config" />
     <application id="5906ef37-8ce9-4dcd-a4ae-8ab1f7ad2cbb" name="Application.Dtos.ObjectMapping" solutionFolder="Modules/Mapping" relativePath="Intent.Modules.Application.Dtos.ObjectMapping/Intent.Modules.Application.Dtos.ObjectMapping.application.config" />
     <application id="a5a39ce6-e966-486f-a4a7-ad33cf56bef5" name="ObjectMappingTest" solutionFolder="Tests" relativePath="../Tests/ObjectMappingTest/ObjectMappingTest.application.config" />
+    <application id="b40bf9f0-3286-4fe7-8a7d-39df74c0e322" name="Application.Dtos.Pagination" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.Dtos.Pagination/Application.Dtos.Pagination.application.config" />
   </applications>
 </solution>
