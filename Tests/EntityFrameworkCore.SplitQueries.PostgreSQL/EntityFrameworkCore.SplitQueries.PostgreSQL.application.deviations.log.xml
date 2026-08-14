@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.AspNetCore.Controllers.Controller#12f9c4e2-88a2-49f9-9e82-63e4b917749a</correlationId>
-      <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Controllers/Geometry/GeometryController.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-13T19:22:05.6529676Z</updatedAt>
-      <deviationsHash>27EBC321C6259F84EEAE2E4A0FC54C209A5430C9498FF1E99B8D6FFBC781B969</deviationsHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

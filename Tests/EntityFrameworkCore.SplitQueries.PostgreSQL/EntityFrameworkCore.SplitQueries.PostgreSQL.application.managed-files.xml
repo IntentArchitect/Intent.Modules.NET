@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="887384b0-1607-4815-a01f-fabdb108e39f">
   <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
   <file path=".agents/skills/domain-entity/SKILL.md" />
   <file path=".agents/skills/ef-repository/SKILL.md" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Configuration/ProblemDetailsConfiguration.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Controllers/Geometry/GeometryController.cs" deviationsHash="27EBC321C6259F84EEAE2E4A0FC54C209A5430C9498FF1E99B8D6FFBC781B969" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Controllers/Geometry/GeometryController.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/EntityFrameworkCore.SplitQueries.PostgreSQL.Api.csproj" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/ExceptionFilter.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/GeoJsonSchemaFilter.cs" />
@@ -21,6 +22,8 @@
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/DependencyInjection.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/EntityFrameworkCore.SplitQueries.PostgreSQL.Application.csproj" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Geometry/GeometryDto.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Implementation/Geometry/GeometryService.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Interfaces/Geometry/IGeometryService.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/CollectionExtensions.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/Exceptions/NotFoundException.cs" />
   <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/Interfaces/IUnitOfWork.cs" />

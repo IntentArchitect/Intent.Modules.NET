@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Application.Geometry;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Application.Interfaces.Geometry;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,8 +18,10 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Api.Controllers.Geometry
     [ApiController]
     public class GeometryController : ControllerBase
     {
-        public GeometryController()
+        private readonly IGeometryService _appService;
+        public GeometryController(IGeometryService appService)
         {
+            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
         /// <summary>
@@ -27,10 +30,11 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Api.Controllers.Geometry
         [HttpGet("api/geometry-types")]
         [ProducesResponseType(typeof(List<GeometryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public Task<ActionResult<List<GeometryDto>>> GetGeometryTypes(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<List<GeometryDto>>> GetGeometryTypes(CancellationToken cancellationToken = default)
         {
-            return Task.FromResult<ActionResult<List<GeometryDto>>>(new List<GeometryDto>());
+            var result = default(List<GeometryDto>);
+            result = await _appService.GetGeometryTypes(cancellationToken);
+            return Ok(result);
         }
     }
 }
