@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="887384b0-1607-4815-a01f-fabdb108e39f">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Controllers/Geometry/GeometryController.cs" deviationsHash="27EBC321C6259F84EEAE2E4A0FC54C209A5430C9498FF1E99B8D6FFBC781B969" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/EntityFrameworkCore.SplitQueries.PostgreSQL.Api.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/ExceptionFilter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/GeoJsonSchemaFilter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Logging/GeoDestructureSerilogPolicy.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Program.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Properties/launchSettings.json" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Startup.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Api/appsettings.json" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Common/Pagination/PagedList.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/DependencyInjection.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/EntityFrameworkCore.SplitQueries.PostgreSQL.Application.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Geometry/GeometryDto.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/CollectionExtensions.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Common/UpdateHelper.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Entities/GeometryType.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Entities/Order.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Repositories/IEFRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Repositories/IGeometryTypeRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Repositories/IOrderRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Repositories/IPagedList.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Domain/Repositories/IRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/DependencyInjection.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Migrations/README.md" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Persistence/Configurations/Converters/UtcDateTimeOffsetConverter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Persistence/Configurations/GeometryTypeConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Repositories/GeometryTypeRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Repositories/OrderRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.PostgreSQL.sln" />
+</managedFiles>

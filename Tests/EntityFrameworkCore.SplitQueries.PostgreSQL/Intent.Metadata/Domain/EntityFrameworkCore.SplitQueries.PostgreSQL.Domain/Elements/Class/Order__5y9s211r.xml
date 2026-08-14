@@ -38,7 +38,6 @@
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
             <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -118,7 +117,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="79500756-53d2-4052-b051-6a5a4d71daff" name="Order" type="element" specialization="Class" />
+          <target id="79500756-53d2-4052-b051-6a5a4d71daff" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>79500756-53d2-4052-b051-6a5a4d71daff</parentFolderId>
@@ -150,7 +149,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="348e2313-42f4-418b-a54b-3703523c6617" name="ReferenceNumber" type="element" specialization="Attribute" />
+              <target id="348e2313-42f4-418b-a54b-3703523c6617" name="ReferenceNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>8ca97f1e-6129-4c59-88ee-8ce67d79e83d</parentFolderId>
@@ -180,7 +179,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="7533a709-cf92-4e04-9cfb-e56ce37179ad" name="Created" type="element" specialization="Attribute" />
+              <target id="7533a709-cf92-4e04-9cfb-e56ce37179ad" name="Created" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>8ca97f1e-6129-4c59-88ee-8ce67d79e83d</parentFolderId>

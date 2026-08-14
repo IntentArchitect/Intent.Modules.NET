@@ -6,7 +6,7 @@ using Serilog.Events;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.NetTopologySuite.GeoDestructureSerilogPolicy", Version = "1.0")]
 
-namespace CleanArchitecture.Comprehensive.Api.Logging
+namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Api.Logging
 {
     /// <summary>
     /// NetTopologySuite.Geometries by default when serialized will cause circular referencing which results in infinite logging.

@@ -13,14 +13,20 @@ public class GeoJsonSchemaFilter : ISchemaFilter
 {
     public void Apply(IOpenApiSchema schema, SchemaFilterContext context)
     {
-        if (schema is OpenApiSchema concreteSchema && context.Type == typeof(Point))
+        if (schema is OpenApiSchema concreteSchema && typeof(Geometry).IsAssignableFrom(context.Type))
         {
             concreteSchema.Format = "geojson";
-            concreteSchema.Example = new JsonObject
-                {
-                    { "type", "Point" },
-                    { "coordinates", new JsonArray { 1.0, 2.0 } }
-                };
+            concreteSchema.Properties?.Clear();
+            concreteSchema.Description = "GeoJSON geometry — shape of 'coordinates' depends on the geometry type.";
+
+            if (context.Type == typeof(Point))
+            {
+                concreteSchema.Example = new JsonObject
+                    {
+                        { "type", "Point" },
+                        { "coordinates", new JsonArray { 1.0, 2.0 } }
+                    };
+            }
         }
     }
 }

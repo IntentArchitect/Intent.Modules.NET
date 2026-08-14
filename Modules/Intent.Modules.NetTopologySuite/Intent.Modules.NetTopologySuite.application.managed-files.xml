@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/GeometryExtension.cs" />
+  <file path="FactoryExtensions/SerilogStartupConfigurationExtension.cs" />
+  <file path="FactoryExtensions/StartupExtension.cs" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" />
+  <file path="Intent.Modules.NetTopologySuite.csproj" />
+  <file path="Intent.NetTopologySuite.imodspec" />
+  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs" />
+  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplateRegistration.cs" />
+  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs" />
+  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="release-notes.md" />
+</managedFiles>

@@ -2,17 +2,13 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2f4ae803-44de-4abc-abf4-bfc4d2d1abcc</correlationId>
-      <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.csproj</path>
+      <correlationId>Intent.AspNetCore.Controllers.Controller#12f9c4e2-88a2-49f9-9e82-63e4b917749a</correlationId>
+      <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Controllers/Geometry/GeometryController.cs</path>
       <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:42:35.2558784Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:31.7545985Z</approvedAt>
-      <deviationsHash>14657C473162CBF1F30B11D8620CBD020312D788EBC5DC7E3F3E210F61BDAB30</deviationsHash>
-      <fileHash>9C9B23B9BA3CC7870BAA7ABFF9B78F5EF72039CBA17E7333E771C38EDDE92ACB</fileHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-13T19:22:05.6529676Z</updatedAt>
+      <deviationsHash>27EBC321C6259F84EEAE2E4A0FC54C209A5430C9498FF1E99B8D6FFBC781B969</deviationsHash>
     </file>
   </files>
 </deviationsLog>

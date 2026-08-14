@@ -27,10 +27,12 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure
                         b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                         b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
                         b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "pgsql");
+                        b.UseNetTopologySuite();
                     });
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IGeometryTypeRepository, GeometryTypeRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             return services;
         }

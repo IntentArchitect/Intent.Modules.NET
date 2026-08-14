@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5fa56557-be5d-49ec-af68-f2357bcbfdd4" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>GeometryType</name>
+  <display>GeometryType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b74977ab-1027-4522-8f02-fc5dba1801fc</parentFolderId>
+  <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3f83612c-75b9-4e5e-aa71-772f6dbf929c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c6988b16-6435-410f-ae6e-e77fa765cc89">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5fa56557-be5d-49ec-af68-f2357bcbfdd4</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e916dd7c-3610-4d5a-b2da-66478a518df7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Point</name>
+      <display>Point: Point</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="29fe08fe-8f5e-4f12-a7e8-7730ad7f3c51">
+        <typeId>553b44ae-1d22-4b27-aec9-23f61328d2b8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.NetTopologySuite</typePackageName>
+        <typePackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5fa56557-be5d-49ec-af68-f2357bcbfdd4</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d167785b-9e85-4324-9e24-7f04a5a80d13" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>MultiPolygon</name>
+      <display>MultiPolygon: MultiPolygon</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="91152a95-a037-4fda-b8e8-e0dc6ccd8f47">
+        <typeId>b00b6101-a62c-41f3-8962-38a004922d2b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.NetTopologySuite</typePackageName>
+        <typePackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5fa56557-be5d-49ec-af68-f2357bcbfdd4</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

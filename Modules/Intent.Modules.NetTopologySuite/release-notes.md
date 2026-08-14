@@ -1,3 +1,9 @@
+### Version 1.0.4
+
+- New Feature: Added `MultiPolygon` geometry type, usable on Domain and Service attributes the same way as `Point`.
+- Improvement: The generated Serilog destructuring policy now applies to any NetTopologySuite geometry type (not just `Point`), preventing circular-reference logging issues.
+- Improvement: The generated Swagger/OpenAPI schema filter now applies the `geojson` format to every geometry type, clears the reflected C# properties from the schema, and adds a description explaining that the `coordinates` shape depends on the geometry type — `Point` keeps its own realistic coordinate example.
+
 ### Version 1.0.3
 
 - Fixed: Minimum client version.

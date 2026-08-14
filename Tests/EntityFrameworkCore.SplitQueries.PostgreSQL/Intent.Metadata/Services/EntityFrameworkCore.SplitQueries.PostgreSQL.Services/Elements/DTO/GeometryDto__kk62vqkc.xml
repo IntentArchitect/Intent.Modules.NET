@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="787b00fe-a5c8-4634-b1d2-85d3d4071a5a" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>GeometryDto</name>
+  <display>GeometryDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>887384b0-1607-4815-a01f-fabdb108e39f</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="5fa56557-be5d-49ec-af68-f2357bcbfdd4" name="GeometryType" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>00ed8ad4-fd40-4fb3-9ce2-f57167d78059</parentFolderId>
+  <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9cc446a5-584d-470f-920b-d205e78e0ebf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="07ea4d04-a6b7-4621-b3d5-85a82a04c882">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>787b00fe-a5c8-4634-b1d2-85d3d4071a5a</parentFolderId>
+      <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="34bcf005-4a75-44db-87bd-9ec4986e03f4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Point</name>
+      <display>Point: Point</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="19731edf-84ac-4a4e-9ba6-7c8ad55b88cc">
+        <typeId>553b44ae-1d22-4b27-aec9-23f61328d2b8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.NetTopologySuite</typePackageName>
+        <typePackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>787b00fe-a5c8-4634-b1d2-85d3d4071a5a</parentFolderId>
+      <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5a09ec6f-9710-4786-afa8-eec35aecdb17" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>MultiPolygon</name>
+      <display>MultiPolygon: MultiPolygon</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8631e489-bc5c-4010-bb06-2175ec67fb88">
+        <typeId>b00b6101-a62c-41f3-8962-38a004922d2b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.NetTopologySuite</typePackageName>
+        <typePackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>787b00fe-a5c8-4634-b1d2-85d3d4071a5a</parentFolderId>
+      <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
