@@ -12,9 +12,12 @@ Today a developer who installs this module gets a folder of plausible-looking ma
 
 Afterwards, installing the module is the whole job. Handlers come out calling the generated Mapping Methods with no arguments, paged queries project correctly, and a model authored against AutoMapper keeps working when the Mapping Provider is swapped. The developer gets mapping code they can step through in a debugger and refactor with confidence, and gives up nothing except the ability to push projection into the database — which is stated up front rather than discovered.
 
+There is a second audience this serves, and it is not the disillusioned AutoMapper user. Plenty of teams simply will not have a convention-based mapping library in their codebase — they want every assignment visible in the file, reviewable in a pull request, and greppable when a field turns up wrong in production. Those teams write mappings by hand today and pay for it in tedium every time a DTO gains a field. This module's job for them is not to replace a library; it is to remove the typing while leaving them exactly the code they would have written. That is why the generated output has to read like a person wrote it, and why it must stay free of helper types, runtime packages and indirection.
+
 ## Target Users & Jobs To Be Done
 
 - **Application developer using Intent Architect** — wants DTO mapping that they can read, breakpoint and refactor, without an AutoMapper dependency or its runtime configuration failures. Hires this module to be a drop-in swap for the Mapping Provider their architecture already uses.
+- **Developer or team that rejects auto-mapping libraries on principle** — will not accept convention-based, reflection-driven mapping in their codebase at all, whether or not it has ever failed them. They want the mapping written out explicitly, and they want Intent to do the writing rather than typing it by hand for every DTO. Hires this module to be the tedium-remover for code they would otherwise have written themselves, line for line.
 - **Developer migrating an existing application off AutoMapper** — has a Services model full of existing mappings, including free-form Expression Mappings, and needs them to keep producing the same DTO values after the swap. Cannot afford to re-author the model.
 - **Intent Architect module maintainer** — owns this module and the Domain Interactions module. Needs both null-handling behaviours pinned by their own Flavour Application and xUnit suite, so a future change to either module cannot silently break generated mappings for one Flavour while the other stays green.
 
@@ -96,6 +99,28 @@ flowchart TD
   C --> D[Each page item projected through the Mapping Method - R4.2]
   D --> E[Cursor-paginated query behaves the same - R4.3]
   D --> F[Edge - zero results returns an empty page, no throw - R4.4]
+```
+
+- **UJ-5. Nadia's team bans mapping libraries, and adopts the Object Mapper anyway.**
+  - **Persona + context:** Nadia is tech lead on a team whose code review standard forbids convention-based mapping libraries outright. Every mapping in their codebase today is typed by hand and reviewed line by line, and adding a field to a DTO means editing three files.
+  - **Entry state:** A new Intent application. No Mapping Provider chosen yet. DTOs modelled with `[map from]` mappings to Domain Entities.
+  - **Path:** She installs the Object Mapper as the Mapping Provider → runs the Software Factory → opens the generated Mapping Extension Class to see what her reviewers will see → raises the pull request.
+  - **Climax:** The generated file is a plain static class: one object initializer, one line per field, nothing else. No base class, no helper type, no package reference added to the project. Her reviewer reads it as ordinary source and approves it without a single comment about generated code. She knows it worked because the review had nothing to argue about.
+  - **Resolution:** The team keeps its standard and loses the tedium — adding a DTO field is now a model change rather than a typing task across three files.
+  - **Edge case:** A developer tweaks a generated mapping directly in the file. The next Software Factory run reclaims it and the tweak is gone; the correct fix is to change the model.
+
+```mermaid
+flowchart TD
+  A[Team standard forbids convention-based mapping libraries] --> B[New application, DTOs modelled with map from]
+  B --> C[Install Object Mapper as the Mapping Provider]
+  C --> D[Run Software Factory]
+  D --> E[Plain static class - one object initializer, one line per field - R9.1]
+  E --> F[No package reference added to the application - R9.5]
+  F --> G[Pull request reviewed as ordinary source and approved]
+  E --> H[Edge - developer edits the generated file by hand]
+  H --> I[Next run reclaims the file and the edit is lost - R9.6]
+  I --> J[Change the model instead and regenerate]
+  J --> E
 ```
 
 ## Glossary
@@ -388,6 +413,47 @@ Removing the stand-down guard means installing this module alongside AutoMapper 
 **Preserved edits masquerading as generated output.** The `ObjectMappingTest` application contains a handler whose body reads `return order.MapToOrderDto();` on a method whose body is merge-managed. No template in the repository generates that statement — the CRUD modules emit an `IMapper` argument, and Domain Interactions emits nothing without a registered strategy. It may therefore be a preserved hand-edit that makes the module look integrated when it is not. R8.6, R8.7 and R8.11 exist so this cannot recur: only output that survives full deletion and regeneration, in an application that inherited nothing, counts as generated.
 
 **Drift between the two duplicated models.** Because the Flavour Applications each own a full copy of the model rather than sharing a package, a mapping shape can be added to one and forgotten in the other, and nothing about a green build would reveal it. R8.10 turns that risk into an assertion: the two applications' generated output must differ only where R1 says it should.
+
+</Callout>
+
+### Requirement 9: Generated mappings read as hand-written code
+
+**User Story:** As a developer on a team that will not accept a convention-based mapping library, I want the generated mapping to be exactly the code I would have typed myself, so that it passes our code review as ordinary source rather than as generated machinery.
+
+**Realizes:** UJ-5
+
+<Table
+  id="r9-constructs"
+  density="compact"
+  caption="R9.1–R9.7 — what may and may not appear in generated mapping output"
+  columns={["Construct", "Permitted", "Criterion"]}
+  rows={[
+    ["A single object initializer as the whole Mapping Method body", "Required", "R9.1"],
+    ["Exactly one initializer entry per mapped DTO field, in the DTO's declared field order", "Required", "R9.1"],
+    ["An expression-bodied List Mapping Method", "Required", "R9.2"],
+    ["Local variables in a Mapping Method body", "Not permitted", "R9.3"],
+    ["Helper methods, nested types, or any type outside the Mapping Extension Class", "Not permitted", "R9.3"],
+    ["A base class or interface on the Mapping Extension Class", "Not permitted", "R9.4"],
+    ["A NuGet package reference added to the consuming application", "Not permitted", "R9.5"],
+    ["Hand edits surviving a regeneration", "Not permitted", "R9.6"],
+    ["Reflection, dynamic dispatch, runtime expression trees, or runtime configuration", "Not permitted", "R9.7"]
+  ]}
+/>
+
+#### Acceptance Criteria
+
+1. THE Mapping Method body SHALL consist of a single object initializer returning the DTO, containing exactly one entry per mapped DTO field, emitted in the DTO's declared field order.
+2. THE List Mapping Method SHALL be a single expression-bodied member.
+3. THE Object Mapper module SHALL NOT emit local variables, helper methods or nested types inside a Mapping Extension Class, and SHALL NOT emit any type outside it.
+4. THE Mapping Extension Class SHALL be a static class with no base type and no implemented interface.
+5. THE Object Mapper module SHALL NOT add a NuGet package reference to the consuming application, under any combination of Mapping Shapes or setting values.
+6. THE Mapping Extension Class SHALL be fully managed — a hand edit within it SHALL be reclaimed by the next Software Factory run, and the file SHALL contain no merge-managed region.
+7. THE generated code SHALL NOT use reflection, dynamic dispatch, runtime expression trees or runtime mapping configuration, and SHALL resolve every mapping at compile time.
+8. WHEN `Null Path Handling` is `Lenient`, THE guarded expression required by R1.3 SHALL be emitted as a single expression within its initializer entry, and SHALL NOT be implemented via a local variable or a helper method — R9.3 binds R1.3.
+
+<Callout id="r9-decision" tone="decision" title="Fully managed, and why the escape hatch was declined">
+
+A partial-class extension point was considered so a developer could add custom mapping members without losing them. It was declined: it would put hand-written and generated mapping side by side in the same conceptual place, which is precisely the ambiguity R8.7 exists to eliminate. The model stays the single source of truth — if a mapping needs to change, the mapping changes in the designer. R9.6 makes that contract explicit rather than something a developer discovers by losing work.
 
 </Callout>
 
