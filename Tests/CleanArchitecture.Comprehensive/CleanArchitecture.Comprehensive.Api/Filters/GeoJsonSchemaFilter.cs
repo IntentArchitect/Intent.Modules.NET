@@ -17,6 +17,7 @@ public class GeoJsonSchemaFilter : ISchemaFilter
         {
             concreteSchema.Format = "geojson";
             concreteSchema.Properties?.Clear();
+            concreteSchema.Required?.Clear();
             concreteSchema.Description = "GeoJSON geometry — shape of 'coordinates' depends on the geometry type.";
 
             if (context.Type == typeof(Point))
