@@ -256,7 +256,7 @@ steps:
     script:  |
       $toolPath = "$(System.DefaultWorkingDirectory)/intent-cli-tool"
 
-      & "$toolPath/intent-cli" ensure-no-outstanding-changes --check-deviations -- "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
+      & "$toolPath/intent-cli" ensure-no-outstanding-changes -- "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
 
 - task: PowerShell@2
   displayName: 'Filter artifacts to publish'
