@@ -4,7 +4,7 @@
 
 `Intent.Application.Dtos.ObjectMapping` generates explicit C# extension methods that map a Domain Entity to a mapped DTO, as a reflection-free alternative to AutoMapper and Mapperly. The module exists and generates files, but two classes of defect stop it being usable: mapping paths that cross a nullable hop into a non-nullable target field emit C# that does not compile, and **nothing in the Intent ecosystem generates a Call Site that invokes the generated Mapping Methods** — the CRUD modules hardcode AutoMapper, and the Domain Interactions module has no strategy registered for this Mapping Provider.
 
-This feature hardens the module to production quality: every enumerated Mapping Shape generates compiling, correct C#; Domain Interactions generates working Call Sites including paged results; and free-form Expression Mappings become portable across Mapping Providers. The whole surface is proven by two new Flavour Applications — `ObjectMapping.Strict` and `ObjectMapping.Lenient` — each pinning one value of the null-handling setting, each with its own xUnit suite, and each regenerated from a deleted state rather than merge-preserved. The existing `ObjectMappingTest` application is reference material only and is retired by the developer separately.
+This feature hardens the module to production quality: every enumerated Mapping Shape generates compiling, correct C#; Domain Interactions generates working Call Sites including paged results; and free-form Expression Mappings authored against AutoMapper generate exactly what AutoMapper generated for them. The whole surface is proven by two new Flavour Applications — `ObjectMapping.Strict` and `ObjectMapping.Lenient` — each pinning one value of the null-handling setting, each with its own xUnit suite, and each regenerated from a deleted state rather than merge-preserved. The existing `ObjectMappingTest` application is reference material only and is retired by the developer separately.
 
 ## Vision
 
@@ -70,18 +70,21 @@ flowchart TD
   - **Persona + context:** Same migration as UJ-1. Several of Priya's DTO fields use free-form Expression Mappings authored years ago against AutoMapper, in the `src.` Prefix Form.
   - **Entry state:** Those mappings sit unchanged in the Services designer.
   - **Path:** She swaps the Mapping Provider → regenerates → diffs the generated expressions against what AutoMapper produced.
-  - **Climax:** Every Expression Mapping generates against this module's own source parameter regardless of which Prefix Form it was authored in. She knows it worked because she changed zero mappings in the designer.
-  - **Resolution:** No designer rework, and the model can be swapped back to AutoMapper without touching it again.
-  - **Edge case:** One expression was authored bare, with no prefix at all. It still resolves against the source parameter rather than generating an unresolved identifier.
+  - **Climax:** Every `src.`-prefixed Expression Mapping generates against this module's source parameter and evaluates to exactly what AutoMapper evaluated to. She knows it worked because she changed zero mappings in the designer and no value moved.
+  - **Resolution:** No designer rework. An expression left in the `src.` form can still be swapped back to AutoMapper untouched; one rewritten to `projectFrom.` cannot, because AutoMapper does not recognise that prefix.
+  - **Edge case:** One expression was authored bare, with no prefix at all. It generates the same unresolved identifier AutoMapper generated for it — the swap neither fixes nor worsens it — so she rewrites that one with a prefix.
 
 ```mermaid
 flowchart TD
   A[Expression Mapping in the Services model] --> B{Prefix Form as authored}
-  B -->|src dot - R2.2| C[Normalised to the source parameter]
+  B -->|src dot - R2.2| C[Prefix rewritten to the source parameter]
   B -->|projectFrom dot - R2.3| C
-  B -->|bare, no prefix - R2.4| C
-  C --> D[All three forms produce byte-identical output - R2.5]
-  D --> E[Model swaps between Mapping Providers with no rework - R2.1]
+  C --> D[Both recognised forms produce byte-identical output - R2.5]
+  D --> E[Migrated model needs no rework and no value moves - R2.1]
+  B -->|neither form - R2.4| F[Source parameter prepended to the whole expression]
+  F --> G[Edge - same unresolved identifier AutoMapper produced, no new breakage - R2.8]
+  G --> H[Author rewrites that one with a prefix]
+  H --> B
 ```
 
 - **UJ-4. Marcus models a paged query and gets a working projection.**
@@ -138,7 +141,7 @@ flowchart TD
 - **Null Path Handling** — the application-level configuration option governing what the generated code does when a Mapping Path crosses a Nullable Hop on the way to a Non-Nullable Target Field. Two values: **Strict** (default) and **Lenient**.
 - **Mapping Shape** — one distinct category of Mapping Path requiring its own generated expression form, e.g. local foreign key extraction, or a collection of nested DTOs.
 - **Expression Mapping** — a free-form Mapping Path authored as a C# expression rather than a sequence of Hops, identified by containing expression characters.
-- **Prefix Form** — how an Expression Mapping names the source object: `src.` (AutoMapper's convention), `projectFrom.` (this module's convention), or bare (no prefix).
+- **Prefix Form** — how an Expression Mapping names the source object. Exactly two are **recognised**: `src.` (AutoMapper's convention) and `projectFrom.` (this module's own). An expression in neither form is *unprefixed*, and is handled exactly as AutoMapper handles it — the source parameter is prepended to the expression as a whole, which is correct only when the expression is a single member reference.
 - **Call Site** — a generated statement in a handler or service implementation that invokes a Mapping Method. Generated by a consuming module, not by this one.
 - **Flavour** — one of the two values of Null Path Handling, `Strict` or `Lenient`.
 - **Flavour Application** — one of the two new Intent-managed applications used to prove the module's generated output, each permanently pinned to one Flavour: `ObjectMapping.Strict` and `ObjectMapping.Lenient`. Each owns its own duplicate copy of the model; they share no packages.
@@ -152,6 +155,7 @@ flowchart TD
 - **Making the convention-based CRUD modules provider-agnostic.** `Intent.Application.MediatR.CRUD` and `Intent.Application.ServiceImplementations.CRUD` inject `AutoMapper.IMapper` unconditionally. They are out of scope; only Domain-Interactions-modelled operations get Call Sites.
 - **Co-existence guards against other Mapping Providers.** No error, warning or stand-down when AutoMapper or Mapperly is also installed. Architecture Templates prevent the combination, and the existing providers already conflict with each other.
 - **Completeness enforcement on DTO fields.** A DTO field with no mapping is not an error.
+- **Fixing unprefixed expression mappings.** An Expression Mapping in neither recognised Prefix Form is handled exactly as `Intent.Application.Dtos.AutoMapper` handles it — including the cases AutoMapper gets wrong, such as a multi-identifier expression or one referencing no source member at all. Resolving those identifiers against the mapped entity would make this module better than both incumbents, and is deliberately not done: a drop-in replacement must generate the same thing, not the better thing.
 - **A runtime library or NuGet dependency.** The module stays template-only.
 
 ## Success Metrics
@@ -220,32 +224,43 @@ Fail-fast was chosen over silent defaults: a `NullReferenceException` naming the
 
 </Callout>
 
-### Requirement 2: Expression mappings are portable across mapping providers
+### Requirement 2: Expression mappings behave exactly as AutoMapper's do
 
-**User Story:** As a developer migrating off AutoMapper, I want my existing free-form expression mappings to generate correctly without editing them, so that swapping the Mapping Provider does not mean re-authoring the model.
+**User Story:** As a developer migrating off AutoMapper, I want my existing free-form expression mappings to generate exactly what AutoMapper generated for them, so that swapping the Mapping Provider changes the value of no mapping I already have.
 
 **Realizes:** UJ-3
 
 <Table
   id="r2-prefixes"
-  caption="R2.2–R2.4 — Prefix Forms that must all normalise to this module's source parameter"
-  columns={["Prefix Form as authored", "Origin", "Must generate against"]}
+  density="compact"
+  caption="R2.1–R2.4 — how each authored form is handled, and how that compares to AutoMapper"
+  columns={["Expression as authored", "AutoMapper generates", "This module generates", "Outcome"]}
   rows={[
-    ["`src.Amount > 0 ? src.Amount : 0`", "AutoMapper convention", "This module's source parameter"],
-    ["`projectFrom.Amount > 0 ? projectFrom.Amount : 0`", "This module's own convention", "This module's source parameter"],
-    ["`Amount > 0 ? Amount : 0`", "Bare, no prefix", "This module's source parameter"]
+    ["`src.Amount > 0 ? src.Amount : 0`", "Prefix recognised, left as its source parameter", "Prefix rewritten to this module's source parameter", "Correct in both"],
+    ["`projectFrom.Amount > 0 ? projectFrom.Amount : 0`", "Prefix not recognised, its own prefix prepended — broken", "Prefix recognised, left as the source parameter", "Correct here only"],
+    ["`Amount > 0 ? Amount : 0` — bare", "Its source parameter prepended to the whole expression, leaving the second identifier unresolved", "Same, with this module's source parameter", "Broken in both, by parity"],
+    ["`DateTime.UtcNow` — no source member at all", "Its source parameter prepended — broken", "Same, with this module's source parameter", "Broken in both, by parity"]
   ]}
 />
 
 #### Acceptance Criteria
 
-1. THE Object Mapper module SHALL generate a valid Expression Mapping for a Mapping Path authored in any of the three Prefix Forms in the R2 table, without the modeller editing the Services model.
-2. WHEN an Expression Mapping is authored in the `src.` Prefix Form, THE Object Mapper module SHALL generate it against this module's source parameter.
-3. WHEN an Expression Mapping is authored in the `projectFrom.` Prefix Form, THE Object Mapper module SHALL generate it against this module's source parameter.
-4. WHEN an Expression Mapping is authored bare, with no Prefix Form, THE Object Mapper module SHALL qualify each member access with this module's source parameter.
-5. THE Object Mapper module SHALL generate byte-identical output for three Expression Mappings that are semantically identical and differ only in Prefix Form.
+1. THE Object Mapper module SHALL apply the same prefixing algorithm as `Intent.Application.Dtos.AutoMapper`: an Expression Mapping whose leading text is a recognised Prefix Form SHALL have that prefix rewritten to this module's source parameter, and any other Expression Mapping SHALL have this module's source parameter prepended to the expression as a whole.
+2. WHEN an Expression Mapping is authored in the `src.` Prefix Form, THE Object Mapper module SHALL rewrite that prefix to this module's source parameter and SHALL NOT prepend a second prefix.
+3. WHEN an Expression Mapping is authored in the `projectFrom.` Prefix Form, THE Object Mapper module SHALL treat it as already prefixed and SHALL NOT prepend a second prefix.
+4. WHEN an Expression Mapping is in neither recognised Prefix Form, THE Object Mapper module SHALL prepend this module's source parameter to the expression as a whole, exactly as AutoMapper does, and SHALL NOT attempt to qualify individual member accesses within it.
+5. THE Object Mapper module SHALL generate byte-identical output for two Expression Mappings that are semantically identical and differ only in being authored in the `src.` versus the `projectFrom.` Prefix Form.
 6. THE Object Mapper module SHALL capitalize member-access identifiers inside an Expression Mapping to match the generated Domain Entity member names, and SHALL NOT capitalize lambda parameters or identifiers that are not member accesses.
 7. IF an Expression Mapping contains a member access that resolves to no member on the source type, THEN THE Object Mapper module SHALL generate the expression unchanged, leaving the resulting compile error attributable to the authored expression.
+8. THE Object Mapper module SHALL NOT emit a design-time error or warning for an Expression Mapping in neither recognised Prefix Form, matching AutoMapper, which emits none either.
+
+<Callout id="r2-decision" tone="decision" title="Parity was chosen over correctness, deliberately">
+
+An unprefixed expression such as `Amount > 0 ? Amount : 0` does not work in AutoMapper — it prepends its source parameter to the whole string and leaves the second identifier unresolved — and Mapperly has no free-form expression support at all, so neither provider is a precedent for making it work. Resolving bare identifiers against the mapped entity's members would have made this module strictly better than both, but it would also mean a migrated model generates something AutoMapper never generated. For a drop-in replacement, generating **the same thing** matters more than generating the better thing. The cost is that bare and constant expressions stay broken (R2.4, and the last two rows of the table above); the benefit is that no existing mapping changes value on the swap.
+
+Because those forms do not compile, neither Flavour Application models one — Mapping Shape 21 covers the two recognised Prefix Forms only.
+
+</Callout>
 
 ### Requirement 3: Domain Interactions generates call sites for this mapping provider
 
@@ -339,7 +354,7 @@ Removing the stand-down guard means installing this module alongside AutoMapper 
     ["18", "Nullable hop into a non-nullable value-type field", "Per R1.2 or R1.3"],
     ["19", "Nullable hop into a non-nullable enum field", "Per R1.2 or R1.3"],
     ["20", "Collection field typed as array, `ICollection` or `IEnumerable`", "Materialization matching the DTO field's declared collection type"],
-    ["21", "Expression Mapping in each of the three Prefix Forms", "Per R2"]
+    ["21", "Expression Mapping in the `src.` and `projectFrom.` Prefix Forms", "Per R2 — both forms produce byte-identical output. Unprefixed expressions are excluded: they do not compile, by parity with AutoMapper"]
   ]}
 />
 
