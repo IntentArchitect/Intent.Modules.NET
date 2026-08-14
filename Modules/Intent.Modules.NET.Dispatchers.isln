@@ -9,11 +9,11 @@
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
   <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.9" />
   <applications>
-    <application id="cece4e6c-f47b-4af0-8f8f-9581465e9792" name="Intent.Modules.Application.AutoMapper" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.AutoMapper/Intent.Modules.Application.AutoMapper.application.config" />
+    <application id="cece4e6c-f47b-4af0-8f8f-9581465e9792" name="Intent.Modules.Application.AutoMapper" solutionFolder="Modules/Mapping" relativePath="Intent.Modules.Application.AutoMapper/Intent.Modules.Application.AutoMapper.application.config" />
     <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" solutionFolder="Modules/Support" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
     <application id="95c39cbb-fdbb-46ee-806b-2392da2438bd" name="Intent.Modules.EntityFrameworkCore.Repositories" solutionFolder="Modules/Support" relativePath="Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.application.config" />
     <application id="0848134b-a122-45f5-b75f-b37fb6b6b2af" name="Intent.Modules.Application.DomainInteractions" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.DomainInteractions/Intent.Modules.Application.DomainInteractions.application.config" />
-    <application id="f53d2cd1-2511-40fc-a219-e779127a8ba1" name="Intent.Modules.Application.Dtos.Mapperly" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.Dtos.Mapperly/Intent.Modules.Application.Dtos.Mapperly.application.config" />
+    <application id="f53d2cd1-2511-40fc-a219-e779127a8ba1" name="Intent.Modules.Application.Dtos.Mapperly" solutionFolder="Modules/Mapping" relativePath="Intent.Modules.Application.Dtos.Mapperly/Intent.Modules.Application.Dtos.Mapperly.application.config" />
     <application id="2b27db41-cc54-43ad-9e44-7c787b1efd44" name="Intent.Modules.Application.Wolverine" solutionFolder="Modules/Wolverine" relativePath="Intent.Modules.Application.Wolverine/Intent.Modules.Application.Wolverine.application.config" />
     <application id="380ba38d-d140-4ba4-b03c-3f00c5d1ab4f" name="Intent.Modules.Application.Wolverine.DomainEvents" solutionFolder="Modules/Wolverine" relativePath="Intent.Modules.Application.Wolverine.DomainEvents/Intent.Modules.Application.Wolverine.DomainEvents.application.config" />
     <application id="e5ece418-cf71-484a-a5ad-706affe51df3" name="Intent.Modules.Application.CQRS.CRUD" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.application.config" />
@@ -43,5 +43,7 @@
     <application id="ef1945f3-b5bf-4321-859b-bda2c6ef4747" name="FastEndpoints.Dispatch.Services" solutionFolder="Modules/Traditional Services" relativePath="Intent.Modules.FastEndpoints.Dispatch.Services/Intent.Modules.FastEndpoints.Dispatch.Services.application.config" />
     <application id="6e3ac6b3-6b47-4b2c-acde-a84838179c41" name="HotChocolate.GraphQL.Dispatch.Services" solutionFolder="Modules/Traditional Services" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services/Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.application.config" />
     <application id="e4d9754f-9a44-441e-bc46-454f4441b184" name="Application.ServiceImplementations.CRUD" solutionFolder="Modules/Traditional Services" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD/Intent.Application.ServiceImplementations.Conventions.CRUD.application.config" />
+    <application id="5906ef37-8ce9-4dcd-a4ae-8ab1f7ad2cbb" name="Application.Dtos.ObjectMapping" solutionFolder="Modules/Mapping" relativePath="Intent.Modules.Application.Dtos.ObjectMapping/Intent.Modules.Application.Dtos.ObjectMapping.application.config" />
+    <application id="a5a39ce6-e966-486f-a4a7-ad33cf56bef5" name="ObjectMappingTest" solutionFolder="Tests" relativePath="../Tests/ObjectMappingTest/ObjectMappingTest.application.config" />
   </applications>
 </solution>
