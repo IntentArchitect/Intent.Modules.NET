@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#12f9c4e2-88a2-49f9-9e82-63e4b917749a</correlationId>
+      <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Implementation/Geometry/GeometryService.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-14T11:32:22.0027412Z</updatedAt>
+      <deviationsHash>CFD39356ECAB12CB1CEF33C3CB0B62D6C2675972D5729A308CF4F91D1AE869EF</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>
