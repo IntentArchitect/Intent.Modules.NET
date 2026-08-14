@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -19,7 +20,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ConfirmEmailPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var authServiceInterfaceTemplate = template.ExecutionContext.FindTemplateInstance(AuthServiceInterfaceTemplate.TemplateId);
             var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;

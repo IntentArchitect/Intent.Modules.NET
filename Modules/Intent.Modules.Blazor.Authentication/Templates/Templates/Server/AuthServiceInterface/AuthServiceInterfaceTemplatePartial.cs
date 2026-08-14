@@ -55,6 +55,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
                             method.AddParameter("string", "email");
                         });
 
+                        AddUsing("System.Collections.Generic");
                         @interface.AddMethod($"Task<IEnumerable<{UseType("Microsoft.AspNetCore.Identity.IdentityError")}>>", "Register", method =>
                         {
                             method.Async();

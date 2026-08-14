@@ -24,6 +24,7 @@ const META_KEY = "blazor-auth-page-id";
 const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
 const PAGE_STEREOTYPE = "Page";
 const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
+const RENDER_ON_SERVER_STEREOTYPE = "fbf946ea-47cc-486b-b15f-aaa58497b819";
 const NAVIGATION_ASSOCIATION = "Navigation";
 
 function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
@@ -275,13 +276,13 @@ function syncProfileMenu(securityType) {
         }
         const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
         const nav = addNavigation(mainLayout, target);
-        if (isLoginPage) {
-            try {
-                nav.setComment("Navigable from the Profile menu.");
-            } catch (e) {
-                console.log("Failed to set comment on Login navigation (non-fatal): " + e);
-            }
-        }
+        // if (isLoginPage) {
+        //     try {
+        //         nav.setComment("Navigable from the Profile menu.");
+        //     } catch (e) {
+        //         console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+        //     }
+        // }
     });
 }
 
@@ -370,6 +371,15 @@ async function runSync(securityType) {
                     console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
                 }
             }
+            // Every Account page renders server-side: several reference Server-only generated
+            // helpers (e.g. IdentityRedirectManagerTemplate), which would otherwise force a
+            // Client-&gt;Server project reference and close a cycle with the Server-&gt;Client edge
+            // Server needs for hosting/DI.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
         }
 
         function syncShared(def, folder) {
@@ -380,6 +390,13 @@ async function runSync(securityType) {
                 comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
             }
             comp.setMetadata(META_KEY, def.id);
+            // status-message and external-login-picker call GetIdentityRedirectManagerTemplateName()
+            // themselves, so shared components must render server-side too, same reasoning as syncPage.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
         }
 
         definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });
@@ -437,6 +454,7 @@ const META_KEY = "blazor-auth-page-id";
 const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
 const PAGE_STEREOTYPE = "Page";
 const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
+const RENDER_ON_SERVER_STEREOTYPE = "fbf946ea-47cc-486b-b15f-aaa58497b819";
 const NAVIGATION_ASSOCIATION = "Navigation";
 
 function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
@@ -688,13 +706,13 @@ function syncProfileMenu(securityType) {
         }
         const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
         const nav = addNavigation(mainLayout, target);
-        if (isLoginPage) {
-            try {
-                nav.setComment("Navigable from the Profile menu.");
-            } catch (e) {
-                console.log("Failed to set comment on Login navigation (non-fatal): " + e);
-            }
-        }
+        // if (isLoginPage) {
+        //     try {
+        //         nav.setComment("Navigable from the Profile menu.");
+        //     } catch (e) {
+        //         console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+        //     }
+        // }
     });
 }
 
@@ -783,6 +801,15 @@ async function runSync(securityType) {
                     console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
                 }
             }
+            // Every Account page renders server-side: several reference Server-only generated
+            // helpers (e.g. IdentityRedirectManagerTemplate), which would otherwise force a
+            // Client-&gt;Server project reference and close a cycle with the Server-&gt;Client edge
+            // Server needs for hosting/DI.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
         }
 
         function syncShared(def, folder) {
@@ -793,6 +820,13 @@ async function runSync(securityType) {
                 comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
             }
             comp.setMetadata(META_KEY, def.id);
+            // status-message and external-login-picker call GetIdentityRedirectManagerTemplateName()
+            // themselves, so shared components must render server-side too, same reasoning as syncPage.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
         }
 
         definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });

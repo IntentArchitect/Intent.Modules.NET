@@ -25,6 +25,7 @@ using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
@@ -93,21 +94,29 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         statements.AddStatement($"{context.Services}.AddScoped<IdentityUserAccessor>();");
                         statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
                         statements.AddStatements(@$"{context.Services}.AddAuthentication(options =>
-                        {{
+                            {{
                             options.DefaultScheme = IdentityConstants.ApplicationScheme;
                             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-                        }}).AddIdentityCookies();".ConvertToStatements());
+                            }}).AddIdentityCookies();".ConvertToStatements());
 
                         if (!startup.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
                         {
+                            if (!startup.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.EntityFrameworkCore"))
+                            {
+                                application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                    name: "DefaultConnection",
+                                    connectionString: $"Server=.;Initial Catalog={startup.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True;TrustServerCertificate=True;Encrypt=True",
+                                    providerName: "System.Data.SqlClient"));
+                            }
+
                             statements.AddStatements(@$"var connectionString = {context.Configuration}.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""Connection string 'DefaultConnection' not found."");
-                        {context.Services}.AddDbContext<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>(options =>
-                            options.UseSqlServer(connectionString));".ConvertToStatements());
+                            {context.Services}.AddDbContext<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>(options =>
+                                options.UseSqlServer(connectionString));".ConvertToStatements());
 
                             statements.AddStatements(@$"{context.Services}.AddIdentityCore<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>(options => options.SignIn.RequireConfirmedAccount = true)
-                        .AddEntityFrameworkStores<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>()
-                        .AddSignInManager()
-                        .AddDefaultTokenProviders();".ConvertToStatements());
+                                .AddEntityFrameworkStores<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>()
+                                .AddSignInManager()
+                                .AddDefaultTokenProviders();".ConvertToStatements());
 
                             statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
                         }
@@ -152,9 +161,9 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         }
                         statements.AddStatement($"{context.Services}.AddAuthorization();");
                         statements.AddStatements(@$"{context.Services}.AddAuthentication(options =>
-                        {{
+                            {{
                             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                        }}).AddCookie();".ConvertToStatements());
+                            }}).AddCookie();".ConvertToStatements());
                     }
                 });
 
@@ -182,7 +191,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         if (securityType.IsBuiltInLoginASPNETIdentity())
                         {
                             statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.Run();")),
-                            new CSharpStatement("app.MapAdditionalIdentityEndpoints();"));
+                                new CSharpStatement("app.MapAdditionalIdentityEndpoints();"));
                         }
                     }
                 });
@@ -232,20 +241,20 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             switch (startupTemplate.ExecutionContext.GetSettings().GetBlazor().RenderMode().AsEnum())
             {
                 case RenderModeOptionsEnum.InteractiveWebAssembly:
-                    {
-                        statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingServerAuthenticationStateProviderTemplate.TemplateId)}>();");
-                        break;
-                    }
+                {
+                    statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingServerAuthenticationStateProviderTemplate.TemplateId)}>();");
+                    break;
+                }
                 case RenderModeOptionsEnum.InteractiveAuto:
-                    {
-                        statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
-                        break;
-                    }
+                {
+                    statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
+                    break;
+                }
                 case RenderModeOptionsEnum.InteractiveServer:
-                    {
-                        statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(IdentityRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
-                        break;
-                    }
+                {
+                    statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(IdentityRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
+                    break;
+                }
                 default:
                     break;
             }
@@ -284,10 +293,10 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         public static string GetIdentityUserClass(ICSharpTemplate template)
         {
             // TODO: JPS, improve this
-            //if (!template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
-            //{
-            //    return "ApplicationUser";
-            //}
+            if (!template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+            {
+                return template.GetTypeName("Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate") ?? "ApplicationUser";
+            }
 
             var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
 
@@ -362,8 +371,8 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
             return models.Select(p => p.ParentElement.AsClassModel())
                 .Where(m => m is not null && (m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
-                                               m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
-                                               m.Name == "IdentityUserLogin")).ToList();
+                    m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
+                    m.Name == "IdentityUserLogin")).ToList();
         }
 
         internal static ClassModel GetIdentityUserClass(IMetadataManager metadataManager, string applicationId)

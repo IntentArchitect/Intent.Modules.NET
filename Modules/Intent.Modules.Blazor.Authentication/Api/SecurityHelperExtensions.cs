@@ -1,7 +1,7 @@
-﻿using Intent.Blazor.Authentication.Api;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Constants;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ public static class SecurityHelperExtensions
         return package.GetSecurity().Authentication();
     }
 
-    public static AuthenticationOptions GetAuthenticationType(this RazorComponentTemplate template)
+    public static AuthenticationOptions GetAuthenticationType(this RazorComponentTemplateBase<ComponentModel> template)
     {
         var model = template.Model;
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="fbf946ea-47cc-486b-b15f-aaa58497b819" version="3.1.0">
+  <comment>Marks a Page/Dialog/Component that must render on the Server project (e.g. ASP.NET Core Identity account pages) to avoid a Client-&gt;Server project reference cycle when a page depends on Server-only generated types.</comment>
+  <name>Render On Server</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">Component</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAADNUlEQVR4Aezcz2sTQRQH8O9uSNLa1BoqVg2iUYpID2pFRfGoF0HxrB68eFIP4tWD/4Beigh69iB4UalnQUQUi4IHyaFUUvAHtmJjgybZZN3tRZJmtoMvuztZv6UT2Jl5uzOfeYE8WmKDPyIBAor4AAISUCggDGcGElAoIAwPJQOL95bHircrp0xsQq9V4aEAot46BMt6bGRbRSDrCAdQtqa+iiag8LgiAdz06DziaiOvbgqJgsMjAQxeQm9Gsxt/Iz+5gKHiT9jpVm9uqnGXxAAWL5Qwcf0Nxi+/x2ChGrT1no4lBjA/+Q2pdQ6GdlSQydd6ihR0s8QAfrw/jvr3ASy82IJqORe0556OJQbw8/R2vDx7HKVbe1FfHOgpUtDNIgGsbd6PuJqzYVfQ/sVjkQAuHb6GuFp19xkxUtANIgEMWkC/jxFQeIKRAMZVhfjPZSWimSGsRDShVNOKrERUNHr9rET0nJSzWIkoafyBtRsrkZCqFVYiwiqGlcja795YZ0TyQTrWHYb88EgA/YogrsZKRDODWIloQqmmsRJRyWj2sxLRhFJNYyWiktHsZyXCSkSdKnH9PcR/bv9WImrPRI1E8kE6UWIdm4kEMK4qxH8uK5GOE1ddshJRyWj2sxLRhFJNYyWiktHsZyWiCaWaxkqElYgqNxDbf2axElGfiTEjkXyQNma3ISyEgELUNkDhvf7LcAIKj52ABBQKCMOZgQQUCgjDmYEEFAoIw5mBSQW0LKAwbOHqwTSmTmRx41gGRwsppA07csOW8zcdtg3buHIggz2jKWRTFrbmbJybSGPfWAom/RgLeKRgYyRrtVn52XdyJwHbUFQXPp7d7rcydXSwS+fKyL+9SKOMzcBPyy6cLt8dMfujS6dUQRBvLODz+SbmKy00PC/X22DTe1n85eJhyfGuzPk1FnCp5mJqpoGnsw5mvjTxrOzgztsG/Mw0hw9mfwFjteFi2gO8+66BBx8clL2MdL1MJKBJAsK1GPsWFu4rsnACCqkJSEChgDA8nAzM2K/huqeNbEKwzvBQAOcu5r7OXVr/xMTWCSC9DgVQuqh+iu9HQKN8CSg8DgISUCggDP8DAAD//2iOW6wAAAAGSURBVAMAFVvAzgZqNWsAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</parentFolderId>
+  <order>0</order>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <properties />
+</stereotypeDefinition>

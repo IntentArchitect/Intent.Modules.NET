@@ -14,24 +14,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind
+namespace Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentCodeBehindTemplateRegistration : FilePerModelTemplateRegistration<ComponentModel>
+    public class RazorServerComponentCodeBehindTemplateRegistration : FilePerModelTemplateRegistration<ComponentModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public RazorComponentCodeBehindTemplateRegistration(IMetadataManager metadataManager)
+        public RazorServerComponentCodeBehindTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => RazorComponentCodeBehindTemplate.TemplateId;
+        public override string TemplateId => RazorServerComponentCodeBehindTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ComponentModel model)
         {
-            return new RazorComponentCodeBehindTemplate(outputTarget, model);
+            return new RazorServerComponentCodeBehindTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -43,7 +43,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
             }
 
             return _metadataManager.UserInterface(application).GetComponentModels()
-                .Where(model => !model.HasRenderOnServer());
+                .Where(model => model.HasRenderOnServer());
         }
     }
 }

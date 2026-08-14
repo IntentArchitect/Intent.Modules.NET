@@ -187,6 +187,18 @@
       <role>Startup</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate" externalReference="276c5e83-5d57-4695-9c0e-24051cc2fc3f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" externalReference="a67cf83f-9662-4515-8182-45e85193dbda">
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" externalReference="65e03e1e-140e-44e8-8ffb-fbc628a9571b">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -334,6 +346,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
+    <install target="User Interface;Module Builder" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
   <migrations has-on-install-migration="true" />
 </package>

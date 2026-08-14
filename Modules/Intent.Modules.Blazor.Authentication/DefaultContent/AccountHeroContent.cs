@@ -1,4 +1,5 @@
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
@@ -14,7 +15,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class AccountHeroContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             return """
                 <div class="account-hero ux-fade-in @(Variant == "danger" ? "account-hero-danger" : null)">

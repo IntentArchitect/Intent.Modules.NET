@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ManageGenerateRecoveryCodesPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -32,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -154,10 +155,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
+            code.Template.AddUsing("System.Collections.Generic");
             code.AddField("string?", "message");
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
             code.AddField("IEnumerable<string>?", "recoveryCodes");
@@ -178,6 +178,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             onInitializedAsync.AddAssignmentStatement("var isTwoFactorEnabled", new CSharpStatement("await UserManager.GetTwoFactorEnabledAsync(user);"));
             onInitializedAsync.AddIfStatement("!isTwoFactorEnabled", @if =>
             {
+                code.Template.AddUsing("System");
                 @if.AddStatement("throw new InvalidOperationException(\"Cannot generate recovery codes for user because they do not have 2FA enabled.\");");
             });
 
@@ -185,6 +186,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             {
                 onSubmitAsync.Private().Async();
 
+                code.Template.AddUsing("Microsoft.Extensions.Logging");
                 onSubmitAsync.AddAssignmentStatement("var userId", new CSharpStatement("await UserManager.GetUserIdAsync(user);"));
                 onSubmitAsync.AddAssignmentStatement("recoveryCodes", new CSharpStatement("await UserManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);"));
                 onSubmitAsync.AddStatement("message = \"You have generated new recovery codes.\";");

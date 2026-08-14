@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ManageDisable2faPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -32,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -142,9 +143,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
 
@@ -162,6 +161,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             onInitializedAsync.AddAssignmentStatement("user", new CSharpStatement("await UserAccessor.GetRequiredUserAsync(HttpContext);"));
             onInitializedAsync.AddIfStatement($"{code.Template.UseType("Microsoft.AspNetCore.Http.HttpMethods")}.IsGet(HttpContext.Request.Method) && !await UserManager.GetTwoFactorEnabledAsync(user)", @if =>
             {
+                code.Template.AddUsing("System");
                 @if.AddStatement("throw new InvalidOperationException(\"Cannot disable 2FA for user as it's not currently enabled.\");");
             });
 
@@ -175,6 +175,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     @if.AddStatement("throw new InvalidOperationException(\"Unexpected error occurred disabling 2FA.\");");
                 });
 
+                code.Template.AddUsing("Microsoft.Extensions.Logging");
                 onSubmitAsync.AddAssignmentStatement("var userId", new CSharpStatement("await UserManager.GetUserIdAsync(user);"));
                 onSubmitAsync.AddStatement("Logger.LogInformation(\"User with ID '{UserId}' has disabled 2fa.\", userId);");
                 onSubmitAsync.AddStatement("RedirectManager.RedirectToWithStatus(\"Account/Manage/TwoFactorAuthentication\", \"2fa has been disabled. You can reenable 2fa when you setup an authenticator app\", HttpContext);");

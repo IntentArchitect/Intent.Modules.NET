@@ -1,6 +1,7 @@
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class AppUserMenuContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             // The shared layout lives in the server project for InteractiveServer, but in the .Client
             // project for InteractiveAuto / InteractiveWebAssembly — mirrors the old static content's
@@ -35,7 +36,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(layoutNamespace);
         }
 
-        public static string BuildStyleContent(RazorComponentTemplate template) => Style;
+        public static string BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template) => Style;
 
         private const string Style = """
             .ux-user-menu-item {

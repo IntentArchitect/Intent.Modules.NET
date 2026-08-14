@@ -64,7 +64,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutHeader
 
                                 button.AddHtmlElement("MudText", text =>
                                 {
-                                    text.AddAttribute("Typo.h5");
+                                    text.AddAttribute("Typo", "Typo.h5");
                                     text.Text = ExecutionContext.GetApplicationConfig().Name;
                                 });
                             });

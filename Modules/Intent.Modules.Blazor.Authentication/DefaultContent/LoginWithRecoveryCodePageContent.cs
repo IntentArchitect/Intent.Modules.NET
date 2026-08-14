@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class LoginWithRecoveryCodePageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -31,7 +32,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -230,9 +231,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
             code.AddField("string?", "message");
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
@@ -253,6 +252,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
             }
 
+            code.Template.AddUsing("System");
             onInitializedAsync.Async().Protected().Override();
             onInitializedAsync.AddStatement("Input ??= new();");
             onInitializedAsync.AddStatement("// Ensure the user has gone through the username & password screen first");
@@ -266,6 +266,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 onValidSubmitAsync.AddAssignmentStatement("var result", new CSharpStatement("await SignInManager.TwoFactorRecoveryCodeSignInAsync(recoveryCode);"));
                 onValidSubmitAsync.AddAssignmentStatement("var userId", new CSharpStatement("await UserManager.GetUserIdAsync(user);"));
 
+                code.Template.AddUsing("Microsoft.Extensions.Logging");
                 onValidSubmitAsync.AddIfStatement("result.Succeeded", @if =>
                 {
                     @if.AddStatement("Logger.LogInformation(\"User with ID '{UserId}' logged in with a recovery code.\", userId);");

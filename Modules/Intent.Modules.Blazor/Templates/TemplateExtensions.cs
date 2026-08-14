@@ -18,6 +18,8 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSiderCodeBehin
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutorInterface;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediator;
@@ -174,6 +176,16 @@ namespace Intent.Modules.Blazor.Templates
             return template.GetTypeName(ThemeServiceTemplate.TemplateId);
         }
 
+        public static string GetRazorServerComponentCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerComponentCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerComponentCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerComponentCodeBehindTemplate.TemplateId, model);
+        }
+
         public static string GetRazorComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
         {
             return template.GetTypeName(RazorComponentTemplate.TemplateId, template.Model);
@@ -202,6 +214,16 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetAppRazorTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(AppRazorTemplate.TemplateId);
+        }
+
+        public static string GetRazorServerComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerComponentTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerComponentTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerComponentTemplate.TemplateId, model);
         }
 
         public static string GetServerImportsRazorTemplateName(this IIntentTemplate template)

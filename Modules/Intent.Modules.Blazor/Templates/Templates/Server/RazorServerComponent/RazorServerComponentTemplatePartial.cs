@@ -8,7 +8,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -21,7 +21,7 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
+namespace Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent
 {
     using Intent.Blazor.Api;
     using Intent.Modules.Blazor.Templates.Templates.Client;
@@ -31,12 +31,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
     /// A Razor template.
     /// </summary>
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
-    public partial class RazorComponentTemplate : RazorComponentTemplateBase<ComponentModel>, IAuthPageRazorTemplate
+    public partial class RazorServerComponentTemplate : RazorComponentTemplateBase<ComponentModel>, IAuthPageRazorTemplate
     {
         public const string SecuredStereotypeId = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
+        public const string TemplateId = "Intent.Blazor.Templates.Server.RazorServerComponentTemplate";
 
         // Element metadata key stamped by the "Security Type" stereotype's page-tagging script onto
         // the modelled Login/Register/etc. Component/Page elements it creates (e.g. "jwt-login").
@@ -47,10 +47,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         private readonly HashSet<string> _requiredUsings = new(StringComparer.Ordinal);
 
         /// <summary>
-        /// Creates a new instance of <see cref="RazorComponentTemplate"/>.
+        /// Creates a new instance of <see cref="RazorServerComponentTemplate"/>.
         /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
+        public RazorServerComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(ModelDefinitionTemplate.TemplateId);
@@ -142,7 +142,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             return $"{baseName}{suffix}";
         }
 
-        protected override string CodeBehindTemplateId => RazorComponentCodeBehindTemplate.TemplateId;
+        protected override string CodeBehindTemplateId => RazorServerComponentCodeBehindTemplate.TemplateId;
 
         /// <inheritdoc />
         [IntentManaged(Mode.Ignore)]

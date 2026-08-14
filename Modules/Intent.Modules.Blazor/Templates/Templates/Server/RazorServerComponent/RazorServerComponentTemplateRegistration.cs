@@ -5,7 +5,6 @@ using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
-using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -14,36 +13,31 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind
+namespace Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentCodeBehindTemplateRegistration : FilePerModelTemplateRegistration<ComponentModel>
+    public class RazorServerComponentTemplateRegistration : FilePerModelTemplateRegistration<ComponentModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public RazorComponentCodeBehindTemplateRegistration(IMetadataManager metadataManager)
+        public RazorServerComponentTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => RazorComponentCodeBehindTemplate.TemplateId;
+        public override string TemplateId => RazorServerComponentTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ComponentModel model)
         {
-            return new RazorComponentCodeBehindTemplate(outputTarget, model);
+            return new RazorServerComponentTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ComponentModel> GetModels(IApplication application)
         {
-            if (!application.Settings.GetBlazor().UseCodeBehindFilesForComponents())
-            {
-                return [];
-            }
-
             return _metadataManager.UserInterface(application).GetComponentModels()
-                .Where(model => !model.HasRenderOnServer());
+                .Where(model => model.HasRenderOnServer());
         }
     }
 }

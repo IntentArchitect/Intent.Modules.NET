@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,11 +19,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ExternalLoginPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
-            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(template) :
-                "ApplicationUser";
+            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity")
+                ? IdentityHelperExtensions.GetIdentityUserClass(template)
+                : "ApplicationUser";
+
             var redirectManager = template.GetIdentityRedirectManagerTemplateName();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
@@ -31,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -246,9 +248,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
             code.AddField("string", "LoginCallbackAction", f => f.Public("\"LoginCallback\"").Constant());
             code.AddField("string?", "message");
@@ -313,6 +313,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                 onLoginCallbackAsync.AddIfStatement("result.Succeeded", @if =>
                 {
+                    code.Template.AddUsing("Microsoft.Extensions.Logging");
                     @if.AddStatement("Logger.LogInformation(\"{Name} logged in with {LoginProvider} provider.\", externalLoginInfo.Principal.Identity?.Name, externalLoginInfo.LoginProvider);");
                     @if.AddStatement("RedirectManager.RedirectTo(ReturnUrl);");
                 }).AddElseIfStatement("result.IsLockedOut", eIf =>
@@ -334,6 +335,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 onValidSubmitAsync.AddAssignmentStatement("var emailStore", new CSharpStatement("GetEmailStore();"));
                 onValidSubmitAsync.AddAssignmentStatement("var user", new CSharpStatement("CreateUser();"));
 
+                code.Template.AddUsing("System.Threading");
                 onValidSubmitAsync.AddStatement("await UserStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);");
                 onValidSubmitAsync.AddStatement("await emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);");
                 onValidSubmitAsync.AddAssignmentStatement("var result", new CSharpStatement("await UserManager.CreateAsync(user);"));
@@ -344,6 +346,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
                     @if.AddIfStatement("result.Succeeded", innerIf =>
                     {
+                        code.Template.AddUsing("System.Collections.Generic");
                         innerIf.AddStatement("Logger.LogInformation(\"User created an account using {Name} provider.\", externalLoginInfo.LoginProvider);");
                         innerIf.AddAssignmentStatement("var userId", new CSharpStatement("await UserManager.GetUserIdAsync(user);"));
                         innerIf.AddAssignmentStatement("var code", new CSharpStatement("await UserManager.GenerateEmailConfirmationTokenAsync(user);"));
@@ -362,6 +365,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     });
                 });
 
+                code.Template.AddUsing("System.Linq");
                 onValidSubmitAsync.AddStatement("message = $\"Error: {string.Join(\",\", result.Errors.Select(error => error.Description))}\";");
             });
 
@@ -370,7 +374,8 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 createUser.Private();
                 createUser.AddTryBlock(@try =>
                 {
-                    @try.AddReturn($"Activator.CreateInstance<{identityClass}>();");
+                    code.Template.AddUsing("System");
+                    @try.AddReturn($"Activator.CreateInstance<{identityClass}>()");
                 }).AddCatchBlock(@catch =>
                 {
                     @catch.AddStatement($"throw new InvalidOperationException($\"Can't create an instance of '{{nameof({identityClass})}}'. \" + $\"Ensure that '{{nameof({identityClass})}}' is not an abstract class and has a parameterless constructor\");");

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -33,10 +34,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             return new RazorComponentTemplate(outputTarget, model);
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ComponentModel> GetModels(IApplication application)
         {
-            return _metadataManager.UserInterface(application).GetComponentModels();
+            return _metadataManager.UserInterface(application).GetComponentModels()
+                .Where(model => !model.HasRenderOnServer());
         }
     }
 }

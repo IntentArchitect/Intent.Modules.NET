@@ -2,12 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Authentication.DefaultContent;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
+using Intent.Modules.Blazor.Templates;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentStyle;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.RazorBuilder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -38,7 +47,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         // so every mode-specific id for the same page still maps to the same content builder below.
         // This mapping only needs to change if/when that in-content branching is split into separate
         // content builders per mode.
-        private static readonly Dictionary<string, (Func<RazorComponentTemplate, string> BuildRazorContent, Action<IBuildsCSharpMembers> BuildCodeBehind, Func<RazorComponentTemplate, string?>? BuildStyleContent)> PageContentByPageId = new()
+        private static readonly Dictionary<string, (Func<RazorComponentTemplateBase<ComponentModel>, string> BuildRazorContent, Action<IBuildsCSharpMembers> BuildCodeBehind, Func<RazorComponentTemplateBase<ComponentModel>, string?>? BuildStyleContent)> PageContentByPageId = new()
         {
             ["identity-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind, LoginPageContent.BuildStyleContent),
             ["jwt-login"] = (LoginPageContent.BuildRazorContent, LoginPageContent.BuildCodeBehind, LoginPageContent.BuildStyleContent),
@@ -106,9 +115,28 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var pageTemplates = application.FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId).ToList();
-            var codeBehindTemplates = application.FindTemplateInstances<RazorComponentCodeBehindTemplate>(RazorComponentCodeBehindTemplate.TemplateId).ToList();
+            var pageTemplates = application.FindTemplateInstances<RazorComponentTemplateBase<ComponentModel>>(RazorComponentTemplate.TemplateId)
+                .Concat(application.FindTemplateInstances<RazorComponentTemplateBase<ComponentModel>>(RazorServerComponentTemplate.TemplateId))
+                .ToList();
+            var codeBehindTemplates = application.FindTemplateInstances<CSharpTemplateBase<ComponentModel>>(RazorComponentCodeBehindTemplate.TemplateId)
+                .Concat(application.FindTemplateInstances<CSharpTemplateBase<ComponentModel>>(RazorServerComponentCodeBehindTemplate.TemplateId))
+                .ToList();
             var styleTemplates = application.FindTemplateInstances<RazorComponentStyleTemplate>(RazorComponentStyleTemplate.TemplateId).ToList();
+
+            // Non-Identity mode: pages reference the generated ApplicationUser class by its bare name
+            // (e.g. "SignInManager<ApplicationUser>") in .razor markup. RazorComponentTemplate's
+            // TransformText() never consults a template's CSharpFile.Usings when rendering that markup,
+            // so the only way to make the type resolve is via the project-wide _Imports.razor.
+            if (!application.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+            {
+                var applicationUserTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(ApplicationUserTemplate.TemplateId);
+                var imports = application.FindTemplateInstance<IRazorFileTemplate>(ServerImportsRazorTemplate.TemplateId);
+
+                if (applicationUserTemplate is not null)
+                {
+                    imports?.RazorFile.AddUsing(applicationUserTemplate.Namespace);
+                }
+            }
 
             foreach (var pageTemplate in pageTemplates)
             {
@@ -119,13 +147,13 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     continue;
                 }
 
-                pageTemplate.DefaultContentOverride = content.BuildRazorContent(pageTemplate);
+                ((IAuthPageRazorTemplate)pageTemplate).DefaultContentOverride = content.BuildRazorContent(pageTemplate);
 
 
                 var codeBehindTemplate = codeBehindTemplates.FirstOrDefault(
                     x => x.Model.InternalElement.Id == pageTemplate.Model.InternalElement.Id);
 
-                codeBehindTemplate?.CSharpFile.AfterBuild(file => content.BuildCodeBehind(file.Classes.Single()), ExtensionPriority);
+                ((ICSharpFileBuilderTemplate?)codeBehindTemplate)?.CSharpFile.AfterBuild(file => content.BuildCodeBehind(file.Classes.Single()), ExtensionPriority);
 
                 if (content.BuildStyleContent is null)
                 {

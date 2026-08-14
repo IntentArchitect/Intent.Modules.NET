@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ExternalLoginPickerContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -32,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, redirectManager);
         }
 
-        public static string BuildStyleContent(RazorComponentTemplate template)
+        public static string BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : BootstrapStyle;
@@ -161,6 +162,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             }
 
             onInitializedAsync.Async().Protected().Override();
+            code.Template.AddUsing("System.Linq");
             onInitializedAsync.AddAssignmentStatement("externalLogins", new CSharpStatement("(await SignInManager.GetExternalAuthenticationSchemesAsync()).ToArray();"));
         }
     }

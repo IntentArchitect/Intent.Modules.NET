@@ -1,17 +1,58 @@
-﻿using Intent.Metadata.Models;
-using Intent.Modelers.UI.Api;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Types.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Metadata.Models;
+using Intent.Modelers.UI.Api;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
 
 namespace Intent.Blazor.Api
 {
-    internal static class ComponentModelStereotypeExtensions
+    [IntentMerge]
+    public static class ComponentModelStereotypeExtensions
     {
+        public static RenderOnServer GetRenderOnServer(this ComponentModel model)
+        {
+            var stereotype = model.GetStereotype(RenderOnServer.DefinitionId);
+            return stereotype != null ? new RenderOnServer(stereotype) : null;
+        }
+
+
+        public static bool HasRenderOnServer(this ComponentModel model)
+        {
+            return model.HasStereotype(RenderOnServer.DefinitionId);
+        }
+
+        public static bool TryGetRenderOnServer(this ComponentModel model, out RenderOnServer stereotype)
+        {
+            if (!HasRenderOnServer(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new RenderOnServer(model.GetStereotype(RenderOnServer.DefinitionId));
+            return true;
+        }
+
+        public class RenderOnServer
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "fbf946ea-47cc-486b-b15f-aaa58497b819";
+
+            public RenderOnServer(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+        }
+
         public static Secured GetSecured(this ComponentModel model)
         {
             var stereotype = model.GetStereotype(Secured.DefinitionId);
@@ -71,5 +112,4 @@ namespace Intent.Blazor.Api
         }
 
     }
-
 }

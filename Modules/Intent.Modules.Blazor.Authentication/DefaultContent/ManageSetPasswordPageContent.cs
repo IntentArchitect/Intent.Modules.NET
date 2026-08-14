@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ManageSetPasswordPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -32,7 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -223,9 +224,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
 
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
             code.AddField("string?", "message");
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
@@ -262,6 +261,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 onValidSubmitAsync.AddAssignmentStatement("var addPasswordResult", new CSharpStatement("await UserManager.AddPasswordAsync(user, Input.NewPassword!);"));
                 onValidSubmitAsync.AddIfStatement("!addPasswordResult.Succeeded", @if =>
                 {
+                    code.Template.AddUsing("System.Linq");
                     @if.AddStatement("message = $\"Error: {string.Join(\",\", addPasswordResult.Errors.Select(error => error.Description))}\";");
                     @if.AddStatement("return;");
                 });

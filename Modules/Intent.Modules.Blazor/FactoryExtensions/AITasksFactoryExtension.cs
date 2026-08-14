@@ -7,6 +7,8 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -47,8 +49,15 @@ namespace Intent.Modules.Blazor.FactoryExtensions
         {
             var relevantChangeTypes = new ChangeType[] { ChangeType.Create, ChangeType.Overwrite };
 
+            var codeBehindTemplateIds = new[]
+            {
+                RazorComponentCodeBehindTemplate.TemplateId,
+                RazorServerComponentCodeBehindTemplate.TemplateId
+            };
+
             var handlerChanges = changes.Where(c =>
-                c.Template?.Id == RazorComponentCodeBehindTemplate.TemplateId &&
+                c.Template is not null &&
+                codeBehindTemplateIds.Contains(c.Template.Id) &&
                 relevantChangeTypes.Contains(c.ChangeType) &&
                 !c.IsIgnored);
 
@@ -75,32 +84,33 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             var (LayoutTemplates, Instructions) = AddLayoutComponentInstructions(template, model, change);
             templateInstructionExtension += Instructions;
 
-            var componenRazorTemplate = template.ExecutionContext.FindTemplateInstance(RazorComponentTemplate.TemplateId, model.Id);
+            var componenRazorTemplate = template.ExecutionContext.FindTemplateInstance(RazorComponentTemplate.TemplateId, model.Id)
+                ?? template.ExecutionContext.FindTemplateInstance(RazorServerComponentTemplate.TemplateId, model.Id);
 
             var relatedTemplates = new[]
             {
                 componenRazorTemplate,
             }
-            .Where(t => t is not null)
-            .Cast<ITemplate>()
-            .Concat(LayoutTemplates.Where(t => t is not null));
+                .Where(t => t is not null)
+                .Cast<ITemplate>()
+                .Concat(LayoutTemplates.Where(t => t is not null));
 
             return new TemplateAITask(template, [.. relatedTemplates])
             {
                 Type = "Implement Blazor Component",
                 Title = $"Implement Blazor Component: {model.Name}",
                 Context = @$"""
-                            ## Tool Guidance
-                            Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+                ## Tool Guidance
+                Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
 
-                            ## Implementation permissions
-                            - If a page’s .razor.cs is a skeleton (only parameters/navigation + empty lifecycle), you may add missing members/methods needed to fulfill the modeled intentions (load/save/model state).
-                            - You may inject IScopedMediator and use it to call Application commands/queries (if Mediator is installed, you may NOT add it yourself to the application if it’s not there).
-                            - Do not invent new service abstractions beyond IScopedMediator.
-                            - Do not change existing navigation methods; you may call them.
-                            """,
+                ## Implementation permissions
+                - If a page’s .razor.cs is a skeleton (only parameters/navigation + empty lifecycle), you may add missing members/methods needed to fulfill the modeled intentions (load/save/model state).
+                - You may inject IScopedMediator and use it to call Application commands/queries (if Mediator is installed, you may NOT add it yourself to the application if it’s not there).
+                - Do not invent new service abstractions beyond IScopedMediator.
+                - Do not change existing navigation methods; you may call them.
+                """,
                 Instructions =
-                        $"""Implement the {model.Name} Blazor {templateInstructionExtension}component using the appropriate skill(s)."""
+                $"""Implement the {model.Name} Blazor {templateInstructionExtension}component using the appropriate skill(s)."""
             };
         }
 

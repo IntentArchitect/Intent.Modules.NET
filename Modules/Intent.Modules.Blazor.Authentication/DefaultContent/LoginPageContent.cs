@@ -3,8 +3,9 @@ using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -23,7 +24,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class LoginPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var authServiceInterfaceTemplate = template.ExecutionContext.FindTemplateInstance(AuthServiceInterfaceTemplate.TemplateId);
             var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;
@@ -37,13 +38,19 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "");
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
         }
 
         private const string MudBlazorStyle = """
+            .auth-form-shell {
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
+            }
+
             .login-input-field {
                 display: flex;
                 flex-direction: column;
@@ -92,6 +99,16 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 color: var(--text-muted);
             }
 
+            ::deep .login-input-control:-webkit-autofill,
+            ::deep .login-input-control:-webkit-autofill:hover,
+            ::deep .login-input-control:-webkit-autofill:focus {
+                -webkit-text-fill-color: var(--text);
+                -webkit-box-shadow: 0 0 0px 1000px var(--surface-2) inset;
+                box-shadow: 0 0 0px 1000px var(--surface-2) inset;
+                caret-color: var(--text);
+                transition: background-color 5000s ease-in-out 0s;
+            }
+
             .login-checkbox-field {
                 display: flex;
                 align-items: center;
@@ -113,8 +130,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 <MudItem xs="12"
                     md="5"
                     lg="6">
-                    <MudCard Class="ux-fade-in-up"
-                        Style="animation-delay: 0.2s">
+                    <MudCard Class="ux-fade-in-up auth-form-shell"
+                        Style="animation-delay: 0.2s"
+                        Outlined="true">
                         <MudCardContent>
                             <MudText Typo="Typo.h6">Use another service to log in</MudText>
                             <MudText Typo="Typo.body2"
@@ -150,8 +168,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                     <MudItem xs="12"
                         md="7"
                         lg="6">
-                        <MudCard Class="ux-fade-in-up"
-                            Style="animation-delay: 0.1s">
+                        <MudCard Class="ux-fade-in-up auth-form-shell"
+                            Style="animation-delay: 0.1s"
+                            Outlined="true">
                             <MudCardContent>
                                 <StatusMessage Message="@errorMessage" />
                                 <EditForm Model="Input"
@@ -361,7 +380,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             code.AddField("string?", "errorMessage");
 
             // only needs to be added for this as gets auto added for all others as there is navigation
-            if (code.Template is RazorComponentTemplate temp && temp.GetAuthenticationType().IsSingleSignOnOpenIDConnect())
+            if (code.Template is RazorComponentTemplateBase<ComponentModel> temp && temp.GetAuthenticationType().IsSingleSignOnOpenIDConnect())
             {
                 code.AddProperty(code.Template.UseType("NavigationManager"), "NavigationManager", input =>
                 {

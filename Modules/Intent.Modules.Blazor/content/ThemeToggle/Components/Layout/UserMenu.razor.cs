@@ -9,10 +9,10 @@ namespace <#= Namespace #>Components.Layout
 
         /// <summary>The trigger content shown in the closed menu (e.g. an icon).</summary>
         [Parameter]
-        public RenderFragment Trigger { get; set; }
+        public RenderFragment? Trigger { get; set; }
 
         /// <summary>The menu items rendered inside the dropdown panel.</summary>
         [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        public RenderFragment? ChildContent { get; set; }
     }
 }

@@ -1,11 +1,12 @@
-using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
 {
@@ -21,7 +22,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class RegisterConfirmationPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var identityUserClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
                 IdentityHelperExtensions.GetIdentityUserClass(template) :
@@ -46,41 +47,41 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
-                Elevation="0">
-                <MudText Typo="Typo.h4"
-                Class="text-white font-weight-bold mb-2">
-                <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread"
-                Class="mr-2" />
-                Register confirmation
-                </MudText>
-                <MudText Typo="Typo.body1"
-                Class="text-white opacity-90">
-                Confirm your email address to activate your account.
-                </MudText>
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.MarkEmailUnread"
+                            Class="mr-2" />
+                        Register confirmation
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Confirm your email address to activate your account.
+                    </MudText>
                 </MudPaper>
 
                 <MudCard Class="ux-fade-in-up auth-form-shell"
-                Style="animation-delay: 0.1s"
-                Outlined="true">
-                <MudCardContent>
-                <MudText Typo="Typo.h5"
-                Class="mb-3">
-                Confirmation status
-                </MudText>
-                <StatusMessage Message="@statusMessage" />
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5"
+                            Class="mb-3">
+                            Confirmation status
+                        </MudText>
+                        <StatusMessage Message="@statusMessage" />
 
-                @if (emailConfirmationLink is not null)
-                {
-                <MudText Typo="Typo.body1">
-                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-                Normally this would be emailed: <MudLink Href="@emailConfirmationLink">Click here to confirm your account</MudLink>
-                </MudText>
-                }
-                else
-                {
-                <MudText Typo="Typo.body1">Please check your email to confirm your account.</MudText>
-                }
-                </MudCardContent>
+                        @if (emailConfirmationLink is not null)
+                        {
+                            <MudText Typo="Typo.body1">
+                                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                                Normally this would be emailed: <MudLink Href="@emailConfirmationLink">Click here to confirm your account</MudLink>
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.body1">Please check your email to confirm your account.</MudText>
+                        }
+                    </MudCardContent>
                 </MudCard>
                 """;
         }
@@ -97,23 +98,23 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 @inject {{redirectManager}} RedirectManager
 
                 <AccountHero Icon="mail-check"
-                Title="Check your email"
-                Subtitle="One more step to activate your account." />
+                    Title="Check your email"
+                    Subtitle="One more step to activate your account." />
                 <div class="ux-form-narrow">
-                <section>
-                <StatusMessage Message="@statusMessage" />
-                @if (emailConfirmationLink is not null)
-                {
-                <p>
-                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-                Normally this would be emailed: <a href="@emailConfirmationLink">Click here to confirm your account</a>
-                </p>
-                }
-                else
-                {
-                <p>Please check your email to confirm your account.</p>
-                }
-                </section>
+                    <section>
+                        <StatusMessage Message="@statusMessage" />
+                        @if (emailConfirmationLink is not null)
+                        {
+                            <p>
+                                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                                Normally this would be emailed: <a href="@emailConfirmationLink">Click here to confirm your account</a>
+                            </p>
+                        }
+                        else
+                        {
+                            <p>Please check your email to confirm your account.</p>
+                        }
+                    </section>
                 </div>
                 """;
         }

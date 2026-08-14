@@ -1,8 +1,9 @@
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Settings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
     /// </summary>
     internal static class ManageChangePasswordPageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             // TODO: JPS, improve this
             var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
@@ -34,7 +35,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 : BuildBootstrapContent(identityClass, userAccessor, redirectManager);
         }
 
-        public static string? BuildStyleContent(RazorComponentTemplate template)
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
         {
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
             return isMudBlazor ? MudBlazorStyle : null;
@@ -249,9 +250,7 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
         public static void BuildCodeBehind(IBuildsCSharpMembers code)
         {
             // TODO: JPS, improve this
-            var identityClass = code.Template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
-                IdentityHelperExtensions.GetIdentityUserClass(code.Template) :
-                "ApplicationUser";
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
 
             code.AddField("string?", "message");
             code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
@@ -289,10 +288,12 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 onValidSubmitAsync.AddAssignmentStatement("var changePasswordResult", new CSharpStatement("await UserManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);"));
                 onValidSubmitAsync.AddIfStatement("!changePasswordResult.Succeeded", @if =>
                 {
+                    code.Template.AddUsing("System.Linq");
                     @if.AddStatement("message = $\"Error: {string.Join(\",\", changePasswordResult.Errors.Select(error => error.Description))}\";");
                     @if.AddStatement("return;");
                 });
 
+                code.Template.AddUsing("Microsoft.Extensions.Logging");
                 onValidSubmitAsync.AddStatement("await SignInManager.RefreshSignInAsync(user);");
                 onValidSubmitAsync.AddStatement("Logger.LogInformation(\"User changed their password successfully.\");");
                 onValidSubmitAsync.AddStatement("RedirectManager.RedirectToCurrentPageWithStatus(\"Your password has been changed\", HttpContext);");
