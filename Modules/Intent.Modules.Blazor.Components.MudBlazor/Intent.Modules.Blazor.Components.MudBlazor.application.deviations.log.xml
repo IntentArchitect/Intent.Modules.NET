@@ -7,9 +7,8 @@
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-08T20:14:10.6963027Z</updatedAt>
-      <deviationsHash>4297270544B0589C24EECE63710A5F772C3EC856D21BAE9D96C2575D08DBC8F3</deviationsHash>
-      <fileHash>B8205B69A3105191EDFDCC94E226F75035FD27C0BCAD956799C6793170E8F527</fileHash>
+      <updatedAt>2026-08-14T10:33:25.969769Z</updatedAt>
+      <deviationsHash>4DC5E39EA7932434F5869DB6ED93E1EECD0704409815746F757D6C5A4117D4F0</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cdfa2128-cc5d-4fba-a736-f60d7c446179</correlationId>

@@ -24,7 +24,7 @@
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/UserInfo/UserInfoTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Client/UserInfo/UserInfoTemplateRegistration.cs" />
-  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" deviationsHash="BDB1589E1BD7F1DEC3B730AC69405E632BE544CC75D4930DC1344E8B0C7C720F" />
+  <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayout/AccountLayoutTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Authentication/Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplateRegistration.cs" />

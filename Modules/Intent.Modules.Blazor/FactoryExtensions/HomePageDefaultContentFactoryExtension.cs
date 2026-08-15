@@ -2,9 +2,10 @@ using System;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.DefaultContent;
 using Intent.Modules.Blazor.Templates;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentStyle;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -38,10 +39,10 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                 return;
             }
 
-            var homeTemplate = application
-                .FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId)
+            var homeTemplate = ComponentTemplateIds.AllClientRazorTemplateIds
+                .SelectMany(application.FindTemplateInstances<ComponentRazorTemplateBase>)
                 .FirstOrDefault(x => string.Equals(
-                    RazorComponentTemplate.GetOutputFileName(x.Model),
+                    ComponentRazorTemplateBase.GetOutputFileName(x.Model),
                     HomeOutputFileName,
                     StringComparison.OrdinalIgnoreCase));
 

@@ -2,7 +2,11 @@ using System.Collections.Generic;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Blazor.Templates.Templates.Client.DependencyInjection;
+using Intent.Modules.Blazor.Templates.Templates.Client.Dialog;
+using Intent.Modules.Blazor.Templates.Templates.Client.DialogCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
+using Intent.Modules.Blazor.Templates.Templates.Client.Page;
+using Intent.Modules.Blazor.Templates.Templates.Client.PageCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
@@ -20,6 +24,10 @@ using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
 using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerDialog;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerDialogCodeBehind;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerPage;
+using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerPageCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutorInterface;
 using Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediator;
@@ -41,9 +49,39 @@ namespace Intent.Modules.Blazor.Templates
             return template.GetTypeName(ClientImportsRazorTemplate.TemplateId);
         }
 
+        public static string GetDialogTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(DialogTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDialogTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(DialogTemplate.TemplateId, model);
+        }
+
+        public static string GetPageTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(PageTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetPageTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(PageTemplate.TemplateId, model);
+        }
+
         public static string GetDependencyInjectionName(this IIntentTemplate template)
         {
             return template.GetTypeName(DependencyInjectionTemplate.TemplateId);
+        }
+
+        public static string GetDialogCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(DialogCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDialogCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(DialogCodeBehindTemplate.TemplateId, model);
         }
 
         public static string GetModelDefinitionTemplateName<T>(this IIntentTemplate<T> template) where T : ModelDefinitionModel
@@ -54,6 +92,16 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetModelDefinitionTemplateName(this IIntentTemplate template, ModelDefinitionModel model)
         {
             return template.GetTypeName(ModelDefinitionTemplate.TemplateId, model);
+        }
+
+        public static string GetPageCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(PageCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetPageCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(PageCodeBehindTemplate.TemplateId, model);
         }
 
         public static string GetProgramTemplateName(this IIntentTemplate template)
@@ -186,6 +234,26 @@ namespace Intent.Modules.Blazor.Templates
             return template.GetTypeName(RazorServerComponentCodeBehindTemplate.TemplateId, model);
         }
 
+        public static string GetRazorServerDialogCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerDialogCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerDialogCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerDialogCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorServerPageCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerPageCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerPageCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerPageCodeBehindTemplate.TemplateId, model);
+        }
+
         public static string GetRazorComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
         {
             return template.GetTypeName(RazorComponentTemplate.TemplateId, template.Model);
@@ -224,6 +292,26 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetRazorServerComponentTemplateName(this IIntentTemplate template, ComponentModel model)
         {
             return template.GetTypeName(RazorServerComponentTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorServerDialogTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerDialogTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerDialogTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerDialogTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorServerPageTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorServerPageTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorServerPageTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorServerPageTemplate.TemplateId, model);
         }
 
         public static string GetServerImportsRazorTemplateName(this IIntentTemplate template)

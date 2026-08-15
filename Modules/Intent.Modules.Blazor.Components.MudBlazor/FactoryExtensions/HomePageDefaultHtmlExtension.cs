@@ -30,14 +30,10 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             _changeManager = changeManager;
         }
 
+        [IntentManaged(Mode.Ignore)]
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var homeTemplate = application
-                .FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId)
-                .FirstOrDefault(x => string.Equals(
-                    RazorComponentTemplate.GetOutputFileName(x.Model),
-                    "Home",
-                    StringComparison.OrdinalIgnoreCase));
+            var homeTemplate = HomeTemplateLookup.FindByOutputFileName(application, "Home");
 
             if (homeTemplate is null)
             {
@@ -60,10 +56,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
         protected override void OnAfterTemplateExecution(IApplication application)
         {
-            const string templateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
-
-            var homeTemplate = application
-                .FindTemplateInstances<IRazorFileTemplate>(templateId)
+            var homeTemplate = Intent.Modules.Blazor.Api.ComponentTemplateIds.AllClientRazorTemplateIds
+                .SelectMany(application.FindTemplateInstances<IRazorFileTemplate>)
                 .FirstOrDefault(t =>
                     t.GetMetadata().GetFilePath()
                         .EndsWith("Home.razor", StringComparison.OrdinalIgnoreCase));

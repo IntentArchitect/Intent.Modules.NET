@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.DefaultContent;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Blazor.Templates.Templates.Client;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentStyle;
-using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
-using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -115,11 +114,13 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var pageTemplates = application.FindTemplateInstances<RazorComponentTemplateBase<ComponentModel>>(RazorComponentTemplate.TemplateId)
-                .Concat(application.FindTemplateInstances<RazorComponentTemplateBase<ComponentModel>>(RazorServerComponentTemplate.TemplateId))
+            var pageTemplates = ComponentTemplateIds.AllClientRazorTemplateIds
+                .Concat(ComponentTemplateIds.AllServerRazorTemplateIds)
+                .SelectMany(application.FindTemplateInstances<RazorComponentTemplateBase<ComponentModel>>)
                 .ToList();
-            var codeBehindTemplates = application.FindTemplateInstances<CSharpTemplateBase<ComponentModel>>(RazorComponentCodeBehindTemplate.TemplateId)
-                .Concat(application.FindTemplateInstances<CSharpTemplateBase<ComponentModel>>(RazorServerComponentCodeBehindTemplate.TemplateId))
+            var codeBehindTemplates = ComponentTemplateIds.AllClientCodeBehindTemplateIds
+                .Concat(ComponentTemplateIds.AllServerCodeBehindTemplateIds)
+                .SelectMany(application.FindTemplateInstances<CSharpTemplateBase<ComponentModel>>)
                 .ToList();
             var styleTemplates = application.FindTemplateInstances<RazorComponentStyleTemplate>(RazorComponentStyleTemplate.TemplateId).ToList();
 
@@ -127,7 +128,9 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             // (e.g. "SignInManager<ApplicationUser>") in .razor markup. RazorComponentTemplate's
             // TransformText() never consults a template's CSharpFile.Usings when rendering that markup,
             // so the only way to make the type resolve is via the project-wide _Imports.razor.
-            if (!application.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+            var securityType = application.MetadataManager.GetAuthenticationType(application.Id);
+            if (!application.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") &&
+                securityType.IsBuiltInLoginASPNETIdentity())
             {
                 var applicationUserTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(ApplicationUserTemplate.TemplateId);
                 var imports = application.FindTemplateInstance<IRazorFileTemplate>(ServerImportsRazorTemplate.TemplateId);

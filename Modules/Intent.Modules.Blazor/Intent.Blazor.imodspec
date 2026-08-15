@@ -71,12 +71,36 @@
       <role>Blazor.Client.DependencyInjection</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.Client.DialogCodeBehindTemplate" externalReference="664ba76e-1a08-44bc-866a-9e8482461b43">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.DialogTemplate" externalReference="13e7b44c-8564-49dc-81a5-e8506717e7dd">
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" externalReference="d3690156-710e-44a8-89ef-a27ade4e2f52">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Model.Definition</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" externalReference="d7ee208f-a8e1-4a56-9ad5-f25e3bf72bd2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.PageTemplate" externalReference="4126b562-c756-43a1-b1f3-79b0c9d6b659">
+      <role>Blazor.Client.Component</role>
       <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="1bd5dbd4-1bdd-4133-88b7-ccf452399b4a">
@@ -196,6 +220,30 @@
       <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" externalReference="a67cf83f-9662-4515-8182-45e85193dbda">
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerDialogCodeBehindTemplate" externalReference="63c37997-8508-4dd2-84ef-a78f9c8aa7fc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerDialogTemplate" externalReference="28e51628-b9b7-430e-8928-c486b1777eea">
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate" externalReference="62e1a0aa-1366-458e-bcf7-a7a04459899d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerPageTemplate" externalReference="0cf1709b-8d5e-4407-932b-55a1d9afe651">
       <role>Startup,Blazor</role>
       <location>Components</location>
     </template>

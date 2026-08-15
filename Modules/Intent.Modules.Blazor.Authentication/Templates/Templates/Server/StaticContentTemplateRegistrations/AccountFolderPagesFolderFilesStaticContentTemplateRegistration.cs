@@ -61,14 +61,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
-                // dangling `@using …Data`. Non-Identity setups that still have a Data namespace keep it.
+                // JWT/SSO apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data`. Only Built-in Login (ASP.NET Identity) generates that namespace.
                 var dataNamespace = $"{accountNamespaceRoot}Data";
 
                 var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
-                var isJwt = securityType.IsBearerTokenJWT();
+                var hasDataNamespace = securityType.IsBuiltInLoginASPNETIdentity();
 
-                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+                replacements.Add("NamespaceData", hasDataNamespace ? $"@using {dataNamespace}" : "");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else

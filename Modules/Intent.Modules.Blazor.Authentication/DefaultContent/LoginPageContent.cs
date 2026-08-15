@@ -12,6 +12,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Templates;
 using System.Linq;
 using System.Threading;
+using static Intent.Blazor.Authentication.Api.UserInterfacePackageModelStereotypeExtensions.Security;
 
 namespace Intent.Modules.Blazor.Authentication.DefaultContent
 {
@@ -30,12 +31,13 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             var authServiceInterfaceBuilder = authServiceInterfaceTemplate as ICSharpFileBuilderTemplate;
 
             var authService = template.GetAuthServiceInterfaceTemplateName();
+            var authenticationType = template.GetAuthenticationType();
             var isAspnetcoreIdentity = template.GetAuthenticationType().IsBuiltInLoginASPNETIdentity();
             var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
             return isMudBlazor
-                ? BuildMudBlazorContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "")
-                : BuildBootstrapContent(authService, isAspnetcoreIdentity, authServiceInterfaceBuilder.Namespace ?? "");
+                ? BuildMudBlazorContent(authService, authenticationType, authServiceInterfaceBuilder.Namespace ?? "")
+                : BuildBootstrapContent(authService, authenticationType, authServiceInterfaceBuilder.Namespace ?? "");
         }
 
         public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
@@ -123,9 +125,9 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             }
             """;
 
-        private static string BuildMudBlazorContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
+        private static string BuildMudBlazorContent(string authService, AuthenticationOptions authenticationType, string authServiceNamespace)
         {
-            var externalLoginCard = isAspnetcoreIdentity
+            var externalLoginCard = authenticationType.IsBuiltInLoginASPNETIdentity()
                 ? """
                 <MudItem xs="12"
                     md="5"
@@ -146,9 +148,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 """
                 : string.Empty;
 
+            var navigationManagerInject = authenticationType.IsBuiltInLoginASPNETIdentity() || authenticationType.IsBearerTokenJWT()
+                ? string.Empty
+                : "@inject NavigationManager NavigationManager";
+
             var head = $$"""
                 @using {{authServiceNamespace}}
                 @inject {{authService}} AuthService
+                {{navigationManagerInject}}
 
                 <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
                     Elevation="0">
@@ -277,11 +284,11 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
             return head + externalLoginCard + tail;
         }
 
-        private static string BuildBootstrapContent(string authService, bool isAspnetcoreIdentity, string authServiceNamespace)
+        private static string BuildBootstrapContent(string authService, AuthenticationOptions authenticationType, string authServiceNamespace)
         {
-            var gridClass = isAspnetcoreIdentity ? "ux-form-grid" : "ux-form-grid ux-form-narrow";
+            var gridClass = authenticationType.IsBuiltInLoginASPNETIdentity() ? "ux-form-grid" : "ux-form-grid ux-form-narrow";
 
-            var externalLoginSection = isAspnetcoreIdentity
+            var externalLoginSection = authenticationType.IsBuiltInLoginASPNETIdentity()
                 ? """
                 <div class="ux-form-col">
                     <section>
@@ -295,9 +302,14 @@ namespace Intent.Modules.Blazor.Authentication.DefaultContent
                 """
                 : string.Empty;
 
+            var navigationManagerInject = authenticationType.IsBuiltInLoginASPNETIdentity() || authenticationType.IsBearerTokenJWT()
+                ? string.Empty
+                : "@inject NavigationManager NavigationManager";
+
             var head = $$"""
                 @using {{authServiceNamespace}}
                 @inject {{authService}} AuthService
+                {{navigationManagerInject}}
 
                 <AccountHero Icon="lock-open"
                     Title="Welcome back"

@@ -43,7 +43,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentC
             }
 
             return _metadataManager.UserInterface(application).GetComponentModels()
-                .Where(model => model.HasRenderOnServer());
+                .Where(model => model.HasRenderOnServer() && !model.HasPage() && !model.HasDialog());
         }
     }
 }

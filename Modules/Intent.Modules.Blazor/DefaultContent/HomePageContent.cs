@@ -1,3 +1,4 @@
+using Intent.Modules.Blazor.Templates.Templates.Client;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 
 namespace Intent.Modules.Blazor.DefaultContent
@@ -20,7 +21,7 @@ namespace Intent.Modules.Blazor.DefaultContent
     /// </summary>
     internal static class HomePageContent
     {
-        public static string BuildRazorContent(RazorComponentTemplate template)
+        public static string BuildRazorContent(ComponentRazorTemplateBase template)
         {
             return """
                 <div class="home-page" style="margin: 0;">
@@ -125,7 +126,7 @@ namespace Intent.Modules.Blazor.DefaultContent
                 """;
         }
 
-        public static string BuildStyleContent(RazorComponentTemplate template)
+        public static string BuildStyleContent(ComponentRazorTemplateBase template)
         {
             return """
                 /* ============================================================================

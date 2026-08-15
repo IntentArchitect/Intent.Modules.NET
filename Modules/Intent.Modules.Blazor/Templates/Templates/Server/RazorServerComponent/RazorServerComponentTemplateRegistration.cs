@@ -37,7 +37,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent
         public override IEnumerable<ComponentModel> GetModels(IApplication application)
         {
             return _metadataManager.UserInterface(application).GetComponentModels()
-                .Where(model => model.HasRenderOnServer());
+                .Where(model => model.HasRenderOnServer() && !model.HasPage() && !model.HasDialog());
         }
     }
 }

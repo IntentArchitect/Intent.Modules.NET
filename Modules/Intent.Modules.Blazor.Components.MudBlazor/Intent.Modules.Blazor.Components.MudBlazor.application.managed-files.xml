@@ -13,7 +13,7 @@
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/SpacerModel.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/TextInputModelStereotypeExtensions.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Api/UserMenuModel.cs" />
-  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/HomePageDefaultHtmlExtension.cs" deviationsHash="4297270544B0589C24EECE63710A5F772C3EC856D21BAE9D96C2575D08DBC8F3" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/HomePageDefaultHtmlExtension.cs" deviationsHash="4DC5E39EA7932434F5869DB6ED93E1EECD0704409815746F757D6C5A4117D4F0" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/MudBlazorComponentInstaller.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/MudBlazorInstaller.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/SnackbarInstaller.cs" />

@@ -4,7 +4,7 @@
   <file path="Intent.Modules.Blazor/Api/ComponentModelStereotypeExtensions.cs" deviationsHash="D4A52D94D3B4A4773E1276B12CFE1F63BB0D6587BFE07D81FC57CF4A183425C6" />
   <file path="Intent.Modules.Blazor/FactoryExtensions/AITasksFactoryExtension.cs" />
   <file path="Intent.Modules.Blazor/FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs" deviationsHash="4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04" />
-  <file path="Intent.Modules.Blazor/FactoryExtensions/HomePageDefaultContentFactoryExtension.cs" deviationsHash="2E5D072DD1713EDA9E0982A533F05C5A90431BFA50EB266097A2E46D4FD746DE" />
+  <file path="Intent.Modules.Blazor/FactoryExtensions/HomePageDefaultContentFactoryExtension.cs" />
   <file path="Intent.Modules.Blazor/Intent.Blazor.imodspec" />
   <file path="Intent.Modules.Blazor/Intent.Modules.Blazor.csproj" />
   <file path="Intent.Modules.Blazor/Migrations/OnInstallMigration.cs" />
@@ -38,8 +38,16 @@
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/DependencyInjection/DependencyInjectionTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/DependencyInjection/DependencyInjectionTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Dialog/DialogTemplatePartial.cs" deviationsHash="50395589676D32CD27E9E020640F41F0C995DBD628AF4CFAE3932DA1459AE713" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Dialog/DialogTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/DialogCodeBehind/DialogCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/DialogCodeBehind/DialogCodeBehindTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/ModelDefinition/ModelDefinitionTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/ModelDefinition/ModelDefinitionTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Page/PageTemplatePartial.cs" deviationsHash="6530AB08F49126D44D5C45EF35FDE77FB68D858D6EC9C62FECD5DBE9B958A4D0" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/Page/PageTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/PageCodeBehind/PageCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Client/PageCodeBehind/PageCodeBehindTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs" deviationsHash="5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs" deviationsHash="8EA7CA6765207822EF0AFCBBC972CBCAE11F97DD542CED4B370E05D03A6A68AE" />
@@ -81,6 +89,14 @@
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerComponent/RazorServerComponentTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerComponentCodeBehind/RazorServerComponentCodeBehindTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerComponentCodeBehind/RazorServerComponentCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerDialog/RazorServerDialogTemplatePartial.cs" deviationsHash="A3C4D93E9FA3F46977F34A5734145DEAED575E196B2E94E4871D577AB164B3F2" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerDialog/RazorServerDialogTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerDialogCodeBehind/RazorServerDialogCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerDialogCodeBehind/RazorServerDialogCodeBehindTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerPage/RazorServerPageTemplatePartial.cs" deviationsHash="EC185C8075F5377B016390DA60D3101DCEBF432EDA7B7D7DC6B54E2CC76079ED" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerPage/RazorServerPageTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerPageCodeBehind/RazorServerPageCodeBehindTemplatePartial.cs" />
+  <file path="Intent.Modules.Blazor/Templates/Templates/Server/RazorServerPageCodeBehind/RazorServerPageCodeBehindTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutor/ScopedExecutorTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutor/ScopedExecutorTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor/Templates/Templates/Server/ScopedExecutorInterface/ScopedExecutorInterfaceTemplatePartial.cs" />

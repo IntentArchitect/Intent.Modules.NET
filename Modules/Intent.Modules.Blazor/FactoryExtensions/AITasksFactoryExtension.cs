@@ -4,11 +4,8 @@ using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
-using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
-using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -49,11 +46,9 @@ namespace Intent.Modules.Blazor.FactoryExtensions
         {
             var relevantChangeTypes = new ChangeType[] { ChangeType.Create, ChangeType.Overwrite };
 
-            var codeBehindTemplateIds = new[]
-            {
-                RazorComponentCodeBehindTemplate.TemplateId,
-                RazorServerComponentCodeBehindTemplate.TemplateId
-            };
+            var codeBehindTemplateIds = ComponentTemplateIds.AllClientCodeBehindTemplateIds
+                .Concat(ComponentTemplateIds.AllServerCodeBehindTemplateIds)
+                .ToArray();
 
             var handlerChanges = changes.Where(c =>
                 c.Template is not null &&
@@ -84,8 +79,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             var (LayoutTemplates, Instructions) = AddLayoutComponentInstructions(template, model, change);
             templateInstructionExtension += Instructions;
 
-            var componenRazorTemplate = template.ExecutionContext.FindTemplateInstance(RazorComponentTemplate.TemplateId, model.Id)
-                ?? template.ExecutionContext.FindTemplateInstance(RazorServerComponentTemplate.TemplateId, model.Id);
+            var componenRazorTemplate = template.ExecutionContext.FindTemplateInstance(model.GetRazorTemplateId(), model.Id);
 
             var relatedTemplates = new[]
             {
