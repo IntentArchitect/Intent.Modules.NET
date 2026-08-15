@@ -156,6 +156,7 @@ flowchart TD
 - **Co-existence guards against other Mapping Providers.** No error, warning or stand-down when AutoMapper or Mapperly is also installed. Architecture Templates prevent the combination, and the existing providers already conflict with each other.
 - **Completeness enforcement on DTO fields.** A DTO field with no mapping is not an error.
 - **Fixing unprefixed expression mappings.** An Expression Mapping in neither recognised Prefix Form is handled exactly as `Intent.Application.Dtos.AutoMapper` handles it — including the cases AutoMapper gets wrong, such as a multi-identifier expression or one referencing no source member at all. Resolving those identifiers against the mapped entity would make this module better than both incumbents, and is deliberately not done: a drop-in replacement must generate the same thing, not the better thing.
+- **Collection types other than `List`.** Marking a DTO field as a collection produces `List<T>` and nothing else — the Dtos module sets that formatter unconditionally — so array, `ICollection` and `IEnumerable` targets are out of scope rather than unimplemented.
 - **A runtime library or NuGet dependency.** The module stays template-only.
 
 ## Success Metrics
@@ -353,7 +354,7 @@ Removing the stand-down guard means installing this module alongside AutoMapper 
     ["17", "Deep chain, three or more hops", "Chained access with R1 applied per Nullable Hop"],
     ["18", "Nullable hop into a non-nullable value-type field", "Per R1.2 or R1.3"],
     ["19", "Nullable hop into a non-nullable enum field", "Per R1.2 or R1.3"],
-    ["20", "Collection field typed as array, `ICollection` or `IEnumerable`", "Materialization matching the DTO field's declared collection type"],
+    ["20", "Nullable collection field — `List<T>?`", "Projection materialized to a list, yielding `null` rather than an empty list when the source collection is absent"],
     ["21", "Expression Mapping in the `src.` and `projectFrom.` Prefix Forms", "Per R2 — both forms produce byte-identical output. Unprefixed expressions are excluded: they do not compile, by parity with AutoMapper"]
   ]}
 />
@@ -361,12 +362,13 @@ Removing the stand-down guard means installing this module alongside AutoMapper 
 #### Acceptance Criteria
 
 1. THE Object Mapper module SHALL generate C# matching the required form in the R6 table for each of the 21 Mapping Shapes listed.
-2. WHEN a DTO collection field's declared type is an array, `ICollection`, `IEnumerable` or `List`, THE Object Mapper module SHALL materialize the projection to a value assignable to that declared type.
-3. WHEN a source collection is null at runtime, THE generated Mapping Method SHALL assign an empty collection of the DTO field's declared type and SHALL NOT throw.
+2. WHEN a DTO field is a collection, THE Object Mapper module SHALL materialize the projection to a `List` of that field's element type — the only collection type a DTO field can take, since the Dtos module renders every collection field as a list.
+3. WHEN a source collection is null at runtime AND the DTO collection field is non-nullable, THE generated Mapping Method SHALL assign an empty list and SHALL NOT throw.
 4. WHEN a DTO field has no mapping, THE Object Mapper module SHALL omit that field from the generated object initializer, leaving it at its CLR default, and SHALL NOT emit an error or warning.
 5. WHEN a mapped DTO's source is a derived Domain Entity, THE Object Mapper module SHALL type the Mapping Method's parameter to that derived entity and SHALL map inherited members alongside members declared on the derived type.
 6. THE Object Mapper module SHALL generate exactly one Mapping Method and exactly one List Mapping Method per mapped DTO, and SHALL NOT generate a Mapping Extension Class for a DTO with no mapping.
 7. THE List Mapping Method SHALL project every element of its source sequence through the Mapping Method, preserving source order.
+8. WHEN a source collection is null at runtime AND the DTO collection field is nullable, THE generated Mapping Method SHALL assign `null` rather than an empty list.
 
 ### Requirement 7: Design-time diagnostics are actionable
 
@@ -482,7 +484,7 @@ A partial-class extension point was considered so a developer could add custom m
     { id: "a3", label: "Strict applies per hop, not per field", note: "In a multi-hop path, Strict is applied to every Nullable Hop. There is no way to be strict on one hop and lenient on another within the same path." },
     { id: "a4", label: "Existing generated output changes shape", note: "Applications already using the module will see diffs where a nullable hop previously emitted null-conditional access into a non-nullable field. This is a correctness fix, and the default of Strict makes the new behaviour fail-fast." },
     { id: "a5", label: "Prefix Form detection stays character-based", note: "An Expression Mapping continues to be identified by the presence of expression characters in the path, as it is today. No new authoring mode is introduced." },
-    { id: "a6", label: "Collection materialization defaults to a list", note: "Where a DTO collection field's declared type is satisfied by a list, a list is produced. Array and read-only shapes get the materialization their declared type requires." },
+    { id: "a6", label: "Collections are always a list", note: "The Dtos module renders every collection DTO field as `List<T>` via a hardcoded collection formatter, so array, `ICollection` and `IEnumerable` targets cannot be modelled and are not catered for. Only the nullable-versus-non-nullable distinction varies." },
     { id: "a7", label: "Module version is bumped in the same change", note: "Per the repository's module-versioning rules, across the imodspec, csproj and designer, with release notes under the current version." },
     { id: "a8", label: "One flavour application per setting value", note: "`ObjectMapping.Strict` and `ObjectMapping.Lenient` each pin one value of Null Path Handling permanently, rather than one application being reconfigured between runs. Both are continuously verified." },
     { id: "a9", label: "Duplicated models, deliberately not shared", note: "Each Flavour Application owns a full copy of the Domain and Services model. Duplication was chosen over a shared package; R8.10's output-diff assertion is what keeps the two copies honest." },

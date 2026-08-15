@@ -2,6 +2,7 @@ source: native
 title: Object Mapper Hardening
 description: Makes the Object Mapper module's generated mappings correct for every shape and actually invoked by handlers.
 slug: object-mapper-hardening
-phase: requirements
+phase: design
 createdUtc: 2026-08-14T13:21:05Z
-updatedUtc: 2026-08-14T19:53:54Z
+updatedUtc: 2026-08-15T09:48:01Z
+cadence: stage
