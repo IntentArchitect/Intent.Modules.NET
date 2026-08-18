@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b8048bb2-cda3-4b62-bec7-c4df3d3b0ad0" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatusDto</name>
+  <display>OrderStatusDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cbb31d03-db06-4643-99a6-c06d1eac6244</parentFolderId>
+  <packageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</packageId>
+  <packageName>ObjectMapping.Lenient.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b64ea382-b796-4f49-a1f4-cd31b2ef7130" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Draft</name>
+      <display>Draft</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b8048bb2-cda3-4b62-bec7-c4df3d3b0ad0</parentFolderId>
+      <packageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</packageId>
+      <packageName>ObjectMapping.Lenient.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f20787b7-7999-43e0-b59b-16ae5f84e337" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Submitted</name>
+      <display>Submitted</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b8048bb2-cda3-4b62-bec7-c4df3d3b0ad0</parentFolderId>
+      <packageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</packageId>
+      <packageName>ObjectMapping.Lenient.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="318e11e7-a556-4388-bcc1-a8c6531552e2" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Shipped</name>
+      <display>Shipped</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b8048bb2-cda3-4b62-bec7-c4df3d3b0ad0</parentFolderId>
+      <packageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</packageId>
+      <packageName>ObjectMapping.Lenient.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="063a7a1b-d188-44c9-b0ae-88932fda6193" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Cancelled</name>
+      <display>Cancelled</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b8048bb2-cda3-4b62-bec7-c4df3d3b0ad0</parentFolderId>
+      <packageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</packageId>
+      <packageName>ObjectMapping.Lenient.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

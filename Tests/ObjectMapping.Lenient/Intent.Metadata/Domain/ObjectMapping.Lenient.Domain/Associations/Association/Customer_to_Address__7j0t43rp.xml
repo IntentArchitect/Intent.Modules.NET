@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71a0c36c-5b69-4ab0-a6dc-9d335a5c5fb1">
+  <sourceEnd id="f6aba2ad-5bc7-4c86-b3e5-53617cc2eedf" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="b5321450-9eef-4aa6-a2a5-08d1c2efb9a4">
+      <typeId>0d17216f-06aa-4ad9-a8c1-7d8db4a1cd19</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71a0c36c-5b69-4ab0-a6dc-9d335a5c5fb1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address?</display>
+    <order>3</order>
+    <typeReference id="d71720c3-fdcc-4120-b465-9b10a3552190">
+      <typeId>96e83cdd-f975-407d-bee7-d5b054d5146f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

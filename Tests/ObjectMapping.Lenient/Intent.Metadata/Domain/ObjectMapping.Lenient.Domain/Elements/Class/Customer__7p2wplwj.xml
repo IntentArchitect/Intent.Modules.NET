@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0d17216f-06aa-4ad9-a8c1-7d8db4a1cd19" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Customer</name>
+  <display>Customer</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8a5f19a3-7530-40f8-a236-92200628c45a</parentFolderId>
+  <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+  <packageName>ObjectMapping.Lenient.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="397a9d83-7811-44ba-9dc7-5595feaef5b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6035155b-fc76-4f52-af8b-cd36551c273b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0d17216f-06aa-4ad9-a8c1-7d8db4a1cd19</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4793d699-a15c-4527-a2f1-2f01fa9dfc9f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="38b96995-8b59-4185-aab2-ccffe0940121">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0d17216f-06aa-4ad9-a8c1-7d8db4a1cd19</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="59c7e434-6a04-42b3-803d-80b9eb3779c3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Tier</name>
+      <display>Tier: CustomerTier</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="37e12021-9106-425b-8de6-be8d0fade809">
+        <typeId>248f4bb6-742a-4909-9ba6-201ee7a88d79</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+        <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0d17216f-06aa-4ad9-a8c1-7d8db4a1cd19</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

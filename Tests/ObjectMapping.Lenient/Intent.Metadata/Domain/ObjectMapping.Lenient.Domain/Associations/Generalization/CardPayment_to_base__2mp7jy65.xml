@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c2562026-2a90-4b82-b234-8158dfe8e0a2">
+  <sourceEnd id="9c01255b-e732-4222-86fc-e6be56954047" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: CardPayment</display>
+    <order>0</order>
+    <typeReference id="ea10da9d-07df-4686-8cb9-9a27b74d16c2">
+      <typeId>ae7eb91e-d699-4057-9116-496f0903d6e0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c2562026-2a90-4b82-b234-8158dfe8e0a2" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends PaymentMethod</display>
+    <order>0</order>
+    <typeReference id="2f5996f2-67d1-4b95-a2fb-307770886e25">
+      <typeId>08b08f56-35ac-4f40-b042-b882bafa6b17</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.ObjectMapping</id>
-  <version>1.0.0-pre.3</version>
+  <version>1.0.0-pre.4</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0)</supportedClientVersions>
   <summary>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities — a drop-in replacement for AutoMapper that produces readable, refactor-safe code with no runtime reflection.</summary>
   <description>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities — a drop-in replacement for AutoMapper that produces readable, refactor-safe code with no runtime reflection.</description>
@@ -19,7 +19,27 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions />
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="27e1bf22-ac74-4e15-b5d9-cc1342530dab" title="Object Mapping" type="application-settings" externalReference="27e1bf22-ac74-4e15-b5d9-cc1342530dab">
+      <settings>
+        <setting id="0d9f5223-c911-4afd-bb7d-89e5bd13a48c" title="Null Path Handling" type="select">
+          <hint>Governs what a mapping path that crosses a nullable hop into a non-nullable DTO field emits.</hint>
+          <defaultValue>strict</defaultValue>
+          <options>
+            <option value="strict" description="Strict" />
+            <option value="lenient" description="Lenient" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <interoperability>
+    <detect id="Intent.Application.DomainInteractions">
+      <install>
+        <package id="Intent.Application.DomainInteractions" version="1.2.10-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="4.2.1" />
     <dependency id="Intent.Common" version="3.7.2" />

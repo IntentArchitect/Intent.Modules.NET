@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.ObjectMapping.Templates;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -34,7 +35,7 @@ namespace Intent.Modules.Application.Dtos.ObjectMapping.Templates.MappingExtensi
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateId);
 
-            CSharpFile = new CSharpFile(this.GetNamespace().Replace(".Mappings", ""), this.GetFolderPath())
+            CSharpFile = new CSharpFile(GetDtoNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq")
                 .AddClass($"{Model.Name}MappingExtensions", cls =>
                 {
@@ -64,19 +65,40 @@ namespace Intent.Modules.Application.Dtos.ObjectMapping.Templates.MappingExtensi
 
         public override bool CanRunTemplate()
         {
+            // Model.Mapping != null is the "no mapping, no class" rule — not a stand-down against
+            // another Mapping Provider. Generation is unconditional with respect to other providers.
             return base.CanRunTemplate()
-                && Model.Mapping != null
-                && !ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Application.Dtos.AutoMapper");
+                && Model.Mapping != null;
+        }
+
+        /// <summary>
+        /// The extension class is emitted into the DTO's own namespace so that it resolves from the
+        /// DTO without an explicit using. Derived from the DTO template's output rather than by
+        /// stripping ".Mappings" out of this template's namespace, which corrupts any application
+        /// whose output path legitimately contains a "Mappings" segment.
+        /// </summary>
+        private string GetDtoNamespace()
+        {
+            return TryGetTemplate<ICSharpFileBuilderTemplate>(DtoModelTemplate.TemplateId, Model.Id, out var dtoTemplate)
+                ? dtoTemplate.CSharpFile.Namespace
+                : this.GetNamespace();
         }
 
         private string GetEntityTypeName()
         {
-            return TryGetTypeName(TemplateRoles.Domain.Entity.Primary, Model.Mapping.ElementId, out var name)
+            if (TryGetTypeName(TemplateRoles.Domain.Entity.Primary, Model.Mapping.ElementId, out var name)
                 || TryGetTypeName(TemplateRoles.Domain.Entity.Interface, Model.Mapping.ElementId, out name)
                 || TryGetTypeName(TemplateRoles.Domain.ValueObject, Model.Mapping.ElementId, out name)
-                || TryGetTypeName(TemplateRoles.Domain.DataContract, Model.Mapping.ElementId, out name)
-                ? name
-                : throw new System.Exception($"Could not resolve mapped domain type '{Model.Mapping.Element.Name}'");
+                || TryGetTypeName(TemplateRoles.Domain.DataContract, Model.Mapping.ElementId, out name))
+            {
+                return name;
+            }
+
+            throw new ElementException(Model.InternalElement,
+                $"The DTO '{Model.Name}' is mapped from '{Model.Mapping.Element.Name}', but no domain entity, " +
+                "value object or data contract type could be resolved for it, so no mapping extension class can be generated. " +
+                "Check that the mapped element still exists in the Domain designer and that the module which generates its " +
+                "C# type is installed, then re-apply the mapping on the DTO.");
         }
 
         [IntentManaged(Mode.Fully)]

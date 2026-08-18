@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="5906ef37-8ce9-4dcd-a4ae-8ab1f7ad2cbb">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Intent.Application.Dtos.ObjectMapping.imodspec" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Intent.Modules.Application.Dtos.ObjectMapping.csproj" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Settings/ModuleSettingsExtensions.cs" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping/Templates/TemplateExtensions.cs" />
+  <file path="Intent.Modules.NET.sln" />
+</managedFiles>

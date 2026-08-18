@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4f228a9-13f9-4fb4-b89a-adac37119a71" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</parentFolderId>
+  <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+  <packageName>ObjectMapping.Strict.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6becb521-9aaf-4adb-a3bf-22f4faa0bbef" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Draft</name>
+      <display>Draft</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4f228a9-13f9-4fb4-b89a-adac37119a71</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2afe0eb4-d2ba-4bb0-b71b-0411c5a3fa2e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Submitted</name>
+      <display>Submitted</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4f228a9-13f9-4fb4-b89a-adac37119a71</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0fdb8e27-38d3-4960-8715-9890b82d34ef" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Shipped</name>
+      <display>Shipped</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4f228a9-13f9-4fb4-b89a-adac37119a71</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="44307773-9c4b-4b60-86e5-29e0a3d75c42" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Cancelled</name>
+      <display>Cancelled</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4f228a9-13f9-4fb4-b89a-adac37119a71</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9bddfcd8-12eb-44d3-8cc6-1d9ddb24baab" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>03ce6d4f-afa8-4c89-acf3-60751f78364b</parentFolderId>
+  <packageId>03ce6d4f-afa8-4c89-acf3-60751f78364b</packageId>
+  <packageName>ObjectMapping.Strict.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

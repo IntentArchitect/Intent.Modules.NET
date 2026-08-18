@@ -301,9 +301,21 @@ Because those forms do not compile, neither Flavour Application models one — M
 
 1. WHEN a modelled operation returns a paged result of a mapped DTO, THE Domain Interactions module SHALL generate a Call Site that projects the paged entity result, mapping each item through that DTO's Mapping Method invoked with no arguments.
 2. THE Call Site generated for a paged result SHALL preserve the page metadata produced by the pagination module — total count, page number and page size — unmodified.
-3. WHEN a modelled operation returns a cursor-paged result of a mapped DTO, THE Domain Interactions module SHALL generate the cursor-paged equivalent of R4.1, preserving the cursor metadata unmodified.
-4. IF a paged or cursor-paged query matches zero entities, THEN THE generated Call Site SHALL return an empty page with its metadata intact and SHALL NOT throw.
+3. **Out of scope for this spec.** Cursor-paged Call Sites are excluded — see the "Cursor paging is out of scope" callout below. This criterion is not verified and SHALL NOT be judged against.
+4. IF an offset-paged query matches zero entities, THEN THE generated Call Site SHALL return an empty page with its metadata intact and SHALL NOT throw.
 5. THE Domain Interactions module SHALL NOT generate a Call Site that silently omits the mapping for a paged return type, and SHALL NOT leave the handler returning an unmapped or default value.
+
+<Callout id="r4-cursor-out-of-scope" tone="warning" title="Cursor paging is out of scope">
+
+**R4.3, and the cursor-paged clause of R8.9, are excluded from this spec's contract** by user decision. They are neither implemented nor verified here, and a verify pass SHALL NOT record a gap against them.
+
+The blocker is upstream of the Object Mapper and unrelated to it. `Intent.Modules.EntityFrameworkCore` implements no cursor paging at all: `DbContextDataAccessProvider.FindAllAsync(queryMapping, pageSize, cursorToken, ...)` returns an empty statement under the comment "for now cursor based is not implemented with EF", and the module contains no cursor-paged repository method. The only module fulfilling `TemplateRoles.Application.Common.CursorPagedList` is `Intent.Modules.Azure.TableStorage`, a persistence provider whose repository templates would compete with EF Core's for the same roles. Modelling a cursor-paged query in either Flavour Application therefore generates a handler calling a repository method that does not exist, and the solution does not build.
+
+`ObjectMappingMappingStrategy.ImplementPagedMappingStatement` is written generically over its `mappingMethod` argument, so it would emit the cursor form unchanged once EF Core gains cursor support. Closing this properly is a separate piece of work in `Intent.Modules.EntityFrameworkCore`.
+
+**Offset paging is unaffected and fully in scope** — R4.1, R4.2, R4.4, R4.5 and the offset-paged clause of R8.9 are verified as written.
+
+</Callout>
 
 ### Requirement 5: The module generates unconditionally
 
@@ -418,9 +430,9 @@ Removing the stand-down guard means installing this module alongside AutoMapper 
 4. EACH Flavour Application's test project SHALL contain at least one assertion per Mapping Shape that fails if that shape's generated expression is wrong.
 5. EACH Flavour Application's solution SHALL build with exit code 0, and its test suite SHALL pass with zero failures, when run at solution level.
 6. WHEN all module-owned generated files in a Flavour Application are deleted and the Software Factory is run, THE Software Factory SHALL reproduce every one of them, and a second consecutive run SHALL propose zero changes.
-7. EACH Flavour Application SHALL contain zero merge-managed generated files whose content a full regeneration under R8.6 would not reproduce.
+7. EACH Flavour Application SHALL contain zero merge-managed generated files, **within the surface this module owns** — the Mapping Extension Classes and the query-handler Call Sites — whose content a full regeneration under R8.6 would not reproduce. *(Exception: a Domain Entity Operation body is merge-managed by design — the Domain designer cannot model a C# body, so the template emits a `NotImplementedException` stub for the developer to fill in. `Order.GetDisplayLabel()` is such a body: it exists purely as the test fixture Mapping Shape 13 maps through, is not module-generated output, and SHALL NOT be judged against this criterion.)*
 8. EACH Flavour Application's test suite SHALL assert, for every handler whose return type is a mapped DTO, that its Call Site invokes the Mapping Method with no arguments and that no `IMapper` is injected.
-9. EACH Flavour Application SHALL exercise at least one paged and one cursor-paged query end to end, asserting both a populated page and an empty page.
+9. EACH Flavour Application SHALL exercise at least one offset-paged query end to end, asserting both a populated page and an empty page. *(The cursor-paged half of this criterion is out of scope — see the "Cursor paging is out of scope" callout under Requirement 4 — and SHALL NOT be judged against.)*
 10. THE generated mapping output of the two Flavour Applications SHALL differ only in the expressions R1 governs — a Mapping Path crossing a Nullable Hop into a Non-Nullable Target Field. Any other difference SHALL be treated as model drift between the two duplicated models.
 11. NEITHER Flavour Application SHALL inherit generated files, deviations logs, managed-file records or designer metadata from the `ObjectMappingTest` application.
 12. THE module's user documentation and release notes SHALL be updated in the same change as the behaviour they describe, covering `Null Path Handling`, the Prefix Form normalisation, the Call Site behaviour, and the `IQueryable` projection trade-off.

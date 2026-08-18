@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="349a5330-a3f0-4024-a14a-b8399771af3e">
+  <sourceEnd id="1253d7ad-4cd6-4f1d-8e08-489c9aa31dcb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="7cc889b4-777a-4029-a812-cd24b396368e">
+      <typeId>abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Domain</typePackageName>
+      <typePackageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="349a5330-a3f0-4024-a14a-b8399771af3e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Coupon</name>
+    <display>Coupon: Coupon?</display>
+    <order>7</order>
+    <typeReference id="b431e283-2ef2-4100-a422-2ccb3fe1a32a">
+      <typeId>bbcf782d-b29a-491e-a26a-b5343fb9f68c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Domain</typePackageName>
+      <typePackageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

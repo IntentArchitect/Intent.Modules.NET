@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="75024f22-db3d-4ecc-b95d-f2bb7ddc0645">
+  <sourceEnd id="cb5b122e-b478-4e85-9346-6f385662a9b3" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="8f0b9190-4089-45ac-9c6e-896e39e4430d">
+      <typeId>abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Domain</typePackageName>
+      <typePackageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="75024f22-db3d-4ecc-b95d-f2bb7ddc0645" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>PaymentMethods</name>
+    <display>PaymentMethods: PaymentMethod[*]?</display>
+    <order>10</order>
+    <typeReference id="d9c5bcf9-8225-490c-8936-04b2b402a498">
+      <typeId>5f3cd828-a489-41f5-b7f8-d196a84d028a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Domain</typePackageName>
+      <typePackageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
