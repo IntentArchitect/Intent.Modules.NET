@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Fixed: Mapping error when service parameter is a DTO with no direct mappings (only nested fields).
+
 ### Version 5.1.4
 
 - Improvement: Added `No Cancellation Token` option to the `Asyncronous` stereotype.

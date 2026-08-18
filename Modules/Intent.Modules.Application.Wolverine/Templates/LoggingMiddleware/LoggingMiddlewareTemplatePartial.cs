@@ -47,6 +47,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware
                             method.AddParameter(currentUserService, "currentUserService");
                         }
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+
+                        method.AddIfStatement("envelope.Message is null", @if =>
+                        {
+                            @if.AddReturn("");
+                        });
+                        
                         method.AddStatement(hasIdentity
                             ? "await LogAsync(envelope.Message, logger, currentUserService);"
                             : "await LogAsync(envelope.Message, logger);");
