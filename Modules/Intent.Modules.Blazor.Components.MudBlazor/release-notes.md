@@ -1,6 +1,7 @@
 ### Version 2.0.2-pre.0
 
 - Fixed: Creating a WASM (`interactive-web-assembly` / `interactive-auto`) application without the `Intent.Blazor.Authentication` module installed no longer throws `DirectoryNotFoundException` during generation.
+- Improvement: Each bundled AI skill's sample files are no longer overwritten once that skill's own `SKILL.md` has been hand-edited, on the assumption you have taken over maintenance of the whole skill.
 
 ### Version 2.0.1
 

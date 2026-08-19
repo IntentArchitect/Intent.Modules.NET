@@ -59,5 +59,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
             RegisterAuthStaticContent(registry, application);
         }
+
+        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
+        {
+            return OverwriteBehaviour.OverwriteDisabled;
+        }
     }
 }

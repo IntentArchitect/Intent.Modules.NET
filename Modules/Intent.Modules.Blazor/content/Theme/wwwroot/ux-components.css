@@ -12,9 +12,15 @@ SECTION 1: Standard Form Controls
 
 .form-control,
 .form-select {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0 var(--space-3);
     font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+    line-height: 1.4;
     color: var(--text);
-    background-color: var(--surface);
+    background-color: var(--surface-2);
     background-clip: padding-box;
     border: var(--border-width) solid var(--border);
     border-radius: var(--radius-md);
@@ -24,7 +30,7 @@ SECTION 1: Standard Form Controls
 .form-control:focus,
     .form-select:focus {
         color: var(--text);
-        background-color: var(--surface);
+        background-color: var(--surface-2);
         border-color: var(--border-focus);
         box-shadow: 0 0 0 3px var(--primary-subtle);
         outline: 0;
@@ -34,7 +40,7 @@ SECTION 1: Standard Form Controls
 .form-control[disabled],
     .form-select:disabled {
         color: var(--text-muted);
-        background-color: var(--surface-2);
+        background-color: var(--surface);
         opacity: 1;
     }
 
@@ -45,7 +51,7 @@ SECTION 1: Standard Form Controls
 
 .form-label {
     display: inline-block;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
     font-family: var(--font-primary);
     font-size: var(--type-body-sm);
     color: var(--text-muted);

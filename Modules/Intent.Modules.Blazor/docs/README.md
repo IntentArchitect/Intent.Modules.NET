@@ -22,6 +22,10 @@ The first time a modelled `Layout`'s `MainLayout.razor` is generated, this modul
 
 > 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library composes `MainLayout.razor` with its own components instead.
 
+## AI Skill Samples
+
+Each bundled AI skill (e.g. `blazor-dialog-adding-entity`) ships a `SKILL.md` and one or more sample files (e.g. `add-entity-dialog-sample.razor`) into your application's `.agents/skills/<skill-name>/` folder. The sample files are regenerated on every Software Factory run **until the skill's own `SKILL.md` has been hand-edited** — once you customize a skill's instructions, its sample files are left untouched too, on the assumption you have taken over maintenance of the whole skill.
+
 ## Securing Pages and UI Elements
 
 The `Secured` stereotype can be used to secure specific UI elements or entire pages so that only users with the required `policy` or `roles` can access or view them.

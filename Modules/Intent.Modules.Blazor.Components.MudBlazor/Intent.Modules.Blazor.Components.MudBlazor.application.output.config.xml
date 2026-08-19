@@ -2,6 +2,12 @@
 <outputFiles>
   <files>
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-search-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-view-entity/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/Theme/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/ThemeToggle/readme.txt" state="ignored;once-off-generated" />

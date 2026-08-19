@@ -1,10 +1,10 @@
-﻿---
+---
 uid: modules-dotnet.intent-blazor-components-mudblazor
 ---
+
 # Intent.Blazor.Components.MudBlazor
 
-MudBlazor is a modern, open-source UI component library for Blazor that follows Material Design principles, providing a rich set of customizable components for building sleek and responsive web applications.
-It simplifies Blazor development by offering built-in theming, form validation, and a wide range of ready-to-use components like tables, dialogs, and charts.
+MudBlazor is a modern, open-source UI component library for Blazor that follows Material Design principles, providing a rich set of customizable components for building sleek and responsive web applications. It simplifies Blazor development by offering built-in theming, form validation, and a wide range of ready-to-use components like tables, dialogs, and charts.
 
 This module enables you to realize your UI design using MudBlazor.
 
@@ -17,6 +17,10 @@ In this [webinar](https://intentarchitect.com/#/redirect/?category=resources&sub
 ## Sample Application
 
 We also have a technology sample available, which you can download and try out from our GitHub repository [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor.git).
+
+## AI Skill Samples
+
+Each bundled AI skill (e.g. `mudblazor-dialog-adding-entity`) ships a `SKILL.md` and one or more sample files into your application's `.agents/skills/<skill-name>/` folder. The sample files are regenerated on every Software Factory run **until the skill's own `SKILL.md` has been hand-edited** — once you customize a skill's instructions, its sample files are left untouched too, on the assumption you have taken over maintenance of the whole skill.
 
 ## Tips for Styling Your MudBlazor Application
 

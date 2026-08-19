@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.2-pre.1</version>
+  <version>2.0.2-pre.2</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -307,6 +307,30 @@
       <role>Blazor.NoSample</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="0f01004a-0392-4f56-9035-bd679c68adec">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="a8be8a21-d667-428d-b77d-da4a552bc4c9">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="b3395b2b-9899-475f-93bb-050ae265d552">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="3a61ff94-381c-4c86-8e3e-d2090e8d7d7d">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="f83cf24f-f6d6-4c1f-a51f-ac71ac6b3afa">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="d0e2f055-6626-400d-b44b-2c3ea1b01a9d">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -317,6 +341,7 @@
     <factoryExtension id="Intent.Blazor.AITasksFactoryExtension" externalReference="5629f5e2-99c2-4d40-aec6-e52e0ada2663" />
     <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
     <factoryExtension id="Intent.Blazor.HomePageDefaultContentFactoryExtension" externalReference="fd4c0d8e-c164-4923-8bcd-c6869fd2a175" />
+    <factoryExtension id="Intent.Blazor.SkillSampleFileOutputFactoryExtension" externalReference="076ff38f-2cb4-4ee3-9685-3b4a33499694" />
   </factoryExtensions>
   <moduleSettings>
     <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor Settings" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
@@ -348,7 +373,7 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
-    <dependency id="Intent.Common" version="3.11.3-pre.0" />
+    <dependency id="Intent.Common" version="3.11.4-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.9-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.Modelers.UI" version="1.1.5-pre.0" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="a4b6fd47-21b9-4950-a4e9-4143566f48d8" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
-  <name>BlazorSkillSampleFilesTemplate</name>
-  <display>BlazorSkillSampleFilesTemplate</display>
+<class id="3a61ff94-381c-4c86-8e3e-d2090e8d7d7d" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
+  <name>BlazorPageEditingEntitySkillSampleFilesTemplate</name>
+  <display>BlazorPageEditingEntitySkillSampleFilesTemplate</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -14,7 +14,7 @@
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
-        <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="GeneralSkillSamples" isActive="true" />
+        <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="ComponentSkillSamples/blazor-page-editing-entity" isActive="true" />
         <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
         <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="AI.Context.Skills" isActive="true" />
         <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" isActive="true" />

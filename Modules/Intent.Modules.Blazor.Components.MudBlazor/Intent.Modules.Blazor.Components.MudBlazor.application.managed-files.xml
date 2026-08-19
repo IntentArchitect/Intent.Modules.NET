@@ -19,7 +19,7 @@
   <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/SnackbarInstaller.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/FactoryExtensions/WireupCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Intent.Blazor.Components.MudBlazor.imodspec" />
-  <file path="Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.csproj" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.csproj" deviationsHash="E1A75EA2FBB775F717F9A16D38883559E33716ECF8E61B9E8E64666672622832" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Migrations/Migration_01_00_00_Beta_22.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Migrations/Migration_02_00_00_Pre_00.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/NugetPackages.cs" />
@@ -43,10 +43,22 @@
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorPageViewEntitySkill/MudBlazorPageViewEntitySkillTemplateRegistration.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplatePartial.cs" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/MudBlazorUxThemeSyncSkill/MudBlazorUxThemeSyncSkillTemplateRegistration.cs" />
-  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorSkillSampleFilesStaticContentTemplateRegistration.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="53082092C8A2F358BAF90777B1BF15A8625EDD70726AF45F4B176147E1CE6F9D" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="76DCD20357E2AA2E49B3F969040B986D2E88DC9A8DDA6496817824E7AA185BEB" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="1515D405666E020ECBA12AF89741DE23889A82AC1487BB2DB35040E157471E7D" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="AE9022F349ED66C0A491B045A63ED58CE26883AE99EB75AAB04E8FBD967C4903" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="B74493E21D10E9B6F6C82C927AEAC660C1490157FDB14CFEA9D97A02E3E712C7" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="7C0ACF42C34265E43D6DA877D2EC4C6358DFB6D7CECBB42DE5C0952921B91CB5" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/MudBlazorSkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="D74C4297135426D64331FF3CE82A8723D30B596985F4F35D4F08F9DE853D1DA3" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="EE96CA27619CF6039718006027152C225225E3AACC174479A426B06788FFEAD1" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/Templates/TemplateExtensions.cs" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-adding-entity/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-editing-entity/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-adding-entity/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-editing-entity/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-search-entity/readme.txt" />
+  <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-page-view-entity/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/Theme/readme.txt" />
   <file path="Intent.Modules.Blazor.Components.MudBlazor/content/ThemeToggle/readme.txt" />

@@ -4,6 +4,7 @@ using System.Text;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -95,8 +96,20 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         private string GetIntentionContext()
         {
             var intention = new StringBuilder();
+            AddThemeContent(intention);
             AddNavigationContext(intention);
             return intention.ToString();
+        }
+
+        private void AddThemeContent(StringBuilder intention)
+        {
+            if (!ExecutionContext.GetSettings().GetBlazor().EnableThemeToggle())
+            {
+                intention.AppendLine("This Layout does not have a ThemeToggle component in its Header, so it will not support theme toggling.");
+                return;
+            }
+
+            intention.AppendLine("This Layout has a ThemeToggle component in its Header, so it will support theme toggling.");
         }
 
         private void AddNavigationContext(StringBuilder intention)

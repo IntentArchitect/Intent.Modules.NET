@@ -1,9 +1,15 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using Microsoft.Extensions.FileSystemGlobbing;
+using SearchOption = System.IO.SearchOption;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -19,7 +25,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistr
         {
         }
 
-        public override string ContentSubFolder => "SkillSamples";
+        public override string ContentSubFolder => "GeneralSkillSamples";
 
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };
