@@ -1,0 +1,25 @@
+@* MainLayout — scaffolded exactly once from the model (OverwriteDisabled), same as
+   MainLayoutHeader/Sider/Footer/Profile. After that first generation, this file's region
+   composition is this skill's job to keep in sync, same as it keeps Header/Sider/Footer/Profile
+   markup in sync — but the ownership here is much narrower: only WHICH region components are
+   referenced, nothing else.
+
+   - <MainLayoutHeader /> and <MainLayoutSider /> are core — always present. Never remove them.
+   - <MainLayoutFooter /> is conditional: present only when MainLayoutFooter.razor exists for
+     this Layout (a Footer was modeled). If that file exists but the reference below is missing,
+     add it as the last sibling inside the layout wrapper, as shown here. If the file no longer
+     exists (Footer removed from the model) but the reference remains, remove it.
+   - Never add or remove <MainLayoutProfile /> here — that reference lives only inside
+     MainLayoutHeader.razor (see app-header-auth-sample.razor), never in MainLayout.razor itself.
+   - Everything else in this file — the outer wrapper element(s), its CSS classes, and where
+     @Body sits inside that wrapper — was decided by the first scaffold generation and is NOT
+     this skill's concern. Preserve it exactly, whatever shape it happens to be in a given
+     project (it may differ from the shape below). Do not rewrite, reorder, or "clean up" any
+     of it. *@
+
+<div class="ux-app-shell">
+    <MainLayoutHeader />
+    <MainLayoutSider />
+    <main class="ux-app-content">@Body</main>
+    <MainLayoutFooter />
+</div>

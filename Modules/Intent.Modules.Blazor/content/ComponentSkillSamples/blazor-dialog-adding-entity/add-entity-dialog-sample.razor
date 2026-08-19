@@ -1,0 +1,196 @@
+@using UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
+@using UI.AI.Samples.Application.Customers
+@using UI.AI.Samples.Domain
+
+<div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Customer</h5>
+                <button type="button" class="btn-icon" aria-label="Close" @onclick="Cancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">Enter the details for the new customer.</div>
+                <EditForm Model="Model" OnValidSubmit="SaveAsync">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary class="alert alert-danger" />
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Name</label>
+                            <InputText class="form-control" @bind-Value="Model.Name" placeholder="Enter name" />
+                            <ValidationMessage For="@(() => Model.Name)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Surname</label>
+                            <InputText class="form-control" @bind-Value="Model.Surname" placeholder="Enter surname" />
+                            <ValidationMessage For="@(() => Model.Surname)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Email</label>
+                            <InputText class="form-control" @bind-Value="Model.Email" placeholder="name@company.com" />
+                            <ValidationMessage For="@(() => Model.Email)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Category</label>
+                            <InputSelect class="form-select" Value="Model.CategoryId" ValueChanged="OnCategoryChanged" ValueExpression="@(() => Model.CategoryId)">
+                                <option value="">Select...</option>
+                                @if (CategoryLookup is { Count: > 0 })
+                                {
+                                    @foreach (var pc in CategoryLookup)
+                                    {
+                                        <option value="@pc.Id">@pc.Name</option>
+                                    }
+                                }
+                            </InputSelect>
+                            <ValidationMessage For="@(() => Model.CategoryId)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Sub Category</label>
+                            <InputSelect class="form-select" @bind-Value="Model.SubCategoryId">
+                                <option value="">Select...</option>
+                                @if (SubCategoryLookup is { Count: > 0 })
+                                {
+                                    @foreach (var bpt in SubCategoryLookup)
+                                    {
+                                        <option value="@bpt.Id">@bpt.Name</option>
+                                    }
+                                }
+                            </InputSelect>
+                            <ValidationMessage For="@(() => Model.SubCategoryId)" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch mt-4">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.IsActive" />
+                                <label class="form-check-label">Active customer?</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <hr class="my-4" />
+                            <h6>Preferences</h6>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.Specials" />
+                                <label class="form-check-label">Receive specials</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check form-switch">
+                                <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
+                                <label class="form-check-label">Subscribe to newsletter</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <hr class="my-4" />
+                            <h6>Addresses</h6>
+                        </div>
+                        <div class="col-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line 1</th>
+                                        <th>Line 2</th>
+                                        <th>City</th>
+                                        <th>Postal</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var context in Model.Addresses)
+                                    {
+                                        <tr>
+                                            <td>@context.AddressType.ToString()</td>
+                                            <td>@context.Line1</td>
+                                            <td>@context.Line2</td>
+                                            <td>@context.City</td>
+                                            <td>@context.Postal</td>
+                                            <td>
+                                                <button type="button" class="btn-icon" disabled="@_saving" @onclick="@(() => RemoveAddress(context))">&times;</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </EditForm>
+
+                <details class="mt-3">
+                    <summary>Add Address</summary>
+                    <EditForm Model="_newAddress" class="mt-2">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address Type</label>
+                                <InputSelect class="form-select" @bind-Value="_newAddress.AddressType">
+                                    <option value="@AddressType.Deliver">Delivery</option>
+                                    <option value="@AddressType.Billing">Billing</option>
+                                </InputSelect>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address line 1</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Line1" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Address line 2</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Line2" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">City</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.City" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Postal code</label>
+                                <InputText class="form-control" @bind-Value="_newAddress.Postal" />
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary" disabled="@_saving" @onclick="AddAddress">Add address</button>
+                            </div>
+                        </div>
+                    </EditForm>
+                </details>
+
+                <hr class="my-4" />
+                <details open="@_showLoyalty">
+                    <summary>Loyalty (Optional)</summary>
+                    <div class="form-check form-switch mb-3 mt-2">
+                        <InputCheckbox class="form-check-input" @bind-Value="_showLoyalty" />
+                        <label class="form-check-label">Capture loyalty information?</label>
+                    </div>
+                    @if (_showLoyalty)
+                    {
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Loyalty Number</label>
+                                <input class="form-control" @bind="_loyaltyModel.LoyaltyNo" placeholder="Enter loyalty number" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Points</label>
+                                <input type="number" class="form-control" @bind="_loyaltyModel.Points" placeholder="0" min="0" />
+                            </div>
+                        </div>
+                    }
+                </details>
+
+                @if (!string.IsNullOrEmpty(ErrorMessage))
+                {
+                    <div class="alert alert-danger mt-3">@ErrorMessage</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" disabled="@_saving" @onclick="SaveAsync">
+                    @if (_saving)
+                    {
+                        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        <span>Saving…</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </button>
+                <button type="button" class="btn btn-outline" disabled="@_saving" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

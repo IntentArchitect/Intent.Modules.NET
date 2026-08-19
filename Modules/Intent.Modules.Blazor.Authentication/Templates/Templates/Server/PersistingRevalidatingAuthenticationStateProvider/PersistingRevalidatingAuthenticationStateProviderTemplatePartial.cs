@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
@@ -74,7 +76,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         method.AddParameter("AuthenticationState", "authenticationState");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+                        var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+                        if (securityType.IsBuiltInLoginASPNETIdentity())
                         {
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
                             var identityUserName = string.Empty;
@@ -95,7 +98,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         }
                     });
 
-                    if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+                    var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+                    if (securityType.IsBuiltInLoginASPNETIdentity())
                     {
                         @class.AddMethod("Task<bool>", "ValidateSecurityStampAsync", method =>
                         {

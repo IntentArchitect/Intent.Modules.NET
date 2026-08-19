@@ -55,6 +55,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                     }
 
                     var mudBlazorInstalled = outputTarget.ExecutionContext.InstalledModules.Any(module => module.ModuleId == MudBlazorModuleId);
+                    var enableThemeToggle = outputTarget.ExecutionContext.GetSettings().GetBlazor().EnableThemeToggle();
 
                     file.AddInheritsDirective("LayoutComponentBase");
                     // The ThemeToggle component lives in the layout namespace; import it so <ThemeToggle /> resolves.
@@ -64,11 +65,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
 
                     if (mudBlazorInstalled)
                     {
-                        AddMudBlazorAccountShell(file);
+                        AddMudBlazorAccountShell(file, enableThemeToggle);
                     }
                     else
                     {
-                        AddStandardAccountShell(file);
+                        AddStandardAccountShell(file, enableThemeToggle);
                     }
 
                     // Route the @code members into the sibling AccountLayout.razor.cs code-behind (via
@@ -81,7 +82,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                         httpContext.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameterAttribute").RemoveSuffix("Attribute"));
                     });
 
-                    if (mudBlazorInstalled)
+                    if (mudBlazorInstalled && enableThemeToggle)
                     {
                         // Derive the Mud dark/light mode from the theme cookie on the server so the
                         // (circuit-free) static-SSR account pages render the correct palette first paint.
@@ -154,16 +155,19 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
             return _codeBehind;
         }
 
-        private static void AddMudBlazorAccountShell(IRazorFile file)
+        private static void AddMudBlazorAccountShell(IRazorFile file, bool enableThemeToggle)
         {
-            file.AddHtmlElement("MudThemeProvider", themeProvider => themeProvider.AddAttribute("IsDarkMode", "@IsDarkTheme"));
+            file.AddHtmlElement("MudThemeProvider", themeProvider => themeProvider.AddAttribute("IsDarkMode", enableThemeToggle ? "@IsDarkTheme" : "true"));
             file.AddHtmlElement("MudPopoverProvider");
             file.AddHtmlElement("MudDialogProvider");
             file.AddHtmlElement("MudSnackbarProvider");
             file.AddEmptyLine();
 
             file.AddHtmlElement("AppBrand", appBrand => appBrand.AddAttribute("Class", "account-brand"));
-            file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            if (enableThemeToggle)
+            {
+                file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            }
             file.AddEmptyLine();
 
             file.AddHtmlElement("MudLayout", mudLayout => mudLayout
@@ -178,10 +182,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                 }));
         }
 
-        private static void AddStandardAccountShell(IRazorFile file)
+        private static void AddStandardAccountShell(IRazorFile file, bool enableThemeToggle)
         {
             file.AddHtmlElement("AppBrand", appBrand => appBrand.AddAttribute("Class", "account-brand"));
-            file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            if (enableThemeToggle)
+            {
+                file.AddHtmlElement("ThemeToggle", themeToggle => themeToggle.AddAttribute("Class", "account-theme-toggle"));
+            }
             file.AddEmptyLine();
 
             file.AddHtmlElement("main", main =>

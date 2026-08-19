@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
@@ -144,7 +146,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         });
                     });
 
-                    @class.AddMethod("Task", "Register", method =>
+                    @class.AddMethod("Task<IEnumerable<IdentityError>>", "Register", method =>
                     {
                         method.Async();
                         method.AddParameter("string", "email");
@@ -163,7 +165,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
 
                         method.AddIfStatement("!result.Succeeded", @if =>
                         {
-                            @if.AddStatement("throw new Exception(\"Could not register user\");");
+                            @if.AddReturn("result.Errors");
                         });
 
                         method.AddAssignmentStatement("var userId", new CSharpStatement("await _userManager.GetUserIdAsync(user);"));
@@ -181,6 +183,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                             @else.AddStatement("await _signInManager.SignInAsync(user, isPersistent: false);");
                             @else.AddStatement("_redirectManager.RedirectTo(returnUrl);");
                         });
+
+                        method.AddReturn("Array.Empty<IdentityError>()");
                     });
 
                     @class.AddMethod(identityUserName, "CreateUser", method =>
@@ -267,7 +271,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity();
+            var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+            return base.CanRunTemplate() && securityType.IsBuiltInLoginASPNETIdentity();
         }
     }
 }

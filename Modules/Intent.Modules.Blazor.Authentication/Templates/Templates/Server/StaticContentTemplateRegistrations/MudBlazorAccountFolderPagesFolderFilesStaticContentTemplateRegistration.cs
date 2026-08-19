@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -44,12 +46,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
-                // dangling `@using …Data` (a compile error). Non-Identity setups that still have a
-                // Data namespace keep the using.
+                // JWT/SSO apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data` (a compile error). Only Built-in Login (ASP.NET Identity)
+                // generates that namespace.
                 var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Pages", "").Replace("Components.Account.Pages.Manage", "")}Data";
-                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
-                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+
+                var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
+                var hasDataNamespace = securityType.IsBuiltInLoginASPNETIdentity();
+
+                replacements.Add("NamespaceData", hasDataNamespace ? $"@using {dataNamespace}" : "");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else
@@ -67,19 +72,19 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var auth = application.GetSettings().GetBlazor().Authentication();
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
             if (!mudBlazorInstalled)
             {
                 return;
             }
 
-            if (auth.IsAspnetcoreIdentity())
+            if (auth.IsBuiltInLoginASPNETIdentity())
             {
                 // Identity: the full account page set (incl. Manage/*, 2FA, external login, email change).
                 RegisterAuthStaticContent(registry, application);
             }
-            else if (auth.IsJwt())
+            else if (auth.IsBearerTokenJWT())
             {
                 // JWT: only the account-pages layout wiring (_Imports → @layout AccountLayout). JWT's
                 // actual pages are RazorBuilder templates; the Identity-only static pages stay out, so

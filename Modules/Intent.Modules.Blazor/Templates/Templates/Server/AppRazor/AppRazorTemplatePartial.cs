@@ -37,7 +37,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                 {
                     file.AddHtmlElement("html", html =>
                     {
+                        var enableThemeToggle = ExecutionContext.Settings.GetBlazor().EnableThemeToggle();
+
                         html.AddAttribute("lang", "en");
+                        html.AddAttribute("class", "ux-drawer-open");
+                        if (enableThemeToggle)
+                        {
+                            html.AddAttribute("data-theme", "@_theme");
+                            html.AddAttribute("data-theme-storage", "cookie");
+                        }
                         html.AddEmptyLine();
                         html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
@@ -62,7 +70,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
-                            
+
                             head.AddHtmlElement("HeadOutlet", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                         });
 
@@ -72,8 +80,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                         {
                             body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                             body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
-                            body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
-                            body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
+                            if (enableThemeToggle)
+                            {
+                                body.AddHtmlElement("script", t => t.AddAttribute("src", "theme-storage.js"));
+                            }
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "nav-drawer.js"));
+                            body.AddHtmlElement("script", t => t.AddAttribute("src", "user-menu.js"));
+                            if (enableThemeToggle)
+                            {
+                                body.AddHtmlElement("script", t => t.WithText("themeStorage.init();"));
+                            }
                         });
 
                         html.AddEmptyLine();
@@ -99,6 +115,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
                             }
                         });
+
+                        if (ExecutionContext.Settings.GetBlazor().EnableThemeToggle())
+                        {
+                            code.AddProperty("string", "_theme", prop =>
+                            {
+                                prop.Private();
+                                prop.WithoutSetter();
+                                prop.Getter.WithExpressionImplementation("HttpContext.Request.Cookies.TryGetValue(\"theme\", out var t) && t == \"light\" ? \"light\" : \"dark\"");
+                            });
+                        }
                     });
                 });
         }
@@ -119,9 +145,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         public override string TransformText()
         {
             return $"""
-                    <!DOCTYPE html>
-                    {RazorFile.ToString().Trim()}
-                    """;
+                <!DOCTYPE html>
+                {RazorFile.ToString().Trim()}
+                """;
         }
 
         private static string GetRenderModeConfiguration(RenderModeOptionsEnum? renderMode) => renderMode switch

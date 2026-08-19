@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -41,7 +42,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
                 return [];
             }
 
-            return _metadataManager.UserInterface(application).GetComponentModels();
+            return _metadataManager.UserInterface(application).GetComponentModels()
+                .Where(model => !model.HasRenderOnServer() && !model.HasPage() && !model.HasDialog());
         }
     }
 }

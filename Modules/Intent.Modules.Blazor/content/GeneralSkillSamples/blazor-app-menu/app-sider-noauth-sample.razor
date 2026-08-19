@@ -1,0 +1,15 @@
+@* MainLayoutSider — NoAuth project variant. No Authentication module installed, so there is NO
+   AuthorizeView, no CascadingAuthenticationState, and no auth-conditional rendering anywhere
+   in this file. Every item renders unconditionally, in the order given by the context.
+
+   The outer <nav class="ux-nav-drawer"> wrapper is the current scaffold's shape. Items use the
+   built-in <NavLink> component (not a plain <a>) so the active route gets highlighted
+   automatically. *@
+
+<nav class="ux-nav-drawer">
+    <ul class="nav flex-column">
+        <li class="nav-item"><NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Home</NavLink></li>
+        <li class="nav-item"><NavLink class="nav-link" href="/product-list">Product List</NavLink></li>
+        <li class="nav-item"><NavLink class="nav-link" href="/order-list">Order List</NavLink></li>
+    </ul>
+</nav>

@@ -1,0 +1,130 @@
+@using UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
+@using UI.AI.Samples.Domain
+
+<div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Customer</h5>
+                <button type="button" class="btn-icon" aria-label="Close" @onclick="OnCancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                @if (Model == null)
+                {
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status" aria-hidden="true"></div>
+                    </div>
+                }
+                else
+                {
+                    <EditForm Model="Model">
+                        <DataAnnotationsValidator />
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <label class="form-label">First Name</label>
+                                <InputText class="form-control" @bind-Value="Model.Name" />
+                                <ValidationMessage For="@(() => Model.Name)" />
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Surname</label>
+                                <InputText class="form-control" @bind-Value="Model.Surname" />
+                                <ValidationMessage For="@(() => Model.Surname)" />
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label class="form-label">Email</label>
+                            <InputText class="form-control" @bind-Value="Model.Email" />
+                            <ValidationMessage For="@(() => Model.Email)" />
+                        </div>
+                        <div class="form-check form-switch mt-2">
+                            <InputCheckbox class="form-check-input" @bind-Value="Model.IsActive" />
+                            <label class="form-check-label">Active</label>
+                        </div>
+                        <div class="ux-inner-panel p-2 my-2">
+                            <div class="fw-semibold mb-1">Preferences</div>
+                            <div class="d-flex gap-3">
+                                <div class="form-check form-switch">
+                                    <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
+                                    <label class="form-check-label">Newsletter</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.Specials" />
+                                    <label class="form-check-label">Specials</label>
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.Loyalty != null)
+                        {
+                            <div class="ux-inner-panel p-2 my-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="fw-semibold mb-1">Loyalty</div>
+                                    <button type="button" class="btn btn-outline-danger" @onclick="RemoveLoyalty">Remove</button>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <label class="form-label">Loyalty No</label>
+                                        <InputText class="form-control" @bind-Value="Model.Loyalty.LoyaltyNo" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">Points</label>
+                                        <InputNumber class="form-control" @bind-Value="Model.Loyalty.Points" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-outline-primary mt-2" @onclick="AddLoyalty">Add Loyalty</button>
+                        }
+                        <div class="ux-inner-panel p-2 my-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="fw-semibold mb-1">Addresses</div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="AddAddress">Add Address</button>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Line 1</th>
+                                        <th>Line 2</th>
+                                        <th>City</th>
+                                        <th>Postal</th>
+                                        <th>Type</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var context in Model.Addresses)
+                                    {
+                                        <tr>
+                                            <td><input class="form-control" @bind="context.Line1" /></td>
+                                            <td><input class="form-control" @bind="context.Line2" /></td>
+                                            <td><input class="form-control" @bind="context.City" /></td>
+                                            <td><input class="form-control" @bind="context.Postal" /></td>
+                                            <td>
+                                                <select class="form-select" @bind="context.AddressType">
+                                                    <option value="@AddressType.Deliver">Delivery</option>
+                                                    <option value="@AddressType.Billing">Billing</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn-icon" @onclick="@(() => RemoveAddress(context))">&times;</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @if (_showAtLeastOneDeliveryMessage)
+                            {
+                                <div class="text-danger small">At least one delivery address is required.</div>
+                            }
+                        </div>
+                    </EditForm>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" disabled="@_isSaving" @onclick="OnCancel">Cancel</button>
+                <button type="button" class="btn btn-primary" disabled="@(_isSaving || Model == null)" @onclick="OnSubmit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

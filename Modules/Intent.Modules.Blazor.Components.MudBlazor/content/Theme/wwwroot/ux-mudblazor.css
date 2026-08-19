@@ -1,51 +1,51 @@
 /* ============================================================================
-   MudBlazor Design System Bridge
-   Requires: ux-tokens.css (from Intent.Blazor module)
-   ============================================================================ */
+MudBlazor Design System Bridge
+Requires: ux-tokens.css (from Intent.Blazor module)
+============================================================================ */
 
 
 /* ============================================================================
-   SECTION 1: MudBlazor Palette Bridge
-   Maps the design token layer onto MudBlazor's CSS variable namespace.
-   ============================================================================ */
+SECTION 1: MudBlazor Palette Bridge
+Maps the design token layer onto MudBlazor's CSS variable namespace.
+============================================================================ */
 
 :root[data-theme] {
-    --mud-default-font: var(--font-primary);
-    --mud-palette-primary: var(--primary);
-    --mud-palette-primary-text: var(--primary-contrast);
-    --mud-palette-secondary: var(--text-muted);
-    --mud-palette-background: var(--bg);
-    --mud-palette-surface: var(--surface);
-    --mud-palette-background-grey: var(--surface-2);
-    --mud-palette-text-primary: var(--text);
-    --mud-palette-text-secondary: var(--text-muted);
-    --mud-palette-text-disabled: var(--text-secondary);
-    --mud-palette-divider: var(--border);
-    --mud-palette-divider-light: var(--border-light);
-    --mud-palette-grey-light: var(--border);
-    --mud-palette-grey-lighter: var(--surface-2);
-    --mud-palette-grey-dark: var(--text-secondary);
-    --mud-palette-grey-darker: var(--text-muted);
-    --mud-palette-success: var(--success);
-    --mud-palette-warning: var(--warning);
-    --mud-palette-error: var(--danger);
-    --mud-palette-info: var(--info);
-    --mud-palette-action-default: var(--text-secondary);
-    --mud-palette-action-disabled: color-mix(in srgb, var(--text-secondary) 35%, transparent);
-    --mud-palette-table-hover: var(--primary-subtle);
-    --mud-palette-table-striped: transparent;
-    --mud-palette-table-striped-hover: var(--primary-subtle);
-    --mud-palette-appbar-background: var(--surface);
-    --mud-palette-appbar-text: var(--text);
-    --mud-palette-drawer-background: var(--surface);
-    --mud-palette-drawer-text: var(--text);
-    --mud-palette-drawer-icon: var(--text-muted);
+    --mud-default-font: var(--font-primary) !important;
+    --mud-palette-primary: var(--primary) !important;
+    --mud-palette-primary-text: var(--primary-contrast) !important;
+    --mud-palette-secondary: var(--text-muted) !important;
+    --mud-palette-background: var(--bg) !important;
+    --mud-palette-surface: var(--surface) !important;
+    --mud-palette-background-grey: var(--surface-2) !important;
+    --mud-palette-text-primary: var(--text) !important;
+    --mud-palette-text-secondary: var(--text-muted) !important;
+    --mud-palette-text-disabled: var(--text-secondary) !important;
+    --mud-palette-divider: var(--border) !important;
+    --mud-palette-divider-light: var(--border-light) !important;
+    --mud-palette-grey-light: var(--border) !important;
+    --mud-palette-grey-lighter: var(--surface-2) !important;
+    --mud-palette-grey-dark: var(--text-secondary) !important;
+    --mud-palette-grey-darker: var(--text-muted) !important;
+    --mud-palette-success: var(--success) !important;
+    --mud-palette-warning: var(--warning) !important;
+    --mud-palette-error: var(--danger) !important;
+    --mud-palette-info: var(--info) !important;
+    --mud-palette-action-default: var(--text-secondary) !important;
+    --mud-palette-action-disabled: color-mix(in srgb, var(--text-secondary) 35%, transparent) !important;
+    --mud-palette-table-hover: var(--primary-subtle) !important;
+    --mud-palette-table-striped: transparent !important;
+    --mud-palette-table-striped-hover: var(--primary-subtle) !important;
+    --mud-palette-appbar-background: var(--surface) !important;
+    --mud-palette-appbar-text: var(--text) !important;
+    --mud-palette-drawer-background: var(--bg) !important;
+    --mud-palette-drawer-text: var(--text) !important;
+    --mud-palette-drawer-icon: var(--text-muted) !important;
 }
 
 
 /* ============================================================================
-   SECTION 2: MudBlazor Typography Override
-   ============================================================================ */
+SECTION 2: MudBlazor Typography Override
+============================================================================ */
 
 .mud-typography,
 .mud-typography-h1,
@@ -66,8 +66,8 @@
 
 
 /* ============================================================================
-   SECTION 3: MudBlazor Component Overrides
-   ============================================================================ */
+SECTION 3: MudBlazor Component Overrides
+============================================================================ */
 
 /* Ensure full-page background is sealed — prevents html corner gradients showing through */
 .mud-layout {
@@ -106,8 +106,8 @@
     transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out) !important;
 }
 
-    .mud-appbar .mud-button-root:hover,
-    .mud-appbar .mud-icon-button:hover,
+.mud-appbar .mud-button-root:hover,
+.mud-appbar .mud-icon-button:hover,
     .mud-appbar .mud-icon-button-root:hover {
         color: var(--primary) !important;
         background-color: var(--hover-overlay) !important;
@@ -211,9 +211,17 @@
                 box-shadow: 0 0 8px rgba(14,165,233,0.60);
             }
 
+.mud-main-content {
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .mud-main-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
+}
+
 /* --- Main Content background ---
-   Dark mode: ambient top glow + line grid.
-   Light mode: line grid only — no tint gradient to avoid visible bands. */
+Dark mode: ambient top glow + line grid.
+Light mode: line grid only — no tint gradient to avoid visible bands. */
 .mud-main-content {
     min-height: 100vh !important;
     background-color: var(--bg) !important;
@@ -249,13 +257,13 @@
         transform: translateY(-2px);
     }
 
-    /* List-page content cards: no hover lift */
+/* List-page content cards: no hover lift */
     .mud-card.ux-fade-in-up:hover {
         transform: none !important;
         border-color: rgba(14, 165, 233, 0.20) !important;
     }
 
-    /* Center-fading gradient accent line — "lit from within" */
+/* Center-fading gradient accent line — "lit from within" */
     .mud-card.ux-fade-in-up::before {
         content: '';
         position: absolute;
@@ -269,7 +277,7 @@
         pointer-events: none;
     }
 
-    /* Upgraded shadow with brand ambient for list-page cards */
+/* Upgraded shadow with brand ambient for list-page cards */
     .mud-card.ux-fade-in-up {
         box-shadow: var(--shadow-3), 0 0 60px rgba(14,165,233,0.07), 0 0 0 1px rgba(14,165,233,0.05) inset !important;
     }
@@ -295,9 +303,9 @@
 }
 
 /* --- Buttons — unified outlined-pill system ---
-   ALL button variants share the same base shape. Color determines the
-   border/text tint; hover fills the background and adds a glow.
-   ------------------------------------------------------------------- */
+ALL button variants share the same base shape. Color determines the
+border/text tint; hover fills the background and adds a glow.
+------------------------------------------------------------------- */
 
 /* Shared base — shape, typography, transition */
 .mud-button-root.mud-button {
@@ -340,7 +348,7 @@
     box-shadow: none !important;
 }
 
-    .mud-button-outlined-primary:not(:disabled):hover,
+.mud-button-outlined-primary:not(:disabled):hover,
     .mud-button-text-primary:not(:disabled):hover {
         background: var(--primary-subtle) !important;
         border-color: var(--primary) !important;
@@ -359,8 +367,8 @@
     box-shadow: none !important;
 }
 
-    .mud-button-filled-secondary:not(:disabled):hover,
-    .mud-button-outlined-secondary:not(:disabled):hover,
+.mud-button-filled-secondary:not(:disabled):hover,
+.mud-button-outlined-secondary:not(:disabled):hover,
     .mud-button-text-secondary:not(:disabled):hover {
         background: var(--primary-subtle) !important;
         border-color: var(--primary) !important;
@@ -381,10 +389,10 @@
     box-shadow: none !important;
 }
 
-    .mud-button-filled-default:not(:disabled):hover,
-    .mud-button-outlined-default:not(:disabled):hover,
-    .mud-button-text-default:not(:disabled):hover,
-    .mud-button-filled-inherit:not(:disabled):hover,
+.mud-button-filled-default:not(:disabled):hover,
+.mud-button-outlined-default:not(:disabled):hover,
+.mud-button-text-default:not(:disabled):hover,
+.mud-button-filled-inherit:not(:disabled):hover,
     .mud-button-text-inherit:not(:disabled):hover {
         background: var(--primary-subtle) !important;
         border-color: var(--primary) !important;
@@ -403,8 +411,8 @@
     box-shadow: none !important;
 }
 
-    .mud-button-filled-error:not(:disabled):hover,
-    .mud-button-outlined-error:not(:disabled):hover,
+.mud-button-filled-error:not(:disabled):hover,
+.mud-button-outlined-error:not(:disabled):hover,
     .mud-button-text-error:not(:disabled):hover {
         background: var(--danger-subtle) !important;
         border-color: var(--danger) !important;
@@ -480,7 +488,7 @@
         white-space: nowrap;
     }
 
-    /* Sort label arrow inherits correct colour */
+/* Sort label arrow inherits correct colour */
     .mud-table-head .mud-button-root {
         color: var(--text-secondary) !important;
     }
@@ -576,18 +584,18 @@
     box-sizing: content-box;
 }
 
-    .mud-input-adornment-start .mud-svg-icon,
-    .mud-input-adornment-end .mud-svg-icon,
-    .mud-input-adornment-start .mud-icon-root,
+.mud-input-adornment-start .mud-svg-icon,
+.mud-input-adornment-end .mud-svg-icon,
+.mud-input-adornment-start .mud-icon-root,
     .mud-input-adornment-end .mud-icon-root {
         font-size: 1rem;
         line-height: 1;
         color: var(--text-secondary);
     }
 
-    /* Numeric field spin buttons — reset to subtle icon-only; no border or fill */
-    .mud-input-adornment-end .mud-button-root,
-    .mud-input-adornment-end .mud-button-root.mud-button,
+/* Numeric field spin buttons — reset to subtle icon-only; no border or fill */
+.mud-input-adornment-end .mud-button-root,
+.mud-input-adornment-end .mud-button-root.mud-button,
     .mud-input-adornment-end .mud-button-root.mud-icon-button {
         background: transparent !important;
         border: none !important;
@@ -607,7 +615,7 @@
         border-radius: 2px !important;
     }
 
-        .mud-input-adornment-end .mud-button-root .mud-svg-icon,
+.mud-input-adornment-end .mud-button-root .mud-svg-icon,
         .mud-input-adornment-end .mud-button-root .mud-icon-root {
             font-size: 14px !important;
             width: 14px !important;
@@ -635,7 +643,7 @@
     overflow: hidden !important;
 }
 
-    .mud-input-numeric-spin button,
+.mud-input-numeric-spin button,
     .mud-input-numeric-spin .mud-button-root {
         flex: 1 1 50% !important;
         height: 50% !important;
@@ -654,16 +662,16 @@
         transform: none !important;
     }
 
-        .mud-input-numeric-spin button .mud-svg-icon,
-        .mud-input-numeric-spin button .mud-icon-root,
-        .mud-input-numeric-spin .mud-button-root .mud-svg-icon,
+.mud-input-numeric-spin button .mud-svg-icon,
+.mud-input-numeric-spin button .mud-icon-root,
+.mud-input-numeric-spin .mud-button-root .mud-svg-icon,
         .mud-input-numeric-spin .mud-button-root .mud-icon-root {
             font-size: 12px !important;
             width: 12px !important;
             height: 12px !important;
         }
 
-        .mud-input-numeric-spin button:hover,
+.mud-input-numeric-spin button:hover,
         .mud-input-numeric-spin .mud-button-root:hover {
             background: var(--primary-subtle) !important;
             color: var(--primary) !important;
@@ -746,7 +754,7 @@
     border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
 }
 
-    .mud-dialog-title .mud-typography,
+.mud-dialog-title .mud-typography,
     .mud-dialog-title h6 {
         background: var(--gradient-brand) !important;
         -webkit-background-clip: text !important;
@@ -786,14 +794,14 @@
     padding: 12px 16px !important;
 }
 
-    /* Force all text / buttons inside the toolbar to be white */
-    .mud-picker-toolbar .mud-button-root,
-    .mud-picker-toolbar .mud-icon-button,
-    .mud-picker-toolbar .mud-button-root span,
-    .mud-picker-toolbar .mud-typography,
-    .mud-picker-toolbar p,
-    .mud-picker-toolbar h4,
-    .mud-picker-toolbar h5,
+/* Force all text / buttons inside the toolbar to be white */
+.mud-picker-toolbar .mud-button-root,
+.mud-picker-toolbar .mud-icon-button,
+.mud-picker-toolbar .mud-button-root span,
+.mud-picker-toolbar .mud-typography,
+.mud-picker-toolbar p,
+.mud-picker-toolbar h4,
+.mud-picker-toolbar h5,
     .mud-picker-toolbar h6 {
         color: #ffffff !important;
         border: none !important;
@@ -801,7 +809,7 @@
         box-shadow: none !important;
     }
 
-        .mud-picker-toolbar .mud-button-root:hover,
+.mud-picker-toolbar .mud-button-root:hover,
         .mud-picker-toolbar .mud-icon-button:hover {
             background: rgba(255,255,255,0.15) !important;
             color: #ffffff !important;
@@ -824,7 +832,7 @@
     box-shadow: none !important;
 }
 
-    .mud-picker-calendar-header-switch .mud-button-root:hover,
+.mud-picker-calendar-header-switch .mud-button-root:hover,
     .mud-picker-calendar-header-switch .mud-icon-button:hover {
         background: var(--primary-subtle) !important;
         color: var(--primary) !important;
@@ -856,14 +864,14 @@
         filter: none !important;
     }
 
-    /* Today highlight */
+/* Today highlight */
     .mud-day.mud-today {
         border: 1px solid var(--primary) !important;
         color: var(--primary) !important;
     }
 
-    /* Selected day */
-    .mud-day.mud-selected,
+/* Selected day */
+.mud-day.mud-selected,
     .mud-selected .mud-day {
         background: var(--gradient-brand) !important;
         color: #ffffff !important;
@@ -955,7 +963,7 @@
     letter-spacing: 0.02em !important;
 }
 
-    /* Status chips — frosted glass */
+/* Status chips — frosted glass */
     .mud-chip.mud-chip-color-success {
         background-color: color-mix(in srgb, var(--success) 13%, transparent) !important;
         color: var(--success) !important;
@@ -994,8 +1002,8 @@
 
 
 /* ============================================================================
-   SECTION 4: MudBlazor Page Header Utility
-   ============================================================================ */
+SECTION 4: MudBlazor Page Header Utility
+============================================================================ */
 
 /* ── Page header — AI SaaS: dramatic hero-scale title with ambient lighting ── */
 .mud-paper.ux-gradient-primary {
@@ -1004,15 +1012,19 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     backdrop-filter: blur(20px) !important;
-    margin: -1rem -1rem 1.5rem calc(-1rem - var(--mud-drawer-width-left, 240px)) !important;
-    padding: 1.5rem 2.5rem 3rem calc(var(--mud-drawer-width-left, 240px) + 2.5rem) !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
+    margin: -1rem -1rem 1.5rem -1rem !important;
+    padding: 1.5rem 2.5rem 3rem 2.5rem !important;
     position: relative !important;
     overflow: hidden !important;
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1), padding-left 0.225s cubic-bezier(0, 0, 0.2, 1);
 }
 
-    /* Decorative glow orb behind the title */
+html.ux-drawer-open .mud-paper.ux-gradient-primary {
+    margin-left: calc(-1rem - var(--mud-drawer-width-left, 240px)) !important;
+    padding-left: calc(var(--mud-drawer-width-left, 240px) + 2.5rem) !important;
+}
+
+/* Decorative glow orb behind the title */
     .mud-paper.ux-gradient-primary::before {
         content: '' !important;
         display: block !important;
@@ -1030,7 +1042,7 @@
         display: none !important;
     }
 
-    /* Title — sky-to-cobalt gradient text, hero scale */
+/* Title — sky-to-cobalt gradient text, hero scale */
     .mud-paper.ux-gradient-primary .mud-typography-h4 {
         font-size: clamp(1.375rem, 2.5vw, 1.75rem) !important;
         font-weight: 800 !important;
@@ -1048,8 +1060,8 @@
         z-index: 1 !important;
     }
 
-        /* Icon badge — larger, more prominent */
-        .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
+/* Icon badge — larger, more prominent */
+.mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
         .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-svg-icon {
             background: var(--gradient-brand) !important;
             border-radius: var(--radius-md) !important;
@@ -1063,7 +1075,7 @@
             box-shadow: 0 0 0 1px rgba(14,165,233,0.25), 0 4px 20px rgba(14,165,233,0.50) !important;
         }
 
-    /* Subtitle — larger, more breathing room */
+/* Subtitle — larger, more breathing room */
     .mud-paper.ux-gradient-primary .mud-typography-body1 {
         color: var(--text-muted) !important;
         font-size: var(--type-body-md) !important;
@@ -1090,7 +1102,7 @@
         display: none !important;
     }
 
-    :root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
+:root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-icon-root,
     :root[data-theme="light"] .mud-paper.ux-gradient-primary .mud-typography-h4 .mud-svg-icon {
         box-shadow: 0 0 0 1px rgba(2,132,199,0.20), 0 4px 16px rgba(2,132,199,0.35) !important;
     }
@@ -1103,8 +1115,8 @@
 
 
 /* ============================================================================
-   SECTION 5: Home Page — MudBlazor-specific Overrides
-   ============================================================================ */
+SECTION 5: Home Page — MudBlazor-specific Overrides
+============================================================================ */
 
 /* Primary hero CTA — gradient fill overrides the global outlined rule */
 .hero-cta-primary.mud-button-root.mud-button {
@@ -1126,8 +1138,8 @@
 
 
 /* ============================================================================
-   SECTION 6: Responsive Overrides
-   ============================================================================ */
+SECTION 6: Responsive Overrides
+============================================================================ */
 
 @media (max-width: 768px) {
     .mud-card-content {

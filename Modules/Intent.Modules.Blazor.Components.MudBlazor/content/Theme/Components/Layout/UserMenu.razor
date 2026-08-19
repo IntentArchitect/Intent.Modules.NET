@@ -8,7 +8,7 @@
     <summary class="ux-user-menu-trigger" title="@Title" aria-label="@Title">
         @Trigger
     </summary>
-    <div class="ux-user-menu-panel">
+    <div class="ux-user-menu-panel" onclick="this.closest('details').removeAttribute('open')">
         @ChildContent
     </div>
 </details>

@@ -36,7 +36,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Security.Claims")
-                .AddUsing("System")                
+                .AddUsing("System")
                 .AddUsing("System.Diagnostics")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Authentication")
                 .AddClass($"PersistingServerAuthenticationStateProvider", @class =>
@@ -94,17 +94,17 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                                 iif.AddStatement("expiresAt = DateTime.UtcNow.AddHours(1);");
                             });
 
-@if.AddIfStatement("userId != null && email != null", @iif =>
-                            {
-                                @iif.AddStatement(@"var userInfo = new UserInfo {
+                            @if.AddIfStatement("userId != null && email != null", @iif =>
+                                                        {
+                                                            @iif.AddStatement(@"var userInfo = new UserInfo {
                         UserId = userId, 
                         Email = email, 
                         AccessToken = accessToken, 
                         RefreshToken = refreshToken, 
                         AccessTokenExpiresAt = expiresAt, 
                         RefreshUrl = refreshUrl};");
-                                @iif.AddStatement($"_persistentComponentState.PersistAsJson(nameof({GetTypeName(UserInfoTemplate.TemplateId)}), userInfo);");
-                            });
+                                                            @iif.AddStatement($"_persistentComponentState.PersistAsJson(nameof({GetTypeName(UserInfoTemplate.TemplateId)}), userInfo);");
+                                                        });
                         });
                     });
 

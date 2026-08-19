@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -36,7 +38,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
                         method.AddParameter("string", "returnUrl");
                     });
 
-                    if (!outputTarget.ExecutionContext.Settings.GetBlazor().Authentication().IsOidc())
+                    var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+
+                    if (!securityType.IsSingleSignOnOpenIDConnect() && !securityType.IsNone())
                     {
                         @interface.AddMethod("Task<string>", "ConfirmEmail", method =>
                         {
@@ -51,7 +55,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthSe
                             method.AddParameter("string", "email");
                         });
 
-                        @interface.AddMethod("Task", "Register", method =>
+                        AddUsing("System.Collections.Generic");
+                        @interface.AddMethod($"Task<IEnumerable<{UseType("Microsoft.AspNetCore.Identity.IdentityError")}>>", "Register", method =>
                         {
                             method.Async();
                             method.AddParameter("string", "email");

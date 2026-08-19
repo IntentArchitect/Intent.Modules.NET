@@ -3,8 +3,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Common;
@@ -39,7 +37,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var razorComponents = application.FindTemplateInstances<IRazorComponentTemplate>(RazorComponentTemplate.TemplateId);
+            var razorComponents = ComponentTemplateIds.AllClientRazorTemplateIds
+                .SelectMany(application.FindTemplateInstances<IRazorComponentTemplate>);
             AddErrorHandling(application, razorComponents);
             var razorLayouts = application.FindTemplateInstances<IRazorComponentTemplate>(RazorLayoutTemplate.TemplateId);
             AddErrorHandling(application, razorLayouts);

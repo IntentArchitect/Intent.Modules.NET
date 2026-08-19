@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
@@ -93,7 +95,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                             [FromForm] string returnUrl) =>
                             {{
                                 await signInManager.SignOutAsync();
-                                return TypedResults.LocalRedirect($""~/{{returnUrl}}"");
+                                return TypedResults.LocalRedirect(string.IsNullOrWhiteSpace(returnUrl) ? ""/"" : returnUrl);
                             }});".ConvertToStatements());
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapGet(""/Logout"", async (SignInManager<{identityUserName}> signInManager, string? returnUrl) =>
@@ -182,7 +184,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity();
+            var securityType = ExecutionContext.MetadataManager.GetAuthenticationType(ExecutionContext.GetApplicationConfig().Id);
+            return base.CanRunTemplate() && securityType.IsBuiltInLoginASPNETIdentity();
         }
     }
 }

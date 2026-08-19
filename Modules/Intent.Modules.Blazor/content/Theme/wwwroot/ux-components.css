@@ -1,40 +1,46 @@
 /* ============================================================================
-   ux-components.css
-   Reusable component primitives and utility classes.
-   Utilities are intentionally last so they can override component styles.
-   Requires: ux-tokens.css, ux-base.css
-   ============================================================================ */
+ux-components.css
+Reusable component primitives and utility classes.
+Utilities are intentionally last so they can override component styles.
+Requires: ux-tokens.css, ux-base.css
+============================================================================ */
 
 
 /* ============================================================================
-   SECTION 1: Standard Form Controls
-   ============================================================================ */
+SECTION 1: Standard Form Controls
+============================================================================ */
 
 .form-control,
 .form-select {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0 var(--space-3);
     font-family: var(--font-primary);
+    font-size: var(--type-body-sm);
+    line-height: 1.4;
     color: var(--text);
-    background-color: var(--surface);
+    background-color: var(--surface-2);
     background-clip: padding-box;
     border: var(--border-width) solid var(--border);
     border-radius: var(--radius-md);
     transition: border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
 }
 
-    .form-control:focus,
+.form-control:focus,
     .form-select:focus {
         color: var(--text);
-        background-color: var(--surface);
+        background-color: var(--surface-2);
         border-color: var(--border-focus);
         box-shadow: 0 0 0 3px var(--primary-subtle);
         outline: 0;
     }
 
-    .form-control:disabled,
-    .form-control[disabled],
+.form-control:disabled,
+.form-control[disabled],
     .form-select:disabled {
         color: var(--text-muted);
-        background-color: var(--surface-2);
+        background-color: var(--surface);
         opacity: 1;
     }
 
@@ -45,7 +51,7 @@
 
 .form-label {
     display: inline-block;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
     font-family: var(--font-primary);
     font-size: var(--type-body-sm);
     color: var(--text-muted);
@@ -108,10 +114,135 @@
     border-radius: var(--radius-md);
 }
 
+.form-switch .form-check-input {
+    width: 2.25rem;
+    height: 1.25rem;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--surface-2);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-full);
+    position: relative;
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+    .form-switch .form-check-input::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: calc(1.25rem - 4px);
+        height: calc(1.25rem - 4px);
+        border-radius: 50%;
+        background: var(--text-muted);
+        transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+
+    .form-switch .form-check-input:checked {
+        background: var(--gradient-brand);
+        border-color: transparent;
+    }
+
+        .form-switch .form-check-input:checked::before {
+            background: #fff;
+            transform: translateX(1rem);
+        }
+
+/* Native number spin buttons look like an unstyled foreign control against the
+dark theme with no reliable cross-browser way to restyle them, so they're hidden;
+the field keeps normal keyboard/typing semantics. */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+/* Responsive 12-column grid (Bootstrap-equivalent, token-driven gutters) */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    --ux-gutter-x: 0px;
+    --ux-gutter-y: 0px;
+    margin-top: calc(-1 * var(--ux-gutter-y));
+    margin-right: calc(-0.5 * var(--ux-gutter-x));
+    margin-left: calc(-0.5 * var(--ux-gutter-x));
+}
+
+    .row > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-right: calc(var(--ux-gutter-x) * 0.5);
+        padding-left: calc(var(--ux-gutter-x) * 0.5);
+        margin-top: var(--ux-gutter-y);
+    }
+
+.g-2 {
+    --ux-gutter-x: var(--space-2);
+    --ux-gutter-y: var(--space-2);
+}
+
+.g-3 {
+    --ux-gutter-x: var(--space-3);
+    --ux-gutter-y: var(--space-3);
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.3333%;
+    }
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .col-md-9 {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2);
+}
+
+.card-body {
+    padding: var(--space-5);
+}
+
 
 /* ============================================================================
-   SECTION 2: Buttons
-   ============================================================================ */
+SECTION 2: Buttons
+============================================================================ */
 
 .btn {
     display: inline-flex;
@@ -168,7 +299,7 @@
     }
 
 /* Coloured outline / "inverted" variants — transparent fill + coloured border + text.
-   Mirrors how the MudBlazor app renders its outlined action buttons. */
+Mirrors how the MudBlazor app renders its outlined action buttons. */
 .btn-outline-primary {
     background: transparent;
     color: var(--primary);
@@ -253,8 +384,8 @@
 
 
 /* ============================================================================
-   SECTION 3: Feedback & Data Display
-   ============================================================================ */
+SECTION 3: Feedback & Data Display
+============================================================================ */
 
 .alert {
     padding: var(--space-3) var(--space-4);
@@ -281,6 +412,12 @@
     color: var(--warning);
     background: var(--warning-subtle);
     border-color: color-mix(in srgb, var(--warning) 30%, transparent);
+}
+
+.alert-info {
+    color: var(--info);
+    background: var(--info-subtle);
+    border-color: color-mix(in srgb, var(--info) 30%, transparent);
 }
 
 .table {
@@ -316,11 +453,104 @@
         background: var(--hover-overlay);
     }
 
+.spinner-border {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    border: 0.25em solid color-mix(in srgb, var(--primary) 25%, transparent);
+    border-right-color: var(--primary);
+    border-radius: 50%;
+    animation: ux-spin var(--dur-slow) linear infinite;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.2em;
+}
+
+@keyframes ux-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--mud-zindex-modal, 1400);
+    display: none;
+    overflow-y: auto;
+}
+
+    .modal.d-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.modal-dialog {
+    width: 100%;
+    max-width: 500px;
+    margin: var(--space-5) auto;
+}
+
+    .modal-dialog.modal-lg {
+        max-width: 800px;
+    }
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - var(--space-6));
+    background: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-5);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    background: var(--surface-2);
+    border-bottom: var(--border-width) solid var(--border);
+}
+
+.modal-title {
+    margin-bottom: 0;
+    font-size: var(--type-body-lg);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.modal-body {
+    padding: var(--space-5);
+    color: var(--text-muted);
+    overflow-y: auto;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--surface-2);
+    border-top: var(--border-width) solid var(--border);
+}
+
 
 /* ============================================================================
-   SECTION 4: Utility Classes
-   Last so they can override component styles above without needing !important.
-   ============================================================================ */
+SECTION 4: Utility Classes
+Last so they can override component styles above without needing !important.
+============================================================================ */
 
 /* Gradient utilities */
 .ux-gradient-text {
@@ -385,6 +615,146 @@
 
 .mb-3 {
     margin-bottom: var(--space-3) !important;
+}
+
+.p-2 {
+    padding: var(--space-2) !important;
+}
+
+.p-3 {
+    padding: var(--space-3) !important;
+}
+
+.p-4 {
+    padding: var(--space-4) !important;
+}
+
+.pb-3 {
+    padding-bottom: var(--space-3) !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-2 {
+    margin-bottom: var(--space-2) !important;
+}
+
+.mb-4 {
+    margin-bottom: var(--space-4) !important;
+}
+
+.mt-2 {
+    margin-top: var(--space-2) !important;
+}
+
+.mt-3 {
+    margin-top: var(--space-3) !important;
+}
+
+.mt-4 {
+    margin-top: var(--space-4) !important;
+}
+
+.my-2 {
+    margin-top: var(--space-2) !important;
+    margin-bottom: var(--space-2) !important;
+}
+
+.my-4 {
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.me-2 {
+    margin-right: var(--space-2) !important;
+}
+
+.gap-3 {
+    gap: var(--space-3) !important;
+}
+
+.border-bottom {
+    border-bottom: var(--border-width) solid var(--border) !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.small {
+    font-size: var(--type-body-sm) !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.fw-semibold {
+    font-weight: 600 !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-primary) !important;
+    font-weight: 600 !important;
+    color: var(--text) !important;
+    margin-bottom: var(--space-3) !important;
+    letter-spacing: -0.02em !important;
+}
+
+.h1 {
+    font-size: var(--type-h1) !important;
+    line-height: var(--lh-h1) !important;
+}
+
+.h2 {
+    font-size: var(--type-h2) !important;
+    line-height: var(--lh-h2) !important;
+}
+
+.h3 {
+    font-size: var(--type-h3) !important;
+    line-height: var(--lh-h3) !important;
+}
+
+.h4 {
+    font-size: var(--type-body-lg) !important;
+    line-height: var(--lh-body) !important;
+}
+
+.h5 {
+    font-size: var(--type-body-md) !important;
+    line-height: var(--lh-body) !important;
+}
+
+.h6 {
+    font-size: var(--type-body-sm) !important;
+    line-height: var(--lh-body) !important;
 }
 
 .font-weight-bold {
@@ -473,4 +843,153 @@
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
+}
+
+.ux-app-shell {
+    min-height: 100vh;
+}
+
+.ux-app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+    z-index: var(--mud-zindex-appbar, 1300);
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-3);
+}
+
+.ux-app-header .navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ux-gradient-primary {
+    background: var(--gradient-brand);
+    color: var(--primary-contrast);
+}
+
+.ux-app-content {
+    padding-top: 64px;
+    transition: margin-left 0.225s cubic-bezier(0, 0, 0.2, 1);
+}
+
+html.ux-drawer-open .ux-app-content {
+    margin-left: var(--mud-drawer-width-left, 240px);
+}
+
+.ux-nav-drawer {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: var(--mud-drawer-width-left, 240px);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 50%);
+    border-right: 1px solid var(--border);
+    box-shadow: var(--shadow-3), 1px 0 0 var(--border-light);
+    color: var(--mud-palette-drawer-text, var(--text));
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.225s cubic-bezier(0, 0, 0.2, 1);
+    z-index: var(--mud-zindex-drawer, 1100);
+}
+
+html.ux-drawer-open .ux-nav-drawer {
+    transform: translateX(0);
+}
+
+    .ux-nav-drawer .nav.flex-column {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: var(--space-2) 0;
+    }
+
+    .ux-nav-drawer .nav-item {
+        padding: 0.125rem 0.75rem;
+    }
+
+        .ux-nav-drawer .nav-item .nav-link {
+            color: var(--text-muted);
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 0.875rem;
+            display: flex;
+            align-items: center;
+            font-size: var(--type-body-sm);
+            font-weight: 500;
+            text-decoration: none;
+            transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+        }
+
+            .ux-nav-drawer .nav-item .nav-link:hover {
+                background: var(--hover-overlay);
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            .ux-nav-drawer .nav-item .nav-link.active {
+                background: var(--primary-subtle);
+                color: var(--primary);
+            }
+
+/* App-header layout utilities (Bootstrap-equivalent, token-driven) */
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.gap-2 {
+    gap: var(--space-2) !important;
+}
+
+.px-3 {
+    padding-left: var(--space-3) !important;
+    padding-right: var(--space-3) !important;
+}
+
+.py-2 {
+    padding-top: var(--space-2) !important;
+    padding-bottom: var(--space-2) !important;
+}
+
+.flex-grow-1 {
+    flex-grow: 1 !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fs-5 {
+    font-size: var(--type-body-lg) !important;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center / 1.5rem;
+    -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center / 1.5rem;
 }

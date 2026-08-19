@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValidator;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -21,7 +21,7 @@ internal static class ValidationModelResolverHelper
     {
         if (dtoModel.ParentElement.IsComponentModel())
         {
-            if (template.TryGetTypeName(RazorComponentCodeBehindTemplate.TemplateId, dtoModel.ParentElement, out var parentTypeName))
+            if (template.TryGetTypeName(dtoModel.ParentElement.AsComponentModel().GetCodeBehindTemplateId(), dtoModel.ParentElement, out var parentTypeName))
             {
                 typeName = $"{parentTypeName}.{dtoModel.Name}";
                 return true;
@@ -42,7 +42,7 @@ internal static class ValidationModelResolverHelper
         CSharpClass targetClass;
         if (dtoModel.ParentElement.IsComponentModel())
         {
-            var componentTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(RazorComponentCodeBehindTemplate.TemplateId, dtoModel.ParentElement);
+            var componentTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(dtoModel.ParentElement.AsComponentModel().GetCodeBehindTemplateId(), dtoModel.ParentElement);
             targetClass = componentTemplate.CSharpFile.Classes.First().NestedClasses.First(p => p.Name == dtoModel.Name);
         }
         else
@@ -52,14 +52,14 @@ internal static class ValidationModelResolverHelper
         }
         
         var results = dtoModel.ChildElements.Select(field =>
+        {
+            if (!targetClass.TryGetReferenceForModel(field, out var reference) || reference is not CSharpProperty)
             {
-                if (!targetClass.TryGetReferenceForModel(field, out var reference) || reference is not CSharpProperty)
-                {
-                    return null;
-                }
+                return null;
+            }
 
-                return new DtoFieldMetadata(field, reference);
-            })
+            return new DtoFieldMetadata(field, reference);
+        })
             .Where(field => field is not null)
             .Cast<DtoFieldMetadata>();
         return results;

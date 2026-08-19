@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="49869fd3-e366-49ee-89aa-9c06e6a2434b">
+  <name>Intent.Modules.NET.Blazor</name>
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone" version="1.2.16" />
+  <applications>
+    <application id="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040" name="Blazor" relativePath="Modules/Intent.Modules.Blazor/Intent.Modules.Blazor.application.config" />
+    <application id="3f08d954-b821-4c2d-871f-ac109217513a" name="Blazor.Authentication" relativePath="Modules/Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.application.config" />
+    <application id="9a7240ce-a75e-4913-8630-d06afa4e7cae" name="Blazor.Components.MudBlazor" relativePath="Modules/Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.application.config" />
+    <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Blazor.Components.MudBlazor.Metadata" relativePath="Modules/Intent.Modules.Blazor.Components.MudBlazor.Metadata/Intent.Modules.Blazor.Components.MudBlazor.Metadata.application.config" />
+  </applications>
+</solution>

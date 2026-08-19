@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
-    <file relativePath="content/NoSamplePages/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/SamplePages/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/SkillSamples/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/Theme/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/ThemeToggle/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/UserMenuDefault/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/WasmNoSamplePages/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="content/WasmSamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-dialog-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-dialog-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-page-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-page-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-page-search-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-page-view-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/GeneralSkillSamples/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/SamplePages/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="Intent.Modules.Blazor/content/SkillSamples/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/Theme/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/ThemeStorage/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/ThemeToggle/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/UserMenuDefault/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/release-notes.md" state="ignored;once-off-generated" />
-    <file relativePath="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" state="ignored" />
-    <file relativePath="release-notes.md" state="ignored;once-off-generated" />
     <file relativePath="Settings/ModuleSettingsExtensions.cs" state="ignored" />
   </files>
 </outputFiles>

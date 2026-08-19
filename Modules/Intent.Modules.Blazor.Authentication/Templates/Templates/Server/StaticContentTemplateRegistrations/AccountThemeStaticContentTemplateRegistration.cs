@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -43,7 +45,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             // OIDC redirects to an external IdP — no local account UI. The account skin ships for
             // the modes with a local login (ASP.NET Core Identity + JWT), mirroring the !IsOidc()
             // gate the account pages use.
-            if (application.GetSettings().GetBlazor().Authentication().IsOidc())
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
+            if (auth.IsSingleSignOnOpenIDConnect())
             {
                 return;
             }
@@ -55,6 +58,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             }
 
             RegisterAuthStaticContent(registry, application);
+        }
+
+        protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
+        {
+            return OverwriteBehaviour.OverwriteDisabled;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -39,6 +40,14 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemp
             // there. Single-project (InteractiveServer) is handled by UserMenuDefaultStaticContentTemplateRegistration
             // (ships to Components/Layout, beside the single-project MainLayout).
             if (application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+            {
+                return;
+            }
+
+            // Only needed when Authentication is installed: that's the only case <AppUserMenu/> is actually
+            // referenced anywhere (the Authentication module ships the real one, server-side only). Without
+            // Authentication there's no AppUserMenu reference to satisfy, so there's nothing to scaffold here.
+            if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
             {
                 return;
             }

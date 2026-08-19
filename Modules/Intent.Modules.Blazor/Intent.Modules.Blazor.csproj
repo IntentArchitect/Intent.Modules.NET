@@ -1,66 +1,60 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Version>2.0.3-pre.0</Version>
+		<Authors>Intent Architect</Authors>
+		<Description>Base classes and helpers for building templates for Blazor for Intent Architect.</Description>
+		<Copyright>Copyright 2024</Copyright>
+		<PackageProjectUrl>https://intentarchitect.com/</PackageProjectUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageIcon>logo.png</PackageIcon>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	
+    <ItemGroup>
+        <PackageReference Include="Intent.Modules.Common" Version="3.11.6-pre.0" />
+        <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9" />
+        <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.5-pre.0" />
+        <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
+        <PackageReference Include="Intent.Packager" Version="3.6.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Intent.Persistence.SDK" Version="1.0.3" />
+        <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
+        <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.3" />
+    </ItemGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Version>2.0.2</Version>
-    <Authors>Intent Architect</Authors>
-    <Description>Base classes and helpers for building templates for Blazor for Intent Architect.</Description>
-    <Copyright>Copyright 2024</Copyright>
-    <PackageProjectUrl>https://intentarchitect.com/</PackageProjectUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIcon>logo.png</PackageIcon>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+    </ItemGroup>
 
-  <ItemGroup>
-	<PackageReference Include="Intent.Modules.Common" Version="3.11.3" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.9" />
-    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.4" />
-    <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
-    <PackageReference Include="Intent.Packager" Version="3.6.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.Persistence.SDK" Version="1.0.3" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-	<PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.3" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\logo.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="docs\images\" />
+        <Folder Include="resources\static-content\" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\..\logo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+    <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
 
-  <ItemGroup>
-    <Folder Include="docs\images\" />
-    <Folder Include="resources\static-content\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="content\**\*.cs" />
+        <None Include="content\**\*.cs" />
+    </ItemGroup>
 
-  <!-- Files under content/ are templates emitted into generated apps, not part of this module's build. -->
-
-  <ItemGroup>
-    <Compile Remove="content\**\*.cs" />
-    <None Include="content\**\*.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="modelers\Blazor UI Extensions.designer.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Blazor UI Extensions.designer.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-
-  </ItemGroup>
-
+    <ItemGroup>
+        <Compile Update="modelers\Blazor UI Extensions.designer.Designer.cs">
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Blazor UI Extensions.designer.settings</DependentUpon>
+        </Compile>
+    </ItemGroup>
 </Project>

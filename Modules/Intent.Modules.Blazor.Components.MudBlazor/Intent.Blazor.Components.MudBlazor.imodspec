@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>2.0.2</version>
+  <version>2.0.3-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
@@ -11,10 +11,6 @@
   <tags>blazor mudblazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html</projectUrl>
   <templates>
-    <template id="Intent.Blazor.Components.MudBlazor.AppNav">
-      <role>Blazor.Client.Layout</role>
-      <location>Components</location>
-    </template>
     <template id="Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate" externalReference="04082817-074d-45e4-b35b-a4d3f5e01340">
       <role>AI.Context.Instructions</role>
       <location></location>
@@ -27,23 +23,75 @@
       <role>Blazor.Client.FluentValidation.ProviderExtensions</role>
       <location>Common/Validation</location>
     </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorAppMenuSkillTemplate" externalReference="8de9b2ff-0501-495e-9009-11136c90ee62">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorDialogAddingEntitySkillTemplate" externalReference="6c422576-8a34-4841-aa30-f980b377fbda">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorDialogEditingEntitySkillTemplate" externalReference="918f71c2-32c2-4034-a78d-8d29b48f8baa">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorPageAddingEntitySkillTemplate" externalReference="58be1d47-302b-45a7-991c-8fc74245d0c4">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorPageEditingEntitySkillTemplate" externalReference="19b78c5d-08f0-41d9-9e85-952df855e411">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorPageSearchEntitySkillTemplate" externalReference="832b03c5-48d3-4ed3-99d7-0c18377bbc38">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Components.MudBlazor.MudBlazorPageViewEntitySkillTemplate" externalReference="ca6afe1c-5504-4592-a4e4-9f4960677791">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Components.MudBlazor.MudBlazorUxThemeSyncSkillTemplate" externalReference="67d0ac29-3bdd-412e-9354-a5457d5434d7">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.HomeStyleStaticContentTemplateRegistration" externalReference="3e6901d8-7e66-437b-b373-46106219c3c9">
-      <role>Blazor</role>
-      <location>Components/Pages</location>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="7a947321-0d2f-4d37-9981-5bb24a55be20">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="55dbead9-4f2b-4a76-a7ca-0e794f6fa9f3">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="1979a0ed-c94a-431e-98f1-14586cdec6a3">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="18bb51e4-9228-40d5-a6e8-379be7fec0f7">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="84433a77-934b-40d3-bf69-7f6b8c80451b">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="ce3590cf-5615-4866-8ab8-5330df3a75f7">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="2815c770-6653-4a02-920c-5373c3175ea8">
+      <role>AI.Context.Skills</role>
+      <location></location>
     </template>
     <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" externalReference="586ea57e-986e-42e7-857a-6adfb025ed4a">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration">
-      <role>Blazor.ThemeJavascript</role>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="59c0ac52-09f9-4d41-8257-e0951e92b0c7">
+      <role>Blazor.ThemeToggle</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="1cc30ee8-4c1a-4019-acf2-9b8886094775">
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.UserMenuDefaultClientStaticContentTemplateRegistration">
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
@@ -58,12 +106,12 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor" version="2.0.1" />
-    <dependency id="Intent.Common" version="3.11.3" />
+    <dependency id="Intent.Blazor" version="2.0.3-pre.0" />
+    <dependency id="Intent.Common" version="3.11.6-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.9" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.UI" version="1.1.4" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.3" />
+    <dependency id="Intent.Modelers.UI" version="1.1.5-pre.0" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.4-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <interoperability>

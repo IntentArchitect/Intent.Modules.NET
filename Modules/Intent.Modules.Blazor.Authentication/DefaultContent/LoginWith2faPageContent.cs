@@ -1,0 +1,356 @@
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
+using Intent.Modules.Blazor.Authentication.Settings;
+using Intent.Modules.Blazor.Authentication.Templates;
+using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Blazor.Templates.Templates.Client;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.Templates;
+using System.Linq;
+
+namespace Intent.Modules.Blazor.Authentication.DefaultContent
+{
+    /// <summary>
+    /// Default (first-generation only) content for the LoginWith2fa page, seeded onto the modelled
+    /// <c>Component</c>'s <see cref="Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent.RazorComponentTemplate"/>
+    /// and <see cref="Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind.RazorComponentCodeBehindTemplate"/>
+    /// by <see cref="FactoryExtensions.AuthPageDefaultContentFactoryExtension"/>. Mechanically ported,
+    /// unchanged, from the old static content/Components(MudBlazor)/Account/Pages/LoginWith2fa pair.
+    /// </summary>
+    internal static class LoginWith2faPageContent
+    {
+        public static string BuildRazorContent(RazorComponentTemplateBase<ComponentModel> template)
+        {
+            var identityClass = template.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity") ?
+                IdentityHelperExtensions.GetIdentityUserClass(template) :
+                "ApplicationUser";
+            var redirectManager = template.GetIdentityRedirectManagerTemplateName();
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+
+            return isMudBlazor
+                ? BuildMudBlazorContent(identityClass, redirectManager)
+                : BuildBootstrapContent(identityClass, redirectManager);
+        }
+
+        public static string? BuildStyleContent(RazorComponentTemplateBase<ComponentModel> template)
+        {
+            var isMudBlazor = template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor");
+            return isMudBlazor ? MudBlazorStyle : null;
+        }
+
+        private const string MudBlazorStyle = """
+            .auth-form-shell {
+                max-width: 720px;
+                box-shadow: var(--shadow-2);
+                border-radius: var(--radius-xl);
+            }
+
+            .account-input-field {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .account-input-label,
+            .account-checkbox-label {
+                color: var(--text);
+                font-size: var(--type-label-lg);
+                font-weight: 500;
+            }
+
+            .account-input-shell {
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+                min-height: 44px;
+                padding: 0 0.875rem;
+                background: var(--surface-2);
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                box-shadow: var(--shadow-1);
+            }
+
+            .account-input-shell:focus-within {
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px var(--primary-subtle), 0 0 12px var(--primary-glow);
+            }
+
+            ::deep .account-input-icon {
+                color: var(--text-muted);
+                flex-shrink: 0;
+            }
+
+            ::deep .account-input-control {
+                width: 100%;
+                min-height: 42px;
+                color: var(--text);
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+
+            ::deep .account-input-control::placeholder {
+                color: var(--text-muted);
+            }
+
+            .account-checkbox-field {
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+            }
+
+            ::deep .account-checkbox-control {
+                width: 1rem;
+                height: 1rem;
+                accent-color: var(--primary);
+                flex-shrink: 0;
+            }
+            """;
+
+        private static string BuildMudBlazorContent(string identityClass, string redirectManager)
+        {
+            return $$"""
+                @using Microsoft.AspNetCore.Identity
+
+                @inject SignInManager<{{identityClass}}> SignInManager
+                @inject UserManager<{{identityClass}}> UserManager
+                @inject {{redirectManager}} RedirectManager
+                @inject ILogger<LoginWith2fa> Logger
+
+                <MudPaper Class="pa-4 mb-4 ux-gradient-primary"
+                    Elevation="0">
+                    <MudText Typo="Typo.h4"
+                        Class="text-white font-weight-bold mb-2">
+                        <MudIcon Icon="@Icons.Material.Filled.VerifiedUser"
+                            Class="mr-2" />
+                        Two-factor authentication
+                    </MudText>
+                    <MudText Typo="Typo.body1"
+                        Class="text-white opacity-90">
+                        Confirm your sign-in using the code from your authenticator app.
+                    </MudText>
+                </MudPaper>
+
+                <StatusMessage Message="@message" />
+                <MudText Typo="Typo.body1"
+                    Class="mb-4">
+                    Your login is protected with an authenticator app. Enter your authenticator code below.
+                </MudText>
+
+                <MudCard Class="ux-fade-in-up auth-form-shell"
+                    Style="animation-delay: 0.1s"
+                    Outlined="true">
+                    <MudCardContent>
+                        <EditForm Model="Input"
+                            FormName="login-with-2fa"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            method="post">
+                            <input type="hidden"
+                                name="ReturnUrl"
+                                value="@ReturnUrl" />
+                            <input type="hidden"
+                                name="RememberMe"
+                                value="@RememberMe" />
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
+
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.h5">Authenticator code</MudText>
+                                    <MudText Typo="Typo.body2"
+                                        Class="mb-4">
+                                        Enter the code generated by your authenticator app.
+                                    </MudText>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="account-input-field">
+                                        <label class="account-input-label"
+                                            for="two-factor-code">
+                                            Authenticator code
+                                        </label>
+                                        <div class="account-input-shell">
+                                            <MudIcon Icon="@Icons.Material.Filled.Password"
+                                                Class="account-input-icon" />
+                                            <InputText id="two-factor-code"
+                                                class="account-input-control"
+                                                @bind-Value="Input.TwoFactorCode"
+                                                autocomplete="off"
+                                                aria-required="true"
+                                                placeholder="Enter your authenticator code" />
+                                        </div>
+                                        <ValidationMessage For="() => Input.TwoFactorCode"
+                                            class="text-danger" />
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="account-checkbox-field">
+                                        <InputCheckbox @bind-Value="Input.RememberMachine"
+                                            class="account-checkbox-control" />
+                                        <label class="account-checkbox-label">Remember this machine</label>
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudStack Row="true"
+                                        Justify="Justify.FlexEnd">
+                                        <MudButton ButtonType="ButtonType.Submit"
+                                            Variant="Variant.Filled"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Material.Filled.Login">
+                                            Log in
+                                        </MudButton>
+                                    </MudStack>
+                                </MudItem>
+                            </MudGrid>
+                        </EditForm>
+                    </MudCardContent>
+                </MudCard>
+
+                <MudText Typo="Typo.body2"
+                    Class="mt-3">
+                    Don't have access to your authenticator device? You can
+                    <MudLink Href="@($"Account/LoginWithRecoveryCode?ReturnUrl={ReturnUrl}")">log in with a recovery code</MudLink>.
+                </MudText>
+
+                """;
+        }
+
+        private static string BuildBootstrapContent(string identityClass, string redirectManager)
+        {
+            return $$"""
+                @using Microsoft.AspNetCore.Identity
+
+                @inject SignInManager<{{identityClass}}> SignInManager
+                @inject UserManager<{{identityClass}}> UserManager
+                @inject {{redirectManager}} RedirectManager
+                @inject ILogger<LoginWith2fa> Logger
+
+                <AccountHero Icon="shield"
+                    Title="Two-factor authentication"
+                    Subtitle="Your login is protected with an authenticator app." />
+
+                <div class="ux-form-narrow">
+                    <section>
+                        <StatusMessage Message="@message" />
+                        <p class="ux-section-subtitle">Enter your authenticator code below.</p>
+                        <EditForm Model="Input"
+                            FormName="login-with-2fa"
+                            OnValidSubmit="OnValidSubmitAsync"
+                            method="post">
+                            <input type="hidden"
+                                name="ReturnUrl"
+                                value="@ReturnUrl" />
+                            <input type="hidden"
+                                name="RememberMe"
+                                value="@RememberMe" />
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger"
+                                role="alert" />
+                            <UxField Label="Authenticator code"
+                                Icon="shield"
+                                For="two-factor-code">
+                                <InputText id="two-factor-code"
+                                    @bind-Value="Input.TwoFactorCode"
+                                    class="ux-input"
+                                    autocomplete="off"
+                                    placeholder="Enter your code" />
+                            </UxField>
+                            <ValidationMessage For="() => Input.TwoFactorCode"
+                                class="text-danger" />
+                            <div class="form-check">
+                                <InputCheckbox id="remember-machine"
+                                    class="form-check-input"
+                                    @bind-Value="Input.RememberMachine" />
+                                <label for="remember-machine"
+                                    class="form-check-label">
+                                    Remember this machine
+                                </label>
+                            </div>
+                            <button type="submit"
+                                class="w-100 btn btn-primary">
+                                <UxIcon Name="log-in" />
+                                Log in
+                            </button>
+                        </EditForm>
+                        <div class="ux-account-links">
+                            <a href="Account/LoginWithRecoveryCode?ReturnUrl=@ReturnUrl">Log in with a recovery code instead</a>
+                        </div>
+                    </section>
+                </div>
+                """;
+        }
+
+        public static void BuildCodeBehind(IBuildsCSharpMembers code)
+        {
+            var identityClass = IdentityHelperExtensions.GetIdentityUserClass(code.Template);
+
+            code.AddField("string?", "message");
+            code.AddField(identityClass, "user", f => f.WithAssignment(new CSharpStatement("default!")));
+
+            code.AddProperty("InputModel", "Input", p =>
+            {
+                p.Private();
+                p.WithInitialValue("default!");
+                p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromFormAttribute").RemoveSuffix("Attribute"));
+            });
+            code.AddProperty("string?", "ReturnUrl", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+            code.AddProperty("bool", "RememberMe", p => p.AddAttribute(code.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQueryAttribute").RemoveSuffix("Attribute")));
+
+            // either get the existing method or add one
+            ICSharpClassMethodDeclaration onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            if (onInitializedAsync is null)
+            {
+                code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnInitializedAsync");
+                onInitializedAsync = (code as ICSharpClass)?.Methods.FirstOrDefault(m => m.Name == "OnInitializedAsync");
+            }
+
+            code.Template.AddUsing("System");
+            onInitializedAsync.Async().Protected().Override();
+            onInitializedAsync.AddStatement("Input ??= new();");
+            onInitializedAsync.AddStatement("// Ensure the user has gone through the username & password screen first");
+            onInitializedAsync.AddStatement("user = await SignInManager.GetTwoFactorAuthenticationUserAsync() ?? throw new InvalidOperationException(\"Unable to load two-factor authentication user.\");");
+
+            code.AddMethod(code.Template.UseType("System.Threading.Tasks.Task"), "OnValidSubmitAsync", onValidSubmitAsync =>
+            {
+                onValidSubmitAsync.Private().Async();
+
+                onValidSubmitAsync.AddAssignmentStatement("var authenticatorCode", new CSharpStatement("Input.TwoFactorCode!.Replace(\" \", string.Empty).Replace(\"-\", string.Empty);"));
+                onValidSubmitAsync.AddAssignmentStatement("var result", new CSharpStatement("await SignInManager.TwoFactorAuthenticatorSignInAsync(authenticatorCode, RememberMe, Input.RememberMachine);"));
+                onValidSubmitAsync.AddAssignmentStatement("var userId", new CSharpStatement("await UserManager.GetUserIdAsync(user);"));
+
+                code.Template.AddUsing("Microsoft.Extensions.Logging");
+                onValidSubmitAsync.AddIfStatement("result.Succeeded", @if =>
+                {
+                    @if.AddStatement("Logger.LogInformation(\"User with ID '{UserId}' logged in with 2fa.\", userId);");
+                    @if.AddStatement("RedirectManager.RedirectTo(ReturnUrl);");
+                }).AddElseIfStatement("result.IsLockedOut", eIf =>
+                {
+                    eIf.AddStatement("Logger.LogWarning(\"User with ID '{UserId}' account locked out.\", userId);");
+                    eIf.AddStatement("RedirectManager.RedirectTo(\"Account/Lockout\");");
+                }).AddElseStatement(@else =>
+                {
+                    @else.AddStatement("Logger.LogWarning(\"Invalid authenticator code entered for user with ID '{UserId}'.\", userId);");
+                    @else.AddStatement("message = \"Error: Invalid authenticator code.\";");
+                });
+            });
+
+            code.AddClass("InputModel", inputModel =>
+            {
+                inputModel.Private().Sealed();
+
+                inputModel.AddProperty("string?", "TwoFactorCode", p =>
+                {
+                    p.AddAttribute(code.Template.UseType("System.ComponentModel.DataAnnotations.RequiredAttribute").RemoveSuffix("Attribute"));
+                    p.AddAttribute("StringLength(7, ErrorMessage = \"The {0} must be at least {2} and at max {1} characters long.\", MinimumLength = 6)");
+                    p.AddAttribute("DataType(DataType.Text)");
+                    p.AddAttribute("Display(Name = \"Authenticator code\")");
+                });
+
+                inputModel.AddProperty("bool", "RememberMachine", p =>
+                {
+                    p.AddAttribute("Display(Name = \"Remember this machine\")");
+                });
+            });
+        }
+    }
+}

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.2</version>
+  <version>2.0.3-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -11,6 +11,10 @@
   <tags>blazor ui</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html</projectUrl>
   <templates>
+    <template id="Intent.Blazor.Templates.AI.BlazorAppMenuSkillTemplate" externalReference="293641d0-f5c2-490c-8aa6-74f2bda0fbe8">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorDialogAddingEntitySkillTemplate" externalReference="9aee1ea1-9d65-4544-9b8d-f24c9caa4563">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -39,6 +43,10 @@
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.AI.BlazorUpdatingStylingSkillTemplate" externalReference="4cc7bdd3-5ca7-45f8-a2f1-905c8ed2e5c9">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.AI.BlazorUxThemeSyncSkillTemplate" externalReference="29e609f7-7153-49e3-9275-64d6ef358462">
       <role>AI.Context.Skills</role>
       <location></location>
@@ -63,12 +71,36 @@
       <role>Blazor.Client.DependencyInjection</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.Client.DialogCodeBehindTemplate" externalReference="664ba76e-1a08-44bc-866a-9e8482461b43">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.DialogTemplate" externalReference="13e7b44c-8564-49dc-81a5-e8506717e7dd">
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" externalReference="d3690156-710e-44a8-89ef-a27ade4e2f52">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Model.Definition</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" externalReference="d7ee208f-a8e1-4a56-9ad5-f25e3bf72bd2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.PageTemplate" externalReference="4126b562-c756-43a1-b1f3-79b0c9d6b659">
+      <role>Blazor.Client.Component</role>
       <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="1bd5dbd4-1bdd-4133-88b7-ccf452399b4a">
@@ -87,6 +119,10 @@
       <role>Blazor.Client.Component</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Blazor.Templates.Client.RazorComponentStyleTemplate" externalReference="363faea6-7c41-424f-9f71-c7213acfe24d">
+      <role>Blazor.Client.Component</role>
+      <location>Components</location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.RazorComponentTemplate" externalReference="1132514b-15dd-4dac-b602-462278e1128d">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -100,6 +136,46 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutFooterCodeBehindTemplate" externalReference="67b50dcc-2f02-4442-8118-acaf4210771e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutFooterTemplate" externalReference="684d3513-65f1-4d75-b31c-cc0f600eb289">
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutHeaderCodeBehindTemplate" externalReference="418b471a-55c3-44ad-abf0-9f11e952e416">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutHeaderTemplate" externalReference="fb92e9df-d0f0-4ee3-b689-f2564fd720e1">
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutProfileTemplate" externalReference="5e405bae-9d81-4562-876c-852050ce0daa">
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutSiderCodeBehindTemplate" externalReference="4458103d-493e-4fd8-8785-3302ba99ce7d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Layout</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutSiderTemplate" externalReference="50c2e619-7acf-4ccd-a6cb-ed4d4e91b4fd">
       <role>Blazor.Client.Layout</role>
       <location>Components</location>
     </template>
@@ -133,6 +209,42 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Startup</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate" externalReference="276c5e83-5d57-4695-9c0e-24051cc2fc3f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" externalReference="a67cf83f-9662-4515-8182-45e85193dbda">
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerDialogCodeBehindTemplate" externalReference="63c37997-8508-4dd2-84ef-a78f9c8aa7fc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerDialogTemplate" externalReference="28e51628-b9b7-430e-8928-c486b1777eea">
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate" externalReference="62e1a0aa-1366-458e-bcf7-a7a04459899d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.RazorServerPageTemplate" externalReference="0cf1709b-8d5e-4407-932b-55a1d9afe651">
+      <role>Startup,Blazor</role>
       <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" externalReference="65e03e1e-140e-44e8-8ffb-fbc628a9571b">
@@ -175,10 +287,6 @@
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.AI.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration" externalReference="1847a039-bc0e-41ec-9b51-a56f93d1c1b6">
       <role>Blazor.NoSample</role>
       <location></location>
@@ -187,16 +295,44 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" externalReference="0d78e82b-2c2b-442f-8d5b-02fad7055c00">
+      <role>Blazor.ThemeStorage</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="c7e3e3af-11e5-4fc0-b380-50442e0e0587">
       <role>Blazor.ThemeToggle</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.UserMenuDefaultStaticContentTemplateRegistration" externalReference="185ee26d-ddf6-431b-8012-9cf6b6c154c4">
-      <role>Blazor.Sample</role>
-      <location></location>
-    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
       <role>Blazor.NoSample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="0f01004a-0392-4f56-9035-bd679c68adec">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="a8be8a21-d667-428d-b77d-da4a552bc4c9">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="b3395b2b-9899-475f-93bb-050ae265d552">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="3a61ff94-381c-4c86-8e3e-d2090e8d7d7d">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="f83cf24f-f6d6-4c1f-a51f-ac71ac6b3afa">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" externalReference="d0e2f055-6626-400d-b44b-2c3ea1b01a9d">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations.BlazorSkillSampleFilesStaticContentTemplateRegistration" externalReference="a4b6fd47-21b9-4950-a4e9-4143566f48d8">
+      <role>AI.Context.Skills</role>
       <location></location>
     </template>
   </templates>
@@ -204,6 +340,8 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.AITasksFactoryExtension" externalReference="5629f5e2-99c2-4d40-aec6-e52e0ada2663" />
     <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
+    <factoryExtension id="Intent.Blazor.HomePageDefaultContentFactoryExtension" externalReference="fd4c0d8e-c164-4923-8bcd-c6869fd2a175" />
+    <factoryExtension id="Intent.Blazor.SkillSampleFileOutputFactoryExtension" externalReference="076ff38f-2cb4-4ee3-9685-3b4a33499694" />
   </factoryExtensions>
   <moduleSettings>
     <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor Settings" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
@@ -234,12 +372,11 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor.Components.MudBlazor" version="2.0.1" />
     <dependency id="Intent.Code.Weaving.Razor" version="2.0.6" />
-    <dependency id="Intent.Common" version="3.11.3" />
-    <dependency id="Intent.Common.CSharp" version="3.10.9" />
+    <dependency id="Intent.Common" version="3.11.6-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.9-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
-    <dependency id="Intent.Modelers.UI" version="1.1.4" />
+    <dependency id="Intent.Modelers.UI" version="1.1.5-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.11" />
   </dependencies>
   <interoperability>
@@ -250,7 +387,7 @@
     </detect>
     <detect id="Intent.Modelers.UI.Core">
       <install>
-        <package id="Intent.Modelers.UI.Core" version="1.0.3" />
+        <package id="Intent.Modelers.UI.Core" version="1.0.4-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
@@ -265,12 +402,12 @@
     </detect>
     <detect id="Intent.Blazor.Components.MudBlazor">
       <install>
-        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.1" />
+        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.3-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Blazor.Authentication">
       <install>
-        <package id="Intent.Blazor.Authentication" version="2.0.0" />
+        <package id="Intent.Blazor.Authentication" version="2.0.2-pre.2" />
       </install>
     </detect>
   </interoperability>

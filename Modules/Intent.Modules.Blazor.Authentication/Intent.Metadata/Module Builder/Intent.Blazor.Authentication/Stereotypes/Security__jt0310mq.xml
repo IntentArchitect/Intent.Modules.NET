@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="472c2df3-e807-4cf6-89b1-8213cd485c26" version="3.1.0">
+  <comment>Configures which security implementation the modelled UI pages/policies should target.</comment>
+  <name>Security</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="911c35b4-4ba3-404c-a0c6-e5258e53333a">User Interface Package</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return Authentication != "None";</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</parentFolderId>
+  <order>0</order>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <onAppliedScript>const STEREOTYPE_ID = "472c2df3-e807-4cf6-89b1-8213cd485c26";
+const META_KEY = "blazor-auth-page-id";
+const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
+const PAGE_STEREOTYPE = "Page";
+const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
+const RENDER_ON_SERVER_STEREOTYPE = "fbf946ea-47cc-486b-b15f-aaa58497b819";
+const NAVIGATION_ASSOCIATION = "Navigation";
+
+function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
+function shared(id, name) { return { id: id, name: name }; }
+
+// Login/Register/ForgotPassword/ResetPassword/ConfirmEmail/ResendEmailConfirmation exist under more than
+// one Authentication mode, but their generated content genuinely differs per mode (e.g. the
+// AuthPageDefaultContentFactoryExtension content builders branch on the active Authentication mode today;
+// that branching will move to fully separate content per id in the future — do not collapse these ids
+// back down in the meantime). Prefixing each mode's copy keeps its Component/page id — and therefore its
+// generated file — distinct, so switching Authentication modes creates/removes the right components
+// instead of one mode's page silently reusing another mode's already-generated file.
+const SECURITY_TYPE_PREFIX = {
+    "Built-in Login (ASP.NET Identity)": "identity",
+    "Bearer Token (JWT)": "jwt",
+    "Single Sign-On (OpenID Connect)": "oidc",
+    "None": null
+};
+const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
+// Bootstrap-only UX primitives with no MudBlazor-folder equivalent and no code-behind — MudBlazor's own
+// components (MudPaper/MudIcon/MudTextField, etc.) are used directly instead, so these should never be
+// modelled (and therefore never generated) when MudBlazor is installed.
+const HIDE_IF_MUDBLAZOR_IDS = ["account-hero", "ux-field", "ux-icon"];
+
+function authPageId(prefix, baseId) { return prefix + "-" + baseId; }
+
+const IDENTITY_PAGES = [
+    page(authPageId("identity", "login"), "Login", "/Account/Login", "Login"),
+    page(authPageId("identity", "register"), "Register", "/Account/Register", "Register"),
+    page(authPageId("identity", "forgot-password"), "ForgotPassword", "/Account/ForgotPassword", "Forgot Password"),
+    page(authPageId("identity", "reset-password"), "ResetPassword", "/Account/ResetPassword", "Reset Password"),
+    page(authPageId("identity", "confirm-email"), "ConfirmEmail", "/Account/ConfirmEmail", "Confirm Email"),
+    page(authPageId("identity", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation"),
+    page("access-denied", "AccessDenied", "/Account/AccessDenied", "Access Denied"),
+    page("confirm-email-change", "ConfirmEmailChange", "/Account/ConfirmEmailChange", "Confirm Email Change"),
+    page("external-login", "ExternalLogin", "/Account/ExternalLogin", "External Login"),
+    page("forgot-password-confirmation", "ForgotPasswordConfirmation", "/Account/ForgotPasswordConfirmation", "Forgot Password Confirmation"),
+    page("invalid-password-reset", "InvalidPasswordReset", "/Account/InvalidPasswordReset", "Invalid Password Reset"),
+    page("invalid-user", "InvalidUser", "/Account/InvalidUser", "Invalid User"),
+    page("lockout", "Lockout", "/Account/Lockout", "Lockout"),
+    page("login-with-2fa", "LoginWith2fa", "/Account/LoginWith2fa", "Login With 2FA"),
+    page("login-with-recovery-code", "LoginWithRecoveryCode", "/Account/LoginWithRecoveryCode", "Login With Recovery Code"),
+    page("register-confirmation", "RegisterConfirmation", "/Account/RegisterConfirmation", "Register Confirmation"),
+    page("reset-password-confirmation", "ResetPasswordConfirmation", "/Account/ResetPasswordConfirmation", "Reset Password Confirmation")
+];
+
+const IDENTITY_MANAGE_PAGES = [
+    page("manage", "Index", "/Account/Manage", "Manage"),
+    page("manage-email", "Email", "/Account/Manage/Email", "Manage Email"),
+    page("manage-change-password", "ChangePassword", "/Account/Manage/ChangePassword", "Change Password"),
+    page("manage-set-password", "SetPassword", "/Account/Manage/SetPassword", "Set Password"),
+    page("manage-two-factor-authentication", "TwoFactorAuthentication", "/Account/Manage/TwoFactorAuthentication", "Two Factor Authentication"),
+    page("manage-disable-2fa", "Disable2fa", "/Account/Manage/Disable2fa", "Disable 2FA"),
+    page("manage-enable-authenticator", "EnableAuthenticator", "/Account/Manage/EnableAuthenticator", "Enable Authenticator"),
+    page("manage-reset-authenticator", "ResetAuthenticator", "/Account/Manage/ResetAuthenticator", "Reset Authenticator"),
+    page("manage-generate-recovery-codes", "GenerateRecoveryCodes", "/Account/Manage/GenerateRecoveryCodes", "Generate Recovery Codes"),
+    page("manage-personal-data", "PersonalData", "/Account/Manage/PersonalData", "Personal Data"),
+    page("manage-delete-personal-data", "DeletePersonalData", "/Account/Manage/DeletePersonalData", "Delete Personal Data"),
+    page("manage-external-logins", "ExternalLogins", "/Account/Manage/ExternalLogins", "External Logins")
+];
+
+const IDENTITY_SHARED = [
+    //shared("account-layout", "AccountLayout"),
+    shared("account-hero", "AccountHero"),
+    //shared("app-user-menu", "AppUserMenu"),
+    shared("external-login-picker", "ExternalLoginPicker"),
+    //shared("manage-layout", "ManageLayout"),
+    //shared("manage-nav-menu", "ManageNavMenu"),
+    shared("show-recovery-codes", "ShowRecoveryCodes"),
+    shared("status-message", "StatusMessage"),
+    shared("ux-field", "UxField"),
+    shared("ux-icon", "UxIcon")
+];
+
+const JWT_PAGES = [
+    page(authPageId("jwt", "login"), "Login", "/Account/Login", "Login"),
+    page(authPageId("jwt", "register"), "Register", "/Account/Register", "Register"),
+    page(authPageId("jwt", "forgot-password"), "ForgotPassword", "/Account/ForgotPassword", "Forgot Password"),
+    page(authPageId("jwt", "reset-password"), "ResetPassword", "/Account/ResetPassword", "Reset Password"),
+    page(authPageId("jwt", "confirm-email"), "ConfirmEmail", "/Account/ConfirmEmail", "Confirm Email"),
+    page(authPageId("jwt", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation")
+];
+const JWT_SHARED = [
+    //shared("account-layout", "AccountLayout"),
+    shared("account-hero", "AccountHero"),
+    shared("status-message", "StatusMessage"),
+    shared("ux-field", "UxField"),
+    shared("ux-icon", "UxIcon")
+];
+
+const OIDC_PAGES = [
+    page(authPageId("oidc", "login"), "Login", "/Account/Login", "Login")
+];
+const OIDC_SHARED = [
+    //shared("account-layout", "AccountLayout")
+];
+
+const PAGE_DEFINITIONS = {
+    "Built-in Login (ASP.NET Identity)": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
+    "Bearer Token (JWT)": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
+    "Single Sign-On (OpenID Connect)": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
+    "None": { pages: [], managePages: [], shared: [] }
+};
+
+// Edges between the six ids that exist under more than one Authentication mode. Resolved per mode
+// (via resolveNavigationId) into that mode's prefixed ids before being applied.
+const SHARED_NAVIGATION_TEMPLATE = [
+    ["login", "forgot-password"],
+    ["login", "register"],
+    ["login", "resend-email-confirmation"],
+    ["register", "login"],
+    ["forgot-password", "login"],
+    ["reset-password", "login"],
+    ["confirm-email", "login"],
+    ["resend-email-confirmation", "login"]
+];
+
+// Edges only reachable under Built-in Login (ASP.NET Identity) (2FA, external login, Manage/*, etc.) — these also
+// reference some of the six shared ids (e.g. "login"), so they are resolved with the Identity prefix too.
+const IDENTITY_ONLY_NAVIGATION = [
+    ["login", "login-with-2fa"],
+    ["login", "lockout"],
+    ["external-login-picker", "external-login"],
+    ["register", "register-confirmation"],
+    ["reset-password", "invalid-password-reset"],
+    ["reset-password", "reset-password-confirmation"],
+    ["external-login", "login"],
+    ["external-login", "lockout"],
+    ["external-login", "register-confirmation"],
+    ["login-with-2fa", "login-with-recovery-code"],
+    ["login-with-2fa", "lockout"],
+    ["login-with-recovery-code", "lockout"],
+    ["confirm-email-change", "login"],
+    ["register-confirmation", "confirm-email"],
+    ["reset-password-confirmation", "login"],
+    // ["manage-nav-menu", "manage"],
+    // ["manage-nav-menu", "manage-email"],
+    // ["manage-nav-menu", "manage-change-password"],
+    // ["manage-nav-menu", "manage-external-logins"],
+    // ["manage-nav-menu", "manage-two-factor-authentication"],
+    // ["manage-nav-menu", "manage-personal-data"],
+    // ["app-user-menu", "manage"],
+    ["manage-change-password", "manage-set-password"],
+    ["manage-set-password", "manage-change-password"],
+    ["manage-personal-data", "manage-delete-personal-data"],
+    ["manage-two-factor-authentication", "manage-generate-recovery-codes"],
+    ["manage-two-factor-authentication", "manage-enable-authenticator"],
+    ["manage-two-factor-authentication", "manage-disable-2fa"],
+    ["manage-two-factor-authentication", "manage-reset-authenticator"],
+    ["manage-disable-2fa", "manage-reset-authenticator"],
+    ["manage-disable-2fa", "manage-two-factor-authentication"],
+    ["manage-enable-authenticator", "manage-two-factor-authentication"],
+    ["manage-reset-authenticator", "manage-enable-authenticator"],
+    ["manage-generate-recovery-codes", "manage-reset-authenticator"]
+];
+
+function resolveNavigationId(prefix, id) {
+    return SHARED_PAGE_IDS.indexOf(id) !== -1 ? authPageId(prefix, id) : id;
+}
+
+function getNavigationDefinitions(securityType) {
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    if (!prefix) {
+        return [];
+    }
+    const edges = SHARED_NAVIGATION_TEMPLATE.map(function (edge) {
+        return [resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])];
+    });
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        IDENTITY_ONLY_NAVIGATION.forEach(function (edge) {
+            edges.push([resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])]);
+        });
+    }
+    return edges;
+}
+
+function findChildFolder(parent, name) {
+    const match = parent.getChildren("Folder").find(function (f) { return f.getName() === name; });
+    return match ? match : null;
+}
+
+function ensureChildFolder(parent, name) {
+    const existing = findChildFolder(parent, name);
+    return existing ? existing : parent.addChild("Folder", name);
+}
+
+function addNavigation(source, target) {
+    const handle = source.getAssociations(NAVIGATION_ASSOCIATION).find(function (assoc) {
+        const other = assoc.getAssociatedElement();
+        return other &amp;&amp; other.id === target.id;
+    });
+    if (handle) {
+        if (!handle.isSourceEnd()) {
+            handle.setBidirectional(true);
+        }
+        return handle;
+    }
+    return createAssociation(NAVIGATION_ASSOCIATION, source.id, target.id);
+}
+
+function syncNavigations(navigationDefinitions) {
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    navigationDefinitions.forEach(function (edge) {
+        const source = byId[edge[0]];
+        const target = byId[edge[1]];
+        if (source &amp;&amp; target) {
+            addNavigation(source, target);
+        }
+    });
+}
+
+// Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
+// region: Login/Register for an anonymous user, Manage for an authenticated one. Built
+// from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
+// (which have no Manage page) simply contribute no authenticated-user entry.
+function syncProfileMenu(securityType) {
+    const layouts = findElements({ specialization: "Layout" });
+    const mainLayout = layouts.find(function (l) { return l.getName() === "MainLayout"; });
+    if (!mainLayout) {
+        console.log("syncProfileMenu: MainLayout not found (found " + layouts.length + " Layout element(s): " + layouts.map(function (l) { return l.getName(); }).join(", ") + ") - skipping profile menu wiring.");
+        return;
+    }
+    let profileMenu = mainLayout.getChildren("Layout Profile Menu")[0];
+    if (!profileMenu) {
+        profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
+    }
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    const menuPageIds = [];
+    if (prefix) {
+        menuPageIds.push(resolveNavigationId(prefix, "login"), resolveNavigationId(prefix, "register"));
+    }
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        menuPageIds.push("manage");
+    }
+
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    menuPageIds.forEach(function (id) {
+        const target = byId[id];
+        if (!target) {
+            return;
+        }
+        const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
+        const nav = addNavigation(mainLayout, target);
+        // if (isLoginPage) {
+        //     try {
+        //         nav.setComment("Navigable from the Profile menu.");
+        //     } catch (e) {
+        //         console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+        //     }
+        // }
+    });
+}
+
+async function runSync(securityType) {
+    const definition = PAGE_DEFINITIONS[securityType];
+    // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
+    // so account-hero should never be modelled (and therefore never generated) when MudBlazor is installed.
+    const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+    const sharedTargets = definition.shared.filter(function (s) {
+        return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+    });
+    const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
+    const targetIds = {};
+    allTargets.forEach(function (t) { targetIds[t.id] = true; });
+
+    const managed = findElements({ specialization: "Component" }).filter(function (c) { return c.hasMetadata(META_KEY); });
+    const toRemove = managed.filter(function (c) { return !targetIds[c.getMetadata(META_KEY)]; });
+
+    let accountFolder = null;
+    if (managed.length &gt; 0) {
+        let cur = managed[0].getParent();
+        while (cur &amp;&amp; cur.getName() !== "Account") {
+            cur = cur.getParent();
+        }
+        accountFolder = cur;
+    }
+
+    if (!accountFolder &amp;&amp; allTargets.length &gt; 0) {
+        const homePage = findElements({ specialization: "Component" }).find(function (c) {
+            if (!c.hasStereotype(PAGE_STEREOTYPE)) {
+                return false;
+            }
+            const route = c.getStereotype(PAGE_STEREOTYPE).getProperty("Route").getValue();
+            return route === "/" || route === "" || c.getName() === "Home" || c.getName() === "HomePage";
+        });
+        const pagesRootFolder = homePage ? homePage.getParent() : null;
+        let ancestor = pagesRootFolder;
+        while (ancestor &amp;&amp; ancestor.getName() !== "Pages") {
+            ancestor = ancestor.getParent();
+        }
+        const parent = ancestor ? (ancestor.getParent() || ancestor.getPackage()) : (pagesRootFolder || element.getPackage());
+        const existingAccountFolder = findChildFolder(parent, "Account");
+        accountFolder = existingAccountFolder ? existingAccountFolder : parent.addChild("Folder", "Account");
+        const accountDiagram = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+        if (!accountDiagram) {
+            accountFolder.addChild("Diagram", "Account");
+        }
+    }
+
+    toRemove.forEach(function (c) { c.delete(); });
+
+    const createdIds = [];
+    let pagesFolder = null;
+    let manageFolder = null;
+    let sharedFolder = null;
+
+    if (accountFolder) {
+        pagesFolder = ensureChildFolder(accountFolder, "Pages");
+        manageFolder = ensureChildFolder(pagesFolder, "Manage");
+        sharedFolder = ensureChildFolder(accountFolder, "Shared");
+
+        function syncPage(def, folder, secured) {
+            let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
+            if (!comp) {
+                comp = folder.addChild("Component", def.name);
+                createdIds.push(comp.id);
+                comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
+            }
+            const st = comp.ensureStereotype(PAGE_STEREOTYPE);
+            st.setProperty("Route", def.route);
+            st.setProperty("Title", def.title);
+            comp.setMetadata(META_KEY, def.id);
+            // Manage/* pages require an authenticated user; the pre-auth flow pages
+            // (Login, Register, ForgotPassword, AccessDenied, etc.) must stay reachable
+            // by anonymous users, so security is decided here per named page, not guessed.
+            if (secured) {
+                try {
+                    comp.ensureStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to apply Secured stereotype to " + def.name + " (non-fatal): " + e);
+                }
+            } else if (comp.hasStereotype(SECURED_STEREOTYPE)) {
+                try {
+                    comp.removeStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
+                }
+            }
+            // Every Account page renders server-side: several reference Server-only generated
+            // helpers (e.g. IdentityRedirectManagerTemplate), which would otherwise force a
+            // Client-&gt;Server project reference and close a cycle with the Server-&gt;Client edge
+            // Server needs for hosting/DI.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
+        }
+
+        function syncShared(def, folder) {
+            let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
+            if (!comp) {
+                comp = folder.addChild("Component", def.name);
+                createdIds.push(comp.id);
+                comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
+            }
+            comp.setMetadata(META_KEY, def.id);
+            // status-message and external-login-picker call GetIdentityRedirectManagerTemplateName()
+            // themselves, so shared components must render server-side too, same reasoning as syncPage.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
+        }
+
+        definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });
+        definition.managePages.forEach(function (p) { syncPage(p, manageFolder, true); });
+        sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
+    }
+
+    element.setMetadata("authentication", securityType);
+
+    if (accountFolder) {
+        try {
+            syncNavigations(getNavigationDefinitions(securityType));
+            try {
+                syncProfileMenu(securityType);
+            } catch (e) {
+                console.log("Profile menu sync failed (non-fatal): " + e);
+            }
+
+            if (createdIds.length &gt; 0) {
+                const diagramElement = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+                if (diagramElement) {
+                    const diagram = await diagramElement.openDiagram();
+                    const position = diagram.mousePosition || { x: 0, y: 0 };
+                    diagram.layoutVisuals(createdIds, position, true);
+                }
+            }
+
+            if (manageFolder.getChildren().length === 0) {
+                manageFolder.delete();
+            }
+            if (pagesFolder.getChildren().length === 0) {
+                pagesFolder.delete();
+            }
+            if (sharedFolder.getChildren().length === 0) {
+                sharedFolder.delete();
+            }
+            const remaining = accountFolder.getChildren().filter(function (c) {
+                return c !== pagesFolder &amp;&amp; c !== sharedFolder &amp;&amp; c.getSpecialization() !== "Diagram";
+            });
+            if (remaining.length === 0 &amp;&amp; !pagesFolder.getParent() &amp;&amp; !sharedFolder.getParent()) {
+                accountFolder.getChildren("Diagram").forEach(function (d) { d.delete(); });
+                accountFolder.delete();
+            }
+        } catch (e) {
+            console.log("Navigation sync, diagram placement, or folder cleanup failed (non-fatal): " + e);
+        }
+    }
+}
+
+const stereotype = element.getStereotype(STEREOTYPE_ID);
+const securityType = stereotype.getProperty("Authentication").getValue();
+await runSync(securityType);</onAppliedScript>
+  <onChangedScript>const STEREOTYPE_ID = "472c2df3-e807-4cf6-89b1-8213cd485c26";
+const META_KEY = "blazor-auth-page-id";
+const NEWLY_CREATED_META_KEY = "blazor-auth-page-newly-created";
+const PAGE_STEREOTYPE = "Page";
+const SECURED_STEREOTYPE = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
+const RENDER_ON_SERVER_STEREOTYPE = "fbf946ea-47cc-486b-b15f-aaa58497b819";
+const NAVIGATION_ASSOCIATION = "Navigation";
+
+function page(id, name, route, title) { return { id: id, name: name, route: route, title: title }; }
+function shared(id, name) { return { id: id, name: name }; }
+
+// Login/Register/ForgotPassword/ResetPassword/ConfirmEmail/ResendEmailConfirmation exist under more than
+// one Authentication mode, but their generated content genuinely differs per mode (e.g. the
+// AuthPageDefaultContentFactoryExtension content builders branch on the active Authentication mode today;
+// that branching will move to fully separate content per id in the future — do not collapse these ids
+// back down in the meantime). Prefixing each mode's copy keeps its Component/page id — and therefore its
+// generated file — distinct, so switching Authentication modes creates/removes the right components
+// instead of one mode's page silently reusing another mode's already-generated file.
+const SECURITY_TYPE_PREFIX = {
+    "Built-in Login (ASP.NET Identity)": "identity",
+    "Bearer Token (JWT)": "jwt",
+    "Single Sign-On (OpenID Connect)": "oidc",
+    "None": null
+};
+const SHARED_PAGE_IDS = ["login", "register", "forgot-password", "reset-password", "confirm-email", "resend-email-confirmation"];
+// Bootstrap-only UX primitives with no MudBlazor-folder equivalent and no code-behind — MudBlazor's own
+// components (MudPaper/MudIcon/MudTextField, etc.) are used directly instead, so these should never be
+// modelled (and therefore never generated) when MudBlazor is installed.
+const HIDE_IF_MUDBLAZOR_IDS = ["account-hero", "ux-field", "ux-icon"];
+
+function authPageId(prefix, baseId) { return prefix + "-" + baseId; }
+
+const IDENTITY_PAGES = [
+    page(authPageId("identity", "login"), "Login", "/Account/Login", "Login"),
+    page(authPageId("identity", "register"), "Register", "/Account/Register", "Register"),
+    page(authPageId("identity", "forgot-password"), "ForgotPassword", "/Account/ForgotPassword", "Forgot Password"),
+    page(authPageId("identity", "reset-password"), "ResetPassword", "/Account/ResetPassword", "Reset Password"),
+    page(authPageId("identity", "confirm-email"), "ConfirmEmail", "/Account/ConfirmEmail", "Confirm Email"),
+    page(authPageId("identity", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation"),
+    page("access-denied", "AccessDenied", "/Account/AccessDenied", "Access Denied"),
+    page("confirm-email-change", "ConfirmEmailChange", "/Account/ConfirmEmailChange", "Confirm Email Change"),
+    page("external-login", "ExternalLogin", "/Account/ExternalLogin", "External Login"),
+    page("forgot-password-confirmation", "ForgotPasswordConfirmation", "/Account/ForgotPasswordConfirmation", "Forgot Password Confirmation"),
+    page("invalid-password-reset", "InvalidPasswordReset", "/Account/InvalidPasswordReset", "Invalid Password Reset"),
+    page("invalid-user", "InvalidUser", "/Account/InvalidUser", "Invalid User"),
+    page("lockout", "Lockout", "/Account/Lockout", "Lockout"),
+    page("login-with-2fa", "LoginWith2fa", "/Account/LoginWith2fa", "Login With 2FA"),
+    page("login-with-recovery-code", "LoginWithRecoveryCode", "/Account/LoginWithRecoveryCode", "Login With Recovery Code"),
+    page("register-confirmation", "RegisterConfirmation", "/Account/RegisterConfirmation", "Register Confirmation"),
+    page("reset-password-confirmation", "ResetPasswordConfirmation", "/Account/ResetPasswordConfirmation", "Reset Password Confirmation")
+];
+
+const IDENTITY_MANAGE_PAGES = [
+    page("manage", "Index", "/Account/Manage", "Manage"),
+    page("manage-email", "Email", "/Account/Manage/Email", "Manage Email"),
+    page("manage-change-password", "ChangePassword", "/Account/Manage/ChangePassword", "Change Password"),
+    page("manage-set-password", "SetPassword", "/Account/Manage/SetPassword", "Set Password"),
+    page("manage-two-factor-authentication", "TwoFactorAuthentication", "/Account/Manage/TwoFactorAuthentication", "Two Factor Authentication"),
+    page("manage-disable-2fa", "Disable2fa", "/Account/Manage/Disable2fa", "Disable 2FA"),
+    page("manage-enable-authenticator", "EnableAuthenticator", "/Account/Manage/EnableAuthenticator", "Enable Authenticator"),
+    page("manage-reset-authenticator", "ResetAuthenticator", "/Account/Manage/ResetAuthenticator", "Reset Authenticator"),
+    page("manage-generate-recovery-codes", "GenerateRecoveryCodes", "/Account/Manage/GenerateRecoveryCodes", "Generate Recovery Codes"),
+    page("manage-personal-data", "PersonalData", "/Account/Manage/PersonalData", "Personal Data"),
+    page("manage-delete-personal-data", "DeletePersonalData", "/Account/Manage/DeletePersonalData", "Delete Personal Data"),
+    page("manage-external-logins", "ExternalLogins", "/Account/Manage/ExternalLogins", "External Logins")
+];
+
+const IDENTITY_SHARED = [
+    //shared("account-layout", "AccountLayout"),
+    shared("account-hero", "AccountHero"),
+    //shared("app-user-menu", "AppUserMenu"),
+    shared("external-login-picker", "ExternalLoginPicker"),
+    //shared("manage-layout", "ManageLayout"),
+    //shared("manage-nav-menu", "ManageNavMenu"),
+    shared("show-recovery-codes", "ShowRecoveryCodes"),
+    shared("status-message", "StatusMessage"),
+    shared("ux-field", "UxField"),
+    shared("ux-icon", "UxIcon")
+];
+
+const JWT_PAGES = [
+    page(authPageId("jwt", "login"), "Login", "/Account/Login", "Login"),
+    page(authPageId("jwt", "register"), "Register", "/Account/Register", "Register"),
+    page(authPageId("jwt", "forgot-password"), "ForgotPassword", "/Account/ForgotPassword", "Forgot Password"),
+    page(authPageId("jwt", "reset-password"), "ResetPassword", "/Account/ResetPassword", "Reset Password"),
+    page(authPageId("jwt", "confirm-email"), "ConfirmEmail", "/Account/ConfirmEmail", "Confirm Email"),
+    page(authPageId("jwt", "resend-email-confirmation"), "ResendEmailConfirmation", "/Account/ResendEmailConfirmation", "Resend Email Confirmation")
+];
+const JWT_SHARED = [
+    //shared("account-layout", "AccountLayout"),
+    shared("account-hero", "AccountHero"),
+    shared("status-message", "StatusMessage"),
+    shared("ux-field", "UxField"),
+    shared("ux-icon", "UxIcon")
+];
+
+const OIDC_PAGES = [
+    page(authPageId("oidc", "login"), "Login", "/Account/Login", "Login")
+];
+const OIDC_SHARED = [
+    //shared("account-layout", "AccountLayout")
+];
+
+const PAGE_DEFINITIONS = {
+    "Built-in Login (ASP.NET Identity)": { pages: IDENTITY_PAGES, managePages: IDENTITY_MANAGE_PAGES, shared: IDENTITY_SHARED },
+    "Bearer Token (JWT)": { pages: JWT_PAGES, managePages: [], shared: JWT_SHARED },
+    "Single Sign-On (OpenID Connect)": { pages: OIDC_PAGES, managePages: [], shared: OIDC_SHARED },
+    "None": { pages: [], managePages: [], shared: [] }
+};
+
+// Edges between the six ids that exist under more than one Authentication mode. Resolved per mode
+// (via resolveNavigationId) into that mode's prefixed ids before being applied.
+const SHARED_NAVIGATION_TEMPLATE = [
+    ["login", "forgot-password"],
+    ["login", "register"],
+    ["login", "resend-email-confirmation"],
+    ["register", "login"],
+    ["forgot-password", "login"],
+    ["reset-password", "login"],
+    ["confirm-email", "login"],
+    ["resend-email-confirmation", "login"]
+];
+
+// Edges only reachable under Built-in Login (ASP.NET Identity) (2FA, external login, Manage/*, etc.) — these also
+// reference some of the six shared ids (e.g. "login"), so they are resolved with the Identity prefix too.
+const IDENTITY_ONLY_NAVIGATION = [
+    ["login", "login-with-2fa"],
+    ["login", "lockout"],
+    ["external-login-picker", "external-login"],
+    ["register", "register-confirmation"],
+    ["reset-password", "invalid-password-reset"],
+    ["reset-password", "reset-password-confirmation"],
+    ["external-login", "login"],
+    ["external-login", "lockout"],
+    ["external-login", "register-confirmation"],
+    ["login-with-2fa", "login-with-recovery-code"],
+    ["login-with-2fa", "lockout"],
+    ["login-with-recovery-code", "lockout"],
+    ["confirm-email-change", "login"],
+    ["register-confirmation", "confirm-email"],
+    ["reset-password-confirmation", "login"],
+    // ["manage-nav-menu", "manage"],
+    // ["manage-nav-menu", "manage-email"],
+    // ["manage-nav-menu", "manage-change-password"],
+    // ["manage-nav-menu", "manage-external-logins"],
+    // ["manage-nav-menu", "manage-two-factor-authentication"],
+    // ["manage-nav-menu", "manage-personal-data"],
+    // ["app-user-menu", "manage"],
+    ["manage-change-password", "manage-set-password"],
+    ["manage-set-password", "manage-change-password"],
+    ["manage-personal-data", "manage-delete-personal-data"],
+    ["manage-two-factor-authentication", "manage-generate-recovery-codes"],
+    ["manage-two-factor-authentication", "manage-enable-authenticator"],
+    ["manage-two-factor-authentication", "manage-disable-2fa"],
+    ["manage-two-factor-authentication", "manage-reset-authenticator"],
+    ["manage-disable-2fa", "manage-reset-authenticator"],
+    ["manage-disable-2fa", "manage-two-factor-authentication"],
+    ["manage-enable-authenticator", "manage-two-factor-authentication"],
+    ["manage-reset-authenticator", "manage-enable-authenticator"],
+    ["manage-generate-recovery-codes", "manage-reset-authenticator"]
+];
+
+function resolveNavigationId(prefix, id) {
+    return SHARED_PAGE_IDS.indexOf(id) !== -1 ? authPageId(prefix, id) : id;
+}
+
+function getNavigationDefinitions(securityType) {
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    if (!prefix) {
+        return [];
+    }
+    const edges = SHARED_NAVIGATION_TEMPLATE.map(function (edge) {
+        return [resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])];
+    });
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        IDENTITY_ONLY_NAVIGATION.forEach(function (edge) {
+            edges.push([resolveNavigationId(prefix, edge[0]), resolveNavigationId(prefix, edge[1])]);
+        });
+    }
+    return edges;
+}
+
+function findChildFolder(parent, name) {
+    const match = parent.getChildren("Folder").find(function (f) { return f.getName() === name; });
+    return match ? match : null;
+}
+
+function ensureChildFolder(parent, name) {
+    const existing = findChildFolder(parent, name);
+    return existing ? existing : parent.addChild("Folder", name);
+}
+
+function addNavigation(source, target) {
+    const handle = source.getAssociations(NAVIGATION_ASSOCIATION).find(function (assoc) {
+        const other = assoc.getAssociatedElement();
+        return other &amp;&amp; other.id === target.id;
+    });
+    if (handle) {
+        if (!handle.isSourceEnd()) {
+            handle.setBidirectional(true);
+        }
+        return handle;
+    }
+    return createAssociation(NAVIGATION_ASSOCIATION, source.id, target.id);
+}
+
+function syncNavigations(navigationDefinitions) {
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    navigationDefinitions.forEach(function (edge) {
+        const source = byId[edge[0]];
+        const target = byId[edge[1]];
+        if (source &amp;&amp; target) {
+            addNavigation(source, target);
+        }
+    });
+}
+
+// Wires a small, sensible set of Account/Profile menu links onto MainLayout's Profile
+// region: Login/Register for an anonymous user, Manage for an authenticated one. Built
+// from whichever ids actually exist for the active Authentication mode, so JWT/OIDC
+// (which have no Manage page) simply contribute no authenticated-user entry.
+function syncProfileMenu(securityType) {
+    const layouts = findElements({ specialization: "Layout" });
+    const mainLayout = layouts.find(function (l) { return l.getName() === "MainLayout"; });
+    if (!mainLayout) {
+        console.log("syncProfileMenu: MainLayout not found (found " + layouts.length + " Layout element(s): " + layouts.map(function (l) { return l.getName(); }).join(", ") + ") - skipping profile menu wiring.");
+        return;
+    }
+    let profileMenu = mainLayout.getChildren("Layout Profile Menu")[0];
+    if (!profileMenu) {
+        profileMenu = mainLayout.addChild("Layout Profile Menu", "Profile");
+    }
+    const prefix = SECURITY_TYPE_PREFIX[securityType];
+    const menuPageIds = [];
+    if (prefix) {
+        menuPageIds.push(resolveNavigationId(prefix, "login"), resolveNavigationId(prefix, "register"));
+    }
+    if (securityType === "Built-in Login (ASP.NET Identity)") {
+        menuPageIds.push("manage");
+    }
+
+    const byId = {};
+    findElements({ specialization: "Component" })
+        .filter(function (c) { return c.hasMetadata(META_KEY); })
+        .forEach(function (c) { byId[c.getMetadata(META_KEY)] = c; });
+
+    menuPageIds.forEach(function (id) {
+        const target = byId[id];
+        if (!target) {
+            return;
+        }
+        const isLoginPage = prefix &amp;&amp; id === resolveNavigationId(prefix, "login");
+        const nav = addNavigation(mainLayout, target);
+        // if (isLoginPage) {
+        //     try {
+        //         nav.setComment("Navigable from the Profile menu.");
+        //     } catch (e) {
+        //         console.log("Failed to set comment on Login navigation (non-fatal): " + e);
+        //     }
+        // }
+    });
+}
+
+async function runSync(securityType) {
+    const definition = PAGE_DEFINITIONS[securityType];
+    // MudBlazor ships its own Hero-equivalent markup (MudPaper/MudIcon used directly in Login etc.),
+    // so account-hero should never be modelled (and therefore never generated) when MudBlazor is installed.
+    const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+    const sharedTargets = definition.shared.filter(function (s) {
+        return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+    });
+    const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
+    const targetIds = {};
+    allTargets.forEach(function (t) { targetIds[t.id] = true; });
+
+    const managed = findElements({ specialization: "Component" }).filter(function (c) { return c.hasMetadata(META_KEY); });
+    const toRemove = managed.filter(function (c) { return !targetIds[c.getMetadata(META_KEY)]; });
+
+    let accountFolder = null;
+    if (managed.length &gt; 0) {
+        let cur = managed[0].getParent();
+        while (cur &amp;&amp; cur.getName() !== "Account") {
+            cur = cur.getParent();
+        }
+        accountFolder = cur;
+    }
+
+    if (!accountFolder &amp;&amp; allTargets.length &gt; 0) {
+        const homePage = findElements({ specialization: "Component" }).find(function (c) {
+            if (!c.hasStereotype(PAGE_STEREOTYPE)) {
+                return false;
+            }
+            const route = c.getStereotype(PAGE_STEREOTYPE).getProperty("Route").getValue();
+            return route === "/" || route === "" || c.getName() === "Home" || c.getName() === "HomePage";
+        });
+        const pagesRootFolder = homePage ? homePage.getParent() : null;
+        let ancestor = pagesRootFolder;
+        while (ancestor &amp;&amp; ancestor.getName() !== "Pages") {
+            ancestor = ancestor.getParent();
+        }
+        const parent = ancestor ? (ancestor.getParent() || ancestor.getPackage()) : (pagesRootFolder || element.getPackage());
+        const existingAccountFolder = findChildFolder(parent, "Account");
+        accountFolder = existingAccountFolder ? existingAccountFolder : parent.addChild("Folder", "Account");
+        const accountDiagram = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+        if (!accountDiagram) {
+            accountFolder.addChild("Diagram", "Account");
+        }
+    }
+
+    toRemove.forEach(function (c) { c.delete(); });
+
+    const createdIds = [];
+    let pagesFolder = null;
+    let manageFolder = null;
+    let sharedFolder = null;
+
+    if (accountFolder) {
+        pagesFolder = ensureChildFolder(accountFolder, "Pages");
+        manageFolder = ensureChildFolder(pagesFolder, "Manage");
+        sharedFolder = ensureChildFolder(accountFolder, "Shared");
+
+        function syncPage(def, folder, secured) {
+            let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
+            if (!comp) {
+                comp = folder.addChild("Component", def.name);
+                createdIds.push(comp.id);
+                comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
+            }
+            const st = comp.ensureStereotype(PAGE_STEREOTYPE);
+            st.setProperty("Route", def.route);
+            st.setProperty("Title", def.title);
+            comp.setMetadata(META_KEY, def.id);
+            // Manage/* pages require an authenticated user; the pre-auth flow pages
+            // (Login, Register, ForgotPassword, AccessDenied, etc.) must stay reachable
+            // by anonymous users, so security is decided here per named page, not guessed.
+            if (secured) {
+                try {
+                    comp.ensureStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to apply Secured stereotype to " + def.name + " (non-fatal): " + e);
+                }
+            } else if (comp.hasStereotype(SECURED_STEREOTYPE)) {
+                try {
+                    comp.removeStereotype(SECURED_STEREOTYPE);
+                } catch (e) {
+                    console.log("Failed to remove Secured stereotype from " + def.name + " (non-fatal): " + e);
+                }
+            }
+            // Every Account page renders server-side: several reference Server-only generated
+            // helpers (e.g. IdentityRedirectManagerTemplate), which would otherwise force a
+            // Client-&gt;Server project reference and close a cycle with the Server-&gt;Client edge
+            // Server needs for hosting/DI.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
+        }
+
+        function syncShared(def, folder) {
+            let comp = managed.find(function (c) { return c.getMetadata(META_KEY) === def.id; });
+            if (!comp) {
+                comp = folder.addChild("Component", def.name);
+                createdIds.push(comp.id);
+                comp.setMetadata(NEWLY_CREATED_META_KEY, "true");
+            }
+            comp.setMetadata(META_KEY, def.id);
+            // status-message and external-login-picker call GetIdentityRedirectManagerTemplateName()
+            // themselves, so shared components must render server-side too, same reasoning as syncPage.
+            try {
+                comp.ensureStereotype(RENDER_ON_SERVER_STEREOTYPE);
+            } catch (e) {
+                console.log("Failed to apply Render On Server stereotype to " + def.name + " (non-fatal): " + e);
+            }
+        }
+
+        definition.pages.forEach(function (p) { syncPage(p, pagesFolder, false); });
+        definition.managePages.forEach(function (p) { syncPage(p, manageFolder, true); });
+        sharedTargets.forEach(function (s) { syncShared(s, sharedFolder); });
+    }
+
+    element.setMetadata("authentication", securityType);
+
+    if (accountFolder) {
+        try {
+            syncNavigations(getNavigationDefinitions(securityType));
+            try {
+                syncProfileMenu(securityType);
+            } catch (e) {
+                console.log("Profile menu sync failed (non-fatal): " + e);
+            }
+
+            if (createdIds.length &gt; 0) {
+                const diagramElement = accountFolder.getChildren("Diagram").find(function (d) { return d.getName() === "Account"; });
+                if (diagramElement) {
+                    const diagram = await diagramElement.openDiagram();
+                    const position = diagram.mousePosition || { x: 0, y: 0 };
+                    diagram.layoutVisuals(createdIds, position, true);
+                }
+            }
+
+            if (manageFolder.getChildren().length === 0) {
+                manageFolder.delete();
+            }
+            if (pagesFolder.getChildren().length === 0) {
+                pagesFolder.delete();
+            }
+            if (sharedFolder.getChildren().length === 0) {
+                sharedFolder.delete();
+            }
+            const remaining = accountFolder.getChildren().filter(function (c) {
+                return c !== pagesFolder &amp;&amp; c !== sharedFolder &amp;&amp; c.getSpecialization() !== "Diagram";
+            });
+            if (remaining.length === 0 &amp;&amp; !pagesFolder.getParent() &amp;&amp; !sharedFolder.getParent()) {
+                accountFolder.getChildren("Diagram").forEach(function (d) { d.delete(); });
+                accountFolder.delete();
+            }
+        } catch (e) {
+            console.log("Navigation sync, diagram placement, or folder cleanup failed (non-fatal): " + e);
+        }
+    }
+}
+
+const stereotype = element.getStereotype(STEREOTYPE_ID);
+const securityType = stereotype.getProperty("Authentication").getValue();
+const definition = PAGE_DEFINITIONS[securityType];
+const mudBlazorInstalled = application.isModuleInstalled("Intent.Blazor.Components.MudBlazor");
+const sharedTargets = definition.shared.filter(function (s) {
+    return !(HIDE_IF_MUDBLAZOR_IDS.indexOf(s.id) !== -1 &amp;&amp; mudBlazorInstalled);
+});
+const allTargets = definition.pages.concat(definition.managePages, sharedTargets);
+const targetIds = {};
+allTargets.forEach(function (t) { targetIds[t.id] = true; });
+const managedNow = findElements({ specialization: "Component" }).filter(function (c) { return c.hasMetadata(META_KEY); });
+const toRemoveNow = managedNow.filter(function (c) { return !targetIds[c.getMetadata(META_KEY)]; });
+const toAddCount = allTargets.filter(function (t) {
+    return !managedNow.some(function (c) { return c.getMetadata(META_KEY) === t.id; });
+}).length;
+
+try {
+    await dialogService.confirm(
+    `Switching Authentication to "${securityType}" will modify the modelled Account pages/components by adding ${toAddCount} and removing ${toRemoveNow.length}. Continue?`
+    );
+    await runSync(securityType);
+} catch {
+    stereotype.getProperty("Authentication").setValue(element.getMetadata("authentication"));
+}</onChangedScript>
+  <properties>
+    <property id="f01f034a-a2d7-4ef6-b102-050df72ec423">
+      <name>Authentication</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>None</defaultValue>
+      <valueOptions>
+        <option>None</option>
+        <option>Bearer Token (JWT)</option>
+        <option>Single Sign-On (OpenID Connect)</option>
+        <option>Built-in Login (ASP.NET Identity)</option>
+      </valueOptions>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

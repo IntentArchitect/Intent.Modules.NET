@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -52,12 +54,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
             {
                 replacements.Add("IdentityClass", "ApplicationUser");
-                // JWT apps have no server-side user-data namespace, so _Imports must not emit a
-                // dangling `@using …Data` (a compile error). Non-Identity setups that still have a
-                // Data namespace keep the using.
+                // JWT/SSO apps have no server-side user-data namespace, so _Imports must not emit a
+                // dangling `@using …Data` (a compile error). Only Built-in Login (ASP.NET Identity)
+                // generates that namespace.
                 var dataNamespace = $"{outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data";
-                var isJwt = outputTarget.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt();
-                replacements.Add("NamespaceData", isJwt ? "" : $"@using {dataNamespace}");
+
+                var securityType = outputTarget.ExecutionContext.MetadataManager.GetAuthenticationType(outputTarget.ExecutionContext.GetApplicationConfig().Id);
+                var hasDataNamespace = securityType.IsBuiltInLoginASPNETIdentity();
+
+                replacements.Add("NamespaceData", hasDataNamespace ? $"@using {dataNamespace}" : "");
                 replacements.Add("IdentityClassNamespace", dataNamespace);
             }
             else
@@ -75,20 +80,20 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var auth = application.GetSettings().GetBlazor().Authentication();
+            var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
             if (!mudBlazorInstalled)
             {
                 return;
             }
 
-            if (auth.IsAspnetcoreIdentity())
+            if (auth.IsBuiltInLoginASPNETIdentity())
             {
                 // Identity: the full shared set (Manage layouts, ExternalLoginPicker, recovery codes,
                 // AppUserMenu, StatusMessage, AccountLayout skin, _Imports…).
                 RegisterAuthStaticContent(registry, application);
             }
-            else if (auth.IsJwt())
+            else if (auth.IsBearerTokenJWT())
             {
                 // JWT: only the mode-independent account shell — the AccountLayout skin, StatusMessage
                 // (used by the RazorBuilder login/register), and the _Imports wiring. The Identity-only

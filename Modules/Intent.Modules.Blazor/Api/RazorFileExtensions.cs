@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using System.Threading;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -11,6 +5,7 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api.Mappings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -21,6 +16,12 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Intent.Modules.Blazor.Api;
 
@@ -391,6 +392,13 @@ public static class RazorFileExtensions
                     }
                 });
             }
+        }
+
+        // for layouts, we don't want the navigate to methods to be generated
+        // the navigations will be directly in the razor file
+        if(template.Id == RazorLayoutTemplate.TemplateId)
+        {
+            return;
         }
 
         foreach (var associationEnd in componentElement.AssociatedElements)

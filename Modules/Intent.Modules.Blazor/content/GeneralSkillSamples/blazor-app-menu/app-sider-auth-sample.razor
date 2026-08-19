@@ -1,0 +1,27 @@
+@* MainLayoutSider — Auth project variant. Authentication module IS installed, so CascadingAuthenticationState
+   is registered app-wide and AuthorizeView is safe to use. Only items whose context carries an
+   authorization requirement get wrapped — everything else stays a plain, unwrapped NavLink.
+
+   This mirrors the exact context example this skill was written against:
+   - "a navigation link to the product list page with route '/product-list'" -> no requirement -> plain link
+   - "a navigation link to the order list page with route '/order-list' which requires roles
+      'Admin' or 'Write'" -> Roles-gated -> wrapped in AuthorizeView, Authorized-only, no NotAuthorized
+      fragment (the item simply doesn't render for a user who doesn't qualify).
+
+   The outer <nav class="ux-nav-drawer"> wrapper is the current scaffold's shape. Items use the
+   built-in <NavLink> component (not a plain <a>) so the active route gets highlighted
+   automatically. *@
+
+<nav class="ux-nav-drawer">
+    <ul class="nav flex-column">
+        <li class="nav-item"><NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Home</NavLink></li>
+
+        <li class="nav-item"><NavLink class="nav-link" href="/product-list">Product List</NavLink></li>
+
+        <AuthorizeView Roles="Admin,Write">
+            <Authorized>
+                <li class="nav-item"><NavLink class="nav-link" href="/order-list">Order List</NavLink></li>
+            </Authorized>
+        </AuthorizeView>
+    </ul>
+</nav>

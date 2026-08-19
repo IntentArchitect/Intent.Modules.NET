@@ -22,7 +22,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
         [IntentIgnore]
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
-            return OverwriteBehaviour.Always;
+            return OverwriteBehaviour.OverwriteDisabled;
         }
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };

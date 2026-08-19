@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="fbcb8330-069e-4d84-9327-90fd6912e0d1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.11</name>
-      <display>2.3.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="93ac3c54-b597-4614-8bcd-6bd945c197bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Features</name>
+          <display>Microsoft.AspNetCore.Http.Features (2.3.10)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fbcb8330-069e-4d84-9327-90fd6912e0d1</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d3b483d6-914c-4f01-b8cc-575fa5878e74" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fbcb8330-069e-4d84-9327-90fd6912e0d1</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />

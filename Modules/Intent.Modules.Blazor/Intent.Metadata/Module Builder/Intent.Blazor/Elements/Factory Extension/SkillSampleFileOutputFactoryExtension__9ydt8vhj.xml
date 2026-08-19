@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="076ff38f-2cb4-4ee3-9685-3b4a33499694" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>SkillSampleFileOutputFactoryExtension</name>
+  <display>SkillSampleFileOutputFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b44ebbc8-109d-4a4f-92d2-45f36852802c</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

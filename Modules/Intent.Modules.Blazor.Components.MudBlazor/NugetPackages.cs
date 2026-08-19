@@ -11,10 +11,20 @@ namespace Intent.Modules.Blazor.Components.MudBlazor
 {
     public class NugetPackages : INugetPackages
     {
+        public const string MicrosoftAspNetCoreHttpAbstractionsPackageName = "Microsoft.AspNetCore.Http.Abstractions";
         public const string MudBlazorPackageName = "MudBlazor";
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(MicrosoftAspNetCoreHttpAbstractionsPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Features", "2.3.10")
+                            .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpAbstractionsPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(MudBlazorPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -41,6 +51,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor
                     }
                 );
         }
+
+        public static NugetPackageInfo MicrosoftAspNetCoreHttpAbstractions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreHttpAbstractionsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MudBlazor(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MudBlazorPackageName, outputTarget.GetMaxNetAppVersion());
     }

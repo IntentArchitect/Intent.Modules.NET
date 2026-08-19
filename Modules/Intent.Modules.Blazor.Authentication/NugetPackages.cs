@@ -35,7 +35,7 @@ namespace Intent.Modules.Blazor.Authentication
                         ( >= 9, >= 0) => new PackageVersion("9.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.17")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.17"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.21", locked: true)
+                        ( >= 8, >= 0) => new PackageVersion("8.0.21")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
