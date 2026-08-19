@@ -30,6 +30,7 @@
   <file path=".agents/skills/module-debugging/SKILL.md" />
   <file path=".agents/skills/module-docs-chore/SKILL.md" />
   <file path=".agents/skills/module-docs/SKILL.md" />
+  <file path=".agents/skills/module-svg-icon/SKILL.md" />
   <file path=".agents/skills/module-version-increment/SKILL.md" />
   <file path=".agents/skills/module-versioning/SKILL.md" />
   <file path=".claude/instructions/csharp-guidelines.md" />
@@ -62,6 +63,7 @@
   <file path=".claude/skills/module-debugging/SKILL.md" />
   <file path=".claude/skills/module-docs-chore/SKILL.md" />
   <file path=".claude/skills/module-docs/SKILL.md" />
+  <file path=".claude/skills/module-svg-icon/SKILL.md" />
   <file path=".claude/skills/module-version-increment/SKILL.md" />
   <file path=".claude/skills/module-versioning/SKILL.md" />
 </managedFiles>
