@@ -47,6 +47,9 @@
   <file path="Wolverine.AspNetCore.Controllers.Application/EventHandlers/ProductChangedDomainEventHandler.cs" deviationsHash="9AE9993FC687346397965334CEB801043E02B61E629DA3FFD60715538999B1F5" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Mappings/Orders/OrderDtoProfile.cs" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Mappings/Products/ProductDtoProfile.cs" />
+  <file path="Wolverine.AspNetCore.Controllers.Application/New/NewCommand.cs" />
+  <file path="Wolverine.AspNetCore.Controllers.Application/New/NewCommandHandler.cs" />
+  <file path="Wolverine.AspNetCore.Controllers.Application/New/NewCommandValidator.cs" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Orders/CreateOrder/CreateOrderCommand.cs" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" />

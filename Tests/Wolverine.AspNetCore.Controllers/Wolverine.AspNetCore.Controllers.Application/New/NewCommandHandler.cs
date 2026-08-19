@@ -14,7 +14,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.New
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public async Task Handle(NewCommand command, CancellationToken cancellationToken)
+        public async Task Handle(NewCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (NewCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");

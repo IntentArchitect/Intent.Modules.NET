@@ -221,6 +221,7 @@
     <application id="2cb9a48b-f484-4d52-918e-54a8be38b3d1" name="AspNetCoreNoAuth" solutionFolder="ASP.NET Core" relativePath="AspNetCoreNoAuth/AspNetCoreNoAuth.application.config" />
     <application id="e4c57f5d-51d8-409d-ab16-3379db38995c" name="AzureIdentityManagement" solutionFolder="Azure" relativePath="AzureIdentityManagement/AzureIdentityManagement.application.config" />
     <application id="baf6bef2-6185-4c0d-945c-8a4da5859aaa" name="IntegrationTesting.SQLLite.Tests" solutionFolder="Testing" relativePath="IntegrationTesting.SQLLite.Tests/IntegrationTesting.SQLLite.Tests.application.config" />
-    <application id="a5a39ce6-e966-486f-a4a7-ad33cf56bef5" name="ObjectMappingTest" solutionFolder="Advanced Mapping" relativePath="ObjectMappingTest/ObjectMappingTest.application.config" />
+    <application id="71a75efe-e817-42a1-9ed8-13a5c09e18b5" name="ObjectMapping.Lenient" solutionFolder="OutboundMapping" relativePath="ObjectMapping.Lenient/ObjectMapping.Lenient.application.config" />
+    <application id="1c34282d-3bcc-4b29-9853-56e36f7e4fa2" name="ObjectMapping.Strict" solutionFolder="OutboundMapping" relativePath="ObjectMapping.Strict/ObjectMapping.Strict.application.config" />
   </applications>
 </solution>
