@@ -410,8 +410,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             Dictionary<string, Dictionary<string, PackageVersionInfo>> projectToNugetPackageMap,
             int currentDepth = 0)
         {
-            Logging.Log.Debug($"Processing {project.Name} [{project.Id}]");
-
             if (currentDepth++ > 1000)
             {
                 throw new Exception("Possible cyclic reference detected");

@@ -118,7 +118,7 @@ modelBuilder.Entity<Car>().HasData(
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
             {
-                if (!Model.Equals(DbContextManager.GetDbContext(typeConfiguration.Template.Model)))
+                if (!Model.Equals(DbContextManager.GetDbContext(typeConfiguration.Template.Model, ExecutionContext.Settings)))
                 {
                     return;
                 }

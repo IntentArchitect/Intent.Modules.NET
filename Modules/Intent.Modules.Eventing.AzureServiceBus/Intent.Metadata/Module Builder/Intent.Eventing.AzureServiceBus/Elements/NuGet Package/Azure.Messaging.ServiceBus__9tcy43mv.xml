@@ -24,76 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.20.1</name>
-      <display>7.20.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ee1b128e-632a-4a73-85e5-05e7a7ed922a</parentFolderId>
-      <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
-      <packageName>Intent.Eventing.AzureServiceBus</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="d8cae604-9436-4912-994f-c374423f8dab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.46.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.46.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
-          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
-          <packageName>Intent.Eventing.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5fd53b1c-9cc5-421b-9e25-86d31f5d7c34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core.Amqp</name>
-          <display>Azure.Core.Amqp (1.3.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
-          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
-          <packageName>Intent.Eventing.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="431abb21-4c8b-4bb5-a05e-3296e39be923" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.Amqp</name>
-          <display>Microsoft.Azure.Amqp (2.7.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>2.7.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
-          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
-          <packageName>Intent.Eventing.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="16b4fad6-970a-4c1d-a34f-74fec1bcacc3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.20.1</name>
-      <display>7.20.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>7.20.2</name>
+      <display>7.20.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -114,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3b3dda2f-8c81-4d5f-b37d-d23ce9218c77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de80b51d-351a-4b42-a326-a72453cce1e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
-          <display>Azure.Core (1.46.2)</display>
+          <display>Azure.Core (1.60.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.46.2</value>
+          <value>1.60.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>16b4fad6-970a-4c1d-a34f-74fec1bcacc3</parentFolderId>
@@ -128,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e9c1ed9-cb5f-490c-952e-53f90fe5c667" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0ba714b2-2acb-447b-a7eb-ea93eedb9aee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core.Amqp</name>
           <display>Azure.Core.Amqp (1.3.1)</display>
           <isAbstract>false</isAbstract>
@@ -142,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e7d517d3-1bdb-488d-9b5f-31201bd0d54c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8a00b1e9-68f3-4a55-97e9-dc5d1ed3af96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Amqp</name>
           <display>Microsoft.Azure.Amqp (2.7.0)</display>
           <isAbstract>false</isAbstract>
@@ -150,6 +83,73 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>16b4fad6-970a-4c1d-a34f-74fec1bcacc3</parentFolderId>
+          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+          <packageName>Intent.Eventing.AzureServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.20.2</name>
+      <display>7.20.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ee1b128e-632a-4a73-85e5-05e7a7ed922a</parentFolderId>
+      <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+      <packageName>Intent.Eventing.AzureServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="18c102ac-c50d-44ed-9c48-e773656c227e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.60.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
+          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+          <packageName>Intent.Eventing.AzureServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d36c78f4-c0f6-4a4e-bbbd-03e7588d1f19" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core.Amqp</name>
+          <display>Azure.Core.Amqp (1.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
+          <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+          <packageName>Intent.Eventing.AzureServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e97713cf-6d1c-4648-9283-04b0733b5ff4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Amqp</name>
+          <display>Microsoft.Azure.Amqp (2.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8a48c8f4-f0f9-4602-9e5b-3cdcbe57cf96</parentFolderId>
           <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
           <packageName>Intent.Eventing.AzureServiceBus</packageName>
           <stereotypes />

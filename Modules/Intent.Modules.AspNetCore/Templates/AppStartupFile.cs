@@ -151,7 +151,15 @@ internal class AppStartupFile : IAppStartupFile
                 }
 
                 _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseRouting").WithPriority(-20));
-                _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseAuthorization").WithPriority(-5));
+
+                // Absence means enabled — only an explicit "false" removes this. Deliberately not the
+                // generated EnableAuthorization() accessor, which cannot distinguish "unset" from "false"
+                // and would silently drop UseAuthorization() for applications upgrading from a module
+                // version that predates the setting. See ASPNETCoreSettingsDefaults.
+                if (template.ExecutionContext.Settings.GetASPNETCoreSettings().EnableAuthorizationOrDefault())
+                {
+                    _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseAuthorization").WithPriority(-5));
+                }
 
                 // To match previous behaviour (and avoid changes for upgrading clients) where would always be generated
                 AddAppConfigurationLambdaInternal(

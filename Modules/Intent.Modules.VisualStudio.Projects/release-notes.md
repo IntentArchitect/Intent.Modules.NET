@@ -1,3 +1,32 @@
+### Version 4.1.8
+
+- Fixed: Root Folder's `Relative Location` is now applied to template content outside of the Visual Studio solution as well.
+- Fixed: Relocated the `Root Folder Options` stereotype to the `Codebase Structure` designer so as to control the root folder options for generated content.
+- Fixed: `AddFrameworkDependency`, `AddDependency`, `AddReference`, `AddImplicitUsing`, and similar `Metadata`-backed methods silently lost their write when called from a template constructor, since `InitializeVSMetadata` reset those collections afterward. The reset now runs earlier (`BeforeTemplateRegistrations`), so these methods are safe to call from a constructor.
+
+### Version 4.1.7
+
+- New Feature: Added a `Root Folder Options` stereotype with a `Relative Location` property, letting an application's output root be shifted uniformly so the `.sln`/`.slnx`, `.gitignore`, and centrally-managed `Directory.Packages.props` can be generated in a shared container folder distinct from the application's own output location.
+- Fixed: Setting `Solution Relative Location` moved the `.sln`/`.slnx` file without updating the project reference paths inside it, producing invalid, unresolvable project references.
+- Improvement: Upgraded to better leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+- Fixed: The `Output Type` property of the `.NET Settings` stereotype was hidden and unsettable when `SDK` was set to `Aspire.AppHost.Sdk`, and the Software Factory would fail to run against any application with such a project with a "Failed to load property "Output Type" for stereotype [.NET Settings]" error. `Output Type` can now be set regardless of the selected `SDK`.
+- Fixed: An existing `launchSettings.json` containing a `Container (.NET SDK)` profile (`commandName` of `SdkContainer`, added by `dotnet publish`/Visual Studio container tooling) failed to parse, crashing the Software Factory for the affected project. `SdkContainer` is now a recognized `commandName` value.
+
+### Version 4.1.6
+
+- Fixed: Switching a solution's format from classic `.sln` to `.slnx` crashed the Software Factory on the first run after the switch. Since both templates share the same output Id, the old `.sln` file's content was still being handed to the `.slnx` merger as its file/merge history; that content isn't XML at all, so it failed to parse and the run crashed. A format switch is now detected and treated as a fresh generation instead.
+
+### Version 4.1.5
+
+- Fixed: Renaming a project, moving it to a different Solution Folder, or renaming its Solution Folder could duplicate the project across two folders in `.slnx`, breaking all further generation.
+- Improvement: Unparsable `.slnx` files now raise a clear, actionable error (with the file's content) instead of an opaque exception.
+- Fixed: `.slnx` merging could incorrectly run against a classic `.sln` file's output and fail, since both templates share the same template Id.
+
+### Version 4.1.4
+
+- Improvement: Items manually added to `<NoWarn>` in the csproj will now be merged with items modelled in Intent Architect.
+- Improvement: .NET C# Projects with their SDK set to `Microsoft.NET.Sdk.Worker` will now have `Program.cs` files generated for them.
+
 ### Version 4.1.3
 
 - Improvement: Comments in the appsettings are preserved when running the Software Factory.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2a83a1c1-52f5-4f5d-9d9f-89b979dbe9fb" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPC_DerivedClassForAbstract</name>
-  <display>TPC_DerivedClassForAbstract : TPC_AbstractBaseClass</display>
+  <display>TPC_DerivedClassForAbstract</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

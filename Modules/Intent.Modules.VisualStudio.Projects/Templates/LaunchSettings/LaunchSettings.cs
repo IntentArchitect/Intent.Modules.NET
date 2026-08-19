@@ -267,7 +267,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
     /// <summary>
     /// Identifies the debug target to run.
     /// </summary>
-    public enum CommandName { DebugRoslynComponent, Docker, DockerCompose, Executable, Iis, IisExpress, MsixPackage, Project, WSL2 };
+    public enum CommandName { DebugRoslynComponent, Docker, DockerCompose, Executable, Iis, IisExpress, MsixPackage, Project, SdkContainer, WSL2 };
 
     public partial class LaunchSettings
     {
@@ -404,6 +404,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     return CommandName.MsixPackage;
                 case "project":
                     return CommandName.Project;
+                case "sdkcontainer":
+                    return CommandName.SdkContainer;
                 case "wsl2":
                     return CommandName.WSL2;
             }
@@ -443,6 +445,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     return;
                 case CommandName.Project:
                     serializer.Serialize(writer, "Project");
+                    return;
+                case CommandName.SdkContainer:
+                    serializer.Serialize(writer, "SdkContainer");
                     return;
                 case CommandName.WSL2:
                     serializer.Serialize(writer, "WSL2");

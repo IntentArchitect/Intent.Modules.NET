@@ -16,6 +16,11 @@ namespace Wolverine.Mapperly.Infrastructure.Dispatch.Middleware
             IValidatorProvider validatorProvider,
             CancellationToken cancellationToken)
         {
+            if (envelope.Message is null)
+            {
+                return;
+            }
+
             await ValidateAsync(envelope.Message, validatorProvider, cancellationToken);
         }
 

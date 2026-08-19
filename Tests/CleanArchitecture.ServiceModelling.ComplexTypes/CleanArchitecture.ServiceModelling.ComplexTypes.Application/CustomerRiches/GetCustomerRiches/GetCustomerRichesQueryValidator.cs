@@ -17,6 +17,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
 
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

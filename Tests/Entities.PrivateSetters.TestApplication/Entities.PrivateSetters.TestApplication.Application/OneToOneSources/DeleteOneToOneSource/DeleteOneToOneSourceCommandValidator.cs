@@ -15,6 +15,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.De
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

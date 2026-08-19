@@ -10,6 +10,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Dapper.Templates;
 using Intent.Modules.Dapper.Templates.EntityRepositoryInterface;
 using Intent.Modules.Dapper.Templates.Repository;
+using Intent.Modules.Dapper.Templates.StoredProcedures;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -33,7 +34,7 @@ namespace Intent.Modules.Dapper.FactoryExtensions
                 .Where(x => x.TypeReference.Element.IsClassModel())
                 .Select(x => (Entity: x.TypeReference.Element.AsClassModel(), Repository: x));
 
-            foreach (var entry in classRepositories.Where(p => p.Repository.Operations.Any()))
+            foreach (var entry in classRepositories.Where(p => p.Repository.Operations.Any() || p.Repository.HasStoredProcedures()))
             {
                 var interfaceTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, entry.Entity);
                 if (interfaceTemplate is not null)

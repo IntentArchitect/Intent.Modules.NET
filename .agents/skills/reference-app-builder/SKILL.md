@@ -12,6 +12,8 @@ Prove with running code that every file shape in the Pattern Document is correct
 
 This is the most important gate in the chain. Template bugs from unverified patterns are expensive to diagnose in the increment loop. This skill moves that discovery cost to its cheapest point.
 
+> **Sliced builds:** when the build is sliced (`WORKING.md` slice map), build (or extend) the reference app **per slice** — each slice's feature gets its own end-to-end proof and acceptance check. This phase is hands-on (scaffold / build / run) so it stays with the orchestrator, but reading and verifying the generated output can be offloaded to a sub-agent.
+
 ## Musts
 
 1. Locate or create a test app (check U9). For Intent-managed apps, attempt scaffolding via the `create_application`/`create_solution` MCP tools first; fall back to `dotnet new webapi` for a plain app, or ask the user if the tools are unavailable or IA designer setup must be done by hand.

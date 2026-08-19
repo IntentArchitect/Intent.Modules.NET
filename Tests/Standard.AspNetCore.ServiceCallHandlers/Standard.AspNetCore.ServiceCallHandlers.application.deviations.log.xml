@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#2fa830ef-492e-4f75-9f27-c76f2ea47bdd</correlationId>
+      <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleServiceHandlers/DeletePersonSCH.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-23T19:50:24.3508892Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T11:46:54.0514463Z</approvedAt>
+      <deviationsHash>47F62150B11D1CEA495E0DF5FCD684BF13BEA5EADB2C96F614E16F0678762D10</deviationsHash>
+      <fileHash>C9BD867C9A37CE53727AFF55C89E9C77200D766B3D0ECF296898C733298AB6C2</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#41664478-7414-4e9a-b1fa-7d80f9d94c36</correlationId>
       <path>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Standard.AspNetCore.ServiceCallHandlers.Infrastructure.csproj</path>
       <count>1</count>

@@ -17,6 +17,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Customers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F0741BCD-1F5F-475A-A59C-3C98CDB08307}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureIdentityManagement.Api", "AzureIdentityManagement.Api\AzureIdentityManagement.Api.csproj", "{6828E89D-4715-4E70-A8E7-604FF56AB7C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{E117C402-6F63-49F4-A4AE-0AB360945C1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureIdentityManagement.Application", "AzureIdentityManagement.Application\AzureIdentityManagement.Application.csproj", "{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F466A72B-5DE3-4F4E-B8E7-2BC10AD00E8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureIdentityManagement.Domain", "AzureIdentityManagement.Domain\AzureIdentityManagement.Domain.csproj", "{F274F1DD-5B71-43B3-84DE-658EBDD0380E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0EDA21A4-0C2B-41A3-96B3-E5F6B4193CD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureIdentityManagement.Infrastructure", "AzureIdentityManagement.Infrastructure\AzureIdentityManagement.Infrastructure.csproj", "{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6828E89D-4715-4E70-A8E7-604FF56AB7C9} = {F0741BCD-1F5F-475A-A59C-3C98CDB08307}
+		{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24} = {E117C402-6F63-49F4-A4AE-0AB360945C1A}
+		{F274F1DD-5B71-43B3-84DE-658EBDD0380E} = {F466A72B-5DE3-4F4E-B8E7-2BC10AD00E8B}
+		{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8} = {0EDA21A4-0C2B-41A3-96B3-E5F6B4193CD0}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6828E89D-4715-4E70-A8E7-604FF56AB7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6828E89D-4715-4E70-A8E7-604FF56AB7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6828E89D-4715-4E70-A8E7-604FF56AB7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6828E89D-4715-4E70-A8E7-604FF56AB7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC0EE7A-D002-4B00-A589-9CC9BE6E9F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F274F1DD-5B71-43B3-84DE-658EBDD0380E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F274F1DD-5B71-43B3-84DE-658EBDD0380E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F274F1DD-5B71-43B3-84DE-658EBDD0380E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F274F1DD-5B71-43B3-84DE-658EBDD0380E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0194CAAF-1BC8-4A7F-B873-852BFF4B81E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

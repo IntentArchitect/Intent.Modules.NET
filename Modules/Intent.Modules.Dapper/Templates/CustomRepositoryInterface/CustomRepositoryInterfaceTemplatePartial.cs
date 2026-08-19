@@ -22,7 +22,10 @@ namespace Intent.Modules.Dapper.Templates.CustomRepositoryInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CustomRepositoryInterfaceTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            // The file is assigned up-front so that it is available to anything (e.g. RepositoryOperationHelper)
+            // which needs to add usings while the interface is being built:
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+            CSharpFile
                 .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", @interface =>
                 {
                     RepositoryOperationHelper.ApplyMethods(this, @interface, model);

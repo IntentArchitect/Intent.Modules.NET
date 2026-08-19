@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.Pagination.GetPeopleByFirstNamePaginated
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

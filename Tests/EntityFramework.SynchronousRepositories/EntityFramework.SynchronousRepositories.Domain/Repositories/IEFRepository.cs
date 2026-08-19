@@ -26,6 +26,9 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<TDomain?> FindAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<TDomain?> FindFirstAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<TDomain?> FindFirstAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<TDomain?> FindFirstAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
@@ -41,6 +44,9 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         int Count(Expression<Func<TPersistence, bool>> filterExpression);
         bool Any(Expression<Func<TPersistence, bool>> filterExpression);
         TDomain? Find(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
+        TDomain? FindFirst(Expression<Func<TPersistence, bool>> filterExpression);
+        TDomain? FindFirst(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
+        TDomain? FindFirst(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
         List<TDomain> FindAll(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
         IPagedList<TDomain> FindAll(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
         int Count(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default);

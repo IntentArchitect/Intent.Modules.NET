@@ -16,6 +16,7 @@ namespace FastEndpointsTest.Application.AggregateRootLongs.UpdateAggregateRootLo
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Attribute)

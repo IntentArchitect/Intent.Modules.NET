@@ -16,6 +16,7 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.UpdateDerivedType
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Id)

@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
@@ -62,6 +63,14 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
         {
             ConfigureStartUpForSeperateDatabaseMultiTenancy(application);
             ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(application);
+
+            // Registers CosmosDB as a connection-string requester so TenantExtendedInfo generates a
+            // named CosmosDbConnection property instead of assuming it's the only separate-database
+            // module installed. Without this, combining CosmosDB with another separate-database
+            // module (MongoDb, MongoDb.MongoFramework, Google.CloudStorage) would switch
+            // TenantExtendedInfo to named-properties-only and break CosmosDB's bare `.ConnectionString`
+            // read at compile time. Matches the pattern already used by those other modules.
+            application.EventDispatcher.Publish(new MultitenantConnectionStringRegistrationRequest("CosmosDbConnection", $"AccountEndpoint=https://localhost:8081/;Database={application.Name.ToCSharpIdentifier()}-{{tenant}}"));
         }
 
         private void ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(IApplication application)
@@ -110,7 +119,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 file
                     .AddUsing("System")
-                    .AddUsing("System.Linq.Expressions");
+                    .AddUsing("System.Linq.Expressions")
+                    .AddUsing("Finbuckle.MultiTenant");
 
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
@@ -121,12 +131,12 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 constructor.ConstructorCall.AddArgument($"{(partitionAttribute != null ? $"\"{partitionAttribute.Name.ToCamelCase()}\"" : "default")}");
                 if (RequiresMultiTenancy(template.Model))
                 {
-                    constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
+                    constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                     constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
                 }
                 else
                 {
-                    constructor.ConstructorCall.AddArgument($"default({template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>")})");
+                    constructor.ConstructorCall.AddArgument($"default({template.UseType("Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>")})");
                 }
 
                 if (RequiresMultiTenancy(template.Model))
@@ -153,14 +163,16 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
-                file.AddUsing("System");
+                file
+                    .AddUsing("System")
+                    .AddUsing("Finbuckle.MultiTenant");
 
                 var @class = file.Classes.First();
                 @class.AddField($"string{nullableChar}", "_tenantId", f => f.PrivateReadOnly());
 
                 var constructor = @class.Constructors.First();
                 constructor.AddParameter($"string{nullableChar}", "partitionKeyFieldName", p => p.IntroduceReadonlyField());
-                constructor.AddParameter(template.UseType($"Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>{nullableChar}"), "multiTenantContextAccessor");
+                constructor.AddParameter(template.UseType($"Finbuckle.MultiTenant.Abstractions.IMultiTenantContextAccessor<TenantInfo>{nullableChar}"), "multiTenantContextAccessor");
 
                 constructor.AddIfStatement("multiTenantContextAccessor != null", stmt =>
                 {

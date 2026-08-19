@@ -18,13 +18,13 @@
       <correlationId>Intent.Application.MediatR.QueryHandler#1ae612ec-323a-4836-826f-b99fd0ab389d</correlationId>
       <path>EntityFramework.Application.LinqExtensions.Tests.Application/Customers/GetCustomersWithStatus/GetCustomersWithStatusQueryHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T09:35:00.1687241Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T09:35:00.1687269Z</approvedAt>
-      <deviationsHash>E2D71D177388B2476B301A2956A1E55E32ADFD916575FFBF502DF4740FDD5E00</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-27T13:00:57.151031Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-27T13:45:54.7149673Z</approvedAt>
+      <deviationsHash>F0B87073AA5A455D1045A418E4C798B6DDC72DF8AB6F28E7CE53AFD4B66746EA</deviationsHash>
       <fileHash>F9387FA4FF146B3DFAF416E58236C5ED659C17E0C46D4273734E1D2F94303D62</fileHash>
     </file>
     <file>

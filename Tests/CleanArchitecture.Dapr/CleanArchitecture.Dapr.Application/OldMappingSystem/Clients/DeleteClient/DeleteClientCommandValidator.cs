@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Clients.DeleteClie
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

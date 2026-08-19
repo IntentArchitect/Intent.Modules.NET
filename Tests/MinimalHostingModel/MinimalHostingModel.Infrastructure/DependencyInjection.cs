@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MinimalHostingModel.Application.Common.Interfaces;

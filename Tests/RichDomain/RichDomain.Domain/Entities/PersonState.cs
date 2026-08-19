@@ -18,16 +18,16 @@ namespace RichDomain.Domain.Entities
         protected Person()
         {
             FirstName = null!;
-            CreatedBy = null!;
+            CreatedByName = null!;
             Department = null!;
         }
         public Guid Id { get; private set; }
 
         public string FirstName { get; private set; }
 
-        public Guid DepartmentId { get; private set; }
+        public string CreatedByName { get; private set; }
 
-        public string CreatedBy { get; private set; }
+        public Guid DepartmentId { get; private set; }
 
         public DateTimeOffset CreatedDate { get; private set; }
 
@@ -46,7 +46,7 @@ namespace RichDomain.Domain.Entities
             UpdatePerson(firstName, (Department)department);
         }
 
-        void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedBy, CreatedDate) = (createdBy, createdDate);
+        void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedByName, CreatedDate) = (createdBy, createdDate);
 
         void IAuditable.SetUpdated(string updatedBy, DateTimeOffset updatedDate) => (UpdatedBy, UpdatedDate) = (updatedBy, updatedDate);
     }

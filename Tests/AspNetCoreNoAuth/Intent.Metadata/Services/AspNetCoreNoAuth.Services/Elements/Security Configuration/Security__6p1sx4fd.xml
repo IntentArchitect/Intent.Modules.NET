@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8c9a460-e792-495d-adba-f87555cc2943" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d72239c2-2b6c-4617-b035-f16d3aaf92f4</parentFolderId>
+  <packageId>d72239c2-2b6c-4617-b035-f16d3aaf92f4</packageId>
+  <packageName>AspNetCoreNoAuth.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

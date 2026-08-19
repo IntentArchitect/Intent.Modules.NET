@@ -42,6 +42,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.AuthorizationMiddleware
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(currentUserService, "currentUserService");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+
+                        method.AddIfStatement("envelope.Message is null", @if =>
+                        {
+                            @if.AddReturn("");
+                        });
+
                         method.AddStatement("await AuthorizeAsync(envelope.Message, currentUserService);");
                     });
 

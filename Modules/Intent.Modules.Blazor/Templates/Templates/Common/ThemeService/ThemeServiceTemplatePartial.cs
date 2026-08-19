@@ -77,7 +77,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.ThemeService
 
         private void RegisterInServerStartup()
         {
-            var startup = _application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            // AppStartup is host-scoped, and a multi-host application can have more than one ASP.NET
+            // Core host. This template belongs to exactly one host (its own OutputTarget), so scope
+            // the lookup to it rather than the application-wide lookup, which throws once a second
+            // host exists.
+            var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName, OutputTarget);
 
             if (startup == null)
             {

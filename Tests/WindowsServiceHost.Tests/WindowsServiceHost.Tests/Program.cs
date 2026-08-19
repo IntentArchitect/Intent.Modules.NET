@@ -11,7 +11,7 @@ using WindowsServiceHost.Tests.Configuration;
 using WindowsServiceHost.Tests.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.WindowsServiceHost.Program", Version = "1.0")]
+[assembly: IntentTemplate("Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram", Version = "1.0")]
 
 namespace WindowsServiceHost.Tests
 {
@@ -25,19 +25,19 @@ namespace WindowsServiceHost.Tests
             builder.Services.AddAzureServiceBusConfiguration(builder.Configuration);
             builder.Services.AddHttpClients(builder.Configuration);
             builder.Services.ConfigureQuartz(builder.Configuration);
+
+            // Add services to the container.
+            builder.Services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             builder.Services.AddWindowsService(options =>
-            {
-                options.ServiceName = "WindowsServiceHost.Tests";
-            });
+                {
+                    options.ServiceName = "WindowsServiceHost.Tests";
+                });
 
             if (OperatingSystem.IsWindows())
             {
                 LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);
             }
             builder.Services.AddHostedService<WindowsBackgroundService>();
-
-            // Add services to the container.
-            builder.Services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             builder.Services.AddHostedService<AzureServiceBusHostedService>();
 
             var app = builder.Build();

@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.Identity.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -47,12 +49,21 @@ namespace Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfi
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureApplicationSecurity", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
-            ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
-                .ToRegister("UseAuthentication")
-                .WithPriority(-10));
+
+            // "Enable Authentication" is contributed by this module into the ASP.NET Core settings group,
+            // which Intent.AspNetCore owns. Only an explicit "false" suppresses the registration — it stays
+            // enabled both when the setting has never been persisted and when that module (and therefore
+            // the group) is absent.
+            if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb() &&
+                ExecutionContext.Settings.GetASPNETCoreSettings().EnableAuthenticationOrDefault())
+            {
+                EmitOrPublish(ApplicationBuilderRegistrationRequest
+                    .ToRegister("UseAuthentication")
+                    .WithPriority(-10));
+            }
         }
 
         [IntentManaged(Mode.Fully)]

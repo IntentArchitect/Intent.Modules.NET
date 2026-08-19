@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Azure.BlobStorage</id>
-  <version>3.4.13-pre.0</version>
+  <version>3.5.0</version>
   <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Introduces a Blob storage client that can link with Azure's Blob Storage.</summary>
   <description>Introduces a Blob storage client that can link with Azure's Blob Storage.</description>
@@ -38,7 +38,19 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="0bdbfe0a-59ca-491e-ab98-2921b2ccd2c3" title="Blob Storage Settings" type="application-settings" externalReference="0bdbfe0a-59ca-491e-ab98-2921b2ccd2c3">
+      <settings>
+        <setting id="591a1370-88a8-40e3-9430-d69fca3acff5" title="Authentication Methods" type="multi-select">
+          <hint>Specify which authentication methods to use. Defaults to key-based.</hint>
+          <options>
+            <option value="key-based" description="Key-based" />
+            <option value="managed-identity" description="Managed Identity" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />

@@ -10,6 +10,8 @@ argument-hint: "[Requirements Summary or path to it]"
 
 Turn the Requirements Summary from `module-kickoff` into a precise Pattern Document: what the technology's native idioms are, how those map to Clean Architecture layers, and a concrete list of files the module must generate. This skill stops you from copying the wrong module's structural shape.
 
+> **Sliced builds & offload:** when the build is sliced (`WORKING.md` slice map), research per slice's feature. This phase is context-heavy and read-only — a strong candidate to **delegate to a sub-agent** (see `module-building-strategies` → *Offload discovery to keep the orchestrator lean*).
+
 ## Governing Principle — Industry Standard First
 
 The primary goal of every design decision is to produce output that matches what the technology's own documentation, community, and ecosystem consider correct. Map to Clean Architecture second — not the other way round.

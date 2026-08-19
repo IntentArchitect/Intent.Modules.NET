@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Aggregate
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.AttributeBinary)

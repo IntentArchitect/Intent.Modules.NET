@@ -35,6 +35,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
             var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDBSettings().UseOptimisticConcurrency();
             AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository(outputTarget));
             AddNugetDependency(NugetPackages.NewtonsoftJson(outputTarget));
+            AddNugetDependency(NugetPackages.AzureIdentity(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

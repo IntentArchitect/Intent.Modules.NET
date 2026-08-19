@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#acd17f06-2be3-45d8-a81f-50b2efc6c1a3</correlationId>
+      <path>CosmosDBMultiTenancy.Api/CosmosDBMultiTenancy.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-09T19:33:34.0799788Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-15T08:48:07.1439654Z</approvedAt>
+      <deviationsHash>BAA9759090316B6D1B897C99F6AE9FB2064B26690AAC17B17E2E44441B591609</deviationsHash>
+      <fileHash>23340B4EFA0FAD9F8EBBBEBA762AD8767D59FC73490E946E173C5ADF96AA9629</fileHash>
+    </file>
+  </files>
 </deviationsLog>

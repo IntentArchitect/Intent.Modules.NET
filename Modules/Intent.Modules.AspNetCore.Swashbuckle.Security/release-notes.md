@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Fixed: Swagger security schemes are now applied to each ASP.NET Core project's Swashbuckle configuration, instead of failing the Software Factory when an application has more than one.
+
 ### Version 5.0.0
 
 - Improvement: Now supports OAuth2 - Authorization Code flow with improved code generation using builder patterns.

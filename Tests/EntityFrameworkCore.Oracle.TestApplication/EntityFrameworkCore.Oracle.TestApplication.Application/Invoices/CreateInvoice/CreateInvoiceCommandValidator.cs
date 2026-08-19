@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Invoices.Create
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Number)

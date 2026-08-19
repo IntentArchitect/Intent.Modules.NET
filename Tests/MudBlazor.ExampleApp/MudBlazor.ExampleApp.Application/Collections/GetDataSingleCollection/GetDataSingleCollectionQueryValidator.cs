@@ -15,6 +15,7 @@ namespace MudBlazor.ExampleApp.Application.Collections.GetDataSingleCollection
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.IntCollection)

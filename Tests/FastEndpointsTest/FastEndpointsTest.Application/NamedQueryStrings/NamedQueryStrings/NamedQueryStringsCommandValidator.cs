@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.NamedQueryStrings.NamedQueryStrings
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Par1)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureServiceBus</id>
-  <version>1.2.1</version>
+  <version>1.3.0</version>
   <supportedClientVersions>[4.5.18-a,6.0.0-a)</supportedClientVersions>
   <summary>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</description>
@@ -70,7 +70,19 @@
     <factoryExtension id="Intent.Eventing.AzureServiceBus.MessageBusRegistrationExtension" externalReference="6f1fafa3-3ce5-48e4-94a1-294d60267c8d" />
     <factoryExtension id="Intent.Eventing.AzureServiceBus.MetadataLoaderExtension" externalReference="616fbd83-0d92-499a-bb08-dc72aaf0afaf" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="b2b605a0-2b52-4852-a18f-ebbf760c4830" title="Azure Service Bus Settings" type="application-settings" externalReference="b2b605a0-2b52-4852-a18f-ebbf760c4830">
+      <settings>
+        <setting id="c2ebc5e5-ab29-4834-a008-2b433ae87eae" title="Authentication Methods" type="multi-select">
+          <hint>Specify which authentication methods to use. Defaults to key-based.</hint>
+          <options>
+            <option value="key-based" description="Key-based" />
+            <option value="managed-identity" description="Managed Identity" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <interoperability>
     <detect id="Intent.AzureFunctions">
       <install>

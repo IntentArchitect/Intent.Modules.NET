@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
+using Dapper.Tests.Domain.Contracts;
 using Dapper.Tests.Domain.Entities;
 using Dapper.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +17,7 @@ using Microsoft.Extensions.Configuration;
 namespace Dapper.Tests.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
+    public class CustomerRepository : RepositoryBase, ICustomerRepository
     {
         public CustomerRepository(IConfiguration configuration) : base(configuration)
         {
@@ -91,6 +93,18 @@ WHERE Id = @Id
         {
             // TODO: Implement SearchCustomer (CustomerRepository) functionality
             throw new NotImplementedException("Your implementation here...");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public List<CustomerSummaryDataContract> GetCustomerSummaries(string searchTerm)
+        {
+            using var connection = GetConnection();
+            var sql = "EXEC GetCusomerSummaries @SearchTerm";
+            var parameters = new { SearchTerm = searchTerm };
+
+            var results = connection.Query<CustomerSummaryDataContract>(sql, parameters).ToList();
+
+            return results;
         }
     }
 }

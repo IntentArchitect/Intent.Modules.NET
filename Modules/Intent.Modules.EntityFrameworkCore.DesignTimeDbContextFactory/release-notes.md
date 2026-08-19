@@ -1,3 +1,7 @@
+### Version 4.2.19
+
+- Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s new `Default Connection String Name` module setting — the generated design-time factory's fallback connection string name now respects the setting instead of always assuming `DefaultConnection`.
+
 ### Version 4.2.18
 
 - Improvement: Updated NuGet package versions.

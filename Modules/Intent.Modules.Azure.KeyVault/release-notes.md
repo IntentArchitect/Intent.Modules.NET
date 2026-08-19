@@ -1,3 +1,7 @@
+### Version 2.0.21
+
+- Fixed: Software Factory crashed wiring up `Program` when Azure Key Vault configuration was generated into an application with more than one ASP.NET Core or Azure Functions isolated worker host. Key Vault configuration is now wired up for each host correctly.
+
 ### Version 2.0.20
 
 - Improvement: Updated NuGet package versions.

@@ -23,8 +23,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         {
             switch (step)
             {
-                case ExecutionLifeCycleSteps.AfterTemplateRegistrations:
+                case ExecutionLifeCycleSteps.BeforeTemplateRegistrations:
                 {
+                    // Runs before any template constructor for this run, so that Metadata-backed
+                    // methods (AddFrameworkDependency, AddDependency, AddReference, AddImplicitUsing,
+                    // etc.) are safe to call from a template constructor without a later reset here
+                    // clobbering what the constructor already wrote.
                     foreach (var project in application.OutputTargets.Where(x => x.IsVSProject()))
                     {
                         project.InitializeVSMetadata();

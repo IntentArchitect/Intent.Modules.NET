@@ -2,6 +2,110 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.UnitTesting.CommandHandlerTest#f09e30c7-857f-4a6b-942a-fbdabec0233c</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Brands/CreateBrandCommandHandlerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9994704Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:28.8678462Z</approvedAt>
+      <deviationsHash>5D415A69D03FC908918BB08AA1208006F20F00C8E45EE378C187EECB2DDFCEBA</deviationsHash>
+      <fileHash>7F329B81D349ADECEB271C1472BEAE5FD5F0F1484B0976A7C1C4E8829AE0D418</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.UnitTesting.CommandHandlerTest#1b1daa4c-4b43-4917-994d-28d169c22052</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Brands/DeleteBrandCommandHandlerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9994797Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:28.8939213Z</approvedAt>
+      <deviationsHash>1BC82BE14EE5A3836C33D512A3C31AB18E83D0E27EEF5E72F66D2660EF26938C</deviationsHash>
+      <fileHash>1AF01DB1F1B4DBDD90AB95037198B91A6A58B584F1062CE567A83D1406892899</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.UnitTesting.QueryHandlerTest#1ac336bd-383f-4252-96f7-c8976719afe6</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Brands/GetBrandByIdQueryHandlerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9994973Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:28.9197702Z</approvedAt>
+      <deviationsHash>F4055B95A9E21C7394D255E0951A440AB105A23DBE276E8842041E0A6F3FD1C3</deviationsHash>
+      <fileHash>6EF54B4E2FD66708DC4D615191E624CB5B1C5FBBCA682D5391EEDEFE525A2434</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.UnitTesting.QueryHandlerTest#4e37c4f6-136f-4917-a49f-71728789391c</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Brands/GetBrandsQueryHandlerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9995057Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:28.9461787Z</approvedAt>
+      <deviationsHash>ACE52EE9372E8B5E15C6C57BB8F5C7C8CD9DE57867AC584B2A45D559B185EED9</deviationsHash>
+      <fileHash>474616E97F2689E9464EBC2CF1FD34C529149924F36C9B653E1113767FCAC68B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.UnitTesting.CommandHandlerTest#bad493a9-cf01-4473-9e1c-325059e7ca74</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Brands/UpdateBrandCommandHandlerTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9994879Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:28.9878295Z</approvedAt>
+      <deviationsHash>29B3CC619244F1997636070EDB6E3C37BF99AF857D4EAD9299791899CB4082DB</deviationsHash>
+      <fileHash>4F992DCB49E7A4E1DF88A5034ABACB61F1C4F1B83790A0171DBD3F8B06D65E73</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.UnitTesting.ServiceOperationTest#a7b1f487-5348-4002-b066-74fdd61ee6fb</correlationId>
+      <path>IntegrationTesting.Tests.Application.UnitTests/Products/ProductsServiceTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.999518Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.0221146Z</approvedAt>
+      <deviationsHash>6E801BC2F828938CAAF0F8E0520A87AB80B81F0CBC8444556918DA704AD9B356</deviationsHash>
+      <fileHash>89D34939B5C103D76DC99AEB818704A184FD24409AC6BFC499A10E1A95B2A17B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#32831b20-5b53-44fe-8333-0e5f1dcc321d</correlationId>
+      <path>IntegrationTesting.Tests.Domain/Entities/City.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9996152Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.0739768Z</approvedAt>
+      <deviationsHash>869E0B583DE95029C19ECFCDFCDFCD5A7851F0D22CAF33796C92B44ABF82968A</deviationsHash>
+      <fileHash>9B5DE67345750D020F627B224C36D08DB584905155087FAA4682D21CF353FA1A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#af5f513b-7c00-4a5e-b061-b6fbd6c0185d</correlationId>
+      <path>IntegrationTesting.Tests.Domain/Entities/Country.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:39.9996351Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.1049516Z</approvedAt>
+      <deviationsHash>66FD48630DA110BE617205252F7B10A2EABDEBF3031A452B5BCC4A4B06A5E645</deviationsHash>
+      <fileHash>8892C9DE18F321132DC64C5090CEDD5F10733F509E4EACF85B1D008116E5A74C</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#99df99be-17ff-4b0a-9548-8e64425aaf36</correlationId>
       <path>IntegrationTesting.Tests.Infrastructure/IntegrationTesting.Tests.Infrastructure.csproj</path>
       <count>1</count>
@@ -18,14 +122,14 @@
       <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture#ddf06f2f-0681-4a56-a69e-d6875561e6d4</correlationId>
       <path>IntegrationTesting.Tests.IntegrationTests/EFContainerFixture.cs</path>
       <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2025-09-04T18:29:41.1387971Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2025-09-04T18:55:27.2956703Z</approvedAt>
-      <deviationsHash>E347750A4D6128B9B093AC4F6E023B581A95F714E7FBFF9B42F6D8B275F74D52</deviationsHash>
-      <fileHash>D1D723F558B63D165BC712665B294AB509E070139D06451C42F4B7C611E42ED6</fileHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:30:40.0012315Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.140346Z</approvedAt>
+      <deviationsHash>A5576A41BD01968F701D1B0094207E603509045B01418DA6129B3DFC4B2E2641</deviationsHash>
+      <fileHash>ACD7E053DF3937E71AF8EC8C205D2BB5827993A7AA1B796AD96C4DE0BE9A8EEC</fileHash>
     </file>
     <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c9df9693-e774-4054-bdf4-f6688f3d3e88</correlationId>

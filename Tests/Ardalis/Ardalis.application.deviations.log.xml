@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Entities.DomainEntity#bea45036-f306-433e-99e0-abeebfe8180f</correlationId>
+      <path>Ardalis.Domain/Entities/Client.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:10:51.8937006Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.4534681Z</approvedAt>
+      <deviationsHash>8FA55A00D618632F0DFAAE45A74318C1DBDFCEBE20C14E950E1C0B5264433A03</deviationsHash>
+      <fileHash>B229A51003E18EC5F7493450368E7D16265BE0E7004AA62E75DECF3533E8E146</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</correlationId>
       <path>Ardalis.Infrastructure/Ardalis.Infrastructure.csproj</path>
       <count>1</count>

@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: Implement or fix business logic in traditional style application services, following this codebase's established architectural conventions. Use when a C# application service class has incomplete or incorrect business logic.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: 58EE7DAECC0EBDCD16F8FA28B6CB8474B3C46DA26DE4ED6C606F87CD2D24CF63
+contentHash: 5DBC5CA559513B2D91F9FFA9A466DEFC08409911A8FA8A6B372E4E59052A97D8
 ---
 # Traditional Service Implementation
 
@@ -109,23 +109,22 @@ When a needed capability is missing:
 
 ## Mapperly guidance
 
-- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use Mapperly.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths..
-- **Mapperly gate (absolute):** If a handler/service returns entity-shaped DTOs or uses any mapper call, you **MUST**:
-    - verify a Mapperly mapper exists by locating a `[Mapper]` partial mapper class with the required mapping method, e.g. `CustomerToCustomerDto(Customer customer)`, **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required Mapperly mapper(s), including all required nested mappers.
-    - verify collection mappings when returning lists, e.g. `CustomerToCustomerDtoList(IEnumerable<Customer> customers)`.
-    - verify nested mapper dependencies use `[UseMapper]` and constructor injection where needed.
-- **Registration gate:**
-    - If a mapper is injected into a handler/service, verify it is registered in Application DI.
-    - Follow the existing registration style. Mapperly sample projects register mappers as singletons, e.g. `services.AddSingleton<CustomerDtoMapper>();`.
-    - If registration is missing, add the minimal mapper registration, including nested mapper registrations.
-- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and Mapperly is not reasonable.
+- Any read/query method, including query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use Mapperly.
+    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
+- **Mapperly gate (absolute):** If you write `new XxxDto`, `.Select(x => new XxxDto...)`,
+    - **Branch A (verify):** locate a `[Mapper]` partial class with the required mapping
+    - **Branch B (create):** if no such mapper exists, that absence is itself the trigger to
+    - **No assumptions allowed** (an existing mapper class for a *different* entity is not verification).
+    - Before writing the handler/service, state explicitly which branch was taken:
+- **Registration assumption (do not block on DI):**
+    - Assume mappers are registered as singletons per the project's existing DI style
+    - Do not delay mapper creation because DI registration isn't currently visible.
+    - Only add registration if you are the one creating a brand-new mapper class; otherwise leave DI alone.
+- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation
     - This must include an inline code comment explaining why Mapperly is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
+    - "Mapping doesn't exist yet" is not a valid exception.
 - If you can't find any existing mappings, create them in the same project as the services under:
     - `./Mappings/<FeatureOrAggregate>/<Entity>DtoMapper.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoMapper.cs`        
 
 **Example:**
 ```csharp

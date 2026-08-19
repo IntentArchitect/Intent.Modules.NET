@@ -3,20 +3,17 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
-      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
+      <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T12:51:45.7727408Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:54:01.6387799Z</approvedAt>
-      <deviationsHash>4CBB3166FB45F3EF7CB4B8D6387CA98B886C20293F5FB816802BC1C9C02E9946</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:28:43.7162281Z</updatedAt>
+      <deviationsHash>F69A7BDA85E1C6F392A3083E5FB34C9102840E144A1BFC96C19B1FD97F39BE66</deviationsHash>
       <fileHash>6C0E53DDC68B7FA0BE7B44BD690347077C41BADD5CEAE0CE6CD0D09AE81F9688</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
-      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</path>
+      <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -28,15 +25,12 @@
       <fileHash>929EA6B79ED86192B6A7AB1945E13B1CED86F09A041356B6ECD7F6140397EB3E</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#2d1feba4-0483-451e-9414-41605ef5998c</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T12:51:45.7727584Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:54:01.6370348Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:28:43.716307Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>020CB4A4536E6B7C1E7157DB86953F79FBB6066C2CBF10372F02F0865E8266D0</fileHash>
     </file>

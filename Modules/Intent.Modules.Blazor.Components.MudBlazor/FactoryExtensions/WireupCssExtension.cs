@@ -24,27 +24,33 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var app = application.FindTemplateInstance<IRazorFileTemplate>("Intent.Blazor.Templates.Server.AppRazorTemplate")?.RazorFile;
+            // AppRazorTemplate is host-scoped, and a multi-host application can have Blazor components
+            // in more than one host - loop every instance instead of the singular, application-wide
+            // lookup, which throws once a second Blazor host exists.
+            var appRazorTemplates = application.FindTemplateInstances<IRazorFileTemplate>("Intent.Blazor.Templates.Server.AppRazorTemplate").ToArray();
 
-            if (app == null)
+            if (appRazorTemplates.Length == 0)
             {
                 Logging.Log.Warning("Unable to install ux-mudblazor.css. App.razor could not be found.");
                 return;
             }
 
-            app.AfterBuild(file =>
+            foreach (var appRazorTemplate in appRazorTemplates)
             {
-                // Add Mudblazor dependencies
-                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "ux-components.css"));
-                if (baseElement != null)
+                var app = appRazorTemplate.RazorFile;
+                app.AfterBuild(file =>
                 {
-                    baseElement.AddBelow(
-                        new HtmlElement("link", app)
-                            .AddAttribute("rel", "stylesheet")
-                            .AddAttribute("href", "ux-mudblazor.css"));
-                }
-            }, 100);
-
+                    // Add Mudblazor dependencies
+                    var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "ux-components.css"));
+                    if (baseElement != null)
+                    {
+                        baseElement.AddBelow(
+                            new HtmlElement("link", app)
+                                .AddAttribute("rel", "stylesheet")
+                                .AddAttribute("href", "ux-mudblazor.css"));
+                    }
+                }, 100);
+            }
         }
 
     }

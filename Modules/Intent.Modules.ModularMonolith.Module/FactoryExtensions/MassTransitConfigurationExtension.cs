@@ -7,8 +7,10 @@ using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -26,17 +28,18 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
             base.OnBeforeTemplateRegistrations(application);
-            //Doing this in OnBeforeTemplateRegistrations to Ensure this subscription Runs first
-            application.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
-        }
 
-        private void HandleEvent(ServiceConfigurationRequest request)
-        {
-            //This stops the Module from adding using Clauses for these Requests
-            if (request.Concern == "Infrastructure" && request.ExtensionMethodName == "AddMassTransitConfiguration")
+            //Doing this in OnBeforeTemplateRegistrations to Ensure this subscription Runs first
+            var outputTarget = application.OutputTargets.SingleOrDefault(x => x.OutputsTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection"));
+            var template = new Template(outputTarget);
+
+            template.OnEmitOrPublished<ServiceConfigurationRequest>(request =>
             {
-                request.MarkAsHandled();
-            }
+                if (request.Concern == "Infrastructure" && request.ExtensionMethodName == "AddMassTransitConfiguration")
+                {
+                    request.MarkAsHandled();
+                }
+            });
         }
 
         protected override void OnBeforeTemplateExecution(IApplication application)
@@ -61,6 +64,23 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
                 method?.Public();
 
             }, 1000);
+        }
+
+        private class Template : IntentTemplateBase
+        {
+            public Template(IOutputTarget outputTarget) : base(null, outputTarget)
+            {
+            }
+
+            public override ITemplateFileConfig GetTemplateFileConfig()
+            {
+                throw new NotImplementedException();
+            }
+
+            public override string TransformText()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e93cd1f8-0a41-4a63-95b8-7e80bb30909b</correlationId>
-      <path>Intent.Modules.HashiCorp.Vault/Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs</path>
+      <path>Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>

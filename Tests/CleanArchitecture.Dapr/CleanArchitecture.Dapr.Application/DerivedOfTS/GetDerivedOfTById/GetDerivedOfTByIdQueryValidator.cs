@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.GetDerivedOfTById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

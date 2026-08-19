@@ -2,6 +2,58 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler#111142e2-e0d4-462f-8c48-bec131af4e22</correlationId>
+      <path>Wolverine.AspNetCore.Controllers.Application/EventHandlers/GlobalDomainEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:31:10.0973881Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.7962283Z</approvedAt>
+      <deviationsHash>0741077AA1D9EAD77A4D211927CC0BC946E2E3C264D5135CE13702262E22B5CB</deviationsHash>
+      <fileHash>2BB8E50A016B67FAD5A70BF96A201BF5FA45ABCAEA70E74462911DEF67982218</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler#6572070b-62f1-40c2-a1c7-0d39a11843e0</correlationId>
+      <path>Wolverine.AspNetCore.Controllers.Application/EventHandlers/OrderPlacedDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:31:10.0974158Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.8176821Z</approvedAt>
+      <deviationsHash>7DC0421E2CE4C8B0646C99D21C01ED4AAADBC444162BC8B8B1A83C12C2883891</deviationsHash>
+      <fileHash>7482344364105FAC80B524E4F9F03A5AEA46E1A0189157E822CCEA7069627BDF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Wolverine.DomainEvents.DomainEventHandler#c9594380-96a0-4a0d-96c0-ca6363d06642</correlationId>
+      <path>Wolverine.AspNetCore.Controllers.Application/EventHandlers/ProductChangedDomainEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:31:10.0974323Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.8452575Z</approvedAt>
+      <deviationsHash>9AE9993FC687346397965334CEB801043E02B61E629DA3FFD60715538999B1F5</deviationsHash>
+      <fileHash>09CEF5A7E68254A8311D6BD21812D3B82C9BB0C7160C40B6894B256206CE2933</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Wolverine.QueryHandler#7ae0cb57-5f55-4359-b76a-5268533d0599</correlationId>
+      <path>Wolverine.AspNetCore.Controllers.Application/Orders/GetOrderStatistics/GetOrderStatisticsQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:31:10.0970996Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.8673927Z</approvedAt>
+      <deviationsHash>43852F430DEA987DC082D083ED84E246418BD898575EFDB895D81F5D853B2E93</deviationsHash>
+      <fileHash>8EA9AAD9974692318D62F09F2E784F3A973E27ED198F1BC4B6201C2F8DD781F1</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#c4956529-9c05-41a1-b37c-bc9298fdbfe2</correlationId>
       <path>Wolverine.AspNetCore.Controllers.Application/Wolverine.AspNetCore.Controllers.Application.csproj</path>
       <count>1</count>

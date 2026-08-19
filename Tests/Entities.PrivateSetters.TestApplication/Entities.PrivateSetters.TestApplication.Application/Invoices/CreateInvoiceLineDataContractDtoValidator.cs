@@ -15,6 +15,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Description)

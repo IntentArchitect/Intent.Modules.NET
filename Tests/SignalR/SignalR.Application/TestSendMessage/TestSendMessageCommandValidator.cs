@@ -16,6 +16,7 @@ namespace SignalR.Application.TestSendMessage
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

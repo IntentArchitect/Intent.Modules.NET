@@ -29,11 +29,11 @@ namespace Intent.Modules.Dapper.Templates.RepositoryBase
         public RepositoryBaseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.Dapper(OutputTarget));
-            AddNugetDependency(NugetPackages.SystemDataSqlClient(OutputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Data")
-                .AddUsing("System.Data.SqlClient")
+                .AddUsing("Microsoft.Data.SqlClient")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"RepositoryBase")
                 .OnBuild(file =>
@@ -41,10 +41,10 @@ namespace Intent.Modules.Dapper.Templates.RepositoryBase
                     string nullableChar = this.OutputTarget.GetProject().NullableEnabled ? "?" : "";
 
                     var @class = file.Classes.First();
-                    @class
-                        .Abstract()
-                        .AddGenericParameter("TDomain", out var tDomain);
-                    @class.AddGenericTypeConstraint(tDomain, constr => constr.AddType("class"));
+
+                    // Deliberately non-generic: the connection plumbing below doesn't need the domain
+                    // type, and this lets "classless" (custom) repositories inherit from it too.
+                    @class.Abstract();
 
                     @class.AddField("string", "_connectionString", f => f.PrivateReadOnly());
 
@@ -71,7 +71,7 @@ namespace Intent.Modules.Dapper.Templates.RepositoryBase
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings:DefaultConnection",
                 $"Server=.;Initial Catalog={OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(OutputTarget.GetProject())}"
-                ));
+            ));
 
         }
         private static string GetSqlServerExtendedConnectionString(ICSharpProject project)

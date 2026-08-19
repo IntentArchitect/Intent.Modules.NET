@@ -22,6 +22,7 @@ namespace TrainingModel.Tests.Application.Orders.CreateOrder
             _orderRepository = orderRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.RefNo)

@@ -15,6 +15,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Application
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Data)

@@ -15,6 +15,7 @@ namespace N_ServiceBus.SQS.Application.ExternalMessagePublish.PublishExternalMes
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

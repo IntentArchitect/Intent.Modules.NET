@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2985a429-a49f-4c46-a8fc-a10ca5cf6be9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>MultiTenant</name>
+  <display>MultiTenant</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8817d69f-712c-4502-a270-f1fd66d469ee</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

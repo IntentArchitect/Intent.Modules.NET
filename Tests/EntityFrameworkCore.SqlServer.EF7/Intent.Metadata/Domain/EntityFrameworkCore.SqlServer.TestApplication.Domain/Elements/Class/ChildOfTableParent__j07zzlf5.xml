@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8973a0e7-e15e-4387-8aa2-5e6b2581953f" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ChildOfTableParent</name>
-  <display>ChildOfTableParent : AbstractParentWithTable</display>
+  <display>ChildOfTableParent</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

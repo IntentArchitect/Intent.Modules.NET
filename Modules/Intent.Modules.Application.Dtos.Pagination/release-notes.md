@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Fixed: Software Factory crashed applying default paging values when a `Query` or `Operation`'s controller was generated into more than one ASP.NET Core host project. Paging defaults are now applied to the controller in each host.
+
 ### Version 4.2.0
 
 - Fixed: Fixed SF crash around Paged Queries not in folders.

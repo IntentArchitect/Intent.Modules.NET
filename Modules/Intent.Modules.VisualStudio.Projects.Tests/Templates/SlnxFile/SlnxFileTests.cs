@@ -11,6 +11,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
 using Intent.Templates;
 using OverwriteBehaviour = Intent.Templates.OverwriteBehaviour;
@@ -22,6 +23,12 @@ using Xunit;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
 {
+    /// <summary>
+    /// Covers <see cref="VisualStudioSolutionSlnxTemplate"/>'s pure generation - it always builds a
+    /// fresh <see cref="SolutionModel"/> purely from the Intent model, with no awareness of any
+    /// existing file. Reconciling that output with what is already on disk (renames, moves, manual
+    /// edits) is covered separately in SlnxMergerTests.cs.
+    /// </summary>
     public class SlnxFileTests
     {
         [Fact]
@@ -73,176 +80,6 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
-        public void WhenExisting_WithNewProject_ShouldAddProjectAndKeepExisting()
-        {
-            var model = new SolutionModel();
-            model.AddProject("MyApp.Api/MyApp.Api.csproj");
-            model.AddProject("MyApp.Domain/MyApp.Domain.csproj");
-
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
-                CreateProject("MyApp.Domain", relativeLocation: "MyApp.Domain"),
-                CreateProject("MyApp.Application", relativeLocation: "MyApp.Application"),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
-
-            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
-                [
-                    "MyApp.Api/MyApp.Api.csproj",
-                    "MyApp.Domain/MyApp.Domain.csproj",
-                    "MyApp.Application/MyApp.Application.csproj"
-                ],
-                ignoreOrder: true);
-        }
-
-        [Fact]
-        public void WhenExisting_WithProjectRemovedFromIntentModel_ShouldPreserveIt()
-        {
-            // Projects are never removed (additive-only, same as .sln) so that manually-added
-            // or previously-managed projects survive SF runs. Remove them manually in the designer.
-            var model = new SolutionModel();
-            model.AddProject("MyApp.Api/MyApp.Api.csproj");
-            model.AddProject("MyApp.Domain/MyApp.Domain.csproj");
-            model.AddProject("MyApp.OldService/MyApp.OldService.csproj");
-
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
-                CreateProject("MyApp.Domain", relativeLocation: "MyApp.Domain"),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
-
-            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
-                ["MyApp.Api/MyApp.Api.csproj", "MyApp.Domain/MyApp.Domain.csproj", "MyApp.OldService/MyApp.OldService.csproj"],
-                ignoreOrder: true);
-        }
-
-        [Fact]
-        public void WhenExisting_WithManuallyAddedProject_ShouldPreserveIt()
-        {
-            var model = new SolutionModel();
-            model.AddProject("MyApp.Api/MyApp.Api.csproj");
-            model.AddProject("MyApp.External/MyApp.External.csproj");
-
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
-
-            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
-                ["MyApp.Api/MyApp.Api.csproj", "MyApp.External/MyApp.External.csproj"],
-                ignoreOrder: true);
-        }
-
-        [Fact]
-        public void WhenExisting_WithRemovedProject_InFolder_ShouldPreserveBothProjectAndFolder()
-        {
-            // Neither projects nor folders are removed (additive-only). A project inside a
-            // manually-added or previously-managed solution folder must survive SF runs.
-            var model = new SolutionModel();
-            var existingFolder = model.AddFolder("/legacy/");
-            model.AddProject("legacy/MyApp.Legacy/MyApp.Legacy.csproj", null, existingFolder);
-            model.AddProject("MyApp.Api/MyApp.Api.csproj");
-
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
-
-            model.SolutionFolders.Select(f => f.Path).ShouldContain("/legacy/");
-            model.SolutionProjects.Select(p => p.FilePath).ShouldBe(
-                ["MyApp.Api/MyApp.Api.csproj", "legacy/MyApp.Legacy/MyApp.Legacy.csproj"],
-                ignoreOrder: true);
-        }
-
-        [Fact]
-        public void WhenExisting_WithManuallyAddedFolder_ShouldPreserveFolderAcrossRuns()
-        {
-            // A folder that exists on disk but is not in the Intent model (e.g. added by hand)
-            // must not be removed on subsequent SF runs.
-            var model = new SolutionModel();
-            model.AddFolder("/NewFolder1/");
-            model.AddProject("MyApp.Api/MyApp.Api.csproj");
-
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "MyApp.Api"),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], projects);
-
-            model.SolutionFolders.Select(f => f.Path).ShouldContain("/NewFolder1/");
-            model.SolutionProjects.Select(p => p.FilePath)
-                .ShouldBe(["MyApp.Api/MyApp.Api.csproj"], ignoreOrder: true);
-        }
-
-        [Fact]
-        public void WhenAlreadySynced_ShouldBeIdempotent_AfterFileRoundTrip()
-        {
-            // Simulates the real RunTemplate() flow: sync → serialize to stream → deserialize → sync again.
-            // The slnx serializer may normalize paths, so the second sync must not throw or duplicate projects.
-            var srcFolder = CreateFolder("src");
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder),
-                CreateProject("MyApp.Domain", relativeLocation: "src/MyApp.Domain", parentFolder: srcFolder),
-            };
-
-            var model = new SolutionModel();
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], projects);
-
-            // Round-trip through the serializer (same as writing and reading the .slnx file)
-            using var stream = new System.IO.MemoryStream();
-            Microsoft.VisualStudio.SolutionPersistence.Serializer.SolutionSerializers.SlnXml
-                .SaveAsync(stream, model, System.Threading.CancellationToken.None).GetAwaiter().GetResult();
-            stream.Position = 0;
-            var reloaded = Microsoft.VisualStudio.SolutionPersistence.Serializer.SolutionSerializers.SlnXml
-                .OpenAsync(stream, System.Threading.CancellationToken.None).GetAwaiter().GetResult();
-
-            // Second sync on the reloaded model must not throw and must not duplicate projects
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(reloaded, [srcFolder], projects);
-
-            reloaded.SolutionProjects.Count().ShouldBe(2);
-            reloaded.SolutionFolders.Select(f => f.Path).ShouldContain("/src/");
-        }
-
-        [Fact]
-        public void WhenAlreadySynced_ShouldBeIdempotent()
-        {
-            var model = new SolutionModel();
-            var srcFolder = CreateFolder("src");
-            var projects = new[]
-            {
-                CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder),
-                CreateProject("MyApp.Domain", relativeLocation: "src/MyApp.Domain", parentFolder: srcFolder),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], projects);
-            var afterFirstSync = new
-            {
-                Projects = model.SolutionProjects.Select(p => p.FilePath).OrderBy(x => x).ToArray(),
-                Folders = model.SolutionFolders.Select(f => f.Path).OrderBy(x => x).ToArray(),
-            };
-
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], projects);
-            var afterSecondSync = new
-            {
-                Projects = model.SolutionProjects.Select(p => p.FilePath).OrderBy(x => x).ToArray(),
-                Folders = model.SolutionFolders.Select(f => f.Path).OrderBy(x => x).ToArray(),
-            };
-
-            afterSecondSync.Projects.ShouldBe(afterFirstSync.Projects);
-            afterSecondSync.Folders.ShouldBe(afterFirstSync.Folders);
-        }
-
-        [Fact]
         public void WhenNew_DeepNestedFolders_ShouldNestCorrectly()
         {
             var model = new SolutionModel();
@@ -262,38 +99,27 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
-        public void WhenProjectMovesFolder_ShouldReflectNewPlacement()
+        public void WhenRootFolderShiftIsActive_ShouldAvoidDoubleNestingAndMatchOriginalLayout()
         {
-            // First sync: project in /src/
+            // Reproduces the real module-building scenario: OutputRootDirectory has been forced down
+            // to this module's own leaf folder (so the platform's "Reveal in Code Base Explorer" can
+            // pinpoint it), and Root Folder Options.Relative Location = ".." recovers the shared
+            // container so the .sln and the project entry land exactly where they always did.
+            const string outputRootDirectory = @"C:\Container\Intent.Modules.Foo";
+            var outputLocationOptions = new OutputLocationOptions(outputRootDirectory, relativeLocation: "..");
+
             var model = new SolutionModel();
-            var srcFolder = CreateFolder("src");
-            var testFolder = CreateFolder("tests");
-            var project = CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder);
+            var project = CreateProject("Intent.Modules.Foo", relativeLocation: null);
 
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder, testFolder], [project]);
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(
+                model,
+                [],
+                [project],
+                outputRootDirectory: outputRootDirectory,
+                locationInProject: "..",
+                outputLocationOptions: outputLocationOptions);
 
-            model.SolutionFolders.Select(f => f.Path).ShouldContain("/src/");
-            model.SolutionProjects
-                .Where(p => p.Parent?.Path == "/src/")
-                .Select(p => p.FilePath)
-                .ShouldContain("src/MyApp.Api/MyApp.Api.csproj");
-
-            // Second sync: same project now assigned to testFolder in the Intent model.
-            // The template does not re-parent existing projects — it only adds missing ones
-            // and removes projects absent from the intent model. A project that exists with
-            // the same file path will not be moved to a different folder.
-            var movedProject = CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: testFolder);
-            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder, testFolder], [movedProject]);
-
-            // Project remains in /src/ because re-parenting is not implemented
-            model.SolutionProjects
-                .Where(p => p.Parent?.Path == "/src/")
-                .Select(p => p.FilePath)
-                .ShouldContain("src/MyApp.Api/MyApp.Api.csproj");
-            // Project is NOT duplicated into /tests/
-            model.SolutionProjects
-                .Where(p => p.Parent?.Path == "/tests/")
-                .ShouldBeEmpty();
+            model.SolutionProjects.Single().FilePath.ShouldBe("Intent.Modules.Foo/Intent.Modules.Foo.csproj");
         }
 
         [Fact]
@@ -313,19 +139,53 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         {
             var model = new SolutionModel();
             var srcFolder = CreateFolder("src");
-            var rootProject = CreateProject("MyApp.Build", relativeLocation: "", parentFolder: null);
+            // null = no explicit override (the real IVisualStudioProject.RelativeLocation value when
+            // unset), which now falls back to "<Name>" - matching ProjectConfig's own pre-existing
+            // Name-fallback convention, just applied directly by the template instead of hidden behind
+            // a mocked IOutputTargetConfig.
+            var rootProject = CreateProject("MyApp.Build", relativeLocation: null, parentFolder: null);
             var folderProject = CreateProject("MyApp.Api", relativeLocation: "src/MyApp.Api", parentFolder: srcFolder);
 
             VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], [rootProject, folderProject]);
 
             var rootProjects = model.SolutionProjects.Where(p => p.Parent == null).Select(p => p.FilePath).ToArray();
-            rootProjects.ShouldContain("MyApp.Build.csproj");
+            rootProjects.ShouldContain("MyApp.Build/MyApp.Build.csproj");
 
             var srcSlnxFolder = model.SolutionFolders.Single(f => f.Path == "/src/");
             model.SolutionProjects
                 .Where(p => p.Parent == srcSlnxFolder)
                 .Select(p => p.FilePath)
                 .ShouldContain("src/MyApp.Api/MyApp.Api.csproj");
+        }
+
+        [Fact]
+        public void WhenProjectHasIntentId_ShouldStampItOntoTheRawGeneratedOutput()
+        {
+            // This Id is private bookkeeping consumed only by VisualStudioSolutionSlnxWeaver via the
+            // template's raw output/previous template output - it is never written to the actual
+            // file a user sees (that guarantee is enforced and tested in SlnxMergerTests.cs).
+            var model = new SolutionModel();
+            var elementId = Guid.NewGuid().ToString();
+            var project = CreateProject("MyApp.Api", relativeLocation: "MyApp.Api", id: elementId);
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [], [project]);
+
+            var slnxProject = model.SolutionProjects.Single();
+            slnxProject.IsDefaultId.ShouldBeFalse();
+            slnxProject.Id.ShouldBe(Guid.Parse(elementId));
+        }
+
+        [Fact]
+        public void WhenFolderHasIntentId_ShouldStampItOntoTheRawGeneratedOutput()
+        {
+            var model = new SolutionModel();
+            var folder = CreateFolder("src");
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [folder], []);
+
+            var slnxFolder = model.SolutionFolders.Single();
+            slnxFolder.IsDefaultId.ShouldBeFalse();
+            slnxFolder.Id.ShouldBe(Guid.Parse(folder.Id));
         }
 
         [Fact]
@@ -520,15 +380,14 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
             string name,
             string relativeLocation,
             IntentSolutionFolderModel parentFolder = null,
-            string fileExtension = "csproj")
+            string fileExtension = "csproj",
+            string id = null)
         {
-            var outputTargetConfig = Substitute.For<IOutputTargetConfig>();
-            outputTargetConfig.RelativeLocation.Returns(relativeLocation);
-
             var project = Substitute.For<IVisualStudioSolutionProject>();
+            project.Id.Returns(id ?? Guid.NewGuid().ToString());
             project.Name.Returns(name);
             project.FileExtension.Returns(fileExtension);
-            project.ToOutputTargetConfig().Returns(outputTargetConfig);
+            project.RelativeLocation.Returns(relativeLocation);
             project.ParentFolder.Returns(parentFolder);
             return project;
         }

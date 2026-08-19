@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#fe63974f-7b83-4993-a508-0cd7d00c1694</correlationId>
+      <path>MongoDb.MultiTenancy.SeperateDb.Api/MongoDb.MultiTenancy.SeperateDb.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-15T08:38:37.1841628Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-15T09:24:55.9969754Z</approvedAt>
+      <deviationsHash>9A63818147C20F20F5A1ECCA65EC1883DD1AC3A8348B3D9E751E44EF4142BFA0</deviationsHash>
+      <fileHash>13CCCC9C093B778DF92BC0C0EC1FF070152391D8D8E45D80F3FCEA713B97EB6B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3030cde6-7660-465b-a4ee-6ce1b87403b2</correlationId>
+      <path>MongoDb.MultiTenancy.SeperateDb.Infrastructure/MongoDb.MultiTenancy.SeperateDb.Infrastructure.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-15T08:38:37.1846171Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-15T09:24:56.001045Z</approvedAt>
+      <deviationsHash>674BCBB888ED8E3D6B3AB744609074FB2301CF46B1C0D69E25C6276A365B07DA</deviationsHash>
+      <fileHash>D53DF95A07E029691F9B831D0C4F19323A56ED18EF0B2DE22083A2CF6C8CD36A</fileHash>
+    </file>
+  </files>
 </deviationsLog>

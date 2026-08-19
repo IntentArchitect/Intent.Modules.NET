@@ -2,5 +2,6 @@
 <outputFiles>
   <files>
     <file relativePath="Intent.Modules.Aws.Lambda.Functions/release-notes.md" state="ignored;once-off-generated" />
+    <file relativePath="release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

@@ -39,12 +39,17 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                         {
                             method.AddParameter("IOpenApiSchema", "schema");
                             method.AddParameter("SchemaFilterContext", "context");
-                            method.AddIfStatement("schema is OpenApiSchema concreteSchema && context.Type == typeof(Point)", stmt => stmt
+                            method.AddIfStatement("schema is OpenApiSchema concreteSchema && typeof(Geometry).IsAssignableFrom(context.Type)", stmt => stmt
                                 .AddStatement(@"concreteSchema.Format = ""geojson"";")
-                                .AddStatement(new CSharpAssignmentStatement("concreteSchema.Example", new CSharpObjectInitializerBlock("new JsonObject")
-                                        .AddKeyAndValue(@"""type""", @"""Point""")
-                                        .AddKeyAndValue(@"""coordinates""", "new JsonArray { 1.0, 2.0 }"))
-                                    .WithSemicolon())
+                                .AddStatement(@"concreteSchema.Properties?.Clear();")
+                                .AddStatement(@"concreteSchema.Required?.Clear();")
+                                .AddStatement(@"concreteSchema.Description = ""GeoJSON geometry — shape of 'coordinates' depends on the geometry type."";")
+                                .AddIfStatement("context.Type == typeof(Point)", pointStmt => pointStmt
+                                    .AddStatement(new CSharpAssignmentStatement("concreteSchema.Example", new CSharpObjectInitializerBlock("new JsonObject")
+                                            .AddKeyAndValue(@"""type""", @"""Point""")
+                                            .AddKeyAndValue(@"""coordinates""", "new JsonArray { 1.0, 2.0 }"))
+                                        .WithSemicolon())
+                                )
                             );
                         });
                     }
@@ -54,12 +59,17 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                         {
                             method.AddParameter("OpenApiSchema", "schema");
                             method.AddParameter("SchemaFilterContext", "context");
-                            method.AddIfStatement("context.Type == typeof(Point)", stmt => stmt
+                            method.AddIfStatement("typeof(Geometry).IsAssignableFrom(context.Type)", stmt => stmt
                                 .AddStatement(@"schema.Format = ""geojson"";")
-                                .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
-                                        .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
-                                        .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
-                                    .WithSemicolon())
+                                .AddStatement(@"schema.Properties?.Clear();")
+                                .AddStatement(@"schema.Required?.Clear();")
+                                .AddStatement(@"schema.Description = ""GeoJSON geometry — shape of 'coordinates' depends on the geometry type."";")
+                                .AddIfStatement("context.Type == typeof(Point)", pointStmt => pointStmt
+                                    .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
+                                            .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
+                                            .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
+                                        .WithSemicolon())
+                                )
                             );
                         });
                     }

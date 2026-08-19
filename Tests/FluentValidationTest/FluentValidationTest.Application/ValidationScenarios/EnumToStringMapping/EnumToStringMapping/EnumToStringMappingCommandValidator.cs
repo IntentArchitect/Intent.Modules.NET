@@ -15,6 +15,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMappi
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Status)

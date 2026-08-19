@@ -24,7 +24,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MassTransit")
-                .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass($"FinbuckleSendingFilter", @class =>
                 {
                     @class.AddGenericParameter("T", out var t)
@@ -34,10 +34,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
                         .AddConstructor(ctor =>
                         {
-                            ctor.AddParameter("ITenantInfo", "tenant", p =>
-                                {
-                                    p.IntroduceReadonlyField();
-                                })
+                            ctor.AddParameter("IMultiTenantContextAccessor", "multiTenantContextAccessor", p =>
+                            {
+                                p.IntroduceReadonlyField();
+                            })
                                 .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
                                 .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";");
                         })
@@ -46,7 +46,18 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         {
                             method.AddParameter($"SendContext<{t}>", "context")
                                 .AddParameter($"IPipe<SendContext<{t}>>", "next")
-                                .AddStatement("context.Headers.Set(_headerName, _tenant.Identifier);")
+                                // A resolved tenant is optional here, not required: a message may legitimately be
+                                // sent without one (e.g. a MassTransit-generated reply/fault correlating to a
+                                // previously consumed request via RequestId after the consumer's AsyncLocal-based
+                                // Finbuckle tenant context has unwound, or an intentional tenant-less send). Only
+                                // set the header when a tenant is actually present - never throw.
+                                .AddStatement("var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;")
+                                .AddStatement("""
+                                    if (tenantIdentifier is not null)
+                                    {
+                                        context.Headers.Set(_headerName, tenantIdentifier);
+                                    }
+                                    """)
                                 .AddStatement("return next.Send(context);");
                         });
                 });
@@ -55,7 +66,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
 
         [IntentManaged(Mode.Fully)]

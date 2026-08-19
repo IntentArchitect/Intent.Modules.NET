@@ -67,7 +67,7 @@ namespace Intent.Modules.AspNetCore.Templates
             }
             else
             {
-                var startupTemplate = (IAppStartupTemplate)_template.ExecutionContext.FindTemplateInstance(IAppStartupTemplate.RoleName);
+                var startupTemplate = (IAppStartupTemplate?)_template.ExecutionContext.FindTemplateInstance(IAppStartupTemplate.RoleName, _template.OutputTarget);
 
                 startupTemplate.StartupFile.ConfigureServices((targetBlock, _) =>
                 {

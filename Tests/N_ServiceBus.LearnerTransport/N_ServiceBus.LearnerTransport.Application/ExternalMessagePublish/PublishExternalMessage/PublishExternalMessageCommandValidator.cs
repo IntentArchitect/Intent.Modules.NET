@@ -15,6 +15,7 @@ namespace N_ServiceBus.LearnerTransport.Application.ExternalMessagePublish.Publi
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

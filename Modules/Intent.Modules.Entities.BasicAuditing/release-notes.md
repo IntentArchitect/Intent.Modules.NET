@@ -1,3 +1,9 @@
+### Version 1.0.11
+
+- New Feature: Added auto-apply stereotype to automatically apply auditing to entities.
+- Improvement: Added ability to enable/disable individual audit fields (CreatedBy, CreatedDate, UpdatedBy, UpdatedDate).
+- Improvement: Added ability to rename audit fields to custom names.
+
 ### Version 1.0.10
 
 - Fixed: Minimum client version.

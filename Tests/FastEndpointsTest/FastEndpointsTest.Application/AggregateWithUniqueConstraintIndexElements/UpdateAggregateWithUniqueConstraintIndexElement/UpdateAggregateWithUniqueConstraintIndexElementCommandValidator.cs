@@ -20,6 +20,7 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexElemen
             _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SingleUniqueField)

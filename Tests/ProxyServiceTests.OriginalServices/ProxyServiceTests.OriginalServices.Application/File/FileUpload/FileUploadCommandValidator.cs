@@ -15,6 +15,7 @@ namespace ProxyServiceTests.OriginalServices.Application.File.FileUpload
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Content)

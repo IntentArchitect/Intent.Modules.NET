@@ -41,13 +41,14 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddl
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
                         method.AddStatement("LogException(exception, envelope.Message, logger);");
+                        method.AddStatement("throw exception;");
                     });
 
                     @class.AddMethod("void", "LogException", method =>
                     {
                         method.Private();
                         method.AddParameter(UseType("System.Exception"), "exception");
-                        method.AddParameter("object", "request");
+                        method.AddParameter("object?", "request");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
 
                         method.AddIfStatement($"exception is {UseType("FluentValidation.ValidationException")}", @if =>

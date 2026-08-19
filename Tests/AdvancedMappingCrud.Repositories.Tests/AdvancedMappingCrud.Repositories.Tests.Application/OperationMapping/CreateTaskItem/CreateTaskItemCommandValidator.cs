@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.OperationMapping.Cr
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
 

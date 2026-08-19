@@ -16,6 +16,7 @@ namespace AzureFunctions.NET8.Application.Validators.ResponseCodes.CreateRespons
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

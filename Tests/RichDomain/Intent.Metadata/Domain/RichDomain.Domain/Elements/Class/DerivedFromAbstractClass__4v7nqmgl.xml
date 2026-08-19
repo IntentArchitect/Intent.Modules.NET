@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="d6a02046-3378-4a7c-9d90-f53bdc23ebff" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>DerivedFromAbstractClass</name>
-  <display>DerivedFromAbstractClass : AbstractBaseClass</display>
+  <display>DerivedFromAbstractClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

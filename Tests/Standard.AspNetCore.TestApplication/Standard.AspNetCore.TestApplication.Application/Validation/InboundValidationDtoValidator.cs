@@ -18,6 +18,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Validation
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RangeStr)

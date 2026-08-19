@@ -1,0 +1,67 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5FB77C71-211A-44FD-B097-E9C70F0D6999}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Api", "IntegrationTesting.SQLLite.Tests.Api\IntegrationTesting.SQLLite.Tests.Api.csproj", "{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{FB06D7E9-D9B1-4EC7-8E8F-0CCE65CEDEC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Application", "IntegrationTesting.SQLLite.Tests.Application\IntegrationTesting.SQLLite.Tests.Application.csproj", "{4842A241-B0EC-416C-947F-28AC1ADE5719}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Application.UnitTests", "IntegrationTesting.SQLLite.Tests.Application.UnitTests\IntegrationTesting.SQLLite.Tests.Application.UnitTests.csproj", "{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{1F235BEA-8D4C-4732-BF88-EC13676551C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Domain", "IntegrationTesting.SQLLite.Tests.Domain\IntegrationTesting.SQLLite.Tests.Domain.csproj", "{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{162AE822-2AB5-4DF6-B3B9-1EDBAB10B47A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Infrastructure", "IntegrationTesting.SQLLite.Tests.Infrastructure\IntegrationTesting.SQLLite.Tests.Infrastructure.csproj", "{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.SQLLite.Tests.Application.IntegrationTests", "IntegrationTesting.SQLLite.Tests.Application.IntegrationTests\IntegrationTesting.SQLLite.Tests.Application.IntegrationTests.csproj", "{9D358899-1D07-450C-A306-4DE489EAF6F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7} = {5FB77C71-211A-44FD-B097-E9C70F0D6999}
+		{4842A241-B0EC-416C-947F-28AC1ADE5719} = {FB06D7E9-D9B1-4EC7-8E8F-0CCE65CEDEC6}
+		{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A} = {FB06D7E9-D9B1-4EC7-8E8F-0CCE65CEDEC6}
+		{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E} = {1F235BEA-8D4C-4732-BF88-EC13676551C1}
+		{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8} = {162AE822-2AB5-4DF6-B3B9-1EDBAB10B47A}
+		{9D358899-1D07-450C-A306-4DE489EAF6F3} = {FB06D7E9-D9B1-4EC7-8E8F-0CCE65CEDEC6}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DD2F2C-E6BE-4ADF-8C0B-289E46BCA6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4842A241-B0EC-416C-947F-28AC1ADE5719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4842A241-B0EC-416C-947F-28AC1ADE5719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4842A241-B0EC-416C-947F-28AC1ADE5719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4842A241-B0EC-416C-947F-28AC1ADE5719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB387EA2-26D0-4976-BF3D-CCBBF00FE76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C36AC3B8-0BA1-4449-A1B9-49AE81CE130E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BB1761-5A8F-49CC-B7D9-9A8453E0F4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D358899-1D07-450C-A306-4DE489EAF6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D358899-1D07-450C-A306-4DE489EAF6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D358899-1D07-450C-A306-4DE489EAF6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D358899-1D07-450C-A306-4DE489EAF6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

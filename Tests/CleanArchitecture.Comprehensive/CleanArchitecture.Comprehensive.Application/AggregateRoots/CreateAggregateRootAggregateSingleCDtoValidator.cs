@@ -16,6 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRoots
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.AggregationAttr)

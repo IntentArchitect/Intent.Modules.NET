@@ -17,6 +17,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)

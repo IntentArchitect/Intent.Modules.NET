@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#63e01c93-3b4d-4be3-ae05-acb0dea50b33</correlationId>
-      <path>Intent.Modules.MongoDb.MongoFramework/Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
+      <path>Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>

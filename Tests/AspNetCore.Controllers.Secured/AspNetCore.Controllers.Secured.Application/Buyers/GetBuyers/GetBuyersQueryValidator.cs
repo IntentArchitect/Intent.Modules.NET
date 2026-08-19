@@ -15,6 +15,7 @@ namespace AspNetCore.Controllers.Secured.Application.Buyers.GetBuyers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

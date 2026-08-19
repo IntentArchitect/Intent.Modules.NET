@@ -19,6 +19,7 @@ namespace AzureFunctions.NET8.Application.Validators.Validation.InboundComVal
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RangeStr)

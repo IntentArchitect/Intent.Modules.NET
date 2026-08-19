@@ -60,6 +60,7 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Description)

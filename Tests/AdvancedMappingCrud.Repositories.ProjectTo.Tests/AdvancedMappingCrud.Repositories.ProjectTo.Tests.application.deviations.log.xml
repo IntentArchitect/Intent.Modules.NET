@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Entities.DomainEntity#ce9175d2-d5af-4cfb-9d1a-7661abe0002c</correlationId>
+      <path>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain/Entities/Customer.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T17:49:01.5189676Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T17:49:14.3333302Z</approvedAt>
+      <deviationsHash>22EA6FA615A6B4A3F7ADB914FA643652711BB39D066D8775C9EB03831C156FB7</deviationsHash>
+      <fileHash>414AB4A53EA6B7DC5282CAA904AAC7423D6DBA76595973F5C27CA0186F021296</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#6030b5f0-5f9b-4a7a-a458-36b6b213bd7a</correlationId>
       <path>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure.csproj</path>
       <count>1</count>

@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Tags.DeleteTag
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

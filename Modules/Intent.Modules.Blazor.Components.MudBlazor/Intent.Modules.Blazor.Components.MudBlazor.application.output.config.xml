@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/SamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/SkillSamples/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/Theme/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/UserMenuDefault/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SamplePages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-adding-entity/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/SkillSamples/blazor-dialog-editing-entity/readme.txt" state="ignored;once-off-generated" />
@@ -13,5 +17,6 @@
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/ThemeToggle/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/content/UserMenuDefault/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor.Components.MudBlazor/release-notes.md" state="ignored;once-off-generated" />
+    <file relativePath="release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

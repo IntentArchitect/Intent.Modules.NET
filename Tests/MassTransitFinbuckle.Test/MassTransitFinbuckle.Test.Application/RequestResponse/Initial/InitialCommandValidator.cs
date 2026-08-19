@@ -15,6 +15,7 @@ namespace MassTransitFinbuckle.Test.Application.RequestResponse.Initial
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

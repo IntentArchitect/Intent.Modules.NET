@@ -14,9 +14,9 @@ namespace RichDomain.Domain.Entities
 
         string FirstName { get; }
 
-        Guid DepartmentId { get; }
+        string CreatedByName { get; }
 
-        string CreatedBy { get; }
+        Guid DepartmentId { get; }
 
         DateTimeOffset CreatedDate { get; }
 

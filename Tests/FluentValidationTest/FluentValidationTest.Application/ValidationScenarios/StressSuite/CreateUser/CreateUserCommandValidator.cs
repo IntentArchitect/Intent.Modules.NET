@@ -18,6 +18,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.StressSuite.Creat
             _userAccountRepository = userAccountRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Email)

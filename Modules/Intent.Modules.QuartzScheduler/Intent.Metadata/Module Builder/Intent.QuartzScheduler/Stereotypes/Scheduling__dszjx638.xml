@@ -11,7 +11,6 @@
   <icon type="FontAwesome" source="clock" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
-  <displayFunction />
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
@@ -29,7 +28,7 @@
       <defaultValue>true</defaultValue>
     </property>
     <property id="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2">
-      <hint>Cron expression for interval. [Quatz documentation](https://www.quartz-scheduler.net/documentation/quartz-3.x/how-tos/crontrigger.html)</hint>
+      <hint>Cron expression for interval. [Quartz documentation](https://www.quartz-scheduler.net/documentation/quartz-3.x/how-tos/crontrigger.html).</hint>
       <name>Cron Schedule</name>
       <type>string</type>
       <controlType>text</controlType>

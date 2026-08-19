@@ -16,6 +16,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirme
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RefNo)

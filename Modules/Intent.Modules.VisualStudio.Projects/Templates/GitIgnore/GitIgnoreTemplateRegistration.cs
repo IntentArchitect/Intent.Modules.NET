@@ -2,6 +2,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 
@@ -24,11 +25,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.GitIgnore
 
         public void DoRegistration(IApplicationTemplateInstanceRegistry registry, IApplication application)
         {
+            var outputLocationOptions = application.GetOutputLocationOptions(_metadataManager);
             var vsSolutions = _metadataManager.CodebaseStructure(application).GetVisualStudioSolutionModels();
             foreach (var vsSolution in vsSolutions)
             {
                 var projects = _metadataManager.GetAllProjectModels(application).Where(x => x.Solution.Id == vsSolution.Id).ToList();
-                registry.RegisterApplicationTemplate(TemplateId, () => new GitIgnoreTemplate(application, vsSolution));
+                registry.RegisterApplicationTemplate(TemplateId, () => new GitIgnoreTemplate(application, vsSolution, outputLocationOptions));
             }
         }
     }

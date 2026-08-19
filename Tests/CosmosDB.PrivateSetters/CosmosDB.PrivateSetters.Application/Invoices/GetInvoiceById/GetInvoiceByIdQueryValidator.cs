@@ -15,6 +15,7 @@ namespace CosmosDB.PrivateSetters.Application.Invoices.GetInvoiceById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

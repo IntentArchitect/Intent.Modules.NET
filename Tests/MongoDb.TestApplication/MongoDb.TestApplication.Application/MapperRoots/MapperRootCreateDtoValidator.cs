@@ -16,6 +16,7 @@ namespace MongoDb.TestApplication.Application.MapperRoots
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.No)

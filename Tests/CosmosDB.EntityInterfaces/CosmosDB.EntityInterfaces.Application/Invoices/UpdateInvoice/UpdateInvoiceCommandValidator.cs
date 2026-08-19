@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.Invoices.UpdateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

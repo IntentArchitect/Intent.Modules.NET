@@ -92,4 +92,10 @@ namespace Intent.Modules.Application.Identity.Settings
 
         public bool KeepSyncAccessors() => bool.TryParse(_groupSettings.GetSetting("fb7918a2-c5e5-4eb1-b840-5359765e2392")?.Value.ToPascalCase(), out var result) && result;
     }
+
+    public static class ASPNETCoreSettingsExtensions
+    {
+
+        public static bool EnableAuthentication(this ASPNETCoreSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("25718607-fca5-47ae-adce-3231e0c6e755")?.Value.ToPascalCase(), out var result) && result;
+    }
 }

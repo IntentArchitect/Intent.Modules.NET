@@ -32,8 +32,18 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
             // Register Wolverine on every supported host program. The ASP.NET host uses the
             // "App.Program" role; the Azure Functions isolated worker uses its own program template
             // id. Both expose IProgramTemplate/IProgramFile, so the same registration applies.
-            RegisterWolverineOnHost(application.FindTemplateInstance<IProgramTemplate>("App.Program"));
-            RegisterWolverineOnHost(application.FindTemplateInstance<IProgramTemplate>("Intent.AzureFunctions.Isolated.Program"));
+            // A host-scoped template can have more than one instance in a multi-host application
+            // (e.g. App.Api + Mobile.Api), so this must use the plural lookup and loop rather than
+            // FindTemplateInstance, which throws once a second host exists.
+            foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("App.Program"))
+            {
+                RegisterWolverineOnHost(programTemplate);
+            }
+
+            foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("Intent.AzureFunctions.Isolated.Program"))
+            {
+                RegisterWolverineOnHost(programTemplate);
+            }
         }
 
         private static void RegisterWolverineOnHost(IProgramTemplate programTemplate)

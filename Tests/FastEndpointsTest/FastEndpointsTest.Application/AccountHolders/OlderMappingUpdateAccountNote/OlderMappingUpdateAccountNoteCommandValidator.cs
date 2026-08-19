@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.AccountHolders.OlderMappingUpdateAccount
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Note)

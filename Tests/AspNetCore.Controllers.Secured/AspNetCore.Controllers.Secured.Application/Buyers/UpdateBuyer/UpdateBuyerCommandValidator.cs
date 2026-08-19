@@ -15,6 +15,7 @@ namespace AspNetCore.Controllers.Secured.Application.Buyers.UpdateBuyer
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

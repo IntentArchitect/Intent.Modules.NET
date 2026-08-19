@@ -15,27 +15,28 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
         public const string FinbuckleMultiTenantAspNetCorePackageName = "Finbuckle.MultiTenant.AspNetCore";
         public const string FinbuckleMultiTenantEntityFrameworkCorePackageName = "Finbuckle.MultiTenant.EntityFrameworkCore";
         public const string MicrosoftEntityFrameworkCoreInMemoryPackageName = "Microsoft.EntityFrameworkCore.InMemory";
+        public const string MicrosoftExtensionsHostingAbstractionsPackageName = "Microsoft.Extensions.Hosting.Abstractions";
 
         public void RegisterPackages()
         {
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantEntityFrameworkCorePackageName}'"),
                     }
                 );
@@ -58,9 +59,18 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreInMemoryPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftExtensionsHostingAbstractionsPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("8.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHostingAbstractionsPackageName}'"),
+                    }
+                );
         }
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreInMemory(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftEntityFrameworkCoreInMemoryPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsHostingAbstractionsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo FinbuckleMultiTenant(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FinbuckleMultiTenantPackageName, outputTarget.GetMaxNetAppVersion());
 

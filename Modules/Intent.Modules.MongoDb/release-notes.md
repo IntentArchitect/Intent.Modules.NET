@@ -1,6 +1,7 @@
 ### Version 2.0.10
 
 - Improvement: Updated NuGet package versions.
+- Fixed: `AddMongoCollection<T>` now registers `IMongoCollection<T>` as Scoped instead of Singleton. In multi-tenant applications `IMongoDatabase` is resolved per-tenant (Scoped), so a Singleton collection would either fail to resolve or permanently capture whichever tenant's database was first resolved.
 
 ### Version 2.0.9
 

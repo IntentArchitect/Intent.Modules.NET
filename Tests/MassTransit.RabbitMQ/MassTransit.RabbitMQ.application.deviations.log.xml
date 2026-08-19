@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#0b477704-dedd-41ef-87cf-b04ad7aca56d</correlationId>
+      <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/TestMessageEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:22:21.8695894Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:25.353107Z</approvedAt>
+      <deviationsHash>F64553B96832C2116359B81A90BB9D18E9B1738F58406466B3BCE885B5D649DE</deviationsHash>
+      <fileHash>5639938C626EAAE2C800E1873B48630BAC171BF1381F02E42D0E1B3BD80CB527</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#d6fbd90c-7f0d-4cab-9646-fa982d5d064a</correlationId>
+      <path>MassTransit.RabbitMQ.Application/RequestResponse/CQRS/CommandDtoReturn/CommandDtoReturnHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:22:21.8685971Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:25.4602275Z</approvedAt>
+      <deviationsHash>61F3A30D7BEE3E025BFCAD61E0EDF9928B95E44AF8D78FB91EB1C31EDF87AA8F</deviationsHash>
+      <fileHash>982A9F77091ADE1CA281D526ED7F547D8D9E9AE5DAFFEE88A62875F16625C189</fileHash>
+    </file>
+  </files>
 </deviationsLog>

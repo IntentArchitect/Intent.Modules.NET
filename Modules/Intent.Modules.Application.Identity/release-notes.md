@@ -1,3 +1,8 @@
+### Version 3.6.3
+
+- Improvement: Ability to disable `Authentication` in the application's HTTP pipeline, through the new `Enable Authentication` setting which is enabled by default and found under ASP.NET Core Settings.
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 3.6.2
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.

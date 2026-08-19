@@ -30,8 +30,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         public const string TemplateId = "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public DtoValidatorTemplate(IOutputTarget outputTarget, DTOModel model)
-            : base(TemplateId, outputTarget, model)
+        public DtoValidatorTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole(TemplateRoles.Blazor.Client.Model.Validator);
             CSharpFile = new CSharpFile(@namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),

@@ -1,6 +1,11 @@
+### Version 1.0.16
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 1.0.15
 
 - Improvement: Updated NuGet package versions.
+- Fixed: `Quartz` was mis-spelt on the hint text for the `Scheduling` stereotype's `Cron Schedule` property.
 
 ### Version 1.0.14
 

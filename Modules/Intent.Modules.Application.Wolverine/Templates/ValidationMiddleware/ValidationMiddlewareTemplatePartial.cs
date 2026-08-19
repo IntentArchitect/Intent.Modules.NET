@@ -37,6 +37,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
                         method.AddParameter(UseType("Wolverine.Envelope"), "envelope");
                         method.AddParameter(validatorProvider, "validatorProvider");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+
+                        method.AddIfStatement("envelope.Message is null", @if =>
+                        {
+                            @if.AddReturn("");
+                        });
+
                         method.AddStatement("await ValidateAsync(envelope.Message, validatorProvider, cancellationToken);");
                     });
 

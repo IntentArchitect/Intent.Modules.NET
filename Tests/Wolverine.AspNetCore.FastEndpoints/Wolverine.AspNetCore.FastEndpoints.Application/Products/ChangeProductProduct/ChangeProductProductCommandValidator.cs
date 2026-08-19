@@ -15,6 +15,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Application.Products.ChangeProductP
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

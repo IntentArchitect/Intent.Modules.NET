@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#227e229e-59ac-4c9c-a539-d4a52838157c</correlationId>
-      <path>Intent.Modules.AspNetCore.OutputCaching.Redis/Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplatePartial.cs</path>
+      <path>Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -12,11 +12,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:04:54.4440896Z</approvedAt>
       <deviationsHash>29E74E9EBD6E80F345C6DDB0D29C817836362C69AD4ACAA5D59D7A0712E65B6E</deviationsHash>
-      <fileHash>FDDB80EEA87F2F37E566E6B794E397C1511CBBBD11A2BE3FC902559D300ACA17</fileHash>
+      <fileHash>569E24D0F7BB6928FF416F6C7FE12A9269CD35FAA5B6E5A319986CFC3F8D0813</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#227e229e-59ac-4c9c-a539-d4a52838157c</correlationId>
-      <path>Intent.Modules.AspNetCore.OutputCaching.Redis/Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplateRegistration.cs</path>
+      <path>Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

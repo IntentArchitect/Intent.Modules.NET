@@ -17,7 +17,7 @@ namespace JsonPatchRfc7396.Scalar.Infrastructure.Configuration
             IMongoMappingConfiguration<T> mongoConfiguration)
         {
             mongoConfiguration.RegisterCollectionMap();
-            services.AddSingleton(sp =>
+            services.AddScoped(sp =>
                                     {
                                         var database = sp.GetRequiredService<IMongoDatabase>();
                                         return database.GetCollection<T>(mongoConfiguration.CollectionName);

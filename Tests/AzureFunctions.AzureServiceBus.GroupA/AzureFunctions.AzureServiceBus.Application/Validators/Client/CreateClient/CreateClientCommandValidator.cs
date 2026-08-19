@@ -16,6 +16,7 @@ namespace AzureFunctions.AzureServiceBus.Application.Validators.Client.CreateCli
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

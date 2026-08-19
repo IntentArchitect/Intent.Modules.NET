@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0f5ef9b3-50db-43fd-899f-c6e3981c0364">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Intent.Blazor.HttpClients.Dtos.FluentValidation.imodspec" />
+  <file path="Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj" />
+  <file path="Templates/DtoValidator/DtoValidatorTemplatePartial.cs" deviationsHash="151590F145B29553097101D8DA1353DFEE6238FE651C252526C3032907C6D8D2" />
+  <file path="Templates/DtoValidator/DtoValidatorTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="release-notes.md" />
+</managedFiles>

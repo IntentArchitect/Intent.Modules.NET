@@ -31,8 +31,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AppSettingsTemplate(IOutputTarget outputTarget, AppSettingsModel model = null) : base(TemplateId, outputTarget, model)
         {
-            ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
-            ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
+            OnEmitOrPublished<AppSettingRegistrationRequest>(HandleAppSetting);
+            OnEmitOrPublished<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
         public override string GetCorrelationId()

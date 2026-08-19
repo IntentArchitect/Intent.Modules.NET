@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence
         {
         }
 
+        public DbSet<GeometryType> GeometryTypes { get; set; }
+
         public DbSet<Order> Orders { get; set; }
 
         public bool HasDbTransaction() => Database.CurrentTransaction != null;
@@ -25,8 +27,10 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("pgsql");
+            modelBuilder.HasPostgresExtension("postgis");
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new GeometryTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</correlationId>
-      <path>Intent.Modules.Application.DependencyInjection/Templates/DependencyInjection/DependencyInjectionDecorator.cs</path>
+      <path>Templates/DependencyInjection/DependencyInjectionDecorator.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#56d59778-4f78-442e-8dbd-3803141a8b2b</correlationId>
-      <path>Intent.Modules.Application.DependencyInjection/Templates/DependencyInjection/DependencyInjectionTemplateRegistration.cs</path>
+      <path>Templates/DependencyInjection/DependencyInjectionTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -28,15 +28,12 @@
       <fileHash>602848A96EDE937936C7B7ADA30F68862F679B1FC84F00ABA318088788C29B3E</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Application.DependencyInjection/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#223fa399-c362-4608-ac3c-9d6229b15d4e</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-15T12:47:25.6404607Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:56:56.413049Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T08:55:08.7798889Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>E29BEF771EF5F048917109991703C32E31CE1A3E9D00AB707890EB2422120AD6</fileHash>
     </file>

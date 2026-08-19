@@ -15,6 +15,7 @@ namespace ValueObjects.Class.Application.TestEntities.DeleteTestEntity
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

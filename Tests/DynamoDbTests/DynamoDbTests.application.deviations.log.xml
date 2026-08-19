@@ -2,16 +2,29 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.MediatR.DomainEvents.AggregateManager#faa3d820-00cf-41a9-b041-79d7caa7162d</correlationId>
+      <path>DynamoDbTests.Application/EventHandlers/RegionManager.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:17:57.4366263Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.1371297Z</approvedAt>
+      <deviationsHash>4FD9BFADEE0F7E3446228E2EDCDD7FF5A8867A51F1A7743E1BD089CD97B37568</deviationsHash>
+      <fileHash>9107CAAE9A1BA40DBB824DEAE632432B711B9BABC33118A03165A55B5318FF42</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#d1db272f-fa63-4a35-a6c6-0a497c5dca91</correlationId>
       <path>DynamoDbTests.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:52:16.5859498Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2026-05-21T09:52:16.5860083Z</approvedAt>
-      <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:17:57.4374152Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.1601553Z</approvedAt>
+      <deviationsHash>41FFF7F867A9F8CDDBF63A81D319343BA8910EF49AD186028E2265D64FD990B6</deviationsHash>
       <fileHash>AC7B77DBD7C964BAF912E9A2AA832937CBFB3CE7B1F552FB427706CB28CE2CD3</fileHash>
     </file>
   </files>

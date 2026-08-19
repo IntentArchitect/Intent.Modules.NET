@@ -60,7 +60,7 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
         ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("Microsoft.AspNetCore.Mvc.Versioning", OutputTarget));
         ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer", OutputTarget));
 
-        ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+        EmitOrPublish(ServiceConfigurationRequest
             .ToRegister("ConfigureApiVersioning")
             .HasDependency(this));
     }

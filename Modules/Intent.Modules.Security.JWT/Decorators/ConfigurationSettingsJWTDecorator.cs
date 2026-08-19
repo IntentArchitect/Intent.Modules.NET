@@ -4,6 +4,7 @@ using System.Text;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
@@ -29,6 +30,11 @@ namespace Intent.Modules.Security.JWT.Decorators
         [IntentManaged(Mode.Merge)]
         public ConfigurationSettingsJWTDecorator(AppSettingsTemplate template, IApplication application)
         {
+            if (!template.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
+            {
+                return;
+            }
+
             _template = template;
             _application = application;
             _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
@@ -47,6 +53,11 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
+            if (_template?.OutputTarget.GetProject().HasMicrosoftNetSdkWeb() != true)
+            {
+                return;
+            }
+
             if (((string)appSettings.GetProperty("Security.Bearer")?["Authority"])?.Contains("{sts_port}") == true && _stsPort != "{sts_port}")
             {
                 appSettings.GetProperty("Security.Bearer")["Authority"] = $"https://localhost:{_stsPort}";

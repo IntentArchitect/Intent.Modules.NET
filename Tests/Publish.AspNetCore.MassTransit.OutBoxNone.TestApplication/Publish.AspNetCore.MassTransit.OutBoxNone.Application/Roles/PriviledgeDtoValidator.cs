@@ -16,6 +16,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

@@ -17,6 +17,7 @@ namespace AzureFunctions.NET6.Application.Validators.Customers.GetCustomersPaged
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

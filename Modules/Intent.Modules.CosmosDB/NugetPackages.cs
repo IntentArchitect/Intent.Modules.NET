@@ -11,23 +11,34 @@ namespace Intent.Modules.CosmosDB
 {
     public class NugetPackages : INugetPackages
     {
+        public const string AzureIdentityPackageName = "Azure.Identity";
         public const string FinbuckleMultiTenantPackageName = "Finbuckle.MultiTenant";
         public const string IEvangelistAzureCosmosRepositoryPackageName = "IEvangelist.Azure.CosmosRepository";
         public const string NewtonsoftJsonPackageName = "Newtonsoft.Json";
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(AzureIdentityPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("1.21.0")
+                            .WithNugetDependency("Azure.Core", "1.53.0"),
+                        ( >= 2, >= 0) => new PackageVersion("1.21.0")
+                            .WithNugetDependency("Azure.Core", "1.53.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureIdentityPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.1")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -75,6 +86,8 @@ namespace Intent.Modules.CosmosDB
                     }
                 );
         }
+
+        public static NugetPackageInfo AzureIdentity(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureIdentityPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NewtonsoftJson(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NewtonsoftJsonPackageName, outputTarget.GetMaxNetAppVersion());
 

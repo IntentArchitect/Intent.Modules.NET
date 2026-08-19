@@ -17,6 +17,7 @@ namespace AzureFunctions.NET8.Application.Validators.Params.GetByIdsHeadersTest
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Ids)

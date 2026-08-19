@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.UpdateAggregateRootCompos
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.CompositeAttr)

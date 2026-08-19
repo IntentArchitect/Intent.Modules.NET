@@ -15,6 +15,7 @@ namespace MudBlazor.ExampleApp.Application.Customers.GetCustomers
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

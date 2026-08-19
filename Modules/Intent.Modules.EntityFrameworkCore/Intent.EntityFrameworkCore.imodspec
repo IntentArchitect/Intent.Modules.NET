@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.47-pre.2</version>
+  <version>5.1.1-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -71,6 +71,11 @@
         <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.1.0" />
       </install>
     </detect>
+    <detect id="Intent.EntityFrameworkCore.Repositories">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.4" />
+      </install>
+    </detect>
     <detect id="Intent.Entities">
       <install>
         <package id="Intent.Entities" version="4.4.2" />
@@ -79,6 +84,11 @@
     <detect id="Intent.AspNetCore.HealthChecks">
       <install>
         <package id="Intent.AspNetCore.HealthChecks" version="2.0.4" />
+      </install>
+    </detect>
+    <detect id="Intent.Infrastructure.Constants">
+      <install>
+        <package id="Intent.Infrastructure.Constants" version="1.0.2" />
       </install>
     </detect>
   </interoperability>
@@ -182,6 +192,10 @@
           <isRequired>false</isRequired>
           <hint>Opt-out of having the Connection String added to appsettings.json</hint>
           <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="ad9681ea-9388-4415-9b94-de2ced2b7307" title="Default Connection String Name" type="text">
+          <isRequired>false</isRequired>
+          <hint>Overrides the connection string name for the primary DbContext.</hint>
         </setting>
       </settings>
     </groupExtension>

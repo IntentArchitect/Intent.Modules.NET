@@ -96,28 +96,28 @@ namespace Intent.Modules.MongoDb
                 );
             NugetRegistry.Register(MongoFrameworkPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 6, >= 0) => new PackageVersion("0.29.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
-                            .WithNugetDependency("MongoDB.Driver", "2.19.2")
-                            .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
-                            .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
-                            .WithNugetDependency("System.Linq.Async", "6.0.1"),
-                        ( >= 2, >= 1) => new PackageVersion("0.29.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
-                            .WithNugetDependency("MongoDB.Driver", "2.19.2")
-                            .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
-                            .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
-                            .WithNugetDependency("System.Linq.Async", "6.0.1"),
-                        ( >= 2, >= 0) => new PackageVersion("0.29.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
-                            .WithNugetDependency("MongoDB.Driver", "2.19.2")
-                            .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
-                            .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
-                            .WithNugetDependency("System.Linq.Async", "6.0.1"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MongoFrameworkPackageName}'"),
-                    }
-                );
+                {
+                    ( >= 6, >= 0) => new PackageVersion("0.29.0")
+                        .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
+                        .WithNugetDependency("MongoDB.Driver", "2.19.2")
+                        .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
+                        .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
+                        .WithNugetDependency("System.Linq.Async", "6.0.1"),
+                    ( >= 2, >= 1) => new PackageVersion("0.29.0")
+                        .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
+                        .WithNugetDependency("MongoDB.Driver", "2.19.2")
+                        .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
+                        .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
+                        .WithNugetDependency("System.Linq.Async", "6.0.1"),
+                    ( >= 2, >= 0) => new PackageVersion("0.29.0")
+                        .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
+                        .WithNugetDependency("MongoDB.Driver", "2.19.2")
+                        .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
+                        .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
+                        .WithNugetDependency("System.Linq.Async", "6.0.1"),
+                    _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MongoFrameworkPackageName}'"),
+                }
+            );
         }
 
         public static NugetPackageInfo FinbuckleMultiTenant(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FinbuckleMultiTenantPackageName, outputTarget.GetMaxNetAppVersion());

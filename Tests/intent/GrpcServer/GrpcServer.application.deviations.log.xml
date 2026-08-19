@@ -2,6 +2,266 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#04bc47c3-5654-43be-87dc-dbeb4a985655</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForBinaryService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392016Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.1233698Z</approvedAt>
+      <deviationsHash>0D1780F95E69FD1A3654F558987D4F6C28554286FABF04A09C22E4392BA77544</deviationsHash>
+      <fileHash>94C7C53A3559D0CB67B4D187779240C909A79287BE0FB5D247F7F647029657F6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#3152b906-edaa-434e-8f13-6570716af653</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForBoolService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392152Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.1531526Z</approvedAt>
+      <deviationsHash>7E30F40B300E0F0614C964B5BC79C77A8866D2C2F2BD3055675CA48779158669</deviationsHash>
+      <fileHash>BD1FF3987FA7C88ABC83C7151996EC7811451E2E405A784007B28BF04DFAB0F5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#cfa7f08a-cd03-49b1-8d48-2344d0056737</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForByteService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.439229Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.1774222Z</approvedAt>
+      <deviationsHash>C1271B3DE112A6F5D939A1DD9E9D87456B313607DCC00F2FD6DB08C05580981E</deviationsHash>
+      <fileHash>670400DEE9F8947B80AAC2CB7E50C76D6759ACA1E6BE0B9369BA5DC35C4CAF4D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#3a54a371-a5ef-4a0f-8629-688e718ad586</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForCharService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392422Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.2037412Z</approvedAt>
+      <deviationsHash>10538AF6926177C40C0AD783BB8631DDFD56CF3F4FA1BAA60C0E8FFC321665A5</deviationsHash>
+      <fileHash>30ABFCFF0FDC8D3DCB5F422B53B329250D8E4F51EEB339675BDF7A415648828B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#70f13ebe-1faf-494d-93ca-ebdb72249cde</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDateOnlyService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392577Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.2573068Z</approvedAt>
+      <deviationsHash>B9FC7E176288171D7B76F22082967B5991DC5A3AB186980DB2C74D0D2CD41B4B</deviationsHash>
+      <fileHash>A55D4D403DACF1FA9325349CA42F15AE8D0279776BCCFD2D2B63A8B44223208D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a8921ad1-d01f-44ed-8d45-58ffbfd2af99</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDateTimeOffsetService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392985Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.277117Z</approvedAt>
+      <deviationsHash>3BF8F6B776D27EFCF7DCF8F95090C2CBC149BF08DE8CDDAD08F904DB5DC592FA</deviationsHash>
+      <fileHash>776F44B28A1B31C19A812CFA387F2578EC9E0DCD4693F0BD5D97B11469A08AD2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#752becfc-a1d8-4ddb-83db-169a39519d41</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDateTimeService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4392716Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.3009285Z</approvedAt>
+      <deviationsHash>A980C2136231E6EA2DD4D3F2CF205B49AC5B828B46CFFC5BE81E1D2D277F25F3</deviationsHash>
+      <fileHash>0B7EB24E3D20EF5706152D7F710B241EBB0FF6F2D4C47631C00579E176CDB3E3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a2fc03f9-3a03-481f-a660-8a5c62490205</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDecimalService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393139Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.3231594Z</approvedAt>
+      <deviationsHash>80053EF321FD4B57F5A4F78D20E4F399C327E18AB558827F5AB67F9FF12DED72</deviationsHash>
+      <fileHash>EBA0FD4A3CC9448554A2A73677E77E8556B419180BDFACE5DBBDE1291A979526</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#5deb0915-8a19-498c-9947-6faa80d02205</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDictionaryService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393283Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.3450119Z</approvedAt>
+      <deviationsHash>C5119AEF0F204F818ED8EBA40E410153AA1CC50DE65804A1C5005401F260B280</deviationsHash>
+      <fileHash>3F881E282CF8C9A04C9F547EF5781E690C13310868C306742B755C5408AEACDD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#252ee526-cf27-435b-bba5-d5f8ee1cb27a</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForDoubleService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393414Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.3673097Z</approvedAt>
+      <deviationsHash>3DC9F7AD7434B7CC815679E1DC699F4A6F5012850E6FA4E659548BD7E9D6A2A9</deviationsHash>
+      <fileHash>B7531BFCA07428505FDF1F331F86B2F8FAD3609B509A95F710372553F83FB795</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#0d15b800-edbd-4ca2-a2a5-e1e2b443b7d2</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForEnumService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393616Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.3903542Z</approvedAt>
+      <deviationsHash>2ED4B1AB06C1330CF7574D80440C9B5E76A9BF61FD15EE59DFECCB307654A4F4</deviationsHash>
+      <fileHash>DB523B85853121F1B1BEC95D91433DC925ADD169C47F0FAB40EFC8FD4159E9AA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#2e3795d3-a111-4946-b81b-3138ae9222ed</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForFloatService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393781Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.4117891Z</approvedAt>
+      <deviationsHash>97D153424CDF1CBBD571F5490F6F185ABCF8D3E6A9457CB597928D3264E13F29</deviationsHash>
+      <fileHash>CAE4D7105031CBD1CBFEED62FBFEA0852EC65E2E7A49FD67C2574FBF79205808</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#e7ced6f7-e16c-479f-9361-4b0f14172b7d</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForGuidService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4393915Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.4434921Z</approvedAt>
+      <deviationsHash>949944D4742B1F10D2118A8EE919A293BD456582658BD976AEF773612BFADD99</deviationsHash>
+      <fileHash>904DE9C4F3C6848F9336846F8882084A7F038CC384F327944348A1B1E3F39BC1</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#1819a1bb-f198-4f38-9b3a-34a94ae6b8fd</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForIntService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394041Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.4654511Z</approvedAt>
+      <deviationsHash>B3EF397BAA6B19B8D6D0D7073F6943E37AC11BB6710526C6027FB97207C59969</deviationsHash>
+      <fileHash>ADA12C9C651A10C4B59EEBBDB4B57FC9A20AFF9588C75BA072B8BC977C8E01E0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#92a60bb8-cf6e-43df-82ca-d62e0c7a791a</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForLongService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394169Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.4879783Z</approvedAt>
+      <deviationsHash>EB5CD71D2AED4F66C212A9FF3FABDDEE5D5E98300FC20B0309F6492185B1B54D</deviationsHash>
+      <fileHash>D771A626DAE6C845FDA5CB8D6515B87D4C13EBA96A187E99908FE3B9318059BD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#83239604-55ef-44e2-960b-0f9400097869</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForObjectService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394303Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.5091747Z</approvedAt>
+      <deviationsHash>4D2B7DE5F7FFA314BA2B3BFBE5BF3D80990B02497A5147E78744A70F6CBB9F6A</deviationsHash>
+      <fileHash>868C7096955BF514037C87720B65156DB0B02D2A244414472F0043CB08246445</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#c5df7e20-e3e8-494f-830d-48461bbded32</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForPagedResultService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394443Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.5357934Z</approvedAt>
+      <deviationsHash>27A788F6E7A04EE2E85C626567A55723247C98EC50254E77AF21CDED11A3FC61</deviationsHash>
+      <fileHash>537B5658D979ED290B228CFEC5B7EB1D39662C871B3BAA75BFA1B80AFBD27E2F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#eac82093-4e64-40e4-a8ab-e843255cc01e</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForShortService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394576Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.5575812Z</approvedAt>
+      <deviationsHash>31E49642DD6E4A1A9E83D0ECB342D868881335FA373C3DA83846EADCD0B696E6</deviationsHash>
+      <fileHash>BD814B52BD8B2A87359776A778716EA800847E107699885F689C5DC3ED1CBF03</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#5ae311f0-5afa-48b6-9f83-b85ea3cb3dda</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForStringService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394705Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.5884713Z</approvedAt>
+      <deviationsHash>9A67B435391A85B0883C823709B1AF8F807DA764E7C7AB7FF58F52B9E7658A20</deviationsHash>
+      <fileHash>54D4F6BD377299C8D3A39F64B138EC66A7FB43518868F9BDAD2244B5621EEE66</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#5eef9395-8076-48ed-a892-b902fe38c1ae</correlationId>
+      <path>GrpcServer.Application/Implementation/TypeTestingServices/ForTimeSpanService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:15:08.4394829Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.610697Z</approvedAt>
+      <deviationsHash>57A27DA3B173D12E9F7CFF7404D51BC23CB2BBBEF802CA5B91FC44DE30D35A7E</deviationsHash>
+      <fileHash>29C6AF7B7792ED2EC0C2F79EA47229D96F3092456BB922D6C109C174D6B2F50E</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#09efeea3-8434-4af8-b248-fad7bff49353</correlationId>
       <path>GrpcServer.Infrastructure/GrpcServer.Infrastructure.csproj</path>
       <count>1</count>

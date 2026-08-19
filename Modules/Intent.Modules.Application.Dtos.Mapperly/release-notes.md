@@ -1,3 +1,7 @@
+### Version 1.1.5
+
+- Improvement: Update the AI skill guidance to be more explicit and consistant about when and what to do with regards to Mapperly implementation.
+
 ### Version 1.1.4
 
 - Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so Mapperly guidance is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.

@@ -15,6 +15,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Cu
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

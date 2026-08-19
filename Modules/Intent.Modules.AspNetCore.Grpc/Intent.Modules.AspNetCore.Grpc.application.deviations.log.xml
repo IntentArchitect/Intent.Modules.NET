@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#314451f8-0d38-4b61-815b-f739e814697c</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/CommonTypesPartial/CommonTypesPartialTemplatePartial.cs</path>
+      <path>Templates/CommonTypesPartial/CommonTypesPartialTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#21340dca-296f-4ab7-9507-4a7883920527</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplatePartial.cs</path>
+      <path>Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -23,7 +23,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27fca00f-e731-44ad-a845-e4b35b5b253a</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/MessagePartial/MessagePartialTemplatePartial.cs</path>
+      <path>Templates/MessagePartial/MessagePartialTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -33,7 +33,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#efefd72b-af75-4f08-8525-81dd2061883f</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/MessageProtoFile/MessageProtoFileTemplatePartial.cs</path>
+      <path>Templates/MessageProtoFile/MessageProtoFileTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -43,7 +43,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2714a7e7-3666-40c0-9a44-d8941c5b9e4b</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/PagedResultPartial/PagedResultPartialTemplatePartial.cs</path>
+      <path>Templates/PagedResultPartial/PagedResultPartialTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -53,7 +53,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#3fa31cc3-3bac-44f9-8824-48baff54dd17</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/PagedResultProtoFile/PagedResultProtoFileTemplatePartial.cs</path>
+      <path>Templates/PagedResultProtoFile/PagedResultProtoFileTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -63,7 +63,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#fccc1c59-6f3e-43a1-975b-80a18bb90f97</correlationId>
-      <path>Intent.Modules.AspNetCore.Grpc/Templates/ServiceProtoFile/ServiceProtoFileTemplatePartial.cs</path>
+      <path>Templates/ServiceProtoFile/ServiceProtoFileTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>

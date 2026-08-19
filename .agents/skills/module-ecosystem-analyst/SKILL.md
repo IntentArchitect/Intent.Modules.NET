@@ -10,6 +10,10 @@ argument-hint: "[Pattern Document or path to it]"
 
 Turn the Pattern Document from `tech-pattern-researcher` into a concrete Attack Plan: exactly what to scaffold, in what order, using which Intent SDK building blocks. This skill prevents wasted work by establishing the full implementation picture before a single line of module code is written.
 
+> **⛔ Precondition — Gate 1 audit (fresh PASS required).** Do not begin until a **fresh `module-auditor` run** (Gate 1, after the reference app is green) has returned **PASS**. Never trust a stored `PASS` in `audit-findings.md` — if the latest verdict isn't a clean PASS from a fresh run, fix what's needed and **re-invoke the auditor** first. The implementer never issues this verdict.
+
+> **Sliced builds & offload:** when the build is sliced (`WORKING.md` slice map), analyze per slice. The ecosystem scan and reading of generated output are context-heavy and read-only — good to **delegate to a sub-agent** (see `module-building-strategies` → *Offload discovery to keep the orchestrator lean*).
+
 ## Governing Principle — Industry Standard First
 
 Apply the same principle as `tech-pattern-researcher`: Intent SDK conventions are the standard for this layer. Only where the SDK is silent do we improvise — and every improvisation must be logged in the Pattern Document Decision Log with basis and rationale.

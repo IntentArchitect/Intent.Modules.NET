@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#0ba5eb08-edcc-4bb1-b333-62ea858c23df</correlationId>
+      <path>CloudBlobStorageClients.Application/Tests/TestAwsS3/TestAwsS3CommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-23T19:46:47.445065Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T11:46:54.082818Z</approvedAt>
+      <deviationsHash>8460763BF24E725AFA388D0C439D97EF2271D5D9F9C76013660A1A56F2F059DE</deviationsHash>
+      <fileHash>036C7BE4F4CD307533D6DF0D12DDB2EEAA08A2313CE425592BF30748E937735C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#70c261a1-f949-4cc4-ae5b-7b0ffb7047a2</correlationId>
+      <path>CloudBlobStorageClients.Application/Tests/TestAzure/TestAzureCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-23T19:46:47.4450976Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T11:46:54.0944878Z</approvedAt>
+      <deviationsHash>43E2803BE34885AFBA32E69E6988120ADA60B948219D5BA31698017EFB982017</deviationsHash>
+      <fileHash>8E61D07AAC7E7EBF4997A8F84D97A698BF2AD07EE3D1D5E19C6BD205920C9AAA</fileHash>
+    </file>
+  </files>
 </deviationsLog>

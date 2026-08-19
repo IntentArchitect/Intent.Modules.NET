@@ -15,6 +15,7 @@ namespace MassTransit.RequestResponse.Client.Application.TestCommands.RabbitMqTe
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

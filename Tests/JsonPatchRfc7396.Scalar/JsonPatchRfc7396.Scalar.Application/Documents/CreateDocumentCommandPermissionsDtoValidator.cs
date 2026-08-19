@@ -15,6 +15,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Role)

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#234c8bf3-f527-4349-84e1-07c9971fdb77</correlationId>
-      <path>Intent.Modules.ModularMonolith.Host/NugetPackages.cs</path>
+      <path>NugetPackages.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

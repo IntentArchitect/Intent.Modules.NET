@@ -17,6 +17,7 @@ namespace AzureFunctions.NET8.Application.Validators.CosmosDB.CosmosChange
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

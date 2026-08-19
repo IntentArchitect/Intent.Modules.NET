@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Orders.UpdateOrder
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RefNo)

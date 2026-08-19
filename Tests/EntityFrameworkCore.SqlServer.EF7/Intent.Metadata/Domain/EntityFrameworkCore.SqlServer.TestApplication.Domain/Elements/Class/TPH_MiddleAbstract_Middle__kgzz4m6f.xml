@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="79ebf9fc-bda0-4fa9-976c-c589322fe178" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>TPH_MiddleAbstract_Middle</name>
-  <display>TPH_MiddleAbstract_Middle : TPH_MiddleAbstract_Root</display>
+  <display>TPH_MiddleAbstract_Middle</display>
   <isAbstract>true</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

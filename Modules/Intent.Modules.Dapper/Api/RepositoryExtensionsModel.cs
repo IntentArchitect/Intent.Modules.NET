@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,6 +19,11 @@ namespace Intent.Dapper.Api
         public RepositoryExtensionsModel(IElement element) : base(element)
         {
         }
+
+        public IList<StoredProcedureModel> StoredProcedures => _element.ChildElements
+            .GetElementsOfType(StoredProcedureModel.SpecializationTypeId)
+            .Select(x => new StoredProcedureModel(x))
+            .ToList();
 
     }
 }

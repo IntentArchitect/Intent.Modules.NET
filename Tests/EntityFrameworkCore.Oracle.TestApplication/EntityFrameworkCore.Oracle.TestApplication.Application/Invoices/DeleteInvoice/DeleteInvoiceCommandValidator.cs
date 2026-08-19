@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Invoices.Delete
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

@@ -16,6 +16,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesPaged
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.PageSize)

@@ -3,20 +3,17 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4801c180-6756-4496-a4e0-d9b08a8f6674</correlationId>
-      <path>Intent.Modules.AspNetCore/Templates/Program/ProgramTemplatePartial.cs</path>
+      <path>Templates/Program/ProgramTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T11:15:13.9357366Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:01:05.6363813Z</approvedAt>
-      <deviationsHash>DD3186D062B7C30E47076C31EEF566F497BECF3C1A0306FBDC820014B5A7172C</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T18:30:47.3460096Z</updatedAt>
+      <deviationsHash>5F259B367B43C25CA4E5329D8472D22F6874ACEFEC7DCDF58B48AC29748FE179</deviationsHash>
       <fileHash>8CDC0BF4D09F721E5B5B3F04E184E549BA7145544CCF5C7A99A67226D099850D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#82ebd9ba-bbf3-426c-bc62-35626bd2c3c1</correlationId>
-      <path>Intent.Modules.AspNetCore/Templates/ProgramPartial/ProgramPartialTemplatePartial.cs</path>
+      <path>Templates/ProgramPartial/ProgramPartialTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -26,20 +23,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0cd2c1-23c0-4841-a618-bc03211d9ae2</correlationId>
-      <path>Intent.Modules.AspNetCore/Templates/Startup/StartupTemplatePartial.cs</path>
+      <path>Templates/Startup/StartupTemplatePartial.cs</path>
       <count>5</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T11:15:13.935768Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:01:05.6407525Z</approvedAt>
-      <deviationsHash>9132616E252F72F854F2EE854EB381564AB9496D79B8EFCF7E21D80B9115D805</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T18:30:47.3461222Z</updatedAt>
+      <deviationsHash>BC26DF9A599065993DECA7319BB1813593A64E362027EE3DEB2877CAE1EF31C3</deviationsHash>
       <fileHash>16EB2461AFCFF05D0638CA825535AF1E8EA82DECC6797799D223C32F9D314C0F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2b0cd2c1-23c0-4841-a618-bc03211d9ae2</correlationId>
-      <path>Intent.Modules.AspNetCore/Templates/Startup/StartupTemplateRegistration.cs</path>
+      <path>Templates/Startup/StartupTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -49,19 +43,6 @@
       <approvedAt>2024-08-20T12:01:05.6425106Z</approvedAt>
       <deviationsHash>83894B6E9B919465C1FE82730F74B4CE57530E2D84208C2F4EAAEE3C75007C0A</deviationsHash>
       <fileHash>8EEE3EB7ADCE3268CD4B72201F821C8DDAE99C7919D7A164FD8D3ABD582A725E</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.AspNetCore/Templates/TemplateExtensions.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T11:15:13.9358528Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:01:05.6439877Z</approvedAt>
-      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>BADF6310B2E8F3D6F7441756C62D4DE84AEF3238E3BA06E778661C47BD539E3B</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -15,6 +15,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Orders.GetOrderByRef
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

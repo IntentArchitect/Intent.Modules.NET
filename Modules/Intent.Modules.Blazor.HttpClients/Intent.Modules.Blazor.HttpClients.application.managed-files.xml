@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="f51fb36a-8aba-46a5-8c18-b9f9c8c496da">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/WebAssemblyProgramIntegrationFactoryExtension.cs" />
+  <file path="Intent.Blazor.HttpClients.imodspec" />
+  <file path="Intent.Modules.Blazor.HttpClients.csproj" />
+  <file path="NugetPackages.cs" />
+  <file path="Templates/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="1B68C46E894DB95B2F5D414E42C75E5DB5E6F0C47CDC196A27CD010B94B83655" />
+  <file path="Templates/DtoContract/DtoContractTemplateRegistration.cs" />
+  <file path="Templates/EnumContract/EnumContractTemplate.cs" />
+  <file path="Templates/EnumContract/EnumContractTemplatePartial.cs" />
+  <file path="Templates/EnumContract/EnumContractTemplateRegistration.cs" />
+  <file path="Templates/HttpClient/HttpClientTemplatePartial.cs" deviationsHash="9463CDAD3935D48F53865713B29F5B1F8E9D83D79B8D5130B8D1B1951BEFE306" />
+  <file path="Templates/HttpClient/HttpClientTemplateRegistration.cs" deviationsHash="3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A" />
+  <file path="Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs" />
+  <file path="Templates/HttpClientConfiguration/HttpClientConfigurationTemplateRegistration.cs" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs" deviationsHash="AFEB2F62A746809817515C149F48477F287FD8679BF43B685B130A64A65C807F" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplateRegistration.cs" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" deviationsHash="690951CECD0FF887BE2377E914838CCF6C6F41B7CAEB2B14A98884BFB5A8910E" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" />
+  <file path="Templates/PagedResult/PagedResultTemplatePartial.cs" deviationsHash="CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5" />
+  <file path="Templates/PagedResult/PagedResultTemplateRegistration.cs" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs" deviationsHash="1B60A783CB7B6ACBFA9036FF2A9A848FFE5EA29A245B26F2A512BE7A65CC11D5" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs" />
+  <file path="Templates/ServiceContract/ServiceContractTemplatePartial.cs" deviationsHash="7F5F57899EDB4DDA9050FC365E5F11A932465A264928A3E3733ECD35E26C00E8" />
+  <file path="Templates/ServiceContract/ServiceContractTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="BB61372AE2D1710A3CA6D07E39D53DEC84E31EA0BBF2E2703A55BBA270955B08" />
+  <file path="release-notes.md" />
+  <file path="resources/documentation.json" />
+</managedFiles>

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Finbuckle.MultiTenant" Version="6.13.1" />
+    <PackageReference Include="Finbuckle.MultiTenant" Version="9.4.10" />
     <PackageReference Include="MongoDB.Driver" Version="3.10.0" />
   </ItemGroup>
   </Project>

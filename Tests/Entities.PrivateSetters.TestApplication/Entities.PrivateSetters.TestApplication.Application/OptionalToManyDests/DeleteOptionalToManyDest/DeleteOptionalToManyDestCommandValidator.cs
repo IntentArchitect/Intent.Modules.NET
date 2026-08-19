@@ -15,6 +15,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDest
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

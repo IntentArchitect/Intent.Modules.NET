@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9037cc75-09ff-4977-8a64-efcaa5c8f5ab</correlationId>
-      <path>Intent.Modules.Aws.DynamoDB/Templates/DynamoDBDocument/DynamoDBDocumentTemplatePartial.cs</path>
+      <path>Templates/DynamoDBDocument/DynamoDBDocumentTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>

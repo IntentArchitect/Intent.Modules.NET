@@ -22,6 +22,7 @@ namespace CleanArchitecture.Comprehensive.Api.Logging
             result = value switch
             {
                 Point point => new ScalarValue($"Point({point.X}, {point.Y})"),
+                Geometry geometry => new ScalarValue(geometry.ToString()),
                 _ => null
             };
             return result is not null;

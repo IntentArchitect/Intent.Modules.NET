@@ -2,16 +2,29 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.MediatR.DomainEvents.AggregateManager#faa3d820-00cf-41a9-b041-79d7caa7162d</correlationId>
+      <path>DynamoDbTests.EntityInterfaces.Application/EventHandlers/RegionManager.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:18:33.8905112Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.9778182Z</approvedAt>
+      <deviationsHash>4FD9BFADEE0F7E3446228E2EDCDD7FF5A8867A51F1A7743E1BD089CD97B37568</deviationsHash>
+      <fileHash>27BC0041EF583D8D45036A02C998316D8D132B7B556157561ED7A6FF57D4ECD1</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#3049e536-274a-4c3c-870d-28ed104ded62</correlationId>
       <path>DynamoDbTests.EntityInterfaces.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-05-21T09:59:09.1595271Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2026-05-21T09:59:09.1595842Z</approvedAt>
-      <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:18:33.8913777Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.0011968Z</approvedAt>
+      <deviationsHash>41FFF7F867A9F8CDDBF63A81D319343BA8910EF49AD186028E2265D64FD990B6</deviationsHash>
       <fileHash>C4CD4EDEBF35DBD0065489F5B1F5DF3D277FC7F45BA4CCDCB4A4FBBAFCE78553</fileHash>
     </file>
   </files>

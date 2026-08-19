@@ -26,7 +26,6 @@ return "";</displayFunction>
   <packageName>Intent.Eventing.MassTransit</packageName>
   <properties>
     <property id="4126ee48-4a50-41a8-9419-504e7f677bea">
-      <hint />
       <name>Destination Queue Name</name>
       <type>string</type>
       <controlType>text</controlType>

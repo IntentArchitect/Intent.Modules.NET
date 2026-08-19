@@ -16,6 +16,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Integration
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.ReferenceNumber)

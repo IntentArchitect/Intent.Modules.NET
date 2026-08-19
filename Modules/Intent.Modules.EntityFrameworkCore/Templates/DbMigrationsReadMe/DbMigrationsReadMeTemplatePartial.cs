@@ -25,7 +25,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            IncludeDbContextArguments = DbContextManager.GetDbContexts(ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Count > 1;
+            IncludeDbContextArguments = DbContextManager.GetDbContexts(ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager, ExecutionContext.Settings).Count > 1;
         }
 
         public override void AfterTemplateRegistration()
@@ -93,7 +93,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Any();
+            return base.CanRunTemplate() && DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager, ExecutionContext.Settings).Any();
         }
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()

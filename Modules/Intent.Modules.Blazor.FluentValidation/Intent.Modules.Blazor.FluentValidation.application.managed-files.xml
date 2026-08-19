@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2764f852-7924-40cb-8b2f-c58c211a632d">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/PropertyModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/FluentValidationBlazorInstaller.cs" />
+  <file path="Intent.Blazor.FluentValidation.imodspec" />
+  <file path="Intent.Modules.Blazor.FluentValidation.csproj" />
+  <file path="Migrations/OnInstallMigration.cs" />
+  <file path="NugetPackages.cs" />
+  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE" />
+  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs" deviationsHash="5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746" />
+  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs" />
+  <file path="release-notes.md" />
+</managedFiles>

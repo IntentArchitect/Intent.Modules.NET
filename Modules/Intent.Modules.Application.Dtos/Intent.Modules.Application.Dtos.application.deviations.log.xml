@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#128d2122-ed2d-459e-b933-c5ce487320f0</correlationId>
-      <path>Intent.Modules.Application.Dtos/Decorators/DataContractDTOAttributeDecorator.cs</path>
+      <path>Decorators/DataContractDTOAttributeDecorator.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#b0eb283a-13f0-4d72-8000-917fa9550574</correlationId>
-      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelDecorator.cs</path>
+      <path>Templates/DtoModel/DtoModelDecorator.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,17 +29,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
-      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs</path>
+      <path>Templates/DtoModel/DtoModelTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-04-23T10:26:46.4996815Z</updatedAt>
       <deviationsHash>80126F9C3A10BA42660149B19D33A84B84B50321E2E5B3CC732DDCF5D0A16D45</deviationsHash>
-      <fileHash>EB468A3EEB8B3077F8D1D5FD05D2A97579B9D6840E026B2AF599C04B4112CB06</fileHash>
+      <fileHash>083C5A5BE5F19EEC97E0D02BF0162AFDB0BEF5151BEDFFE863441EA319C51B1C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
-      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplateRegistration.cs</path>
+      <path>Templates/DtoModel/DtoModelTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -48,15 +48,12 @@
       <fileHash>37A5CB9DAE89707ABD1B9D8903752059D3CCB827B9161A56546C9AF182D6CA33</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Application.Dtos/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#7c35f0b7-1082-4b90-95a9-f6701b8d43e7</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T10:02:38.9813294Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:57:30.5849099Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:47:38.9424929Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>0185D9D8CD961895900B442980DC9F6F3B40DB34ABAB4439F1B7884E3FF360E6</fileHash>
     </file>

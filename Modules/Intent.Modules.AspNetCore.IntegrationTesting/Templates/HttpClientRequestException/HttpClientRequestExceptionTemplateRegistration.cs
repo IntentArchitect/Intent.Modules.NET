@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,6 +24,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientReque
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new HttpClientRequestExceptionTemplate(outputTarget);
+        }
+
+        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                return;
+            }
+
+            base.DoRegistration(registry, application);
         }
     }
 }

@@ -1,2 +1,2 @@
 # Intent Architect
-*.managed-files.xml text merge=union
+*.managed-files.xml text eol=lf merge=union

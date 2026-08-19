@@ -30,6 +30,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
                     "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
                     "my-sql" => DatabaseProviderOptionsEnum.MySql,
                     "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
+                    "sql-lite" => DatabaseProviderOptionsEnum.SQLLite,
+                    "oracle" => DatabaseProviderOptionsEnum.Oracle,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -58,6 +60,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
             {
                 return Value == "cosmos";
             }
+            public bool IsSQLLite()
+            {
+                return Value == "sql-lite";
+            }
+            public bool IsOracle()
+            {
+                return Value == "oracle";
+            }
         }
 
         public enum DatabaseProviderOptionsEnum
@@ -67,6 +77,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
             Postgresql,
             MySql,
             Cosmos,
+            Oracle,
+            SQLLite,
         }
     }
 }

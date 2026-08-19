@@ -15,6 +15,7 @@ namespace FastEndpointsTest.Application.Pagination.GetLogEntries
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

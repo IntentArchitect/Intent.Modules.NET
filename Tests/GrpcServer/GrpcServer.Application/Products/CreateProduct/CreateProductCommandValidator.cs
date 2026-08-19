@@ -15,6 +15,7 @@ namespace GrpcServer.Application.Products.CreateProduct
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

@@ -19,8 +19,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface
         public const string TemplateId = "Intent.Entities.Repositories.Api.PagedListInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PagedListInterfaceTemplate(IOutputTarget outputTarget, object model = null)
-            : base(TemplateId, outputTarget, model)
+        public PagedListInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole(TemplateRoles.Repository.Interface.PagedResult);
         }

@@ -115,7 +115,7 @@ internal static class EntityFrameworkRepositoryHelpers
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
-        var dbContextInstance = new DbContextInstance(repositoryModel.InternalElement.Package.AsDomainPackageModel());
+        var dbContextInstance = new DbContextInstance(repositoryModel.InternalElement.Package.AsDomainPackageModel(), template.ExecutionContext.Settings);
         var dbContextName = dbContextInstance.GetTypeName(template);
 
         // The .Value of this must only be called from AfterBuild when the DbContext file has been built
@@ -627,20 +627,20 @@ internal static class EntityFrameworkRepositoryHelpers
 
     internal record StoredProcedureModelPair
     {
-        public StoredProcedureModelPair(StoredProcedureModel storedProcedureModel)
+        public StoredProcedureModelPair(StoredProcedureModel storedProcedureModel, IApplicationSettingsProvider settings)
         {
             StoredProcedureName = storedProcedureModel.Name;
             ReturnType = storedProcedureModel.ReturnType;
             Parameters = storedProcedureModel.Parameters.Select(x => new StoredProcedureModelParameter(x)).ToArray();
-            DbContextInstance = new DbContextInstance(storedProcedureModel.InternalElement.Package.AsDomainPackageModel());
+            DbContextInstance = new DbContextInstance(storedProcedureModel.InternalElement.Package.AsDomainPackageModel(), settings);
         }
 
-        public StoredProcedureModelPair(OperationModel operationModel)
+        public StoredProcedureModelPair(OperationModel operationModel, IApplicationSettingsProvider settings)
         {
             StoredProcedureName = operationModel.Name;
             ReturnType = operationModel.ReturnType;
             Parameters = operationModel.Parameters.Select(x => new StoredProcedureModelParameter(x)).ToArray();
-            DbContextInstance = new DbContextInstance(operationModel.InternalElement.Package.AsDomainPackageModel());
+            DbContextInstance = new DbContextInstance(operationModel.InternalElement.Package.AsDomainPackageModel(), settings);
         }
         
         public string StoredProcedureName { get; }
@@ -668,7 +668,7 @@ internal static class EntityFrameworkRepositoryHelpers
         public ITypeReference? ParameterType { get; }
     }
 
-    public static IReadOnlyCollection<StoredProcedureModelPair> GetStoredProcedureModels(this RepositoryModel repositoryModel)
+    public static IReadOnlyCollection<StoredProcedureModelPair> GetStoredProcedureModels(this RepositoryModel repositoryModel, IApplicationSettingsProvider settings)
     {
         return repositoryModel.InternalElement.ChildElements
             .SelectMany(childElement =>
@@ -676,7 +676,7 @@ internal static class EntityFrameworkRepositoryHelpers
                 var storedProcedureModel = childElement.AsStoredProcedureModel();
                 if (storedProcedureModel is not null)
                 {
-                    return [new StoredProcedureModelPair(storedProcedureModel)];
+                    return [new StoredProcedureModelPair(storedProcedureModel, settings)];
                 }
 
                 var operationModel = OperationModelExtensions.AsOperationModel(childElement);
@@ -684,17 +684,17 @@ internal static class EntityFrameworkRepositoryHelpers
                     .Select(x => x.TypeReference?.Element?.AsStoredProcedureModel())
                     .Where(x => x != null)
                     .Cast<StoredProcedureModel>()
-                    .Select(x => new StoredProcedureModelPair(x))
+                    .Select(x => new StoredProcedureModelPair(x, settings))
                     .ToArray();
 
                 if (invokedStoredProcedures.Length > 0)
                 {
                     return invokedStoredProcedures;
                 }
-                    
+
                 if (operationModel.HasStereotype("Stored Procedure"))
                 {
-                    return [new StoredProcedureModelPair(operationModel)];
+                    return [new StoredProcedureModelPair(operationModel, settings)];
                 }
 
                 return Array.Empty<StoredProcedureModelPair>();
@@ -710,7 +710,7 @@ internal static class EntityFrameworkRepositoryHelpers
         IList<RepositoryModel>? repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
         return [.. repositoryModels
-                .SelectMany(GetStoredProcedureModels)
+                .SelectMany(repository => GetStoredProcedureModels(repository, application.Settings))
                 .Select(x => x.ReturnType?.Element.AsDataContractModel() is not null 
                     ? new DataContractModelPair(x.ReturnType.Element.AsDataContractModel(), x.DbContextInstance)
                     : null)

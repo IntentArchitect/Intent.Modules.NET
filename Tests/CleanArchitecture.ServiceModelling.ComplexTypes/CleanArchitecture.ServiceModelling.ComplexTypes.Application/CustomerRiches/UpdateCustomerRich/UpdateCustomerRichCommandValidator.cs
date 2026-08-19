@@ -17,6 +17,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Address)

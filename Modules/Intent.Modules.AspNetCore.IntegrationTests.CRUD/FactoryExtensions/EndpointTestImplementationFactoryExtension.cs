@@ -6,11 +6,13 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Xml.Serialization;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.IArchitect.Agent.Persistence.Model.ApplicationTemplate;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates;
@@ -50,7 +52,20 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                throw new FriendlyException(
+                    "The Intent.AspNetCore.IntegrationTests.CRUD module implements its CRUD tests against the generated " +
+                    "service proxies (the HTTP clients and their DTO contracts), so it cannot generate working tests while " +
+                    "the \"Generate Service Proxies for Testing\" setting is off. Either : Turn on Integration Test Settings > " +
+                    "Generate Service Proxies for Testing, or uninstall Intent.AspNetCore.IntegrationTests.CRUD.");
+            }
+
             var testDataTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TestDataFactoryTemplate.TemplateId);
+            if (testDataTemplate == null)
+            {
+                return;
+            }
             var crudMaps = CrudMapHelper.LoadCrudMaps(testDataTemplate, _metadataManager, application, out var cantImplementCrudMaps);
 
             PopulateTestDataFactory(testDataTemplate, crudMaps);
@@ -62,33 +77,25 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         {
             foreach (var crudTest in cantImplementCrudMaps)
             {
-                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
-                template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
-                DoNotImplementedTest(template, crudTest, crudTest.Create);
-                template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
-                DoNotImplementedTest(template, crudTest, crudTest.GetById);
-                if (crudTest.Update != null)
+                var endpoints = new[] { crudTest.Create, crudTest.GetById, crudTest.Update, crudTest.Delete, crudTest.GetAll }
+                    .Concat(crudTest.DomainInvocations);
+
+                var isFirst = true;
+                foreach (var endpoint in endpoints)
                 {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Update.Id);
-                    DoNotImplementedTest(template, crudTest, crudTest.Update);
-                }
-                if (crudTest.Delete != null)
-                {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Delete.Id);
-                    DoNotImplementedTest(template, crudTest, crudTest.Delete);
-                }
-                if (crudTest.GetAll != null)
-                {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
-                    DoNotImplementedTest(template, crudTest, crudTest.GetAll);
-                }
-                if (crudTest.DomainInvocations.Any())
-                {
-                    foreach (var domainInvocation in crudTest.DomainInvocations)
+                    var template = FindTest(application, endpoint);
+                    if (template == null)
                     {
-                        template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", domainInvocation.Id);
-                        DoNotImplementedTest(template, crudTest, domainInvocation);
+                        continue;
                     }
+
+                    if (isFirst)
+                    {
+                        template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
+                        isFirst = false;
+                    }
+
+                    DoNotImplementedTest(template, crudTest, endpoint);
                 }
             }
         }
@@ -113,7 +120,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"// Unable to generate test: Can't determine how to mock data for ({string.Join(",", crudTest.Dependencies.Where(d => d.CrudMap is null).Select(d => d.EntityName))})", s => s.SeparatedFromPrevious())
                         .AddStatement("// IntentInitialGen")
@@ -125,41 +132,60 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         }
 
 
+        private const string ServiceEndpointTestTemplateId = IntegrationTesting.Templates.ServiceEndpointTest.ServiceEndpointTestTemplate.TemplateId;
+
         private void GenerateCRUDTests(IApplication application, List<CrudMap> crudMaps)
         {
             foreach (var crudTest in crudMaps)
             {
-                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
-                template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
-                DoCreateTest(template, crudTest);
-                template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
-                DoGetByIdTest(template, crudTest);
-                if (crudTest.Update != null)
+                var template = FindTest(application, crudTest.Create);
+                if (template != null)
                 {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Update.Id);
+                    template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
+                    DoCreateTest(template, crudTest);
+                }
+
+                template = FindTest(application, crudTest.GetById);
+                if (template != null)
+                {
+                    DoGetByIdTest(template, crudTest);
+                }
+
+                template = FindTest(application, crudTest.Update);
+                if (template != null)
+                {
                     DoUpdateTest(template, crudTest);
                 }
-                if (crudTest.Delete != null)
+
+                template = FindTest(application, crudTest.Delete);
+                if (template != null)
                 {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Delete.Id);
                     DoDeleteTest(template, crudTest);
                 }
-                if (crudTest.GetAll != null)
+
+                template = FindTest(application, crudTest.GetAll);
+                if (template != null)
                 {
-                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
                     DoGetAllTest(template, crudTest);
                 }
-                if (crudTest.DomainInvocations.Any())
+
+                foreach (var domainInvocation in crudTest.DomainInvocations)
                 {
-                    foreach (var domainInvoation in crudTest.DomainInvocations)
+                    template = FindTest(application, domainInvocation);
+                    if (template != null)
                     {
-                        template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", domainInvoation.Id);
-                        DoDomainInvocationTest(template, crudTest, domainInvoation);
+                        DoDomainInvocationTest(template, crudTest, domainInvocation);
                     }
                 }
             }
         }
 
+        private static ICSharpFileBuilderTemplate? FindTest(IApplication application, IMetadataModel? endpointModel)
+        {
+            return endpointModel == null
+                ? null
+                : application.FindTemplateInstance<ICSharpFileBuilderTemplate>(ServiceEndpointTestTemplateId, endpointModel.Id);
+        }
         private void DoCreateTest(ICSharpFileBuilderTemplate template, CrudMap crudTest)
         {
             template.CSharpFile.OnBuild(file =>
@@ -183,7 +209,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious());
 
                     if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
@@ -247,7 +273,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
@@ -280,7 +306,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = " : "")}await dataFactory.Create{crudTest.Entity.Name}();")
@@ -320,7 +346,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
@@ -357,7 +383,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")
@@ -434,7 +460,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("// Arrange")
-                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement($"var client = new {template.GetTypeName(Constansts.HttpClientTemplateId, crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")

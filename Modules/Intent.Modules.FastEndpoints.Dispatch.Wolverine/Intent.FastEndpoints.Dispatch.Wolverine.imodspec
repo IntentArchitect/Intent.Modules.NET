@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.FastEndpoints.Dispatch.Wolverine</id>
-  <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
+  <version>1.0.0</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0)</supportedClientVersions>
   <summary>Instructs FastEndpoints to dispatch Commands and Queries to a separate handler via Wolverine.</summary>
   <description>Instructs FastEndpoints to dispatch Commands and Queries to a separate handler via Wolverine.</description>
   <authors>Intent Architect</authors>
@@ -14,7 +14,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.15" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.7" />

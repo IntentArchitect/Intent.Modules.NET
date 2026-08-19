@@ -1,0 +1,41 @@
+using System.Reflection;
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using WebAndWorker.Application.Common.Behaviours;
+using WebAndWorker.Application.Common.Validation;
+using WebAndWorker.Application.Implementation.App;
+using WebAndWorker.Application.Implementation.Mobile;
+using WebAndWorker.Application.Interfaces.App;
+using WebAndWorker.Application.Interfaces.Mobile;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
+
+namespace WebAndWorker.Application
+{
+    public static class DependencyInjection
+    {
+        [IntentMerge]
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(MessageBusPublishBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
+            });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IAppCatalogService, AppCatalogService>();
+            services.AddTransient<IMobileCatalogService, MobileCatalogService>();
+            return services;
+        }
+    }
+}

@@ -15,6 +15,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.GetAccountByCo
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Collection)

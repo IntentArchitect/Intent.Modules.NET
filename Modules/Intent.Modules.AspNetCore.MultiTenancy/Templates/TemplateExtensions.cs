@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext;
-using Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHeaderOperationFilter;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInterface;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo;
+using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantHeaderOperationFilter;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 

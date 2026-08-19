@@ -32,8 +32,8 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
 
-            ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
-            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
+            OnEmitOrPublished<ContainerRegistrationRequest>(HandleEvent);
+            OnEmitOrPublished<ServiceConfigurationRequest>(HandleEvent);
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -84,11 +84,11 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                     .HasDependency(this));
         }
 
-        private void HandleEvent(ContainerRegistrationRequest @event)
+        private bool HandleEvent(ContainerRegistrationRequest @event)
         {
             if (@event.Concern != "Infrastructure" || @event.IsHandled)
             {
-                return;
+                return false;
             }
 
             @event.MarkAsHandled();
@@ -109,13 +109,15 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             {
                 AddUsing(ns);
             }
+
+            return true;
         }
 
-        private void HandleEvent(ServiceConfigurationRequest @event)
+        private bool HandleEvent(ServiceConfigurationRequest @event)
         {
             if (@event.Concern != "Infrastructure" || @event.IsHandled)
             {
-                return;
+                return false;
             }
 
             @event.MarkAsHandled();
@@ -136,6 +138,8 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             {
                 AddUsing(ns);
             }
+
+            return true;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

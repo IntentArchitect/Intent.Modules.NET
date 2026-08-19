@@ -15,6 +15,7 @@ namespace OutputCachingRedis.Tests.Application.Customers.GetCustomersNoCache
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SearchTerm)

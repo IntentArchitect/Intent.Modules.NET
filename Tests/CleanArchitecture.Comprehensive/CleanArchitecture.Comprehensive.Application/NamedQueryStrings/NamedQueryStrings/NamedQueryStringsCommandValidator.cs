@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.NamedQueryStrings.NamedQue
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Par1)

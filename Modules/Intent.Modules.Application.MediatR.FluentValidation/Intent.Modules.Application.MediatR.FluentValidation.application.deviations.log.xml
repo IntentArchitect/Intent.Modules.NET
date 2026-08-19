@@ -3,20 +3,17 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#499883b5-ee38-4e92-8c12-436eef8b2c0d</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
-      <count>7</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:32:32.6498809Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:40.0746313Z</approvedAt>
-      <deviationsHash>954C69EA9AEF8E463AC74C20639D36F13F5A63C14CB41D75786BB17460F21855</deviationsHash>
+      <path>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:21:12.3821506Z</updatedAt>
+      <deviationsHash>7993E112B729BF2C5D7E2C66F30E3897D4E67BDB746C41BAF4E872EDB1A92EAC</deviationsHash>
       <fileHash>9A7E44A6C1A2F30DA6A175BBEE3BF69E98C2466D48C03B0FB8C2A2916D83953E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#499883b5-ee38-4e92-8c12-436eef8b2c0d</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/CommandValidator/CommandValidatorTemplateRegistration.cs</path>
+      <path>Templates/CommandValidator/CommandValidatorTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,20 +26,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a07c7a7-23a6-4f1b-8f6b-328726764628</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
-      <count>7</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:32:32.6498909Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:40.0812129Z</approvedAt>
-      <deviationsHash>9DA335028F4A41E8827DC8EAFD1B93557A00E9430FCE07CE31A45393CE7FC16B</deviationsHash>
+      <path>Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:21:12.3822093Z</updatedAt>
+      <deviationsHash>6F88B82959670C857FC6E4C86374C00D0D2AB8ED5C22FFDBAB1B88621B5A30F2</deviationsHash>
       <fileHash>57243ABBC03CF52CDCE4DA30CA0B12B4EA53D1E74D957402F6EE01B24A9DE670</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#2a07c7a7-23a6-4f1b-8f6b-328726764628</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/QueryValidator/QueryValidatorTemplateRegistration.cs</path>
+      <path>Templates/QueryValidator/QueryValidatorTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -54,21 +48,18 @@
       <fileHash>F35C20E6D20991EFE8115647CC6C4E8956E58C8415ED0BB21F366CC49E9D411F</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#470928ca-276e-4c4b-ab15-515706317913</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:32:32.649929Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:40.0839982Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T22:21:12.3823696Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>B19C09C9BC1C3A4905D6D9D9E4F0AB4ACEAA1B607979CC101302EEAEFAAC5513</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fe0ca012-306a-407d-9622-4ccbdca8706d</correlationId>
-      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/ValidationBehaviour/ValidationBehaviourTemplatePartial.cs</path>
+      <path>Templates/ValidationBehaviour/ValidationBehaviourTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>

@@ -15,6 +15,7 @@ namespace N_ServiceBus.RabbitMQ.Application.ExternalMessagePublish.PublishExtern
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

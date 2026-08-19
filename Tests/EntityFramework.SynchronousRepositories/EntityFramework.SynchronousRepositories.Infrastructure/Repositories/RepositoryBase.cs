@@ -151,6 +151,28 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return await QueryInternal(queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression, queryOptions).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
         public virtual async Task<List<TDomain>> FindAllAsync(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
@@ -257,6 +279,23 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         public virtual TDomain? Find(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
         {
             return QueryInternal(queryOptions).SingleOrDefault<TDomain>();
+        }
+
+        public virtual TDomain? FindFirst(Expression<Func<TPersistence, bool>> filterExpression)
+        {
+            return QueryInternal(filterExpression).FirstOrDefault<TDomain>();
+        }
+
+        public virtual TDomain? FindFirst(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
+        {
+            return QueryInternal(filterExpression, queryOptions).FirstOrDefault<TDomain>();
+        }
+
+        public virtual TDomain? FindFirst(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
+        {
+            return QueryInternal(queryOptions).FirstOrDefault<TDomain>();
         }
 
         public virtual List<TDomain> FindAll(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)

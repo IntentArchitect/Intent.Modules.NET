@@ -16,6 +16,7 @@ namespace CosmosDB.Application.ClassContainers.CreateClassContainer
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.ClassPartitionKey)

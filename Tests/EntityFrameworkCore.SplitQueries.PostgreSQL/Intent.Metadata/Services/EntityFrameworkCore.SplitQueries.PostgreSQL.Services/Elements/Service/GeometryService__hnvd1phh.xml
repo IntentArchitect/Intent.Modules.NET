@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="12f9c4e2-88a2-49f9-9e82-63e4b917749a" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>GeometryService</name>
+  <display>GeometryService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>00ed8ad4-fd40-4fb3-9ce2-f57167d78059</parentFolderId>
+  <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4292a620-5f3a-4ea5-88e5-69be8f1c1627" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetGeometryTypes</name>
+      <display>GetGeometryTypes(): GeometryDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="40f8089a-304d-421f-b405-e08a221619cf">
+        <typeId>787b00fe-a5c8-4634-b1d2-85d3d4071a5a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</typePackageName>
+        <typePackageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>12f9c4e2-88a2-49f9-9e82-63e4b917749a</parentFolderId>
+      <packageId>dca67ab7-4faf-45b9-a338-240f3d3e9b08</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/geometry-types" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

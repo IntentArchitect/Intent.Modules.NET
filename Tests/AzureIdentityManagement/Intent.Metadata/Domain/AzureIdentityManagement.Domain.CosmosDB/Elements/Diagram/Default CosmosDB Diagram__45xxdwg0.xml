@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="084ca53c-95aa-4448-a1f8-4b69cbb48751" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default CosmosDB Diagram</name>
+  <display>Default CosmosDB Diagram</display>
+  <externalReference>421a4727-539a-4288-8126-c32f7ad1a26d</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>31a87ef9-46bf-49e1-acbe-800b0b6f14d7</parentFolderId>
+  <diagram>
+    <targetPackageId>4bc1b8bf-c3a2-47fe-b454-f67c2a66ed7f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cb101492-1b4b-486c-8419-f9b3dd70774b" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Data.SqlClient</name>
+  <display>Microsoft.Data.SqlClient</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e8f2f7a3-71cc-4f16-a33b-26db378672f7</parentFolderId>
+  <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+  <packageName>Intent.Dapper</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f667a52a-e626-4653-90ad-3ca7eb26bbb8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.2</name>
+      <display>7.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cb101492-1b4b-486c-8419-f9b3dd70774b</parentFolderId>
+      <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+      <packageName>Intent.Dapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="02c2e76b-2ccb-4c0f-aa95-833c6f8ee2bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (9.0.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f5c8a2c6-5c1f-4f27-b447-919c573889ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="afa43c64-88c5-4ee2-b6ff-2b57e4143b54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7fbe1460-daa5-46bc-ab52-ba512132b681" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="56f0dee2-824c-41f3-a90a-10cadf69e3e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (9.0.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5f96fe3d-7f27-4bca-9045-a79b1e6f6db5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2f7cbcf8-52b6-40bc-96f5-6f6c4659757e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a19995d-5e09-48a5-9159-d383fc53c53d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="394cf326-d1e6-4654-95c9-5f67255082ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (9.0.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bad9c37a-9a39-4c76-89ff-fec6f78461d1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (9.0.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f667a52a-e626-4653-90ad-3ca7eb26bbb8</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.2</name>
+      <display>7.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cb101492-1b4b-486c-8419-f9b3dd70774b</parentFolderId>
+      <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+      <packageName>Intent.Dapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9b63b56c-3213-476a-b0f3-875993e5b77b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a8fb6232-c715-4c52-ab06-f30f3290fdf4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dc7b3f21-6a2d-4b64-9135-ca1a39fef4e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="61868e87-a1cb-4b01-a846-aa80b1eb0c4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3d8a6575-38dc-4a23-b5eb-c8d61b36627a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eef05357-aec6-4daa-91be-a03d5d1cdf58" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7211c387-39d9-495e-bb1c-f6490939194f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="693a4624-c5e7-4967-8fcc-a69641fe2f04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4a7b222c-862b-4bb5-9273-f80120b37968" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c4789cb0-9335-4cda-9f7a-b7852feff5de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d5c51a7c-f7b8-4e0c-829d-e85f45c4b0eb</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2518b16c-e2c5-42fd-a8d6-15712c3dcb54" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.2</name>
+      <display>7.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cb101492-1b4b-486c-8419-f9b3dd70774b</parentFolderId>
+      <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+      <packageName>Intent.Dapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6294600e-1b94-4cac-9fd8-553c5662ba07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2be6ee2b-05db-4d8b-8221-91aaa02e9456" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b4bc066b-7d79-4095-95c7-7d02327fa247" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="db6bd2d2-d6ce-4a99-8a42-656bb12dc48d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e66f03a5-b017-4080-b788-957da0a8d711" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="56ba13e5-431a-4d73-94e9-748b3feca9f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="33af3ddd-9e23-493e-ba8d-ffd056931b89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="41a1c303-6e88-4fe4-a55a-a481303bdb1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8bea1897-96b5-419e-bed6-4e5c2eda7b89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c8da6467-ba5e-4672-a970-e0b9daae9ebb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cf25f81a-ae5e-4936-8038-24b648274f67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <display>System.Text.Json (10.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="493968d4-ea80-4edd-a5f6-4677313b66aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Channels</name>
+          <display>System.Threading.Channels (10.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2518b16c-e2c5-42fd-a8d6-15712c3dcb54</parentFolderId>
+          <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+          <packageName>Intent.Dapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

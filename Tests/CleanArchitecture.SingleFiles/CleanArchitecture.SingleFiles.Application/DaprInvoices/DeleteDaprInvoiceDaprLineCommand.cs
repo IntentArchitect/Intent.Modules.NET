@@ -68,6 +68,7 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.DaprInvoiceId)

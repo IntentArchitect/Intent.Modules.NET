@@ -15,6 +15,7 @@ namespace Redis.Om.Repositories.Application.Clients.UpdateClient
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

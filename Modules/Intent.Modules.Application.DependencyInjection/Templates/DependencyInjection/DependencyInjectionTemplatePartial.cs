@@ -68,8 +68,8 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
                 method.AddStatement("return services;");
             }, 1000);
 
-        ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
-        ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
+        OnEmitOrPublished<ContainerRegistrationRequest>(HandleEvent);
+        OnEmitOrPublished<ServiceConfigurationRequest>(HandleEvent);
     }
 
     public override void BeforeTemplateExecution()
@@ -82,11 +82,11 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
                 .HasDependency(this));
     }
 
-    private void HandleEvent(ContainerRegistrationRequest @event)
+    private bool HandleEvent(ContainerRegistrationRequest @event)
     {
         if (@event.Concern != "Application")
         {
-            return;
+            return false;
         }
 
         @event.MarkAsHandled();
@@ -107,13 +107,15 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
         {
             AddUsing(ns);
         }
+
+        return true;
     }
 
-    private void HandleEvent(ServiceConfigurationRequest @event)
+    private bool HandleEvent(ServiceConfigurationRequest @event)
     {
         if (@event.Concern != "Application")
         {
-            return;
+            return false;
         }
 
         @event.MarkAsHandled();
@@ -134,6 +136,8 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
         {
             AddUsing(ns);
         }
+
+        return true;
     }
 
     private string DefineServiceRegistration(ContainerRegistrationRequest request)

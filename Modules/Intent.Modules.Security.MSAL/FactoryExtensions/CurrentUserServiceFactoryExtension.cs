@@ -25,16 +25,16 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.CurrentUserService"));
-            if (template == null)
+            // Security.CurrentUserService is host-scoped, and a multi-host application can have more
+            // than one instance - loop every instance instead of the singular, application-wide
+            // lookup, which throws once a second host exists.
+            foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.CurrentUserService")))
             {
-                return;
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
+                    NugetPackages.IdentityModelPackageName, template.OutputTarget));
+
+                template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
             }
-
-            application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
-                NugetPackages.IdentityModelPackageName, template.OutputTarget));
-
-            template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
 
             CurrentUserHelper.UpdateCurrentUserService(application);
         }

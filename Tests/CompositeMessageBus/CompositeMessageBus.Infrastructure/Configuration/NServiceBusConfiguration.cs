@@ -12,7 +12,6 @@ namespace CompositeMessageBus.Infrastructure.Configuration
 {
     public static class NServiceBusConfiguration
     {
-
         public static IServiceCollection AddNServiceBusConfiguration(
             this IServiceCollection services,
             IConfiguration configuration,
@@ -45,7 +44,6 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             var storageDirectory = rawStoragePath is not null
                 ? Environment.ExpandEnvironmentVariables(rawStoragePath)
                 : Path.Combine(Path.GetTempPath(), "nservicebus-learning");
-
             endpointConfiguration.UseTransport(new LearningTransport { StorageDirectory = storageDirectory });
 
             if (configuration.GetValue<bool>("NServiceBus:EnableInstallers"))

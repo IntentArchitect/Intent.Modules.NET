@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="889131be-3f2c-4eb9-8a3a-a10260093907">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Intent.Modules.ObsoleteModule.csproj" />
+  <file path="Intent.Modules.ObsoleteModule.imodspec" />
+</managedFiles>

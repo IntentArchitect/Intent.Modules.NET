@@ -140,6 +140,12 @@ When enabled `Startup.cs` will no longer be generated, and all start-up will be 
 > [!NOTE]
 > Requires at least version `6.0.0` of the `Intent.Modules.AspNetCore` to be installed in order for changes to take effect.
 
+#### The `Output Type` property
+
+Sets the `<OutputType />` element in the `.csproj` file (`Class Library`, `Console Application`, or `Windows Application`, mapped to `Library`, `Exe`, and `WinExe` respectively). Leave it unset to fall back to the SDK's own default.
+
+This property is settable regardless of the selected `SDK`, including `Aspire.AppHost.Sdk`. An Aspire AppHost project must build as an executable to run as the orchestrator, so leave it unset (the Aspire SDK defaults it to `Exe`) or set it to `Console Application` explicitly — `Class Library` and `Windows Application` will produce a non-runnable AppHost.
+
 ### The *Visual Studio Solution Options* stereotype
 
 This stereotype is applied to **Visual Studio Solution** elements.
@@ -152,7 +158,7 @@ By default, your **Visual Studio Solution** name will be the same as your `Visua
 
 #### Solution Relative Location
 
-By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location.
+By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location. Project references inside the generated `.sln`/`.slnx` are automatically kept correct relative to wherever this setting places the file.
 
 #### Solution File Format
 
@@ -165,6 +171,12 @@ To switch formats, apply the `Visual Studio Solution Options` stereotype to the 
 
 > [!NOTE]
 > The `.slnx` format requires Visual Studio 2022 17.10 or later, or the .NET 10 SDK.
+
+### The *Root Folder Options* stereotype
+
+This stereotype is applied to the **Root Folder** element (shown as `root` at the top of the Codebase Structure Designer) and is owned by the `Intent.Modelers.CodebaseStructure` module. Its `Relative Location` property lets you shift the application's absolute output root (`OutputRootDirectory`) so that the `.sln`/`.slnx` file, `.gitignore`, and a centrally-managed `Directory.Packages.props` can be generated one or more levels up from the application's own output location, in a folder shared with sibling applications.
+
+See the [*Root Folder Options* stereotype](https://docs.intentarchitect.com/articles/modules-dotnet/intent-modelers-codebasestructure/intent-modelers-codebasestructure.html) section of the `Intent.Modelers.CodebaseStructure` module's documentation for the full property details, an example, and known caveats (including an `Intent.Modules.SharedKernel.Consumer` interaction).
 
 ### The *Folder Options* stereotype
 

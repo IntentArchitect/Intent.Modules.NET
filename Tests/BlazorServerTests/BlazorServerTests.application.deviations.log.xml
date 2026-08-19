@@ -2,16 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</correlationId>
+      <path>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:36.9141153Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.2258002Z</approvedAt>
+      <deviationsHash>E78D6D849DD0A7E4B036ED93FC76A0D91175BF6C010FBB6665E0E010BC785020</deviationsHash>
+      <fileHash>8FDD0493870A2F8ADD2E6BFA52D87629D337B16FC62FDD3F6E03379648ABA1DF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#c470a7eb-507b-49d2-bb5e-c4dd47017fd3</correlationId>
+      <path>BlazorServerTests.Api/Components/Pages/CustomerSearch.razor.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:36.9141423Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.2746415Z</approvedAt>
+      <deviationsHash>6F6EE5E0C3B85BEA6AFFD7AF421F1C86A773B62330BCAB83C1C4B3F0C9BE5612</deviationsHash>
+      <fileHash>A42F683163EC32F752CEA1010F163C5F2024669BD39212CF3B55DC7BA6F4590D</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#3fb0e0c4-c238-4c6d-9123-fd7d8cd645a4</correlationId>
       <path>BlazorServerTests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-28T14:36:01.8312262Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2025-08-28T15:28:23.5278335Z</approvedAt>
-      <deviationsHash>AC33032FC5146701E431C5F0C81B8F9339E935202E6D4390EC91C7EA63DE848C</deviationsHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:36.9154025Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.2985479Z</approvedAt>
+      <deviationsHash>4AE4F47E254D984A58EDC54361924E71EA643671E2F38BB2FD9B1F50A049D759</deviationsHash>
       <fileHash>61CFDD526F16BF90621BE0C6994212F6C071DCA89DE0D5E302AC40E335B76EE7</fileHash>
     </file>
     <file>

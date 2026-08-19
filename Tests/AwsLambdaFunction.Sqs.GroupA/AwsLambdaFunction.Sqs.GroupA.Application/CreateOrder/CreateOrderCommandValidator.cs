@@ -15,6 +15,7 @@ namespace AwsLambdaFunction.Sqs.GroupA.Application.CreateOrder
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RefNo)

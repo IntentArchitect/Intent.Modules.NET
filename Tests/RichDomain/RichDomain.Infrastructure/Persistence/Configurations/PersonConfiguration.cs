@@ -17,10 +17,10 @@ namespace RichDomain.Infrastructure.Persistence.Configurations
             builder.Property(x => x.FirstName)
                 .IsRequired();
 
-            builder.Property(x => x.DepartmentId)
+            builder.Property(x => x.CreatedByName)
                 .IsRequired();
 
-            builder.Property(x => x.CreatedBy)
+            builder.Property(x => x.DepartmentId)
                 .IsRequired();
 
             builder.Property(x => x.CreatedDate)

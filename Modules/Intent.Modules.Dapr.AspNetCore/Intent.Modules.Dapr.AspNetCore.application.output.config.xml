@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/DaprComponents/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/DaprFiles/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Dapr.AspNetCore/content/DaprComponents/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Dapr.AspNetCore/content/DaprFiles/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Dapr.AspNetCore/Templates/TemplateExtensions.cs" state="ignored" />
+    <file relativePath="Templates/TemplateExtensions.cs" state="ignored" />
   </files>
 </outputFiles>

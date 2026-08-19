@@ -134,7 +134,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
         {
             return base.CanRunTemplate() &&
                 FileTransferHelper.NeedsFileUploadInfrastructure(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id) &&
-                ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
+                // Scoped to THIS output target: only generate the filter into a host that itself has a
+                // Swashbuckle configuration. The IOutputTarget string overload defaults accessibleTo to
+                // the receiver, so this stays correct when an application hosts several web projects.
+                OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration") != null;
         }
 
         [IntentManaged(Mode.Fully)]

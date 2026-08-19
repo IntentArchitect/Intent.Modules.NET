@@ -15,6 +15,7 @@ namespace N_ServiceBus.Persistence.Sql.Publish.Application.TestEventSend
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

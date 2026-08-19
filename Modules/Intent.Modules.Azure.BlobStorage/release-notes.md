@@ -1,3 +1,8 @@
+### Version 3.5.0
+
+- New Feature: Added `Authentication Methods` module setting to support Managed Identity authentication via `DefaultAzureCredential`, alongside the existing connection string.
+- Improvement: Selecting both `Key-based` and `Managed Identity` in `Authentication Methods` now generates a runtime switch (via the new `AzureBlobStorageAuthenticationMethod` app setting) instead of the client silently only using Managed Identity.
+
 ### Version 3.4.13
 
 - Improvement: Updated NuGet package versions.

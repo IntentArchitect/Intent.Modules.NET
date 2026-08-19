@@ -15,6 +15,7 @@ namespace Entities.Interfaces.EF.Application.People.UpdatePerson
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

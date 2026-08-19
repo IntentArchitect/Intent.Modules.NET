@@ -10,18 +10,23 @@ Command Line Interface (.NET CLI) tools.
 Substitute the curly brace (`{}`) enclosed arguments below with the appropriate migration name when
 executing these commands.
 
+> NOTE: When using `DesignTimeDbContextFactory`, it is recommended to use the `dotnet ef` CLI
+> commands as the Visual Studio Package Manager Console may encounter issues in this scenario.);
+
+A separate "appsettings.json" file is used in this project for managing connection strings.
+
 ## Visual Studio Package Manager Console quick reference
 
 ### Create a new migration (VS PMC)
 
 ```powershell
-Add-Migration -Name {ChangeName} -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Add-Migration -Name {ChangeName} -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Update the schema to the latest version (VS PMC)
 
 ```powershell
-Update-Database -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Update-Database -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ## .NET CLI quick reference
@@ -29,13 +34,13 @@ Update-Database -StartupProject "EntityFrameworkCore.MySql.Api" -Project "Entity
 ### Create a new migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations add {ChangeName} --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef migrations add {ChangeName} --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Update the schema to the latest version (.NET CLI)
 
 ```powershell
-dotnet ef database update --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef database update --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ## Visual Studio Package Manager Console additional commands
@@ -43,25 +48,25 @@ dotnet ef database update --startup-project "EntityFrameworkCore.MySql.Api" --pr
 ### Generate a script which detects the current database schema version and updates it to the latest (VS PMC)
 
 ```powershell
-Script-Migration -Idempotent -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Script-Migration -Idempotent -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (VS PMC)
 
 ```powershell
-Script-Migration {Source} {Target} -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Script-Migration {Source} {Target} -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Upgrade/downgrade the schema to a specific version (VS PMC)
 
 ```powershell
-Update-Database -Migration {Target} -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Update-Database -Migration {Target} -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ### Remove the last created migration (VS PMC)
 
 ```powershell
-Remove-Migration -StartupProject "EntityFrameworkCore.MySql.Api" -Project "EntityFrameworkCore.MySql.Infrastructure"
+Remove-Migration -Project "EntityFrameworkCore.MySql.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 ```
 
 ## .NET CLI additional commands
@@ -69,25 +74,25 @@ Remove-Migration -StartupProject "EntityFrameworkCore.MySql.Api" -Project "Entit
 ### Generate a script which detects the current database schema version and updates it to the latest (.NET CLI)
 
 ```powershell
-dotnet ef migrations script --idempotent --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef migrations script --idempotent --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Generate a script which upgrades from and to a specific schema version (.NET CLI)
 
 ```powershell
-dotnet ef migrations script {Source} {Target} --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef migrations script {Source} {Target} --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Upgrade/downgrade the schema to a specific version (.NET CLI)
 
 ```powershell
-dotnet ef database update {Target} --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef database update {Target} --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ### Remove the last created migration (.NET CLI)
 
 ```powershell
-dotnet ef migrations remove --startup-project "EntityFrameworkCore.MySql.Api" --project "EntityFrameworkCore.MySql.Infrastructure"
+dotnet ef migrations remove --project "EntityFrameworkCore.MySql.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 ```
 
 ## Drop all tables in a schema

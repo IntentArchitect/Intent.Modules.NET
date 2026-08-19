@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#47888d6c-0909-42e3-b676-d7b975768601</correlationId>
-      <path>AspNetCore.AzureServiceBus.GroupA.Infrastructure/AspNetCore.AzureServiceBus.GroupA.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:28.1829983Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.4239402Z</approvedAt>
-      <deviationsHash>45C78CC64E6E43FF160F190BE6FF020B08A3C0CC1BEFD4D4DA5CE5A5B9E3D878</deviationsHash>
-      <fileHash>FBF88196C139B03FC5F7C38B917935C452E582A30B397D1713B8BD65B6D5E47D</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

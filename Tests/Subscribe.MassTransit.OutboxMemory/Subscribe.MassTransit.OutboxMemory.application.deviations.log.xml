@@ -2,6 +2,136 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#1444f4aa-02e0-4b6a-868f-7c901270c81f</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0265582Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.1764762Z</approvedAt>
+      <deviationsHash>508A83BB744BBBB6C63AE0F49B9324EB6FDE5EBA8C8F21709824F56919D7F2FA</deviationsHash>
+      <fileHash>780FC6CE1B13AE735F1293187AF11783A68D8000275BE24BB990551F044DAFF2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#6891ed77-d6ca-427a-aeb0-8846c6d431f0</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketDeletedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.026573Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.238155Z</approvedAt>
+      <deviationsHash>EAD0582B42FE4B3D633A70B8056F770A55F0ABEB4E2CBE91BF81B4C6E43F0F1D</deviationsHash>
+      <fileHash>8FEAFB41BBE9413C1D318D51F6E80E4921074D55F0A31075829B2E545BFE6293</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#d7468a2a-f3c2-47e2-a2cd-ca799c4ae898</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0265882Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.2706091Z</approvedAt>
+      <deviationsHash>F3E36AE6C241910760F02695246B8FD8B8205F8DFF372C13597C297255B99A6F</deviationsHash>
+      <fileHash>80F00209101936FCADA5D709CFA1F91E0B0EBE99E101C98ADBF226C26C9B449C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#cf60f7dd-1d1c-4f3f-b8cd-c6175f12bdad</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemDeletedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266028Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.3230573Z</approvedAt>
+      <deviationsHash>23C2EF655BC797CBED8F03082E45DEB1C8F65282AB8888B2C844E87576375C94</deviationsHash>
+      <fileHash>A0EA8D4B58C7298772931A344D0AEF404FF528481201FAD34DFF9B6B32F08059</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#a1a7e0f9-5710-41b4-a782-7d822b2c8dec</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemUpdatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266175Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.3901157Z</approvedAt>
+      <deviationsHash>73B610BA02A3AF980AF3CC38AAFFEB9E89251EA50146324BF66C6A1CB9049334</deviationsHash>
+      <fileHash>4A81199BA9C31CE0713BF8B4A07A74BCC569860439C69C80136031D84E57C9AD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#4e303d3c-4132-4e41-be57-5f05bb40cd8f</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketUpdatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266317Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.4919616Z</approvedAt>
+      <deviationsHash>6E93F1CAB58175E6D78119A93E43FD8F835EF370BB074F8D51B366693F47438D</deviationsHash>
+      <fileHash>099BB8E9BB5464E080417A05A9D1218E9514768E77827E77C24B9FB1AFA2917A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#40578201-1b91-4c82-901e-6b07fcf5d7d1</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/DelayedNotificationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266456Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.5384528Z</approvedAt>
+      <deviationsHash>3BBFBDDB45B0BBDCA42C3B2AFACDCAAFE829871C8F7E1BFDD0E436A08D6842EC</deviationsHash>
+      <fileHash>E7DE2FE1E43A970AD457CDE5920D73598BB4A37CDB138E2E14FE70F715F144EB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#c0831ddf-6e53-41e1-8c87-fa0fdcd73c0d</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266598Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.6034478Z</approvedAt>
+      <deviationsHash>B4B035FB697BB71B5C9E506BFA6A96B0554E611716FC02D4742D41BF403FE5A5</deviationsHash>
+      <fileHash>945FF68894DF9DAC4C3901B7A7F70AA3C622F9A8F6672C9B61CF48E3DFC9449D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#00eb21f4-53d2-42ea-bcd5-72ee1c24df82</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleDeletedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266746Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.6443002Z</approvedAt>
+      <deviationsHash>8FFC0F788B49F8FCB661C3716BB00C31B638BA8A44B5626369E373B8A5A72B13</deviationsHash>
+      <fileHash>A0807956E9B11DDBA58E2FE930C78D8E439F6EC0CE4478963F2E5FA30C25BD2A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#c4ffa920-3941-4c94-81c8-8b19467511e0</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleUpdatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:23:52.0266883Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.6750388Z</approvedAt>
+      <deviationsHash>68DD53AC691F9EEFD93D2747C0CFA847CDC77704E118844CF1FB9AE15578CBEC</deviationsHash>
+      <fileHash>46BADBB5FC115195238A597E1941EB09DBBEC141A0218D525153116A9DCEC1F0</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#080b5c00-82ed-4040-82c0-00cb176c1a71</correlationId>
       <path>Subscribe.MassTransit.OutboxMemory.Infrastructure/Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj</path>
       <count>1</count>

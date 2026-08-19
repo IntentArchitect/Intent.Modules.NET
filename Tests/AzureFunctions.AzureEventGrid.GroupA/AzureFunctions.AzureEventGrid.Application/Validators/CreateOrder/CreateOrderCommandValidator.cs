@@ -16,6 +16,7 @@ namespace AzureFunctions.AzureEventGrid.Application.Validators.CreateOrder
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RefNo)

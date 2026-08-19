@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.Pagination.GetPeopleByFirs
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

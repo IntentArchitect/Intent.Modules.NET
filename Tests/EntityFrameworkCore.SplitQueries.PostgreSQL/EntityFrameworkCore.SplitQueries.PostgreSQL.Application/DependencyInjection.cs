@@ -1,4 +1,6 @@
 using System.Reflection;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Application.Implementation.Geometry;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Application.Interfaces.Geometry;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Application
         [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<IGeometryService, GeometryService>();
             return services;
         }
     }

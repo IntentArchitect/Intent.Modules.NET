@@ -1,3 +1,11 @@
+### Version 7.2.1
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
+### Version 7.2.0
+
+- Improvement: Upgraded Finbuckle.MultiTenant to 9.4.10 in tenant-propagating filters (`FinbuckleConsumingFilter`, `FinbucklePublishingFilter`, `FinbuckleSendingFilter`, `FinbuckleMessageHeaderStrategy`). DI resolution now uses `IMultiTenantContextAccessor` (non-generic) instead of a hardcoded `IMultiTenantContextAccessor<TenantInfo>`, since Finbuckle only registers the accessor closed over the app's own concrete tenant type; and the consuming filter now writes the resolved tenant via `IMultiTenantContextSetter`, since `IMultiTenantContextAccessor.MultiTenantContext` became get-only at Finbuckle v9.
+
 ### Version 7.1.3
 
 - Improvement: Updated NuGet package versions.

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#6c3788bc-6eb0-445b-b622-22c78db244a6</correlationId>
+      <path>Templates/AzureBlobStorageImplementation/AzureBlobStorageImplementationTemplate.tt</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-03T19:12:05.6416369Z</updatedAt>
+      <deviationsHash>5985BB8694689957C3AF6C68C2BA8EBD9F1052876ABF027EAEBFD6CF471C5CC9</deviationsHash>
+      <fileHash>0DAEE7DECD985FAF2CC3E158EC770E1BB11176D6F5FEF69A4BF3E1BBBD5601CD</fileHash>
+    </file>
+  </files>
 </deviationsLog>

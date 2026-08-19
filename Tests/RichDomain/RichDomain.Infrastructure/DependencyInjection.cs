@@ -29,6 +29,7 @@ namespace RichDomain.Infrastructure
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             services.AddTransient<IDerivedClassRepository, DerivedClassRepository>();
             services.AddTransient<IDerivedFromAbstractClassRepository, DerivedFromAbstractClassRepository>();
+            services.AddTransient<IEntityWithAutoAppliedNewFieldsRepository, EntityWithAutoAppliedNewFieldsRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;

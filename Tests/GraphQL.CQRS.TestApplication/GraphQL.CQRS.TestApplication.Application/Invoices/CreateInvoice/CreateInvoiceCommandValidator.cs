@@ -16,6 +16,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.CreateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

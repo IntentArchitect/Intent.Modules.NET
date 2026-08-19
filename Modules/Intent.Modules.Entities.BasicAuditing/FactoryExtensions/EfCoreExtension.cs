@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Intent.Engine;
 using Intent.Entities.BasicAuditing.Api;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.Identity.Templates;
 using Intent.Modules.Common;
@@ -15,6 +17,7 @@ using Intent.Modules.Entities.BasicAuditing.Templates;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Entities.BasicAuditing.Api.AuditRoles;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -35,10 +38,29 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             UpdateEntities(application);
         }
 
+        private static bool AnyAuditFieldsEnabled(IApplication application)
+        {
+            var auditSettings = application.Settings.GetBasicAuditing();
+            return auditSettings.HasCreatedByField() ||
+                auditSettings.HasCreatedDateField() ||
+                auditSettings.HasUpdatedByField() ||
+                auditSettings.HasUpdatedDateField();
+        }
+
         private static void InstallDbContext(IApplication application)
         {
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
-            dbContext?.CSharpFile.OnBuild(file =>
+            if (dbContext == null)
+            {
+                return;
+            }
+
+            if (!AnyAuditFieldsEnabled(application))
+            {
+                return;
+            }
+
+            dbContext.CSharpFile.OnBuild(file =>
             {
                 var priClass = file.Classes.First();
                 var ctor = priClass.Constructors.First();
@@ -46,14 +68,14 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                     param => param.IntroduceReadonlyField());
             });
 
-            dbContext?.CSharpFile.AfterBuild(file =>
+            dbContext.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System");
                 file.AddUsing("System.Linq");
 
                 var priClass = file.Classes.First();
 
-                AddSetAuditableFieldsMethod(dbContext, priClass);
+                AddSetAuditableFieldsMethod(application, dbContext, priClass);
 
                 var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
                 var normalSaveChanges = dbContext.GetSaveChangesMethod();
@@ -113,29 +135,81 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             }
 
             string userIdType = TemplateHelper.GetUserIdentifierType(entityTemplate.ExecutionContext);
+            var auditSettings = entityTemplate.ExecutionContext.Settings.GetBasicAuditing();
 
-            @class.AddMethod("void", "SetCreated", method =>
-            {
-                method.AddParameter(entityTemplate.UseType(userIdType), "createdBy");
-                method.AddParameter("DateTimeOffset", "createdDate");
-                method.IsExplicitImplementationFor(auditableInterfaceName);
-                method.WithExpressionBody("(CreatedBy, CreatedDate) = (createdBy, createdDate)");
-            });
+            AddAuditMethod(
+                @class, entityTemplate, auditableInterfaceName, userIdType,
+                "SetCreated", auditSettings.HasCreatedByField(), auditSettings.HasCreatedDateField(),
+                model.GetAuditField(CreatedBy), model.GetAuditField(CreatedDate),
+                "createdBy", "createdDate");
 
-            @class.AddMethod("void", "SetUpdated", method =>
+            AddAuditMethod(
+                @class, entityTemplate, auditableInterfaceName, userIdType,
+                "SetUpdated", auditSettings.HasUpdatedByField(), auditSettings.HasUpdatedDateField(),
+                model.GetAuditField(UpdatedBy), model.GetAuditField(UpdatedDate),
+                "updatedBy", "updatedDate");
+        }
+
+        private static void AddAuditMethod(
+            CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, string auditableInterfaceName, string userIdType,
+            string methodName, bool hasFirstField, bool hasSecondField,
+            AttributeModel firstAttribute, AttributeModel secondAttribute,
+            string firstParamName, string secondParamName)
+        {
+            if (!hasFirstField && !hasSecondField)
             {
-                method.AddParameter(entityTemplate.UseType(userIdType), "updatedBy");
-                method.AddParameter("DateTimeOffset", "updatedDate");
+                return;
+            }
+            if ((hasFirstField && firstAttribute == null) || (hasSecondField && secondAttribute == null))
+            {
+                return;
+            }
+
+            @class.AddMethod("void", methodName, method =>
+            {
+                if (hasFirstField)
+                {
+                    method.AddParameter(entityTemplate.UseType(userIdType), firstParamName);
+                }
+                if (hasSecondField)
+                {
+                    method.AddParameter("DateTimeOffset", secondParamName);
+                }
                 method.IsExplicitImplementationFor(auditableInterfaceName);
-                method.WithExpressionBody("(UpdatedBy, UpdatedDate) = (updatedBy, updatedDate)");
+
+                var targets = new List<string>();
+                var values = new List<string>();
+                if (hasFirstField)
+                {
+                    targets.Add(firstAttribute.Name);
+                    values.Add(firstParamName);
+                }
+                if (hasSecondField)
+                {
+                    targets.Add(secondAttribute.Name);
+                    values.Add(secondParamName);
+                }
+
+                method.WithExpressionBody(targets.Count == 1
+                    ? $"{targets[0]} = {values[0]}"
+                    : $"({string.Join(", ", targets)}) = ({string.Join(", ", values)})");
             });
         }
 
         private static void AddSetAuditableFieldsMethod(
+            IApplication application,
             ICSharpFileBuilderTemplate template,
             CSharpClass priClass)
         {
             var auditableTypeName = template.GetAuditableInterfaceName();
+            var auditSettings = template.ExecutionContext.Settings.GetBasicAuditing();
+            var hasCreatedBy = auditSettings.HasCreatedByField();
+            var hasCreatedDate = auditSettings.HasCreatedDateField();
+            var hasUpdatedBy = auditSettings.HasUpdatedByField();
+            var hasUpdatedDate = auditSettings.HasUpdatedDateField();
+            var relevantEntityStates = hasCreatedBy || hasCreatedDate
+                ? "EntityState.Added or EntityState.Deleted or EntityState.Modified"
+                : "EntityState.Deleted or EntityState.Modified";
 
             priClass.AddMethod(template.UseType("System.Threading.Tasks.Task"), "SetAuditableFieldsAsync", method =>
             {
@@ -144,16 +218,16 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 method.AddMethodChainStatement("var auditableEntries = ChangeTracker.Entries()", chain =>
                 {
                     chain.AddChainStatement(new CSharpInvocationStatement("Where").AddArgument(new CSharpLambdaBlock("entry")
-                        .WithExpressionBody(@$"entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
-                                entry.Entity is {auditableTypeName}"))
+                        .WithExpressionBody(@$"entry.State is {relevantEntityStates} &&
+                            entry.Entity is {auditableTypeName}"))
                         .WithoutSemicolon());
                     chain.AddChainStatement(new CSharpInvocationStatement("Select").AddArgument(new CSharpLambdaBlock("entry")
                         .WithExpressionBody(@$"new
-                {{
-                    entry.State,
-                    Property = new Func<string, {template.UseType("Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry")}>(entry.Property),
-                    Auditable = ({auditableTypeName})entry.Entity
-                }}"))
+                            {{
+                            entry.State,
+                            Property = new Func<string, {template.UseType("Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry")}>(entry.Property),
+                            Auditable = ({auditableTypeName})entry.Entity
+                            }}"))
                         .WithoutSemicolon());
                     chain.AddChainStatement(new CSharpInvocationStatement("ToArray"))
                         .WithoutSemicolon();
@@ -180,19 +254,66 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                 method.AddForEachStatement("entry", "auditableEntries", forStmt =>
                 {
-                    forStmt.AddSwitchStatement("entry.State", switchStmt => switchStmt
-                        .AddCase("EntityState.Added", block => block
-                            .AddStatement("entry.Auditable.SetCreated(userIdentifier, timestamp);")
-                            .WithBreak())
-                        .AddCase("EntityState.Modified or EntityState.Deleted", block => block
-                            .AddStatement("entry.Auditable.SetUpdated(userIdentifier, timestamp);")
-                            .AddStatement("entry.Property(\"CreatedBy\").IsModified = false;")
-                            .AddStatement("entry.Property(\"CreatedDate\").IsModified = false;")
-                            .WithBreak())
-                        .AddDefault(block => block
-                            .AddStatement("throw new ArgumentOutOfRangeException();")));
+                    forStmt.AddSwitchStatement("entry.State", switchStmt =>
+                    {
+                        if (hasCreatedBy || hasCreatedDate)
+                        {
+                            switchStmt.AddCase("EntityState.Added", block =>
+                            {
+                                var args = string.Join(", ", new[] { hasCreatedBy ? "userIdentifier" : null, hasCreatedDate ? "timestamp" : null }.Where(a => a != null));
+                                block.AddStatement($"entry.Auditable.SetCreated({args});");
+                                block.WithBreak();
+                            });
+                        }
+                        if (hasCreatedBy || hasCreatedDate || hasUpdatedBy || hasUpdatedDate)
+                        {
+                            switchStmt.AddCase("EntityState.Modified or EntityState.Deleted", block =>
+                            {
+                                if (hasUpdatedBy || hasUpdatedDate)
+                                {
+                                    var args = string.Join(", ", new[] { hasUpdatedBy ? "userIdentifier" : null, hasUpdatedDate ? "timestamp" : null }.Where(a => a != null));
+                                    block.AddStatement($"entry.Auditable.SetUpdated({args});");
+                                }
+                                if (hasCreatedBy)
+                                {
+                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(application, CreatedBy)}\").IsModified = false;");
+                                }
+                                if (hasCreatedDate)
+                                {
+                                    block.AddStatement($"entry.Property(\"{ResolveFieldName(application, CreatedDate)}\").IsModified = false;");
+                                }
+                                block.WithBreak();
+                            });
+                        }
+                        switchStmt.AddDefault(block => block
+                            .AddStatement("throw new ArgumentOutOfRangeException();"));
+                    });
                 });
             });
+        }
+
+        private static string ResolveFieldName(IApplication application, string role)
+        {
+            var resolutions = application.MetadataManager.Domain(application).GetClassModels()
+                .Where(m => m.HasBasicAuditing())
+                .Select(m => (Model: m, Field: m.GetAuditField(role)))
+                .Where(x => x.Field != null)
+                .ToArray();
+
+            var distinctNames = resolutions.Select(x => x.Field.Name).Distinct().ToArray();
+            if (distinctNames.Length <= 1)
+            {
+                return distinctNames.FirstOrDefault() ?? role;
+            }
+
+            var summary = string.Join(", ", resolutions
+                .GroupBy(x => x.Field.Name)
+                .Select(g => $"{g.Key} ({string.Join(", ", g.Select(x => x.Model.Name))})"));
+
+            throw new FriendlyException(
+                $"Audited entities disagree on the name used for the '{role}' audit field: {summary}. " +
+                "This happens when the field name setting is changed without running Synchronize Auditing Identifiers on every audited entity. " +
+                "Run Synchronize Auditing Identifiers, or manually rename the mismatched attribute(s) so every audited entity agrees, then try again.");
         }
     }
 }

@@ -16,6 +16,7 @@ namespace MongoDb.TestApplication.Application.TextIndexEntitySingleParents
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FullText)

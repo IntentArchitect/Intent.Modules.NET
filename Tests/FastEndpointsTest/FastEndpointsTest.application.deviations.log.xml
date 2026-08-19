@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.AggregateManager#a893b893-0782-4407-897a-57bb1305b67c</correlationId>
+      <path>FastEndpointsTest.Application/EventHandlers/DDD/AccountHolderManager.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:44.0743385Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.8243562Z</approvedAt>
+      <deviationsHash>3A645AFDCD526D514EDE8B5DCEE99DD114B061F1D5C347AC60D308E73ABB11CB</deviationsHash>
+      <fileHash>6E0E617DFA6CADAD820AFD9211FF173F1A5A7BE123F5D611D3BE6C373764D90D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#7505760a-2db9-4384-b26b-6b711365a5b3</correlationId>
+      <path>FastEndpointsTest.Domain/Entities/DDD/Account.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:14:44.0746309Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.8570714Z</approvedAt>
+      <deviationsHash>D0D1C871B36CB6109045872AE5839631494416B5923EA92FE577287E9BC366E1</deviationsHash>
+      <fileHash>CD30C99C78A5EF460F67063C9EB260043F411CBD8C0ADB19CAC3707BEA2092F2</fileHash>
+    </file>
+  </files>
 </deviationsLog>

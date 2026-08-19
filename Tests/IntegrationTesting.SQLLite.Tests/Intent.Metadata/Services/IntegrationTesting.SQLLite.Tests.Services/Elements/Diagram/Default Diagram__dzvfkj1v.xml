@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="91ba07bc-0f22-47bb-9771-a3b1d2a1e3dc" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f2b4b3c-6164-444c-b78c-bb26782864b7</parentFolderId>
+  <packageId>4f2b4b3c-6164-444c-b78c-bb26782864b7</packageId>
+  <packageName>IntegrationTesting.SQLLite.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>4f2b4b3c-6164-444c-b78c-bb26782864b7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

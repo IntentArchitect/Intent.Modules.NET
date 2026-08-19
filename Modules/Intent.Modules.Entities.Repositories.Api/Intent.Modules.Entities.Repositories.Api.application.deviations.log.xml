@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</correlationId>
-      <path>Intent.Modules.Entities.Repositories.Api/Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs</path>
+      <path>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -12,11 +12,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:19:58.595052Z</approvedAt>
       <deviationsHash>C51A290DAF10D9FDE6B0C9D30EF359A340D8A878D12FF591E0B94A1DFABD4C22</deviationsHash>
-      <fileHash>4C742D29A309DB3FA3F8587913CEA041A20CE17690916409122F84C95182A3B9</fileHash>
+      <fileHash>2FF822F7944D94421CE0ACB3F0FB0D66CDA78671B8E799053F7EEEC01C66000A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</correlationId>
-      <path>Intent.Modules.Entities.Repositories.Api/Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs</path>
+      <path>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -29,7 +29,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0ca794e5-a8e2-43c8-a67b-3e4ab606719a</correlationId>
-      <path>Intent.Modules.Entities.Repositories.Api/Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs</path>
+      <path>Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -38,21 +38,21 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:19:58.6011545Z</approvedAt>
       <deviationsHash>2019F1DEABDA63F88FB0010EBFFD2483DEE20E02D0F44ACCE4CDD1AEF4E90AFD</deviationsHash>
-      <fileHash>1BF153C3E589107404BB5305DA6EAA46D54AE24414DD40C7BA90E1542A4B3A36</fileHash>
+      <fileHash>97415C070F761688A40D2975580B13EC0E540F5A209C210B818BD79FC753B08D</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Entities.Repositories.Api/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f057504a-b111-4b02-a262-12bb472d0c03</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-04-07T16:44:56.5231603Z</updatedAt>
-      <deviationsHash>21676B6B51AC0525AD2335ADCBDB825DF1DCFCC3D0CCA475A57AE1D74AE7DF29</deviationsHash>
+      <updatedAt>2026-08-02T10:31:42.3233795Z</updatedAt>
+      <deviationsHash>7E9FF95F835D3C72DA426D2F87D97E7B48CCE16553E75DE19EA39FAFC7A210FD</deviationsHash>
       <fileHash>8678DF7B0DC49380F0D51CB2B5DB5E4BC8CD32720A38B0B62C529DBECE3B84CC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b7874537-f6f7-431c-91fc-e6beb0a58825</correlationId>
-      <path>Intent.Modules.Entities.Repositories.Api/Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplatePartial.cs</path>
+      <path>Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.AdvChanceAccountHolder
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

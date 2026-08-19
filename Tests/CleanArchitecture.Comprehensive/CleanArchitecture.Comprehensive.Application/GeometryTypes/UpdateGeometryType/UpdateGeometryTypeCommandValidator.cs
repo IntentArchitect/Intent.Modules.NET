@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.GeometryTypes.UpdateGeomet
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Point)

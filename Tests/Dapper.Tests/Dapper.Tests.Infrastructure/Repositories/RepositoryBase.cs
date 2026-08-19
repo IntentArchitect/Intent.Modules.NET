@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,8 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Dapper.Tests.Infrastructure.Repositories
 {
-    public abstract class RepositoryBase<TDomain>
-        where TDomain : class
+    public abstract class RepositoryBase
     {
         private readonly string _connectionString;
 

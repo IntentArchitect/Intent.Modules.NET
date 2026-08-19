@@ -3,6 +3,7 @@ using Intent.Configuration;
 using Intent.Metadata.Models;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject
 {
@@ -10,11 +11,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject
     {
         public JavaScriptProjectModel Model { get; }
 
-        public JavaScriptProjectConfig(JavaScriptProjectModel model)
+        public JavaScriptProjectConfig(JavaScriptProjectModel model) : this(model, outputLocationOptions: null)
+        {
+        }
+
+        internal JavaScriptProjectConfig(JavaScriptProjectModel model, OutputLocationOptions outputLocationOptions)
         {
             Model = model;
             var relativeLocation = model.GetJavaScriptProjectOptions()?.RelativeLocation();
-            RelativeLocation = string.IsNullOrWhiteSpace(relativeLocation) ? model.Name : relativeLocation;
+            RelativeLocation = (outputLocationOptions ?? OutputLocationOptions.None).GetEffectiveRelativeLocation(relativeLocation, model.Name);
         }
 
         public IEnumerable<IStereotype> Stereotypes => Model.Stereotypes;

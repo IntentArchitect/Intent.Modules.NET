@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Wolverine</id>
-  <version>1.0.0-pre.5</version>
+  <version>1.0.2</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</summary>
   <description>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</description>
@@ -130,12 +130,13 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Application.Wolverine.AITasksFactoryExtension" externalReference="88b405e8-e706-4633-b369-c2dbbfc4788b" />
     <factoryExtension id="Intent.Application.Wolverine.WolverineRegistrationFactoryExtension" externalReference="f6fee47f-5cd1-48b2-96f5-4f34ce653fa9" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.11.2" />
-    <dependency id="Intent.Common.CSharp" version="3.10.7" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.15" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.7" />
@@ -144,43 +145,43 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.Wolverine" version="1.0.0-pre.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.Wolverine" version="1.0.0" />
       </install>
     </detect>
     <detect id="Intent.FastEndpoints">
       <install>
-        <package id="Intent.FastEndpoints.Dispatch.Wolverine" version="1.0.0-pre.0" />
+        <package id="Intent.FastEndpoints.Dispatch.Wolverine" version="1.0.0" />
       </install>
     </detect>
     <detect id="Intent.Application.FluentValidation">
       <install>
-        <package id="Intent.Application.Wolverine.FluentValidation" version="1.0.0-pre.3" />
+        <package id="Intent.Application.Wolverine.FluentValidation" version="1.0.0" />
       </install>
     </detect>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0-pre.2" />
+        <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore" version="5.0.47-pre.2" />
+        <package id="Intent.EntityFrameworkCore" version="5.0.47" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore.Repositories">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2-pre.2" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2" />
       </install>
     </detect>
     <detect id="Intent.Application.AutoMapper">
       <install>
-        <package id="Intent.Application.AutoMapper" version="5.3.10-pre.3" />
+        <package id="Intent.Application.AutoMapper" version="5.3.10" />
       </install>
     </detect>
     <detect id="Intent.Application.Dtos.Mapperly">
       <install>
-        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4-pre.3" />
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

@@ -7,7 +7,9 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
@@ -51,6 +53,8 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
                     .Select(sub => sub.TypeReference.Element.AsIntegrationCommandModel()!))
                 .Distinct()
                 .ToList();
+
+            AddImplicitUsing("NServiceBus");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")

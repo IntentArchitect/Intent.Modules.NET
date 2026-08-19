@@ -114,7 +114,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 
                         if (string.IsNullOrWhiteSpace(proxyUrl))
                         {
-                            proxyUrl = $"https://localhost:{hostSettings.SslPort}/";
+                            proxyUrl = $"https://localhost:{hostSettings?.SslPort}/";
                         }
 
                         this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? proxyUrl : "", null, Frontend.Blazor);

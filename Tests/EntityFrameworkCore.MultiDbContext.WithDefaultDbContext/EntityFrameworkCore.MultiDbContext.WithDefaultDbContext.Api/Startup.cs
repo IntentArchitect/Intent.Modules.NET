@@ -45,6 +45,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
+            services.ConfigureMultiTenancy(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +59,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseMultiTenancy();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

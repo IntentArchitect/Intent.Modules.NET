@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Fixed: Software Factory no longer crashes when generating service proxies in an application with no appsettings.json.
+
 ### Version 4.1.2
 
 - Improvement: Updated NuGet package versions.

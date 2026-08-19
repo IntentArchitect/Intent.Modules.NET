@@ -42,6 +42,7 @@ namespace Intent.Modules.Application.Wolverine.FluentValidation.Templates.QueryV
                 additionalFolders: new[] { model.GetConceptName() })
         {
             FulfillsRole(TemplateRoles.Application.Validation.Query);
+            FulfillsRole("Application.Validation");
         }
     }
 }

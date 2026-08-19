@@ -15,6 +15,7 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.DeleteRootEntity
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -489,10 +489,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="40ade4c9-52ce-4a7a-9155-ef75e8505b9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Solace.SolaceConfiguration</name>
-      <display>Intent.Eventing.Solace.SolaceConfiguration</display>
-      <externalReference>Intent.Eventing.Solace</externalReference>
+    <childElement id="a6bd44e0-26e6-4397-95a3-50fc9f3b8823" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusConfiguration</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusConfiguration</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -515,15 +515,27 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a6bd44e0-26e6-4397-95a3-50fc9f3b8823" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.NServiceBus.NServiceBusConfiguration</name>
-      <display>Intent.Eventing.NServiceBus.NServiceBusConfiguration</display>
-      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+    <childElement id="40ade4c9-52ce-4a7a-9155-ef75e8505b9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceConfiguration</name>
+      <display>Intent.Eventing.Solace.SolaceConfiguration</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
-      <stereotypes />
+      <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+      <packageName>CompositeMessageBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

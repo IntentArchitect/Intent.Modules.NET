@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModularMonolith.Host.ModuleConfiguration#f5212003-ea72-43bc-a6b2-4a38c9d962aa</correlationId>
+      <path>Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:27:55.1782356Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.6557806Z</approvedAt>
+      <deviationsHash>DC22D2647C9BE6F32304D259790177DB471061B55AB9C4773F543ABD684FFC3A</deviationsHash>
+      <fileHash>28F34703E2B5371804E6A057014C32874349D793B22CDB9900A55B04429A072E</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#fb7214f9-ab4f-4419-ac71-a3f347b74160</correlationId>
       <path>Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Intent.Modules.NET.Tests.Module1.Infrastructure.csproj</path>
       <count>1</count>

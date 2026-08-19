@@ -348,11 +348,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureHealthChecks", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
 
-            var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(TemplateDependency.OnTemplate(IAppStartupTemplate.RoleName));
+            var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName, OutputTarget);
             startup?.CSharpFile.AfterBuild(_ =>
             {
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>

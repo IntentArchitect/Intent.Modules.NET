@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
@@ -30,14 +31,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                     .Where(x => x.Solution.Id == vsSolution.Id)
                     .ToList();
 
+                var outputLocationOptions = application.GetOutputLocationOptions(_metadataManager);
                 var useSlnx = vsSolution.GetVisualStudioSolutionOptions()?.SolutionFileFormat()?.IsXMLSolutionSlnx() ?? false;
                 if (useSlnx)
                 {
-                    registry.RegisterApplicationTemplate(VisualStudioSolutionSlnxTemplate.Identifier, () => new VisualStudioSolutionSlnxTemplate(application, vsSolution, projects));
+                    registry.RegisterApplicationTemplate(VisualStudioSolutionSlnxTemplate.Identifier, () => new VisualStudioSolutionSlnxTemplate(application, vsSolution, projects, outputLocationOptions));
                 }
                 else
                 {
-                    registry.RegisterApplicationTemplate(VisualStudioSolutionTemplate.Identifier, () => new VisualStudioSolutionTemplate(application, vsSolution, projects));
+                    registry.RegisterApplicationTemplate(VisualStudioSolutionTemplate.Identifier, () => new VisualStudioSolutionTemplate(application, vsSolution, projects, outputLocationOptions));
                 }
             }
         }

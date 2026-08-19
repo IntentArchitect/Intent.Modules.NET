@@ -19,12 +19,29 @@ namespace Intent.Modules.EntityFrameworkCore.Templates;
 
 public static class DbContextManager
 {
+    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
     public static IList<DbContextInstance> GetDbContexts(string applicationId, IMetadataManager metadataManager)
     {
         return GetDbContexts(metadataManager.Domain(applicationId));
     }
 
+    public static IList<DbContextInstance> GetDbContexts(string applicationId, IMetadataManager metadataManager, IApplicationSettingsProvider settings)
+    {
+        return GetDbContexts(metadataManager.Domain(applicationId), settings);
+    }
+
+    [Obsolete("Use the overload that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
     public static DbContextInstance GetDbContext(ClassModel classModel)
+    {
+        return new DbContextInstance(GetDomainPackageModel(classModel));
+    }
+
+    public static DbContextInstance GetDbContext(ClassModel classModel, IApplicationSettingsProvider settings)
+    {
+        return new DbContextInstance(GetDomainPackageModel(classModel), settings);
+    }
+
+    private static DomainPackageModel GetDomainPackageModel(ClassModel classModel)
     {
         var pkg = classModel.InternalElement.Package.AsDomainPackageModel();
         if (pkg is null)
@@ -32,7 +49,7 @@ public static class DbContextManager
             throw new Exception($"Class ({classModel.Id}, {classModel.Name}) is not found within a Domain Package");
         }
 
-        return new DbContextInstance(pkg);
+        return pkg;
     }
 
     internal static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(
@@ -61,12 +78,26 @@ public static class DbContextManager
 
     private static IList<DbContextInstance> GetDbContexts(IDesigner domainDesigner)
     {
-        var dbContextInstances = domainDesigner.GetDomainPackageModels()
+#pragma warning disable CS0618 // Type or member is obsolete
+        return ValidateAndReturn(domainDesigner.GetDomainPackageModels()
             .Where(p => p.HasRelationalDatabase())
             .Select(pkg => new DbContextInstance(pkg))
             .Distinct()
-            .ToArray();
+            .ToArray());
+#pragma warning restore CS0618 // Type or member is obsolete
+    }
 
+    private static IList<DbContextInstance> GetDbContexts(IDesigner domainDesigner, IApplicationSettingsProvider settings)
+    {
+        return ValidateAndReturn(domainDesigner.GetDomainPackageModels()
+            .Where(p => p.HasRelationalDatabase())
+            .Select(pkg => new DbContextInstance(pkg, settings))
+            .Distinct()
+            .ToArray());
+    }
+
+    private static IList<DbContextInstance> ValidateAndReturn(DbContextInstance[] dbContextInstances)
+    {
         var dbContextInstanceWithSameConnStr = dbContextInstances
             .GroupBy(dbContext => dbContext.ConnectionStringName)
             .Where(group => group.Select(dbContext => dbContext.DbProvider).Distinct().Count() > 1)
@@ -86,31 +117,50 @@ public class DbContextInstance : IMetadataModel
 {
     private const string ApplicationDbContext = "ApplicationDbContext";
     private const string DefaultConnection = "DefaultConnection";
-    
-    public DbContextInstance(DomainPackageModel domainPackageModel)
+
+    [Obsolete("Use the constructor that accepts an IApplicationSettingsProvider so the \"Default Connection String Name\" module setting is respected. This overload always assumes the literal \"DefaultConnection\" as the primary connection string name.")]
+    public DbContextInstance(DomainPackageModel domainPackageModel) : this(domainPackageModel, DefaultConnection)
+    {
+    }
+
+    public DbContextInstance(DomainPackageModel domainPackageModel, IApplicationSettingsProvider settings)
+        : this(domainPackageModel, ResolveDefaultConnectionStringName(settings))
+    {
+    }
+
+    private DbContextInstance(DomainPackageModel domainPackageModel, string defaultConnectionStringName)
     {
         var dbSettings = domainPackageModel.GetDatabaseSettings();
-        
+
         var connectionStringInput = dbSettings?.ConnectionStringName();
         if (string.IsNullOrWhiteSpace(connectionStringInput))
         {
-            connectionStringInput = DefaultConnection;
+            connectionStringInput = defaultConnectionStringName;
         }
         ConnectionStringName = connectionStringInput;
-        
+
         Id = ConnectionStringName;
         DbProvider = dbSettings?.DatabaseProvider().AsEnum() ?? PackageDbProvider.Default;
         DomainPackageModel = domainPackageModel;
+        DefaultConnectionStringName = defaultConnectionStringName;
     }
-    
+
     public string Id { get; }
 
     public string ConnectionStringName { get; }
     public PackageDbProvider DbProvider { get; }
     public DomainPackageModel DomainPackageModel { get; }
 
+    /// <summary>
+    /// The connection string name that identifies the "primary" DbContext (the one that receives the
+    /// <c>ApplicationDbContext</c> name, unit-of-work role, etc.). Resolved from the
+    /// <c>Default Connection String Name</c> module setting, falling back to the literal
+    /// <c>"DefaultConnection"</c> when that setting is left blank.
+    /// </summary>
+    private string DefaultConnectionStringName { get; }
+
     public bool IsApplicationDbContext => DbContextName == ApplicationDbContext;
-    
+
     private string? _dbContextName;
 
     public string DbContextName
@@ -122,7 +172,7 @@ public class DbContextInstance : IMetadataModel
                 return _dbContextName;
             }
 
-            if (ConnectionStringName == DefaultConnection)
+            if (ConnectionStringName == DefaultConnectionStringName)
             {
                 _dbContextName = ApplicationDbContext;
                 return _dbContextName;
@@ -135,6 +185,12 @@ public class DbContextInstance : IMetadataModel
                 .RemoveSuffix("DbContext") + "DbContext";
             return _dbContextName;
         }
+    }
+
+    private static string ResolveDefaultConnectionStringName(IApplicationSettingsProvider settings)
+    {
+        var configured = settings.GetDatabaseSettings().DefaultConnectionStringName();
+        return string.IsNullOrWhiteSpace(configured) ? DefaultConnection : configured;
     }
     
     public string GetTypeName(IIntentTemplate template, string? defaultDbContextName = null)

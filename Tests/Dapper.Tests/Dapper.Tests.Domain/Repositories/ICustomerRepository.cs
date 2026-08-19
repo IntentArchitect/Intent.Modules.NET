@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dapper.Tests.Domain.Contracts;
 using Dapper.Tests.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 
@@ -15,5 +16,6 @@ namespace Dapper.Tests.Domain.Repositories
     {
         Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         List<Customer> SearchCustomer(string searchTerm);
+        List<CustomerSummaryDataContract> GetCustomerSummaries(string searchTerm);
     }
 }

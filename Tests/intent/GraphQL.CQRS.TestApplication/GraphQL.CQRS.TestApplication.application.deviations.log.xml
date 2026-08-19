@@ -25,7 +25,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2025-09-02T22:41:07.4011406Z</approvedAt>
       <deviationsHash>10080B8CCB382A6B13EB78BDF31EC2B13FEDD9B6983CACFF1A74B0A75C92D64C</deviationsHash>
-      <fileHash>DEB0D6867612AF8244F4B39208DD0202B687C433A8A4993DD4A765DF8B394BA9</fileHash>
+      <fileHash>60D74979FCC5DB9EA95F1A52C25B47B6865DE9AE12EAAD93467063F5C47E56B8</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#3fb81f71-9ce2-463d-b586-c4026e6d58d2</correlationId>
@@ -44,14 +44,14 @@
       <correlationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#e09c33ec-3804-47f8-8369-2d8abf7f93ef</correlationId>
       <path>GraphQL.CQRS.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</path>
       <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-09-02T22:41:07.4060496Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-09-02T22:41:07.4060668Z</approvedAt>
-      <deviationsHash>8ECCEFC6256517D6CF411AA07994214DC2EA2FF35F9228B9B433E610A86F64A8</deviationsHash>
-      <fileHash>64DF7ECD122F769B0F51AB9BE8316B10E1355F5F27C510E7CD7C1EE0BF3C8FC2</fileHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-27T13:01:35.427643Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-07-27T13:46:44.5220138Z</approvedAt>
+      <deviationsHash>30C8109FF9C48AE9142C290731564BE643F05582FC0F653D3BC21429B114620B</deviationsHash>
+      <fileHash>7E1642E281C4B0A308641F0F600C36E3873835FB29F5A799CC8126D483A40932</fileHash>
     </file>
   </files>
 </deviationsLog>

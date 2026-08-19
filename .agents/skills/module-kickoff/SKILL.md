@@ -6,6 +6,17 @@ argument-hint: "[module name or description]"
 
 # Module Kickoff
 
+## First Gate — Reference App (ask before anything else)
+
+The reference-app rule (`AGENTS.md` top callout) is non-negotiable, so it is the **first** thing to settle — before questions, research, or planning. The moment the developer asks to build a module:
+
+> *"Do you have a sample of what that output looks like — an existing app, hand-written code, or a repo I can learn from? If not, I'll build a small reference app first and show you what it would look like before writing any module code."*
+
+- **Sample exists** → record its location (feeds U5 / U9); it becomes the ground truth.
+- **No sample** → the AI scaffolds one in `reference-app-builder`; confirm with the developer what it must demonstrate.
+
+Never skip ahead to templates assuming a sample will appear later. No reference app, no module.
+
 ## Entry Mode
 
 Determine the input type before asking any questions:
@@ -137,6 +148,19 @@ If any item is NO — ask a targeted follow-up before proceeding.
 
 ---
 
+## Size-up — how big, and where are the unknowns?
+
+Before producing the summary, make one lightweight judgment call (a couple of sentences, **not** a scored matrix) on **two independent axes**. This shapes the whole run — record the outcome in `WORKING.md`.
+
+| Axis | Question | Sets |
+|---|---|---|
+| **Scope size** | Small enough to build in one pass, or too big? | **Slicing** — if too big, decompose into vertical slices (features; may span modules), each with its own acceptance check, and write the **slice map** to `WORKING.md`. |
+| **Certainty** | How many unknowns, and *where* — in getting the reference architecture right, or in the module space? | **Research depth** — the more unknown, the more `reference-app-builder` / increment cycling before module work. Requirement-unknowns → more elicitation here; technical-unknowns → more reference-app proving. |
+
+The two are independent: a detailed PRD can still carry deep technical unknowns. Small + certain → near-direct build; big + unknown → many slices, each proven incrementally. Confidence also informs the autonomy default the AI *suggests* (Expectations Charter) — but the **developer always makes the final autonomy call**.
+
+---
+
 ## Requirements Summary Format
 
 Produce this document as the output of this skill. It becomes the input to `tech-pattern-researcher`.
@@ -177,6 +201,16 @@ Produce this document as the output of this skill. It becomes the input to `tech
 
 ---
 
+## Freeze the Acceptance Spec
+
+Once the Requirements Summary is complete, **freeze a copy as `.module-builder/acceptance-spec.md`** — the immutable rubric the independent `module-auditor` grades against. Beyond the summary fields it must capture:
+- **Per-slice acceptance checks** — the observable "done looks like X" for each slice (or the single build).
+- **Negative / out-of-scope checks** — what must be *absent*, so a shipped-but-unasked feature is caught as a scope leak.
+
+Frozen means frozen: if requirements genuinely change mid-build, update the spec **deliberately** and note the change — the auditor always grades against the *current* spec, and drift between builder and spec is exactly the failure this prevents.
+
+---
+
 ## Expectations Charter — present before handoff
 
 Before diving into research and build, give the developer a short, scannable charter so there are no surprises. Cover:
@@ -185,7 +219,7 @@ Before diving into research and build, give the developer a short, scannable cha
 - **The plan & the gates ahead** — a high-level playback of the phases and where I'll need a decision from you.
 - **What I'll need from you** — especially any **developer-provided infrastructure or credentials** (cloud services, licensed brokers), surfaced now, not mid-build.
 - **Why the test app comes first** — the reference/test app is the ground truth; without it the module is built blind, and it's the cheapest place to catch errors. If you can't supply one, I'll obtain or build one — **this step is never skipped**.
-- **Review preference** — do you want to approve each staged diff, or only at checkpoints? Set once, here.
+- **Autonomy mode — the developer decides, not the AI.** Ask which they want: **fully autonomous** (I proceed from what's set here and surface only when genuinely stuck or the `module-auditor` can't clear a gate) or **gated check-ins** at the reference-app, ecosystem, and pre-wrap-up gates. I may *suggest* a default from the Size-up confidence, but the choice is theirs — never assume it. Recorded in `WORKING.md` as `autonomy_mode` (see the `build-module` agent).
 - **Resumability** — long runs can span sessions; I checkpoint to `.module-builder/WORKING.md`, so you can stop or redirect anytime without losing progress.
 
 Keep it concise (a short list or table), confirm, then proceed.

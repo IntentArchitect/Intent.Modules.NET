@@ -15,6 +15,7 @@ namespace Wolverine.Mapperly.Application.Products.GetProductById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

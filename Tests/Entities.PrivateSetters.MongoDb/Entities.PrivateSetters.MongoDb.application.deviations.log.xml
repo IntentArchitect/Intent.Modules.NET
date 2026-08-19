@@ -2,16 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a73ec8e9-cb37-4274-82c2-e63449e28ab4</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:17:51.3703991Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.0403623Z</approvedAt>
+      <deviationsHash>2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255</deviationsHash>
+      <fileHash>85C998AE1367FB3ABBFDDBE070313B1DA2B1BFEAA0A8B8F4D084711B6FA0AEE5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#006f0a75-21d7-4619-858e-10eac2a2e832</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:17:51.3704148Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:23.0735958Z</approvedAt>
+      <deviationsHash>95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752</deviationsHash>
+      <fileHash>052B6DEFF3FAF872EC6634C3AC3D132B195CE00DEB1E2FFFFC71D11621E9C22A</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Entities.DomainEntity#1719967b-12e5-469c-b69d-689abe37aa89</correlationId>
       <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Invoice.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T18:57:32.3301295Z</updatedAt>
+      <updatedAt>2026-07-26T18:17:51.370623Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T18:57:32.330267Z</approvedAt>
-      <deviationsHash>F16162E04F95365690177735A45017B40FCD2C0FF1EEDEC0318576E885FBE2D9</deviationsHash>
+      <approvedAt>2026-07-26T18:33:23.1060199Z</approvedAt>
+      <deviationsHash>A9A9523C97609238701ED2335813DB60488D9188BF7F67944CE7C38911C44040</deviationsHash>
       <fileHash>34C9E1AD4B5A0EF17D72622251802CE6E49118191AC37F4715C6EAB08219ADDC</fileHash>
     </file>
   </files>

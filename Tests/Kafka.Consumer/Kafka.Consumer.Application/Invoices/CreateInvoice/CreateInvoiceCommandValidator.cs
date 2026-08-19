@@ -15,6 +15,7 @@ namespace Kafka.Consumer.Application.Invoices.CreateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Note)

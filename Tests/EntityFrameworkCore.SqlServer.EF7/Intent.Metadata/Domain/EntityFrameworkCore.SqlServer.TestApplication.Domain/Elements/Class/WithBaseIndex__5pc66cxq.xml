@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="d1e75052-5edf-4814-bf0c-da9e29f752a6" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>WithBaseIndex</name>
-  <display>WithBaseIndex : WithBaseIndexBase</display>
+  <display>WithBaseIndex</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

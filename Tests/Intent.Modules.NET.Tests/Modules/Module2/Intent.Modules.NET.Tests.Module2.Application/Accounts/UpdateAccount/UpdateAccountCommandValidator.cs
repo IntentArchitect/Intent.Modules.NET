@@ -16,6 +16,7 @@ namespace Intent.Modules.NET.Tests.Module2.Application.Accounts.UpdateAccount
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

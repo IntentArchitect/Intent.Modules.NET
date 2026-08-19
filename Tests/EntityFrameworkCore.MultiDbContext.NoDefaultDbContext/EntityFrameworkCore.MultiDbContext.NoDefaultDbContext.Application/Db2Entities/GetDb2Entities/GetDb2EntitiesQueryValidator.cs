@@ -15,6 +15,7 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.Db2E
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

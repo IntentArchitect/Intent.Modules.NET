@@ -18,6 +18,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
             _uniqueAccountEntityRepository = uniqueAccountEntityRepository;
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Username)

@@ -15,4 +15,12 @@
       <fileHash>22EC6910B35B0D0B21B763854C843A5FFE8EFD067DFC15E47E68ACC703A795E9</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Tests/EntityFrameworkCore.Postgres/EntityFrameworkCore.Postgres.Api/Logging/GeoDestructureSerilogPolicy.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-14T12:27:39.8840581Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,3 +1,15 @@
+### Version 5.1.1
+
+- Improvement: `ntext, text, and image data` deprecated warning will now only be shown for `SQL Server` database provider, as these types are not deprecated in other database providers.
+
+### Version 5.1.0
+
+- New Feature: Added a `Default Connection String Name` module setting that lets you override the connection string name used to identify the primary/`ApplicationDbContext`, instead of it always being the literal `DefaultConnection`.
+
+### Version 5.0.48
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 5.0.47
 
 - Improvement: Switched AI skill guidance discovery from hardcoded template ids to role-based lookup (`TemplateRoles.AI.Context.Skills.Handler`), so EF-related guidance (data loading, unit of work, repository usage) is generated onto any CQRS transport's command/query handler skill file, not just the ones this module knew about directly.

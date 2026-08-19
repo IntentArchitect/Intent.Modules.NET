@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "WebAndWorker.QuartzWorker": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "WebAndWorker.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44386;http://localhost:57604",
+      "dotnetRunMessages": true,
+      "launchUrl": "https://localhost:44386",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

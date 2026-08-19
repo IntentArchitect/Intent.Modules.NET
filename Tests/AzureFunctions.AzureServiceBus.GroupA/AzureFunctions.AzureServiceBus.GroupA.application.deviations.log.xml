@@ -2,17 +2,17 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b114ae6a-002b-4cd8-8b99-bb73b2eab228</correlationId>
-      <path>AzureFunctions.AzureServiceBus.Infrastructure/AzureFunctions.AzureServiceBus.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:47.3004936Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.3612381Z</approvedAt>
-      <deviationsHash>71BCB647E7857596FC1E0CEE2AB3043F2D719056FA89E2D099ED6CEE6635C031</deviationsHash>
-      <fileHash>B09FA9D6A901FF82F972360428E4FE2A7C5F07ACED5F5CA809EABA9E091EDA70</fileHash>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#b142d75d-46bd-40bd-8700-b73152b53cc0</correlationId>
+      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificQueueMessageHandler.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:20:26.6436409Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.7950465Z</approvedAt>
+      <deviationsHash>14BE7667A644763A3D6226A46BC037BE89BDADA25CCD2C9F905D96BBE328F14F</deviationsHash>
+      <fileHash>EFDD681F6644753B48DF2EAA29880C3E4B437D267B310A253097F575FCCBD5E0</fileHash>
     </file>
   </files>
 </deviationsLog>

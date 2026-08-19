@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.MultiTenancy.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Multitenancy;
@@ -30,16 +31,23 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass("TenantExtendedInfo", @class =>
                 {
                     @class.WithBaseType("TenantInfo");
                     if (_connectionRequests.Any())
                     {
                         @class.ImplementsInterface(this.GetTenantConnectionsInterfaceTemplateName());
+                        foreach (var request in _connectionRequests)
+                        {
+                            @class.AddProperty("string?", request.Name.ToCSharpIdentifier());
+                        }
                     }
-                    foreach (var request in _connectionRequests)
+                    else if (RequiresConnectionString())
                     {
-                        @class.AddProperty("string?", request.Name.ToCSharpIdentifier());
+                        // Finbuckle v7+ removed ConnectionString from the base TenantInfo, so
+                        // single-connection separate-database isolation needs it here instead.
+                        @class.AddProperty("string?", "ConnectionString");
                     }
                 });
             ExecutionContext.EventDispatcher.Subscribe<MultitenantConnectionStringRegistrationRequest>(Handle);
@@ -50,9 +58,14 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo
             _connectionRequests.Add(@event);
         }
 
+        private bool RequiresConnectionString()
+        {
+            return ExecutionContext.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase();
+        }
+
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && _connectionRequests.Any();
+            return base.CanRunTemplate() && (_connectionRequests.Any() || RequiresConnectionString());
         }
 
         [IntentManaged(Mode.Fully)]

@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Entities.DomainEntity#337519c7-8aeb-481f-aa3b-93d8ac11dc74</correlationId>
+      <path>AdvancedMapping.Repositories.Mapperly.Tests.Domain/Entities/Sales/Order.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:07:09.8454208Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:07:32.2096112Z</approvedAt>
+      <deviationsHash>971056B202218148061999228F6F94581C9B9A210D3B17CE81EF61B2ADF452F6</deviationsHash>
+      <fileHash>8C02955EC3593F18C69B7D82B4F131A1BE2786D9E2F5FF690DA9BCFAAFF55E7E</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#766ec565-25d7-440e-ac07-3e8be5d287f9</correlationId>
       <path>AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.csproj</path>
       <count>1</count>

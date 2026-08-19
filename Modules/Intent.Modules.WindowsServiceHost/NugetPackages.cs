@@ -37,8 +37,8 @@ namespace Intent.Modules.WindowsServiceHost
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9"),
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
@@ -73,6 +73,7 @@ namespace Intent.Modules.WindowsServiceHost
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.CommandLine", "10.0.9")
@@ -80,20 +81,19 @@ namespace Intent.Modules.WindowsServiceHost
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.UserSecrets", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Configuration", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Console", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Debug", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.9")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")

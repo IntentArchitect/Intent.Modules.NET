@@ -76,6 +76,7 @@ Present all proposals together. Developer accepts or rejects each individually. 
 1. Every entry is timestamped, attributed to module and phase, and actionable.
 2. Proposed edits are small and targeted — one finding, one change, one file.
 3. Never block the build to write an entry. Append and continue immediately.
+4. **Try-then-log, don't route around.** Assume Intent's capabilities work and try them; when one breaks or surprises you, append an Intent-gap entry here — never pre-emptively avoid a capability because it *might* not work, and never silently work around a failure without logging it for the IA team.
 
 ## Must Nots
 

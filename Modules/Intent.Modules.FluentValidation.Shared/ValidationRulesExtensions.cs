@@ -99,6 +99,7 @@ internal static class ValidationRulesExtensions
                 string? repositoryFieldName = null;
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
+                    method.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     method.Private();
 
                     var validationRuleStatements = template.GetValidationRulesStatements(

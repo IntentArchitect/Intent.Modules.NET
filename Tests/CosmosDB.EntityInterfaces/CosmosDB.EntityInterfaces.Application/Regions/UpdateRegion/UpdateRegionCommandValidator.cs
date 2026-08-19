@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.Regions.UpdateRegion
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

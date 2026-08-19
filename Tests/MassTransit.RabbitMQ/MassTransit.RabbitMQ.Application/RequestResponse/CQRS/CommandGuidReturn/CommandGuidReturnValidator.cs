@@ -15,6 +15,7 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandGuidRetur
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Input)

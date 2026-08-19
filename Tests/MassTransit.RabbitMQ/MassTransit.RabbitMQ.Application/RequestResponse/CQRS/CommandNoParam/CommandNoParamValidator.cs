@@ -15,6 +15,7 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandNoParam
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

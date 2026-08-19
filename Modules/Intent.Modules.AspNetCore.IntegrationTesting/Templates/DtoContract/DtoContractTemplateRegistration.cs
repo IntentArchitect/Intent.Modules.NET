@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Types.Api;
@@ -38,8 +39,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                return Enumerable.Empty<DTOModel>();
+            }
+
             var models = _metadataManager.GetServicesAsProxyModels(application)
-                 .SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true));
+                .SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true));
 
             return models.DistinctBy(x => x.Id).ToList(); ;
         }

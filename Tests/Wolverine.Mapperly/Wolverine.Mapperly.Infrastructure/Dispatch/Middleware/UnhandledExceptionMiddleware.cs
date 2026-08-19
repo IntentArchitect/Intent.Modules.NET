@@ -22,9 +22,10 @@ namespace Wolverine.Mapperly.Infrastructure.Dispatch.Middleware
         public void OnException(Exception exception, Envelope envelope, ILogger logger)
         {
             LogException(exception, envelope.Message, logger);
+            throw exception;
         }
 
-        private void LogException(Exception exception, object request, ILogger logger)
+        private void LogException(Exception exception, object? request, ILogger logger)
         {
             if (exception is ValidationException)
             {

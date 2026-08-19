@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="84a6ab17-88dd-407b-9c9b-a45464b66a12">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs" />
+  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" />
+  <file path="Intent.Modules.Security.MSAL.csproj" />
+  <file path="Intent.Security.MSAL.imodspec" />
+  <file path="NugetPackages.cs" />
+  <file path="release-notes.md" />
+  <file path="resources/documentation.json" />
+</managedFiles>

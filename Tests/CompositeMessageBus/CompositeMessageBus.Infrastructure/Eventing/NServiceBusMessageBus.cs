@@ -67,7 +67,6 @@ namespace CompositeMessageBus.Infrastructure.Eventing
 
             using (new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled))
             {
-
                 var messageSession = _serviceProvider.GetRequiredService<IMessageSession>();
                 await DispatchAsync(m => messageSession.Publish(m, cancellationToken), m => messageSession.Send(m, cancellationToken));
             }

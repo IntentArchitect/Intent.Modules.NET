@@ -15,6 +15,7 @@ namespace IntegrationTesting.Tests.Application.NoReturns.CreateNoReturn
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

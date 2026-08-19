@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/AIInstructions/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.UnitTesting.csproj" state="ignored" />
     <file relativePath="Intent.Modules.UnitTesting/content/AIInstructions/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.UnitTesting/Intent.Modules.UnitTesting.csproj" state="ignored">
       <isIgnoredNotes><![CDATA[Prevent these dependencies from being installed]]></isIgnoredNotes>
@@ -11,5 +13,7 @@
     <file relativePath="Intent.Modules.UnitTesting/Templates/TemplateExtensions.cs" state="ignored">
       <isIgnoredNotes><![CDATA[I don't know what the implications will be to have these generated]]></isIgnoredNotes>
     </file>
+    <file relativePath="Intent.UnitTesting.imodspec" state="ignored" />
+    <file relativePath="Templates/TemplateExtensions.cs" state="ignored" />
   </files>
 </outputFiles>

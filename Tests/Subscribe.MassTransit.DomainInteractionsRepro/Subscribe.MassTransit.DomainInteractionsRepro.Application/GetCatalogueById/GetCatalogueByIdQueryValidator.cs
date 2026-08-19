@@ -15,6 +15,7 @@ namespace Subscribe.MassTransit.DomainInteractionsRepro.Application.GetCatalogue
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="FactoryExtensions/DtoAutoMapperFactoryExtension.cs" state="ignored" />
     <file relativePath="Intent.Modules.MongoDb.MongoFramework/Intent.MongoDb.MongoFramework.imodspec" state="ignored" />
+    <file relativePath="Intent.MongoDb.MongoFramework.imodspec" state="ignored" />
   </files>
 </outputFiles>

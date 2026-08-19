@@ -1,3 +1,8 @@
+### Version 1.3.0
+
+- New Feature: Added `Authentication Methods` module setting to support Managed Identity authentication via `DefaultAzureCredential`, alongside the existing connection string.
+- Improvement: Selecting both `Key-based` and `Managed Identity` in `Authentication Methods` now generates a runtime switch (via the new `AzureServiceBus:AuthenticationMethod` app setting) instead of the client silently only using Managed Identity.
+
 ### Version 1.2.1
 
 - Fixed: Minimum client version.

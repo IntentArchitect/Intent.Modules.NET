@@ -25,8 +25,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
     public const string TemplateId = "Intent.OpenTelemetry.OpenTelemetryConfiguration";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public OpenTelemetryConfigurationTemplate(IOutputTarget outputTarget, object model = null)
-        : base(TemplateId, outputTarget, model)
+    public OpenTelemetryConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.OpenTelemetry(OutputTarget));
         AddNugetDependency(NugetPackages.OpenTelemetryExtensionsHosting(OutputTarget));

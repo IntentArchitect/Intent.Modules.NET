@@ -1,3 +1,7 @@
+### Version 2.0.15
+
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 2.0.14
 
 - Fixed: Minimum client version.

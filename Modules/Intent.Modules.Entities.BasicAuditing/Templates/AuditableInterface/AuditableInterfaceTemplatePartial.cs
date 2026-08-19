@@ -24,22 +24,45 @@ namespace Intent.Modules.Entities.BasicAuditing.Templates.AuditableInterface
         public AuditableInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             string userIdType = TemplateHelper.GetUserIdentifierType(ExecutionContext);
+            var auditSettings = ExecutionContext.Settings.GetBasicAuditing();
+            var hasCreatedBy = auditSettings.HasCreatedByField();
+            var hasCreatedDate = auditSettings.HasCreatedDateField();
+            var hasUpdatedBy = auditSettings.HasUpdatedByField();
+            var hasUpdatedDate = auditSettings.HasUpdatedDateField();
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddInterface($"IAuditable", @interface =>
                 {
-                    @interface.AddMethod("void", "SetCreated", method =>
+                    if (hasCreatedBy || hasCreatedDate)
                     {
-                        method.AddParameter(this.UseType(userIdType), "createdBy");
-                        method.AddParameter("DateTimeOffset", "createdDate");
-                    });
+                        @interface.AddMethod("void", "SetCreated", method =>
+                        {
+                            if (hasCreatedBy)
+                            {
+                                method.AddParameter(this.UseType(userIdType), "createdBy");
+                            }
+                            if (hasCreatedDate)
+                            {
+                                method.AddParameter("DateTimeOffset", "createdDate");
+                            }
+                        });
+                    }
 
-                    @interface.AddMethod("void", "SetUpdated", method =>
+                    if (hasUpdatedBy || hasUpdatedDate)
                     {
-                        method.AddParameter(this.UseType(userIdType), "updatedBy");
-                        method.AddParameter("DateTimeOffset", "updatedDate");
-                    });
+                        @interface.AddMethod("void", "SetUpdated", method =>
+                        {
+                            if (hasUpdatedBy)
+                            {
+                                method.AddParameter(this.UseType(userIdType), "updatedBy");
+                            }
+                            if (hasUpdatedDate)
+                            {
+                                method.AddParameter("DateTimeOffset", "updatedDate");
+                            }
+                        });
+                    }
                 });
         }
 

@@ -7,12 +7,25 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T09:34:36.2974356Z</updatedAt>
+      <updatedAt>2026-07-26T18:16:16.1033274Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T09:34:36.2975289Z</approvedAt>
-      <deviationsHash>7A636C4CCB1C4D046A6CE8E11462531D8A10437E198347F5BBF688D8CD33B532</deviationsHash>
+      <approvedAt>2026-07-26T18:33:29.3019581Z</approvedAt>
+      <deviationsHash>D9C964C9B31CB5C75C727AA3BDC909A4775B9AC5E8680EBD114794A2E42702EC</deviationsHash>
       <fileHash>FE3D6D6015B471D14744C8117B7834A60A9EF4AC321D719FEC948F343EE8E8AA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#e16737a1-3f42-4f22-a9b1-7cee4792284b</correlationId>
+      <path>EfCore.SecondLevelCaching.Domain/Repositories/IInvoiceRepository.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:16.1037538Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.3291618Z</approvedAt>
+      <deviationsHash>B6F2C15909B065DCE4FE36C0E28A80CA9AFF39B4130DD1D0394135078F18C808</deviationsHash>
+      <fileHash>7753C385E21FCA88368A11F335B0B7720317B8AC1581A99CB4CAD5DA285D48C9</fileHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#4e8768c2-035d-4a34-aff6-37d3af9abcd2</correlationId>
@@ -26,6 +39,19 @@
       <approvedAt>2026-07-10T09:12:32.2328478Z</approvedAt>
       <deviationsHash>82B05875D200416F658EDE42B6894193D334EA5831FE580733D2734C4ACA3D52</deviationsHash>
       <fileHash>ADE3C523EAFE1E0C372E82CF5FF1C1B9C1AE961FB4755DAB0DA4556E041B8A07</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.EntityFrameworkCore.Repositories.Repository#e16737a1-3f42-4f22-a9b1-7cee4792284b</correlationId>
+      <path>EfCore.SecondLevelCaching.Infrastructure/Repositories/InvoiceRepository.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:16.103904Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.3588475Z</approvedAt>
+      <deviationsHash>CE6E84496E392D069E534245D501A77D9BF57EF365CEF5159CBA92F988A88539</deviationsHash>
+      <fileHash>82BDCB5A61C5090EE879E8A4C806F60A4BDFC244F76B2E94C2D00166A999ECAC</fileHash>
     </file>
   </files>
 </deviationsLog>

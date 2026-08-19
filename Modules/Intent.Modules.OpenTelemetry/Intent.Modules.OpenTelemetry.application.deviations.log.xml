@@ -3,16 +3,13 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9ee62e7e-be4a-45e9-925a-92f7653bde12</correlationId>
-      <path>Intent.Modules.OpenTelemetry/Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs</path>
+      <path>Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2024-08-28T09:03:53.9098417Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T16:15:02.8208981Z</approvedAt>
-      <deviationsHash>31E06F80AAB7FC1D38F08000498D06EC499486CBC50BEA9015B0C5481798B6D6</deviationsHash>
-      <fileHash>E9E1C304B468EC0B2C344C3EEA88C7C3594CC1F50ADD7182555CA81CBA0F4B18</fileHash>
+      <updatedAt>2026-08-02T10:39:02.9572626Z</updatedAt>
+      <deviationsHash>6319D3A7337554508A087FA78E94521FF06660A0E1DEC69B1D39373DC7621B9E</deviationsHash>
+      <fileHash>1EA31424DE534090297EF090A1E3BB6AECABF78AEDE99C9CC9416EA4D6733B4B</fileHash>
     </file>
   </files>
 </deviationsLog>

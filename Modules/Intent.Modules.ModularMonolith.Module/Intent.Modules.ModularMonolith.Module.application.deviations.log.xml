@@ -2,13 +2,13 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.ModularMonolith.Module/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f6aadb0e-d5f8-4633-8842-8334bc912236</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-05-12T13:41:53.5360924Z</updatedAt>
-      <deviationsHash>8AE3626DBE9649A75EB74E923E7D5556732722121198E9F595BCC2B10DFF426E</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-02T10:37:44.0683833Z</updatedAt>
+      <deviationsHash>DA791A80E81AA4769FFD1E68C3ED7A8044BF4F73678A0A144905B29DE8101664</deviationsHash>
       <fileHash>2248154561447311C0F60619B7D82C0B16380557632C21D41F1CBE2ABBC61872</fileHash>
     </file>
   </files>

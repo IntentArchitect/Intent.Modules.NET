@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d5052dc-6360-46f0-a1e2-e4b81d90424e</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs</path>
+      <path>Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4d5052dc-6360-46f0-a1e2-e4b81d90424e</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/AuthorizeAttribute/AuthorizeAttributeTemplateRegistration.cs</path>
+      <path>Templates/AuthorizeAttribute/AuthorizeAttributeTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -26,7 +26,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fd12be89-437b-49b9-ba8f-6dba11f39d90</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplatePartial.cs</path>
+      <path>Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -36,7 +36,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fd12be89-437b-49b9-ba8f-6dba11f39d90</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplateRegistration.cs</path>
+      <path>Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -49,7 +49,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8b73f536-da3b-4b44-a0ce-6317c6ebb54d</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplatePartial.cs</path>
+      <path>Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -59,7 +59,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8b73f536-da3b-4b44-a0ce-6317c6ebb54d</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplateRegistration.cs</path>
+      <path>Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -72,7 +72,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68c81f7f-55ec-4466-961e-3cbdeda66f50</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/ResultModel/ResultModelTemplatePartial.cs</path>
+      <path>Templates/ResultModel/ResultModelTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -82,7 +82,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68c81f7f-55ec-4466-961e-3cbdeda66f50</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/ResultModel/ResultModelTemplateRegistration.cs</path>
+      <path>Templates/ResultModel/ResultModelTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -94,15 +94,12 @@
       <fileHash>A3082B5F3AB8BDEA0B225E7208EBD65E9E2AB7FA59AAAA5E8687D1D4C515CDA3</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.Application.Identity/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#e39313b1-d8b2-432a-bef2-f6c80398b7a6</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-06T09:33:33.6231114Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:58:32.3673871Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:54:45.935947Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>961BE9B921944519EB31066DA928F1F17076590D533959915A9547CF36AA9CAE</fileHash>
     </file>

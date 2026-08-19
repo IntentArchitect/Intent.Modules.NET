@@ -122,7 +122,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
                             if (this.TryGetMultiTenancyRoute(operation, out var _) && operation.Verb == HttpVerb.Post)
                             {
-                                method.AddParameter(UseType("Finbuckle.MultiTenant.ITenantInfo"), "tenantInfo");
+                                // Resolved from DI (IMultiTenantContextAccessor, non-generic) in the return
+                                // statement (see Utils.GetReturnStatement) rather than as an action parameter:
+                                // Finbuckle has never shipped an MVC model binder for ITenantInfo (true of both
+                                // 6.13.1 and 9.4.10), so a bare complex-type parameter here is inferred as
+                                // [FromBody] by ASP.NET Core's API-behavior conventions, conflicting with the
+                                // command's own [FromBody] parameter ("Only one parameter per action may be bound
+                                // from body"). IMultiTenantContextAccessor (non-generic) is registered by Finbuckle
+                                // alongside the closed-generic IMultiTenantContextAccessor<TTenantInfo>, so no
+                                // cross-module knowledge of the app's concrete TTenantInfo is required here.
+                                CSharpFile.AddUsing("Finbuckle.MultiTenant.Abstractions");
                             }
 
                             method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));

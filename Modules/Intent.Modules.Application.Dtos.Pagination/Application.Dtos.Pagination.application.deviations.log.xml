@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</correlationId>
-      <path>Intent.Modules.Application.Dtos.Pagination/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <path>Templates/PagedResult/PagedResultTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -16,7 +16,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#55b20827-bbff-4c99-bbbc-928b198ba9c6</correlationId>
-      <path>Intent.Modules.Application.Dtos.Pagination/Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplatePartial.cs</path>
+      <path>Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>

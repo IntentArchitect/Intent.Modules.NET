@@ -1,4 +1,4 @@
-using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Finbuckle.MultiTenant;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;

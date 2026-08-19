@@ -47,11 +47,17 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                 @class.AddMethod(GetDbContextName(), "CreateDbContext", method =>
                 {
                     method.AddParameter("string[]", "args");
-                    method.XmlComments.AddStatements(@"
+                    var defaultConnectionStringName = ExecutionContext.Settings.GetDatabaseSettings().DefaultConnectionStringName();
+                    if (string.IsNullOrWhiteSpace(defaultConnectionStringName))
+                    {
+                        defaultConnectionStringName = "DefaultConnection";
+                    }
+
+                    method.XmlComments.AddStatements($@"
 /// <inheritdoc />
 /// <param name=""args"">
 /// This is optional but will only accept 1 parameter which is the name of the connection string to lookup
-/// in a local appsettings.json file. By default this will use ""DefaultConnection"".
+/// in a local appsettings.json file. By default this will use ""{defaultConnectionStringName}"".
 /// </param>");
                     if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
                     {
@@ -68,7 +74,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                         .AddChainStatement("Build()"));
                     method.AddStatement("var connStringName = args.FirstOrDefault();");
                     method.AddIfStatement("string.IsNullOrEmpty(connStringName)", stmt => stmt
-                        .AddStatement(@"connStringName = ""DefaultConnection"";"));
+                        .AddStatement($@"connStringName = ""{defaultConnectionStringName}"";"));
 
                     const string connectionStringStatement = "var connectionString = configuration.GetConnectionString(connStringName);";
 
@@ -94,6 +100,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                             method.AddStatement("optionsBuilder.UseOracle(connectionString);");
                             break;
                         case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
+                        case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlLite:
                         default:
                             // NO OP
                             break;

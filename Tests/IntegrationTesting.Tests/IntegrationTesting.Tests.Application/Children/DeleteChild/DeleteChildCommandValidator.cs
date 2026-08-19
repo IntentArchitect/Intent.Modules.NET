@@ -15,6 +15,7 @@ namespace IntegrationTesting.Tests.Application.Children.DeleteChild
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

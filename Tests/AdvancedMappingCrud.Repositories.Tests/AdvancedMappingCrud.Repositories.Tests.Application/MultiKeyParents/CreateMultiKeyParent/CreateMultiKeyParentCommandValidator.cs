@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.MultiKeyParents.Cre
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)

@@ -21,11 +21,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBMultiTenantRepositoryOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            CSharpClass mainClass = null;
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.CosmosRepository.Options")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
                 .AddClass($"CosmosDBMultiTenantRepositoryOptions", @class =>
                 {
+                    mainClass = @class;
                     @class.WithBaseType("RepositoryOptions");
                     @class.AddField(this.GetCosmosDBMultiTenantClientProviderName(), "_clientProvider", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
@@ -45,13 +47,28 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions
                         p.Getter.WithExpressionImplementation("_clientProvider.GetDatabase()");
                         p.Setter.WithBodyImplementation("");
                     });
-                    @class.AddProperty("string?", "CosmosConnectionString", p =>
-                    {
-                        p.Override();
-                        p.Getter.WithExpressionImplementation("_clientProvider.Tenant?.ConnectionString");
-                        p.Setter.WithBodyImplementation("");
-                    });
                 });
+
+            // CosmosConnectionString is added inside OnBuild (deferred to the Build phase, after all templates
+            // across all modules are registered) because it needs GetTypeName to resolve
+            // Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo (no ProjectReference to that module - cross-
+            // module lookup by TemplateId). Base ITenantInfo/TenantInfo lost `ConnectionString` at Finbuckle 9.x, so
+            // `_clientProvider.Tenant` (typed ITenantInfo?) must be cast to the app's concrete extended tenant type
+            // to reach it. This template only runs for separate-database multi-tenancy (see CanRunTemplate);
+            // `MultiTenancyFactoryExtension` registers CosmosDB as a connection-string requester so
+            // TenantExtendedInfo always generates a named `CosmosDbConnection` property (not a bare
+            // `ConnectionString`) regardless of which other separate-database modules are also installed.
+            CSharpFile.OnBuild(file =>
+            {
+                var tenantInfoTypeName = this.GetTypeName("Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo");
+
+                mainClass.AddProperty("string?", "CosmosConnectionString", p =>
+                {
+                    p.Override();
+                    p.Getter.WithExpressionImplementation($"(({tenantInfoTypeName}?)_clientProvider.Tenant)?.CosmosDbConnection");
+                    p.Setter.WithBodyImplementation("");
+                });
+            }, 1000);
         }
 
         public override bool CanRunTemplate()

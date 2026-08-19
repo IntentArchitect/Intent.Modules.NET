@@ -15,6 +15,7 @@ namespace CosmosDB.Application.NonStringPartitionKeys.UpdateNonStringPartitionKe
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

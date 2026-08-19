@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.AzureServiceBus.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -122,7 +124,24 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
         
         public override void BeforeTemplateExecution()
         {
-            this.ApplyAppSetting("AzureServiceBus:ConnectionString", "");
+            var authMethods = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods() ?? [];
+            var useManagedIdentity = authMethods.Any(x => x.IsManagedIdentity());
+            var useKeyBased = !useManagedIdentity || authMethods.Any(x => x.IsKeyBased());
+
+            if (useManagedIdentity)
+            {
+                this.ApplyAppSetting("AzureServiceBus:FullyQualifiedNamespace", "your-namespace.servicebus.windows.net");
+            }
+
+            if (useKeyBased)
+            {
+                this.ApplyAppSetting("AzureServiceBus:ConnectionString", "");
+            }
+
+            if (useManagedIdentity && useKeyBased)
+            {
+                this.ApplyAppSetting("AzureServiceBus:AuthenticationMethod", "key-based");
+            }
         }
 
         [IntentManaged(Mode.Fully)]

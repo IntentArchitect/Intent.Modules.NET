@@ -15,6 +15,7 @@ namespace RichDomain.Application.People.DeletePerson
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

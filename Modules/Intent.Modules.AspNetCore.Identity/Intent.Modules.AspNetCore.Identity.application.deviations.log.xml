@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#a19eb475-d6da-44e4-b7a2-cdec585ebd98</correlationId>
-      <path>Intent.Modules.AspNetCore.Identity/FactoryExtensions/IdentityUserFactoryExtension.cs</path>
+      <path>FactoryExtensions/IdentityUserFactoryExtension.cs</path>
       <count>3</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
@@ -12,13 +12,13 @@
       <fileHash>94C65A4DF6ED04390B10C9E4CB542E6E908C46E318353AC326F21D6164FAB0D2</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
-      <path>Intent.Modules.AspNetCore.Identity/Templates/TemplateExtensions.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#6d7a40ca-2724-4b82-a678-0a48998710bb</correlationId>
+      <path>Templates/TemplateExtensions.cs</path>
       <count>2</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-06-20T07:05:50.064629Z</updatedAt>
-      <deviationsHash>03BC350A26C5D5CAFD39996AF4409C54BD4CFD71092DA30B3BFD453EDC7FBAD0</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-31T20:06:06.638958Z</updatedAt>
+      <deviationsHash>487D4E56351BCAC28A15B3CFD3A75E157E9B509018933AC8AAB592C09404960B</deviationsHash>
       <fileHash>51EAF598F420CB64A562366AB6DA6E5160BD37112B30222A7E523B43E58C94B1</fileHash>
     </file>
   </files>

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Cors</id>
   <version>3.3.16</version>
-  <supportedClientVersions>[4.3.0-a, 6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides a standard CORS policy for ASP.NET Core</summary>
   <description>Provides a standard CORS policy for ASP.NET Core</description>
@@ -23,7 +23,7 @@
   <decorators />
   <factoryExtensions />
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="4.0.2" />
+    <dependency id="Intent.AspNetCore" version="6.1.0" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

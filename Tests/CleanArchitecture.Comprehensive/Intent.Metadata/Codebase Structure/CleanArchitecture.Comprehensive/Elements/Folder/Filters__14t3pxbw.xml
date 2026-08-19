@@ -151,36 +151,24 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="46c8e1d3-d402-4697-ac8a-dc332f562c60" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</name>
-      <display>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</display>
-      <externalReference>Intent.NetTopologySuite</externalReference>
+    <childElement id="4afc01bb-26ac-4f0b-a06c-a908d35ae685" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</parentFolderId>
-      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
-      <packageName>CleanArchitecture.Comprehensive</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4afc01bb-26ac-4f0b-a06c-a908d35ae685" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="003e04d8-c7d6-4f25-976c-5756af4116fd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</name>
+      <display>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</display>
+      <externalReference>Intent.NetTopologySuite</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

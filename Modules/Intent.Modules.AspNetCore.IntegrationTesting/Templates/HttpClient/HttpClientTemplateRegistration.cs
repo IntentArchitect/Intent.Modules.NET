@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -40,6 +41,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClient
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceProxyModel> GetModels(IApplication application)
         {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                return Enumerable.Empty<IServiceProxyModel>();
+            }
+
             //Set StringSerialization here
             return _metadataManager.GetServicesAsProxyModels(application);
         }

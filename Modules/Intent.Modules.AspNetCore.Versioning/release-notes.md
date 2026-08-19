@@ -1,3 +1,8 @@
+### Version 1.1.14
+
+- Fixed: The versioning Swagger configuration is now applied to each ASP.NET Core project's Swashbuckle configuration, instead of failing the Software Factory when an application has more than one.
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 1.1.13
 
 - Improvement: Updated NuGet package versions.

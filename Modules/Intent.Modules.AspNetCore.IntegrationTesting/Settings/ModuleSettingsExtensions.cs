@@ -75,5 +75,44 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Settings
             ContainerPerTestClass,
             SharedContainer,
         }
+
+        public bool GenerateServiceProxiesForTesting() => bool.TryParse(_groupSettings.GetSetting("1ba26513-e4ac-41f2-bba6-311b2cc2153b")?.Value.ToPascalCase(), out var result) && result;
+        public IntegrationTestGenerationModeOptions IntegrationTestGenerationMode() => new IntegrationTestGenerationModeOptions(_groupSettings.GetSetting("1c5339c8-1f86-4058-af02-9fe200738fa3")?.Value);
+
+        public class IntegrationTestGenerationModeOptions
+        {
+            public readonly string Value;
+
+            public IntegrationTestGenerationModeOptions(string value)
+            {
+                Value = value;
+            }
+
+            public IntegrationTestGenerationModeOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "all" => IntegrationTestGenerationModeOptionsEnum.All,
+                    "explicit" => IntegrationTestGenerationModeOptionsEnum.Explicit,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsAll()
+            {
+                return Value == "all";
+            }
+
+            public bool IsExplicit()
+            {
+                return Value == "explicit";
+            }
+        }
+
+        public enum IntegrationTestGenerationModeOptionsEnum
+        {
+            All,
+            Explicit,
+        }
     }
 }

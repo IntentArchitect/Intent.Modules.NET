@@ -15,6 +15,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.ChangeName
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

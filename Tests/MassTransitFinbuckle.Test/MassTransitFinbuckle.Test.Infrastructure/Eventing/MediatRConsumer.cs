@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using MassTransitFinbuckle.Test.Infrastructure.Eventing.Messages;
-using MassTransitFinbuckle.Test.Services.RequestResponse;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -25,6 +25,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Finbuckle.MultiTenant")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
                 .AddClass($"FinbuckleMessageHeaderStrategy", @class =>
                 {
                     @class.ImplementsInterface("IMultiTenantStrategy")
@@ -63,7 +64,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
     }
 }

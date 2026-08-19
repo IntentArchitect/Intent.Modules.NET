@@ -15,6 +15,7 @@ namespace Solace.Tests.Application.NotMapped.NotMappedTest
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -34,6 +35,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceCon
 
         public override IEnumerable<IServiceProxyModel> GetModels(IApplication application)
         {
+            if (!application.Settings.GetIntegrationTestSettings().GenerateServiceProxiesForTesting())
+            {
+                return Enumerable.Empty<IServiceProxyModel>();
+            }
+
             return _metadataManager.GetServicesAsProxyModels(application);
         }
     }

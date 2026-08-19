@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9c1efbb7-a9d3-4d47-8eaf-58b7bcdc3ebc" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>5 - Aspire</name>
+  <display>5 - Aspire</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>658123a9-0af6-4af1-a389-a77990805a4f</parentFolderId>
+  <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

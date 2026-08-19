@@ -15,6 +15,7 @@ namespace CosmosDBMultiTenancy.Application.Invoices.CreateInvoice
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Number)

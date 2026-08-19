@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7327f865-ed9f-4f52-952e-124f7c1702e5</correlationId>
-      <path>Intent.Modules.ValueObjects/Templates/ValueObject/ValueObjectTemplatePartial.cs</path>
+      <path>Templates/ValueObject/ValueObjectTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:26:55.5135326Z</approvedAt>
       <deviationsHash>DBD10C5BCBE8F1B496CE7E579B9EF41AA4C0037BDD0EA304000EC762B709AB96</deviationsHash>
-      <fileHash>B9CCEED4E52660752FABFCA4F8018CB0BA9C458254417473EEDA7256ADCE1797</fileHash>
+      <fileHash>D117BDF1F53C5703A436C80E71CB1377201EBC4AD673C6B9CA5205FDFF94CF2A</fileHash>
     </file>
   </files>
 </deviationsLog>

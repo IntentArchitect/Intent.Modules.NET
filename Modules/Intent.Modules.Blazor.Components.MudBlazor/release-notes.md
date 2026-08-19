@@ -1,7 +1,10 @@
-### Version 2.0.2-pre.0
+### Version 2.0.3
 
-- Fixed: Creating a WASM (`interactive-web-assembly` / `interactive-auto`) application without the `Intent.Blazor.Authentication` module installed no longer throws `DirectoryNotFoundException` during generation.
 - Improvement: Each bundled AI skill's sample files are no longer overwritten once that skill's own `SKILL.md` has been hand-edited, on the assumption you have taken over maintenance of the whole skill.
+
+### Version 2.0.2
+
+- Fixed: Software Factory crashed wiring up MudBlazor when Blazor components were generated into an application with more than one ASP.NET Core host. MudBlazor registration and CSS now apply to each Blazor host correctly.
 
 ### Version 2.0.1
 

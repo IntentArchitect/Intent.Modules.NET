@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Entities.DomainEntity#5a61799b-65bd-41cc-a32b-5312d2dc0734</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Order.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:08:28.3258844Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:31.3059835Z</approvedAt>
+      <deviationsHash>5B2FBABEFC522C2A7E9B138A71E22891FCB0C74DA11E5CD51C883B9146C40504</deviationsHash>
+      <fileHash>65507AA72AF5AA670985CF9F92B7EAB8CD97C7CA24191A323DEB23781FA31862</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#e6c6f57e-93d8-4b3f-8800-308471de0af6</correlationId>
       <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure.csproj</path>
       <count>1</count>

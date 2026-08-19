@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5e6a2761-b883-495c-a3b9-1309933b6f43</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</path>
+      <path>FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -13,37 +13,27 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c1877186-0dcd-40c7-9c3e-4756dc0dae42</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs</path>
+      <path>FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs</path>
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-07-06T12:32:39.3288898Z</updatedAt>
       <deviationsHash>55B564D16D3D08EBA3FA2654DC3D85452C03D417126C3DF4AFCC2D8FB133F952</deviationsHash>
-      <fileHash>AA03219D6C60B70C0683E436A186F7FD96354E6E48A005400AB25837F708BE1B</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#a5803c32-0454-4111-9e1d-168e5bf6cb10</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-08T16:14:05.8990227Z</updatedAt>
-      <deviationsHash>68D563CF60FFDF4B8BF43C8FBA12485C4F2E6C4CACB9576339AEE813B966204D</deviationsHash>
-      <fileHash>B8565249C2A28B9FBA31980425210BB959FCF5C4ACD641CDA179A6CDDCEAA9C6</fileHash>
+      <fileHash>FD812AFEAC78A3CF36E8774CF544132B73DD3540EF3E6A98C75A4E0D3EDDD185</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextTemplatePartial.cs</path>
+      <path>Templates/DbContext/DbContextTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-05-28T13:37:34.8405796Z</updatedAt>
       <deviationsHash>FA7A431AB9EEC76019EC79F9E5B06AB565636236D6214F0E19F6A1BEA28D44FE</deviationsHash>
-      <fileHash>AB918E8B2D4E8151C18E5CC135B3D45AD9F7257D54CD4CBF495CDCEF3CBC04A3</fileHash>
+      <fileHash>D3AE4229A1E36B3F38854DD74F91AE9670C1DD7E1830395A3EF9522DAC3020FB</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextTemplateRegistration.cs</path>
+      <path>Templates/DbContext/DbContextTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -52,11 +42,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:20:32.9380873Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>A27976A84DA17645B785EAB01CB78AA98A3B52D6396B9E505DF45CE15C447D8E</fileHash>
+      <fileHash>5112C4CDBF4D33814EA47F2BDC2A0B59CA70D035634177E7F5DFB808D5C0FA1F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#8dca43ad-a912-4d76-aca9-4eaf77d6127a</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
+      <path>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -65,11 +55,11 @@
       <approvedByDisplayName>JP Seini</approvedByDisplayName>
       <approvedAt>2025-10-21T11:02:26.678108Z</approvedAt>
       <deviationsHash>0A231C2890C50F2C301427C454F6699516FF286FA8F03AA8B17E6D54F5CBEAA5</deviationsHash>
-      <fileHash>C0911E1A1AE081A7BBE2982CEE9A2D33EEA870ACBDAACA288DF5F6E6C64F1619</fileHash>
+      <fileHash>BDA605BFED59EF9BCBA46B3B4C7D5F3CF4DFF913D2147A18E15D3B8211687086</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
+      <path>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -79,7 +69,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</path>
+      <path>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -89,7 +79,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/PagedList/PagedListTemplatePartial.cs</path>
+      <path>Templates/PagedList/PagedListTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

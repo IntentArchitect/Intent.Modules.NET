@@ -14,5 +14,18 @@
       <deviationsHash>6AD89FD62134D598AA8F2FA87A10384F60F4D614A19B07833693BAE6175A6CF8</deviationsHash>
       <fileHash>DE9D24EA617A9F70696C49114322E4CF55F125FCA34E6FD85F6CDA93F7315746</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.EntityFrameworkCore.Repositories.Repository#2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</correlationId>
+      <path>EfCoreSoftDelete.Infrastructure/Repositories/CustomerRepository.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:16:15.9845112Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:33.1846134Z</approvedAt>
+      <deviationsHash>D7ADF2767D19E95DC88C2BD4C7DEA85F28EAFC76ACB790C342B8EEF726C801E6</deviationsHash>
+      <fileHash>1EF26B928D1F502A209E6170F81892A6B6BB5F19FC25B89FB7E63D6FAD681DC0</fileHash>
+    </file>
   </files>
 </deviationsLog>

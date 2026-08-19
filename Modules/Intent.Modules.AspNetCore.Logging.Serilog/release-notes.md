@@ -1,3 +1,8 @@
+### Version 5.3.9
+
+- Fixed: Serilog configuration no longer fails the Software Factory when an application has multiple ASP.NET Core projects. Each project's `Program` file is now configured independently, so its own hosting model is honoured.
+- Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
+
 ### Version 5.3.8
 
 - Improvement: Updated NuGet package versions.

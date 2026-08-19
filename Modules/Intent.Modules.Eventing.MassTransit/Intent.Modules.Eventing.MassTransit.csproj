@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>7.1.2</Version>
+    <Version>7.2.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2023</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
-	  <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.12" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.10.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="5.0.3" />
@@ -27,7 +27,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.11.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.13.0" />
   </ItemGroup>
 
   <ItemGroup>

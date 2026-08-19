@@ -6,6 +6,7 @@ using Intent.Exceptions;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject;
 using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.OutputTargets
@@ -23,10 +24,12 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
 
         public void Register(IOutputTargetRegistry registry, IApplication application)
         {
+            var outputLocationOptions = application.GetOutputLocationOptions(_metadataManager);
+
             var models = _metadataManager.GetAllProjectModels(application);
             foreach (var model in models)
             {
-                registry.RegisterOutputTarget(model.ToOutputTargetConfig());
+                registry.RegisterOutputTarget(new ProjectConfig(model, outputLocationOptions));
                 foreach (var folder in model.Folders.DetectDuplicates())
                 {
                     Register(registry, folder);
@@ -40,7 +43,7 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 var rootFolders = _metadataManager.CodebaseStructure(application).GetRootFolderModels();
                 foreach (var rootFolder in rootFolders)
                 {
-                    registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig());
+                    registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig(outputLocationOptions));
                     foreach (var f in rootFolder.Folders)
                     {
                         Register(registry, f);
@@ -51,13 +54,13 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
             var solutionFolders = _metadataManager.CodebaseStructure(application).GetSolutionFolderModels();
             foreach (var solutionFolder in solutionFolders)
             {
-                registry.RegisterOutputTarget(solutionFolder.ToOutputTarget());
+                registry.RegisterOutputTarget(solutionFolder.ToOutputTarget(outputLocationOptions));
             }
 
             var javaScriptProjects = _metadataManager.CodebaseStructure(application).GetJavaScriptProjectModels();
             foreach (var model in javaScriptProjects)
             {
-                registry.RegisterOutputTarget(model.ToOutputTargetConfig());
+                registry.RegisterOutputTarget(new JavaScriptProjectConfig(model, outputLocationOptions));
                 foreach (var folder in model.Folders.DetectDuplicates())
                 {
                     Register(registry, folder);

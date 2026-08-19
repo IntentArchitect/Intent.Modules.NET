@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.9.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
@@ -16,7 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.11.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.0" />
   </ItemGroup>
 
   <ItemGroup>

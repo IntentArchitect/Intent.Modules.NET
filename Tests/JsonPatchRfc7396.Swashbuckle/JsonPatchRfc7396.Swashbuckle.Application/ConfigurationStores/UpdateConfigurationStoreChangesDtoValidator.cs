@@ -16,6 +16,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.ConfigurationStores
             ConfigureValidationRules(provider);
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Key)

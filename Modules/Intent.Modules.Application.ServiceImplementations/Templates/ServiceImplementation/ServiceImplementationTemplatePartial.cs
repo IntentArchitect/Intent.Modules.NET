@@ -32,8 +32,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public const string TemplateId = "Intent.Application.ServiceImplementations.ServiceImplementation";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ServiceImplementationTemplate(IOutputTarget outputTarget, ServiceModel model)
-            : base(TemplateId, outputTarget, model)
+        public ServiceImplementationTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultTypeCollectionFormat("List<{0}>");
 

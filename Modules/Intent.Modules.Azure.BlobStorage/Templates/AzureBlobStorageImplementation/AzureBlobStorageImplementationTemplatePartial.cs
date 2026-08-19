@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Azure.BlobStorage.Settings;
 using Intent.Modules.Azure.BlobStorage.Templates.BlobStorageInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -28,7 +30,25 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.AzureBlobStorageImplementat
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
+            var authMethods = ExecutionContext.Settings.GetBlobStorageSettings().AuthenticationMethods() ?? [];
+            var useManagedIdentity = authMethods.Any(x => x.IsManagedIdentity());
+            var useKeyBased = !useManagedIdentity || authMethods.Any(x => x.IsKeyBased());
+
+            if (useManagedIdentity)
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorageServiceUri", "https://<storage-account>.blob.core.windows.net"));
+            }
+
+            if (useKeyBased)
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
+            }
+
+            if (useManagedIdentity && useKeyBased)
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorageAuthenticationMethod", "key-based"));
+            }
+
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForInterface(GetTemplate<IClassProvider>(BlobStorageInterfaceTemplate.TemplateId))
                 .ForConcern("Infrastructure"));

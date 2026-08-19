@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="e7e8737e-15eb-4336-a011-0aa014d9ea2c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.12.2</name>
-      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,79 +47,100 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="352c09e0-1823-4a4f-b0c7-a7c410a084b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificateless</name>
+        <childElement id="f13865e6-bb0d-4af7-9005-0107f9b4d3dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificate</name>
+          <display>Microsoft.Identity.Web.Certificate (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f13865e6-bb0d-4af7-9005-0107f9b4d3dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificate</name>
+        <childElement id="352c09e0-1823-4a4f-b0c7-a7c410a084b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificateless</name>
+          <display>Microsoft.Identity.Web.Certificateless (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="02a1160d-ab88-4736-9d7b-ec1109eda11a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f7f28121-23f7-488c-b9a2-21bce5a8f920" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
+          <display>Microsoft.Identity.Web.TokenCache (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="cb68d6a0-ced8-4626-9e23-59c5a553d475" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="7d897bc2-c816-4b9b-8bb9-2faf1c8241b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
+          <display>Microsoft.IdentityModel.Validators (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fe923d93-b4ea-4924-bbeb-081a7c6fc55e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -128,7 +149,7 @@
     </childElement>
     <childElement id="3983c377-ddac-406d-8ad7-17dc41ce75e6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.12.2</name>
-      <display>3.9.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>4.12.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -149,156 +170,198 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0a4c52dd-3048-4435-b62a-3a0a66484896" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificateless</name>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e56dae46-8691-492c-82f4-3a5e99bbad10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificate</name>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="419895d5-c613-42a5-b5e2-b04b0532ba1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="49b5e950-8b99-4878-a007-af62bc2cb1f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.TokenCache</name>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="5f9e0d02-55fc-485b-ae9f-e4d9ab1ceb41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.DataProtection</name>
+          <display>Microsoft.AspNetCore.DataProtection (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="69cab5eb-cdaf-4adb-9bf5-a38660e52325" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="46164774-ab3a-4f1c-b299-e5de0ed2e605" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="67e3f80a-0d7a-466d-b5a4-070f5963becd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e56dae46-8691-492c-82f4-3a5e99bbad10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificate</name>
+          <display>Microsoft.Identity.Web.Certificate (4.12.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.12.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a4c52dd-3048-4435-b62a-3a0a66484896" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificateless</name>
+          <display>Microsoft.Identity.Web.Certificateless (4.12.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.12.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="419895d5-c613-42a5-b5e2-b04b0532ba1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.12.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="49b5e950-8b99-4878-a007-af62bc2cb1f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.TokenCache</name>
+          <display>Microsoft.Identity.Web.TokenCache (4.12.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.12.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="98282c6d-b60f-4c5f-b084-ad1f420a76c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="838e18a3-410a-4e49-851b-f2bae598afec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
+          <display>Microsoft.IdentityModel.Validators (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="976cdf53-9d27-433c-9985-0fb67035aa68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
+          <display>System.Formats.Asn1 (10.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="63739af0-b60c-41ff-be84-3046deb61185" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5675fa45-d350-42f9-82f0-aa273fb616cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Xml</name>
+          <display>System.Security.Cryptography.Xml (4.7.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="872caa2d-42ab-4514-8747-be4aa4faa2d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (8.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -307,7 +370,7 @@
     </childElement>
     <childElement id="0e5bbf81-b9b2-475e-b270-f1b895c85840" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.12.2</name>
-      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -328,79 +391,100 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4b677a63-eabe-4d11-85dd-4b36b7399f93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificateless</name>
+        <childElement id="9a164724-fb7f-4e3b-97d0-24d6827674b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificate</name>
+          <display>Microsoft.Identity.Web.Certificate (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9a164724-fb7f-4e3b-97d0-24d6827674b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificate</name>
+        <childElement id="4b677a63-eabe-4d11-85dd-4b36b7399f93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificateless</name>
+          <display>Microsoft.Identity.Web.Certificateless (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e4de39e0-5842-4a16-90e8-7aac6e57fa1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5c928e8a-eb95-45d8-a2cd-cac6923b9513" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
+          <display>Microsoft.Identity.Web.TokenCache (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a9a309e0-8461-44c1-87e0-f37d85d91a95" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="24c81721-711a-45a4-a9d7-d870ed0b0f60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
+          <display>Microsoft.IdentityModel.Validators (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bb29a81e-66b1-4c90-b394-ac23428d56cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -409,10 +493,14 @@
     </childElement>
     <childElement id="19e2c68c-8301-40bd-836c-135ad34361e9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.12.2</name>
+      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>acc298c5-b66d-4b70-b11e-5a1470c7bf96</parentFolderId>
+      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+      <packageName>Intent.Security.MSAL</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -426,79 +514,100 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ce2a2db7-cd13-4a1d-9379-7f140d317cde" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificateless</name>
+        <childElement id="1a4fc14c-632c-4901-861e-82cd5a5db55a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificate</name>
+          <display>Microsoft.Identity.Web.Certificate (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1a4fc14c-632c-4901-861e-82cd5a5db55a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.Certificate</name>
+        <childElement id="ce2a2db7-cd13-4a1d-9379-7f140d317cde" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.Certificateless</name>
+          <display>Microsoft.Identity.Web.Certificateless (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ed804412-1d4a-4977-8ed0-cf14e0e69c28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="559d561c-ed2f-4120-8253-9652f0ba1548" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
+          <display>Microsoft.Identity.Web.TokenCache (4.12.2)</display>
           <isAbstract>false</isAbstract>
           <value>4.12.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c41687a0-72de-449b-b256-b39eea4578b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="512ad18a-c375-4a37-9f82-33551e87154e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
+          <display>Microsoft.IdentityModel.Validators (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="b0335fea-1e5d-4465-acc3-3bc2b31f3356" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.19.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e2c68c-8301-40bd-836c-135ad34361e9</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />

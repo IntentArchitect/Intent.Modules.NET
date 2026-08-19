@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="Api/ScheduledCommandPublishModelAssociationExtensions.cs" state="ignored" />
     <file relativePath="Intent.Modules.QuartzScheduler/Api/ScheduledCommandPublishModelAssociationExtensions.cs" state="ignored" />
   </files>
 </outputFiles>

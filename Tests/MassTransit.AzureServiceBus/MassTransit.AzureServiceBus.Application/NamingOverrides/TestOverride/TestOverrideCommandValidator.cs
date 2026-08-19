@@ -15,6 +15,7 @@ namespace MassTransit.AzureServiceBus.Application.NamingOverrides.TestOverride
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

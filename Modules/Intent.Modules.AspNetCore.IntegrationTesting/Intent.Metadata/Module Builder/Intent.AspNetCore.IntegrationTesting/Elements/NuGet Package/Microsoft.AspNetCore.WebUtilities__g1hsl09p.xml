@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d2ccd98c-2d87-488c-a313-99d8dedd26e5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="0204f624-496d-40fe-aadc-3eda2e919c5b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d2ccd98c-2d87-488c-a313-99d8dedd26e5</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -62,7 +65,7 @@
     </childElement>
     <childElement id="758c5827-28af-4041-9fa3-80d8534cf26a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.11</name>
-      <display>2.3.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -85,22 +88,28 @@
       <childElements>
         <childElement id="0d7b0e49-0c39-414a-b59f-c494af58a8ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (2.3.10)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>758c5827-28af-4041-9fa3-80d8534cf26a</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a0fd1884-974d-4872-86a4-9105e4e037b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>758c5827-28af-4041-9fa3-80d8534cf26a</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -109,7 +118,7 @@
     </childElement>
     <childElement id="9fb50e74-65e1-47c0-a1c6-1881d8cc9d0d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.28</name>
-      <display>8.0.23 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -132,22 +141,28 @@
       <childElements>
         <childElement id="df4c016a-dad4-4b8c-8feb-e49e93c2e742" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (8.0.28)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.28</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9fb50e74-65e1-47c0-a1c6-1881d8cc9d0d</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bb6d1cb5-3698-4b74-b805-f9a35b3a4fdb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9fb50e74-65e1-47c0-a1c6-1881d8cc9d0d</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -156,7 +171,7 @@
     </childElement>
     <childElement id="46878a4b-e3aa-4663-ae78-66f4bb8b4944" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.17</name>
-      <display>9.0.12 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -179,11 +194,14 @@
       <childElements>
         <childElement id="d03713b6-b24f-4eda-97e9-a5ee12b0b3b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (9.0.17)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>46878a4b-e3aa-4663-ae78-66f4bb8b4944</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />

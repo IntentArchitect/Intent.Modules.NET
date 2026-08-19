@@ -29,7 +29,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
-                .AddUsing("Finbuckle.MultiTenant.Stores")
+                .AddUsing("Finbuckle.MultiTenant.Abstractions")
+                .AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore.Stores.EFCoreStore")
                 .AddUsing("Microsoft.EntityFrameworkCore")
                 .AddClass("MultiTenantStoreDbContext", @class => @class
                     .WithBaseType("EFCoreStoreDbContext<TenantInfo>")

@@ -4,10 +4,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.HotChocolate.GraphQL.Models;
-using Intent.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using GraphQLMutationTypeModel = Intent.Modules.HotChocolate.GraphQL.Models.GraphQLMutationTypeModel;
@@ -30,6 +30,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
 
         public override string TemplateId => MutationTypeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IGraphQLMutationTypeModel model)
         {
             return new MutationTypeTemplate(outputTarget, model);

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#FFD54A85-9362-48AC-B646-C93AB9AC63D2</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETCoreWebApplicationModel.cs</path>
+      <path>Api/ASPNETCoreWebApplicationModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -13,7 +13,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8AF747CF-58F0-449C-8B95-46080FEFC8C0</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETWebApplicationNETFrameworkModel.cs</path>
+      <path>Api/ASPNETWebApplicationNETFrameworkModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -23,7 +23,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/AzureFunctionsProjectModel.cs</path>
+      <path>Api/AzureFunctionsProjectModel.cs</path>
       <count>7</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
@@ -33,7 +33,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETCoreModel.cs</path>
+      <path>Api/ClassLibraryNETCoreModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -43,7 +43,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETFrameworkModel.cs</path>
+      <path>Api/ClassLibraryNETFrameworkModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -53,7 +53,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#27b265c8-e185-4c33-9908-8d23d5e945d1</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETCoreModel.cs</path>
+      <path>Api/ConsoleAppNETCoreModel.cs</path>
       <count>7</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
@@ -63,7 +63,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETFrameworkModel.cs</path>
+      <path>Api/ConsoleAppNETFrameworkModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -73,7 +73,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8e9e6693-2888-4f48-a0d6-0f163baab740</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/CSharpProjectNETModel.cs</path>
+      <path>Api/CSharpProjectNETModel.cs</path>
       <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -83,7 +83,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#69af0b31-9d69-4b5a-a6a2-fc9314f11d92</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/JavaScriptProjectModel.cs</path>
+      <path>Api/JavaScriptProjectModel.cs</path>
       <count>2</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
@@ -93,7 +93,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#65fb2757-ce97-41a8-9c53-b03d53c2c03f</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/NETCoreVersionModel.cs</path>
+      <path>Api/NETCoreVersionModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -106,7 +106,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#6453c4bd-78b8-4589-a223-9f57a348a1a1</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/NETFrameworkVersionModel.cs</path>
+      <path>Api/NETFrameworkVersionModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -119,7 +119,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#9edf270e-3f38-406c-ac94-07b9737bb531</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/RuntimeEnvironmentModel.cs</path>
+      <path>Api/RuntimeEnvironmentModel.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -132,7 +132,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0b49ae99-c1c2-46c7-a4e3-41591e0118e1</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/ServiceFabricProjectModel.cs</path>
+      <path>Api/ServiceFabricProjectModel.cs</path>
       <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -142,17 +142,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0dc2b846-c968-49eb-99b7-8776919313a8</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/SolutionFolderModel.cs</path>
-      <count>17</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0080541Z</updatedAt>
-      <deviationsHash>A49EC86C8A7C49BB2DCB1453AB994191EDA541972581EAB03F78239CFE9E6E7A</deviationsHash>
-      <fileHash>D656E53C363B0841C8A8B1BA8278BC46E1A2F55E775DDA3F427594F70AC166AE</fileHash>
+      <path>Api/SolutionFolderModel.cs</path>
+      <count>18</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-30T16:11:51.7902276Z</updatedAt>
+      <deviationsHash>18218618EEE623143433EDB029270D27F0DCFB0B4A2720CE5E69DD413323AAF5</deviationsHash>
+      <fileHash>C3AC205CCAEB0B15ED6A19F7166BA0F4C0A8EC7440D01060CFC790ABEA1374A2</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#00D1A9C2-B5F0-4AF3-8072-F6C62B433612</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/SQLServerDatabaseProjectModel.cs</path>
+      <path>Api/SQLServerDatabaseProjectModel.cs</path>
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -162,7 +162,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#769a45a2-119f-434f-8c27-bd4a399b915c</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/VisualStudioSolutionModel.cs</path>
+      <path>Api/VisualStudioSolutionModel.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -172,7 +172,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3CDFF513-03D8-4BAB-9435-160108A086A3</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/WCFServiceApplicationModel.cs</path>
+      <path>Api/WCFServiceApplicationModel.cs</path>
       <count>12</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -182,7 +182,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions#a59dce69-7866-4648-a195-1e0a012f01b2</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/ApiMetadataProviderExtensions.cs</path>
+      <path>ApiMetadataProviderExtensions.cs</path>
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -192,17 +192,27 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8b11dd91-de7f-48c0-a4a9-206b1108d703</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/FactoryExtensions/VisualStudioSolutionSyncProcessor.cs</path>
-      <count>3</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0084727Z</updatedAt>
-      <deviationsHash>5B57F4FDCB7E80EC2013BD399FA00153D21B1B471390C4CA6BA9B2B702AA97F4</deviationsHash>
-      <fileHash>BB4CFAD0ECBE15368B79D806A728D26C0C0187FB2852FD27B3A7A1E173F63708</fileHash>
+      <path>FactoryExtensions/VisualStudioSolutionSyncProcessor.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7711152Z</updatedAt>
+      <deviationsHash>CE218AB28201E621454814A7B5FADA888938AAD88E71E9B937C131158F1798B6</deviationsHash>
+      <fileHash>832B535D9EC094EB3C26C3F45A91B443BD46E02CB78ED5FCB33A6F6520073858</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#1b363e2e-7027-4c88-a488-be51864a8eae</correlationId>
+      <path>NugetPackages.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7698364Z</updatedAt>
+      <deviationsHash>B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104</deviationsHash>
+      <fileHash>FD85FAAE2245BBE9262FB4E83C61C29C0FAFCA3F88401F9B1E28DE0D45D7EF24</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e305389f-befa-46ce-96d3-1f50fe7199ea</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs</path>
+      <path>Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -215,7 +225,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#e305389f-befa-46ce-96d3-1f50fe7199ea</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</path>
+      <path>Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -228,7 +238,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#bb4e8c29-f58b-4191-b034-61d9d9793637</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs</path>
+      <path>Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -237,11 +247,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7766811Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>B912969DE13100283AA9B38140C4A38B1AB19954A918EE158B9D57658B25F23A</fileHash>
+      <fileHash>2D1929AC2D46C36B3A19CF2B10BB883EE34354040C5174848D74DF0581C3674E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#e2ec6205-819b-4c6c-8bbd-b15dd573c525</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs</path>
+      <path>Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs</path>
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -254,7 +264,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</path>
+      <path>Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -263,11 +273,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7846587Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>7AD43355CCE7EA538678973B5425424DDD3565D69C7BCD6FD94283BB01E3F0F7</fileHash>
+      <fileHash>610ADAFF01A52BDC684527A124A9B1C69579E0327DA199044583B795E3187837</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</path>
+      <path>Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -280,7 +290,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs</path>
+      <path>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs</path>
       <count>2</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
@@ -290,17 +300,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
+      <path>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-04-20T12:09:10.0088998Z</updatedAt>
       <deviationsHash>369952E693151AB674EBCFE1D33C9FA81B339B4DBEA546C9904C3854CF5AFE51</deviationsHash>
-      <fileHash>43FC61CF36020B1993399DF807FC74B84B1C4F71F553A34F581762EE182C055B</fileHash>
+      <fileHash>AF3D675FA3A363DFE3A14D7110733C69BACD60A38E38A9D024D286C0DBCF5813</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs</path>
+      <path>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
@@ -309,11 +319,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.795107Z</approvedAt>
       <deviationsHash>6D944B68C67E0F3D844AF312A2401B2370272FFAABABA14E5883C8E8698CB505</deviationsHash>
-      <fileHash>57252045D9988DFEF8E5D3874BF08273B829385C5D1D7737E1E6A18008E4BB8C</fileHash>
+      <fileHash>8D9274463B45B63C317E193A6662A695D767B11834EF57FE0AB220A0A7A28122</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#20d3fffa-8d62-4f26-b4b7-5c9360db382b</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/GitIgnore/GitIgnoreTemplate.cs</path>
+      <path>Templates/GitIgnore/GitIgnoreTemplate.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -326,7 +336,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#20d3fffa-8d62-4f26-b4b7-5c9360db382b</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/GitIgnore/GitIgnoreTemplatePartial.cs</path>
+      <path>Templates/GitIgnore/GitIgnoreTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -335,11 +345,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T16:16:52.9899794Z</approvedAt>
       <deviationsHash>6AD72C4C8537814BB092DE1D79DFFE0902BB84090819D31067ABCE42AB42DA1C</deviationsHash>
-      <fileHash>70BA47CC970ECD5B91C70A0A0EAE1720F9606193DB65BCC6F59408168D889CD5</fileHash>
+      <fileHash>47F97BA856F498CE5A0C79E79B32222D258D55F14E31D2C771ADBE579C1DE741</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#20d3fffa-8d62-4f26-b4b7-5c9360db382b</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/GitIgnore/GitIgnoreTemplateRegistration.cs</path>
+      <path>Templates/GitIgnore/GitIgnoreTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -348,11 +358,11 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T16:16:52.9914216Z</approvedAt>
       <deviationsHash>F76FBAF3842459C7A8F44D5187DB9A8F4EED856B62C030FB176243020416511A</deviationsHash>
-      <fileHash>802A8A36906E513D3B26CC299D5C4770595A0DE3D403640B7B1AAE3E5FBBF42D</fileHash>
+      <fileHash>3228280BD7A45161299F8DC372C5571D55E227A9264CDDE10F25604BC8EB5A9C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4144a321-e6b5-4ada-9dec-ef35ab8ea5b0</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplatePartial.cs</path>
+      <path>Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -362,7 +372,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#489d8e66-7e12-48ec-9290-23f5ac3bf323</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</path>
+      <path>Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -372,7 +382,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#129b738d-a396-4c5a-8ffe-9c1a50a1b392</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/StartupServices/StartupServicesTemplatePartial.cs</path>
+      <path>Templates/ServiceFabric/StartupServices/StartupServicesTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -382,17 +392,17 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-05-08T10:09:27.0975313Z</updatedAt>
-      <deviationsHash>0CBC0EC0AFC3D47B1EB1FB5B35A6A9735DA09E4AA6E5498376C365348E8B975A</deviationsHash>
+      <path>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-22T09:02:58.7789031Z</updatedAt>
+      <deviationsHash>9D865C1AD3502E297A4BB245F05119D34E47FD40E31B84FC3FC4A305441725C3</deviationsHash>
       <fileHash>B2F09AD37E7A2491CFD4C06422D11FC8765700EE545973B363DAD6422C6FD704</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs</path>
+      <path>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>

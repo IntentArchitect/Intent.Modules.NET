@@ -146,6 +146,28 @@ namespace SharedKernel.Kernel.Tests.Infrastructure.Repositories
             return await QueryInternal(queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression, queryOptions).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<TDomain?> FindFirstAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).FirstOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
         public virtual async Task<List<TDomain>> FindAllAsync(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)

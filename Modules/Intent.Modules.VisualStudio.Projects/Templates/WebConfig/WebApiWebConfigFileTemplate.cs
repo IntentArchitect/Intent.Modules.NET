@@ -29,8 +29,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
         public WebApiWebConfigFileTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
             : base(IDENTIFIER, project, null)
         {
-            eventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
-            eventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
+            OnEmitOrPublished<AppSettingRegistrationRequest>(HandleAppSetting);
+            OnEmitOrPublished<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
         public override string GetCorrelationId()

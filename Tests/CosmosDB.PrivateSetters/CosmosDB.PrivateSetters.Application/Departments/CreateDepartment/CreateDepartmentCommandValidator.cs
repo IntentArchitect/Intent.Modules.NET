@@ -15,6 +15,7 @@ namespace CosmosDB.PrivateSetters.Application.Departments.CreateDepartment
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

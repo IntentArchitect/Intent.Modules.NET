@@ -4,11 +4,13 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
+using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -65,13 +67,26 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
         private static void RegisterStartup(IApplication application)
         {
-            var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            startup?.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyServer(startup.OutputTarget));
-
-            startup?.CSharpFile.AfterBuild(file =>
+            // AppStartup is host-scoped, and a multi-host application can have more than one ASP.NET
+            // Core host. Blazor's startup wiring belongs only on the host(s) that actually carry Blazor
+            // components (i.e. have an AppRazorTemplate instance), which can itself be more than one -
+            // never a plain API host with no Blazor components. Resolve each Blazor host's own output
+            // target and scope the startup lookup to it, rather than the application-wide lookup, which
+            // throws once a second host exists.
+            foreach (var appRazorTemplate in application.FindTemplateInstances<IIntentTemplate>(AppRazorTemplate.TemplateId))
             {
-                startup.StartupFile.ConfigureServices((statements, context) =>
+                var startup = appRazorTemplate.OutputTarget.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+                if (startup is null)
                 {
+                    continue;
+                }
+
+                startup.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyServer(startup.OutputTarget));
+
+                startup.CSharpFile.AfterBuild(file =>
+                {
+                    startup.StartupFile.ConfigureServices((statements, context) =>
+                    {
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Services}.AddRazorComponents()");
                     if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
                     {
@@ -172,6 +187,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     statements.AddStatement(addRazorComponents);
                 });
             });
+            }
         }
 
         private static void ApplyAddAuthorizationConfiguration(IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)

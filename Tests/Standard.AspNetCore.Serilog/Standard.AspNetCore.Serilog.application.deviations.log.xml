@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#74588452-13aa-421a-8433-c34e720119e2</correlationId>
+      <path>Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLoggingHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:29:31.0405253Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.390836Z</approvedAt>
+      <deviationsHash>F28E4622F7CAA98DA8EF09A0FE24916DAAED2D7EBD2112EA15B16086A5DD83B6</deviationsHash>
+      <fileHash>1DC08A46315550E689AD01C41BF175416A79A26940C4216300DFF48DED2F146B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#8772e743-5bf4-4405-bcac-9f10dd7e1a75</correlationId>
+      <path>Standard.AspNetCore.Serilog.Application/Testing/PerformSmallObjectLogging/PerformSmallObjectLoggingHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:29:31.0405403Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:29.4315585Z</approvedAt>
+      <deviationsHash>EF4D7A840168BF6159E1A62E7225B77608A83D702795D547583C25BE1022C7E7</deviationsHash>
+      <fileHash>60BECE6C5781B02287C3AFF71DA0B996A41F00E3D4786DD37E65AE63CB1C359A</fileHash>
+    </file>
+  </files>
 </deviationsLog>

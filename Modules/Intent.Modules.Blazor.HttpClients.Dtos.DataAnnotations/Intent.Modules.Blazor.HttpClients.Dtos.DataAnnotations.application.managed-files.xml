@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0ae0571d-78df-4026-bf46-b8d35db2e8ff">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/BlazorHttpClientDataAnnotations.cs" />
+  <file path="Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec" />
+  <file path="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj" />
+  <file path="release-notes.md" />
+</managedFiles>

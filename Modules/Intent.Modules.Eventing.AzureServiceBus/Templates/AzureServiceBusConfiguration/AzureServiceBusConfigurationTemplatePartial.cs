@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.AzureServiceBus.Settings;
 using Intent.Modules.Eventing.AzureServiceBus.Templates;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
@@ -38,96 +39,125 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
     {
         FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
+        var authMethods = ExecutionContext.Settings.GetAzureServiceBusSettings().AuthenticationMethods() ?? [];
+        var useManagedIdentity = authMethods.Any(x => x.IsManagedIdentity());
+        var useKeyBased = !useManagedIdentity || authMethods.Any(x => x.IsKeyBased());
+        var isDualAuthMode = useManagedIdentity && useKeyBased;
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddUsing("Microsoft.Extensions.Configuration")
-            .AddUsing("Azure.Messaging.ServiceBus")
-            .AddClass($"AzureServiceBusConfiguration", @class =>
+            .AddUsing("Azure.Messaging.ServiceBus");
+
+        if (useManagedIdentity)
+        {
+            CSharpFile.AddUsing("Azure.Identity");
+        }
+
+        CSharpFile.AddClass($"AzureServiceBusConfiguration", @class =>
+        {
+            @class.Static();
+            @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddAzureServiceBusConfiguration", method =>
             {
-                @class.Static();
-                @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddAzureServiceBusConfiguration", method =>
+                method.Static();
+                method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", param => param.WithThisModifier());
+                method.AddParameter("IConfiguration", "configuration");
+
+                var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                if (requiresCompositeMessageBus)
                 {
-                    method.Static();
-                    method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", param => param.WithThisModifier());
-                    method.AddParameter("IConfiguration", "configuration");
+                    method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                }
 
-                    var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
-                    if (requiresCompositeMessageBus)
-                    {
-                        method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
-                    }
-
+                if (isDualAuthMode)
+                {
+                    method.AddIfStatement(
+                        @"string.Equals(configuration[""AzureServiceBus:AuthenticationMethod""], ""managed-identity"", StringComparison.OrdinalIgnoreCase)",
+                        @if => @if.AddStatement(
+                            $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:FullyQualifiedNamespace""], new DefaultAzureCredential()));"));
+                    method.AddElseStatement(
+                        @else => @else.AddStatement(
+                            $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));"));
+                }
+                else if (useManagedIdentity)
+                {
+                    method.AddStatement(
+                        $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:FullyQualifiedNamespace""], new DefaultAzureCredential()));");
+                }
+                else
+                {
                     method.AddStatement(
                         $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));");
+                }
 
-                    if (requiresCompositeMessageBus)
-                    {
-                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
-                    }
-                    else
-                    {
-                        var busInterface = this.GetBusInterfaceName();
+                if (requiresCompositeMessageBus)
+                {
+                    method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
+                }
+                else
+                {
+                    var busInterface = this.GetBusInterfaceName();
 
-                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
-                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusMessageBusName()}>());");
-                    }
+                    method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
+                    method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusMessageBusName()}>());");
+                }
 
-                    method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
-                    method.AddStatement(
-                        $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
+                method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
+                method.AddStatement(
+                    $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
 
 
-                    var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
-                        .ToList();
+                var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
+                    .ToList();
 
-                    if (publishers.Count != 0)
-                    {
-                        method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
-                            .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                            {
-                                foreach (var item in publishers)
-                                {
-                                    arg.AddStatement(
-                                        $"""options.Add<{item.GetModelTypeName(this)}>(configuration["{item.QueueOrTopicConfigurationName}"]!);""");
-                                }
-                            }));
-                    }
-
-                    var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
-                        .ToList();
-
-                    if (subscribers.Count != 0)
-                    {
-                        method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv
-                            .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                            {
-                                foreach (var item in subscribers)
-                                {
-                                    var inv = new CSharpInvocationStatement($"options.Add<{item.GetModelTypeName(this)}, {item.GetSubscriberTypeName(this)}>")
-                                        .AddArgument($@"configuration[""{item.QueueOrTopicConfigurationName}""]!");
-                                    if (!string.IsNullOrEmpty(item.QueueOrTopicSubscriptionConfigurationName))
-                                    {
-                                        inv.AddArgument($@"configuration[""{item.QueueOrTopicSubscriptionConfigurationName}""]");
-                                    }
-
-                                    arg.AddStatement(inv);
-                                }
-                            }));
-                    }
-
-                    if (requiresCompositeMessageBus && publishers.Count != 0)
-                    {
-                        foreach (var item in publishers)
+                if (publishers.Count != 0)
+                {
+                    method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
+                        .AddArgument(new CSharpLambdaBlock("options"), arg =>
                         {
-                            method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusMessageBusName()}>();");
-                        }
-                    }
+                            foreach (var item in publishers)
+                            {
+                                arg.AddStatement(
+                                    $"""options.Add<{item.GetModelTypeName(this)}>(configuration["{item.QueueOrTopicConfigurationName}"]!);""");
+                            }
+                        }));
+                }
 
-                    method.AddStatement("return services;");
-                });
+                var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
+                    .ToList();
+
+                if (subscribers.Count != 0)
+                {
+                    method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv
+                        .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                        {
+                            foreach (var item in subscribers)
+                            {
+                                var inv = new CSharpInvocationStatement($"options.Add<{item.GetModelTypeName(this)}, {item.GetSubscriberTypeName(this)}>")
+                                    .AddArgument($@"configuration[""{item.QueueOrTopicConfigurationName}""]!");
+                                if (!string.IsNullOrEmpty(item.QueueOrTopicSubscriptionConfigurationName))
+                                {
+                                    inv.AddArgument($@"configuration[""{item.QueueOrTopicSubscriptionConfigurationName}""]");
+                                }
+
+                                arg.AddStatement(inv);
+                            }
+                        }));
+                }
+
+                if (requiresCompositeMessageBus && publishers.Count != 0)
+                {
+                    foreach (var item in publishers)
+                    {
+                        method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusMessageBusName()}>();");
+                    }
+                }
+
+                method.AddStatement("return services;");
             });
+        });
     }
 
     public override void BeforeTemplateExecution()
@@ -142,7 +172,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
         }
 
         foreach (var message in IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                     .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds))
+            .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds))
         {
             this.ApplyAppSetting(message.QueueOrTopicConfigurationName, message.QueueOrTopicName);
             if (message.QueueOrTopicSubscriptionConfigurationName != null)

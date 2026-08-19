@@ -15,6 +15,7 @@ namespace CosmosDB.EntityInterfaces.Application.Clients.GetClientsPaged
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>4.1.3</version>
+  <version>4.1.8</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -32,6 +32,7 @@
     </template>
     <template id="Intent.VisualStudio.Projects.CoreWeb.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+    <template id="Intent.VisualStudio.Projects.CSharpProject" />
     <template id="Intent.VisualStudio.Projects.DirectoryPackagesProps" externalReference="807ee533-3ab8-4fe6-a06c-30d45eecf014">
       <role></role>
       <location></location>
@@ -131,6 +132,7 @@
         <add key="Warn On Multiple Versions of Same Package" description="When true, the installer will show warnings if multiple versions of the same NuGet package are installed within the solution. Only applicable when 'Consolidate Package Versions' is set to false. (true | false)" type="boolean" default="true" />
       </config>
     </factoryExtension>
+    <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSlnxWeaver" />
     <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
     <factoryExtension id="Intent.VSProjects.FrameworkDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectFrameworkManager" />
@@ -155,13 +157,18 @@
         <package id="Intent.AspNetCore.Grpc" version="1.0.4" />
       </install>
     </detect>
+    <detect id="Intent.WindowsServiceHost">
+      <install>
+        <package id="Intent.WindowsServiceHost" version="1.0.17" />
+      </install>
+    </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.11.0" />
-    <dependency id="Intent.Common.CSharp" version="3.10.5" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Modelers.CodebaseStructure" version="1.0.0" />
+    <dependency id="Intent.Modelers.CodebaseStructure" version="1.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <metadata>

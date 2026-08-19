@@ -94,8 +94,8 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     public override string GetText(string indentation)
     {
         return $@"{indentation}{Text}{(Statements.Any() ? $@"
-    {string.Join(@"
-    ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
+        {string.Join(@"
+            ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
     }
 
     private static List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings, int? implicitColumnOrder)
@@ -137,15 +137,21 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     statements.Add($".HasColumnType(\"nvarchar({lengthSuffix})\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
-                    Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                    if (dbSettings.DatabaseProvider().IsSqlServer())
+                    {
+                        Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                    }
                     statements.Add($".HasColumnType(\"text\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
-                    Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                    if (dbSettings.DatabaseProvider().IsSqlServer())
+                    {
+                        Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                    }
                     statements.Add($".HasColumnType(\"ntext\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT:
-                default:
+                    default:
                     throw new ArgumentOutOfRangeException(nameof(sqlDataType), $"Unsupported TextConstraint SQLDataType: {sqlDataType}");
             }
         }

@@ -33,6 +33,7 @@ namespace RichDomain.Infrastructure.Persistence
         public DbSet<Department> Departments { get; set; }
         public DbSet<DerivedClass> DerivedClasses { get; set; }
         public DbSet<DerivedFromAbstractClass> DerivedFromAbstractClasses { get; set; }
+        public DbSet<EntityWithAutoAppliedNewFields> EntityWithAutoAppliedNewFields { get; set; }
         public DbSet<Person> People { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -62,6 +63,7 @@ namespace RichDomain.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedFromAbstractClassConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityWithAutoAppliedNewFieldsConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
         }
 
@@ -102,7 +104,7 @@ namespace RichDomain.Infrastructure.Persistence
         {
             var auditableEntries = ChangeTracker.Entries()
                 .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
-                                entry.Entity is IAuditable)
+                            entry.Entity is IAuditable)
                 .Select(entry => new
                 {
                     entry.State,
@@ -128,7 +130,7 @@ namespace RichDomain.Infrastructure.Persistence
                         break;
                     case EntityState.Modified or EntityState.Deleted:
                         entry.Auditable.SetUpdated(userIdentifier, timestamp);
-                        entry.Property("CreatedBy").IsModified = false;
+                        entry.Property("CreatedByName").IsModified = false;
                         entry.Property("CreatedDate").IsModified = false;
                         break;
                     default:

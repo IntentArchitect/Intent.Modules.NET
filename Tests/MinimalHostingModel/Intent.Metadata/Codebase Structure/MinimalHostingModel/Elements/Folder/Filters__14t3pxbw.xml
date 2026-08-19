@@ -177,9 +177,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="022908ff-175f-464a-8ab3-dd25be1bb0d6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</display>
+    <childElement id="f688468a-ac6e-4e6f-ba4a-3ee0da75650b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter</display>
       <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

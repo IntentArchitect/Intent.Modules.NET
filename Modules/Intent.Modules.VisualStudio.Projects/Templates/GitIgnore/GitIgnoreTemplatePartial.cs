@@ -7,6 +7,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.OutputTargets;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -27,9 +28,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.GitIgnore
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public GitIgnoreTemplate(IApplication application, VisualStudioSolutionModel model)
+            : this(application, model, outputLocationOptions: null)
+        {
+        }
+
+        // Allow the Root Folder output-location shift to be supplied by the registration (which
+        // already has IMetadataManager); keeps this attributed constructor's signature untouched.
+        internal GitIgnoreTemplate(IApplication application, VisualStudioSolutionModel model, OutputLocationOptions outputLocationOptions)
         {
             _canRunTemplate = application.Settings.GetVisualStudioSettings().GenerateGitignoreFile();
-            _fileMetadata = new FileConfig(application.OutputRootDirectory, model.Id);
+            var rootDirectory = (outputLocationOptions ?? new OutputLocationOptions(application.OutputRootDirectory, relativeLocation: "")).RootDirectory;
+            _fileMetadata = new FileConfig(rootDirectory, model.Id);
 
             Model = model;
         }

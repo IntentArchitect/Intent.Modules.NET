@@ -15,6 +15,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Products.GetProductById
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

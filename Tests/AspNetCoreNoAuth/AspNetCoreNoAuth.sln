@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{1303788B-F3F0-4E8C-BE6D-314FBA110ED3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreNoAuth.Api", "AspNetCoreNoAuth.Api\AspNetCoreNoAuth.Api.csproj", "{CBF99138-DC63-494E-A177-66CDD5F5BFF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{894D9E65-7B42-409F-8F1E-3839B6B84200}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreNoAuth.Application", "AspNetCoreNoAuth.Application\AspNetCoreNoAuth.Application.csproj", "{B4736765-0A70-4D85-B08B-677E8B50A3A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{FCB8E926-8742-4D50-A746-D63ED421C35B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreNoAuth.Domain", "AspNetCoreNoAuth.Domain\AspNetCoreNoAuth.Domain.csproj", "{8B4CBA40-16F6-437C-B385-D693E6DD4464}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E64A360F-8C38-4CDA-9875-75D49FC0CD7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreNoAuth.Infrastructure", "AspNetCoreNoAuth.Infrastructure\AspNetCoreNoAuth.Infrastructure.csproj", "{F49D2E95-28F2-4C4D-82D6-9D24E68B9654}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBF99138-DC63-494E-A177-66CDD5F5BFF7} = {1303788B-F3F0-4E8C-BE6D-314FBA110ED3}
+		{B4736765-0A70-4D85-B08B-677E8B50A3A6} = {894D9E65-7B42-409F-8F1E-3839B6B84200}
+		{8B4CBA40-16F6-437C-B385-D693E6DD4464} = {FCB8E926-8742-4D50-A746-D63ED421C35B}
+		{F49D2E95-28F2-4C4D-82D6-9D24E68B9654} = {E64A360F-8C38-4CDA-9875-75D49FC0CD7E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBF99138-DC63-494E-A177-66CDD5F5BFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF99138-DC63-494E-A177-66CDD5F5BFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF99138-DC63-494E-A177-66CDD5F5BFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF99138-DC63-494E-A177-66CDD5F5BFF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4736765-0A70-4D85-B08B-677E8B50A3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4736765-0A70-4D85-B08B-677E8B50A3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4736765-0A70-4D85-B08B-677E8B50A3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4736765-0A70-4D85-B08B-677E8B50A3A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4CBA40-16F6-437C-B385-D693E6DD4464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4CBA40-16F6-437C-B385-D693E6DD4464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4CBA40-16F6-437C-B385-D693E6DD4464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4CBA40-16F6-437C-B385-D693E6DD4464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49D2E95-28F2-4C4D-82D6-9D24E68B9654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49D2E95-28F2-4C4D-82D6-9D24E68B9654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49D2E95-28F2-4C4D-82D6-9D24E68B9654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49D2E95-28F2-4C4D-82D6-9D24E68B9654}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

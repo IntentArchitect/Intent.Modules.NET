@@ -30,7 +30,6 @@ execute();</script>
           <isOptionVisibleFunction>return element.hasStereotype("Basic Auditing");</isOptionVisibleFunction>
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function getUserIdentityType() {
-    var _a, _b, _c, _d, _e, _f;
     const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
     const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
     const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
@@ -40,11 +39,13 @@ function getUserIdentityType() {
     const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
     const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
     const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
-    let userIdentityToAudit = (_c = (_b = (_a = application.getSettings(basicAudtingSettingsId)) === null || _a === void 0 ? void 0 : _a.getField(userIdentityToAuditFieldId)) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "user-id";
+
+    let userIdentityToAudit = application.getSettings(basicAudtingSettingsId)?.getField(userIdentityToAuditFieldId)?.value ?? "user-id";
     if (userIdentityToAudit == "user-name") {
         return stringTypeId;
     }
-    let userIdTypeName = (_f = (_e = (_d = application.getSettings(identitySettingsId)) === null || _d === void 0 ? void 0 : _d.getField(userIdTypeFieldId)) === null || _e === void 0 ? void 0 : _e.value) !== null &amp;&amp; _f !== void 0 ? _f : "string";
+
+    let userIdTypeName = application.getSettings(identitySettingsId)?.getField(userIdTypeFieldId)?.value ?? "string";
     switch (userIdTypeName) {
         case 'long':
             return longTypeId;
@@ -57,26 +58,109 @@ function getUserIdentityType() {
             return stringTypeId;
     }
 }
-function ensureAttributes(element, userIdentifier, enforceFieldTypes) {
+
+function isFieldIncluded(fieldId) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    return value !== "false";
+}
+
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType, role) {
+    const attributes = element.getChildren("Attribute");
+
+    // Already in sync: exact name + type + nullability match already exists — just ensure it is tagged.
+    let exactMatch = attributes.find(x =&gt; x.getName() === name
+        &amp;&amp; x.typeReference.getType()?.id === typeId
+        &amp;&amp; x.typeReference.getIsNullable() === isNullable);
+    if (exactMatch != null) {
+        exactMatch.setMetadata("basic-auditing-role", role);
+        return;
+    }
+
+    // Tagged with this role already (name/type may have drifted since a Basic Auditing setting changed) — reuse and rename/enforce it.
+    let taggedMatch = attributes.find(x =&gt; x.getMetadata("basic-auditing-role") === role);
+    if (taggedMatch != null) {
+        if (enforceFieldType) {
+            taggedMatch.typeReference.setIsNullable(isNullable);
+            taggedMatch.typeReference.setType(typeId);
+        }
+        if (taggedMatch.getName() !== name) { taggedMatch.setName(name); }
+        taggedMatch.setMetadata("basic-auditing-role", role);
+        return;
+    }
+
+    // Legacy: an attribute with the target name already exists from before role metadata was introduced — adopt it.
+    let legacyMatch = attributes.find(x =&gt; x.getName() == name);
+    if (legacyMatch != null) {
+        if (enforceFieldType) {
+            legacyMatch.typeReference.setIsNullable(isNullable);
+            legacyMatch.typeReference.setType(typeId);
+        }
+        legacyMatch.setMetadata("basic-auditing-role", role);
+        return;
+    }
+
+    // No match at all — create a new attribute.
+    let newAttribute = createElement("Attribute", name, element.id);
+    newAttribute.setMetadata("set-by-infrastructure", "true");
+    newAttribute.typeReference.setIsNullable(isNullable);
+    newAttribute.typeReference.setType(typeId);
+    newAttribute.setMetadata("basic-auditing-role", role);
+}
+
+function removeAttribute(element, role) {
+    let el = element.getChildren("Attribute").find(x =&gt; x.getMetadata("basic-auditing-role") === role);
+    if (el == null || !el.hasMetadata("set-by-infrastructure")) {
+        return;
+    }
+    el.delete();
+}
+
+function getConfiguredFieldName(fieldId, defaultName) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    if (value === undefined || value === null || value.trim() === "") {
+        value = defaultName;
+    }
+    return value.trim();
+}
+
+function ensureConfiguredAuditAttributes(element, userIdentifier, enforceFieldTypes) {
     const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
-    ensureAttribute(element, userIdentifier, false, "CreatedBy", enforceFieldTypes);
-    ensureAttribute(element, dateTimeOffsetTypeId, false, "CreatedDate", enforceFieldTypes);
-    ensureAttribute(element, userIdentifier, true, "UpdatedBy", enforceFieldTypes);
-    ensureAttribute(element, dateTimeOffsetTypeId, true, "UpdatedDate", enforceFieldTypes);
-}
-function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
-    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
-    if (el == null) {
-        el = createElement("Attribute", name, element.id);
-        el.setMetadata("set-by-infrastructure", "true");
-        el.typeReference.setIsNullable(isNullable);
-        el.typeReference.setType(typeId);
+    const createdByFieldNameFieldId = "739d748f-1e78-4588-8ff8-375b0438ec5e";
+    const createdDateFieldNameFieldId = "16109f2c-5ce0-43fc-aded-a1ca2bde6525";
+    const updatedByFieldNameFieldId = "2b583725-0e06-42f8-824c-f1922e8af1ba";
+    const updatedDateFieldNameFieldId = "60c8ed40-0b0d-4bdf-8e08-56c126835438";
+    const includeCreatedByFieldId = "16565573-5078-41c7-b083-e68b51154782";
+    const includeCreatedDateFieldId = "fb3a6f03-017f-499d-b44b-cb519b653ca6";
+    const includeUpdatedByFieldId = "5e86a4ca-df1d-4f63-a1db-c90a4fb70d24";
+    const includeUpdatedDateFieldId = "f936421d-7f37-4205-a98b-deea631a9291";
+
+    if (isFieldIncluded(includeCreatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, false, getConfiguredFieldName(createdByFieldNameFieldId, "CreatedBy"), enforceFieldTypes, "CreatedBy");
+    } else {
+        removeAttribute(element, "CreatedBy");
     }
-    if (enforceFieldType) {
-        el.typeReference.setIsNullable(isNullable);
-        el.typeReference.setType(typeId);
+
+    if (isFieldIncluded(includeCreatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, false, getConfiguredFieldName(createdDateFieldNameFieldId, "CreatedDate"), enforceFieldTypes, "CreatedDate");
+    } else {
+        removeAttribute(element, "CreatedDate");
+    }
+
+    if (isFieldIncluded(includeUpdatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, true, getConfiguredFieldName(updatedByFieldNameFieldId, "UpdatedBy"), enforceFieldTypes, "UpdatedBy");
+    } else {
+        removeAttribute(element, "UpdatedBy");
+    }
+
+    if (isFieldIncluded(includeUpdatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, true, getConfiguredFieldName(updatedDateFieldNameFieldId, "UpdatedDate"), enforceFieldTypes, "UpdatedDate");
+    } else {
+        removeAttribute(element, "UpdatedDate");
     }
 }
+
 /// &lt;reference path="../common/basic-auditing.ts" /&gt;
 /**
  * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
@@ -88,7 +172,7 @@ function execute(element) {
     let userIdentifier = getUserIdentityType();
     let classes = lookupTypesOf("Class").filter(x =&gt; x.hasStereotype("Basic Auditing"));
     classes.forEach(audit =&gt; {
-        ensureAttributes(audit, userIdentifier, true);
+        ensureConfiguredAuditAttributes(audit, userIdentifier, true);
     });
 }
 execute(element);
@@ -101,7 +185,6 @@ execute(element);
         <macro trigger="on-changed">
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function getUserIdentityType() {
-    var _a, _b, _c, _d, _e, _f;
     const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
     const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
     const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
@@ -111,11 +194,13 @@ function getUserIdentityType() {
     const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
     const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
     const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
-    let userIdentityToAudit = (_c = (_b = (_a = application.getSettings(basicAudtingSettingsId)) === null || _a === void 0 ? void 0 : _a.getField(userIdentityToAuditFieldId)) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "user-id";
+
+    let userIdentityToAudit = application.getSettings(basicAudtingSettingsId)?.getField(userIdentityToAuditFieldId)?.value ?? "user-id";
     if (userIdentityToAudit == "user-name") {
         return stringTypeId;
     }
-    let userIdTypeName = (_f = (_e = (_d = application.getSettings(identitySettingsId)) === null || _d === void 0 ? void 0 : _d.getField(userIdTypeFieldId)) === null || _e === void 0 ? void 0 : _e.value) !== null &amp;&amp; _f !== void 0 ? _f : "string";
+
+    let userIdTypeName = application.getSettings(identitySettingsId)?.getField(userIdTypeFieldId)?.value ?? "string";
     switch (userIdTypeName) {
         case 'long':
             return longTypeId;
@@ -128,26 +213,83 @@ function getUserIdentityType() {
             return stringTypeId;
     }
 }
-function ensureAttributes(element, userIdentifier, enforceFieldTypes) {
-    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
-    ensureAttribute(element, userIdentifier, false, "CreatedBy", enforceFieldTypes);
-    ensureAttribute(element, dateTimeOffsetTypeId, false, "CreatedDate", enforceFieldTypes);
-    ensureAttribute(element, userIdentifier, true, "UpdatedBy", enforceFieldTypes);
-    ensureAttribute(element, dateTimeOffsetTypeId, true, "UpdatedDate", enforceFieldTypes);
+
+function isFieldIncluded(fieldId) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    return value !== "false";
 }
-function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
-    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType, role) {
+    let el = element.getChildren("Attribute").find(x =&gt; x.getMetadata("basic-auditing-role") === role)
+          ?? element.getChildren("Attribute").find(x =&gt; x.getName() == name);
     if (el == null) {
         el = createElement("Attribute", name, element.id);
         el.setMetadata("set-by-infrastructure", "true");
         el.typeReference.setIsNullable(isNullable);
         el.typeReference.setType(typeId);
     }
+    el.setMetadata("basic-auditing-role", role);
     if (enforceFieldType) {
         el.typeReference.setIsNullable(isNullable);
         el.typeReference.setType(typeId);
+        if (el.getName() !== name) { el.setName(name); }
     }
 }
+
+function removeAttribute(element, role) {
+    let el = element.getChildren("Attribute").find(x =&gt; x.getMetadata("basic-auditing-role") === role);
+    if (el == null || !el.hasMetadata("set-by-infrastructure")) {
+        return;
+    }
+    el.delete();
+}
+
+function getConfiguredFieldName(fieldId, defaultName) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    if (value === undefined || value === null || value.trim() === "") {
+        value = defaultName;
+    }
+    return value.trim();
+}
+
+function ensureConfiguredAuditAttributes(element, userIdentifier, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    const createdByFieldNameFieldId = "739d748f-1e78-4588-8ff8-375b0438ec5e";
+    const createdDateFieldNameFieldId = "16109f2c-5ce0-43fc-aded-a1ca2bde6525";
+    const updatedByFieldNameFieldId = "2b583725-0e06-42f8-824c-f1922e8af1ba";
+    const updatedDateFieldNameFieldId = "60c8ed40-0b0d-4bdf-8e08-56c126835438";
+    const includeCreatedByFieldId = "16565573-5078-41c7-b083-e68b51154782";
+    const includeCreatedDateFieldId = "fb3a6f03-017f-499d-b44b-cb519b653ca6";
+    const includeUpdatedByFieldId = "5e86a4ca-df1d-4f63-a1db-c90a4fb70d24";
+    const includeUpdatedDateFieldId = "f936421d-7f37-4205-a98b-deea631a9291";
+
+    if (isFieldIncluded(includeCreatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, false, getConfiguredFieldName(createdByFieldNameFieldId, "CreatedBy"), enforceFieldTypes, "CreatedBy");
+    } else {
+        removeAttribute(element, "CreatedBy");
+    }
+
+    if (isFieldIncluded(includeCreatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, false, getConfiguredFieldName(createdDateFieldNameFieldId, "CreatedDate"), enforceFieldTypes, "CreatedDate");
+    } else {
+        removeAttribute(element, "CreatedDate");
+    }
+
+    if (isFieldIncluded(includeUpdatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, true, getConfiguredFieldName(updatedByFieldNameFieldId, "UpdatedBy"), enforceFieldTypes, "UpdatedBy");
+    } else {
+        removeAttribute(element, "UpdatedBy");
+    }
+
+    if (isFieldIncluded(includeUpdatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, true, getConfiguredFieldName(updatedDateFieldNameFieldId, "UpdatedDate"), enforceFieldTypes, "UpdatedDate");
+    } else {
+        removeAttribute(element, "UpdatedDate");
+    }
+}
+
 /// &lt;reference path="../common/basic-auditing.ts" /&gt;
 /**
  * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
@@ -159,7 +301,7 @@ function execute(element) {
     const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
     let userIdentifier = getUserIdentityType();
     if (element.hasStereotype(auditStereotypeId)) {
-        ensureAttributes(element, userIdentifier);
+        ensureConfiguredAuditAttributes(element, userIdentifier, false);
     }
     else {
         removeAttribute(element, "CreatedBy");
@@ -168,12 +310,144 @@ function execute(element) {
         removeAttribute(element, "UpdatedDate");
     }
 }
-function removeAttribute(element, name) {
-    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+execute(element);
+</script>
+        </macro>
+        <macro trigger="on-created">
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function getUserIdentityType() {
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const longTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    //Setttings
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
+    const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
+    const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
+
+    let userIdentityToAudit = application.getSettings(basicAudtingSettingsId)?.getField(userIdentityToAuditFieldId)?.value ?? "user-id";
+    if (userIdentityToAudit == "user-name") {
+        return stringTypeId;
+    }
+
+    let userIdTypeName = application.getSettings(identitySettingsId)?.getField(userIdTypeFieldId)?.value ?? "string";
+    switch (userIdTypeName) {
+        case 'long':
+            return longTypeId;
+        case 'int':
+            return intTypeId;
+        case 'guid':
+            return guidTypeId;
+        case 'string':
+        default:
+            return stringTypeId;
+    }
+}
+
+function isFieldIncluded(fieldId) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    return value !== "false";
+}
+
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType, role) {
+    let el = element.getChildren("Attribute").find(x =&gt; x.getMetadata("basic-auditing-role") === role)
+          ?? element.getChildren("Attribute").find(x =&gt; x.getName() == name);
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    el.setMetadata("basic-auditing-role", role);
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+        if (el.getName() !== name) { el.setName(name); }
+    }
+}
+
+function removeAttribute(element, role) {
+    let el = element.getChildren("Attribute").find(x =&gt; x.getMetadata("basic-auditing-role") === role);
     if (el == null || !el.hasMetadata("set-by-infrastructure")) {
         return;
     }
     el.delete();
+}
+
+function getConfiguredFieldName(fieldId, defaultName) {
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    let value = application.getSettings(basicAudtingSettingsId)?.getField(fieldId)?.value;
+    if (value === undefined || value === null || value.trim() === "") {
+        value = defaultName;
+    }
+    return value.trim();
+}
+
+function ensureConfiguredAuditAttributes(element, userIdentifier, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    const createdByFieldNameFieldId = "739d748f-1e78-4588-8ff8-375b0438ec5e";
+    const createdDateFieldNameFieldId = "16109f2c-5ce0-43fc-aded-a1ca2bde6525";
+    const updatedByFieldNameFieldId = "2b583725-0e06-42f8-824c-f1922e8af1ba";
+    const updatedDateFieldNameFieldId = "60c8ed40-0b0d-4bdf-8e08-56c126835438";
+    const includeCreatedByFieldId = "16565573-5078-41c7-b083-e68b51154782";
+    const includeCreatedDateFieldId = "fb3a6f03-017f-499d-b44b-cb519b653ca6";
+    const includeUpdatedByFieldId = "5e86a4ca-df1d-4f63-a1db-c90a4fb70d24";
+    const includeUpdatedDateFieldId = "f936421d-7f37-4205-a98b-deea631a9291";
+
+    if (isFieldIncluded(includeCreatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, false, getConfiguredFieldName(createdByFieldNameFieldId, "CreatedBy"), enforceFieldTypes, "CreatedBy");
+    } else {
+        removeAttribute(element, "CreatedBy");
+    }
+
+    if (isFieldIncluded(includeCreatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, false, getConfiguredFieldName(createdDateFieldNameFieldId, "CreatedDate"), enforceFieldTypes, "CreatedDate");
+    } else {
+        removeAttribute(element, "CreatedDate");
+    }
+
+    if (isFieldIncluded(includeUpdatedByFieldId)) {
+        ensureAttribute(element, userIdentifier, true, getConfiguredFieldName(updatedByFieldNameFieldId, "UpdatedBy"), enforceFieldTypes, "UpdatedBy");
+    } else {
+        removeAttribute(element, "UpdatedBy");
+    }
+
+    if (isFieldIncluded(includeUpdatedDateFieldId)) {
+        ensureAttribute(element, dateTimeOffsetTypeId, true, getConfiguredFieldName(updatedDateFieldNameFieldId, "UpdatedDate"), enforceFieldTypes, "UpdatedDate");
+    } else {
+        removeAttribute(element, "UpdatedDate");
+    }
+}
+
+/// &lt;reference path="../common/basic-auditing.ts" /&gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
+ *
+ * Automatically applies the Basic Auditing stereotype (and its configured audit attributes) to a
+ * newly created Class when the "Apply Basic Auditing to Entities" module setting is set to
+ * "Automatically when created". Which of the 4 attributes get added, and what they are named, is
+ * controlled by the "Include &lt;Field&gt;" switch settings (name only when included) - a disabled switch
+ * excludes that attribute. This only affects brand-new Classes - it never renames or adds attributes
+ * on a Class that is already audited.
+ */
+function execute(element) {
+    const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    const applyBasicAuditingFieldId = "43a36ffb-2085-4cf5-a255-f95c19368fa8";
+
+    let applyBasicAuditing = application.getSettings(basicAudtingSettingsId)?.getField(applyBasicAuditingFieldId)?.value;
+    if (applyBasicAuditing !== "automatically-when-created") {
+        return;
+    }
+
+    if (!element.hasStereotype(auditStereotypeId)) {
+        element.addStereotype(auditStereotypeId);
+    }
+
+    let userIdentifier = getUserIdentityType();
+    ensureConfiguredAuditAttributes(element, userIdentifier, false);
 }
 execute(element);
 </script>

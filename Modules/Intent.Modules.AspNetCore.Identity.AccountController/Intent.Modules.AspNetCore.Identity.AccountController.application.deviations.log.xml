@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1408390e-ee98-4b4c-94ad-18ceddcc17d0</correlationId>
-      <path>Intent.Modules.AspNetCore.Identity.AccountController/Templates/AccountController/AccountControllerTemplatePartial.cs</path>
+      <path>Templates/AccountController/AccountControllerTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

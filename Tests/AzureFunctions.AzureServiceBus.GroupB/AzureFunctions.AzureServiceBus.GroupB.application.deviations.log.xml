@@ -2,17 +2,30 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b114ae6a-002b-4cd8-8b99-bb73b2eab228</correlationId>
-      <path>AzureFunctions.AzureServiceBus.Infrastructure/AzureFunctions.AzureServiceBus.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:39.244422Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.404697Z</approvedAt>
-      <deviationsHash>71BCB647E7857596FC1E0CEE2AB3043F2D719056FA89E2D099ED6CEE6635C031</deviationsHash>
-      <fileHash>B09FA9D6A901FF82F972360428E4FE2A7C5F07ACED5F5CA809EABA9E091EDA70</fileHash>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#36242578-736b-43e2-8f4c-573e0be908b8</correlationId>
+      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:20:49.5411063Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.9077491Z</approvedAt>
+      <deviationsHash>B7BB5A032B49D4B365C8FB10E316D42A9B0FCB9F2BE91681CD2123F0DD312FB6</deviationsHash>
+      <fileHash>E0A089C143DD967BA981E5C765909F4B7A722D4D1A2C6DDD2FA69E1C5243D9D9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#f5120547-565a-4e57-b0d7-fe13320fd839</correlationId>
+      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/CreateOrgIntegrationCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-07-26T18:20:49.5411216Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2026-07-26T18:33:32.9267652Z</approvedAt>
+      <deviationsHash>5C0DA6797230F7E83FE4D0E6DEC916208BB8BFF3BF97D52733840BE863C4FADF</deviationsHash>
+      <fileHash>A7DA96F9E10E20715C6F07C7990D343B0FF294C91734B084E792E0659C5EB36E</fileHash>
     </file>
   </files>
 </deviationsLog>

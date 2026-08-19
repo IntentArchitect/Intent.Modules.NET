@@ -15,6 +15,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Clients.CallUpdate
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

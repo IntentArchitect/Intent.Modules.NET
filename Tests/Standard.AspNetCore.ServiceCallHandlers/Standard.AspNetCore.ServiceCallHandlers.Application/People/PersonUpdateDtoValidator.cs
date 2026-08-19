@@ -15,6 +15,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.People
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

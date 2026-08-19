@@ -15,6 +15,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Customers.DeleteCustom
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             // Implement custom validation logic here if required

@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#16fa2952-79e6-4150-b5ab-45aa4c106de4</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</path>
+      <path>Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</path>
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
@@ -12,12 +12,22 @@
       <fileHash>6067CD7CD7460FDB7EFEF10CC93F79A83DCCECFC44031726941C5ACBD56BB3B7</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/NugetPackages.cs</path>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#d84c6ada-4081-4d11-8766-d8fd2dab08dc</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-13T13:34:12.9165352Z</updatedAt>
+      <deviationsHash>AA47CF38DBB1A2BCAC687819ED056259D14FEDE0F1EDAA93AA0517917A467EE3</deviationsHash>
+      <fileHash>2671025A14D77FFC93163D63E72D1C5001BAD6FA682822A42EA750CB28EB5863</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#2bc7e478-1e47-4553-91c7-827a842e55ad</correlationId>
+      <path>NugetPackages.cs</path>
       <count>4</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-01-26T12:33:36.590368Z</updatedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-07-13T13:13:03.6569353Z</updatedAt>
       <deviationsHash>359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC</deviationsHash>
       <fileHash>F97360D4E25F4D35316524A175B03C682AC93633AA1F1E381D234F12EE7CB8B4</fileHash>
     </file>

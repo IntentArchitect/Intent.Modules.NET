@@ -15,6 +15,7 @@ namespace N_ServiceBus.RabbitMQ.Application.Animals
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

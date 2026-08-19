@@ -15,6 +15,7 @@ namespace CosmosDB.Application.NonStringPartitionKeys.DeleteNonStringPartitionKe
             ConfigureValidationRules();
         }
 
+        [IntentManaged(Mode.Merge)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)
