@@ -1,0 +1,7 @@
+source: native
+title: Wolverine Eventing Module
+description: Adds Wolverine as a free, open-source message broker eventing provider alongside MassTransit and NServiceBus.
+slug: wolverine-eventing-module
+phase: requirements
+createdUtc: 2026-08-19T12:49:24Z
+updatedUtc: 2026-08-19T12:49:45Z
