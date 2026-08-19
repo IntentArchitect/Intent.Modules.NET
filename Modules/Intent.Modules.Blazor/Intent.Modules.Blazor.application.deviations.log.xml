@@ -3,7 +3,7 @@
   <files>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#b1c481e1-e91e-4c29-9817-00ab9cad4b6b</correlationId>
-      <path>Intent.Modules.Blazor/Api/ComponentModelStereotypeExtensions.cs</path>
+      <path>Api/ComponentModelStereotypeExtensions.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -12,7 +12,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b649e2a1-96a8-4b1b-ba82-b48cb32f6a66</correlationId>
-      <path>Intent.Modules.Blazor/FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs</path>
+      <path>FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -34,7 +34,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#71dd8fd0-e402-452c-b33e-718d4c3b9991</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs</path>
+      <path>Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -44,7 +44,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0f01004a-0392-4f56-9035-bd679c68adec</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -53,7 +53,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#a8be8a21-d667-428d-b77d-da4a552bc4c9</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -62,7 +62,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b3395b2b-9899-475f-93bb-050ae265d552</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -71,7 +71,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#3a61ff94-381c-4c86-8e3e-d2090e8d7d7d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -80,7 +80,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#f83cf24f-f6d6-4c1f-a51f-ac71ac6b3afa</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -89,7 +89,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#d0e2f055-6626-400d-b44b-2c3ea1b01a9d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -98,7 +98,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#a4b6fd47-21b9-4950-a4e9-4143566f48d8</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorSkillSampleFilesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorSkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -108,7 +108,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4a938a9b-e670-43dd-8e6d-f03f0c48d812</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -118,7 +118,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#13e7b44c-8564-49dc-81a5-e8506717e7dd</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/Dialog/DialogTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/Dialog/DialogTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -127,7 +127,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4126b562-c756-43a1-b1f3-79b0c9d6b659</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/Page/PageTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/Page/PageTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -136,7 +136,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -146,7 +146,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -156,7 +156,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Client/RazorComponent/RazorComponentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -166,7 +166,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#363faea6-7c41-424f-9f71-c7213acfe24d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponentStyle/RazorComponentStyleTemplate.cs</path>
+      <path>Templates/Templates/Client/RazorComponentStyle/RazorComponentStyleTemplate.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -176,7 +176,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -186,7 +186,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#684d3513-65f1-4d75-b31c-cc0f600eb289</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooter/RazorLayoutFooterTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutFooter/RazorLayoutFooterTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -196,7 +196,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#67b50dcc-2f02-4442-8118-acaf4210771e</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutFooterCodeBehind/RazorLayoutFooterCodeBehindTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutFooterCodeBehind/RazorLayoutFooterCodeBehindTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -206,7 +206,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#fb92e9df-d0f0-4ee3-b689-f2564fd720e1</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeader/RazorLayoutHeaderTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutHeader/RazorLayoutHeaderTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -216,7 +216,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#418b471a-55c3-44ad-abf0-9f11e952e416</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutHeaderCodeBehind/RazorLayoutHeaderCodeBehindTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutHeaderCodeBehind/RazorLayoutHeaderCodeBehindTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -226,7 +226,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#5e405bae-9d81-4562-876c-852050ce0daa</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutProfile/RazorLayoutProfileTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutProfile/RazorLayoutProfileTemplatePartial.cs</path>
       <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -236,7 +236,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#50c2e619-7acf-4ccd-a6cb-ed4d4e91b4fd</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSider/RazorLayoutSiderTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutSider/RazorLayoutSiderTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -246,7 +246,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4458103d-493e-4fd8-8785-3302ba99ce7d</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayoutSiderCodeBehind/RazorLayoutSiderCodeBehindTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RazorLayoutSiderCodeBehind/RazorLayoutSiderCodeBehindTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -256,7 +256,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</path>
+      <path>Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
@@ -269,7 +269,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1847a039-bc0e-41ec-9b51-a56f93d1c1b6</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -279,7 +279,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#90716486-d2c5-4813-bdf8-e32192e096f8</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
@@ -289,7 +289,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0d78e82b-2c2b-442f-8d5b-02fad7055c00</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeStorageStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeStorageStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -299,7 +299,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#c7e3e3af-11e5-4fc0-b380-50442e0e0587</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -309,7 +309,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c89e88-c8cd-4d7d-973f-f256613795d6</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Common/ThemeService/ThemeServiceTemplatePartial.cs</path>
+      <path>Templates/Templates/Common/ThemeService/ThemeServiceTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -319,7 +319,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#34c89e88-c8cd-4d7d-973f-f256613795d6</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Common/ThemeService/ThemeServiceTemplateRegistration.cs</path>
+      <path>Templates/Templates/Common/ThemeService/ThemeServiceTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -329,7 +329,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</path>
+      <path>Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -339,7 +339,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#a67cf83f-9662-4515-8182-45e85193dbda</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/RazorServerComponent/RazorServerComponentTemplatePartial.cs</path>
+      <path>Templates/Templates/Server/RazorServerComponent/RazorServerComponentTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -348,7 +348,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#28e51628-b9b7-430e-8928-c486b1777eea</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/RazorServerDialog/RazorServerDialogTemplatePartial.cs</path>
+      <path>Templates/Templates/Server/RazorServerDialog/RazorServerDialogTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -357,7 +357,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#0cf1709b-8d5e-4407-932b-55a1d9afe651</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/RazorServerPage/RazorServerPageTemplatePartial.cs</path>
+      <path>Templates/Templates/Server/RazorServerPage/RazorServerPageTemplatePartial.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
@@ -366,7 +366,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</path>
+      <path>Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>

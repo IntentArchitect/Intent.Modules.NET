@@ -1,3 +1,7 @@
+### Version 1.4.3
+
+- Improvement: Updated referenced versions
+
 ### Version 1.4.2
 
 - Improvement: Updated NuGet package versions.

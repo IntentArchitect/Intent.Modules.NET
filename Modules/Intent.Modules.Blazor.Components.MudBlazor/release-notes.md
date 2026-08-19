@@ -1,6 +1,8 @@
 ### Version 2.0.3
 
+- Improvement: Entire menu/layout mechanism is now more dynamic and flexible between AI and modeling.
 - Improvement: Each bundled AI skill's sample files are no longer overwritten once that skill's own `SKILL.md` has been hand-edited, on the assumption you have taken over maintenance of the whole skill.
+- Improvement: Lots of minor bug fixes, improvements and styling tweaks.
 
 ### Version 2.0.2
 

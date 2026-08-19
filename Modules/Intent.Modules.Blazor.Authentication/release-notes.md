@@ -1,7 +1,11 @@
+### Version 2.0.2
+
+- Improvement: Added Authentication selection type to the package, and model out the relevant pages bsed on selection
+- Improvement: A number of styling updates to bootstrap pages to align more with Mudblazor styling.
+- Improvement: Default stylesheets not overwritten by the software factory.
+
 ### Version 2.0.1
 
-- Improvement: The Login, Register, ForgotPassword, ResetPassword, ConfirmEmail and ResendEmailConfirmation account pages are now modelled `Component`/`Page` elements generated through the standard Razor component template, instead of dedicated always-regenerated templates. Edits to a generated page now survive regeneration, and deleting a page's modelled element stops it being generated.
-- Improvement: Updated NuGet package versions.
 - Improvement: Reduced unnecessary warnings by seeding `[SupplyParameterFromForm]` input models in `OnInitialized (Input ??= new())` instead of a property initializer which should rather be set to `default!`
 
 ### Version 2.0.0
