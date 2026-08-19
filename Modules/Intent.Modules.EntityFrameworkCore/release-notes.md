@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Improvement: `ntext, text, and image data` deprecated warning will now only be shown for `SQL Server` database provider, as these types are not deprecated in other database providers.
+
 ### Version 5.1.0
 
 - New Feature: Added a `Default Connection String Name` module setting that lets you override the connection string name used to identify the primary/`ApplicationDbContext`, instead of it always being the literal `DefaultConnection`.

@@ -22,16 +22,6 @@
       <fileHash>FD812AFEAC78A3CF36E8774CF544132B73DD3540EF3E6A98C75A4E0D3EDDD185</fileHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#a5803c32-0454-4111-9e1d-168e5bf6cb10</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-29T15:33:38.2684535Z</updatedAt>
-      <deviationsHash>8060D000F118CB29313516E4489CDDD181E5458411826D89BE960DCF4B9933E4</deviationsHash>
-      <fileHash>FD3E372E647051D282B27ABC0AA71AA60AF674395203FD3ADE7255CA2C139A2A</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96f7b6e6-79da-4f5e-b095-3d603777968b</correlationId>
       <path>Templates/DbContext/DbContextTemplatePartial.cs</path>
       <count>2</count>

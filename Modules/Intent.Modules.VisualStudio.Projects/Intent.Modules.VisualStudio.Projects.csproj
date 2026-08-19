@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.1.8-pre.2</Version>
+    <Version>4.1.8</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -20,8 +20,8 @@
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11-pre.0" />
-    <PackageReference Include="Intent.Modules.Modelers.CodebaseStructure" Version="1.0.2-pre.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11" />
+    <PackageReference Include="Intent.Modules.Modelers.CodebaseStructure" Version="1.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

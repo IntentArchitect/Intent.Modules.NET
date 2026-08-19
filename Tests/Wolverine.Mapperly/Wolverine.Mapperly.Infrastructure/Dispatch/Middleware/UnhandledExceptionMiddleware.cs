@@ -25,7 +25,7 @@ namespace Wolverine.Mapperly.Infrastructure.Dispatch.Middleware
             throw exception;
         }
 
-        private void LogException(Exception exception, object request, ILogger logger)
+        private void LogException(Exception exception, object? request, ILogger logger)
         {
             if (exception is ValidationException)
             {

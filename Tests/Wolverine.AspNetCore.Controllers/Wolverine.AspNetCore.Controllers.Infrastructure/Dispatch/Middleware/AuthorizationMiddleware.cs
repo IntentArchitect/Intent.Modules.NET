@@ -16,6 +16,10 @@ namespace Wolverine.AspNetCore.Controllers.Infrastructure.Dispatch.Middleware
             ICurrentUserService currentUserService,
             CancellationToken cancellationToken)
         {
+            if (envelope.Message is null)
+            {
+                return;
+            }
             await AuthorizeAsync(envelope.Message, currentUserService);
         }
 

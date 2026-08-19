@@ -147,6 +147,12 @@ internal class CallServiceOperationMappingResolver : IMappingTypeResolver
         {
             return new ObjectInitializationMapping(mappingModel, _template);
         }
+
+        if (mappingModel.Model.SpecializationType == "Parameter" &&
+            mappingModel.Model.TypeReference.Element?.SpecializationType is "DTO" or "Command" or "Query")
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
+        }
         return null;
     }
 }

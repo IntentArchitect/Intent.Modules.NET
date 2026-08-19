@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.2-pre.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.11" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
