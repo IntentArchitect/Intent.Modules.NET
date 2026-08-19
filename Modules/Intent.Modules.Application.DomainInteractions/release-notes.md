@@ -1,4 +1,4 @@
-### Version 1.2.10-pre.0
+### Version 1.2.10
 
 - New Feature: Added `ObjectMappingMappingStrategy`, a fourth `IMappingStrategy` alongside the AutoMapper and Mapperly ones. It matches when `Intent.Application.Dtos.ObjectMapping` is installed and generates query handler Call Sites that call that module's generated extension methods directly — `order.MapToOrderDto()` for a single entity, `orders.MapToOrderDtoList()` for a collection, `order?.MapToOrderDto()` when the Query Entity Action end is nullable, and `orders.MapToPagedResult(x => x.MapToOrderDto())` for an offset-paged query. No `IMapper` is injected into any handler.
 - New Feature: The strategy resolves the Mapping Extension Class by template role, which both registers the `using` for it and guards against emitting a Call Site to a class that was never generated — a DTO with no domain mapping produces no call rather than a reference to a missing type.

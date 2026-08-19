@@ -8,4 +8,5 @@
   <file path="Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs" deviationsHash="8214E14FF71D42197EA653004785CF4F6C18029B8A8844C22546840479E667F7" />
   <file path="Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs" />
   <file path="Templates/TemplateExtensions.cs" />
+  <file path="release-notes.md" />
 </managedFiles>
