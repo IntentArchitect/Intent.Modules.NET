@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="27e1bf22-ac74-4e15-b5d9-cc1342530dab" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Object Mapping</name>
+  <display>Object Mapping</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e128734e-ee00-40fd-ac72-9344f389c107</parentFolderId>
+  <packageId>e128734e-ee00-40fd-ac72-9344f389c107</packageId>
+  <packageName>Intent.Application.Dtos.ObjectMapping</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="15b3e709-aeb8-410a-9172-1273eb7b0864" name="Configuration">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="ce4eefa2-657c-42b0-a8cf-bbe35ef1d8a9" display="Settings Type" value="Application Settings" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="0d9f5223-c911-4afd-bb7d-89e5bd13a48c" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Null Path Handling</name>
+      <display>Null Path Handling</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>27e1bf22-ac74-4e15-b5d9-cc1342530dab</parentFolderId>
+      <packageId>e128734e-ee00-40fd-ac72-9344f389c107</packageId>
+      <packageName>Intent.Application.Dtos.ObjectMapping</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Governs what a mapping path that crosses a nullable hop into a non-nullable DTO field emits." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="strict" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="39e50871-56ed-4c71-908c-73010aecdc06" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Strict</name>
+          <display>Strict = strict</display>
+          <isAbstract>false</isAbstract>
+          <value>strict</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0d9f5223-c911-4afd-bb7d-89e5bd13a48c</parentFolderId>
+          <packageId>e128734e-ee00-40fd-ac72-9344f389c107</packageId>
+          <packageName>Intent.Application.Dtos.ObjectMapping</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4ce26df0-3bdd-4016-950e-dfe9e8dbf1c3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Lenient</name>
+          <display>Lenient = lenient</display>
+          <isAbstract>false</isAbstract>
+          <value>lenient</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0d9f5223-c911-4afd-bb7d-89e5bd13a48c</parentFolderId>
+          <packageId>e128734e-ee00-40fd-ac72-9344f389c107</packageId>
+          <packageName>Intent.Application.Dtos.ObjectMapping</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

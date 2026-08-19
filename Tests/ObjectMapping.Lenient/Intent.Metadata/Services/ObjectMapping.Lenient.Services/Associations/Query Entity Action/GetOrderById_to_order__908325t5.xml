@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="86205882-b902-4543-a5a2-176baec89647">
+  <sourceEnd id="ffadd001-8980-45cd-83ed-98791e1b5c54" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderById</display>
+    <order>0</order>
+    <typeReference id="cb0c9252-fcba-460e-8add-2ad0484c592a">
+      <typeId>7a1faa67-7f7d-41fe-acfe-fa66a2cd5f2d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Services</typePackageName>
+      <typePackageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="86205882-b902-4543-a5a2-176baec89647" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8ad9a87e-2768-4f68-bed0-bfb4d875cbed">
+      <typeId>fd664642-2aa7-40b9-90b3-74efd2da5769</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="71a75efe-e817-42a1-9ed8-13a5c09e18b5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7a1faa67-7f7d-41fe-acfe-fa66a2cd5f2d" location="[ObjectMapping.Lenient].[Services].[GetOrderById]" />
+        <target applicationId="71a75efe-e817-42a1-9ed8-13a5c09e18b5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fd664642-2aa7-40b9-90b3-74efd2da5769" location="[ObjectMapping.Lenient].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="fd664642-2aa7-40b9-90b3-74efd2da5769" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="2d852583-96b2-43b9-bfde-8401a4e11231" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7a1faa67-7f7d-41fe-acfe-fa66a2cd5f2d" name="GetOrderById" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="751a240c-2b5c-4ae0-964a-2b9c880374fb" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

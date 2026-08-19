@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2d3b23b2-2b89-47f0-8689-5b22c5e57923</correlationId>
+      <path>ObjectMapping.Strict.Application.Tests/ObjectMapping.Strict.Application.Tests.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-15T10:55:14.7486836Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:35.8621638Z</approvedAt>
+      <deviationsHash>0CF6E2FBEDDC4588844DE3FED54DBBB674AD2ED006F4ED61750C80F4E72126FD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390</correlationId>
+      <path>ObjectMapping.Strict.Domain/Entities/Order.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-15T11:00:57.4046605Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:35.8718807Z</approvedAt>
+      <deviationsHash>F4B74C440615BD9900E8AC3C328E756447DFE0544F562DFE49C70D0F68A80F62</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.2058143Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.2212065Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.2427391Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.2581369Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/ObjectMapping.Strict.Application.Tests/Mappings/OrderDtoMappingExtensionsTests.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.2826641Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/ObjectMapping.Strict.Application.Tests/Orders/OrderQueryHandlerTests.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.3012586Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/ObjectMapping.Strict/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-18T09:54:37.3202135Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

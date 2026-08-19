@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9716706b-b932-4895-b3fa-791ddfd3467b" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>CouponKind</name>
+  <display>CouponKind</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</parentFolderId>
+  <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+  <packageName>ObjectMapping.Strict.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="84b90ba6-2062-4a4b-bf3d-de3762893587" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Percentage</name>
+      <display>Percentage</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9716706b-b932-4895-b3fa-791ddfd3467b</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d14dcd54-7775-4769-84c5-a95d4f88b01c" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>FixedAmount</name>
+      <display>FixedAmount</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9716706b-b932-4895-b3fa-791ddfd3467b</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

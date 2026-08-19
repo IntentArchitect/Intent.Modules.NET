@@ -1,0 +1,8 @@
+source: native
+title: Object Mapper Hardening
+description: Makes the Object Mapper module's generated mappings correct for every shape and actually invoked by handlers.
+slug: object-mapper-hardening
+phase: done
+createdUtc: 2026-08-14T13:21:05Z
+updatedUtc: 2026-08-18T13:35:38Z
+cadence: stage

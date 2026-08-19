@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bfef6d95-5b50-4aa6-a4a8-d55d9304f37c">
+  <sourceEnd id="6d069e1d-f71c-4623-89f4-17558a078285" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrders</display>
+    <order>0</order>
+    <typeReference id="9df09149-29f0-476b-b686-a123687e912f">
+      <typeId>5208d23c-f718-4223-b91c-899da8fb9cc9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Services</typePackageName>
+      <typePackageId>d195a037-756f-4ac9-9f5c-b55ab37f1f8b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bfef6d95-5b50-4aa6-a4a8-d55d9304f37c" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orders</name>
+    <display>[query] orders: Order[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1f6107b4-e8d6-491e-89f0-c0842b5603f8">
+      <typeId>fd664642-2aa7-40b9-90b3-74efd2da5769</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Lenient.Domain</typePackageName>
+      <typePackageId>8a5f19a3-7530-40f8-a236-92200628c45a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="71a75efe-e817-42a1-9ed8-13a5c09e18b5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5208d23c-f718-4223-b91c-899da8fb9cc9" location="[ObjectMapping.Lenient].[Services].[GetOrders]" />
+        <target applicationId="71a75efe-e817-42a1-9ed8-13a5c09e18b5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fd664642-2aa7-40b9-90b3-74efd2da5769" location="[ObjectMapping.Lenient].[Services].[Order]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

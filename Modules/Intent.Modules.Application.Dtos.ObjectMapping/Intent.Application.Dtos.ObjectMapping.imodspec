@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Application.Dtos.ObjectMapping</id>
+  <version>1.0.0-pre.4</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0)</supportedClientVersions>
+  <summary>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities, producing readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.</summary>
+  <description>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities, producing readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ib2JqZWN0TWFwcGluZ0JhY2tncm91bmQiIHgxPSIyNSIgeTE9Ii42IiB4Mj0iMjUiIHkyPSI0OS40IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjMDA3MWMxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE2M2I3NCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0ib2JqZWN0TWFwcGluZ1NvdXJjZUNhcmQiPgogICAgICA8cmVjdCB4PSI2IiB5PSIxNC41IiB3aWR0aD0iMTMuNSIgaGVpZ2h0PSIyMSIgcng9IjIuMyIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aCBpZD0ib2JqZWN0TWFwcGluZ1RhcmdldENhcmQiPgogICAgICA8cmVjdCB4PSIzMC41IiB5PSIxNC41IiB3aWR0aD0iMTMuNSIgaGVpZ2h0PSIyMSIgcng9IjIuMyIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGcgaWQ9IkxheWVyXzEiPgogICAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQuNCIgZmlsbD0idXJsKCNvYmplY3RNYXBwaW5nQmFja2dyb3VuZCkiLz4KCiAgICA8IS0tIFNvdXJjZTogdGhlIGRvbWFpbiBlbnRpdHkgLS0+CiAgICA8ZyBjbGlwLXBhdGg9InVybCgjb2JqZWN0TWFwcGluZ1NvdXJjZUNhcmQpIj4KICAgICAgPHJlY3QgeD0iNiIgeT0iMTQuNSIgd2lkdGg9IjEzLjUiIGhlaWdodD0iMjEiIGZpbGw9IiNmZmYiLz4KICAgICAgPHJlY3QgeD0iNiIgeT0iMTQuNSIgd2lkdGg9IjEzLjUiIGhlaWdodD0iNC44IiBmaWxsPSIjMTYzYjc0Ii8+CiAgICA8L2c+CiAgICA8cmVjdCB4PSI4IiB5PSIyMS43IiB3aWR0aD0iOS41IiBoZWlnaHQ9IjIuMiIgcng9IjEuMSIgZmlsbD0iIzAwNzFjMSIvPgogICAgPHJlY3QgeD0iOCIgeT0iMjYuMyIgd2lkdGg9IjkuNSIgaGVpZ2h0PSIyLjIiIHJ4PSIxLjEiIGZpbGw9IiMwMDcxYzEiLz4KICAgIDxyZWN0IHg9IjgiIHk9IjMwLjkiIHdpZHRoPSI5LjUiIGhlaWdodD0iMi4yIiByeD0iMS4xIiBmaWxsPSIjMDA3MWMxIi8+CgogICAgPCEtLSBUYXJnZXQ6IHRoZSBtYXBwZWQgRFRPIC0tPgogICAgPGcgY2xpcC1wYXRoPSJ1cmwoI29iamVjdE1hcHBpbmdUYXJnZXRDYXJkKSI+CiAgICAgIDxyZWN0IHg9IjMwLjUiIHk9IjE0LjUiIHdpZHRoPSIxMy41IiBoZWlnaHQ9IjIxIiBmaWxsPSIjZmZmIi8+CiAgICAgIDxyZWN0IHg9IjMwLjUiIHk9IjE0LjUiIHdpZHRoPSIxMy41IiBoZWlnaHQ9IjQuOCIgZmlsbD0iIzE2M2I3NCIvPgogICAgPC9nPgogICAgPHJlY3QgeD0iMzIuNSIgeT0iMjEuNyIgd2lkdGg9IjkuNSIgaGVpZ2h0PSIyLjIiIHJ4PSIxLjEiIGZpbGw9IiMwMDcxYzEiLz4KICAgIDxyZWN0IHg9IjMyLjUiIHk9IjI2LjMiIHdpZHRoPSI5LjUiIGhlaWdodD0iMi4yIiByeD0iMS4xIiBmaWxsPSIjMDA3MWMxIi8+CiAgICA8cmVjdCB4PSIzMi41IiB5PSIzMC45IiB3aWR0aD0iOS41IiBoZWlnaHQ9IjIuMiIgcng9IjEuMSIgZmlsbD0iIzAwNzFjMSIvPgoKICAgIDwhLS0gRXhwbGljaXQsIGZpZWxkLWJ5LWZpZWxkIG1hcHBpbmcgLS0+CiAgICA8bGluZSB4MT0iMjAuNiIgeTE9IjIyLjgiIHgyPSIyNiIgeTI9IjIyLjgiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBvbHlnb24gcG9pbnRzPSIyNS44LDIwLjc1IDI5LjQsMjIuOCAyNS44LDI0Ljg1IiBmaWxsPSIjZmZmIi8+CiAgICA8bGluZSB4MT0iMjAuNiIgeTE9IjMyIiB4Mj0iMjYiIHkyPSIzMiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8cG9seWdvbiBwb2ludHM9IjI1LjgsMjkuOTUgMjkuNCwzMiAyNS44LDM0LjA1IiBmaWxsPSIjZmZmIi8+CiAgPC9nPgo8L3N2Zz4K</iconUrl>
+  <templates>
+    <template id="Intent.Application.Dtos.ObjectMapping.MappingExtensions" externalReference="2cc27b23-c495-44be-870b-a0854490f1ce">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Mappings</role>
+      <location>Mappings</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions />
+  <moduleSettings>
+    <group id="27e1bf22-ac74-4e15-b5d9-cc1342530dab" title="Object Mapping" type="application-settings" externalReference="27e1bf22-ac74-4e15-b5d9-cc1342530dab">
+      <settings>
+        <setting id="0d9f5223-c911-4afd-bb7d-89e5bd13a48c" title="Null Path Handling" type="select">
+          <hint>Governs what a mapping path that crosses a nullable hop into a non-nullable DTO field emits.</hint>
+          <defaultValue>strict</defaultValue>
+          <options>
+            <option value="strict" description="Strict" />
+            <option value="lenient" description="Lenient" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <interoperability>
+    <detect id="Intent.Application.DomainInteractions">
+      <install>
+        <package id="Intent.Application.DomainInteractions" version="1.2.10-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
+  <dependencies>
+    <dependency id="Intent.Application.Dtos" version="4.2.1" />
+    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.4" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>mapping dto csharp dotnet application objectmapping</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Dtos.ObjectMapping/README.md</projectUrl>
+  <releaseNotes>### Version 1.0.0
+
+- New Feature: Added `MappingExtensions` template that generates `{DtoName}MappingExtensions.cs` static classes with explicit `MapTo{Name}()` and `MapTo{Name}List()` extension methods for every DTO with a `[map from]` domain mapping.
+- New Feature: Generated mapping bodies handle flat primitives, nullable navigation properties (`?.`), nested DTO composition (recursive `MapTo` calls), collection projections (`Select(...).ToList()`), FK extraction from association ends, collection multi-hop paths, and explicit enum-to-enum casts.
+- New Feature: `CanRunTemplate()` guard prevents this module activating when `Intent.Application.Dtos.AutoMapper` is installed, allowing controlled migration between the two mapping providers.</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata />
+  <migrations />
+</package>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4789ddda-e170-4a80-b244-2fd1268d16a0">
+  <sourceEnd id="1828815c-d31a-4ab0-a249-5f0faa2250da" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrdersPaged</display>
+    <order>0</order>
+    <typeReference id="dae5446a-cfb6-4cc3-b42f-23df6db1f84f">
+      <typeId>56f0a04f-a31e-4860-b9c7-fe350193c875</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Services</typePackageName>
+      <typePackageId>03ce6d4f-afa8-4c89-acf3-60751f78364b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4789ddda-e170-4a80-b244-2fd1268d16a0" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orders</name>
+    <display>[query] orders: Order[*]</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4ebbbce9-6652-4319-a839-7f6e2e098212">
+      <typeId>abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ObjectMapping.Strict.Domain</typePackageName>
+      <typePackageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="1c34282d-3bcc-4b29-9853-56e36f7e4fa2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="56f0a04f-a31e-4860-b9c7-fe350193c875" location="[ObjectMapping.Strict].[Services].[GetOrdersPaged]" />
+        <target applicationId="1c34282d-3bcc-4b29-9853-56e36f7e4fa2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390" location="[ObjectMapping.Strict].[Services].[Order]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

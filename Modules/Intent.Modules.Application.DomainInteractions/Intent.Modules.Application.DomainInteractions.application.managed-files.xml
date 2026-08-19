@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0848134b-a122-45f5-b75f-b37fb6b6b2af">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/DomainInteractionRegistration.cs" />
+  <file path="Intent.Application.DomainInteractions.imodspec" />
+  <file path="Intent.Modules.Application.DomainInteractions.csproj" deviationsHash="BE3926FD850E7078654016F1F957D90636447908B9E107D4DD37FB206B2C955C" />
+  <file path="release-notes.md" />
+</managedFiles>

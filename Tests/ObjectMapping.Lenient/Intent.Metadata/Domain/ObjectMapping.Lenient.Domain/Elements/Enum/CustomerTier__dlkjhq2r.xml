@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="248f4bb6-742a-4909-9ba6-201ee7a88d79" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>CustomerTier</name>
+  <display>CustomerTier</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8a5f19a3-7530-40f8-a236-92200628c45a</parentFolderId>
+  <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+  <packageName>ObjectMapping.Lenient.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1a760df1-7584-4795-acbc-8fba602e6b57" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Bronze</name>
+      <display>Bronze</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>248f4bb6-742a-4909-9ba6-201ee7a88d79</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4b4c0825-8278-4900-8ed3-950af2735b44" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Silver</name>
+      <display>Silver</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>248f4bb6-742a-4909-9ba6-201ee7a88d79</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4ab03c4e-60bd-4786-b259-5d8bc0d230b7" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Gold</name>
+      <display>Gold</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>248f4bb6-742a-4909-9ba6-201ee7a88d79</parentFolderId>
+      <packageId>8a5f19a3-7530-40f8-a236-92200628c45a</packageId>
+      <packageName>ObjectMapping.Lenient.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

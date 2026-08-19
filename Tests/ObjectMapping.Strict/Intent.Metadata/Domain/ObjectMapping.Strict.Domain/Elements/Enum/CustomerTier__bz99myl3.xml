@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8883d59e-9bea-4959-b8ca-e3cf6858cf70" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>CustomerTier</name>
+  <display>CustomerTier</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</parentFolderId>
+  <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+  <packageName>ObjectMapping.Strict.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="48beba2a-eee4-43f3-825f-595e4776e3f8" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Bronze</name>
+      <display>Bronze</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8883d59e-9bea-4959-b8ca-e3cf6858cf70</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5b566eb4-8383-434c-834c-77a39625e837" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Silver</name>
+      <display>Silver</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8883d59e-9bea-4959-b8ca-e3cf6858cf70</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="908d6b4f-b59a-426a-abc6-42da676a322d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Gold</name>
+      <display>Gold</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8883d59e-9bea-4959-b8ca-e3cf6858cf70</parentFolderId>
+      <packageId>edad26c5-162d-4f7e-adfd-9b4a83a1fbd9</packageId>
+      <packageName>ObjectMapping.Strict.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

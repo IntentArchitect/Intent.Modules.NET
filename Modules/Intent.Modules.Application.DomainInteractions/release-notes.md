@@ -1,3 +1,9 @@
+### Version 1.2.10-pre.0
+
+- New Feature: Added `ObjectMappingMappingStrategy`, a fourth `IMappingStrategy` alongside the AutoMapper and Mapperly ones. It matches when `Intent.Application.Dtos.ObjectMapping` is installed and generates query handler Call Sites that call that module's generated extension methods directly — `order.MapToOrderDto()` for a single entity, `orders.MapToOrderDtoList()` for a collection, `order?.MapToOrderDto()` when the Query Entity Action end is nullable, and `orders.MapToPagedResult(x => x.MapToOrderDto())` for an offset-paged query. No `IMapper` is injected into any handler.
+- New Feature: The strategy resolves the Mapping Extension Class by template role, which both registers the `using` for it and guards against emitting a Call Site to a class that was never generated — a DTO with no domain mapping produces no call rather than a reference to a missing type.
+- Note: The Object Mapping strategy reports `HasProjectTo() == false`. Its mapping methods are ordinary C# over materialised objects, not expression trees, so an application whose `Default Query Implementation` is set to `ProjectTo` gets the existing `ElementException` naming the offending element, rather than a query that cannot be translated at runtime. Cursor-paged Call Sites are not verified for this strategy.
+
 ### Version 1.2.9
 
 - Fixed: Software Factory crash (`NullReferenceException`) when generating Update or Delete entity interactions if `Intent.Common.UnitOfWork` is not installed.

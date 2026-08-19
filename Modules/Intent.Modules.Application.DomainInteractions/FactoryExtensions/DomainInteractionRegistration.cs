@@ -33,6 +33,7 @@ namespace Intent.Modules.Application.DomainInteractions.FactoryExtensions
 
             MappingStrategyProvider.Instance.Register(new AutoMapperMappingStrategy());
             MappingStrategyProvider.Instance.Register(new MapperlyMappingStrategy());
+            MappingStrategyProvider.Instance.Register(new ObjectMappingMappingStrategy());
         }
     }
 }
