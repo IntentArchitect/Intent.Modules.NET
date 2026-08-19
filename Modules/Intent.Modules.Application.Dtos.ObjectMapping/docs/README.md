@@ -1,6 +1,6 @@
 # Intent.Application.Dtos.ObjectMapping
 
-This module generates explicit C# object mapping extension methods for DTOs mapped from domain entities. It is a drop-in replacement for `Intent.Application.Dtos.AutoMapper` that produces readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.
+This module generates explicit C# object mapping extension methods for DTOs mapped from domain entities, producing readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.
 
 ## What This Module Generates
 
@@ -86,10 +86,10 @@ DisplayName = projectFrom.GetDisplayName(),
 
 A mapping path can cross a **nullable hop** — an optional association or a nullable property — on its way to a value the DTO field declares as non-nullable. `Order.Coupon` is optional, but `OrderDto.CouponPercentOff` is a plain `int`. There is no answer that suits every application, so the choice is yours, made once per application under **Settings → Object Mapping → Null Path Handling**.
 
-| Value | Emitted for a nullable hop into a non-nullable field | Runtime consequence when that hop is null |
-| --- | --- | --- |
-| **`Strict`** (default) | `projectFrom.Coupon!.PercentOff` | Throws `NullReferenceException`. The mapping fails loudly and returns no DTO at all — never a partially populated one. |
-| **`Lenient`** | `projectFrom.Coupon?.PercentOff ?? default!` | Returns a DTO whose affected field holds the CLR default for its type (`0`, `Guid.Empty`, `null`, the enum's zero value); every other field is populated normally. |
+| Value                  | Emitted for a nullable hop into a non-nullable field | Runtime consequence when that hop is null                                                                                                                          |
+| ---------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`Strict`** (default) | `projectFrom.Coupon!.PercentOff`                     | Throws `NullReferenceException`. The mapping fails loudly and returns no DTO at all — never a partially populated one.                                             |
+| **`Lenient`**          | `projectFrom.Coupon?.PercentOff ?? default!`         | Returns a DTO whose affected field holds the CLR default for its type (`0`, `Guid.Empty`, `null`, the enum's zero value); every other field is populated normally. |
 
 `Strict` is the default and applies when the setting has never been set. The decision is made **per hop**, not per field:
 
@@ -113,12 +113,12 @@ The two recognised prefix forms are interchangeable: `src.OrderNumber + " / " + 
 
 When `Intent.Application.DomainInteractions` (v1.2.10-pre.0 or later) is installed alongside this module, it recognises the module and generates query handler bodies that call these extension methods directly. No `IMapper` is injected into any handler.
 
-| Query shape | Generated Call Site |
-| --- | --- |
-| Single entity | `return order.MapToOrderDto();` |
-| Collection | `return orders.MapToOrderDtoList();` |
-| Nullable single | `return order?.MapToOrderDto();` |
-| Offset-paged | `return orders.MapToPagedResult(x => x.MapToOrderDto());` |
+| Query shape     | Generated Call Site                                       |
+| --------------- | --------------------------------------------------------- |
+| Single entity   | `return order.MapToOrderDto();`                           |
+| Collection      | `return orders.MapToOrderDtoList();`                      |
+| Nullable single | `return order?.MapToOrderDto();`                          |
+| Offset-paged    | `return orders.MapToPagedResult(x => x.MapToOrderDto());` |
 
 The nullable form is driven by the **Query Entity Action's** own multiplicity, not by the DTO's nullability. A query that may legitimately find nothing must have its Query Entity Action end modelled as `0..1`; left at `1`, Domain Interactions emits a `NotFoundException` guard and the handler throws instead of returning null.
 
@@ -138,17 +138,21 @@ This module no longer stands down when `Intent.Application.Dtos.AutoMapper` is i
 
 ## Known limitations
 
-- **Cursor paging is not verified.** The offset-paged Call Site is exercised end to end; the cursor-paged equivalent is not. Nothing in this repository fulfils the `Application.Common.CursorPagedList` template role except `Intent.Modules.Azure.TableStorage`, a persistence provider that would compete with EF Core for the repository roles, so a cursor-paged query could not be modelled to test against. Cursor-paged output may work, but it is untested.
+- **Projection mappings (`ProjectTo`) are not supported.** The generated mapping methods are ordinary C# operating on materialised objects, not expression trees, so they cannot be translated into SQL by a LINQ provider. See [The `IQueryable` projection trade-off](#the-iqueryable-projection-trade-off) above — use `Default` as the Query Implementation, or use `Intent.Application.Dtos.AutoMapper` if `ProjectTo` is required.
+- **Cursor paging is not verified.**
 - **Multi-PK collection fields.** A field that projects the primary keys of a to-many association (e.g. `LineIds`) was previously detected by a `GetTypeInfo(field.TypeReference).IsPrimitive` guard. That call resolves a collection field to `List<Guid>` and reports it non-primitive, so the field fell through to the bare navigation path and emitted code that does not compile. This module now uses a collection-aware check instead. **`Intent.Application.Dtos.AutoMapper` carries the identical unguarded form and very likely has the same defect** — it has not been fixed there, and this note is the only record of it.
-- **Branches with no test coverage.** The following are implemented but not exercised by either verification application, so they rest on inspection rather than on a passing test: the casing-conversion branch of `PascalCasePropertyAccesses`; the prepend-the-whole-expression branch for an unrecognised prefix form; a nullable hop occurring *inside* a collection projection; and a nullable hop feeding an enum cast.
+- **Branches with no test coverage.** The following are implemented but not exercised by either verification application, so they rest on inspection rather than on a passing test: the casing-conversion branch of `PascalCasePropertyAccesses`; the prepend-the-whole-expression branch for an unrecognised prefix form; a nullable hop occurring _inside_ a collection projection; and a nullable hop feeding an enum cast.
 
 ## Related Modules
 
 ### [Intent.Application.Dtos](https://github.com/IntentArchitect/Intent.Modules.NET)
+
 Provides the `DTOModel` designer elements and the `DtoModelTemplate` that this module reads to discover which DTOs have domain mappings and to resolve DTO type names.
 
 ### [Intent.Application.Dtos.AutoMapper](https://github.com/IntentArchitect/Intent.Modules.NET)
+
 The AutoMapper-based mapping provider this module replaces. The two modules are mutually exclusive — only one can be active in a given application.
 
 ### [Intent.Application.Dtos.Mapperly](https://github.com/IntentArchitect/Intent.Modules.NET)
+
 An alternative mapping provider based on Mapperly source generation. Also mutually exclusive with this module.
