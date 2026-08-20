@@ -4,3 +4,4 @@ Intent.Modules/**/*.*
 # Intent Architect
 
 **/.intent/*
+**/.cache/*
