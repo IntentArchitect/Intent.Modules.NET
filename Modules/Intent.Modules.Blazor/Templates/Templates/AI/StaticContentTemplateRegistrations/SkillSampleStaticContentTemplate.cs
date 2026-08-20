@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Templates;
@@ -37,7 +39,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistr
 
         public override string TransformText()
         {
-            if (this.TryGetTemplate<IMarkdownFileBuilderTemplate>(_skillTemplateId, out var skillTemplate) &&
+            var skillTemplateInstance = this.OutputTarget.TemplateInstances.FirstOrDefault(x => x.Id == _skillTemplateId);
+
+            if (skillTemplateInstance is not null  &&
+                skillTemplateInstance is IMarkdownFileBuilderTemplate skillTemplate &&
                 !skillTemplate.ContentHashMatchesDisk &&
                 this.TryGetExistingFileContent(out var existingContent))
             {

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8550f564-4219-43e5-a2bd-418a2130246b" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.AspNetCore.Authentication.JwtBearer</name>
+  <display>Microsoft.AspNetCore.Authentication.JwtBearer</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a1aed0be-6fd7-40d1-a36a-4da8621b6668</parentFolderId>
+  <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3290e7a8-e00a-4d89-9d92-f19a9344c32d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.9</name>
+      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5ba76f0d-b69a-4bd2-8f72-88c0097528f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3290e7a8-e00a-4d89-9d92-f19a9344c32d</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="46860cd4-0814-4e98-b97e-b4768d42b58d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.3.11</name>
+      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="038bcf39-c765-4efe-831f-b5fc6dec3f12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authentication</name>
+          <display>Microsoft.AspNetCore.Authentication (2.3.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.3.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>46860cd4-0814-4e98-b97e-b4768d42b58d</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="aa6e6825-1930-4de7-8ab9-bc3c0580e5c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (5.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>46860cd4-0814-4e98-b97e-b4768d42b58d</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="35378f88-a552-476b-b88d-8feda8c99460" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.0.36</name>
+      <display>6.0.36 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="34e04053-3ee8-40f3-b368-8bf019b75e02" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (6.35.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.35.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>35378f88-a552-476b-b88d-8feda8c99460</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="abf21ccb-aae0-46b6-b383-17c4f12ee0aa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.20</name>
+      <display>7.0.20 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5ecb4b17-ef25-4ce4-9268-fa3cee5e7b9d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.28</name>
+      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c64877e1-1c73-4a3d-b0de-a34467c92971" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.1.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5ecb4b17-ef25-4ce4-9268-fa3cee5e7b9d</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1a1510e1-15a0-48ec-906b-f99834e2e548" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.17</name>
+      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8550f564-4219-43e5-a2bd-418a2130246b</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e82d1ab1-8645-4aa3-b740-a6938d226daf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1a1510e1-15a0-48ec-906b-f99834e2e548</parentFolderId>
+          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

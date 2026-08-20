@@ -116,6 +116,18 @@
   <file path="Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs" />
   <file path="Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs" />
   <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs" deviationsHash="A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3" />
+  <file path="content/ComponentSkillSamples/blazor-dialog-adding-entity/readme.txt" />
+  <file path="content/ComponentSkillSamples/blazor-dialog-editing-entity/readme.txt" />
+  <file path="content/ComponentSkillSamples/blazor-page-adding-entity/readme.txt" />
+  <file path="content/ComponentSkillSamples/blazor-page-editing-entity/readme.txt" />
+  <file path="content/ComponentSkillSamples/blazor-page-search-entity/readme.txt" />
+  <file path="content/ComponentSkillSamples/blazor-page-view-entity/readme.txt" />
+  <file path="content/GeneralSkillSamples/readme.txt" />
+  <file path="content/NoSamplePages/readme.txt" />
+  <file path="content/Theme/readme.txt" />
+  <file path="content/ThemeStorage/readme.txt" />
+  <file path="content/ThemeToggle/readme.txt" />
+  <file path="content/WasmNoSamplePages/readme.txt" />
   <file path="modelers/Blazor UI Extensions.designer.settings" />
   <file path="resources/documentation.json" />
 </managedFiles>

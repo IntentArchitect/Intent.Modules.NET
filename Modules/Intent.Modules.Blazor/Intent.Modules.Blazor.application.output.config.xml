@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="content/ComponentSkillSamples/blazor-dialog-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentSkillSamples/blazor-dialog-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentSkillSamples/blazor-page-adding-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentSkillSamples/blazor-page-editing-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentSkillSamples/blazor-page-search-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ComponentSkillSamples/blazor-page-view-entity/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/GeneralSkillSamples/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/NoSamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/Theme/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ThemeStorage/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/ThemeToggle/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="content/WasmNoSamplePages/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-dialog-adding-entity/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-dialog-editing-entity/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.Blazor/content/ComponentSkillSamples/blazor-page-adding-entity/readme.txt" state="ignored;once-off-generated" />

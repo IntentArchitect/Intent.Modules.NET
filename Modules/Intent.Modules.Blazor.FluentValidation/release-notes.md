@@ -1,3 +1,7 @@
+### Version 1.4.0
+
+- Improvement: Updated referenced module versions.
+
 ### Version 1.3.2
 
 - Improvement: Updated referenced module versions.

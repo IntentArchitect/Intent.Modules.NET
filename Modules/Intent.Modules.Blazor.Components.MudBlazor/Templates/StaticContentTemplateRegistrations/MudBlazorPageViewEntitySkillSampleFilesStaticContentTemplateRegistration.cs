@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Components.MudBlazor.Templates.MudBlazorPageViewEntitySkill;
 using Intent.Modules.Blazor.Templates.Templates.StaticContentTemplateRegistrations;
@@ -5,7 +6,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]

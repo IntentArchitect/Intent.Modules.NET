@@ -47,7 +47,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             html.AddAttribute("data-theme-storage", "cookie");
                         }
                         html.AddEmptyLine();
-                        html.AddCodeBlock("@Intent.Merge()");
+                        html.AddCodeBlock($"@Intent.Merge()");
+                        html.AddEmptyLine();
                         html.AddHtmlElement("head", head =>
                         {
                             head.AddHtmlElement("meta", t => t.AddAttribute("charset", "utf-8"));
