@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c2bebc85-66d7-44aa-a14b-b0e320d1478e">
+  <sourceEnd id="f0eb7d13-055d-446b-a361-369d6ab29e55" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: GenerateRecoveryCodes</display>
+    <order>0</order>
+    <typeReference id="e1d38e86-9e96-40aa-bfa5-5886e4781f4c">
+      <typeId>c2689e65-98b4-4963-8299-835956991f1c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c2bebc85-66d7-44aa-a14b-b0e320d1478e" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToResetAuthenticator</name>
+    <display>[navigate] ResetAuthenticator</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="12cd74cd-75b3-4ad3-9d2d-9c7608b59da0">
+      <typeId>1b561443-2424-4b61-9222-ea9cb1044da8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

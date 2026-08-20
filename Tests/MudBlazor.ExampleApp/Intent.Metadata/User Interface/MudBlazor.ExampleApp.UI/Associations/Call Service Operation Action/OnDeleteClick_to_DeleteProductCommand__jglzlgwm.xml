@@ -21,7 +21,7 @@
   <targetEnd id="099f53ee-626c-4824-a8da-41baf9a0ff2a" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
     <name>DeleteProductCommand</name>
     <display>[call] ProductsService.DeleteProductCommand(id: guid): void</display>
-    <order>1</order>
+    <order>0</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>

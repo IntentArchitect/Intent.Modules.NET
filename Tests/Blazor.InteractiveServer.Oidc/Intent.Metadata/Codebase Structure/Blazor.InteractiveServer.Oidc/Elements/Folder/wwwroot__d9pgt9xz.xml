@@ -3,7 +3,6 @@
   <name>wwwroot</name>
   <display>wwwroot</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bd5c863a-039d-4ad2-a5fb-195ff214857a</parentFolderId>

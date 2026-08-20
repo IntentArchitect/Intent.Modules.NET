@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ebc868ad-ba1f-446e-b632-5cedf4284e33">
+  <sourceEnd id="4cd2f1a5-3a16-48bc-845a-184e088e2bf4" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: Register</display>
+    <order>0</order>
+    <typeReference id="224c5480-e8a4-44e1-aab5-53b2a61f2c17">
+      <typeId>2050e436-4b51-436d-b0d6-a6e22019616c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ebc868ad-ba1f-446e-b632-5cedf4284e33" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToRegisterConfirmation</name>
+    <display>[navigate] RegisterConfirmation</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="174b0c37-e9b3-49e9-936c-d1e16fea69c9">
+      <typeId>2008ecaf-7977-4993-b08f-46a5eca7fe6d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

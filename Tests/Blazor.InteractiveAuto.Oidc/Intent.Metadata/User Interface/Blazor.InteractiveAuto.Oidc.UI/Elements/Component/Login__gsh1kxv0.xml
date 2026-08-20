@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7f1effd5-14c0-4d22-8b46-b0f2fe26399d" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>Login</name>
+  <display>Login</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b333669e-7b99-4ca0-8eb3-9db7cf4d1981</parentFolderId>
+  <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>
+  <packageName>Blazor.InteractiveAuto.Oidc.UI</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/Account/Login" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Login" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="fbf946ea-47cc-486b-b15f-aaa58497b819" name="Render On Server">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Blazor</definitionPackageName>
+      <definitionPackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="43b90ece-5ea7-41b0-8a78-d879a67124eb" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="7f1effd5-14c0-4d22-8b46-b0f2fe26399d" location="[Blazor.InteractiveAuto.Oidc].[User Interface].[Login]" />
+      <target applicationId="43b90ece-5ea7-41b0-8a78-d879a67124eb" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="7f1effd5-14c0-4d22-8b46-b0f2fe26399d" location="[Blazor.InteractiveAuto.Oidc].[User Interface].[Login]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata>
+    <entry key="blazor-auth-page-newly-created" value="true" />
+    <entry key="blazor-auth-page-id" value="oidc-login" />
+  </metadata>
+  <childElements />
+</class>

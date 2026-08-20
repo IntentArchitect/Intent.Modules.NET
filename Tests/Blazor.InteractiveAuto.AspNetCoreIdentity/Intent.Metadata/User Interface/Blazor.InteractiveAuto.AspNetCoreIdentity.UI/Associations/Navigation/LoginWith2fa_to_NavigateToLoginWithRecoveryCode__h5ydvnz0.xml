@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5554d0db-6c9d-4fb5-9679-3621d98b9ce0">
+  <sourceEnd id="81bbb934-8da4-409a-b27a-d0130b02cf3f" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: LoginWith2fa</display>
+    <order>0</order>
+    <typeReference id="3c6c9b56-914e-4677-b986-2bda52fb40a4">
+      <typeId>df94333b-d3fc-424d-b212-9927e3f7d107</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>daea4e8d-2c49-44e8-b33d-306da23717f0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5554d0db-6c9d-4fb5-9679-3621d98b9ce0" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToLoginWithRecoveryCode</name>
+    <display>[navigate] LoginWithRecoveryCode</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="72517bbb-1371-4b97-91f5-da9ce8bcad30">
+      <typeId>4ef2926f-a44d-45da-91c4-f1c5d2a74c59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>daea4e8d-2c49-44e8-b33d-306da23717f0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

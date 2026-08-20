@@ -2,43 +2,40 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#02d4e2ed-0776-4cbb-af22-2eefef5f2f21</correlationId>
-      <path>BlazorNoMudBlazor.Api/BlazorNoMudBlazor.Api.csproj</path>
-      <count>1</count>
+      <correlationId>Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate#2008ecaf-7977-4993-b08f-46a5eca7fe6d</correlationId>
+      <path>BlazorNoMudBlazor.Api/Components/Account/Pages/RegisterConfirmation.razor.cs</path>
+      <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-06-30T13:36:56.567954Z</updatedAt>
+      <updatedAt>2026-08-20T04:36:42.0246599Z</updatedAt>
       <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-06-30T13:54:33.3131117Z</approvedAt>
-      <deviationsHash>21A05A5415EA014FBBA28FBB8A41D2A06039E60C6EA400CC58B524CF981205A7</deviationsHash>
-      <fileHash>21A05A5415EA014FBBA28FBB8A41D2A06039E60C6EA400CC58B524CF981205A7</fileHash>
+      <approvedAt>2026-08-20T05:57:07.2668468Z</approvedAt>
+      <deviationsHash>07146C5525FF8BF4EA29D7CCCACA8B604D3B6C72C29EA5CD55E0E299068BBE8B</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#50806930-74d3-477d-950e-8dc175422a60</correlationId>
-      <path>BlazorNoMudBlazor.Api/Components/Pages/Home.razor</path>
-      <count>1</count>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#23a1de4b-f365-4da2-bdbd-cb847fe5477b</correlationId>
+      <path>BlazorNoMudBlazor.Api/Components/App.razor</path>
+      <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-01T13:44:23.8200431Z</updatedAt>
+      <updatedAt>2026-08-20T04:34:03.3256169Z</updatedAt>
       <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-01T13:49:54.0957588Z</approvedAt>
-      <deviationsHash>D63171FE2EA34C64B28F7F3C4B3459371AB5B714E472D7CA262A36EEFB14ED6C</deviationsHash>
-      <fileHash>9296D7247C91FB9933DA53645D17D1C954AF0A78A52474BD5EA7F4CB30B4A7D3</fileHash>
+      <approvedAt>2026-08-20T05:57:20.0675564Z</approvedAt>
+      <deviationsHash>E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#7fb21650-87a3-4307-882e-ab9320839bd6</correlationId>
-      <path>BlazorNoMudBlazor.Infrastructure/BlazorNoMudBlazor.Infrastructure.csproj</path>
-      <count>1</count>
+      <correlationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#c400bc12-330c-4b67-a65b-acb950dcb58e</correlationId>
+      <path>BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor.cs</path>
+      <count>2</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:42:03.8318873Z</updatedAt>
+      <updatedAt>2026-08-20T04:34:03.3255302Z</updatedAt>
       <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.5777199Z</approvedAt>
-      <deviationsHash>F19B9C537F769FEC737F980EE119ABFBF92752B6B3799B336ED38161C2699042</deviationsHash>
-      <fileHash>0C569A0675A8D0753B55DA51C5749C4902F05FA5539E6DB9AB0AE2B27F0B02D6</fileHash>
+      <approvedAt>2026-08-20T05:57:17.7488394Z</approvedAt>
+      <deviationsHash>25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB</deviationsHash>
     </file>
   </files>
 </deviationsLog>

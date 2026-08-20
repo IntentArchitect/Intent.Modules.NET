@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b1cb9cb1-52cc-46b6-9be1-f4ecbf5b4c19">
+  <sourceEnd id="983019db-2389-490f-a8f4-6c3ba43c0ef9" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExternalLogin</display>
+    <order>0</order>
+    <typeReference id="a687dcc1-ac37-4a50-acab-b1792f8fae00">
+      <typeId>0d47153f-e8d3-498a-8896-ba770a572187</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b1cb9cb1-52cc-46b6-9be1-f4ecbf5b4c19" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToRegisterConfirmation</name>
+    <display>[navigate] RegisterConfirmation</display>
+    <order>2</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="123ace67-5f3e-4598-9147-b4f465e5985e">
+      <typeId>5696fe2f-3b83-41ba-b59a-3743597b7b7b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

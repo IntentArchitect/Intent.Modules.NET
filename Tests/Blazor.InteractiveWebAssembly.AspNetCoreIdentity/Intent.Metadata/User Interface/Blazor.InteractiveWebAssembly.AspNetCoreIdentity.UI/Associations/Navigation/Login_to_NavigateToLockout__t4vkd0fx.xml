@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="02e6bd0b-8ec5-4699-af8d-7a3544496bf0">
+  <sourceEnd id="3d05d1d0-115c-4707-8018-c7c2872c846e" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: Login</display>
+    <order>0</order>
+    <typeReference id="eff41900-e803-4126-ac81-54c3adff8d56">
+      <typeId>66e7870a-cddb-47e0-a5b1-ce8f8946c512</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="02e6bd0b-8ec5-4699-af8d-7a3544496bf0" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToLockout</name>
+    <display>[navigate] Lockout</display>
+    <order>4</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="4fd2c3fd-22da-43ef-b934-854209d7d2c7">
+      <typeId>f17f4bf5-8dde-428a-b254-1589037104db</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

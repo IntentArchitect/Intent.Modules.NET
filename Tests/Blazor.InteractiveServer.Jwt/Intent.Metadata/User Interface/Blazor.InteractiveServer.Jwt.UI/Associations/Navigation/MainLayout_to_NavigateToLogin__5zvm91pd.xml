@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b0bbbf56-47fb-4dc8-ac53-2b6a6c3dda33">
+  <sourceEnd id="8f5de9e4-0505-4fd4-8ccf-58bca1876e65" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="99adf637-9378-45cf-b94e-12dd15ef0f33">
+      <typeId>c314e6f2-7302-462b-adab-d0ea0f85a339</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.Jwt.UI</typePackageName>
+      <typePackageId>6a7f85bd-3c99-49df-b6ca-4b0581fa8713</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b0bbbf56-47fb-4dc8-ac53-2b6a6c3dda33" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToLogin</name>
+    <display>[navigate] Login</display>
+    <order>5</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="0377dae0-8fbe-493e-9601-52151d509a0b">
+      <typeId>6e0ede2c-25ea-4ef8-9721-a431e496c164</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.Jwt.UI</typePackageName>
+      <typePackageId>6a7f85bd-3c99-49df-b6ca-4b0581fa8713</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

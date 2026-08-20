@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9c3a7785-f9ed-4d1a-a2ec-2cd63f477382">
+  <sourceEnd id="d20016cd-faf5-4539-a046-e765db717379" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ResetAuthenticator</display>
+    <order>0</order>
+    <typeReference id="315b0a62-b84e-471f-890f-81751b67c018">
+      <typeId>2ebbbfa0-80c3-4b0c-8128-0f77b401091f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>daea4e8d-2c49-44e8-b33d-306da23717f0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9c3a7785-f9ed-4d1a-a2ec-2cd63f477382" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToEnableAuthenticator</name>
+    <display>[navigate] EnableAuthenticator</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="9f23285d-9b66-4f50-9e25-ecd0ec4e3790">
+      <typeId>d9573140-f228-4b0a-bd27-feb6e68c85fb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>daea4e8d-2c49-44e8-b33d-306da23717f0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

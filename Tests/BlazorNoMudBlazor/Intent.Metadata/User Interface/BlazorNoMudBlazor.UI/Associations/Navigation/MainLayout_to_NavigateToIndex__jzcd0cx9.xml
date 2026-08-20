@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ae1faef5-2956-4bb1-97eb-b7ccbd42231a">
+  <sourceEnd id="cb3559c1-6299-4e4a-898c-e72995fcab74" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="33e7f0d5-1d29-47bd-b05f-5c97c6e6440d">
+      <typeId>c400bc12-330c-4b67-a65b-acb950dcb58e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ae1faef5-2956-4bb1-97eb-b7ccbd42231a" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToIndex</name>
+    <display>[navigate] Index</display>
+    <order>7</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="300f586f-be4f-42a6-9176-82af8b1f1554">
+      <typeId>469c8b9a-50ae-4101-8288-ee4b17e1cfb3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

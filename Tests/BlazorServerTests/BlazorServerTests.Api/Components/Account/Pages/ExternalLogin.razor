@@ -1,20 +1,17 @@
 @page "/Account/ExternalLogin"
-
 @using System.Security.Claims
 @using System.Text
 @using System.Text.Encodings.Web
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
-
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 @inject IUserStore<IdentityUser> UserStore
 @inject IEmailSender<IdentityUser> EmailSender
-@inject NavigationManager NavigationManager
 @inject IdentityRedirectManager RedirectManager
 @inject ILogger<ExternalLogin> Logger
 
-<PageTitle>Register</PageTitle>
+<PageTitle>External Login</PageTitle>
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">

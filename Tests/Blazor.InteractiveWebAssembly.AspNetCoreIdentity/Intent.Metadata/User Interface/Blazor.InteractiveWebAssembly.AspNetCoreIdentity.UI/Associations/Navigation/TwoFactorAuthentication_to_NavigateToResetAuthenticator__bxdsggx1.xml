@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="26f2f39d-35cf-46aa-8cb0-5f3b813b422e">
+  <sourceEnd id="89f1a21e-5b7a-4a92-bff5-d4795a8a623f" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: TwoFactorAuthentication</display>
+    <order>0</order>
+    <typeReference id="9c543d5b-c468-4504-ae59-a568f54dc2ec">
+      <typeId>1d728248-283d-47c3-a071-618043e5111f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="26f2f39d-35cf-46aa-8cb0-5f3b813b422e" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToResetAuthenticator</name>
+    <display>[navigate] ResetAuthenticator</display>
+    <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="39684692-e171-43db-a05b-1311d4fedca9">
+      <typeId>8fec358f-56d8-462c-9c58-1ceca996c9b0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

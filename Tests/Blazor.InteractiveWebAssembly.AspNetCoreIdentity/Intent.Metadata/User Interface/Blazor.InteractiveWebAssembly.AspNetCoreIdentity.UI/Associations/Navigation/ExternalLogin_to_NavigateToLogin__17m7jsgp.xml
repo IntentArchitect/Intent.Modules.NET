@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c9ae0612-0eab-4f89-8f1d-718035c41aca">
+  <sourceEnd id="d3cc6eb5-a128-41b9-801c-f522edc73b88" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExternalLogin</display>
+    <order>0</order>
+    <typeReference id="05bb06ec-a7ba-4887-aaee-f4fe2fb7b25b">
+      <typeId>0ac27efc-9a52-46cb-8f97-bbf34889da8b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c9ae0612-0eab-4f89-8f1d-718035c41aca" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToLogin</name>
+    <display>[navigate] Login</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="6f449b86-b6ed-43cf-8053-3a3cab0ca1ae">
+      <typeId>66e7870a-cddb-47e0-a5b1-ce8f8946c512</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

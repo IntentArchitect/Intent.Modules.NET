@@ -2,30 +2,64 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</correlationId>
-      <path>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs</path>
+      <correlationId>Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate#88c34cae-5420-4795-bcb5-08cf119d6fa2</correlationId>
+      <path>BlazorServerTests.Api/Components/Account/Pages/RegisterConfirmation.razor.cs</path>
       <count>2</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2026-07-26T18:14:36.9141153Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2026-07-26T18:33:33.2258002Z</approvedAt>
-      <deviationsHash>E78D6D849DD0A7E4B036ED93FC76A0D91175BF6C010FBB6665E0E010BC785020</deviationsHash>
-      <fileHash>8FDD0493870A2F8ADD2E6BFA52D87629D337B16FC62FDD3F6E03379648ABA1DF</fileHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-20T04:39:46.0632025Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:34.9412132Z</approvedAt>
+      <deviationsHash>07146C5525FF8BF4EA29D7CCCACA8B604D3B6C72C29EA5CD55E0E299068BBE8B</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#c470a7eb-507b-49d2-bb5e-c4dd47017fd3</correlationId>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#5e47cd71-4253-45e8-8c89-3bd0d852a882</correlationId>
+      <path>BlazorServerTests.Api/Components/App.razor</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-20T04:38:35.5860732Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:42.7646198Z</approvedAt>
+      <deviationsHash>E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#7852dcac-7c72-4a20-8414-2cc4ff138147</correlationId>
+      <path>BlazorServerTests.Api/Components/Layout/MainLayout.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-20T04:38:35.5860155Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:37.8212462Z</approvedAt>
+      <deviationsHash>25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.PageCodeBehindTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</correlationId>
+      <path>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-20T04:38:35.5859773Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:40.0999857Z</approvedAt>
+      <deviationsHash>E78D6D849DD0A7E4B036ED93FC76A0D91175BF6C010FBB6665E0E010BC785020</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.PageCodeBehindTemplate#c470a7eb-507b-49d2-bb5e-c4dd47017fd3</correlationId>
       <path>BlazorServerTests.Api/Components/Pages/CustomerSearch.razor.cs</path>
       <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2026-07-26T18:14:36.9141423Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2026-07-26T18:33:33.2746415Z</approvedAt>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-20T04:38:35.5859862Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:41.3934355Z</approvedAt>
       <deviationsHash>6F6EE5E0C3B85BEA6AFFD7AF421F1C86A773B62330BCAB83C1C4B3F0C9BE5612</deviationsHash>
-      <fileHash>A42F683163EC32F752CEA1010F163C5F2024669BD39212CF3B55DC7BA6F4590D</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#3fb0e0c4-c238-4c6d-9123-fd7d8cd645a4</correlationId>
@@ -39,19 +73,6 @@
       <approvedAt>2026-07-26T18:33:33.2985479Z</approvedAt>
       <deviationsHash>4AE4F47E254D984A58EDC54361924E71EA643671E2F38BB2FD9B1F50A049D759</deviationsHash>
       <fileHash>61CFDD526F16BF90621BE0C6994212F6C071DCA89DE0D5E302AC40E335B76EE7</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b612434b-dd53-4075-b29c-35521444f9d9</correlationId>
-      <path>BlazorServerTests.Infrastructure/BlazorServerTests.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:56.3078841Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.6459381Z</approvedAt>
-      <deviationsHash>76D6CC8E350D40E0A10A6120DD5D76DE3A864C0EDE2603778FD0887D5BBBF913</deviationsHash>
-      <fileHash>2A4FCFF8E32FD8027CAD98283575F7462D72F4D1046AEC3B4497053EC95E4338</fileHash>
     </file>
   </files>
 </deviationsLog>

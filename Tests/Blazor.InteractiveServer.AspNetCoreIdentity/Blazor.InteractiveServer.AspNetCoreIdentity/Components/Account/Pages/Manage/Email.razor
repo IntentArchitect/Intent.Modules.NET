@@ -1,16 +1,16 @@
 @page "/Account/Manage/Email"
-
+@using Microsoft.AspNetCore.Authorization
 @using System.Text
 @using System.Text.Encodings.Web
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
-
 @inject UserManager<ApplicationUser> UserManager
 @inject IEmailSender<ApplicationUser> EmailSender
 @inject IdentityUserAccessor UserAccessor
 @inject NavigationManager NavigationManager
+@attribute [Authorize]
 
-<PageTitle>Manage email</PageTitle>
+<PageTitle>Manage Email</PageTitle>
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">

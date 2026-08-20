@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7b789e78-f3a4-4084-ad7e-34e59d5e285d">
+  <sourceEnd id="5267dd9b-df5a-4bd6-82cc-4fb26e3824ac" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: PersonalData</display>
+    <order>0</order>
+    <typeReference id="3351cd31-9713-47ab-9575-24cb7d1bcb69">
+      <typeId>1cd41403-3d7e-41df-ac3c-2366bd5b6e75</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7b789e78-f3a4-4084-ad7e-34e59d5e285d" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToDeletePersonalData</name>
+    <display>[navigate] DeletePersonalData</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="24df1acd-8ba3-42ca-8f03-91f8468a8096">
+      <typeId>1cc8051a-b6b9-4fce-8a43-bae565bc2c92</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

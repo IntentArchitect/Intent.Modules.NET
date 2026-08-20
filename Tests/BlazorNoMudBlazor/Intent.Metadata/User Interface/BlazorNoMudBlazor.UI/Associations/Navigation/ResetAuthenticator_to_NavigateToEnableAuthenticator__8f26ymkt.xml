@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="17b7da79-00c6-4e1e-9819-7268d6b865bd">
+  <sourceEnd id="d03f0104-ffe2-4617-8c6c-c53224664043" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ResetAuthenticator</display>
+    <order>0</order>
+    <typeReference id="1cb54cab-1eca-484e-9121-36e7589c4de7">
+      <typeId>eb0b57b8-c5e2-48bf-be2f-9dc549ee6815</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="17b7da79-00c6-4e1e-9819-7268d6b865bd" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToEnableAuthenticator</name>
+    <display>[navigate] EnableAuthenticator</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="2a1c475a-8ccb-4cea-81f5-e279aa637354">
+      <typeId>6e2baf1b-26cb-4137-b94f-4fbc734cfebc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorNoMudBlazor.UI</typePackageName>
+      <typePackageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

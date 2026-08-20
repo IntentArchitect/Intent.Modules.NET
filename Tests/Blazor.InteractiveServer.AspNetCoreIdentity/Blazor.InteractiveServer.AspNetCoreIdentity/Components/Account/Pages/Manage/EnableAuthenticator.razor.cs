@@ -1,13 +1,12 @@
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text;
+using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Components;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
@@ -22,7 +21,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.M
         private IEnumerable<string>? recoveryCodes;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
@@ -65,7 +64,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.M
             }
         }
 
-        private async ValueTask LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await UserManager.GetAuthenticatorKeyAsync(user);

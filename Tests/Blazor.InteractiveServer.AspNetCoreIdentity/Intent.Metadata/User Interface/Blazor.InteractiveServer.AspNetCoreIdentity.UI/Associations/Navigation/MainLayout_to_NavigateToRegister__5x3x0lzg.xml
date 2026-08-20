@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3c317955-d662-4a49-bb53-f6a55422c9b5">
+  <sourceEnd id="405d454a-d107-4c6c-824d-c1f56554a621" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="0ff882ad-3640-478b-a035-e39a3be451c2">
+      <typeId>4a4f221d-c912-4232-9893-19301cd9e2c9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3c317955-d662-4a49-bb53-f6a55422c9b5" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToRegister</name>
+    <display>[navigate] Register</display>
+    <order>6</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="0863a3cc-6efd-4f67-b010-b93f2d5af885">
+      <typeId>8cbffc79-6a7d-4713-8375-f9a463ee088a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveServer.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>a93a8ced-5394-4d38-a3c2-4d92b5c6769a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,14 +1,13 @@
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
-using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
+using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Data;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
@@ -20,7 +19,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
         private bool isEmailConfirmed;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm(FormName = "change-email")]
         private InputModel Input { get; set; } = default!;
@@ -46,9 +45,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
             var userId = await UserManager.GetUserIdAsync(user);
             var code = await UserManager.GenerateChangeEmailTokenAsync(user, Input.NewEmail);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-                NavigationManager.ToAbsoluteUri("Account/ConfirmEmailChange").AbsoluteUri,
-                new Dictionary<string, object?> { ["userId"] = userId, ["email"] = Input.NewEmail, ["code"] = code });
+            var callbackUrl = NavigationManager.GetUriWithQueryParameters(NavigationManager.ToAbsoluteUri("Account/ConfirmEmailChange").AbsoluteUri, new Dictionary<string, object?> { ["userId"] = userId, ["email"] = Input.NewEmail, ["code"] = code });
 
             await EmailSender.SendConfirmationLinkAsync(user, Input.NewEmail, HtmlEncoder.Default.Encode(callbackUrl));
 
@@ -65,9 +62,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
             var userId = await UserManager.GetUserIdAsync(user);
             var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-                NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
-                new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
+            var callbackUrl = NavigationManager.GetUriWithQueryParameters(NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri, new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
 
             await EmailSender.SendConfirmationLinkAsync(user, email, HtmlEncoder.Default.Encode(callbackUrl));
 

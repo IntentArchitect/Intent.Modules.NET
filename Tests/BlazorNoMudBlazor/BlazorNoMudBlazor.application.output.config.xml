@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath=".agents/design.md" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor" state="ignored" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor.css" state="ignored;once-off-generated" />
     <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor" state="ignored;once-off-generated" />

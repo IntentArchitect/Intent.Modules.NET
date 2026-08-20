@@ -1,11 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
-using System.ComponentModel.DataAnnotations;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
@@ -16,7 +15,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account.Pages.M
         private string? phoneNumber;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;

@@ -11,6 +11,7 @@
   <packageName>MudBlazor.ExampleApp.UI</packageName>
   <traits>
     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
   </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
@@ -39,7 +40,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
               </path>
             </source>
           </sources>
@@ -49,19 +50,7 @@
           <path>
             <target id="634b8577-1ef0-418b-93f1-750ccf3ea3b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
             <target id="c6cd439c-26fc-4e96-89c6-6ba8825e064e" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
-            <target id="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" name="Ref" type="static-mappable" specialization="Ref" specializationId="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0">
-              <typeReference id="0aec3278-6cb2-45c9-9745-198e9d1928c9">
-                <typeId>e57aa24c-eed9-4301-96f3-a34610cef546</typeId>
-                <isNavigable>true</isNavigable>
-                <isNullable>false</isNullable>
-                <isCollection>false</isCollection>
-                <isRequired>true</isRequired>
-                <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
-                <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
-                <stereotypes />
-                <genericTypeParameters />
-              </typeReference>
-            </target>
+            <target id="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" name="Ref" type="static-mappable" specialization="Ref" specializationId="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" />
           </path>
           <sources>
             <source identifier="DataGrid" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
@@ -84,7 +73,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="a98da735-b791-444a-b621-6c6bc9ce7b7d" name="TotalCount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="a98da735-b791-444a-b621-6c6bc9ce7b7d" name="TotalCount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
               </path>
             </source>
           </sources>
@@ -118,7 +107,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 <target id="1f764562-8c1a-4453-aa2e-66be7c49080c" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
               </path>
             </source>
@@ -247,7 +236,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 <target id="351d0507-dd60-42a8-870f-1d2a59c8f02c" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
               </path>
             </source>
@@ -265,7 +254,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 <target id="7d16e587-1cd9-41d0-b1c9-d368c32e926a" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
               </path>
             </source>
@@ -283,7 +272,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 <target id="979f30e7-e7ba-409b-9704-4886fed4cd96" name="Price" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
               </path>
             </source>
@@ -301,7 +290,7 @@
               <path>
                 <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 <target id="7eaad80e-2acc-42b3-87ed-fdc1287349af" name="ImageUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
               </path>
             </source>

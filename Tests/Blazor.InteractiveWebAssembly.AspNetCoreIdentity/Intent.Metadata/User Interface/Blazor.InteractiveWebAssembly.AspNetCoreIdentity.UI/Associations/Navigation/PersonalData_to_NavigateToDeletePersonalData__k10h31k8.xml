@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="431573f6-b968-4975-8f19-19db6894ffba">
+  <sourceEnd id="3f8dd0fa-b7ca-4ab2-8224-d11e8f197378" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: PersonalData</display>
+    <order>0</order>
+    <typeReference id="13c6ad78-e916-4d8b-a43b-0f8ca0dc93fc">
+      <typeId>14f69148-62b9-4682-8ff4-4347adfb8e8c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="431573f6-b968-4975-8f19-19db6894ffba" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToDeletePersonalData</name>
+    <display>[navigate] DeletePersonalData</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="ae0b83a3-ae03-4b5d-b3bc-80e80a189e71">
+      <typeId>c842f207-e22c-4537-976b-535aba5c3ce9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.UI</typePackageName>
+      <typePackageId>1c37d0b1-9884-4e2c-a36c-28db5ec09858</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

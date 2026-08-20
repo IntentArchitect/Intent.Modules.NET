@@ -1,14 +1,14 @@
 @page "/Account/Manage/TwoFactorAuthentication"
-
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Http.Features
 @using Microsoft.AspNetCore.Identity
-
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 @inject IdentityUserAccessor UserAccessor
 @inject IdentityRedirectManager RedirectManager
+@attribute [Authorize]
 
-<PageTitle>Two-factor authentication (2FA)</PageTitle>
+<PageTitle>Two Factor Authentication</PageTitle>
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">

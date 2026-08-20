@@ -2,7 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorNoMudBlazor.Api.Components.Account.Shared
 {

@@ -11,8 +11,16 @@
   <packageName>MudBlazor.ExampleApp.UI</packageName>
   <traits>
     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="1f4165ee-41a0-4520-a193-9ae4d3413d1f" name="Dialog" />
   </traits>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="1f4165ee-41a0-4520-a193-9ae4d3413d1f" name="Dialog">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <mappings>
     <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
       <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
@@ -61,7 +69,7 @@
             <target id="fb02c319-e1d0-47d0-9e21-4e9ca06da385" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
             <target id="8fddb9e9-4e33-43ae-aa97-cd5da23ee179" name="Submit" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
             <target id="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a" name="Color" type="static-mappable" specialization="Color" specializationId="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a">
-              <typeReference id="362f0fc2-d71f-48e8-99a6-a1a41e4937b6">
+              <typeReference>
                 <typeId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</typeId>
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
@@ -251,7 +259,7 @@
                   <path>
                     <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="4c98eecd-6253-4ecc-a093-499e81776143">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -280,7 +288,7 @@
                   <path>
                     <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="4c98eecd-6253-4ecc-a093-499e81776143">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -363,7 +371,7 @@
                   <path>
                     <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="57ce835a-36f1-44cf-8542-4a30aa8219a1">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -392,7 +400,7 @@
                   <path>
                     <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="57ce835a-36f1-44cf-8542-4a30aa8219a1">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>

@@ -1,14 +1,14 @@
 @page "/Account/Manage/ResetAuthenticator"
-
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
-
 @inject UserManager<IdentityUser> UserManager
 @inject SignInManager<IdentityUser> SignInManager
 @inject IdentityUserAccessor UserAccessor
 @inject IdentityRedirectManager RedirectManager
 @inject ILogger<ResetAuthenticator> Logger
+@attribute [Authorize]
 
-<PageTitle>Reset authenticator key</PageTitle>
+<PageTitle>Reset Authenticator</PageTitle>
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">

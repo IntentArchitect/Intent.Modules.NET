@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df5187e2-4bb4-4d51-8a36-a884af00351c" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>DeletePersonalData</name>
+  <display>DeletePersonalData</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d8849d24-c7f0-449b-9197-994c93db5b84</parentFolderId>
+  <packageId>daea4e8d-2c49-44e8-b33d-306da23717f0</packageId>
+  <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/Account/Manage/DeletePersonalData" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Delete Personal Data" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="012f5173-6419-4006-a9a8-ab5c20b8a42e" name="Secured">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="a4a26159-0b60-498e-8b91-56a59756928b" display="Roles" isActive="true" />
+        <property name="f7079953-a05f-4ca6-b51a-40f160460003" display="Policy" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="fbf946ea-47cc-486b-b15f-aaa58497b819" name="Render On Server">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Blazor</definitionPackageName>
+      <definitionPackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="ce54c440-08d5-4919-b79a-452461aa28a4" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="df5187e2-4bb4-4d51-8a36-a884af00351c" location="[Blazor.InteractiveAuto.AspNetCoreIdentity].[User Interface].[DeletePersonalData]" />
+      <target applicationId="ce54c440-08d5-4919-b79a-452461aa28a4" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="df5187e2-4bb4-4d51-8a36-a884af00351c" location="[Blazor.InteractiveAuto.AspNetCoreIdentity].[User Interface].[DeletePersonalData]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata>
+    <entry key="blazor-auth-page-newly-created" value="true" />
+    <entry key="blazor-auth-page-id" value="manage-delete-personal-data" />
+  </metadata>
+  <childElements />
+</class>

@@ -1,12 +1,10 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorNoMudBlazor.Api.Components.Account.Pages.Manage
 {
@@ -20,24 +18,22 @@ namespace BlazorNoMudBlazor.Api.Components.Account.Pages.Manage
         private bool showRemoveButton;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
-        private string? LoginProvider { get; set; }
+        public string? LoginProvider { get; set; }
 
         [SupplyParameterFromForm]
-        private string? ProviderKey { get; set; }
+        public string? ProviderKey { get; set; }
 
         [SupplyParameterFromQuery]
-        private string? Action { get; set; }
+        public string? Action { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             user = await UserAccessor.GetRequiredUserAsync(HttpContext);
             currentLogins = await UserManager.GetLoginsAsync(user);
-            otherLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync())
-                .Where(auth => currentLogins.All(ul => auth.Name != ul.LoginProvider))
-                .ToList();
+            otherLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Where(auth => currentLogins.All(ul => auth.Name != ul.LoginProvider)).ToList();
 
             string? passwordHash = null;
             if (UserStore is IUserPasswordStore<IdentityUser> userPasswordStore)

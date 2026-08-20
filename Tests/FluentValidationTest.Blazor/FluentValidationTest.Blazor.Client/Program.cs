@@ -27,7 +27,8 @@ namespace FluentValidationTest.Blazor.Client
 
             builder.Services.AddSingleton<ThemeService>();
 
-            await builder.Build().RunAsync();
+            var host = builder.Build();
+            await host.RunAsync();
         }
 
         public static async Task LoadAppSettings(WebAssemblyHostBuilder builder)

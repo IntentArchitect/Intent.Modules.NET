@@ -1,16 +1,22 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
     public partial class ResetAuthenticator
     {
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
+
+        private void NavigateToEnableAuthenticator()
+        {
+            NavigationManager.NavigateTo("Account/Manage/EnableAuthenticator");
+        }
 
         private async Task OnSubmitAsync()
         {
@@ -22,10 +28,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
 
             await SignInManager.RefreshSignInAsync(user);
 
-            RedirectManager.RedirectToWithStatus(
-                "Account/Manage/EnableAuthenticator",
-                "Your authenticator app key has been reset, you will need to configure your authenticator app using the new key.",
-                HttpContext);
+            RedirectManager.RedirectToWithStatus("Account/Manage/EnableAuthenticator", "Your authenticator app key has been reset, you will need to configure your authenticator app using the new key.", HttpContext);
         }
     }
 }

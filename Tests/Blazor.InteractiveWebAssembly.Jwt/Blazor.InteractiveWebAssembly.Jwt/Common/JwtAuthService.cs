@@ -4,6 +4,7 @@ using Blazor.InteractiveWebAssembly.Jwt.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate", Version = "1.0")]
@@ -71,7 +72,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt.Common
             }
         }
 
-        public async Task Register(string email, string password, string returnUrl)
+        public async Task<IEnumerable<IdentityError>> Register(string email, string password, string returnUrl)
         {
             var registerResponse = await _httpClient.PostAsJsonAsync("/register", new { Email = email, Password = password });
 
@@ -80,6 +81,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt.Common
                 throw new Exception("Registration failed");
             }
             _redirectManager.RedirectTo(returnUrl);
+            return [];
         }
 
         public async Task ResendEmailConfirmation(string email)

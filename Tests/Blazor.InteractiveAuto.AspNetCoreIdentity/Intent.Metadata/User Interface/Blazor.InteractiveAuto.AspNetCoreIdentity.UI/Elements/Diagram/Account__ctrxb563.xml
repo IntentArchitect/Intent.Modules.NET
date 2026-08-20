@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd7630ab-990f-4ac1-805d-54f328ac7ec1" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>Account</name>
+  <display>Account</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9fd95b6f-3c6f-4234-8947-3b2be11cef9e</parentFolderId>
+  <packageId>daea4e8d-2c49-44e8-b33d-306da23717f0</packageId>
+  <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity.UI</packageName>
+  <diagram>
+    <targetPackageId>dd7630ab-990f-4ac1-805d-54f328ac7ec1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

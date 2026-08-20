@@ -1,13 +1,12 @@
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text;
+using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Components;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
@@ -22,7 +21,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages.Man
         private IEnumerable<string>? recoveryCodes;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
@@ -40,8 +39,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages.Man
             // Strip spaces and hyphens
             var verificationCode = Input.Code.Replace(" ", string.Empty).Replace("-", string.Empty);
 
-            var is2faTokenValid = await UserManager.VerifyTwoFactorTokenAsync(
-                user, UserManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
+            var is2faTokenValid = await UserManager.VerifyTwoFactorTokenAsync(user, UserManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
 
             if (!is2faTokenValid)
             {
@@ -65,7 +63,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages.Man
             }
         }
 
-        private async ValueTask LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await UserManager.GetAuthenticatorKeyAsync(user);
@@ -100,12 +98,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages.Man
 
         private string GenerateQrCodeUri(string email, string unformattedKey)
         {
-            return string.Format(
-                CultureInfo.InvariantCulture,
-                AuthenticatorUriFormat,
-                UrlEncoder.Encode("Microsoft.AspNetCore.Identity.UI"),
-                UrlEncoder.Encode(email),
-                unformattedKey);
+            return string.Format(CultureInfo.InvariantCulture, AuthenticatorUriFormat, UrlEncoder.Encode("Microsoft.AspNetCore.Identity.UI"), UrlEncoder.Encode(email), unformattedKey);
         }
 
         private sealed class InputModel

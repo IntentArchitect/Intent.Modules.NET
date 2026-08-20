@@ -26,7 +26,8 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Client
             builder.Services.AddApiAuthorization();
             builder.Services.AddMudServices();
 
-            await builder.Build().RunAsync();
+            var host = builder.Build();
+            await host.RunAsync();
         }
 
         public static async Task LoadAppSettings(WebAssemblyHostBuilder builder)

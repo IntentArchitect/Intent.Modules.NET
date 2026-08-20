@@ -1,17 +1,17 @@
 @page "/Account/Manage/EnableAuthenticator"
-
+@using Microsoft.AspNetCore.Authorization
 @using System.Globalization
 @using System.Text
 @using System.Text.Encodings.Web
 @using Microsoft.AspNetCore.Identity
-
 @inject UserManager<ApplicationUser> UserManager
 @inject IdentityUserAccessor UserAccessor
 @inject UrlEncoder UrlEncoder
 @inject IdentityRedirectManager RedirectManager
 @inject ILogger<EnableAuthenticator> Logger
+@attribute [Authorize]
 
-<PageTitle>Configure authenticator app</PageTitle>
+<PageTitle>Enable Authenticator</PageTitle>
 
 @if (recoveryCodes is not null)
 {

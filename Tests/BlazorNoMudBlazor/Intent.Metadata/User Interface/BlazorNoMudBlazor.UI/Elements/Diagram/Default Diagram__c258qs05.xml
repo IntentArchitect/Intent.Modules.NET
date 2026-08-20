@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c9712ca0-d6bc-4b7f-b392-c9c45ee4b1c8" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>aba7806c-72bd-4b20-8aa1-15af62253841</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>75d75eef-ef42-43e3-ad3a-1f47a7a87b48</parentFolderId>
+  <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+  <packageName>BlazorNoMudBlazor.UI</packageName>
+  <diagram>
+    <targetPackageId>75d75eef-ef42-43e3-ad3a-1f47a7a87b48</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

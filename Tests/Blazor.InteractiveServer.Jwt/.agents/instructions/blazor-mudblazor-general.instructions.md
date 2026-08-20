@@ -1,7 +1,7 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-contentHash: 9916D562002F6ACC7BB3B895CDC6C2583CBC99BE6F66E10B33B5241995012D77
+contentHash: B5C428541A38DBC2D6FBDEAC2C58DEF5FFC675653FA51FA5F3AA052BBD767DCA
 ---
 ## Role and Context
 
@@ -9,12 +9,28 @@ You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, fo
 
 ## Core Rules
 
+### Mandatory coding handoff
+
+- Any implementation work for this component must be delegated to a coding subagent.
+- You are not permitted to implement the code directly.
+
+#### Required instructions for the coding subagent
+
+Include these instructions in the coding subagent task:
+
+- Before any file inspection or code change, determine whether an applicable skill exists.
+- If an applicable skill exists, you must call `use_skill` for that skill before continuing.
+- Do not read, patch, write, or generate code until the skill has been loaded.
+- Only proceed without loading a skill if no applicable skill exists.
+- If no applicable skill exists, implement the code directly.
+
 ### Styling
 
 - Prefer existing shared or global styles before adding new component styles.
 - Keep component styling minimal and specific to the component.
 - You may add new utility classes, patterns, styles, or theme values when they do not already exist.
 - Do not modify, override, or change existing styles, classes, variables, or theme values.
+- Any request to update styling, the theme, colours/branding, typography, or `design.md` itself is out of scope to edit directly — see "Updating Styling" below; it must go through the `updating-styling` skill and a `coding` sub-agent.
 
 ### File Safety
 
@@ -124,44 +140,76 @@ For MudBlazor generic components (for example `MudSelect`, `MudRadioGroup`, `Mud
 
 ## Navigation Rules
 
-- Navigation items are only for navigation drawers or menus, never for page action buttons.
-- Render only the provided navigation items.
 - If a matching navigation method exists in the backing class, bind it with `OnClick`; otherwise use appropriate Blazor navigation markup.
 - Include icon and display text when the design pattern supports them.
 - Do not modify existing navigation methods.
 - If a navigation item points to an Add page and the backing class already has a matching action method, create the page button from the method, not from the navigation item.
 
-## Global Navigation Modeling (MainLayout + Sider Menu)
+## Global Navigation Modeling
 
 > **Scope guard:** This section applies only when you are explicitly asked to model UI navigation in the Intent User Interface designer. Skip this section during component code generation.
 
-When modeling UI navigation in the Intent User Interface designer:
+> **Trigger (must gather app-menu context):** If you create, delete, rename, or change any `Navigation` association where the source is `MainLayout` (i.e. any change that creates/changes a `Navigation Target End` on `MainLayout`), you MUST gather the app-menu context described in "Updating the app menu" below and hand it to a `coding` sub-agent before finishing.
 
 ### Root-level entry pages
 
-- Treat a page as a root-level entry page when:
-  - Its route is stable and does not require route parameters (e.g. no {id}), and
-  - It represents a top-level capability a user would reasonably access directly from the global application shell (typically list/search/dashboard pages).
+Treat a page as a root-level entry page when:
+
+- Its route is stable and does not require route parameters (e.g. no `{id}`), and
+- It represents a top-level capability a user would reasonably access directly from the global application shell (typically list/search/dashboard pages).
 
 ### Required modeling steps for root entry pages
 
 For each root-level entry page, unless stated otherwise, you MUST:
 
-- Add a Navigation association from MainLayout to the page.
-- Confirm if the MainLayout has a Layout Sider, which has a Navigation Menu - if does you MUST add a corresponding Menu Item for the page to the Navigation menu
-- Only add the Navigation Menu parent element, do NOT try to link it to the page's Navigation association or add any code to the MainLayout yourself. The presence of the Navigation association from MainLayout to the page is the only requirement for the page to be discoverable and linked in global navigation.
-- Do NOT add any child element to the Navigation Menu element
+- Add a `Navigation` association from `MainLayout` to the page, which creates a `Navigation Target End` on `MainLayout` for that page.
+- The presence of a `Navigation Target End` on `MainLayout` is itself the signal that a menu item should be created for that page — no separate modeling of Navigation items is required.
+- State which region (Header/Sider/Footer/Profile) the menu item belongs in directly in the association's own Comment (e.g. "Navigate to the product list page from the sider menu"). There is no stereotype for this any more — the comment is the sole placement signal.
+- If the comment doesn't state a region, the menu item defaults to the **Sider** region.
+- State the region as **Profile** in the comment when the page should appear in the **Profile/account dropdown** menu.
+- After adding the `MainLayout → Page` `Navigation` association for a root page, queue the app-menu context hand-off (see "Updating the app menu" below) to run ONCE at the end of the unit of work.
 
-### Non-root / workflow pages
+### Non-root / workflow pages (create/edit/detail/manage)
 
-- Do not add MainLayout navigations or Navigation Menu items for workflow or subordinate pages (e.g. create/edit/detail/manage pages), or any page requiring route parameters (e.g. /{id} routes), unless the user explicitly confirms they should be directly reachable from global navigation.
+Non-root/workflow/subordinate pages include create/add, edit/update, details/view, manage pages, and any page requiring route parameters (e.g. `/products/{id}`).
+
+Default rule:
+
+- Do NOT add `MainLayout` navigations (and therefore do NOT create global menu items) for non-root/workflow/subordinate pages unless the user explicitly confirms they should be directly reachable from global navigation.
+
+If the user explicitly models it anyway:
+
+- If the user explicitly instructs that a non-root/workflow page must appear in global navigation (including **Sider**, **Header**, **Footer**, or **Profile**), you MUST model it by adding a `Navigation` association from `MainLayout` to that page and stating the required region in that association's Comment.
+- In all such cases, you MUST still gather the app-menu context and hand it to a `coding` sub-agent (the same as for any other `MainLayout` navigation change). The **Profile** region is not treated as special for triggering or processing menu updates.
 
 ### Ambiguity
 
-If it’s unclear which pages are root-level entry points (or there are multiple plausible candidates), ask the user which screens they want exposed in the global navigation.
+If it’s unclear which pages are root-level entry points or whether non-root/workflow pages should be directly reachable from global navigation, ask the user which screens they want exposed in the global navigation and which region they should appear in (Sider/Header/Footer/Profile).
+
+### Updating the app menu
+
+- The main agent (you) must NEVER run the `blazor-app-menu` skill and must NEVER edit menu files (`MainLayout*.razor` or the Profile menu file) directly — that implementation work belongs to a `coding` sub-agent.
+- Once you have finished implementing all pages for the current unit of work — never per-page, and never immediately after a single modeling change — gather the context that skill needs and hand it to a `coding` sub-agent in a dedicated task:
+- For every `Navigation Target End` currently modeled on `MainLayout`: the target page's label and route, any required roles/policies, and the association's own Comment (the item's verbatim placement text).
+- Whether the project is an Auth or NoAuth project and its hosting model — inspect `Program.cs` for `AddAuthorizationCore()`/`AddAuthorization()` and `AddCascadingAuthenticationState()`, and check whether a separate `.Client` project exists.
+- Whether the Layout has theming enabled or disabled (per `MainLayout.razor`'s attached AI context) — the `coding` sub-agent needs this to decide whether `MainLayoutHeader.razor` should carry a `<ThemeToggle />`.
+- Instruct the `coding` sub-agent to call `use_skill` for the `blazor-app-menu` skill before making any change, and pass it the gathered context verbatim so it does not need to re-derive it.
+- Do not consider the task complete until this context has been gathered and handed to a `coding` sub-agent to reconcile the menu.
+- **CRITICAL Enforcement:** If you add or modify any `Navigation` association from `MainLayout` (i.e., create/modify a `Navigation Target End`), you MUST gather this context and dispatch a `coding` sub-agent with it before marking the work complete, even if the page already existed or no code generation changes were detected.
+
+## Updating Styling
+
+> **Scope guard:** This section applies whenever you are asked to update styling, the theme, colours/branding, typography, or `design.md` itself — not to ordinary component styling that already follows the Styling rules above.
+
+> **Trigger (must hand off):** Any request to change the palette, typography, theme, or `design.md` — including a supplied replacement, a detected drift between `design.md` and the CSS, or a from-scratch styling interview — MUST be handled by calling `use_skill` for the project's `updating-styling` skill before making any change. Do not edit `design.md` or any CSS/theme file directly, and do not translate design intent into CSS yourself.
+
+- Call `use_skill` for `updating-styling` first and follow its intake process exactly as written.
+- `updating-styling` itself dispatches a `coding` sub-agent to execute the project's `*-ux-theme-sync` skill — never perform that CSS/token translation yourself, and never skip or shortcut that hand-off.
+- Do not consider a styling/theme/design.md request complete until `updating-styling` has run its full intake-to-dispatch flow and the `coding` sub-agent it dispatched has reported back.
 
 ## Validation Checklist
 
+- [ ] If styling, the theme, colours/branding, typography, or `design.md` was requested, the `updating-styling` skill was used and a `coding` sub-agent was dispatched to run the `*-ux-theme-sync` skill.
 - [ ] All bindings and event handlers used in `.razor` exist in `.razor.cs`.
 - [ ] No `@code` blocks were added to `.razor` files.
 - [ ] `[IntentManaged]` attributes are preserved.
@@ -170,4 +218,4 @@ If it’s unclear which pages are root-level entry points (or there are multiple
 - [ ] Existing global styles and theme values were not changed.
 - [ ] Component styles remain minimal and component-specific.
 - [ ] Forms are validated for create, save, and update flows.
-- [ ] If a Navigation association was added to MainLayout, a corresponding Navigation Menu item was also added under Sider (if the Navigation menu exists)
+- [ ] If a `Navigation Target End` was added to MainLayout, the app-menu context was gathered and handed to a `coding` sub-agent (after all pages were implemented) to reconcile the menu

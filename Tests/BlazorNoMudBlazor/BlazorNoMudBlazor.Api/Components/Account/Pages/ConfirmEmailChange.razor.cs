@@ -1,29 +1,30 @@
+using System.Text;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
-using System.Text;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorNoMudBlazor.Api.Components.Account.Pages
 {
     public partial class ConfirmEmailChange
     {
         private string? message;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromQuery]
-        private string? UserId { get; set; }
+        public string? UserId { get; set; }
 
         [SupplyParameterFromQuery]
-        private string? Email { get; set; }
+        public string? Email { get; set; }
 
         [SupplyParameterFromQuery]
-        private string? Code { get; set; }
+        public string? Code { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -59,6 +60,11 @@ namespace BlazorNoMudBlazor.Api.Components.Account.Pages
 
             await SignInManager.RefreshSignInAsync(user);
             message = "Thank you for confirming your email change.";
+        }
+
+        private void NavigateToLogin()
+        {
+            NavigationManager.NavigateTo("Account/Login");
         }
     }
 }

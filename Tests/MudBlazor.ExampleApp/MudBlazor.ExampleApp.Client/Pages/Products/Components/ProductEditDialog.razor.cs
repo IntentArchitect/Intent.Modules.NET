@@ -2,7 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Products;
-using MudBlazor.ExampleApp.Client.Pages.Customers.Components;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
@@ -21,8 +20,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
         public IProductsService ProductsService { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
-        [Inject]
-        public IDialogService DialogService { get; set; } = default!;
         [Inject]
         public IDummyService DummyService { get; set; } = default!;
         [CascadingParameter]
@@ -80,19 +77,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
             try
             {
                 _onDeleteClickProcessing = true;
-                var parameters = new DialogParameters<ConfirmationDialog>
-                {
-                    { x => x.ContentText, "Are you sure you want to delete this Product?" },
-                    { x => x.ButtonText, "Delete" },
-                    { x => x.Color, Color.Error },
-                };
-                var dialog = await DialogService.ShowAsync<ConfirmationDialog>("Delete Product", parameters, new DialogOptions() { FullWidth = true, MaxWidth = MaxWidth.Large, BackdropClick = false });
-                var result = await dialog.Result;
-
-                if (result.Canceled)
-                {
-                    return;
-                }
                 await ProductsService.DeleteProductAsync(ProductId);
                 Dialog.Close();
             }

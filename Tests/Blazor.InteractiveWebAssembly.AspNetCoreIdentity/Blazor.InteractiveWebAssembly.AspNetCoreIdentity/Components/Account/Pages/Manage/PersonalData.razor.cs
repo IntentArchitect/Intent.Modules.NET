@@ -1,20 +1,26 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
     public partial class PersonalData
     {
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
             _ = await UserAccessor.GetRequiredUserAsync(HttpContext);
+        }
+
+        private void NavigateToDeletePersonalData()
+        {
+            NavigationManager.NavigateTo("Account/Manage/DeletePersonalData");
         }
     }
 }

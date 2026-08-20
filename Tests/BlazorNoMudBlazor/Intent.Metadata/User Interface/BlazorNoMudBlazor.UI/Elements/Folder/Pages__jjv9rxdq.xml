@@ -4,10 +4,12 @@
   <display>Pages</display>
   <externalReference>7c76fa0c-59ee-4111-9166-68faafc2dcf7</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2774443d-01a9-41da-b9cb-c7acea8eeb95</parentFolderId>
+  <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+  <packageName>BlazorNoMudBlazor.UI</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -19,43 +21,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="c9712ca0-d6bc-4b7f-b392-c9c45ee4b1c8" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
-      <name>Default Diagram</name>
-      <display>Default Diagram</display>
-      <externalReference>aba7806c-72bd-4b20-8aa1-15af62253841</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>75d75eef-ef42-43e3-ad3a-1f47a7a87b48</parentFolderId>
-      <diagram>
-        <targetPackageId>75d75eef-ef42-43e3-ad3a-1f47a7a87b48</targetPackageId>
-      </diagram>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="50806930-74d3-477d-950e-8dc175422a60" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
-      <name>Home</name>
-      <display>Home</display>
-      <externalReference>5cf35899-5d12-4e0c-8642-ba734abbf14d</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>75d75eef-ef42-43e3-ad3a-1f47a7a87b48</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
-          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
-          <properties>
-            <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/" isActive="true" />
-            <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Home" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

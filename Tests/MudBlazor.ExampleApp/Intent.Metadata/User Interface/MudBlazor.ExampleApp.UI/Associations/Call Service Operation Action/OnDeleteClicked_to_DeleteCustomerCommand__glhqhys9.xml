@@ -21,7 +21,7 @@
   <targetEnd id="accc34d3-1f66-401c-bcd7-11d2d070d3ff" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
     <name>DeleteCustomerCommand</name>
     <display>[call] Customers.DeleteCustomerCommand: void</display>
-    <order>1</order>
+    <order>0</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>
@@ -43,16 +43,16 @@
         <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e45c1e4c-0d3d-4ff8-ad70-0535bf0c2b01" location="[MudBlazor.ExampleApp].[User Interface].[DeleteCustomerCommand]" />
         <mappedEnds>
           <mappedEnd>
-            <expression>{OnDeleteClicked.DeleteCustomerCommand1}</expression>
+            <expression>{OnDeleteClicked.DeleteCustomerCommand}</expression>
             <path>
               <target id="e45c1e4c-0d3d-4ff8-ad70-0535bf0c2b01" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
             </path>
             <sources>
-              <source identifier="OnDeleteClicked.DeleteCustomerCommand1" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+              <source identifier="OnDeleteClicked.DeleteCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
                 <path>
                   <target id="0e8e843e-4544-4839-8a71-2d3dd21dc1d9" name="CustomerEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="2242e2d9-ec37-4b64-9bf4-944f0315d057" name="OnDeleteClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  <target id="accc34d3-1f66-401c-bcd7-11d2d070d3ff" name="DeleteCustomerCommand1" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="accc34d3-1f66-401c-bcd7-11d2d070d3ff" name="DeleteCustomerCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                 </path>
               </source>
             </sources>

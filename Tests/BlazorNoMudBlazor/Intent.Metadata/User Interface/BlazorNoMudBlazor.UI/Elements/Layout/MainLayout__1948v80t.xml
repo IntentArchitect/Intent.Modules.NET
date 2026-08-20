@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c400bc12-330c-4b67-a65b-acb950dcb58e" type="Layout" typeId="776a9393-6b23-4a8c-8937-fd7e833fa0ef">
+  <name>MainLayout</name>
+  <display>MainLayout</display>
+  <externalReference>a178d0e7-8bc2-47a2-9724-fc672ce37c13</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>39007579-0c41-4e66-b7bc-770c4aaaef2c</parentFolderId>
+  <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+  <packageName>BlazorNoMudBlazor.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="173c43c8-b2df-4d84-bd99-45f63320cc26" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="c400bc12-330c-4b67-a65b-acb950dcb58e" location="[BlazorNoMudBlazor].[User Interface].[MainLayout]" />
+      <target applicationId="173c43c8-b2df-4d84-bd99-45f63320cc26" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="c400bc12-330c-4b67-a65b-acb950dcb58e" location="[BlazorNoMudBlazor].[User Interface].[MainLayout]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="0869faed-3901-465c-9d79-7658d9e10fdf" type="Layout Header" typeId="a6c3a89e-5932-4ab6-a406-75444f05beee">
+      <name>Header</name>
+      <display>Header</display>
+      <externalReference>a7c89270-9de3-40c7-942e-483aea25806f</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c400bc12-330c-4b67-a65b-acb950dcb58e</parentFolderId>
+      <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+      <packageName>BlazorNoMudBlazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4a32ed74-c844-4f57-896d-e7a2e27696df" type="Layout Sider" typeId="c505f35f-7148-46a3-a812-d9f53a174490">
+      <name>Sider</name>
+      <display>Sider</display>
+      <externalReference>3abb8e62-1ef0-41ff-8a0a-fb4333322e31</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c400bc12-330c-4b67-a65b-acb950dcb58e</parentFolderId>
+      <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+      <packageName>BlazorNoMudBlazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a699f5fe-d4db-46c5-82f0-98e6491484e5" type="Layout Body" typeId="11636699-8bad-4693-8c15-8141bd66d04f">
+      <name>Body</name>
+      <display>Body</display>
+      <externalReference>3d941ba4-404d-4233-9465-816e87cb5b25</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c400bc12-330c-4b67-a65b-acb950dcb58e</parentFolderId>
+      <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+      <packageName>BlazorNoMudBlazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b63f55ee-b278-48a5-bc0f-9fb2abbed1c9" type="Layout Profile Menu" typeId="2362db31-5a1f-4db1-b437-4b3b5a193ea4">
+      <name>Profile</name>
+      <display>Profile</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c400bc12-330c-4b67-a65b-acb950dcb58e</parentFolderId>
+      <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+      <packageName>BlazorNoMudBlazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

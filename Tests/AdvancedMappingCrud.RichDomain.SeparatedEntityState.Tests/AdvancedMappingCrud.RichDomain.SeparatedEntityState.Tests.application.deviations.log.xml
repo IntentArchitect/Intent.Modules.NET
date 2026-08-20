@@ -14,18 +14,5 @@
       <deviationsHash>5B2FBABEFC522C2A7E9B138A71E22891FCB0C74DA11E5CD51C883B9146C40504</deviationsHash>
       <fileHash>65507AA72AF5AA670985CF9F92B7EAB8CD97C7CA24191A323DEB23781FA31862</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#e6c6f57e-93d8-4b3f-8800-308471de0af6</correlationId>
-      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:32.8992408Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:33.5290126Z</approvedAt>
-      <deviationsHash>723A59124FDFFDD8AA3E88DF3E2450426BFE157F9730F5042E4745034599B4CD</deviationsHash>
-      <fileHash>972A04C492C4AC2FBB6C5618941592C829EBF0DC31BD4592F029EF0F39CE4D08</fileHash>
-    </file>
   </files>
 </deviationsLog>

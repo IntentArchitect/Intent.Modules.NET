@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      class="ux-drawer-open"
+      data-theme="@_theme"
+      data-theme-storage="cookie">
 
     @Intent.Merge    <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <base href="/" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link rel="stylesheet" href="_content/MudBlazor/MudBlazor.min.css" />
         <link rel="stylesheet" href="ux-tokens.css" />
         <link rel="stylesheet" href="ux-base.css" />
         <link rel="stylesheet" href="ux-components.css" />
         <link rel="stylesheet" href="ux-mudblazor.css" />
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        <link rel="stylesheet" href="_content/MudBlazor/MudBlazor.min.css" />
 
         <link rel="stylesheet" href="app.css" />
         <link rel="stylesheet" href="BlazorStandalone.styles.css" />
@@ -22,6 +25,8 @@
         <Routes @rendermode="GetRenderModeForPage()" />
         <script src="_framework/blazor.web.js"></script>
         <script src="theme-storage.js"></script>
+        <script src="nav-drawer.js"></script>
+        <script src="user-menu.js"></script>
         <script>themeStorage.init();</script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     </body>
@@ -31,6 +36,7 @@
 
     [CascadingParameter]
     public HttpContext HttpContext { get; set; } = default!;
+    private string _theme => HttpContext.Request.Cookies.TryGetValue("theme", out var t) && t == "light" ? "light" : "dark";
 
     public IComponentRenderMode? GetRenderModeForPage()
     {

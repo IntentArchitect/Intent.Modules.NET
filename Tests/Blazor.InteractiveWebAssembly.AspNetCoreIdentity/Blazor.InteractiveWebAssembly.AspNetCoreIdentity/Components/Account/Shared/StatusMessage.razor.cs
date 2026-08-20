@@ -1,9 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Shared
 {
@@ -15,7 +14,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Sh
         public string? Message { get; set; }
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        private HttpContext? HttpContext { get; set; } = default!;
 
         private string? DisplayMessage => Message ?? messageFromCookie;
 

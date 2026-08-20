@@ -1,16 +1,15 @@
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.WebUtilities;
-using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
+using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
 {
@@ -20,21 +19,23 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
 
         private string? message;
         private ExternalLoginInfo externalLoginInfo = default!;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
 
         [SupplyParameterFromQuery]
-        private string? RemoteError { get; set; }
+        public string? RemoteError { get; set; }
 
         [SupplyParameterFromQuery]
-        private string? ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         [SupplyParameterFromQuery]
-        private string? Action { get; set; }
+        public string? Action { get; set; }
 
         private string? ProviderDisplayName => externalLoginInfo.ProviderDisplayName;
 
@@ -68,21 +69,29 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
             }
         }
 
+        private void NavigateToLogin()
+        {
+            NavigationManager.NavigateTo("Account/Login");
+        }
+
+        private void NavigateToLockout()
+        {
+            NavigationManager.NavigateTo("Account/Lockout");
+        }
+
+        private void NavigateToRegisterConfirmation()
+        {
+            NavigationManager.NavigateTo("Account/RegisterConfirmation");
+        }
+
         private async Task OnLoginCallbackAsync()
         {
             // Sign in the user with this external login provider if the user already has a login.
-            var result = await SignInManager.ExternalLoginSignInAsync(
-                externalLoginInfo.LoginProvider,
-                externalLoginInfo.ProviderKey,
-                isPersistent: false,
-                bypassTwoFactor: true);
+            var result = await SignInManager.ExternalLoginSignInAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey, isPersistent: false, bypassTwoFactor: true);
 
             if (result.Succeeded)
             {
-                Logger.LogInformation(
-                    "{Name} logged in with {LoginProvider} provider.",
-                    externalLoginInfo.Principal.Identity?.Name,
-                    externalLoginInfo.LoginProvider);
+                Logger.LogInformation("{Name} logged in with {LoginProvider} provider.", externalLoginInfo.Principal.Identity?.Name, externalLoginInfo.LoginProvider);
                 RedirectManager.RedirectTo(ReturnUrl);
             }
             else if (result.IsLockedOut)
@@ -91,6 +100,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
             }
 
             // If the user does not have an account, then ask the user to create an account.
+
             if (externalLoginInfo.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
             {
                 Input.Email = externalLoginInfo.Principal.FindFirstValue(ClaimTypes.Email) ?? "";
@@ -117,12 +127,11 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-                    var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-                        NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
-                        new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
+                    var callbackUrl = NavigationManager.GetUriWithQueryParameters(NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri, new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
                     await EmailSender.SendConfirmationLinkAsync(user, Input.Email, HtmlEncoder.Default.Encode(callbackUrl));
 
                     // If account confirmation is required, we need to show the link if we don't have a real email sender
+
                     if (UserManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         RedirectManager.RedirectTo("Account/RegisterConfirmation", new() { ["email"] = Input.Email });
@@ -144,8 +153,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
-                    $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor");
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " + $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor");
             }
         }
 

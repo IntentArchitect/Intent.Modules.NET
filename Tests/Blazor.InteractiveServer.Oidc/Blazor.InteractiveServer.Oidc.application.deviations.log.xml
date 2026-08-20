@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#2dea4304-1566-4140-a6eb-281fed0b77da</correlationId>
+      <path>Blazor.InteractiveServer.Oidc/Components/App.razor</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-19T19:24:20.3589879Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:04.8911974Z</approvedAt>
+      <deviationsHash>E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#d40aca76-74f8-4ef5-a4be-23c6d533a68f</correlationId>
+      <path>Blazor.InteractiveServer.Oidc/Components/Layout/MainLayout.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-19T19:24:20.358952Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:57:04.9164208Z</approvedAt>
+      <deviationsHash>25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

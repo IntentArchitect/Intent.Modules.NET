@@ -1,0 +1,6 @@
+@page "/invoices/{InvoiceId:guid}"
+
+<InvoiceForm Model="Model"
+             HeaderText="Update Invoice"
+             SaveClicked="() => OnSaveClicked()"
+             CancelClicked="() => OnCancelClicked()" />

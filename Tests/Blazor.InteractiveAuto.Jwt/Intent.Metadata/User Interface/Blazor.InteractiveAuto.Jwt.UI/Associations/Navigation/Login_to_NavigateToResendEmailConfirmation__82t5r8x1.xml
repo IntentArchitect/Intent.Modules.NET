@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d4db1075-cead-49d0-9a7d-a1108ec453fc">
+  <sourceEnd id="23810f38-bf87-4cee-b2b6-9225cebba8fc" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: Login</display>
+    <order>0</order>
+    <typeReference id="92005364-d75e-4ae6-9987-dc0afb3b3d6d">
+      <typeId>ab08d6d2-e88c-44aa-8dab-31232a206e85</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.Jwt.UI</typePackageName>
+      <typePackageId>e981fb48-abdf-4666-ae6f-a85810d1e2df</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d4db1075-cead-49d0-9a7d-a1108ec453fc" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToResendEmailConfirmation</name>
+    <display>[navigate] ResendEmailConfirmation</display>
+    <order>2</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="0f90318d-2f27-424e-b82b-056c17e7c269">
+      <typeId>51dc440f-6a5e-4f8c-a66d-110e9fad7711</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.InteractiveAuto.Jwt.UI</typePackageName>
+      <typePackageId>e981fb48-abdf-4666-ae6f-a85810d1e2df</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="69016b86-74ec-48d2-bc52-3d7468eea0fe" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>Account</name>
+  <display>Account</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d1aa9339-34ab-4259-b14f-d8c4d5d8994e</parentFolderId>
+  <packageId>2774443d-01a9-41da-b9cb-c7acea8eeb95</packageId>
+  <packageName>BlazorNoMudBlazor.UI</packageName>
+  <diagram>
+    <targetPackageId>69016b86-74ec-48d2-bc52-3d7468eea0fe</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

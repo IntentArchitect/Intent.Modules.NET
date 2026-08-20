@@ -53,16 +53,18 @@ namespace BlazorNoMudBlazor.Api
                 builder.Services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
                 builder.Services.AddAuthorization();
                 builder.Services.AddScoped<IdentityUserAccessor>();
+
                 builder.Services.AddScoped<IdentityRedirectManager>();
                 builder.Services.AddAuthentication(options =>
-                                        {
-                                            options.DefaultScheme = IdentityConstants.ApplicationScheme;
-                                            options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-                                        }).AddIdentityCookies();
+                                            {
+                                                options.DefaultScheme = IdentityConstants.ApplicationScheme;
+                                                options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+                                            }).AddIdentityCookies();
                 builder.Services.AddSingleton<IEmailSender<IdentityUser>, IdentityNoOpEmailSender>();
 
                 builder.Services.AddRazorComponents()
                     .AddInteractiveServerComponents();
+
                 builder.Services.AddMudServices();
                 builder.Services.AddScoped<ThemeService>();
 

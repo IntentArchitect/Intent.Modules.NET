@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate#5696fe2f-3b83-41ba-b59a-3743597b7b7b</correlationId>
+      <path>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Pages/RegisterConfirmation.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-19T19:18:15.5409863Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:56:58.0550533Z</approvedAt>
+      <deviationsHash>07146C5525FF8BF4EA29D7CCCACA8B604D3B6C72C29EA5CD55E0E299068BBE8B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#279e87ab-c5b0-4028-862a-a4a2e9c792d8</correlationId>
+      <path>Blazor.InteractiveServer.AspNetCoreIdentity/Components/App.razor</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-19T19:18:15.5408034Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:56:58.0764966Z</approvedAt>
+      <deviationsHash>E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,13 +1,13 @@
 @page "/Account/Manage/Disable2fa"
-
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
-
 @inject UserManager<IdentityUser> UserManager
 @inject IdentityUserAccessor UserAccessor
 @inject IdentityRedirectManager RedirectManager
 @inject ILogger<Disable2fa> Logger
+@attribute [Authorize]
 
-<PageTitle>Disable two-factor authentication (2FA)</PageTitle>
+<PageTitle>Disable 2FA</PageTitle>
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">

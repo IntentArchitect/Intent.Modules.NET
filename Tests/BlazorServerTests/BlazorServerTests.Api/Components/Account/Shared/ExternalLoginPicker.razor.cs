@@ -3,20 +3,27 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorServerTests.Api.Components.Account.Shared
 {
     public partial class ExternalLoginPicker
     {
         private AuthenticationScheme[] externalLogins = [];
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [SupplyParameterFromQuery]
-        private string? ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             externalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToArray();
+        }
+
+        private void NavigateToExternalLogin()
+        {
+            NavigationManager.NavigateTo("Account/ExternalLogin");
         }
     }
 }

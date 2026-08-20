@@ -1,10 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
-using System.ComponentModel.DataAnnotations;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
 {
@@ -12,19 +12,25 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account.Pages
     {
         private string? message;
         private ApplicationUser user = default!;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
 
         [SupplyParameterFromQuery]
-        private string? ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             Input ??= new();
             // Ensure the user has gone through the username & password screen first
-            user = await SignInManager.GetTwoFactorAuthenticationUserAsync() ??
-                throw new InvalidOperationException("Unable to load two-factor authentication user.");
+            user = await SignInManager.GetTwoFactorAuthenticationUserAsync() ?? throw new InvalidOperationException("Unable to load two-factor authentication user.");
+        }
+
+        private void NavigateToLockout()
+        {
+            NavigationManager.NavigateTo("Account/Lockout");
         }
 
         private async Task OnValidSubmitAsync()

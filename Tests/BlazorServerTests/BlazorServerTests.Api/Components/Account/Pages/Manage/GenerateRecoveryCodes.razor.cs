@@ -1,10 +1,9 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorServerTests.Api.Components.Account.Pages.Manage
 {
@@ -13,9 +12,11 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
         private string? message;
         private IdentityUser user = default!;
         private IEnumerable<string>? recoveryCodes;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -26,6 +27,11 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
             {
                 throw new InvalidOperationException("Cannot generate recovery codes for user because they do not have 2FA enabled.");
             }
+        }
+
+        private void NavigateToResetAuthenticator()
+        {
+            NavigationManager.NavigateTo("Account/Manage/ResetAuthenticator");
         }
 
         private async Task OnSubmitAsync()

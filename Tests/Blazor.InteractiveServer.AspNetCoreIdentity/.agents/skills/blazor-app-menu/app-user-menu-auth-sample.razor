@@ -1,0 +1,63 @@
+@* MainLayoutProfile — Auth project variant (the file may be named differently depending on the
+   modeled Profile Menu element's name — this is the common "MainLayoutProfile" case).
+
+   SAMPLE ONLY: this file demonstrates the structural layout of an Auth-profile dropdown.
+
+   Menu items must be generated ONLY from the provided context (or from modeled Navigation Target
+   End context routed to the Profile region). Do NOT add Login/Register/Manage/Logout unless they
+   are present in that context.
+
+   If the context requires auth-based gating, use AuthorizeView around the relevant items. If the
+   context does not describe auth items, do not invent them.
+
+   Notes:
+   - The outer UserMenu structure shows a common pattern: AccountCircle trigger and a stacked
+     list of buttons.
+   - The NotAuthorized block is OPTIONAL and should only be included when the context explicitly
+     includes signed-out links such as Login/Register.
+   - Any logout pattern (e.g. POST form + antiforgery) is app-specific; include it only when
+     the context explicitly asks for it.
+   - NEVER use a MudIconButton instead of the MudIcon in the trigger, as it will break the layout and styling of the menu.
+*@
+
+<AuthorizeView>
+    <Authorized>
+        <UserMenu>
+            <Trigger>
+                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+            </Trigger>
+            <ChildContent>
+                <MudStack Spacing="0">
+                    <MudButton Href="/my-orders" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        My Orders
+                    </MudButton>
+                    <MudButton Href="/account" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        Account
+                    </MudButton>
+                </MudStack>
+            </ChildContent>
+        </UserMenu>
+    </Authorized>
+</AuthorizeView>
+
+@* Optional structure example for signed-out state.
+   Include this ONLY if the context explicitly includes signed-out links (e.g. Login/Register). *@
+
+@* 
+<AuthorizeView>
+    <NotAuthorized>
+        <UserMenu Title="Account">
+            <Trigger>
+                <MudIcon Icon="@Icons.Material.Filled.AccountCircle" />
+            </Trigger>
+            <ChildContent>
+                <MudStack Spacing="0">
+                    <MudButton Href="/Account/Login" Variant="Variant.Text" Color="Color.Inherit" FullWidth="true">
+                        Login
+                    </MudButton>
+                </MudStack>
+            </ChildContent>
+        </UserMenu>
+    </NotAuthorized>
+</AuthorizeView>
+*@

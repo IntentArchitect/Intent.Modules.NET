@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#9de04f11-0c2b-4a05-856d-23b3028765bb</correlationId>
+      <path>Blazor.InteractiveAuto.AspNetCoreIdentity.Client/Layout/MainLayout.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-08-19T19:05:48.2144353Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-08-20T05:56:40.0972266Z</approvedAt>
+      <deviationsHash>DF48A3628537F26C81C1550318B36E6DCBB60FF6764FD0C83744F3B96753AFA5</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

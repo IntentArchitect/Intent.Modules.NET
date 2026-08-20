@@ -45,7 +45,7 @@ namespace BlazorNoMudBlazor.Api.Components.Account
                                         [FromForm] string returnUrl) =>
                                         {
                                             await signInManager.SignOutAsync();
-                                            return TypedResults.LocalRedirect($"~/{returnUrl}");
+                                            return TypedResults.LocalRedirect(string.IsNullOrWhiteSpace(returnUrl) ? "/" : returnUrl);
                                         });
             accountGroup.MapGet("/Logout", async (SignInManager<IdentityUser> signInManager, string? returnUrl) =>
                                     {

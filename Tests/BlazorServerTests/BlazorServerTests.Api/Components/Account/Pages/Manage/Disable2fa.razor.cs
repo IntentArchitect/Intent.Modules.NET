@@ -1,19 +1,20 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorServerTests.Api.Components.Account.Pages.Manage
 {
     public partial class Disable2fa
     {
         private IdentityUser user = default!;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -23,6 +24,11 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
             {
                 throw new InvalidOperationException("Cannot disable 2FA for user as it's not currently enabled.");
             }
+        }
+
+        private void NavigateToResetAuthenticator()
+        {
+            NavigationManager.NavigateTo("Account/Manage/ResetAuthenticator");
         }
 
         private async Task OnSubmitAsync()

@@ -1,13 +1,12 @@
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorServerTests.Api.Components.Account.Pages.Manage
 {
@@ -22,7 +21,7 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
         private IEnumerable<string>? recoveryCodes;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
@@ -65,7 +64,7 @@ namespace BlazorServerTests.Api.Components.Account.Pages.Manage
             }
         }
 
-        private async ValueTask LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await UserManager.GetAuthenticatorKeyAsync(user);

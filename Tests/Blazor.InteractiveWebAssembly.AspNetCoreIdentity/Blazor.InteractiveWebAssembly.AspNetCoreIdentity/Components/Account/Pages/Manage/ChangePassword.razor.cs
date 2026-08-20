@@ -1,11 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Data;
-using System.ComponentModel.DataAnnotations;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate", Version = "1.0")]
 
 namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pages.Manage
 {
@@ -14,9 +13,11 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
         private string? message;
         private ApplicationUser user = default!;
         private bool hasPassword;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         [CascadingParameter]
-        private HttpContext HttpContext { get; set; } = default!;
+        public HttpContext? HttpContext { get; set; } = default!;
 
         [SupplyParameterFromForm]
         private InputModel Input { get; set; } = default!;
@@ -30,6 +31,11 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account.Pa
             {
                 RedirectManager.RedirectTo("Account/Manage/SetPassword");
             }
+        }
+
+        private void NavigateToSetPassword()
+        {
+            NavigationManager.NavigateTo("Account/Manage/SetPassword");
         }
 
         private async Task OnValidSubmitAsync()

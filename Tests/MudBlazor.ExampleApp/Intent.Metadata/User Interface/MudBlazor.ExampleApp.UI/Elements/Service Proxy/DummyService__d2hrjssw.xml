@@ -18,9 +18,6 @@
   <parentFolderId>11cdc31a-966a-4a9c-8796-a321cda740a4</parentFolderId>
   <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
   <packageName>MudBlazor.ExampleApp.UI</packageName>
-  <traits>
-    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
-  </traits>
   <stereotypes />
   <metadata />
   <childElements>

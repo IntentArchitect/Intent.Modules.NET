@@ -2,7 +2,7 @@
 name: blazor-page-search-entity
 description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 48A455243F88CFB5596017CCAC677800276855948097781B043619EB79932EEA
+contentHash: 380441AF888B41E7A96E7F280D5F599B140A7125785542A5A230313CD53F359F
 ---
 ## MANDATORY: Read Samples Before Implementation
 
@@ -104,13 +104,13 @@ Do not mix the two patterns in one page.
 ## 3. Map Criteria And Fields To MudBlazor Controls
 
 | Type                                  | Control                            |
-| ------------------------------------- | ---------------------------------- |
+| -------------------------------------- | ----------------------------------- |
 | `string` named like search or keyword | Single search `MudTextField`       |
 | Other `string`                        | `MudTextField`                     |
 | `bool` or nullable bool               | `MudSelect` with All, Yes, and No  |
 | Enum or lookup                        | `MudSelect` with real options only |
-| Number                                | `MudNumericField`                  |
-| Date                                  | `MudDatePicker`                    |
+| Number                                 | `MudNumericField`                  |
+| Date                                   | `MudDatePicker`                    |
 
 MudBlazor rules:
 

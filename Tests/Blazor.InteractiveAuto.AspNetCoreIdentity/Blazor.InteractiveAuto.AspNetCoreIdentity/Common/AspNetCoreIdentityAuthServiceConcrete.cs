@@ -87,7 +87,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Common
             }
         }
 
-        public async Task Register(string email, string password, string returnUrl)
+        public async Task<IEnumerable<IdentityError>> Register(string email, string password, string returnUrl)
         {
             var user = CreateUser();
             await _userStore.SetUserNameAsync(user, email, CancellationToken.None);
@@ -97,7 +97,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Common
 
             if (!result.Succeeded)
             {
-                throw new Exception("Could not register user");
+                return result.Errors;
             }
             var userId = await _userManager.GetUserIdAsync(user);
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -114,6 +114,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Common
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 _redirectManager.RedirectTo(returnUrl);
             }
+            return Array.Empty<IdentityError>();
         }
 
         public async Task ResendEmailConfirmation(string email)

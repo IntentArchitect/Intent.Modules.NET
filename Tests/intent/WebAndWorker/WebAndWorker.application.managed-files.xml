@@ -5,6 +5,12 @@
   <file path=".agents/instructions/csharp-guidelines.md" />
   <file path=".agents/instructions/unit-test-guidelines.md" />
   <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/blazor-app-menu/SKILL.md" />
+  <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" />
+  <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-auth-sample.razor" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-noauth-sample.razor" />
+  <file path=".agents/skills/blazor-app-menu/app-user-menu-auth-sample.razor" />
   <file path=".agents/skills/blazor-dialog-adding-entity/SKILL.md" />
   <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor" />
   <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs" />
@@ -29,6 +35,7 @@
   <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
   <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
   <file path=".agents/skills/mudblazor-ux-theme-sync/SKILL.md" />
+  <file path=".agents/skills/updating-styling/SKILL.md" />
   <file path=".gitignore" />
   <file path="AspireHost/AspireHost.csproj" />
   <file path="AspireHostExe/AspireHostExe.csproj" />
@@ -36,13 +43,12 @@
   <file path="BlazorWebApp/Components/App.razor" />
   <file path="BlazorWebApp/Components/Layout/AppBrand.razor" />
   <file path="BlazorWebApp/Components/Layout/AppBrand.razor.css" />
-  <file path="BlazorWebApp/Components/Layout/AppNav.cs" />
-  <file path="BlazorWebApp/Components/Layout/AppUserMenu.razor" />
-  <file path="BlazorWebApp/Components/Layout/AppUserMenu.razor.css" />
   <file path="BlazorWebApp/Components/Layout/MainLayout.razor" />
-  <file path="BlazorWebApp/Components/Layout/MainLayout.razor.cs" />
-  <file path="BlazorWebApp/Components/Layout/NavLinks.razor" />
-  <file path="BlazorWebApp/Components/Layout/NavLinks.razor.cs" />
+  <file path="BlazorWebApp/Components/Layout/MainLayout.razor.cs" deviationsHash="25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB" />
+  <file path="BlazorWebApp/Components/Layout/MainLayoutHeader.razor" />
+  <file path="BlazorWebApp/Components/Layout/MainLayoutHeader.razor.cs" />
+  <file path="BlazorWebApp/Components/Layout/MainLayoutSider.razor" />
+  <file path="BlazorWebApp/Components/Layout/MainLayoutSider.razor.cs" />
   <file path="BlazorWebApp/Components/Layout/ThemeToggle.razor" />
   <file path="BlazorWebApp/Components/Layout/ThemeToggle.razor.css" />
   <file path="BlazorWebApp/Components/Layout/UserMenu.razor" />
@@ -72,7 +78,9 @@
   <file path="BlazorWebApp/Properties/launchSettings.json" />
   <file path="BlazorWebApp/Services/CurrentUserService.cs" />
   <file path="BlazorWebApp/appsettings.json" />
+  <file path="BlazorWebApp/wwwroot/nav-drawer.js" />
   <file path="BlazorWebApp/wwwroot/theme-storage.js" />
+  <file path="BlazorWebApp/wwwroot/user-menu.js" />
   <file path="BlazorWebApp/wwwroot/ux-base.css" />
   <file path="BlazorWebApp/wwwroot/ux-components.css" />
   <file path="BlazorWebApp/wwwroot/ux-mudblazor.css" />
