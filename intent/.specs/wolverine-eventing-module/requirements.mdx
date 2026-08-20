@@ -2,19 +2,20 @@
 
 ## Introduction
 
-This feature adds a new Intent Architect module that generates cross-application integration messaging over a message broker using WolverineFx. It consumes the same Integration Event and Integration Command modelling already used by the MassTransit and NServiceBus eventing modules, and generates the broker configuration, publishing implementation, and consumers that carry those messages between applications. It serves .NET teams building Intent Architect applications who need a permissively-licensed message broker provider.
+This feature adds a new Intent Architect module that generates cross-application integration messaging over a message broker using WolverineFx. It consumes the same Integration Event and Integration Command modelling already used by the MassTransit and NServiceBus eventing modules, and generates the broker configuration, publishing implementation, and consumers that carry those messages between applications. It serves .NET teams building Intent Architect applications who want Wolverine, whether on its own merits or as a permissively-licensed message broker provider.
 
 Explicitly out of scope: wire-format compatibility with messages already published by MassTransit, draining or replaying messages sitting in existing MassTransit queues, scheduled or delayed publishing, request/response over the bus, and any transport beyond Local, RabbitMQ, Azure Service Bus and Amazon SQS.
 
 ## Vision
 
-MassTransit's free line has moved to commercial licensing and is no longer maintained. Teams who adopted it on the strength of it being free now face either a licence negotiation or an unmaintained dependency, and today Intent Architect offers them no maintained alternative that covers the same brokers with the same durability guarantees. That is a commercial risk sitting inside generated code, which is exactly the kind of risk Intent Architect exists to absorb on a team's behalf.
+Teams arrive at Wolverine from two directions. Some want it on its own merit — they like its handler model, its durable messaging and the wider Critter Stack it belongs to, and they would pick it regardless of what anything else costs. Others are looking for a free alternative now that MassTransit has gone commercial. Either way they want the same thing from Intent Architect: broker-backed integration messaging they model rather than hand-wire, from a provider they are not locked into.
 
-After this feature, a team can uninstall the MassTransit module, install this one, re-run the Software Factory, and keep every modelled message, every publisher/subscriber relationship, and every hand-written Integration Event Handler body exactly as it was. The licence exposure disappears without a re-model and without rewriting business logic. For teams starting fresh, cross-application messaging becomes available with no licence conversation at all.
+So this feature adds an eventing module that behaves like the ones they already know — the same Integration Events and Integration Commands in the Services designer, the same handler interface, the same transports, the same transactional outbox. Existing knowledge transfers, and so does an existing model: changing eventing provider becomes a module swap, where uninstalling one and installing another regenerates the framework-specific code while the modelled messages and hand-written handler bodies stay exactly where they are. That reversibility is the point, and it is worth being precise about where it stops — it covers the code, not the messages. Anything already in flight, sitting on a queue, or parked in an error queue remains the team's own migration to run.
 
 ## Target Users & Jobs To Be Done
 
-- **Solution architect** — evaluating an exit from commercially-licensed MassTransit, and needs to establish that the replacement covers the same brokers and the same transactional-outbox guarantee before committing a portfolio of applications to it.
+- **Solution architect choosing an eventing provider** — either adopting Wolverine on its merits or moving off commercially-licensed MassTransit, and needs to establish that it covers the same brokers and the same transactional-outbox guarantee before committing a portfolio of applications to it.
+- **Application developer who wants Wolverine specifically** — has chosen Wolverine for its handler model and durable messaging, and wants integration messaging modelled the same way the rest of their application is rather than hand-wired around it.
 - **Application developer on an existing MassTransit application** — wants the transport swapped underneath with the smallest possible amount of hand-written change, and in particular without touching handler bodies that already carry tested business logic.
 - **Application developer on a new application** — wants cross-application messaging that works out of the box against a locally-runnable broker, with no licensing decision to escalate.
 - **Application developer running a staged migration** — needs some messages still flowing over MassTransit while others move to Wolverine, so a large application can be cut over message-by-message rather than all at once.
@@ -47,11 +48,11 @@ flowchart TD
 ```
 
 - **UJ-2. Marco stands up cross-application messaging on a greenfield pair.**
-  - **Persona + context:** Marco is building two new Clean Architecture applications — a Sales application that raises an Integration Event when an order is placed and sends an Integration Command to request fulfilment, and a Warehouse application that consumes both.
+  - **Persona + context:** Marco is building two new Clean Architecture applications — a Sales application that raises an Integration Event when an order is placed and sends an Integration Command to request fulfilment, and a Warehouse application that consumes both. He picked Wolverine on its merits; he has never used MassTransit and is not migrating from anything.
   - **Entry state:** Both applications exist and are modelled. Neither has any eventing module installed. RabbitMQ is running locally in Docker.
-  - **Path:** He installs the Wolverine eventing module into both; models the Integration Event and Integration Command in Sales and subscribes to them in Warehouse; sets Transport to RabbitMQ in both; turns the Transactional Outbox to Entity Framework in Sales; runs the Software Factory on both.
+  - **Path:** He installs the Wolverine eventing module into both; models the Integration Event and Integration Command in Sales and subscribes to them in Warehouse; sets Transport to RabbitMQ in both; runs the Software Factory on both.
   - **Climax:** He runs both applications, places an order in Sales, and sees the Warehouse handler hit — the event fanned out and the command arrived on its Destination Queue.
-  - **Resolution:** Two applications integrated over a broker, with outgoing messages committed in the same transaction as the order.
+  - **Resolution:** Two applications integrated over a broker, using the module's defaults for everything except the Transport.
   - **Edge case:** He forgets to set the RabbitMQ credentials in `appsettings.json`, so the Sales application fails at startup with an error naming the configuration section and key rather than silently falling back to Local.
 
 ```mermaid
@@ -61,7 +62,7 @@ flowchart TD
   classDef bad fill:#8a2f2f,stroke:#f87171,color:#ffffff
   A[Install module into Sales and Warehouse - R14.1]:::action --> B[Model Integration Event and Integration Command - R1.1]:::action
   B --> C[Subscribe Warehouse to both - R1.2]:::action
-  C --> D[Set Transport RabbitMQ and Outbox Entity Framework - R2.1 R6.1]:::action
+  C --> D[Set Transport RabbitMQ - R2.1]:::action
   D --> E[Run the Software Factory on both applications]:::action
   E --> F{Is required transport configuration present - R2.5}
   F -->|No| X[Startup fails naming the configuration section and key - R2.6]:::bad
@@ -97,7 +98,7 @@ flowchart TD
 ```
 
 - **UJ-4. Tom adds integration messaging to an application already dispatching CQRS through Wolverine.**
-  - **Persona + context:** Tom's application uses `Intent.Application.Wolverine` so its commands and queries are handled through Wolverine in-process. He now needs to publish Integration Events to a sibling application.
+  - **Persona + context:** Tom's application uses `Intent.Application.Wolverine` so its commands and queries are handled through Wolverine in-process. He chose Wolverine on its merits and wants one messaging runtime, not two. He now needs to publish Integration Events to a sibling application.
   - **Entry state:** `Intent.Application.Wolverine` is installed and generating its own Wolverine setup. No eventing module is installed.
   - **Path:** He installs the Wolverine eventing module; models an Integration Event and publishes it from a command handler; sets Transport to Azure Service Bus; runs the Software Factory.
   - **Climax:** One Wolverine Host Configuration comes out, carrying both his CQRS handler discovery and the new transport, subscriptions and outbox — not two competing setups.
@@ -120,6 +121,59 @@ flowchart TD
   H --> I[Shared configuration returns to CQRS only - R8.4]:::win
 ```
 
+- **UJ-5. Nadia proves a failing message cannot lose data.**
+  - **Persona + context:** Nadia is taking Marco's Sales and Warehouse pair through production-readiness review. Her rule is that a placed order must never leave the downstream applications uninformed, and a consumer that keeps failing must never make a message disappear.
+  - **Entry state:** The pair from UJ-2 is running over RabbitMQ with the module's defaults — Transactional Outbox off, Error Handling Policy at Retry with cooldown.
+  - **Path:** She turns Transactional Outbox to Entity Framework in Sales and re-runs the Software Factory; makes the Warehouse Integration Event Handler throw on purpose and watches the re-deliveries; then kills the Sales process mid-transaction to see whether an order can commit without its messages, or messages dispatch without their order.
+  - **Climax:** The failing message re-delivers on the cooldown schedule and then lands on the Error Queue, still there for her to inspect. The killed transaction leaves neither the order nor its messages behind — both or neither, never one.
+  - **Resolution:** She can state the guarantee to her team in one sentence, and point at the Error Queue as the place failed work accumulates rather than vanishes.
+  - **Edge case:** She empties the cooldown delay list in `appsettings.json` intending to remove the waiting, and finds the policy degrades to None — first failure straight to the Error Queue — rather than retrying forever.
+
+```mermaid
+flowchart TD
+  classDef action fill:#1f5f8a,stroke:#60a5fa,color:#ffffff
+  classDef win fill:#1f7a4d,stroke:#34d399,color:#ffffff
+  classDef bad fill:#8a2f2f,stroke:#f87171,color:#ffffff
+  A[Turn Transactional Outbox to Entity Framework - R6.1]:::action --> B[Re-run the Software Factory]:::action
+  B --> C[Warehouse handler throws on purpose]:::action
+  C --> D[Consumer surfaces the failure to the policy - R5.6]:::action
+  D --> E{Are retries exhausted - R7.2}
+  E -->|Not yet| F[Re-deliver on the cooldown schedule - R7.2]:::action
+  F --> D
+  E -->|Yes| G[Message retained on the Error Queue - R7.3]:::win
+  B --> H[Kill Sales mid-transaction]:::action
+  H --> I{Did the transaction commit - R6.3}
+  I -->|Yes| J[Order and its messages both present - R6.3]:::win
+  I -->|No| K[Neither order nor messages present - R6.3]:::win
+  F --> L[Inbox keeps handling to at most once - R6.5]:::win
+  D --> M[Delay list emptied - policy degrades to None - R7.5]:::bad
+  M --> G
+```
+
+- **UJ-6. Rashid joins a broker estate that already has its own names.**
+  - **Persona + context:** Rashid is adding a new Intent Architect application to an organisation whose RabbitMQ topology is owned by a platform team. The exchange and queue names are fixed by that team's convention and are not his to change.
+  - **Entry state:** The Wolverine eventing module is installed and generating convention-derived names that do not match the platform team's topology, so nothing he publishes is picked up.
+  - **Path:** He sets a Topic Name override on each Integration Event and a Destination Queue Name override on each Integration Command — on both the sending association and the subscribing handler method; re-runs the Software Factory; checks the generated destinations against the platform team's list.
+  - **Climax:** The generated code publishes and sends to the platform team's exact names, character for character, with no kebab-casing applied on top.
+  - **Resolution:** His application joins an existing estate without asking anyone to rename anything, and two of his Integration Commands deliberately share one queue to keep their order.
+  - **Edge case:** He pastes a name that trims to nothing, and generation stops with an error pointing at that exact Integration Event rather than quietly falling back to the convention name and publishing to a destination nobody is listening on.
+
+```mermaid
+flowchart TD
+  classDef existing fill:#3f4b5b,stroke:#94a3b8,color:#ffffff
+  classDef action fill:#1f5f8a,stroke:#60a5fa,color:#ffffff
+  classDef win fill:#1f7a4d,stroke:#34d399,color:#ffffff
+  classDef bad fill:#8a2f2f,stroke:#f87171,color:#ffffff
+  A[Platform team owns the exchange and queue names]:::existing --> B[Convention-derived names do not match - R3.2 R4.2]:::action
+  B --> C[Set Topic Name override per Integration Event - R3.3]:::action
+  B --> D[Set Destination Queue Name override on send and subscribe - R4.3]:::action
+  C --> E{Is the override valid - R3.5 R3.6}
+  D --> E
+  E -->|Empty or over 250 characters| F[Error points at that element - no fallback to convention - R3.5]:::bad
+  E -->|Valid| G[Names used verbatim with no kebab-casing - R3.4 R4.4]:::win
+  G --> H[Two commands share one queue to keep order - R4.7]:::win
+```
+
 ## Glossary
 
 - **Integration Event** — a message published by one application for any number of interested applications to consume; fan-out semantics. Modelled in the Services designer. Zero or many subscribers per Integration Event.
@@ -139,6 +193,8 @@ flowchart TD
 - **Wolverine Host Configuration** — the single generated setup where Wolverine's transports, subscriptions, durability and handler discovery are registered for an application. Exactly one per application, shared with `Intent.Application.Wolverine` when both are installed.
 - **Tenant Identifier** — the value identifying which tenant a message belongs to, carried in a message header so a Consumer can restore the publishing tenant's context.
 - **Software Factory** — the Intent Architect process that turns the modelled application into generated code.
+- **Reference Solution** — the hand-written WolverineFx publisher and subscriber pair that is this feature's ground truth. Built and proven before any module artefact exists, and never edited to match generated output. Exactly one Reference Solution, exercised once per Transport.
+- **Golden Sample** — one hand-written artefact inside the Reference Solution that exactly one generated artefact must reproduce. One Golden Sample per generated artefact.
 
 ## Non-Goals
 
@@ -150,7 +206,7 @@ flowchart TD
 - **Request/response over the bus.** No equivalent of `Intent.Eventing.MassTransit.RequestResponse`, and no Service Proxy integration, in this release.
 - **Transports beyond the four listed.** No Kafka, Pulsar or MQTT, even though Wolverine supports them.
 - **Durability backends beyond Entity Framework.** No Marten/PostgreSQL and no RavenDb persistence.
-- **Anything requiring a commercial licence key.** No generated code path may depend on a paid JasperFx or Critter Stack Pro feature.
+- **Anything licence-gated.** No generated code path may depend on a paid JasperFx Software product — CritterWatch's licensed features, Critter Stack Pro or the AI Skills packages. Note that the `JasperFx` shared libraries are themselves MIT and are an unavoidable transitive dependency of Wolverine; they are not what this excludes.
 - **In-process domain event dispatch.** Already covered by `Intent.Application.Wolverine.DomainEvents`.
 - **Configurable message serialization.** One serialization format, not a setting.
 
@@ -182,13 +238,30 @@ flowchart TD
 
 - **SM-1**: Handler bodies preserved on migration — the number of hand-written `IIntegrationEventHandler<T>` method bodies requiring any edit when the reference application swaps from the MassTransit module to this one. Target: zero. Validates R1, R5, R13.
 - **SM-2**: Transport coverage proven at runtime — the number of the four Transports demonstrated publishing and consuming across two applications. Target: four of four. Validates R2, R3, R4.
-- **SM-3**: Licence exposure — the number of generated code paths that require a commercial JasperFx licence key to run. Target: zero. Validates R10.
+- **SM-3**: Licence exposure — the number of declared packages and generated code paths that require a licence key, a licence file or a paid tier in order to run. Target: zero. Validates R10.
 - **SM-4**: Re-model cost on migration — the number of designer changes required to move an application from the MassTransit module to this one, excluding module settings. Target: zero. Validates R1.
+- **SM-5**: Golden Sample parity — the number of unintended differences between Software Factory output and the Reference Solution, for an application modelled to match it. Target: zero. Validates R16, and transitively every Scope B requirement, since the Reference Solution is what they are checked against.
+- **SM-6**: On-merit onboarding — the number of steps in UJ-2 that require consulting WolverineFx's own documentation rather than this module's README. Target: zero. Validates R2, R14.
 
 **Counter-metrics (do not optimize)**
 
 - **SM-C1**: Configuration burden — the number of module settings a developer must set to get a working RabbitMQ publish-and-consume, which must not exceed the three the MassTransit module needs. Counterbalances SM-1 and SM-2: parity must not be bought by pushing configuration onto the developer.
 - **SM-C2**: Hand-written plumbing per message — the number of classes a developer must write by hand for one subscribed message, which must stay at one, the Integration Event Handler. Counterbalances SM-1: preserving handler bodies must not be bought by making the developer write Wolverine wiring.
+
+## Scope Partition
+
+This is a **greenfield module**, so the full requirements → design → tasks → implement → verify cycle applies and the Reference Solution is a hard gate on the module work rather than a parallel track. The requirements below therefore split into two domains:
+
+- **Scope A — Target Reference Architecture (R15, R16, R17):** the hand-written WolverineFx solution that is the ground truth. It is built and proven first, and nothing in Scope B may be designed against an API that has not been compiled and run here.
+- **Scope B — Intent Module Capabilities (R1–R14):** what the module must model, generate and configure so that its output reproduces Scope A. Every Scope B requirement is verified by comparing generated output against the Reference Solution, not by reading it.
+
+The direction of correction is one-way and it matters more than anything else in this document: when generated output and the Reference Solution disagree, the module changes. The Reference Solution is never edited to match what the module happened to emit.
+
+<Callout id="scope-a-limits" tone="decision" title="R15 / R16 — why Scope A names packages but not API calls">
+
+Scope A pins the runtime, the package set and which artefacts must exist, because those are decisions. It deliberately does **not** pin the exact WolverineFx method calls that make each artefact work — discovering those by compiling and running them is the entire purpose of building the Reference Solution first. A requirements document that pre-ordained the fluent API would be theorizing the code generation it exists to prevent, and would be wrong in a way nobody noticed until the templates were already written against it.
+
+</Callout>
 
 ## Requirements
 
@@ -243,7 +316,7 @@ Local is the default so a freshly installed application runs without infrastruct
 
 **User Story:** As an application developer, I want to publish an Integration Event through the Message Bus contract, so that any number of other applications can react to it without my code knowing they exist.
 
-**Realizes:** UJ-2, UJ-4
+**Realizes:** UJ-2, UJ-4, UJ-6
 
 #### Acceptance Criteria
 
@@ -259,7 +332,7 @@ Local is the default so a freshly installed application runs without infrastruct
 
 **User Story:** As an application developer, I want to send an Integration Command to a named queue, so that exactly one consumer processes it and related commands can be kept in order.
 
-**Realizes:** UJ-2
+**Realizes:** UJ-2, UJ-6
 
 #### Acceptance Criteria
 
@@ -297,7 +370,7 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 
 **User Story:** As a solution architect, I want outgoing messages committed in the same transaction as the business change that produced them, so that a committed change can never silently lose its messages.
 
-**Realizes:** UJ-2
+**Realizes:** UJ-5
 
 #### Acceptance Criteria
 
@@ -313,7 +386,7 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 
 **User Story:** As an application developer, I want to control how a failed message is retried and where it ends up, so that a transient failure recovers on its own and a permanent one is retained for investigation rather than lost.
 
-**Realizes:** UJ-1, UJ-2
+**Realizes:** UJ-5
 
 <Table
   id="error-policy-bounds"
@@ -389,15 +462,17 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 
 ### Requirement 10: Free and open-source guarantee
 
-**User Story:** As a solution architect, I want to be certain no generated code needs a paid licence, so that adopting this module actually removes the commercial exposure I am migrating away from.
+**User Story:** As a solution architect, I want to be certain no generated code needs a paid licence, so that this module's licensing position is verifiable up front rather than discovered at a renewal.
 
-**Realizes:** UJ-1 — this is the motivation the journey exists to satisfy.
+**Realizes:** UJ-1 — and it is the standing constraint every other journey inherits.
 
 #### Acceptance Criteria
 
-1. THE Wolverine eventing module SHALL generate only code that runs against permissively-licensed WolverineFx core packages, and SHALL NOT generate any code path that requires a commercial JasperFx or Critter Stack Pro licence key.
-2. THE Wolverine eventing module SHALL NOT expose any module setting whose selection would require a commercial licence key at runtime.
-3. THE module documentation SHALL name the WolverineFx packages it declares and their licences, so the guarantee in R10.1 is verifiable without reading the generated code.
+1. THE Wolverine eventing module SHALL declare and generate code against only MIT-licensed WolverineFx and JasperFx packages, and SHALL NOT declare or generate a code path against any licence-gated JasperFx Software product — CritterWatch's licensed features, Critter Stack Pro and the AI Skills packages among them.
+2. THE Wolverine eventing module SHALL NOT expose any module setting whose selection would require a commercial licence key, a licence file, or a paid tier at runtime.
+3. THE module documentation SHALL name every WolverineFx and JasperFx package the module declares, together with that package's licence at the declared version, so the guarantee in R10.1 is verifiable without reading the generated code.
+4. WHEN the module's declared package versions are raised, THE licence record required by R10.3 SHALL be re-checked against the new versions, so that a future licensing change by JasperFx Software is caught at upgrade time by the module's maintainers rather than at runtime or renewal by a consumer.
+5. IF a WolverineFx or JasperFx package required by this module ceases to be MIT-licensed at the version the module would declare, THEN the module SHALL remain on the last MIT-licensed version until the change has been assessed, and SHALL NOT silently raise a consumer onto a licence-gated version.
 
 ### Requirement 11: OpenTelemetry instrumentation
 
@@ -452,6 +527,51 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 4. WHEN the Wolverine eventing module is installed, THE module SHALL install the message contract module it depends on, so that Integration Events, Integration Commands and the Message Bus contract are available without a separate install step.
 5. WHEN the Wolverine eventing module is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove the Consumers, Wolverine Host Configuration registrations and `appsettings.json` sections it added, and SHALL leave hand-written Integration Event Handler classes in place.
 
+### Requirement 15: Reference Solution composition
+
+**User Story:** As the team building this module, I want a Reference Solution that already works, so that every template is written against code that has compiled and run rather than against an API we assumed.
+
+**Realizes:** none — Scope A reference-architecture discipline that Scope B is verified against.
+
+#### Acceptance Criteria
+
+1. THE Reference Solution SHALL consist of two applications — a publisher and a subscriber — each targeting the same .NET version as the Clean Architecture application template this module is verified against.
+2. THE Reference Solution SHALL reference the `WolverineFx` core package, plus exactly one transport package for the Transport under test, and no transport package when the Transport under test is Local.
+3. WHEN the Transactional Outbox is exercised, THE Reference Solution SHALL reference Wolverine's Entity Framework Core integration package and the durability package matching its database, and no other persistence package.
+4. THE Reference Solution SHALL declare only MIT-licensed WolverineFx and JasperFx packages and SHALL run to completion with no licence key and no licence file present, so that R10.1 is proven by the Reference Solution rather than asserted by the module.
+5. EVERY package version declared in the Reference Solution SHALL be the same version the module declares, so the Reference Solution and the generated output cannot diverge by version.
+6. EVERY artefact in the Reference Solution SHALL be hand-written; no artefact in it may be produced by the module under construction.
+
+### Requirement 16: Golden Samples and the direction of correction
+
+**User Story:** As the team building this module, I want each generated artefact to have exactly one Golden Sample counterpart in the Reference Solution, so that "does the module work" is a diff rather than an opinion.
+
+**Realizes:** none — Scope A reference-architecture discipline that Scope B is verified against.
+
+#### Acceptance Criteria
+
+1. THE Reference Solution SHALL contain, hand-written and compiling: a Wolverine Host Configuration, one Consumer per subscribed message delegating to an `IIntegrationEventHandler<T>` implementation, an implementation of the Message Bus contract over Wolverine's own bus, and the `appsettings.json` sections given in R2.
+2. EVERY artefact listed in R16.1 SHALL be a Golden Sample corresponding to exactly one artefact the module generates, and that correspondence SHALL be recorded so each Scope B requirement names the Golden Sample it must reproduce.
+3. THE Reference Solution SHALL build with zero errors before any module artefact is built.
+4. WHEN the module generates against an application modelled to match the Reference Solution, THE generated output SHALL differ from the Reference Solution only in ways recorded and justified as intended.
+5. IF generated output differs from the Reference Solution in a way that is not recorded as intended, THEN the module SHALL be changed until it matches, and the Reference Solution SHALL NOT be edited to match the generated output.
+6. THE Reference Solution SHALL be exercised once per Transport, across all four, before the module is considered complete.
+
+### Requirement 17: Reference Solution test coverage
+
+**User Story:** As the team building this module, I want the Reference Solution's behaviour asserted by tests, so that "it worked when I tried it" is not the evidence the whole module rests on.
+
+**Realizes:** UJ-2, UJ-5 — these journeys' behaviour is what the Reference Solution must demonstrate before the module is built.
+
+#### Acceptance Criteria
+
+1. THE Reference Solution SHALL contain an automated test asserting that an Integration Event published by the publisher is received by the subscriber's Integration Event Handler.
+2. THE Reference Solution SHALL contain an automated test asserting that an Integration Command sent by the publisher arrives on its Destination Queue Name and is handled exactly once.
+3. THE Reference Solution SHALL contain an automated test asserting that an Integration Event Handler which throws is re-delivered according to the configured Error Handling Policy and lands on the Error Queue once that policy is exhausted.
+4. THE Reference Solution SHALL contain an automated test asserting that a rolled-back transaction dispatches none of its messages and a committed transaction dispatches all of them.
+5. EVERY test required by R17.1 to R17.4 SHALL pass before any module artefact is built.
+6. IF any test required by R17.1 to R17.4 fails, THEN module work SHALL NOT proceed until either that test passes or the Reference Solution is revised and re-verified.
+
 ## Assumptions
 
 <Checklist
@@ -462,18 +582,8 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
     { id: "a3", label: "Local is the default Transport", note: "Mirrors the MassTransit module's In Memory default so a freshly installed application runs with no infrastructure. Its limits are called out in R2.5." },
     { id: "a4", label: "Message serialization is JSON, and not configurable", note: "One format keeps the first release small. Listed as a non-goal; revisit if a real broker interop need appears." },
     { id: "a5", label: "Names are validated only for emptiness and a 250-character ceiling", note: "Broker-specific character rules are left to the broker to reject. See the R3/R4 decision callout." },
-    { id: "a6", label: "The module targets the latest WolverineFx major version available when it is built", note: "With a version floor declared rather than an exact pin, so applications on a newer Wolverine do not hit a conflict." },
+    { id: "a6", label: "The module declares a minimum WolverineFx version, never a floating wildcard", note: "A plain minimum lets NuGet resolve the declared version rather than the newest, so an application on a newer Wolverine still works while nobody drifts onto a future release by accident. A floating version would make R10.5 unenforceable — a consumer could land on a licence-gated release without anyone deciding to." },
     { id: "a7", label: "Retry with cooldown is the default Error Handling Policy", note: "The closest behavioural match to the MassTransit module's Interval default, so a migrator's failure handling does not change character." },
     { id: "a8", label: "Amazon SQS credentials fall back to the AWS default credential chain", note: "Access key and secret key are optional; an application running with an instance role needs no credentials in configuration." }
   ]}
 />
-
-<ApprovalGate id="approve-requirements" phase="requirements" title="Approve these requirements and move to design?">
-
-Approving advances this spec to **design**. The three things most worth disagreeing with before you do:
-
-- **The journeys** — UJ-1 swap, UJ-2 greenfield pair, UJ-3 staged migration, UJ-4 alongside the Wolverine CQRS module. If a real journey is missing, adding it now is far cheaper than at design.
-- **The non-goals** — scheduled publishing, request/response, Kafka, Marten, automated settings carry-over, and any wire-compatibility with MassTransit are all locked out.
-- **The assumptions** — eight low-stakes defaults chosen on your behalf, listed above. The `Wolverine:` configuration root and the 250-character name ceiling are the two a migrator would notice.
-
-</ApprovalGate>
