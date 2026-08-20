@@ -1,0 +1,11 @@
+{
+  "entries": [
+    {
+      "fromPhase": "requirements",
+      "toPhase": "design",
+      "approvedVia": "panel-button",
+      "conversationId": null,
+      "timestampUtc": "2026-08-20T14:36:44Z"
+    }
+  ]
+}
