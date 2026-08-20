@@ -39,6 +39,12 @@
       <approvedAt>2026-08-18T12:39:18.3906058Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.claude/agents/build-module-sdd.agent.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-20T17:48:53.2805743Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.claude/instructions/module-building-workflow.instructions.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>

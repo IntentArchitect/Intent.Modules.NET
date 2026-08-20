@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="099e1409-4c5f-475f-9005-8f9b07b40f59" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+<class id="14a38e25-a249-4e5d-bd5d-c45db3cb6e31" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
   <name>skills</name>
   <display>skills</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>ac05ae5a-371b-4059-9758-477da1680ce0</parentFolderId>
+  <parentFolderId>1322312d-da41-4666-8176-1824b19b0d0f</parentFolderId>
   <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
   <packageName>root</packageName>
   <stereotypes>
@@ -21,13 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="87b5ef3b-09d0-4e07-b72b-2d51e0d84a3d" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="6731213b-a55e-414a-a107-61b224b9277c" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>AI.Context.Skills</name>
       <display>AI.Context.Skills</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -43,14 +43,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="c088eabc-f9eb-42e4-a4a5-90a9313897ea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="94101234-7d37-46e3-82e7-d15d3773f8a0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddAssociationType_ResourcesAssociationTypeWorkflowMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddAssociationType_ResourcesAssociationTypeWorkflowMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -69,14 +68,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e1e5c470-df4e-4eb9-bcb5-2e9fc8810894" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="c8604947-2b3b-4315-9fcc-ee5443c76224" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddAssociationType_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddAssociationType_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -95,14 +93,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b40edc74-d9f7-4ec8-889a-e6b965f16f0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="fdf3d176-0e75-42d2-8689-7547c6edd87d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_ResourcesDesignerExtensionsReferenceMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_ResourcesDesignerExtensionsReferenceMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -121,14 +118,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9ecf88fb-1a84-41d1-be76-5b941334e142" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="9036c7d4-8d95-4318-a21e-347a7814cae1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_ResourcesDesignerExtensionWorkflowMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_ResourcesDesignerExtensionWorkflowMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -147,14 +143,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="740762d2-4c68-4390-ab7d-d12899cf91c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="0b6fd884-7ee0-466c-94a4-a4f74c142de7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddDesignerExtension_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -173,14 +168,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b646a2ad-0166-4c04-84ef-2407f57c8571" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="d8d31c0d-9113-4019-9b19-0dd2fc918b76" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.AddModuleMigration_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.AddModuleMigration_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -199,14 +193,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f61c5ec4-8eda-43f1-84e7-cd5676a6529f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="3959f7ce-6203-47e9-a144-bf56c367cc6d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ArchitectureTemplates_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ArchitectureTemplates_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -225,14 +218,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2213f2fb-d931-457c-a56f-6f0fac48bf35" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="32f1a228-8bde-4b14-ae3b-7d83ed31e073" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesApiCheatsheetMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesApiCheatsheetMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -251,14 +243,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="93d511a2-fe45-4b8d-a004-d38b28a1cf5e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f9164ce8-d1d3-43b2-8dd6-700c07e99235" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesBuilderPatternsMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesBuilderPatternsMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -277,14 +268,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="66b2a409-9913-466b-9e40-aba7c5808aee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="9f36a66d-c1c7-42c2-b129-60c6909a7ac3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsAdvancedTypesCs_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsAdvancedTypesCs_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -303,14 +293,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="441a58bc-1370-4a60-9e88-5c5c62512032" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6b61d162-d6bc-4581-922c-75fe659f7911" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsControlFlowCs_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsControlFlowCs_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -329,14 +318,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6f1d8f17-c03e-4163-b9ef-99719a9f07eb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="e24d7cdc-00bf-4411-85bd-17abb56a77c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsLifecycleHooksCs_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesPatternsLifecycleHooksCs_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -355,14 +343,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="de7b4875-6ae0-47a5-8ebf-364635650382" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="32ddd917-c89e-4a24-9ee5-798f13b83aa0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesTroubleshootingMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesTroubleshootingMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -381,14 +368,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="448ac6af-1504-46c6-b16c-6158c33d40b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="b7146449-c93d-47b2-84b1-744f156ed44e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -407,14 +393,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d602da81-8dfb-4e69-b452-74f566620b99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="7ce91728-9454-4824-93c7-1f1358dc30a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_ResourcesInteractionsCheatsheetMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_ResourcesInteractionsCheatsheetMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -433,14 +418,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4765db59-ea6f-48e8-b740-7a7180627495" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="36f216fa-2bf4-4a73-b88f-e36320c8fdcc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -459,14 +443,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="47754629-49bb-4279-aa3f-d83e3af0e4a4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="b0782452-e881-46f7-b5af-b9b6e9804ca1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_ResourcesMappingCheatsheetMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_ResourcesMappingCheatsheetMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -485,14 +468,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="28c4f4ad-0dde-4e87-84c7-8a906e86a69e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="bb698fc3-8afd-4774-b9d9-243a455d579b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -511,14 +493,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a551eea2-f5c4-4a49-a264-4d72b54bc0ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="a1414a8c-969c-43c1-b174-d7af08c8aa96" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_ResourcesMetadataCheatsheetMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_ResourcesMetadataCheatsheetMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -537,14 +518,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7e57a6e4-2e66-451c-a51c-2fb1ea238af2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="bacc3083-f086-4eec-a7ce-d7e0a22119c3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -563,14 +543,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ac4db6b4-3ebf-4fbb-b352-7cf5b835cb27" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="29088da6-064b-46ff-be71-c1b20fe16536" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentModuleOrchestrator_ResourcesOrchestrationCheatsheetMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentModuleOrchestrator_ResourcesOrchestrationCheatsheetMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -589,14 +568,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3ad31180-f2bf-4600-8bf6-324597378f17" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f77af13a-f6a6-4f17-9c55-414f9b57687b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.IntentModuleOrchestrator_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.IntentModuleOrchestrator_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -615,14 +593,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="de2443c6-b4e5-4620-bf3d-a6391859b89c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="47061fcf-9c26-489a-843d-e58a30cb4b65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ModuleBuildingStrategies_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ModuleBuildingStrategies_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -641,14 +618,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6dfa64ea-461f-49d1-ab9a-7cafaaa88b78" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f78d2628-c3d3-45fd-b0f1-23cc86df7455" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ModuleDebugging_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ModuleDebugging_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -667,14 +643,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="10c9b63e-afd4-4409-8ccd-479b96e306ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="68c51d75-e181-4395-a82a-e4728dc5cffc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ModuleDocs_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ModuleDocs_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -693,14 +668,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bc461c0b-f49b-4615-9855-65ec775c10a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ff5ed4a2-72a8-41c5-bd3a-027a5c2bedf9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ModuleSvgIcon_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ModuleSvgIcon_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -719,14 +693,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="53572f86-a8fb-41f9-ad82-8c31181c3aca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="44084408-19c8-4cff-8bea-2f96448031e9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.Skills.ModuleVersioning_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Skills.Skills.ModuleVersioning_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Skills</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -745,14 +718,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="589b38f1-6197-4f96-a045-a8e7233202b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="920ffc6b-81e9-4e2c-89d1-7b1785b49c80" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleContextCapture_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleContextCapture_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -771,14 +743,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e449cd0e-005e-426c-b491-b594b55ba5e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="948148b6-d007-4925-948d-b6183bcc0b43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleDocsChore_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleDocsChore_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -797,14 +768,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2d9f5e5f-a2df-4e16-91b1-214a87bfb641" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="24e25668-13f6-48cc-8281-e55abde87d56" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleVersionIncrement_SkillMd_Agents</name>
       <display>Intent.ModuleBuilder.AI.Workflow.Skills.ModuleVersionIncrement_SkillMd_Agents</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>099e1409-4c5f-475f-9005-8f9b07b40f59</parentFolderId>
+      <parentFolderId>14a38e25-a249-4e5d-bd5d-c45db3cb6e31</parentFolderId>
       <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
       <packageName>root</packageName>
       <stereotypes>

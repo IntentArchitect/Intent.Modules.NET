@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5b7f0f29-ed8a-419c-83ba-43d51a5acddb">
+  <file path=".agents/agents/build-module-sdd.agent.md" />
   <file path=".agents/instructions/csharp-guidelines.md" />
   <file path=".agents/instructions/exception-guidelines.instructions.md" />
   <file path=".agents/instructions/known-build-gotchas.instructions.md" />
@@ -34,6 +35,7 @@
   <file path=".agents/skills/module-svg-icon/SKILL.md" />
   <file path=".agents/skills/module-version-increment/SKILL.md" />
   <file path=".agents/skills/module-versioning/SKILL.md" />
+  <file path=".claude/agents/build-module-sdd.agent.md" />
   <file path=".claude/instructions/csharp-guidelines.md" />
   <file path=".claude/instructions/exception-guidelines.instructions.md" />
   <file path=".claude/instructions/known-build-gotchas.instructions.md" />
