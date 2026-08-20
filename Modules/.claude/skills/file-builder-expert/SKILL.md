@@ -1,8 +1,9 @@
 ---
 name: file-builder-expert
-description: Convert C# template files to Fluent CSharpFile builder API.
+description: "Author or fix a C# code-generation template using the Fluent CSharpFile builder API — constructor structure, callback priorities, type resolution, and DI parameter injection. USE ONLY WHEN writing, reviewing, or converting a *TemplatePartial.cs that emits C# via CSharpFile. DO NOT USE FOR templates that build Markdown/text output (see add-module-skill-template) or for designer-model/script changes. REQUIRES the target template's model shape (single-file vs file-per-model) already decided."
 argument-hint: "[source file] [target template name]"
-contentHash: 6D00C7B35A3C4F6F08E6920059ADD8D663B8B695AAEBA66198BF1FB139D53609
+template-id: Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_SkillMd_Agents
+contentHash: 64D5C139FA2CA97AF33EDB2A776BAB1402EC8C89839186729D0CA4B6C6019A31
 ---
 # File Builder Expert
 
@@ -30,6 +31,8 @@ contentHash: 6D00C7B35A3C4F6F08E6920059ADD8D663B8B695AAEBA66198BF1FB139D53609
     method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
     method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
 ```
+
+12. **Metadata has two uses — know both.** (a) **Your own cross-step state:** `node.AddMetadata("key", value)` in one callback, read back in a later one. (b) **Reading the designer model the host template already attached:** a node generated from a modelled element is stamped with that element under the well-known key `"model"`, so `method.TryGetMetadata<TModel>("model", out var m)` tells you which designer element a generated member came from — classes, methods, properties and parameters each carry their own. Guard every read (`GetMetadata` throws on an absent key; `AddMetadata` throws on a duplicate one). See `intent-module-orchestrator` § "The Model Bridge".
 
 ## Must Nots
 

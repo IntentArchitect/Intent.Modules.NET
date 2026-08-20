@@ -1,8 +1,9 @@
 ---
 name: intent-mapping-architect
-description: Translate designer-defined advanced mappings into recursive C# Builder statements.
+description: "Translate a designer-modelled advanced Mapping (Terminal or Object, with replacements and MappingOptions) into recursive C# via the MappingManager API. USE ONLY WHEN a template must generate the assignment/traversal statements for a designer-defined mapping between two models. DO NOT USE FOR hardcoded property-to-property assignments, or handler bodies for a modelled interaction that isn't a Mapping (see intent-domain-interactions-expert). REQUIRES the mapping already modelled in the designer and the template inheriting CSharpMappingBase."
 argument-hint: "[mapping type] [source model] [target model]"
-contentHash: 26C5B9177249032C3ED6A6B01830D074F3B3DD9918687ED2092E7D79C0B9DD98
+template-id: Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_SkillMd_Agents
+contentHash: 1D77AFB3ADA39D088FFAD5A164E0A5D80C934D35170BDD2A4ACAFAF8BDC10126
 ---
 # Intent Mapping Architect
 

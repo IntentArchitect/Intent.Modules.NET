@@ -1,8 +1,9 @@
 ---
 name: add-association-type
-description: "Define a new association type (source and target ends, target types, display functions, navigability, traits, mapping options) in the Module Builder designer."
+description: "Define a brand-new Association Settings type — source/target ends, target types, navigability, traits, mapping options — in the Module Builder designer. USE ONLY WHEN a new kind of association must be drawable between two element types that no existing association type covers. DO NOT USE FOR adding a context-menu extension to an existing foreign element or association (see add-designer-extension). REQUIRES the target element type GUIDs (typeId) for both ends already identified."
 argument-hint: "[association name, source element type, target element type]"
-contentHash: D2301A2FD0FF0C3E2C0E6B2B05E53DC8147D9446DA1CF6166BF7ADECF7EB05FF
+template-id: Intent.ModuleBuilder.AI.Skills.Skills.AddAssociationType_SkillMd_Agents
+contentHash: A31225FDE88F841AE5FC472E1F06373CD565DCCD52537A825403BDFDDB2A4B9E
 ---
 # Add Association Type
 

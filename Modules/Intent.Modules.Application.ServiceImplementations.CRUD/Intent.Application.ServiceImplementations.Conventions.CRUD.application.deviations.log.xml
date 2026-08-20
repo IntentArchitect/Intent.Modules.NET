@@ -9,6 +9,12 @@
       <approvedAt>2026-08-18T12:39:18.3127874Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.agents/skills/add-module-migration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-20T17:18:08.8019778Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.agents/skills/module-context-capture/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
@@ -37,6 +43,12 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.4105208Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/add-module-migration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-20T17:18:08.8354635Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.claude/skills/module-context-capture/SKILL.md</path>

@@ -1,8 +1,9 @@
 ---
 name: module-context-capture
-description: "Record a module's durable design knowledge in a CONTEXT.md in the module folder — decisions, invariants, and cross-module relationships. Use when a design decision is made or a module change concludes; read it before modifying any module."
+description: "Read and maintain a module's CONTEXT.md — the durable why behind its design decisions, invariants, and cross-module relationships, kept in the module's project folder. USE ONLY WHEN a design decision is made or a module change concludes (write it), or before modifying any module (read it first). DO NOT USE FOR the change's user-facing docs (see module-docs-chore) or its version bump (see module-version-increment). REQUIRES the module's project folder to already exist."
 keywords: [context, decisions, architecture, invariants, cross-module, durable]
-contentHash: F4E94BD452DEEF64F1AE235A42FFAC1E408702D7C6A44AEAFE3A2E99AECD713E
+template-id: Intent.ModuleBuilder.AI.Workflow.Skills.ModuleContextCapture_SkillMd_Agents
+contentHash: 9E664BF685972800147D847BD005F703E294789627B35B5BC52FABF1AC24ADB8
 ---
 # Skill: module-context-capture
 
