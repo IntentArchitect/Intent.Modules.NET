@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d9c98cda-d3e7-4a90-8252-0f578fca050d" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>AuditLogEntry</name>
+  <display>AuditLogEntry</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</parentFolderId>
+  <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+  <packageName>Dapper.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="auto-manage-keys" value="false" />
+  </metadata>
+  <childElements>
+    <childElement id="c94bf9d3-a606-4b48-a1f9-e4938ab41210" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a6a33128-df8b-4a12-b664-c1d874045453">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d9c98cda-d3e7-4a90-8252-0f578fca050d</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cd7a5287-16c1-459d-8788-3117f9971329" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsProcessed</name>
+      <display>IsProcessed: bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="17b11b20-bba3-4f21-8d7a-ecbf00b44bf9">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d9c98cda-d3e7-4a90-8252-0f578fca050d</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

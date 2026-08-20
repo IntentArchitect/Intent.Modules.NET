@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="094c5cda-36d1-410f-970a-b0f1dcb5d1a1" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>MixedKeyEntity</name>
+  <display>MixedKeyEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</parentFolderId>
+  <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+  <packageName>Dapper.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="auto-manage-keys" value="false" />
+  </metadata>
+  <childElements>
+    <childElement id="500b6717-6283-4a42-b814-383d4bf0d084" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>TenantId</name>
+      <display>TenantId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="384d2926-f0f0-4400-8649-2bef7b4acfa5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>094c5cda-36d1-410f-970a-b0f1dcb5d1a1</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c3495037-2495-4b7b-9114-ba00e2904789" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>RowId</name>
+      <display>RowId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="11770680-0cca-41e4-822f-d1ffe10dd480">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>094c5cda-36d1-410f-970a-b0f1dcb5d1a1</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Auto-generated" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a7093804-e10c-4a1a-bb79-70b99f48e4b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a6416372-3c66-426e-bb80-e1546a8a703a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>094c5cda-36d1-410f-970a-b0f1dcb5d1a1</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
