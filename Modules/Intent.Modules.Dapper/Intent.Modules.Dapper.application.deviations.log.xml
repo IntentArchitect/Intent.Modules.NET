@@ -22,16 +22,6 @@
       <fileHash>6C77EF369EE871E7ADA636FF0F8132C6F5131C6BF210F5734DB5C08F9CD47C49</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.IModSpecFile#3caffd94-f73f-4a0c-b9dc-431c12ecd4f0</correlationId>
-      <path>Intent.Modules.Dapper/Intent.Dapper.imodspec</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-02T17:55:18.6804824Z</updatedAt>
-      <deviationsHash>600BA8A7FE16AD22F2519226E09E8B542C58C380D9B297A8DDD3979D2CC8DBBF</deviationsHash>
-      <fileHash>93BEFA5B6D84F2C52995A2FCAD6DD7866B685D5BC044507C0FF820F186E01EDE</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7e4a1053-bee2-4cbb-aa46-ffc9b3fc5590</correlationId>
       <path>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
@@ -40,16 +30,6 @@
       <updatedAt>2026-08-02T17:42:50.3855157Z</updatedAt>
       <deviationsHash>E2A3E6CCA258649080DC591F31D10CA55F6E3D7838EF7AB4527A56A54C1C9E30</deviationsHash>
       <fileHash>0ADD156F91C84D5033D3D9AAB1AEAD441F5A9AF75DF42FDC5D40508DA70FD45E</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8aa6eb7a-f25d-4cf3-b090-7b5d4a31bae8</correlationId>
-      <path>Templates/Repository/RepositoryTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-03T18:16:39.0388127Z</updatedAt>
-      <deviationsHash>8538E87BDAFB4A4FB0032EDB45EF5F9B40539CC8EC426CBEA53C235964476CF6</deviationsHash>
-      <fileHash>4275C075E6C3B2BFE372628152B1864AD211B16251BAAEC416D1BD76307880E0</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#871a6fad-1b57-48e7-85a0-6cb6966ff99b</correlationId>
