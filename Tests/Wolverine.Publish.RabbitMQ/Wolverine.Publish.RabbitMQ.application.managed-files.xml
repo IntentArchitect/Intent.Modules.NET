@@ -20,7 +20,7 @@
   <file path="Wolverine.Publish.RabbitMQ.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
   <file path="Wolverine.Publish.RabbitMQ.Api/Filters/TypeSchemaFilter.cs" />
   <file path="Wolverine.Publish.RabbitMQ.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Wolverine.Publish.RabbitMQ.Api/Program.cs" />
+  <file path="Wolverine.Publish.RabbitMQ.Api/Program.cs" deviationsHash="1F72DAFFC04510F3870F004FD26250648070070D47497458984C0FD5B9F8002E" />
   <file path="Wolverine.Publish.RabbitMQ.Api/Properties/launchSettings.json" />
   <file path="Wolverine.Publish.RabbitMQ.Api/Services/CurrentUserService.cs" />
   <file path="Wolverine.Publish.RabbitMQ.Api/Wolverine.Publish.RabbitMQ.Api.csproj" deviationsHash="A7E926885A85ED2BF2AE69027CCA803F325DCD202E26F3AFFCD8C5DB46C7D01B" />

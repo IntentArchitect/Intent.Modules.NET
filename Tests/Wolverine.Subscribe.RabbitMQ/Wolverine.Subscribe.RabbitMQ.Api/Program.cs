@@ -15,6 +15,7 @@ namespace Wolverine.Subscribe.RabbitMQ.Api
 {
     public class Program
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public static void Main(string[] args)
         {
             using var logger = new LoggerConfiguration()
@@ -45,6 +46,12 @@ namespace Wolverine.Subscribe.RabbitMQ.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+                // Golden phase, hand-written: stands in for the chain statement
+                // Intent.Wolverine.Common will later emit via ConfigureHostBuilderChainStatement.
+                // Survives regeneration only because of the [IntentManaged(Body = Mode.Merge)]
+                // directive on Main - without it the Intent.AspNetCore.Program template rebuilds
+                // this body wholesale and strips the line. Comments above the attribute are NOT
+                // protected by Body = Mode.Merge, which is why this note lives inside the body.
                 builder.Host.UseWolverine(opts => WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration));
 
                 var app = builder.Build();

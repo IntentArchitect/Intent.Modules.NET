@@ -16,6 +16,15 @@ namespace Wolverine.Subscribe.RabbitMQ.Infrastructure.Eventing
 
         public static void ConfigureRabbitMq(WolverineOptions options, IConfiguration configuration)
         {
+            // C12 / assumption a2. Wolverine discovers a concrete <Message>Consumer by naming
+            // convention, but ONLY in assemblies it scans, and WolverineOptions.ApplicationAssembly
+            // is the entry assembly - the .Api project here. The Consumers live in this
+            // .Infrastructure assembly, so without this call Wolverine logs "found no handlers",
+            // every listener receives messages that route nowhere, and no Integration Event Handler
+            // is ever invoked. Verified against WolverineFx 5.39.5: default discovery yields 0
+            // handler chains, IncludeAssembly yields 2 (one per Consumer).
+            options.Discovery.IncludeAssembly(typeof(OrderShippedEventConsumer).Assembly);
+
             var rabbitMqSection = configuration.GetSection("Wolverine:RabbitMq");
             var host = rabbitMqSection["Host"] ?? "localhost";
             var port = int.Parse(rabbitMqSection["Port"] ?? "5672");
@@ -51,8 +60,8 @@ namespace Wolverine.Subscribe.RabbitMQ.Infrastructure.Eventing
             var section = configuration.GetSection("Wolverine:ErrorHandling:RetryWithCooldown:Delays");
 
             var delays = (section.Exists()
-                    ? section.Get<string[]>() ?? Array.Empty<string>()
-                    : new[] { "00:00:01", "00:00:05", "00:00:15" })
+                ? section.Get<string[]>() ?? Array.Empty<string>()
+                : new[] { "00:00:01", "00:00:05", "00:00:15" })
                 .Select(TimeSpan.Parse)
                 .ToArray();
 

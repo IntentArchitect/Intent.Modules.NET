@@ -15,6 +15,7 @@ namespace Wolverine.Publish.RabbitMQ.Api
 {
     public class Program
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public static void Main(string[] args)
         {
             using var logger = new LoggerConfiguration()
@@ -45,6 +46,12 @@ namespace Wolverine.Publish.RabbitMQ.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+                // Golden phase, hand-written: stands in for the chain statement
+                // Intent.Wolverine.Common will later emit via ConfigureHostBuilderChainStatement.
+                // Survives regeneration only because of the [IntentManaged(Body = Mode.Merge)]
+                // directive on Main - without it the Intent.AspNetCore.Program template rebuilds
+                // this body wholesale and strips the line. Comments above the attribute are NOT
+                // protected by Body = Mode.Merge, which is why this note lives inside the body.
                 builder.Host.UseWolverine(opts => WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration));
 
                 var app = builder.Build();
@@ -66,9 +73,9 @@ namespace Wolverine.Publish.RabbitMQ.Api
             }
             catch (HostAbortedException)
             {
-                // Excluding HostAbortedException from being logged, as this is an expected
-                // exception when working with EF Core migrations (as per the .NET team on the below link)
-                // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
+            // Excluding HostAbortedException from being logged, as this is an expected
+            // exception when working with EF Core migrations (as per the .NET team on the below link)
+            // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
             }
             catch (Exception ex)
             {

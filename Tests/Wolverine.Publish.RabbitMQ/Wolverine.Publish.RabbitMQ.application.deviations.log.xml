@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#00de1dc5-e630-4039-a119-0c1e3dfeeea3</correlationId>
+      <path>Wolverine.Publish.RabbitMQ.Api/Program.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-21T20:40:31.4380863Z</updatedAt>
+      <deviationsHash>1F72DAFFC04510F3870F004FD26250648070070D47497458984C0FD5B9F8002E</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#c8c157f5-7cf1-42b0-aa5f-ddcc40273383</correlationId>
       <path>Wolverine.Publish.RabbitMQ.Api/Wolverine.Publish.RabbitMQ.Api.csproj</path>
       <count>1</count>

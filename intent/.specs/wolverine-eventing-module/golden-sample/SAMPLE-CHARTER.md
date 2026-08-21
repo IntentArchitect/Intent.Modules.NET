@@ -138,13 +138,17 @@ Things the build forced into existence that no charter planned. Recorded so they
 
 ---
 
-## Decisions blocking approval
+## Decisions — settled
 
-**D1 — Rename the applications off the `Wolverine.*` root?** Recommendation: **yes, and now.** It is the correct fix for G0 #8, it follows the `N_ServiceBus.*` precedent this repository already set, and it churns every file in both applications — which gets strictly more expensive with every file added. The alternative is a recorded descope with sign-off, accepting that the templates are calibrated against unusual name resolution.
+**D1 — Rename the applications off the `Wolverine.*` root? NO.** Developer decision, quoted: _"no do not rename Wolverine as test app. keep it."_ The recommendation had been to rename, following the `N_ServiceBus.*` precedent; that recommendation is not carried, and the application names stay as they are.
 
-**D2 — Does this stay one gate-sized sample, or split?** The surface is four transports x two outbox modes x two topology modes, plus coexistence with `Intent.Application.Wolverine`, plus telemetry and tenancy variants. That is pushing at the skill's L-split tripwires (more than ~3 generated-file pattern families; more than ~12 hand-written files). Recommendation: keep **one** sample for the eventing pattern family, and split the shared host module (`Intent.Wolverine.Common`) coexistence proof into its own later loop — it has a different pattern family and a different consumer, and it does not need to be inside this gate.
+Consequence, stated plainly rather than smoothed over: **G0 #8 does not pass — it is descoped with the sign-off above**, and the dossier's scorecard records it as a descope rather than a pass. Weakening the criterion to make it green would defeat the point of having it.
 
-Neither decision is mine to take. Both change what gets built next, so approval of this charter should carry an answer to each.
+The residual risk is specific. The module's templates will be calibrated against a sample whose root namespace collides with `WolverineFx`'s own, so a template copying the sample's name-resolution form verbatim may over-qualify in every application, or under-qualify and fail only in applications that happen to collide. Ledger row **n3** is the mitigation, and it is cheap: take this sample's `WolverineEventingConfiguration` shape verbatim into a probe project whose root namespace does _not_ begin with `Wolverine`, and record which form compiles in both. That tells the templates what to emit without renaming anything, and closes the row with an artefact.
+
+**D2 — One gate-sized sample, or split? ONE.** Developer decision, quoted: _"keep one sample."_ This matches the recommendation. One sample covers the eventing pattern family.
+
+The surface still pushes at the skill's L-split tripwires, so the variant table above is what holds it to a gate-sized shape: three variants at full runtime depth, three explicitly compile-only. If the compile-only work uncovers a diverging error-handling or dead-letter shape, R16.10 promotes that transport rather than quietly widening this sample.
 
 ---
 
@@ -154,7 +158,7 @@ Fixing the sample, in this order. No module work, no requirements or design edit
 
 1. Protect the `Program.cs` host registration (confirmed stripped — see the dossier's G0 #5 entry)
 2. Add the Consumer discovery registration (C12 / a2 / n1)
-3. Rename, if D1 says rename — cheapest while the sample is small
+3. ~~Rename~~ — descoped by D1. Replaced by the n3 probe, which is what now carries G0 #8's risk
 4. Split durability out so Outbox=None and Transport=Local have their own variants (C7, T-6, T-7)
 5. Re-point the test fixture at the real host (G0 #2)
 6. Add T-4, make T-3 observe the Error Queue (G0 #3)
