@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="95c39cbb-fdbb-46ee-806b-2392da2438bd">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/DataContractModelStereotypeExtensions.cs" />
+  <file path="Api/RepositoryExtensionsModel.cs" />
+  <file path="Api/StoredProcedureModelStereotypeExtensions.cs" />
+  <file path="Api/StoredProcedureParameterModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/AISkillsExtension.cs" />
+  <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" />
+  <file path="FactoryExtensions/DbContextInterfaceExtension.cs" />
+  <file path="FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs" />
+  <file path="Intent.EntityFrameworkCore.Repositories.imodspec" deviationsHash="20152D78B0BB8D69374465F967044A158C9076CFB89A58A57CFF54F5A036F0AB" />
+  <file path="Intent.Modules.EntityFrameworkCore.Repositories.csproj" deviationsHash="74713D1B0E636849B488CF369845EE691FE51625E2529B7BCCAC2A1BD602C9E6" />
+  <file path="Settings/ModuleSettingsExtensions.cs" />
+  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplatePartial.cs" />
+  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplateRegistration.cs" />
+  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs" />
+  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplateRegistration.cs" />
+  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplatePartial.cs" />
+  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplateRegistration.cs" />
+  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplatePartial.cs" />
+  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplateRegistration.cs" />
+  <file path="Templates/Repository/RepositoryTemplatePartial.cs" deviationsHash="E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7" />
+  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" deviationsHash="072F45ED50D1934E0B1E6CDA3B4470FD2BFA410B9B80B0FDCF723EC16DB13FB6" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs" deviationsHash="07ECB8B32D962EB82E840D368D86B0866652DC876BB523AB46826AC4815236F8" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="modelers/Domain Extensions.designer.settings" />
+  <file path="resources/documentation.json" />
+</managedFiles>

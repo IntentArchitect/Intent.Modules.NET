@@ -1,3 +1,7 @@
+### Version 4.8.5
+
+- Improvement: Repository operations that invoke a Stored Procedure whose return type doesn't match the operation's declared return type now raise a clear error naming the operation and stored procedure when no Stored Procedure Result mapping exists to bridge them.
+
 ### Version 4.8.4
 
 - Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager`/`DbContextInstance` changes (new `Default Connection String Name` module setting support).
@@ -63,7 +67,7 @@
 ### Version 4.7.10
 
 - Improvement: Added `FindById` overload with `queryOptions` on repositories.
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 4.7.9
 
@@ -155,8 +159,8 @@
 ### Version 4.5.2
 
 > ⚠️ **KNOWN ISSUE**
-> 
->  The `Stored Procedure` element was moved to `Intent.Modules.Modelers.Domain.StoredProcedures` module and there is a bug with Intent Architect 4.2.2 and earlier that when you update to this version it will cause and error regarding a duplicate element.
+>
+> The `Stored Procedure` element was moved to `Intent.Modules.Modelers.Domain.StoredProcedures` module and there is a bug with Intent Architect 4.2.2 and earlier that when you update to this version it will cause and error regarding a duplicate element.
 
 - Improvement: `CustomRepositoryTemplate` and `CustomRepositoryInterfaceTemplate` Initialization Logic - Adjusted the execution timing of StoredProcedureHelpers.ApplyImplementationMethods outside the AddClass method scope. This change ensures more efficient startup behavior and better supports runtime metadata lookups (i.e. for async method configurations).
 - Improvement: `StoredProcedureHelpers` - Refined the implementation method to better support stored procedures with complex return types. This includes a more sophisticated handling of async operations, output parameters, and return statements, ensuring that stored procedures are executed more efficiently and correctly.
@@ -203,13 +207,12 @@
 ### Version 4.2.2
 
 - Added support for executing Stored Procedures. To use a Stored Procedure:
-	- Create a `Repository` in the Domain Designer (either in the package root or a folder).
-	- You can optionally set the "type" of the repository to a `Class` which will extend the existing repository which is already generated for it, otherwise if no "type" is specified a new Repository is generated.
-	- On a repository you can create `Stored Procedure`s.
-	- At this time, the module supports a Stored Procedure returning: nothing, an existing `Class` or a `Data Contract` (`Domain Object`).
-	- The Software Factory will generate methods on the Repositories for calling the Stored Procedures.
+  - Create a `Repository` in the Domain Designer (either in the package root or a folder).
+  - You can optionally set the "type" of the repository to a `Class` which will extend the existing repository which is already generated for it, otherwise if no "type" is specified a new Repository is generated.
+  - On a repository you can create `Stored Procedure`s.
+  - At this time, the module supports a Stored Procedure returning: nothing, an existing `Class` or a `Data Contract` (`Domain Object`).
+  - The Software Factory will generate methods on the Repositories for calling the Stored Procedures.
 - Update: Removes some warnings from generated code.
-
 
 ### Version 4.2.1
 

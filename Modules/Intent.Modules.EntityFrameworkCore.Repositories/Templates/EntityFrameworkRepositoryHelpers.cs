@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Exceptions;
@@ -87,8 +87,8 @@ internal static class EntityFrameworkRepositoryHelpers
                             method.RepresentsModel(storedProcedureModel);
 
                             foreach (var parameter in generalizedStoredProcedure.Parameters.Where(x => x.StoredProcedureDetails.Direction
-                                         is StoredProcedureParameterDirection.In
-                                         or StoredProcedureParameterDirection.Both))
+                                is StoredProcedureParameterDirection.In
+                                or StoredProcedureParameterDirection.Both))
                             {
                                 method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.InternalElement.Name.ToLocalVariableName());
                             }
@@ -109,7 +109,7 @@ internal static class EntityFrameworkRepositoryHelpers
     public static void ApplyEFImplementationMethods<TTemplate>(
         TTemplate template,
         RepositoryModel repositoryModel)
-       where TTemplate : ICSharpFileBuilderTemplate
+        where TTemplate : ICSharpFileBuilderTemplate
     {
         template.AddTypeSource(TemplateRoles.Domain.Enum);
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
@@ -173,10 +173,10 @@ internal static class EntityFrameworkRepositoryHelpers
                     }
 
                     if (TryGetMappedStoredProcedure(
-                            operationModel: operationModel,
-                            template: template,
-                            storedProcedure: out var generalizedStoredProcedure,
-                            parameterIdToSourceExpressions: out var parameterIdToSourceExpressions))
+                        operationModel: operationModel,
+                        template: template,
+                        storedProcedure: out var generalizedStoredProcedure,
+                        parameterIdToSourceExpressions: out var parameterIdToSourceExpressions))
                     {
                         var hasReturnType = operationModel.ReturnType != null;
 
@@ -208,6 +208,13 @@ internal static class EntityFrameworkRepositoryHelpers
                         var targetEndModel = operationModel.StoredProcedureInvocationTargets().First();
                         var resultMapping = targetEndModel.GetMapResultMapping();
 
+                        if (resultMapping is null)
+                        {
+                            throw new ElementException(operationModel.InternalElement,
+                                $"Operation '{operationModel.Name}' returns type '{operationModel.TypeReference.Element?.Name}' but its Stored Procedure Invocation to '{generalizedStoredProcedure.Name}' has no Stored Procedure Result mapping to produce it. " +
+                                "Either change the operation's return type to match the stored procedure (e.g. void), or add a Stored Procedure Result mapping on the association.");
+                        }
+
                         foreach (var (model, expression) in resultExpressionsByModel)
                         {
                             var type = model.Id == generalizedStoredProcedure.Id
@@ -224,9 +231,9 @@ internal static class EntityFrameworkRepositoryHelpers
                     }
 
                     if (TryGetStereotypeStoredProcedure(
-                            operationModel: operationModel,
-                            storedProcedure: out generalizedStoredProcedure,
-                            parameterIdToSourceExpressions: out parameterIdToSourceExpressions))
+                        operationModel: operationModel,
+                        storedProcedure: out generalizedStoredProcedure,
+                        parameterIdToSourceExpressions: out parameterIdToSourceExpressions))
                     {
                         ApplyStoredProcedureImplementation(
                             template: template,
@@ -255,8 +262,8 @@ internal static class EntityFrameworkRepositoryHelpers
                     method.RepresentsModel(storedProcedureModel);
 
                     foreach (var parameter in generalizedStoredProcedure.Parameters.Where(x => x.StoredProcedureDetails.Direction
-                                 is StoredProcedureParameterDirection.In
-                                 or StoredProcedureParameterDirection.Both))
+                        is StoredProcedureParameterDirection.In
+                        or StoredProcedureParameterDirection.Both))
                     {
                         method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.InternalElement.Name.ToLocalVariableName());
                     }
@@ -454,9 +461,9 @@ internal static class EntityFrameworkRepositoryHelpers
         if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails is { Direction: StoredProcedureParameterDirection.Both }))
         {
             method.AddStatement($"throw new {template.UseType("System.NotSupportedException")}(\"" +
-                                $"One or more parameters have a direction of both which is not presently supported, " +
-                                $"please reach out to us at https://github.com/IntentArchitect/Support should you " +
-                                $"need support added.\");");
+                $"One or more parameters have a direction of both which is not presently supported, " +
+                $"please reach out to us at https://github.com/IntentArchitect/Support should you " +
+                $"need support added.\");");
             resultExpressionsByModel = [];
             return;
         }
@@ -710,13 +717,13 @@ internal static class EntityFrameworkRepositoryHelpers
         IList<RepositoryModel>? repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
         return [.. repositoryModels
-                .SelectMany(repository => GetStoredProcedureModels(repository, application.Settings))
-                .Select(x => x.ReturnType?.Element.AsDataContractModel() is not null 
-                    ? new DataContractModelPair(x.ReturnType.Element.AsDataContractModel(), x.DbContextInstance)
-                    : null)
-                .Where(x => x != null)
-                .Cast<DataContractModelPair>()
-                .Distinct()];
+            .SelectMany(repository => GetStoredProcedureModels(repository, application.Settings))
+            .Select(x => x.ReturnType?.Element.AsDataContractModel() is not null 
+                ? new DataContractModelPair(x.ReturnType.Element.AsDataContractModel(), x.DbContextInstance)
+                : null)
+            .Where(x => x != null)
+            .Cast<DataContractModelPair>()
+            .Distinct()];
     }
 
     public static void Validate(this GeneralizedStoredProcedure storedProc)
@@ -731,23 +738,23 @@ internal static class EntityFrameworkRepositoryHelpers
                     if (attribute.TypeReference.IsCollection)
                     {
                         Logging.Log.Failure($"Attribute \"{attribute.Name}\" [{attribute.Id}] on Data Contract \"{dataContract.Name}\" [{dataContract.Id}] " +
-                                            $"has \"Is Collection\" enabled and is used as a Stored Procedure Parameter, this is " +
-                                            $"unsupported for user-defined table types.");
+                            $"has \"Is Collection\" enabled and is used as a Stored Procedure Parameter, this is " +
+                            $"unsupported for user-defined table types.");
                     }
 
                     if (!attribute.TypeReference.Element.IsTypeDefinitionModel())
                     {
                         Logging.Log.Failure($"Attribute \"{attribute.Name}\" [{attribute.Id}] on Data Contract \"{dataContract.Name}\" [{dataContract.Id}] " +
-                                            $"has type non-\"Type Definition\" type \"{attribute.TypeReference.Element.SpecializationType}\" " +
-                                            $"and is used as a Stored Procedure Parameter, this is unsupported for user-defined table types.");
+                            $"has type non-\"Type Definition\" type \"{attribute.TypeReference.Element.SpecializationType}\" " +
+                            $"and is used as a Stored Procedure Parameter, this is unsupported for user-defined table types.");
                     }
                 }
 
                 if (!parameter.TypeReference.IsCollection)
                 {
                     Logging.Log.Failure($"Parameter \"{parameter.InternalElement.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.InternalElement.Name}\" [{storedProc.Id}] " +
-                                        $"has \"Is Collection\" disabled and is of type \"Data Contract\", this is " +
-                                        $"unsupported for user-defined table types.");
+                        $"has \"Is Collection\" disabled and is of type \"Data Contract\", this is " +
+                        $"unsupported for user-defined table types.");
                 }
 
                 continue;
@@ -756,8 +763,8 @@ internal static class EntityFrameworkRepositoryHelpers
             if (parameter.TypeReference.IsCollection)
             {
                 Logging.Log.Failure($"Parameter \"{parameter.InternalElement.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.InternalElement.Name}\" [{storedProc.Id}] " +
-                                    $"has \"Is Collection\" enabled and is not of type \"Data Contract\", this is " +
-                                    $"unsupported.");
+                    $"has \"Is Collection\" enabled and is not of type \"Data Contract\", this is " +
+                    $"unsupported.");
             }
         }
     }
