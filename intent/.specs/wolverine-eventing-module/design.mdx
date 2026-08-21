@@ -2,18 +2,19 @@
 
 ## Overview
 
-This feature is built as **two new Intent modules plus one change to an existing one**, verified against **one hand-written reference solution**.
+This feature is built as **two new Intent modules plus changes to two existing ones**, verified against **one hand-written reference solution**.
 
 - **`Intent.Wolverine.Common`** — a new, thin shared module that owns the single `builder.Host.UseWolverine(opts => ...)` registration for an application and exposes an ordered contribution point any Wolverine module can add to. This is what makes R8's "exactly one Wolverine Host Configuration" true by construction rather than by luck.
 - **`Intent.Eventing.Wolverine`** — the new Eventing Provider. It reads the Integration Events, Integration Commands and subscriptions already modelled in the Services designer, registers itself with the Contracts module's `MessageBusRegistry`, and generates the transport registration, publishing rules, listeners, Consumers, durability and error handling.
 - **`Intent.Application.Wolverine`** — the existing CQRS module, updated to consume the shared host module instead of registering the host itself.
+- **`Intent.OpenTelemetry`** — the existing telemetry module, given a one-line Wolverine branch beside the MassTransit one it already carries. This is the only mechanism that actually works for R11; see the `d-telemetry` decision.
 - **`Tests/Wolverine.Publish.RabbitMQ` + `Tests/Wolverine.Subscribe.RabbitMQ` + `Tests/Wolverine.Reference.Tests`** — the Reference Solution. Two Intent applications scaffolded with no Wolverine module installed, then hand-crafted until every Wolverine artefact is exactly what the modules must emit, plus a test solution proving it runs. Scope A. Green **before** any module artefact exists, and the pair later becomes the first entry in the permanent test estate.
 
 The provider-designation machinery this feature needs already exists and is not rebuilt. <ModelRef application="Eventing.Contracts" name="Message Bus Provider" designer="Module Builder" /> is an element type the Contracts module contributes to the Module Builder designer; declaring one instance is what makes a module selectable on the Message Bus stereotype. <ModelRef application="Eventing.Contracts" name="CompositeMessageBus" designer="Module Builder" /> and <ModelRef application="Eventing.Contracts" name="MessageBrokerRegistry" designer="Module Builder" /> already route per-message across providers, and `MessageBusExtensions.FilterMessagesForThisMessageBroker(...)` already raises the `ElementException` R9.4 asks for. The Wolverine module's job is to register itself correctly and filter through that helper — not to reimplement any of it.
 
 <Callout id="scope-counts" tone="info" title="Scope in counts">
 
-2 new module applications · 1 existing module changed · 4 module settings · 1 stereotype definition · 9 C# templates · 6 factory extensions · 7 NuGet package declarations · 4 transports · 1 reference solution with 4 automated tests.
+2 new module applications · 2 existing modules changed · 4 module settings · 1 stereotype definition · 7 C# templates · 6 factory extensions (5 in the eventing module, 1 in Common) · 7 NuGet package declarations · 4 transports, 1 proven at runtime · 1 reference solution with 4 automated tests · 0 modelled documentation topics.
 
 </Callout>
 
@@ -47,6 +48,8 @@ Each root module still declares whatever its own generated patterns need *beyond
 
 **Wave 1 verification:** the eventing module's templates emit `WolverineOptions` code directly, so they reference Common's `WolverineFx` package constant across an assembly boundary and rely on a registry entry a *different* module registered. Prove that with a Software Factory run against a test application and check the resulting `.csproj` version. A green module build proves nothing about the resolution. R8.6 is the acceptance criterion this satisfies — the coexistence test application is where it is checked.
 
+**The invariant has a transition window, and the coexistence test should cover it rather than assume it away.** "Common is the sole declarer" becomes true for an application only once it upgrades to `Intent.Application.Wolverine` 1.1.0. Until then that module still declares `WolverineFx` itself, so a mixed application briefly has two declarers and the highest-version-wins rule resolves it silently. That resolution is expected to be harmless — both declare 5.39.5, so highest-wins picks the same version either way — but "expected to be harmless" is precisely the sort of claim this spec is meant to convert into evidence. **A second coexistence test application therefore pins `Intent.Application.Wolverine` at 1.0.2 deliberately** alongside the new eventing module, and its committed `.csproj` shows which version won. If the pins ever diverge, that test is what turns a silent resolution into a visible diff.
+
 </Callout>
 
 <Callout id="d-durability" tone="decision" title="Outbox durability follows the Entity Framework provider setting">
@@ -59,9 +62,43 @@ The Transactional Outbox setting is exactly the two options R6.1 requires — **
 
 <Callout id="d-nongoal-reading" tone="decision" title="PostgreSQL durability is not the excluded Marten path">
 
-The requirements' non-goal reads "no Marten/PostgreSQL and no RavenDb persistence". This design reads that as excluding **Marten's** document-store durability (and RavenDb), not PostgreSQL as a database. `WolverineFx.Postgresql` durability sitting behind the application's own EF Core DbContext is the Entity Framework outbox R6.3 requires, on a different database engine.
+The requirements' non-goal used to read "no Marten/PostgreSQL and no RavenDb persistence", which this design read as excluding **Marten's** document-store durability (and RavenDb), not PostgreSQL as a database. `WolverineFx.Postgresql` durability sitting behind the application's own EF Core DbContext is the durable outbox R6.3 requires, on a different database engine. That reading is no longer something the reader has to infer: the Non-Goals and Out-of-Scope entries were rewritten to say it outright, so a verifier reading the requirements at face value can no longer conclude the `WolverineFx.Postgresql` satellite breaks a non-goal.
 
-**Why:** the alternative reading would make the chosen "follow the EF provider setting" answer contradict a non-goal. Marten remains out of scope: no `WolverineFx.Marten`, no document session, no `IDocumentStore`.
+**Why:** the alternative reading would make the chosen "follow the EF provider setting" answer contradict a non-goal. Marten remains out of scope: no `WolverineFx.Marten`, no document session, no `IDocumentStore`. The requirements' Non-Goals and Out-of-Scope entries were amended to say this outright rather than leaving it as a reading.
+
+</Callout>
+
+<Callout id="d-telemetry" tone="decision" title="R11 is a one-line change to Intent.OpenTelemetry, not a factory extension in this module">
+
+Wolverine's `ActivitySource` is named `"Wolverine"` (`src/Wolverine/Runtime/WolverineTracing.cs`), so collecting its spans is exactly `.AddSource("Wolverine")` in the tracing builder — the same one-call shape as MassTransit. Because `WolverineTracing` lives in Wolverine core, no OpenTelemetry instrumentation package is needed, which is what makes R11.2's "no OpenTelemetry package reference" hold for free.
+
+**The mechanism is the load-bearing part, and an earlier draft of this design had it wrong.** It planned a `TelemetryConfiguratorExtension` in the Wolverine eventing module that would reach into the OpenTelemetry template and insert the source. **That approach does not work, and the MassTransit module already proved it.** <FileRef path="../../../Modules/Intent.Modules.Eventing.MassTransit/FactoryExtensions/TelemetryConfiguratorExtension.cs" label="MassTransit's TelemetryConfiguratorExtension" /> is entirely commented out, with the reason recorded in the file: *"Until we can modify wrapped invocation statements we can't go with this solution."* The working path is the inverse — `Intent.OpenTelemetry`'s own template hardcodes the source, gated on the consuming module being installed:
+
+```csharp
+// TEMP FIX - also see TelemetryConfiguratorExtension
+if (ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Eventing.MassTransit"))
+{
+    traceChain = traceChain.AddInvocation("AddSource", inv => inv.AddArgument(@"""MassTransit""").OnNewLine());
+}
+```
+
+So R11 is realized by adding a sibling branch for `Intent.Eventing.Wolverine` in <FileRef path="../../../Modules/Intent.Modules.OpenTelemetry/Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs" label="OpenTelemetryConfigurationTemplatePartial.cs" /> at the existing gate, and **no telemetry factory extension is written in the eventing module at all.** `Intent.OpenTelemetry` therefore gets a version increment and becomes the third existing module this spec changes.
+
+**Verified, not assumed:** the generated proof is already in this repository — <FileRef path="../../../Tests/MassTransit.RabbitMQ/MassTransit.RabbitMQ.Api/Configuration/OpenTelemetryConfiguration.cs" label="the MassTransit test application's OpenTelemetryConfiguration.cs" /> contains `.AddSource("MassTransit")`. The source *name* for Wolverine still needs confirming against the pinned 5.39.5 assembly in Wave 0 rather than taken from documentation.
+
+**Noted for later, not now:** Wolverine supports `.TelemetryEnabled(false)` per endpoint. No requirement asks for it; it is the natural home if suppressing tracing on one transport is ever requested.
+
+</Callout>
+
+<Callout id="d-serverless" tone="decision" title="Serverless hosts are out of scope, and the existing Azure Functions registration is removed">
+
+`Intent.Wolverine.Common` registers the `UseWolverine` statement on the ASP.NET host (`App.Program`) **only**. The `Intent.AzureFunctions.Isolated.Program` loop that <FileRef path="../../../Modules/Intent.Modules.Application.Wolverine/FactoryExtensions/WolverineRegistrationFactoryExtension.cs" label="the CQRS module carries today" /> is dropped rather than moved into the shared module, and no eventing contribution is made to any serverless host.
+
+**Why:** `Intent.Modules.Application.Wolverine/CONTEXT.md` records this as an abandoned, unresolved problem — every `TypeLoadMode` fails in Azure Functions (`Auto` triggers the file watcher and restarts the worker; `Static` needs a codegen CLI whose entry point the Functions host overrides; `Dynamic` uninvestigated), with the standing instruction not to build serverless dispatch modules until it is resolved. Carrying the loop forward would mean inheriting that hazard into every Functions application that installs the eventing module.
+
+**Consequence, stated plainly:** an application on `Intent.Application.Wolverine` 1.0.2 with an Azure Functions host loses its `UseWolverine` registration on the next Software Factory run after upgrading to 1.1.0. That registration compiled but could not work at runtime for the reason above, so this removes a broken path rather than a working one — but it *is* an observable change to generated output.
+
+**This is now contract, not just a design choice.** When this decision was first written it lived only here and in the Non-Goals, which meant the removal would have shipped with nothing asserting it. **R8.7** was added to close that: host registration is ASP.NET-only, no registration is emitted for an Azure Functions or AWS Lambda host, and the removal must be named in the CQRS module's release notes. So the release-note obligation in the paragraph above is an acceptance criterion rather than a note to self, and `/sdd-verify` has something to check.
 
 </Callout>
 
@@ -112,11 +149,13 @@ Created before any model work:
 1. **New application `Intent.Wolverine.Common`** — Module Builder architecture, output to `Modules/Intent.Modules.Wolverine.Common`, added to `Intent.Modules.NET.Eventing.isln` and `Intent.Modules.NET.Dispatchers.isln`.
 2. **New application `Intent.Eventing.Wolverine`** — Module Builder architecture, output to `Modules/Intent.Modules.Eventing.Wolverine`, added to `Intent.Modules.NET.Eventing.isln`.
 
-Declared module dependencies of `Intent.Eventing.Wolverine`: `Intent.Eventing.Contracts` (satisfies R14.4 — installing this module brings the message contracts with it), `Intent.Wolverine.Common`, `Intent.Modelers.Services`, `Intent.Common.CSharp`, `Intent.OutputManager.RoslynWeaver`. Minimum-compatible (not installed) entries: `Intent.EntityFrameworkCore` 5.0.47 for R6, `Intent.OpenTelemetry` for R11, `Intent.AspNetCore.MultiTenancy` for R12.
+Declared module dependencies of `Intent.Eventing.Wolverine`: `Intent.Eventing.Contracts` (satisfies R14.4 — installing this module brings the message contracts with it), `Intent.Wolverine.Common`, `Intent.Modelers.Services`, `Intent.Common.CSharp`, `Intent.OutputManager.RoslynWeaver`. Minimum-compatible (not installed) entries: `Intent.EntityFrameworkCore` 5.0.47 for R6, `Intent.AspNetCore.MultiTenancy` for R12.
+
+`Intent.OpenTelemetry` is deliberately **not** in either list. The R11 dependency runs the other way — that module gates on *this* one being installed (`d-telemetry`), so the minimum-compatible entry belongs in `Intent.OpenTelemetry`'s manifest against `Intent.Eventing.Wolverine`, not here. Getting this backwards would be harmless but misleading, since it would suggest the eventing module reads something from the telemetry module when it reads nothing at all.
 
 Created **before** the module applications, in Wave 0: the Reference Solution pair `Tests/Wolverine.Publish.RabbitMQ` and `Tests/Wolverine.Subscribe.RabbitMQ`, plus `Tests/Wolverine.Reference.Tests`. These are Intent applications scaffolded with no Wolverine module installed, and they are the only pair that is ever hand-crafted.
 
-Test applications for the rest of the acceptance matrix — each an Intent application, created in the dogfood wave and generated rather than hand-crafted: one Azure Service Bus pair, one Amazon SQS pair, one Local pair, one EF-outbox pair, one composite pair with MassTransit alongside, and one coexistence application with `Intent.Application.Wolverine` installed. The RabbitMQ pair is not listed here because it already exists — once parity is proven it simply becomes the first Test Application in the estate, with its generated output committed like every other.
+Test applications for the rest of the acceptance matrix — each an Intent application, created in the dogfood wave and generated rather than hand-crafted: one Azure Service Bus pair, one Amazon SQS pair, one Local pair, one durable-outbox pair, one composite pair with MassTransit alongside, one coexistence application on `Intent.Application.Wolverine` 1.1.0, and a second coexistence application pinned at 1.0.2 to prove the NuGet transition window is benign (`d-version`). Two more cover the requirements that have no Golden Sample: a tenancy application with `Intent.AspNetCore.MultiTenancy` installed for R12, and a telemetry application with `Intent.OpenTelemetry` installed for R11. The RabbitMQ pair is not listed here because it already exists — once parity is proven it simply becomes the first Test Application in the estate, with its generated output committed like every other.
 
 </Callout>
 
@@ -186,7 +225,7 @@ The same two applications pass through two phases. In the **golden phase** no Wo
     { id: "p2", label: "Model the messages BEFORE hand-crafting anything (R15.7)", note: "Integration Events and Commands in the publisher, subscriptions in the subscriber. These come from the Services designer and the Contracts module, so they do not need the Wolverine module to exist. Skipping this is the tempting mistake: hand-craft without a model and the parity phase generates nothing to diff, and the model ends up reverse-engineered from the code it was supposed to drive." },
     { id: "p3", label: "Hand-craft every Wolverine artefact into the generated structure", note: "Host registration, WolverineEventingConfiguration, WolverineMessageBus, one Consumer per subscription, appsettings sections, package references. Then the test solution: four R17 tests on Testcontainers RabbitMQ and SQL Server. Get them green." },
     { id: "p4", label: "Capture the Baseline (R15.8) — commit, then copy to the spec folder", note: "`intent/.specs/wolverine-eventing-module/baseline/rabbitmq/`. This is the step with no natural prompt and the one whose absence is only discovered later, once the Software Factory has already overwritten the hand-crafted files and the diff has become the file against itself." },
-    { id: "p5", label: "Install the modules and verify the model and settings BEFORE running the Software Factory", note: "Provider designation stereotypes and the three module settings — the only modelling that genuinely needs the modules installed. Getting this wrong produces an empty generation that looks like a passing run." },
+    { id: "p5", label: "Install the modules and verify the model and settings BEFORE running the Software Factory", note: "Provider designation stereotypes and the four module settings — the only modelling that genuinely needs the modules installed. Getting this wrong produces an empty generation that looks like a passing run." },
     { id: "p6", label: "Run the Software Factory and read the staged diffs BEFORE applying", note: "`run_software_factory` then `get_file_diffs`. Staging is what makes this non-destructive: nothing touches the hand-crafted files until it is applied. Expect the overwrite to be reported as a destructive change — that is the correct alarm, not a fault. Triage every difference against the table below, fix the MODULE, re-run. Apply only once the diff is empty or every entry is justified." },
     { id: "p7", label: "Expand to the remaining configurations as Test Applications (R16.9)", note: "Clone the pair per Transport and per outbox setting, change the settings, generate, commit the output. No hand-crafting — parity is already proven for the transport-independent artefacts." }
   ]}
@@ -221,12 +260,14 @@ R16.2 requires each Golden Sample to name exactly one generated artefact. That c
     ["`WolverineEventingConfiguration.cs` — publish rules, send rules, listeners, durability, policies", "The remainder of the `WolverineEventingConfiguration` template", "`Intent.Eventing.Wolverine`", "1 — transport-independent", "R3.1, R4.1, R6.3, R7.2, R9.3"],
     ["`WolverineMessageBus.cs`", "`WolverineMessageBus` template", "`Intent.Eventing.Wolverine`", "1 — transport-independent", "R3.1, R4.1, R9.6, R12.1"],
     ["One `<Message>Consumer.cs` per subscribed message", "`IntegrationEventConsumer` template, one instance per subscription", "`Intent.Eventing.Wolverine`", "1 — transport-independent", "R5.1, R5.2, R5.5, R5.6, R12.2"],
-    ["`appsettings.json` transport and error-handling sections", "`AppSettingRegistrationRequest` emissions", "`Intent.Eventing.Wolverine` factory extension", "**3 — Local has no section**", "R2.3, R7.2, R12.3"],
+    ["`appsettings.json` transport and error-handling sections", "`AppSettingRegistrationRequest` emissions", "`Intent.Eventing.Wolverine` factory extension", "**3 — Local has no section**", "R2.3, R7.2"],
     ["The failing-handler and rollback test fixtures", "Nothing — they stay hand-written proof", "`Tests/Wolverine.Reference.Tests`", "1", "R17.3, R17.4"]
   ]}
 />
 
 R16.2's per-variant rule bites on exactly two rows. Splitting `WolverineEventingConfiguration` into its transport seam and its remainder is what makes that honest: without the split, "zero unintended diffs" on one artefact would silently mean "verified on RabbitMQ only" for the four-way branch inside it, while the transport-independent bulk of the file — where most of the requirements land — was genuinely proven. The two bold rows are the only Golden Samples the per-Transport work in R16.6 and R16.10 exists to cover.
+
+**Three requirements deliberately have no Golden Sample, and saying so is better than implying coverage.** R11 (telemetry) and R12 (tenancy) are both conditional on other modules the Reference Solution does not install, so there is nothing hand-written for them to be diffed against — an earlier draft claimed R12.3 against the `appsettings.json` row, which was wrong for exactly this reason. R13 is documentation. All three are verified in the dogfood wave instead: a tenancy Test Application and a telemetry Test Application, each generated and its output committed. If either is skipped, those requirements are verified by inspection only, and that should be recorded rather than left ambiguous.
 
 ## Scope B — model changes
 
@@ -239,10 +280,16 @@ All model work is in the **Module Builder** designer of the three module applica
     fields: [{ label: "Module id", after: "`Intent.Wolverine.Common`" }, { label: "Output", after: "`Modules/Intent.Modules.Wolverine.Common`" }] },
   { element: "WolverineFx", designer: "Module Builder", change: "added", note: "NuGet Package declaration — the suite's ONLY declaration of core WolverineFx; no sibling Wolverine module declares it",
     fields: [{ label: "net8.0 and above", after: "5.39.5, locked" }] },
-  { element: "WolverineHostRegistrationExtension", designer: "Module Builder", change: "added", note: "Factory Extension, Order 0 — owns the single UseWolverine chain statement and exposes the ordered contribution point" }
+  { element: "WolverineHostRegistrationExtension", designer: "Module Builder", change: "added", note: "Factory Extension — owns the single UseWolverine chain statement and exposes the ordered contribution point. Must run AFTER every contributor, so it does NOT sit at Order 0" }
 ]} />
 
-The contribution point is the only public surface: a static registry a Wolverine module calls at `OnAfterTemplateRegistrations` with a statement factory and an order. The host extension gathers every contribution, then writes one `UseWolverine` chain statement per host program template, appending contributions in order and clearing nothing. Applications with two hosts get one registration each, matching the plural-lookup pattern the CQRS module already uses.
+The contribution point is the only public surface: a static registry a Wolverine module calls at `OnAfterTemplateRegistrations` with a statement factory and an order. The host extension gathers every contribution, then writes one `UseWolverine` chain statement per host program template, appending contributions in order and clearing nothing. Registration targets the ASP.NET host only (`d-serverless`), and an application with two ASP.NET hosts gets one registration each, matching the plural-lookup pattern the CQRS module already uses.
+
+**Two ordering details this design got wrong in an earlier draft, both now fixed.**
+
+*The host extension cannot be Order 0.* Contributors register during `OnAfterTemplateRegistrations`, and the host extension consumes what they registered — so it must run strictly after all of them. The existing CQRS extension is itself `Order = 0`, so leaving the host extension there makes the outcome depend on tie-breaking between two extensions at equal order, and it could write the chain statement before a single contribution had arrived. That is the same "holds by ordering accident" failure `d-shared-host` exists to eliminate, reintroduced one layer down. The host extension therefore takes a deliberately high order, and the ordering requirement is stated in `Intent.Wolverine.Common/CONTEXT.md` so a future contributor cannot quietly outrun it.
+
+*The registry must be keyed, not append-only.* The house pattern for a cross-module static registry is <FileRef path="../../../Modules/Intent.Modules.Eventing.Contracts/MessageBusRegistry.cs" label="MessageBusRegistry" /> — a static `Dictionary` whose `Register` uses `TryAdd`, so a repeated registration is idempotent and no reset is ever needed. An append-only `List` does not have that property: the same contributor registering twice appends twice and the emitted lambda gains a duplicate call. Keying each contribution by its module id gives the contribution point the same idempotence the precedent relies on, at no cost.
 
 ### `Intent.Eventing.Wolverine`
 
@@ -330,10 +377,11 @@ Both name overrides are validated at Software Factory time, in the template that
     ["`WolverineOutboxConfiguration`", "One per application, outbox only", "`Infrastructure.Eventing.WolverineOutbox`", "The EF Core durability registration and the provider-specific durable storage call"],
     ["`FinbucklePublishingMiddleware`", "One per application, tenancy only", "`Infrastructure.Eventing.FinbucklePublishingMiddleware`", "Writes the Tenant Identifier header on outgoing messages (R12.1)"],
     ["`FinbuckleConsumingMiddleware`", "One per application, tenancy only", "`Infrastructure.Eventing.FinbuckleConsumingMiddleware`", "Establishes and restores tenant context around the handler call (R12.2, R12.4)"],
-    ["`FinbuckleMessageHeaderStrategy`", "One per application, tenancy only", "`Infrastructure.Eventing.FinbuckleMessageHeaderStrategy`", "The configurable header name, defaulting to `Tenant-Identifier` (R12.3)"],
-    ["`Documentation`", "Module Documentation", "n/a", "Four topics: configuring Wolverine, migrating from MassTransit, multi-tenancy, and the package licence inventory"]
+    ["`FinbuckleMessageHeaderStrategy`", "One per application, tenancy only", "`Infrastructure.Eventing.FinbuckleMessageHeaderStrategy`", "The configurable header name, defaulting to `Tenant-Identifier` (R12.3)"]
   ]}
 />
+
+Seven C# templates, and **no `Module Documentation` element**. An earlier draft modelled one carrying four help topics; that is dropped. Documentation lives in the module's own `docs/README.md` instead, which is where the requirements' "module documentation" and "migration section" wording points and where every other module in this repository keeps its prose. Where this design says a topic "must state" something, the obligation is on a README section.
 
 <Table
   id="factory-extensions"
@@ -345,10 +393,11 @@ Both name overrides are validated at Software Factory time, in the template that
     ["`WolverineHostContributionExtension`", "`OnAfterTemplateRegistrations`", "Contributes the eventing configuration call into the shared module's ordered contribution point (R8.2)"],
     ["`WolverineAppSettingsExtension`", "`OnBeforeTemplateExecution`", "Emits the `Wolverine:` sections and keys for the selected transport and error-handling policy, with the defaults in R2 and R7"],
     ["`WolverineMessageBusInteropExtension`", "`OnBeforeTemplateExecution`", "When the outbox is on, injects the flush call into `DbContext.SaveChanges`/`SaveChangesAsync` so a commit dispatches its messages (R6.3)"],
-    ["`TelemetryConfiguratorExtension`", "`OnBeforeTemplateExecution`", "Registers Wolverine as a telemetry source only when `Intent.OpenTelemetry` is installed (R11)"],
     ["`FinbuckleConfiguratorExtension`", "`OnBeforeTemplateExecution`", "Registers the tenancy middleware only when the multi-tenancy module is installed (R12.5)"]
   ]}
 />
+
+There is deliberately **no** telemetry factory extension here. R11 is realized by a branch in `Intent.OpenTelemetry`'s own template — see `d-telemetry` for why the extension approach cannot work.
 
 ### Changes to `Intent.Application.Wolverine`
 
@@ -356,14 +405,17 @@ Both name overrides are validated at Software Factory time, in the template that
   id="cqrs-files"
   title="Existing files this spec changes"
   entries={[
-    { path: "../../../Modules/Intent.Modules.Application.Wolverine/FactoryExtensions/WolverineRegistrationFactoryExtension.cs", change: "modified", note: "Stops owning the chain statement; contributes Configure(opts) to the shared point instead" },
+    { path: "../../../Modules/Intent.Modules.Application.Wolverine/FactoryExtensions/WolverineRegistrationFactoryExtension.cs", change: "modified", note: "Stops owning the chain statement; contributes Configure(opts) to the shared point instead. The Intent.AzureFunctions.Isolated.Program loop is deleted, not carried over (d-serverless)" },
+    { path: "../../../Modules/Intent.Modules.OpenTelemetry/Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs", change: "modified", note: "Adds an AddSource(\"Wolverine\") branch beside the existing MassTransit gate — this is all of R11 (d-telemetry). Needs its own module version increment" },
     { path: "../../../Modules/Intent.Modules.Application.Wolverine/NugetPackages.cs", change: "modified", note: "Regenerated after the WolverineFx NuGet Package element is removed from this module's Module Builder model — the file is fully managed, so the model is what changes" },
     { path: "../../../Modules/Intent.Modules.Application.Wolverine/Intent.Application.Wolverine.imodspec", change: "modified", note: "Version 1.0.2 to 1.1.0; adds the Intent.Wolverine.Common dependency" },
     { path: "../../../Modules/Intent.Modules.Application.Wolverine/CONTEXT.md", change: "modified", note: "Records that host registration is no longer this module's to own" }
   ]}
 />
 
-`WolverineConfiguration.Configure(WolverineOptions opts)` keeps its signature, its template id and its file location, so no generated file moves for an application already on this module. The only observable change is which module wrote the `UseWolverine` statement in `Program.cs`.
+`WolverineConfiguration.Configure(WolverineOptions opts)` keeps its signature, its template id and its file location, so no generated file moves for an application already on this module. For an ASP.NET-hosted application the only observable change is which module wrote the `UseWolverine` statement in `Program.cs`. For an Azure Functions-hosted one the statement disappears — see `d-serverless` for why that is a removal rather than a regression, and note that it must be called out in the 1.1.0 release notes.
+
+The `FileTree` above also lists a file in `Intent.OpenTelemetry`, which is a *third* module this spec changes. `module-building-workflow.instructions.md` requires every module in scope to be version-incremented up front, so all three — `Intent.Application.Wolverine` to 1.1.0, `Intent.OpenTelemetry` by a patch, and the two new modules at their initial versions — are incremented before implementation starts, not at close-out.
 
 ## Realization plan
 
@@ -376,18 +428,18 @@ Every requirement below names one of three mechanisms: **existing module capabil
   columns={["Req", "Mechanism", "[model]", "[code]", "Depends on"]}
   rows={[
     ["R1", "Existing capability — the Services designer is read only", "Nothing", "Message queries in every template read `MetadataManager` and filter through `FilterMessagesForThisMessageBroker`", "R15, R16"],
-    ["R2", "Modelled setting + template + factory extension", "`Transport` setting field; four transport NuGet Package declarations in this module (`local` needs none)", "Transport branch in `WolverineEventingConfiguration`; `appsettings` emissions in `WolverineAppSettingsExtension`", "R15"],
+    ["R2", "Modelled setting + template + factory extension", "`Transport` setting field; four transport NuGet Package declarations in this module (`local` needs none)", "Transport branch in `WolverineEventingConfiguration`; `appsettings` emissions in `WolverineAppSettingsExtension`; the generated startup guard that throws naming the missing section and key (R2.6); the `Broker Topology` branch emitting `AutoProvision()` or `ExternallyOwned()` (R2.7)", "R15"],
     ["R3", "Modelled stereotype + template", "`Wolverine Message` stereotype with `Destination` — the module's only stereotype", "Kebab-case convention, the `{app-name}-{message-name}` subscriber-queue convention (no override), override resolution, unset-vs-empty handling and both validations", "R2"],
     ["R4", "Modelled stereotype + template", "`Wolverine Message` stereotype — the same one; a command's queue is owner-declared on the element", "Explicit send-rule and listener generation, override resolution and both validations", "R2"],
     ["R5", "Modelled template, one instance per subscription", "`IntegrationEventConsumer` C# Template, model type Integration Event Handler", "Consumer body: resolve handler, invoke with message and token, let exceptions propagate", "R3, R4"],
-    ["R6", "Modelled setting + template + interop extension; EF provider read from the existing module", "`Transactional Outbox` setting; `WolverineOutboxConfiguration` template; EF Core and durability NuGet declarations", "Durability registration, provider switch, unsupported-provider `FriendlyException`, missing-module guard, `SaveChanges` flush injection", "R2, R5"],
+    ["R6", "Modelled setting + template + interop extension; EF provider read from the existing module", "`Transactional Outbox` setting (`none`/`durable`); `WolverineOutboxConfiguration` template; EF Core and durability NuGet declarations", "Durability registration, provider switch, unsupported-provider `FriendlyException` (R6.8), missing-module guard (R6.4), `SaveChanges` flush injection", "R2, R5"],
     ["R7", "Modelled setting + template + factory extension", "`Error Handling Policy` setting field", "Policy registration per option; delay-list reading; `appsettings` keys and defaults", "R2, R5"],
     ["R8", "New shared module — modelled factory extension plus a changed existing module", "`Intent.Wolverine.Common` package, `WolverineFx` declaration, `WolverineHostRegistrationExtension`", "Contribution registry, single chain-statement emission, and the CQRS module's rewritten contribution", "R15"],
     ["R9", "Existing capability — `MessageBusRegistry` and `FilterMessagesForThisMessageBroker`", "`Wolverine` Message Bus Provider element; `MessageBusRegistrationExtension`", "`Constants.BrokerStereotypeIds`; every message query routed through the filter", "R3, R4, R5"],
-    ["R10", "Modelled NuGet declarations + documentation", "Seven declarations, all locked, split by owner: core `WolverineFx` in Common, six satellites here; one Documentation Topic", "Licence inventory content, written from the reference solution's package list", "R15"],
-    ["R11", "Existing capability — the OpenTelemetry module's registration point", "`TelemetryConfiguratorExtension`", "Conditional source registration; no package reference when absent", "R2"],
+    ["R10", "Modelled NuGet declarations + hand-written documentation", "Seven declarations, all locked, split by owner: core `WolverineFx` in Common, six satellites here", "The licence inventory as a `docs/README.md` section, written from the reference solution's package list", "R15"],
+    ["R11", "**Change to `Intent.OpenTelemetry`** — a sibling branch beside its existing MassTransit gate. NOT a factory extension here (`d-telemetry`)", "Nothing in this module; a version increment on `Intent.OpenTelemetry`", "One `AddSource(\"Wolverine\")` branch gated on `Intent.Eventing.Wolverine` being installed, in `OpenTelemetryConfigurationTemplatePartial.cs`", "R2"],
     ["R12", "Modelled templates + factory extension", "Three Finbuckle templates; `FinbuckleConfiguratorExtension`", "Header write, tenant establish and restore, absent-header path, header-name setting", "R5"],
-    ["R13", "Modelled documentation", "Documentation Topic — migrating from MassTransit", "Ordered steps, the settings equivalence table, the leftover-artefact list, the wire-format statement, the staged path", "R2, R6, R7, R9"],
+    ["R13", "Hand-written documentation", "Nothing modelled", "A migration section in `docs/README.md`: ordered steps, the settings equivalence table, the leftover-artefact list, the wire-format statement, the staged path", "R2, R6, R7, R9"],
     ["R14", "Modelled module manifest", "Module dependencies, four settings (Transport, Transactional Outbox, Error Handling Policy, Broker Topology), module icon and description", "Nothing beyond the manifest", "R2, R6, R7"],
     ["R15", "Intent-scaffolded pair, then hand-crafted", "Two applications created and scaffolded; the Integration Events, Commands and subscriptions modelled in the Services designer **before** any hand-crafting (R15.7)", "Every Wolverine artefact hand-written into the scaffold; the Baseline captured to the spec folder (R15.8)", "None — this is the first wave"],
     ["R16", "Reference Solution + the correspondence table above + the Software Factory's own staged diff", "Provider designation stereotypes and module settings applied to the reference pair, before the first parity run (phase 5)", "Every Golden Sample artefact; the recorded diff justifications; the R16.8 no-change verification", "R15"],
@@ -402,7 +454,7 @@ flowchart LR
   classDef gate fill:#8a2f2f,stroke:#f87171,color:#ffffff
   classDef model fill:#1f5f8a,stroke:#60a5fa,color:#ffffff
   classDef code fill:#1f7a4d,stroke:#34d399,color:#ffffff
-  W0[Wave 0 - Reference Solution golden phase R15 R16.1-3 R17 - HARD GATE]:::gate --> W0B[Wave 0b - Transport smoke ASB SQS Local R16.6 - registration and dead-letter shape only]:::gate
+  W0[Wave 0 - Reference Solution golden phase R15 R16.1-3 R17 - HARD GATE]:::gate --> W0B[Wave 0b - ASB SQS Local generate and compile only R16.6 - no broker no emulator]:::gate
   W0B --> W1[Wave 1 - Module scaffolding and metamodel R8 R9 R14 R10]:::model
   W1 --> W2[Wave 2 - Transport publish send consume R2 R3 R4 R5]:::code
   W2 --> W3[Wave 3 - Outbox and error handling R6 R7]:::code
@@ -413,9 +465,11 @@ flowchart LR
 
 Wave 0 is non-negotiable: R17.5 and R17.6 make green reference tests the precondition for any module artefact, and R16.5 makes the reference solution the thing that never bends. If a Wave 0 test cannot be made to pass, the reference solution is revised and re-verified — module work does not start around it.
 
-**Wave 0b** is small and deliberately early. It runs only the two things that vary per Transport — the registration call and the error-handling and dead-letter shape — against Azure Service Bus, Amazon SQS and Local. It is not a second reference solution and it does not repeat the four R17 tests. Its whole purpose is to answer one question before Wave 2 writes the transport branch: **is the shape transport-uniform?** If it is, the branch is four registration lines around one common body. If Azure Service Bus turns out to need a different error-handling registration, R16.10 promotes it to full reference depth — and discovering that in Wave 0b costs a paragraph, where discovering it in Wave 5 is a Level 3 architectural invalidation with templates already written against the RabbitMQ shape.
+**Wave 0b** is small and deliberately early, and it is a **generation-and-compile check only**. It writes the two things that vary per Transport — the registration call and the error-handling and dead-letter shape — for Azure Service Bus, Amazon SQS and Local, and confirms they generate and the solution builds. It does not stand up a broker, does not repeat the four R17 tests, and is not a second reference solution. Its whole purpose is to answer one question before Wave 2 writes the transport branch: **is the shape transport-uniform?** If it is, the branch is four registration lines around one common body. If Azure Service Bus turns out to need a different error-handling registration, R16.10 promotes it to full reference depth — and discovering that in Wave 0b costs a paragraph, where discovering it in Wave 5 is a Level 3 architectural invalidation with templates already written against the RabbitMQ shape.
 
-The unattended story for Wave 0b still needs settling: LocalStack via `Testcontainers.LocalStack` for Amazon SQS, and Microsoft's Azure Service Bus emulator container for Azure Service Bus. Both are candidates rather than confirmed — verify each covers queues and dead-lettering before relying on it. A hand-run smoke against a real namespace is an acceptable fallback here precisely because Wave 0b is two checks rather than a full test suite; it would not have been acceptable for the four-transport R17 matrix the earlier draft of R16.6 required.
+**No emulators, and this is a deliberate narrowing.** An earlier draft proposed LocalStack via `Testcontainers.LocalStack` for Amazon SQS and Microsoft's Azure Service Bus emulator for ASB, with an open question about whether either covers dead-lettering. That whole line of work is dropped: runtime verification of Azure Service Bus and Amazon SQS is done by hand, outside this spec, and R16.6 and SM-2 were amended to say so rather than promising four-transport runtime proof the work does not deliver. RabbitMQ remains the one Transport proven end to end under Testcontainers, because it is the one the four R17 tests run against.
+
+**What this costs, said plainly:** a transport-specific runtime failure on ASB or SQS — a wrong dead-letter registration that compiles fine — will not be caught by this spec's automated gates. R16.10 is the escape hatch if the hand pass finds one, and the trade is accepted because the shape is expected to be uniform and the emulator work was speculative.
 
 There is no Domain → Services → UI ordering question in this feature, because no application designer is mutated. The ordering that matters instead is **shared module before its consumers**: `Intent.Wolverine.Common` and its contribution point must exist before either the eventing module contributes to it or the CQRS module is rewritten onto it, which is why R8 sits in the first model wave rather than beside the coexistence tests it serves.
 
@@ -431,11 +485,12 @@ Two bodies are worth specifying now because they are where this design is most l
   id="host-contribution"
   filename="Modules/Intent.Modules.Wolverine.Common/WolverineHostContributions.cs"
   language="csharp"
-  code={`public static class WolverineHostContributions\n{\n    private static readonly List<(int Order, Action<ICSharpFileBuilderTemplate, string> Write)> Contributions = new();\n\n    public static void Contribute(int order, Action<ICSharpFileBuilderTemplate, string> write)\n        => Contributions.Add((order, write));\n\n    internal static IReadOnlyList<(int Order, Action<ICSharpFileBuilderTemplate, string> Write)> Ordered()\n        => Contributions.OrderBy(x => x.Order).ToList();\n}`}
+  code={`public static class WolverineHostContributions\n{\n    private static readonly Dictionary<string, (int Order, Action<ICSharpFileBuilderTemplate, string> Write)> Contributions = new();\n\n    public static void Contribute(string moduleId, int order, Action<ICSharpFileBuilderTemplate, string> write)\n        => Contributions.TryAdd(moduleId, (order, write));\n\n    internal static IReadOnlyList<(int Order, Action<ICSharpFileBuilderTemplate, string> Write)> Ordered()\n        => Contributions.Values.OrderBy(x => x.Order).ToList();\n}`}
   annotations={[
-    { lines: "3", label: "Order, not registration sequence", note: "Factory-extension execution order is not a contract. An explicit order keeps discovery ahead of transport registration deterministically." },
-    { lines: "6", label: "The lambda receives the opts variable name", note: "The host extension owns the lambda and its parameter name, so a contributor never guesses at `opts`." },
-    { lines: "9", label: "No Clear anywhere", note: "The failure mode this whole module exists to remove: one owner writes the statement, contributors only append." }
+    { lines: "3", label: "Keyed by module id, like MessageBusRegistry", note: "The house precedent is a keyed static dictionary, not an append-only list. Keying is what makes a repeated registration idempotent, so no reset is needed." },
+    { lines: "6", label: "TryAdd, not Add", note: "Same reason. Two registrations from one module collapse to one, rather than emitting the call twice into the lambda." },
+    { lines: "5", label: "The lambda receives the opts variable name", note: "The host extension owns the lambda and its parameter name, so a contributor never guesses at `opts`." },
+    { lines: "9", label: "No Clear anywhere", note: "The failure mode this whole module exists to remove: one owner writes the statement, contributors only append. Ordering is by the explicit order value, never by registration sequence — and the host extension itself must run after every contributor." }
   ]}
 />
 
@@ -455,7 +510,9 @@ The second is the `IMessageBus` collision R8.3 calls out. Wolverine's publishing
 
 An earlier draft of this design recorded an unmeetable criterion: R2.4 and R7.4 required that changing the Transport or the Error Handling Policy **removes** the previous choice's `appsettings.json` section. The Intent SDK's app-settings mechanism is additive only — `AppSettingRegistrationRequest` adds or updates a key, and there is no removal or prune request. `appsettings.json` is also a developer-owned file, so a module pruning it would be reaching outside what it owns.
 
-**Resolved by amending the requirements rather than by accepting a permanent shortfall.** R2.4 and R7.4 now require only that the previous Transport's and policy's *registrations* are fully replaced, which the module genuinely does because the Wolverine host configuration is entirely generated. Both criteria also now state that the stale `appsettings.json` section is left in place and that the module documentation must name what to delete by hand. The configuring-Wolverine topic and the migration guide carry that list.
+**Resolved by amending the requirements rather than by accepting a permanent shortfall.** R2.4 and R7.4 now require only that the previous Transport's and policy's *registrations* are fully replaced, which the module genuinely does because the Wolverine host configuration is entirely generated. Both criteria also now state that the stale `appsettings.json` section is left in place and that the module documentation must name what to delete by hand. The configuring-Wolverine and migration sections of `docs/README.md` carry that list.
+
+**R14.5 had the same defect and was missed the first time.** It required that *uninstalling* the module removes the `appsettings.json` sections it added — the identical impossibility, one criterion further down, surviving the pass that fixed the other two. It is now narrowed the same way: uninstall removes the Consumers and the host-configuration registrations, the sections are left in place, and the documentation names them. Worth recording as a pattern rather than a one-off: when an amendment fixes a mechanism-level impossibility, every criterion touching that mechanism needs re-reading, not just the ones that prompted the amendment.
 
 **Why this matters beyond tidiness:** left as it was, this was a criterion no implementation could ever satisfy, so every `/sdd-verify` run would have reported a gap that nobody could close, and the signal would have been trained away. A criterion that describes what the module actually guarantees is worth more than one that describes what we wish it guaranteed.
 
@@ -471,18 +528,36 @@ An earlier draft of this design recorded an unmeetable criterion: R2.4 and R7.4 
     { id: "a3", label: "Wolverine's error-handling policies map onto the four options", note: "None, Retry, Retry with cooldown and Schedule retry map to Wolverine's retry, cooldown and scheduled-retry continuations. R17.3 is the test that proves the mapping, including R7.5's empty-delay-list degradation." },
     { id: "a4", label: "The EF Core outbox shares the application's DbContext connection and transaction", note: "Wolverine's EF Core integration enlists in the ambient transaction, which is what makes R6.3's both-or-neither guarantee true. R17.4 is the proof." },
     { id: "a5", label: "PostgreSQL durability via EF Core is not the excluded Marten path", note: "Recorded as a decision above. If you read the non-goal as excluding PostgreSQL entirely, say so and the durability switch narrows to SQL Server only." },
-    { id: "a6", label: "Stale `appsettings.json` sections after a settings change are documented, not removed", note: "No longer an assumption that leaves a criterion partially met — R2.4 and R7.4 were amended to require exactly this. Retained here because the documentation half is a real obligation: if the configuring-Wolverine topic and the migration guide do not name the sections to delete, the amended criteria are not satisfied either." },
+    { id: "a6", label: "Stale `appsettings.json` sections after a settings change or an uninstall are documented, not removed", note: "No longer an assumption that leaves a criterion partially met — R2.4, R7.4 and now R14.5 were all amended to require exactly this. Retained here because the documentation half is a real obligation: if the configuring-Wolverine and migration sections of `docs/README.md` do not name the sections to delete, the amended criteria are not satisfied either." },
     { id: "a7", label: "Changing the CQRS module's host registration is a minor version bump, not a major one", note: "No generated file moves and no public type changes, so 1.1.0. If existing applications show a diff beyond the `Program.cs` statement's authorship, this becomes a major." },
     { id: "a8", label: "A hand-written test project can coexist with an Intent-managed solution file", note: "Assumed false until proven, which is why `Tests/Wolverine.Reference.Tests` gets its own solution. Verify with one Software Factory run early in the golden phase: if the managed `.sln` leaves foreign projects alone, the test project can move in beside the subscriber and the separate solution goes away." },
-    { id: "a9", label: "Azure Service Bus and Amazon SQS can be smoke-tested without a cloud subscription", note: "LocalStack via `Testcontainers.LocalStack` for SQS, Microsoft's Azure Service Bus emulator container for ASB. Neither is confirmed to cover queues plus dead-lettering. If one does not, Wave 0b's two checks run by hand against a real namespace — acceptable at two checks, which is exactly why R16.6 was narrowed from the full four-transport R17 matrix." },
+    { id: "a9", label: "Wolverine's OpenTelemetry activity source is named `Wolverine`", note: "Taken from `src/Wolverine/Runtime/WolverineTracing.cs` and the Wolverine logging guide, and consistent with `.AddSource(\"Wolverine\")` being the documented one-call setup. Confirm against the pinned 5.39.5 assembly in Wave 0 before the `Intent.OpenTelemetry` branch is written — the whole of R11 is this one string, so getting it wrong produces telemetry that silently collects nothing. `WolverineFx` 5.39.5 is already in the local NuGet cache, so this is a read rather than a download." },
+    { id: "a11", label: "Durable + Local is a coherent combination, not a configuration error", note: "Wolverine has durable local queues backed by the database, so Transactional Outbox `durable` with Transport `local` should give a restart-surviving in-process queue rather than a contradiction. This is unverified and it sits awkwardly beside R2.5, which says flatly that Local is non-durable and loses messages when the process stops. Check the behaviour in Wave 0; no test suite is being built for it. If the check contradicts R2.5, amend R2.5 — do NOT add a validation rule to forbid the combination, which would be inventing a restriction Wolverine does not have." },
     { id: "a10", label: "The generated scaffold does not itself drift between the golden phase and the parity phase", note: "The reference pair is generated once with no Wolverine module, then again with the modules installed. If an unrelated module updates in between, its own output changes and pollutes the parity diff. Pin the installed module versions across the two phases, or regenerate the scaffold and re-capture the Baseline before the first parity run." }
   ]}
 />
 
 <ApprovalGate id="approve-design" phase="design" title="Approve this design?">
 
-Approving means: two new modules (`Intent.Wolverine.Common`, `Intent.Eventing.Wolverine`), a minor version bump and host-registration rewrite of the released `Intent.Application.Wolverine` that also strips its `WolverineFx` declaration, Common as the sole declarer of core `WolverineFx` with each root module declaring only what its own patterns need, a Reference Solution that is an Intent-scaffolded application pair hand-crafted before the modules exist and verified through the Software Factory's own staged diff, per-Transport coverage split between one full-depth reference run and generated Test Applications for the rest, and no remaining unmeetable acceptance criteria.
+Approving means: two new modules (`Intent.Wolverine.Common`, `Intent.Eventing.Wolverine`), a minor version bump and host-registration rewrite of the released `Intent.Application.Wolverine` that also strips its `WolverineFx` declaration and drops its Azure Functions registration, a patch to `Intent.OpenTelemetry` which is where R11 actually lives, Common as the sole declarer of core `WolverineFx` with each root module declaring only what its own patterns need, a Reference Solution that is an Intent-scaffolded application pair hand-crafted before the modules exist and verified through the Software Factory's own staged diff, per-Transport coverage split between one full-depth RabbitMQ run and generation-and-compile checks for the rest, documentation in `docs/README.md` rather than modelled help topics, and no remaining unmeetable acceptance criteria.
 
-`requirements.mdx` was amended alongside this design and has **already been re-approved** — R2.4, R7.4, R15.5 to R15.8, R16.2 and R16.6 to R16.10. Approving this design therefore covers the design alone; the acceptance contract it is written against is already settled.
+<Callout id="requirements-reopened" tone="decision" title="requirements.mdx was amended and has been re-approved — 2026-08-21T14:38:47Z">
+
+A critical pass over both documents found six defects in the acceptance contract. `requirements.mdx` was amended to fix them and **has since been re-approved**, so this design is written against a settled contract:
+
+- **R14.5** still required uninstall to remove `appsettings.json` sections — the same unmeetable criterion R2.4 and R7.4 were amended to remove. Now narrowed the same way.
+- **R6.3 to R6.7** still called the option "Entity Framework" after R6.1 was renamed to None/Durable, as did the glossary, the failure matrix, R14.1, two MVP Scope lines and four lines of user-journey prose. All swept.
+- **R6.8 is new** — the unsupported-EF-provider stopping condition the design specified but no criterion required, so it would have been built and never verified.
+- **The Non-Goals and Out-of-Scope entries** said "no Marten/PostgreSQL" literally while the design read it as Marten-only. The text now says so outright, and a serverless non-goal was added.
+- **The R4.5 failure-matrix row** still pointed the error at "the association or handler method" from before the override moved to the element.
+- **R16.6, SM-2 and the MVP runtime-proof line** all promised runtime proof on all four Transports, which is no longer the plan.
+
+Three further changes landed during the re-approval pass, after the body of this design was written — so they are recorded here rather than being invisible:
+
+- **R8.7 is new** — host registration is ASP.NET-only and the Azure Functions removal must be named in the CQRS module's release notes. This turns `d-serverless` from a design choice into a checkable criterion.
+- **`Host` and `Database Provider`** were added to the Glossary, because R8.7 and R6.8 introduced both nouns and an undefined noun is what makes this design guess at a meaning.
+- **Assumptions a9 to a13** record the deliberately reduced verification: the unverified Durable-plus-Local behaviour, RabbitMQ as the only Transport proven at runtime, R6.5's at-most-once guarantee carrying no test, documentation living in `docs/README.md`, and the supported-provider list R6.8 rests on. Assumption `a11` in *this* document is the Durable-plus-Local Wave 0 check; do not confuse it with the requirements' own `a11`, which is the at-most-once one.
+
+</Callout>
 
 </ApprovalGate>

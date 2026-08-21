@@ -24,9 +24,9 @@ So this feature adds an eventing module that behaves like the ones they already 
 ## Key User Journeys
 
 - **UJ-1. Priya swaps MassTransit for Wolverine in an existing application.**
-  - **Persona + context:** Priya maintains a Clean Architecture order-management application that publishes three Integration Events and consumes two, over RabbitMQ, with the Entity Framework outbox on. Her licence review flagged MassTransit.
+  - **Persona + context:** Priya maintains a Clean Architecture order-management application that publishes three Integration Events and consumes two, over RabbitMQ, with the durable outbox on. Her licence review flagged MassTransit.
   - **Entry state:** The application is modelled and green. The MassTransit module is installed and its settings are configured.
-  - **Path:** She uninstalls the MassTransit module; installs the Wolverine eventing module; sets Transport to RabbitMQ, Transactional Outbox to Entity Framework, and Error Handling Policy to Retry with cooldown; re-runs the Software Factory; reviews the staged changes.
+  - **Path:** She uninstalls the MassTransit module; installs the Wolverine eventing module; sets Transport to RabbitMQ, Transactional Outbox to Durable, and Error Handling Policy to Retry with cooldown; re-runs the Software Factory; reviews the staged changes.
   - **Climax:** The staged diff replaces the MassTransit configuration and consumers with Wolverine equivalents and leaves every Integration Event Handler body untouched. The application builds, starts, and round-trips a message over RabbitMQ.
   - **Resolution:** Same modelled messages, same handler code, no commercially-licensed dependency.
   - **Edge case:** Hand-written code elsewhere in the application still references MassTransit types directly, so the build fails after the swap. The migration guide's list of MassTransit-specific artefacts tells her exactly which references to remove.
@@ -124,7 +124,7 @@ flowchart TD
 - **UJ-5. Nadia proves a failing message cannot lose data.**
   - **Persona + context:** Nadia is taking Marco's Sales and Warehouse pair through production-readiness review. Her rule is that a placed order must never leave the downstream applications uninformed, and a consumer that keeps failing must never make a message disappear.
   - **Entry state:** The pair from UJ-2 is running over RabbitMQ with the module's defaults — Transactional Outbox off, Error Handling Policy at Retry with cooldown.
-  - **Path:** She turns Transactional Outbox to Entity Framework in Sales and re-runs the Software Factory; makes the Warehouse Integration Event Handler throw on purpose and watches the re-deliveries; then kills the Sales process mid-transaction to see whether an order can commit without its messages, or messages dispatch without their order.
+  - **Path:** She turns Transactional Outbox to Durable in Sales and re-runs the Software Factory; makes the Warehouse Integration Event Handler throw on purpose and watches the re-deliveries; then kills the Sales process mid-transaction to see whether an order can commit without its messages, or messages dispatch without their order.
   - **Climax:** The failing message re-delivers on the cooldown schedule and then lands on the Error Queue, still there for her to inspect. The killed transaction leaves neither the order nor its messages behind — both or neither, never one.
   - **Resolution:** She can state the guarantee to her team in one sentence, and point at the Error Queue as the place failed work accumulates rather than vanishes.
   - **Edge case:** She empties the cooldown delay list in `appsettings.json` intending to remove the waiting, and finds the policy degrades to None — first failure straight to the Error Queue — rather than retrying forever.
@@ -134,7 +134,7 @@ flowchart TD
   classDef action fill:#1f5f8a,stroke:#60a5fa,color:#ffffff
   classDef win fill:#1f7a4d,stroke:#34d399,color:#ffffff
   classDef bad fill:#8a2f2f,stroke:#f87171,color:#ffffff
-  A[Turn Transactional Outbox to Entity Framework - R6.1]:::action --> B[Re-run the Software Factory]:::action
+  A[Turn Transactional Outbox to Durable - R6.1]:::action --> B[Re-run the Software Factory]:::action
   B --> C[Warehouse handler throws on purpose]:::action
   C --> D[Consumer surfaces the failure to the policy - R5.6]:::action
   D --> E{Are retries exhausted - R7.2}
@@ -185,13 +185,15 @@ flowchart TD
 - **Composite Message Bus** — the generated routing implementation of the Message Bus contract that appears when two or more Eventing Providers are installed, dispatching each message to the Eventing Provider(s) designated for it.
 - **Message Bus stereotype** — the designer stereotype, owned by `Intent.Eventing.Contracts`, that designates which Eventing Provider(s) carry a message. Applied to a package, folder or individual message; inherited by children.
 - **Transport** — the messaging technology carrying messages off the process: Local, RabbitMQ, Azure Service Bus or Amazon SQS. Exactly one Transport per application.
-- **Transactional Outbox** — the mechanism that records outgoing messages in the application's database within the same transaction as the business change, then dispatches them, so a committed change can never lose its messages. Either off or backed by Entity Framework.
+- **Transactional Outbox** — the mechanism that records outgoing messages in the application's database within the same transaction as the business change, then dispatches them, so a committed change can never lose its messages. Either None, or Durable — in which case the durable store is derived from the persistence the application already has modelled rather than chosen again here.
 - **Error Handling Policy** — the rule deciding what happens when a Consumer throws: how many times and after what delays the message is re-delivered, and where it goes once those are exhausted. Exactly one per application.
 - **Error Queue** — the broker destination a message lands on once its Error Handling Policy is exhausted, so it is retained rather than lost.
 - **Topic Name** — the broker destination an Integration Event is published to. Derived by convention from the message type, optionally overridden per Integration Event.
 - **Destination Queue Name** — the broker queue an Integration Command is sent to. Derived by convention from the message type, optionally overridden on the Integration Command itself, since the queue belongs to the application that owns the Command.
 - **Broker Topology** — whether the application declares the exchanges, topics and queues it uses, or expects them to already exist and never touches them. Exactly one choice per application.
 - **Wolverine Host Configuration** — the single generated setup where Wolverine's transports, subscriptions, durability and handler discovery are registered for an application. Exactly one per application, shared with `Intent.Application.Wolverine` when both are installed.
+- **Host** — the application entry point the Wolverine Host Configuration is registered on. Only the ASP.NET host is supported; Azure Functions and AWS Lambda hosts are Non-Goals and receive no registration. An application may have more than one ASP.NET host, and each gets its own registration.
+- **Database Provider** — the relational database an application has already modelled through its Entity Framework Core configuration, which is what the Durable Transactional Outbox derives its durable storage from rather than asking again. Exactly one per application. Only SQL Server and PostgreSQL carry Wolverine durable storage; every other value is a stopping condition under R6.8.
 - **Tenant Identifier** — the value identifying which tenant a message belongs to, carried in a message header so a Consumer can restore the publishing tenant's context.
 - **Software Factory** — the Intent Architect process that turns the modelled application into generated code.
 - **Reference Solution** — the Intent-scaffolded publisher and subscriber pair under `Tests/` into which every Wolverine artefact is then hand-written, and which is this feature's ground truth. Hand-crafted and proven before any Wolverine module artefact exists, and never edited to match generated output. Exactly one Reference Solution, exercised at full test depth on one Transport.
@@ -208,7 +210,8 @@ flowchart TD
 - **Scheduled or delayed publishing.** No equivalent of `Intent.Eventing.MassTransit.Scheduling` in this release.
 - **Request/response over the bus.** No equivalent of `Intent.Eventing.MassTransit.RequestResponse`, and no Service Proxy integration, in this release.
 - **Transports beyond the four listed.** No Kafka, Pulsar or MQTT, even though Wolverine supports them.
-- **Durability backends beyond Entity Framework.** No Marten/PostgreSQL and no RavenDb persistence.
+- **Durability backends beyond the application's own Entity Framework Core database.** No Marten document-store durability and no RavenDb persistence. To be explicit, because the wording has been misread: PostgreSQL is *not* excluded. `WolverineFx.Postgresql` durability sitting behind the application's own EF Core DbContext is in scope and is selected automatically when that is the modelled provider; what is excluded is Marten as a persistence choice, along with its document session and `IDocumentStore`.
+- **Serverless hosts.** No support for Wolverine in Azure Functions or AWS Lambda. Wolverine's handler code generation depends on startup command routing that serverless hosts override, and no `TypeLoadMode` has been made to work there — so the shared host module registers on the ASP.NET host only, and the Azure Functions registration the CQRS module carries today is removed rather than inherited.
 - **Anything licence-gated.** No generated code path may depend on a paid JasperFx Software product — CritterWatch's licensed features, Critter Stack Pro or the AI Skills packages. Note that the `JasperFx` shared libraries are themselves MIT and are an unavoidable transitive dependency of Wolverine; they are not what this excludes.
 - **In-process domain event dispatch.** Already covered by `Intent.Application.Wolverine.DomainEvents`.
 - **Configurable message serialization.** One serialization format, not a setting.
@@ -217,22 +220,22 @@ flowchart TD
 
 ### In Scope
 
-- One installable module covering all four Transports and the Entity Framework Transactional Outbox — not the root-plus-companion split the MassTransit modules use.
+- One installable module covering all four Transports and the Durable Transactional Outbox — not the root-plus-companion split the MassTransit modules use.
 - Publishing Integration Events and sending Integration Commands through the existing Message Bus contract.
 - Generated Consumers delegating to hand-written `IIntegrationEventHandler<T>` implementations.
-- Transactional Outbox of None or Entity Framework; Error Handling Policy of None, Retry, Retry with cooldown or Schedule retry.
+- Transactional Outbox of None or Durable; Error Handling Policy of None, Retry, Retry with cooldown or Schedule retry.
 - Optional Topic Name and Destination Queue Name overrides.
 - Coexistence with `Intent.Application.Wolverine` on one shared Wolverine Host Configuration.
 - Full participation in the Composite Message Bus alongside other Eventing Providers.
 - OpenTelemetry instrumentation and Finbuckle multi-tenancy support when those modules are present.
 - A documented MassTransit-to-Wolverine migration guide.
-- Runtime proof: a publisher/subscriber application pair exercised end to end on each of the four Transports.
+- Runtime proof: a publisher/subscriber application pair exercised end to end on RabbitMQ. The remaining three Transports are proven by generating and compiling their configuration, with runtime verification done by hand outside this scope.
 
 ### Out of Scope for MVP
 
 - Scheduled publishing and request/response — each was a separate companion module for MassTransit and each is substantial work in its own right.
 - Kafka — already served by `Intent.Eventing.Kafka`, so the overlap buys little.
-- Marten/PostgreSQL durability — Entity Framework covers the large majority of Intent Architect applications.
+- Marten document-store durability — the Entity Framework Core path covers the large majority of Intent Architect applications. PostgreSQL is not what is deferred here; Marten is.
 - Automated migration tooling — the value is unproven until real migrations have been observed.
 
 ## Success Metrics
@@ -240,7 +243,7 @@ flowchart TD
 **Primary**
 
 - **SM-1**: Handler bodies preserved on migration — the number of hand-written `IIntegrationEventHandler<T>` method bodies requiring any edit when the reference application swaps from the MassTransit module to this one. Target: zero. Validates R1, R5, R13.
-- **SM-2**: Transport coverage proven at runtime — the number of the four Transports demonstrated publishing and consuming across two applications. Target: four of four. Validates R2, R3, R4.
+- **SM-2**: Transport coverage — the number of the four Transports whose configuration generates and compiles, of which RabbitMQ is additionally demonstrated publishing and consuming across two applications at runtime. Target: four of four generating, one of four at runtime. Validates R2, R3, R4.
 - **SM-3**: Licence exposure — the number of declared packages and generated code paths that require a licence key, a licence file or a paid tier in order to run. Target: zero. Validates R10.
 - **SM-4**: Re-model cost on migration — the number of designer changes required to move an application from the MassTransit module to this one, excluding module settings. Target: zero. Validates R1.
 - **SM-5**: Golden Sample parity — the number of unintended differences between Software Factory output and the Reference Solution, for an application modelled to match it. Target: zero. Validates R16, and transitively every Scope B requirement, since the Reference Solution is what they are checked against.
@@ -382,11 +385,12 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 
 1. THE Wolverine eventing module SHALL expose a Transactional Outbox module setting with exactly two options — None and Durable — defaulting to None. The setting SHALL NOT name a persistence technology: when it is Durable, THE Software Factory SHALL derive the durable storage from the persistence the application already has modelled.
 2. WHEN Transactional Outbox is None, THE Software Factory SHALL generate publishing and sending that goes straight to the Transport with no durable store, and SHALL NOT require any database.
-3. WHEN Transactional Outbox is Entity Framework, THE Software Factory SHALL generate a durable outbox and inbox backed by the application's Entity Framework database, such that a message published inside a transaction is dispatched if and only if that transaction commits.
-4. IF Transactional Outbox is Entity Framework and the `Intent.EntityFrameworkCore` module is not installed, THEN THE Software Factory SHALL stop with a user-facing error naming the Transactional Outbox setting and the missing module, and SHALL NOT generate any Wolverine Host Configuration.
-5. WHEN Transactional Outbox is Entity Framework, THE generated inbox SHALL cause a message re-delivered by the Error Handling Policy to be processed by its Integration Event Handler at most once.
-6. WHEN Transactional Outbox is changed from Entity Framework to None and the Software Factory is re-run, THE Software Factory SHALL remove the durable outbox and inbox registrations from the Wolverine Host Configuration.
-7. THE module documentation SHALL state that Wolverine offers no non-durable outbox, and that a developer migrating from the MassTransit module's In Memory outbox must choose between None and Entity Framework.
+3. WHEN Transactional Outbox is Durable, THE Software Factory SHALL generate a durable outbox and inbox backed by the application's Entity Framework Core database, such that a message published inside a transaction is dispatched if and only if that transaction commits.
+4. IF Transactional Outbox is Durable and the `Intent.EntityFrameworkCore` module is not installed, THEN THE Software Factory SHALL stop with a user-facing error naming the Transactional Outbox setting and the missing module, and SHALL NOT generate any Wolverine Host Configuration.
+5. WHEN Transactional Outbox is Durable, THE generated inbox SHALL cause a message re-delivered by the Error Handling Policy to be processed by its Integration Event Handler at most once.
+6. WHEN Transactional Outbox is changed from Durable to None and the Software Factory is re-run, THE Software Factory SHALL remove the durable outbox and inbox registrations from the Wolverine Host Configuration.
+7. THE module documentation SHALL state that Wolverine offers no non-durable outbox, and that a developer migrating from the MassTransit module's In Memory outbox must choose between None and Durable.
+8. IF Transactional Outbox is Durable and the Entity Framework Core database provider is one for which Wolverine ships no durable storage — In Memory, Cosmos, MySQL, Oracle and SQLite among them — THEN THE Software Factory SHALL stop with a user-facing error naming the configured provider, naming the providers that are supported, and stating that Transactional Outbox may instead be set to None. Only SQL Server and PostgreSQL SHALL be treated as supported.
 
 ### Requirement 7: Error Handling Policy
 
@@ -428,6 +432,7 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 4. WHEN one of the two modules is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove that module's registrations from the shared Wolverine Host Configuration and SHALL leave the remaining module's registrations intact and working.
 5. WHEN only the Wolverine eventing module is installed, THE Software Factory SHALL generate a complete Wolverine Host Configuration on its own, with no dependency on `Intent.Application.Wolverine` being present.
 6. WHEN both modules are installed, THE generated project files SHALL reference exactly one version of the core WolverineFx package, so that the two modules can never resolve to different Wolverine majors in one application.
+7. THE Wolverine Host Configuration SHALL be registered on the ASP.NET host only. THE Software Factory SHALL NOT emit a Wolverine host registration for an Azure Functions or AWS Lambda host, and WHEN an application on `Intent.Application.Wolverine` upgrades to the version that consumes the shared host module, THE previously generated Azure Functions host registration SHALL be removed and THAT removal SHALL be named in that module's release notes.
 
 
 <Callout id="imessagebus-collision" tone="risk" title="R8.3 — two different interfaces are both called IMessageBus">
@@ -457,10 +462,11 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
   caption="Consolidated failure matrix — every stopping condition, and exactly what it leaves behind"
   columns={["Condition", "Response", "State left behind", "What is NOT done"]}
   rows={[
-    ["R6.4 — Transactional Outbox is Entity Framework and `Intent.EntityFrameworkCore` is not installed", "Software Factory stops with a user-facing error naming the setting and the missing module", "No files staged or written", "No Wolverine Host Configuration is emitted"],
+    ["R6.4 — Transactional Outbox is Durable and `Intent.EntityFrameworkCore` is not installed", "Software Factory stops with a user-facing error naming the setting and the missing module", "No files staged or written", "No Wolverine Host Configuration is emitted"],
+    ["R6.8 — Transactional Outbox is Durable and the Entity Framework Core provider has no Wolverine durable storage", "Software Factory stops with a user-facing error naming the configured provider, the supported providers, and the option of setting Transactional Outbox to None", "No files staged or written", "No durability registration is emitted and no provider is silently substituted"],
     ["R9.4 — Two or more Eventing Providers installed and a message has no provider designation", "Software Factory stops with an error highlighting that message in the Services designer", "No files staged or written", "No Consumer is generated for any message, designated or not"],
     ["R3.5 — Topic Name override is empty or whitespace", "Software Factory stops with an error highlighting that Integration Event", "No files staged or written", "The convention-derived name is NOT silently substituted"],
-    ["R4.5 — Destination Queue Name override is empty or whitespace", "Software Factory stops with an error highlighting the association or handler method", "No files staged or written", "The convention-derived name is NOT silently substituted"],
+    ["R4.5 — Destination Queue Name override is empty or whitespace", "Software Factory stops with an error highlighting that Integration Command", "No files staged or written", "The convention-derived name is NOT silently substituted"],
     ["R3.6 / R4.6 — Override name longer than 250 characters", "Software Factory stops with an error highlighting the element and naming the limit", "No files staged or written", "The name is NOT truncated"],
     ["R2.6 — Required transport configuration value blank at runtime", "Generation succeeds; the application fails at startup with an error naming the configuration section and key", "`appsettings.json` holds the key with an empty value", "No value is invented and no fallback to the Local Transport occurs"],
     ["R7.5 — Delay sequence configured as an empty list", "The policy behaves as None: the first failure moves the message to the Error Queue", "Message on the Error Queue", "The message is NOT retried indefinitely and is NOT discarded"],
@@ -529,11 +535,11 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 
 #### Acceptance Criteria
 
-1. THE Wolverine eventing module SHALL be installable as one module that covers all four Transports and the Entity Framework Transactional Outbox, with no companion module required.
+1. THE Wolverine eventing module SHALL be installable as one module that covers all four Transports and the Durable Transactional Outbox, with no companion module required.
 2. THE Wolverine eventing module SHALL expose exactly four module settings — Transport, Transactional Outbox, Error Handling Policy, Broker Topology — each with the options and default given in R2.1, R2.7, R6.1 and R7.1.
 3. WHEN the Wolverine eventing module is installed and no setting is changed, THE Software Factory SHALL generate a working application using Local, no Transactional Outbox, and Retry with cooldown.
 4. WHEN the Wolverine eventing module is installed, THE module SHALL install the message contract module it depends on, so that Integration Events, Integration Commands and the Message Bus contract are available without a separate install step.
-5. WHEN the Wolverine eventing module is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove the Consumers, Wolverine Host Configuration registrations and `appsettings.json` sections it added, and SHALL leave hand-written Integration Event Handler classes in place.
+5. WHEN the Wolverine eventing module is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove the Consumers and the Wolverine Host Configuration registrations it added, and SHALL leave hand-written Integration Event Handler classes in place. THE `appsettings.json` sections the module added SHALL be left in place and THE module documentation SHALL name the sections to delete by hand, for the same reason given in R2.4.
 
 ### Requirement 15: Reference Solution composition
 
@@ -565,11 +571,11 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 3. THE Reference Solution SHALL build with zero errors before any module artefact is built.
 4. WHEN the module generates against an application modelled to match the Reference Solution, THE generated output SHALL differ from the Reference Solution only in ways recorded and justified as intended.
 5. IF generated output differs from the Reference Solution in a way that is not recorded as intended, THEN the module SHALL be changed until it matches, and the Reference Solution SHALL NOT be edited to match the generated output.
-6. THE Reference Solution SHALL be exercised at full R17 test depth on one non-Local Transport, and SHALL additionally prove, for each remaining Transport, only the transport registration call and the error-handling and dead-letter shape, by compiling and running a minimal path.
+6. THE Reference Solution SHALL be exercised at full R17 test depth on one non-Local Transport, and SHALL additionally prove, for each remaining Transport, only that the transport registration call and the error-handling and dead-letter shape are generated and compile. Runtime verification of the remaining Transports is explicitly out of scope for this requirement and is done by hand.
 7. THE permitted classes of difference under R16.4 SHALL be exactly these, and any difference outside them SHALL be treated as the module not meeting expectation: Roslyn Weaver code-management attributes; formatting normalisation; `using` directive set, order and aliasing; and member ordering within a type. A difference in emitted statements, type names, signatures, file paths or configuration values is never permitted.
 8. WHEN the Software Factory reports no changes against a hand-crafted Golden Sample, THE absence of changes SHALL be verified rather than accepted, by confirming that the module version under test is actually the version installed, that the message carries the provider designation the templates filter on, that the file is not in Intent Architect's ignored-files list, and that the file's code-management mode permits the template to write it.
 9. EVERY Transport SHALL be covered by a Test Application whose generated output is committed to version control.
-10. IF a Transport's minimal path under R16.6 reveals a transport registration or error-handling shape differing from the fully-exercised Transport, THEN that Transport SHALL be promoted to full R17 test depth in the Reference Solution before its template branch is written.
+10. IF a Transport's generation-and-compile check under R16.6 reveals a transport registration or error-handling shape differing from the fully-exercised Transport, THEN that Transport SHALL be promoted to full R17 test depth in the Reference Solution before its template branch is written.
 
 ### Requirement 17: Reference Solution test coverage
 
@@ -598,6 +604,11 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
     { id: "a5", label: "Names are validated only for emptiness and a 250-character ceiling", note: "Broker-specific character rules are left to the broker to reject. See the R3/R4 decision callout." },
     { id: "a6", label: "The module declares a minimum WolverineFx version, never a floating wildcard", note: "A plain minimum lets NuGet resolve the declared version rather than the newest, so an application on a newer Wolverine still works while nobody drifts onto a future release by accident. A floating version would make R10.5 unenforceable — a consumer could land on a licence-gated release without anyone deciding to." },
     { id: "a7", label: "Retry with cooldown is the default Error Handling Policy", note: "The closest behavioural match to the MassTransit module's Interval default, so a migrator's failure handling does not change character." },
-    { id: "a8", label: "Amazon SQS credentials fall back to the AWS default credential chain", note: "Access key and secret key are optional; an application running with an instance role needs no credentials in configuration." }
+    { id: "a8", label: "Amazon SQS credentials fall back to the AWS default credential chain", note: "Access key and secret key are optional; an application running with an instance role needs no credentials in configuration." },
+    { id: "a9", label: "R2.5's claim that Local loses messages on process stop is unverified where Transactional Outbox is Durable", note: "Wolverine has durable local queues backed by the database, so Durable plus Local may well give a restart-surviving in-process queue rather than the loss R2.5 describes. The combination is deliberately NOT forbidden — that would invent a restriction Wolverine does not have. It is left as written and checked once against the pinned WolverineFx version before the durability branch is built; if the check contradicts R2.5, R2.5 is amended then rather than being softened now on an expectation." },
+    { id: "a10", label: "Only RabbitMQ is proven at runtime; Azure Service Bus, Amazon SQS and Local are proven by generating and compiling", note: "R16.6, SM-2 and the MVP scope all say this explicitly rather than promising four-transport runtime proof. Runtime verification of the other three is done by hand, outside this specification. The accepted consequence is that a transport-specific runtime fault which still compiles — a wrong dead-letter registration, say — is not caught by any automated gate here; R16.10 is the route to promoting a Transport to full depth if the hand pass finds one." },
+    { id: "a11", label: "R6.5's at-most-once inbox guarantee is verified by generation and inspection, not by a runtime test", note: "R17's four tests cover publish, send, error handling and the outbox side of the transaction boundary; none asserts that a re-delivered message reaches its handler only once. Adding a fifth test was considered and deliberately not taken — the criterion stays because the guarantee is real and comes from Wolverine's own inbox, but nothing in R17 will fail if it regresses." },
+    { id: "a12", label: "Documentation is the module's own `docs/README.md`, not modelled help topics", note: "Every requirement that says \"module documentation\" or \"migration section\" — R1.6, R2.4, R2.5, R6.7, R7.4, R10.3, R13.1 to R13.5, R14.5 — is satisfied by a README section, matching how every other eventing module in this repository carries its prose. No `Module Documentation` element is modelled, so none of those criteria may be verified by pointing at a generated topic." },
+    { id: "a13", label: "Wolverine ships durable storage for SQL Server and PostgreSQL only", note: "R6.8's stopping condition rests on this. The provider list it names as unsupported — In Memory, Cosmos, MySQL, Oracle, SQLite — is the set Intent's Entity Framework Core module offers today; a provider added to that module later inherits the error rather than silently generating a durability registration that cannot work." }
   ]}
 />
