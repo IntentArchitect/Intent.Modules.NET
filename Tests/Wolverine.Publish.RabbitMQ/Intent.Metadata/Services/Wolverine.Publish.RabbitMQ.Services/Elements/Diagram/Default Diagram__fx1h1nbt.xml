@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="19ae30c9-e747-42d4-b46e-db662c106f8c" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46712ba1-946f-4545-bde8-f61942a78326</parentFolderId>
+  <packageId>46712ba1-946f-4545-bde8-f61942a78326</packageId>
+  <packageName>Wolverine.Publish.RabbitMQ.Services</packageName>
+  <diagram>
+    <targetPackageId>46712ba1-946f-4545-bde8-f61942a78326</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

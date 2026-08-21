@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="55a787ac-1365-4bfe-b6b7-2562afa4e38c">
+  <sourceEnd id="7b93f9ad-db41-475c-9030-d0931c35fac1" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Wolverine.Publish.RabbitMQ.Services.ShipOrderCommand</display>
+    <order>0</order>
+    <typeReference id="077284b1-04c6-496e-a3c5-0e92f0df89e2">
+      <typeId>8a5e97ba-4cd4-4dc3-be82-5db700c966be</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.Publish.RabbitMQ.Services</typePackageName>
+      <typePackageId>46712ba1-946f-4545-bde8-f61942a78326</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="55a787ac-1365-4bfe-b6b7-2562afa4e38c" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderShippedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9fb90311-fe34-4d3d-99bc-1d2ba788a5ed">
+      <typeId>6120be9e-196e-4cc4-b784-83fe9acda5da</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.Publish.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>93e9e6b7-4b19-4ae5-8f87-3f3c50ec89bd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

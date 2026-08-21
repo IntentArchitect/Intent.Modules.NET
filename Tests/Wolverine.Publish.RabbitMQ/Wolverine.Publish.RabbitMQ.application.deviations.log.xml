@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#c8c157f5-7cf1-42b0-aa5f-ddcc40273383</correlationId>
+      <path>Wolverine.Publish.RabbitMQ.Api/Wolverine.Publish.RabbitMQ.Api.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-21T15:49:28.3510375Z</updatedAt>
+      <deviationsHash>A7E926885A85ED2BF2AE69027CCA803F325DCD202E26F3AFFCD8C5DB46C7D01B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#c5dcaae8-773b-4525-83fa-753756675f39</correlationId>
+      <path>Wolverine.Publish.RabbitMQ.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-21T15:58:49.3120674Z</updatedAt>
+      <deviationsHash>DF1D78E57A3592D2B2C95EB699A694D06CFB4D62A313E9AE6C082DF887513199</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

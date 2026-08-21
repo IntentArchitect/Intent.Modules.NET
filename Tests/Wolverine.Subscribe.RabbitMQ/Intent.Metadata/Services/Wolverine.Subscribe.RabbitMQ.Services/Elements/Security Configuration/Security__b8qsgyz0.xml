@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbbfc494-9cba-4666-9302-8f2b79d7ae4e" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>78a7979a-8a3c-4616-9dae-e7c77072f745</parentFolderId>
+  <packageId>78a7979a-8a3c-4616-9dae-e7c77072f745</packageId>
+  <packageName>Wolverine.Subscribe.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

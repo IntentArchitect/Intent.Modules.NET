@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="86dd0b1c-3b0a-463d-aadd-a054a21255ee" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>ProcessOrderCommand</name>
+  <display>ProcessOrderCommand</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>93e9e6b7-4b19-4ae5-8f87-3f3c50ec89bd</parentFolderId>
+  <packageId>93e9e6b7-4b19-4ae5-8f87-3f3c50ec89bd</packageId>
+  <packageName>Wolverine.Publish.RabbitMQ.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8ad78e3b-214b-4c2b-a990-605d4df73c6a" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fd6497da-0cb6-49fb-813a-2f10b003dd68">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>86dd0b1c-3b0a-463d-aadd-a054a21255ee</parentFolderId>
+      <packageId>93e9e6b7-4b19-4ae5-8f87-3f3c50ec89bd</packageId>
+      <packageName>Wolverine.Publish.RabbitMQ.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
