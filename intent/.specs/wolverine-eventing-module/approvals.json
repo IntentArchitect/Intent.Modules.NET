@@ -48,6 +48,20 @@
       "approvedVia": "panel-button",
       "conversationId": null,
       "timestampUtc": "2026-08-21T10:54:34Z"
+    },
+    {
+      "fromPhase": "design",
+      "toPhase": "requirements",
+      "approvedVia": "panel-button",
+      "conversationId": null,
+      "timestampUtc": "2026-08-21T12:42:23Z"
+    },
+    {
+      "fromPhase": "requirements",
+      "toPhase": "design",
+      "approvedVia": "panel-button",
+      "conversationId": null,
+      "timestampUtc": "2026-08-21T12:45:59Z"
     }
   ]
 }

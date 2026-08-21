@@ -152,10 +152,10 @@ flowchart TD
 
 - **UJ-6. Rashid joins a broker estate that already has its own names.**
   - **Persona + context:** Rashid is adding a new Intent Architect application to an organisation whose RabbitMQ topology is owned by a platform team. The exchange and queue names are fixed by that team's convention and are not his to change.
-  - **Entry state:** The Wolverine eventing module is installed and generating convention-derived names that do not match the platform team's topology, so nothing he publishes is picked up.
-  - **Path:** He sets a Topic Name override on each Integration Event and a Destination Queue Name override on each Integration Command — on both the sending association and the subscribing handler method; re-runs the Software Factory; checks the generated destinations against the platform team's list.
-  - **Climax:** The generated code publishes and sends to the platform team's exact names, character for character, with no kebab-casing applied on top.
-  - **Resolution:** His application joins an existing estate without asking anyone to rename anything, and two of his Integration Commands deliberately share one queue to keep their order.
+  - **Entry state:** The Wolverine eventing module is installed and generating convention-derived names that do not match the platform team's topology, so nothing he publishes is picked up. His credentials also have no permission to declare or delete a destination.
+  - **Path:** He sets Broker Topology to Externally owned; sets a Topic Name override on each Integration Event and a Destination Queue Name override on each Integration Command, each on the element itself; re-runs the Software Factory; checks the generated destinations against the platform team's list.
+  - **Climax:** The generated code publishes and sends to the platform team's exact names, character for character, with no kebab-casing applied on top, and starts without attempting to declare anything.
+  - **Resolution:** His application joins an existing estate without asking anyone to rename anything and without needing configure permission, and two of his Integration Commands deliberately share one queue to keep their order.
   - **Edge case:** He pastes a name that trims to nothing, and generation stops with an error pointing at that exact Integration Event rather than quietly falling back to the convention name and publishing to a destination nobody is listening on.
 
 ```mermaid
@@ -189,7 +189,8 @@ flowchart TD
 - **Error Handling Policy** — the rule deciding what happens when a Consumer throws: how many times and after what delays the message is re-delivered, and where it goes once those are exhausted. Exactly one per application.
 - **Error Queue** — the broker destination a message lands on once its Error Handling Policy is exhausted, so it is retained rather than lost.
 - **Topic Name** — the broker destination an Integration Event is published to. Derived by convention from the message type, optionally overridden per Integration Event.
-- **Destination Queue Name** — the broker queue an Integration Command is sent to. Derived by convention from the message type, optionally overridden per send and per subscription.
+- **Destination Queue Name** — the broker queue an Integration Command is sent to. Derived by convention from the message type, optionally overridden on the Integration Command itself, since the queue belongs to the application that owns the Command.
+- **Broker Topology** — whether the application declares the exchanges, topics and queues it uses, or expects them to already exist and never touches them. Exactly one choice per application.
 - **Wolverine Host Configuration** — the single generated setup where Wolverine's transports, subscriptions, durability and handler discovery are registered for an application. Exactly one per application, shared with `Intent.Application.Wolverine` when both are installed.
 - **Tenant Identifier** — the value identifying which tenant a message belongs to, carried in a message header so a Consumer can restore the publishing tenant's context.
 - **Software Factory** — the Intent Architect process that turns the modelled application into generated code.
@@ -277,9 +278,11 @@ Scope A pins the runtime, the package set and which artefacts must exist, becaus
 
 1. THE Wolverine eventing module SHALL generate from Integration Events and Integration Commands modelled in the Services designer, using the same designer element types the MassTransit module consumes, and SHALL NOT introduce a new designer or a new message element type.
 2. THE Wolverine eventing module SHALL generate from subscriptions modelled as an Integration Event Handler subscribing to an Integration Event or an Integration Command, using the same designer associations the MassTransit module consumes.
-3. WHEN the MassTransit module is uninstalled and the Wolverine eventing module is installed into an application whose messages and subscriptions are unchanged, THE Software Factory SHALL generate a Consumer for every message that previously had one, and SHALL require zero designer changes to do so.
+3. WHEN the MassTransit module is uninstalled and the Wolverine eventing module is installed into an application whose messages and subscriptions are unchanged, THE Software Factory SHALL generate a Consumer for every message that previously had one, and SHALL require zero changes to the messages, Integration Commands and subscriptions themselves to do so.
 4. IF an application has no Integration Events and no Integration Commands modelled, THEN THE Software Factory SHALL still generate a valid Wolverine Host Configuration with zero subscriptions and zero Consumers, and the application SHALL start successfully.
 5. WHEN the Software Factory is re-run with no change to the model or the module settings, THE Wolverine eventing module SHALL produce zero staged file changes.
+6. WHEN an application being migrated from MassTransit carried MassTransit-specific name overrides, THOSE overrides SHALL NOT be read by the Wolverine eventing module, and the module documentation SHALL list every override a migrator must re-apply. A message whose override is not re-applied resolves to its convention-derived destination, so the migration guide SHALL state that overridden destinations must be re-captured before the first production run.
+
 
 ### Requirement 2: Transport selection
 
@@ -307,6 +310,7 @@ Scope A pins the runtime, the package set and which artefacts must exist, becaus
 4. WHEN the Transport setting is changed and the Software Factory is re-run, THE Software Factory SHALL replace the previous Transport's registration so that no trace of the previous Transport remains in generated code. THE previous Transport's `appsettings.json` section SHALL be left in place and THE module documentation SHALL name the section to delete by hand — the Intent Architect app-settings mechanism adds and updates keys but has no removal request, and `appsettings.json` is a developer-owned file that a module pruning would be reaching outside what it owns.
 5. THE Local Transport SHALL be documented as in-process only and non-durable — it cannot carry messages between applications, and messages held in it are lost if the process stops.
 6. IF a required configuration value for the selected Transport is absent or empty at runtime, THEN the application SHALL fail at startup with an error naming the configuration section and key, and SHALL NOT fall back to the Local Transport or to any default endpoint.
+7. THE Wolverine eventing module SHALL expose a Broker Topology module setting with exactly two options — Auto-provision and Externally owned — defaulting to Auto-provision. WHEN it is Auto-provision, THE Software Factory SHALL generate code that declares the exchanges, topics and queues the application uses. WHEN it is Externally owned, THE Software Factory SHALL generate code that uses those destinations without declaring them and without deleting them, so that an application can join a broker estate it has no configure permission on.
 
 <Callout id="local-transport-risk" tone="risk" title="R2.5 — Local is a default that cannot do the job">
 
@@ -340,10 +344,10 @@ Local is the default so a freshly installed application runs without infrastruct
 
 1. WHEN application code sends an Integration Command through the Message Bus contract, THE generated implementation SHALL deliver it to that Integration Command's Destination Queue Name on the configured Transport with point-to-point semantics, so that exactly one consumer receives it.
 2. THE Wolverine eventing module SHALL derive an Integration Command's Destination Queue Name from its message type name converted to kebab-case when no override is present.
-3. THE Wolverine eventing module SHALL provide an optional Destination Queue Name override on the sending association and on the subscribing Integration Event Handler method, matching where the MassTransit module places it.
-4. WHEN a Destination Queue Name override is present, THE Software Factory SHALL use it verbatim on both the sending and the subscribing side.
-5. IF a Destination Queue Name override is present but empty or whitespace-only after trimming, THEN THE Software Factory SHALL stop with an error highlighting the association or handler method carrying it, and SHALL NOT substitute the convention-derived name.
-6. IF a Destination Queue Name override is longer than 250 characters, THEN THE Software Factory SHALL stop with an error highlighting the association or handler method and naming the limit.
+3. THE Wolverine eventing module SHALL provide an optional Destination Queue Name override on the Integration Command element itself, since the queue an Integration Command is delivered to is declared by the application that owns the Command and must be identical for every application that sends it.
+4. WHEN a Destination Queue Name override is present, THE Software Factory SHALL use it verbatim on both the sending and the subscribing side, resolved from the single place it is declared.
+5. IF a Destination Queue Name override is present but empty or whitespace-only after trimming, THEN THE Software Factory SHALL stop with an error highlighting that Integration Command, and SHALL NOT substitute the convention-derived name.
+6. IF a Destination Queue Name override is longer than 250 characters, THEN THE Software Factory SHALL stop with an error highlighting that Integration Command and naming the limit.
 7. WHEN two or more Integration Commands resolve to the same Destination Queue Name, THE Software Factory SHALL generate all of them without error, since sharing a queue is how ordering between related commands is achieved.
 
 <Callout id="name-validation-decision" tone="decision" title="R3.6 / R4.6 — 250 characters, and no broker-specific validation">
@@ -376,7 +380,7 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 
 #### Acceptance Criteria
 
-1. THE Wolverine eventing module SHALL expose a Transactional Outbox module setting with exactly two options — None and Entity Framework — defaulting to None.
+1. THE Wolverine eventing module SHALL expose a Transactional Outbox module setting with exactly two options — None and Durable — defaulting to None. The setting SHALL NOT name a persistence technology: when it is Durable, THE Software Factory SHALL derive the durable storage from the persistence the application already has modelled.
 2. WHEN Transactional Outbox is None, THE Software Factory SHALL generate publishing and sending that goes straight to the Transport with no durable store, and SHALL NOT require any database.
 3. WHEN Transactional Outbox is Entity Framework, THE Software Factory SHALL generate a durable outbox and inbox backed by the application's Entity Framework database, such that a message published inside a transaction is dispatched if and only if that transaction commits.
 4. IF Transactional Outbox is Entity Framework and the `Intent.EntityFrameworkCore` module is not installed, THEN THE Software Factory SHALL stop with a user-facing error naming the Transactional Outbox setting and the missing module, and SHALL NOT generate any Wolverine Host Configuration.
@@ -526,7 +530,7 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 #### Acceptance Criteria
 
 1. THE Wolverine eventing module SHALL be installable as one module that covers all four Transports and the Entity Framework Transactional Outbox, with no companion module required.
-2. THE Wolverine eventing module SHALL expose exactly three module settings — Transport, Transactional Outbox, Error Handling Policy — each with the options and default given in R2.1, R6.1 and R7.1.
+2. THE Wolverine eventing module SHALL expose exactly four module settings — Transport, Transactional Outbox, Error Handling Policy, Broker Topology — each with the options and default given in R2.1, R2.7, R6.1 and R7.1.
 3. WHEN the Wolverine eventing module is installed and no setting is changed, THE Software Factory SHALL generate a working application using Local, no Transactional Outbox, and Retry with cooldown.
 4. WHEN the Wolverine eventing module is installed, THE module SHALL install the message contract module it depends on, so that Integration Events, Integration Commands and the Message Bus contract are available without a separate install step.
 5. WHEN the Wolverine eventing module is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove the Consumers, Wolverine Host Configuration registrations and `appsettings.json` sections it added, and SHALL leave hand-written Integration Event Handler classes in place.

@@ -13,7 +13,7 @@ The provider-designation machinery this feature needs already exists and is not 
 
 <Callout id="scope-counts" tone="info" title="Scope in counts">
 
-2 new module applications · 1 existing module changed · 3 module settings · 4 stereotype definitions · 9 C# templates · 6 factory extensions · 7 NuGet package declarations · 4 transports · 1 reference solution with 4 automated tests.
+2 new module applications · 1 existing module changed · 4 module settings · 1 stereotype definition · 9 C# templates · 6 factory extensions · 7 NuGet package declarations · 4 transports · 1 reference solution with 4 automated tests.
 
 </Callout>
 
@@ -51,9 +51,9 @@ Each root module still declares whatever its own generated patterns need *beyond
 
 <Callout id="d-durability" tone="decision" title="Outbox durability follows the Entity Framework provider setting">
 
-The Transactional Outbox setting stays exactly the two options R6.1 requires — None and Entity Framework. When it is Entity Framework, the durability package is resolved from `Intent.EntityFrameworkCore`'s own **Database Provider** setting: `sql-server` gets `WolverineFx.SqlServer`, `postgresql` gets `WolverineFx.Postgresql`. Every other provider — `in-memory`, `cosmos`, `my-sql`, `oracle`, `sql-lite` — stops the Software Factory with a `FriendlyException` naming the provider and the two supported ones.
+The Transactional Outbox setting is exactly the two options R6.1 requires — **None and Durable**. It deliberately does not name a persistence technology. When it is Durable, the durability package is resolved from `Intent.EntityFrameworkCore`'s own **Database Provider** setting: `sql-server` gets `WolverineFx.SqlServer`, `postgresql` gets `WolverineFx.Postgresql`. Every other provider — `in-memory`, `cosmos`, `my-sql`, `oracle`, `sql-lite` — stops the Software Factory with a `FriendlyException` naming the provider and the two supported ones. Durable also implies Wolverine's durable endpoint mode; None implies buffered. That pairing is derived, not a fifth setting.
 
-**Why:** the developer has already told Intent which database they use; asking again as a Wolverine setting would be a second source of truth that can disagree with the DbContext. Wolverine ships durable storage only for SQL Server and PostgreSQL, so the unsupported providers need a stopping condition either way, and a named error at generation time is better than a runtime failure in a consumer's application.
+**Why:** the developer has already told Intent which database they use; asking again as a Wolverine setting would be a second source of truth that can disagree with the DbContext. Naming the option `Durable` rather than `Entity Framework` says what the developer gets rather than how it is stored, and means adding another durable-storage backing later needs no new option. Wolverine ships durable storage only for SQL Server and PostgreSQL, so the unsupported providers need a stopping condition either way, and a named error at generation time is better than a runtime failure in a consumer's application.
 
 </Callout>
 
@@ -251,40 +251,70 @@ The contribution point is the only public surface: a static registry a Wolverine
   { element: "WolverineFx.RabbitMQ, .AzureServiceBus, .AmazonSqs, .EntityFrameworkCore, .SqlServer, .Postgresql", designer: "Module Builder", change: "added", note: "Six satellite NuGet Package declarations — the packages this module's own generated patterns need. Core WolverineFx is NOT declared here; it comes from Intent.Wolverine.Common",
     fields: [{ label: "net8.0 and above", after: "5.39.5, locked, each with an explicit WithNugetDependency on WolverineFx 5.39.5" }] },
   { element: "Wolverine", designer: "Module Builder", change: "added", note: "Message Bus Provider element — its element id becomes the WolverineMessageBusId passed to MessageBusRegistry.Register",
-    fields: [{ label: "Applicable Stereotypes", after: "Wolverine Message, Message Topology Settings" }] },
-  { element: "Wolverine Message Bus Settings", designer: "Module Builder", change: "added", note: "Module Settings Configuration — application settings, exactly three fields" },
-  { element: "Wolverine Message", designer: "Module Builder", change: "added", note: "Stereotype Definition on Message and Integration Command — provider designation marker, no properties" },
-  { element: "Message Topology Settings", designer: "Module Builder", change: "added", note: "Stereotype Definition on Message — carries the Topic Name override" },
-  { element: "Command Distribution", designer: "Module Builder", change: "added", note: "Stereotype Definition on the Send Integration Command target end — carries the Destination Queue Name override" },
-  { element: "Command Consumption", designer: "Module Builder", change: "added", note: "Stereotype Definition on the Subscribe Integration Command target end — carries the Queue Name override" }
+    fields: [{ label: "Applicable Stereotypes", after: "Wolverine Message" }] },
+  { element: "Wolverine Message Bus Settings", designer: "Module Builder", change: "added", note: "Module Settings Configuration — application settings, exactly four fields. NOT a stereotype" },
+  { element: "Wolverine Message", designer: "Module Builder", change: "added", note: "The module's ONE Stereotype Definition, on Message and Integration Command. Doubles as the provider designation marker and the owner-declared destination override. Demands no input — applied with everything blank it designates the provider and nothing else",
+    fields: [{ label: "Destination", after: "string, optional, placeholder `(default)` — the exchange/topic an Integration Event is published to, or the queue an Integration Command is delivered to" }] }
 ]} />
 
-The four stereotype definitions are deliberately name-for-name and property-for-property with the MassTransit module's, so a migrator's model reads the same and R1.3's "zero designer changes" is literally true for names as well as structure.
+There is exactly **one** stereotype definition, and it is named for Wolverine's own concept rather than MassTransit's. An earlier draft had four, mirroring the MassTransit module name-for-name; that is reversed. Note that `Wolverine` above is a Message Bus Provider element and `Wolverine Message Bus Settings` is a Module Settings Configuration — neither is a stereotype.
+
+<Callout id="d-metamodel" tone="decision" title="The metamodel follows Wolverine's ownership model, not MassTransit's stereotype names">
+
+`Message Topology Settings`, `Command Distribution` and `Command Consumption` are gone. One stereotype replaces all three: `Wolverine Message` on the Message or Integration Command element, carrying the destination. Nothing sits on an association end.
+
+**Why the names changed:** every other eventing module in this repository names its stereotypes after its *own* framework's concepts — Solace has `Publishing`/`Subscribing`/`Queue Config`, Kafka has `Kafka Message`/`Key`, NServiceBus has one `NServiceBus`. MassTransit's `Message Topology Settings` → `Entity Name` is MassTransit's own API vocabulary (`cfg.Message<T>(x => x.SetEntityName(...))`). Copying it into a Wolverine module breaks the house convention rather than following it.
+
+**Why the placement changed — this is the load-bearing part.** In Intent, a Message or Integration Command lives in the owning application's package and is *referenced* by other applications, which are consumers with no ownership. The owner publishes Integration Events and receives Integration Commands, so in both cases the destination is declared by the owner and must be identical for every counterparty. Declaring it on the send association end (as `Command Distribution` did) lets two senders disagree about where one command goes. Wolverine's own API agrees: `PublishMessage<T>().ToRabbitQueue(...)` is a per-message-type routing rule, not a per-sender one.
+
+One thing does genuinely vary per consumer: an event subscriber's own listening queue, because fan-out gives each subscriber its own queue bound to the shared exchange. That is handled **entirely by convention** — `{application-name}-{message-name}` — with no modelling surface at all. An Integration Command needs nothing either, because its listening queue *is* the owner-declared destination.
+
+So there is no stereotype on any association end. A subscribe-side override is deferred until someone asks for it; the limitation that creates is recorded below.
+
+**Deferred, not declined:** `[MessageIdentity]` alias and message versioning are out for this round. No requirement asks for them, wire-format compatibility with MassTransit is an explicit non-goal, and the attribute would have to be written onto a message class that `Intent.Eventing.Contracts` owns — which is a cross-module decoration problem worth solving on its own rather than as a rider here. When it is picked up, it belongs as two more optional properties on `Wolverine Message` (`Alias`, `Version`), which is why that stereotype sits on the element and not on an association end. The shape already accommodates it.
+
+</Callout>
+
+<Callout id="d-conventions" tone="decision" title="The module computes the convention itself and always emits routing explicitly">
+
+Wolverine offers `UseConventionalRouting()`. This design does **not** use it. The module derives every destination name itself and emits `PublishMessage<T>().To…` / `ListenTo…` explicitly, exactly as the MassTransit module already does (`ServiceIntegrationCommandSendProducerFactory.cs:29-38` — read the override, fall back to a computed name).
+
+**Why:** Wolverine's RabbitMQ conventional routing creates an exchange *and* a queue per message type with a binding between them. Two consequences would break requirements. An Integration Command handled by two applications would fan out through that exchange and be processed twice, breaking R4.1's exactly-once. Worse, the conventional queue name derives from the message type alone, so two applications subscribing to one Integration Event would compute the *same* queue name and become competing consumers — each event handled once across the pair rather than once per application, breaking R3.1's "every subscribed application receives its own copy".
+
+Computing the names in the module avoids depending on those semantics at all, and lets the subscriber-queue convention include the subscribing application, which Wolverine's own convention cannot do.
+
+**The conventions.** Destination for an Integration Event is the kebab-cased message type name; for an Integration Command, the kebab-cased command type name. A subscriber's listening queue is `{application-name}-{message-name}`, kebab-cased — the application segment is what keeps fan-out working and is not overridable. The stereotype's one property is optional with a `(default)` placeholder, so a developer sees the convention is in force and types a name only to override it.
+
+**Known limitation — externally-owned subscribing.** With Broker Topology set to `Externally owned` the module uses destinations without declaring them, and there is no way to name a subscriber's listening queue. An application joining a platform-owned estate can therefore publish and send to the platform's exact names, but can only *consume* from a queue whose name matches the module's own convention. If the platform team names subscriber queues itself, that application listens on a queue that does not exist and cannot be created — it starts cleanly and receives nothing. This is accepted for now rather than solved: the fix is a one-property stereotype on the subscribe target end, deferred until someone asks. The configuring-Wolverine topic must state the limitation, because the failure is silent.
+
+**Accepted trade:** the convention uses the short type name, not the fully-qualified name the MassTransit module uses. Intent's package namespacing does not reach the wire, so two applications with identically-named Integration Events in different packages resolve to the same destination. Documented, not invisible.
+
+</Callout>
 
 <DataModel
   id="module-settings"
-  entity="Wolverine Message Bus Settings — the three module settings (R14.2)"
+  entity="Wolverine Message Bus Settings — the four module settings (R14.2)"
   caption="Each is a select field on the application settings group"
   fields={[
     { name: "Transport", type: "select — `local`, `rabbitmq`, `azure-service-bus`, `amazon-sqs`", change: "added", note: "Default `local`. Hint must state that Local is in-process only and non-durable (R2.5)" },
-    { name: "Transactional Outbox", type: "select — `none`, `entity-framework`", change: "added", note: "Default `none`. Hint must state that Wolverine has no in-memory outbox (R6.7)" },
-    { name: "Error Handling Policy", type: "select — `none`, `retry`, `retry-with-cooldown`, `schedule-retry`", change: "added", note: "Default `retry-with-cooldown`" }
+    { name: "Transactional Outbox", type: "select — `none`, `durable`", change: "added", note: "Default `none`. Deliberately does NOT name a persistence technology — when `durable`, the durable storage is derived from the persistence the application already has modelled, so adding another storage option later needs no new setting. Hint must state that Wolverine has no in-memory outbox (R6.7)" },
+    { name: "Error Handling Policy", type: "select — `none`, `retry`, `retry-with-cooldown`, `schedule-retry`", change: "added", note: "Default `retry-with-cooldown`" },
+    { name: "Broker Topology", type: "select — `auto-provision`, `externally-owned`", change: "added", note: "Default `auto-provision`. R2.7 — `externally-owned` maps to Wolverine's `ExternallyOwned()`, which uses a destination without declaring or deleting it. This is what serves UJ-6, where the platform team owns the namespace and the application has no configure permission" }
   ]}
 />
 
 <DataModel
   id="stereotype-properties"
-  entity="Stereotype properties, and the MassTransit stereotype each mirrors"
-  caption="R3.3 / R4.3 — override placement matches the MassTransit module exactly"
+  entity="Stereotype properties — one stereotype, one property, optional"
+  caption="R3.3 / R4.3 — placement follows ownership: the destination is owner-declared, so it lives on the element"
   fields={[
-    { name: "`Message Topology Settings.EntityName`", type: "string, optional", change: "added", note: "Topic Name override on an Integration Event. Mirrors MassTransit stereotype `fc095295`" },
-    { name: "`Command Distribution.DestinationQueueName`", type: "string, optional", change: "added", note: "Override on the sending association. Mirrors MassTransit stereotype `5cae1c25`" },
-    { name: "`Command Consumption.QueueName`", type: "string, optional", change: "added", note: "Override on the subscribing handler method. Mirrors MassTransit stereotype `ced769d7`" },
-    { name: "`Wolverine Message`", type: "marker, no properties", change: "added", note: "Designation only. Mirrors MassTransit stereotype `19664e24`" }
+    { name: "`Wolverine Message.Destination`", type: "string, optional, placeholder `(default)`", change: "added", note: "On Message and Integration Command. The exchange/topic an event is published to, or the queue a command is delivered to. Owner-declared, so every counterparty resolves the same name from one place. Left blank, the convention applies and the stereotype's only effect is provider designation" }
   ]}
 />
 
 Both name overrides are validated at Software Factory time, in the template that reads them, with an `ElementException` carrying the offending element: empty-after-trim stops generation and never falls back to the convention name (R3.5, R4.5), and over 250 characters stops generation naming the limit (R3.6, R4.6). Two messages resolving to one destination is explicitly allowed and generates without complaint (R3.7, R4.7).
+
+**Unset and empty are different, and the distinction is load-bearing.** `Wolverine Message` demands no input, so in a composite-broker application it is applied purely to designate the provider with `Destination` left untouched — that must read as "use the convention". A value that was deliberately typed and then blanked must still trip R3.5/R4.5. So the template tests for the property being *absent* before it tests for whitespace, and never conflates the two. This is the one place provider designation and destination override overlap, and getting it backwards would either break composite mode or silently swallow a mistake.
 
 ### Templates
 
@@ -347,8 +377,8 @@ Every requirement below names one of three mechanisms: **existing module capabil
   rows={[
     ["R1", "Existing capability — the Services designer is read only", "Nothing", "Message queries in every template read `MetadataManager` and filter through `FilterMessagesForThisMessageBroker`", "R15, R16"],
     ["R2", "Modelled setting + template + factory extension", "`Transport` setting field; four transport NuGet Package declarations in this module (`local` needs none)", "Transport branch in `WolverineEventingConfiguration`; `appsettings` emissions in `WolverineAppSettingsExtension`", "R15"],
-    ["R3", "Modelled stereotype + template", "`Message Topology Settings` stereotype with `EntityName`; `Wolverine Message` stereotype", "Kebab-case convention, override resolution and both validations in the configuration and message-bus templates", "R2"],
-    ["R4", "Modelled stereotypes + template", "`Command Distribution` and `Command Consumption` stereotypes", "Send-rule and listener generation, override resolution and both validations", "R2"],
+    ["R3", "Modelled stereotype + template", "`Wolverine Message` stereotype with `Destination` — the module's only stereotype", "Kebab-case convention, the `{app-name}-{message-name}` subscriber-queue convention (no override), override resolution, unset-vs-empty handling and both validations", "R2"],
+    ["R4", "Modelled stereotype + template", "`Wolverine Message` stereotype — the same one; a command's queue is owner-declared on the element", "Explicit send-rule and listener generation, override resolution and both validations", "R2"],
     ["R5", "Modelled template, one instance per subscription", "`IntegrationEventConsumer` C# Template, model type Integration Event Handler", "Consumer body: resolve handler, invoke with message and token, let exceptions propagate", "R3, R4"],
     ["R6", "Modelled setting + template + interop extension; EF provider read from the existing module", "`Transactional Outbox` setting; `WolverineOutboxConfiguration` template; EF Core and durability NuGet declarations", "Durability registration, provider switch, unsupported-provider `FriendlyException`, missing-module guard, `SaveChanges` flush injection", "R2, R5"],
     ["R7", "Modelled setting + template + factory extension", "`Error Handling Policy` setting field", "Policy registration per option; delay-list reading; `appsettings` keys and defaults", "R2, R5"],
@@ -358,7 +388,7 @@ Every requirement below names one of three mechanisms: **existing module capabil
     ["R11", "Existing capability — the OpenTelemetry module's registration point", "`TelemetryConfiguratorExtension`", "Conditional source registration; no package reference when absent", "R2"],
     ["R12", "Modelled templates + factory extension", "Three Finbuckle templates; `FinbuckleConfiguratorExtension`", "Header write, tenant establish and restore, absent-header path, header-name setting", "R5"],
     ["R13", "Modelled documentation", "Documentation Topic — migrating from MassTransit", "Ordered steps, the settings equivalence table, the leftover-artefact list, the wire-format statement, the staged path", "R2, R6, R7, R9"],
-    ["R14", "Modelled module manifest", "Module dependencies, three settings, module icon and description", "Nothing beyond the manifest", "R2, R6, R7"],
+    ["R14", "Modelled module manifest", "Module dependencies, four settings (Transport, Transactional Outbox, Error Handling Policy, Broker Topology), module icon and description", "Nothing beyond the manifest", "R2, R6, R7"],
     ["R15", "Intent-scaffolded pair, then hand-crafted", "Two applications created and scaffolded; the Integration Events, Commands and subscriptions modelled in the Services designer **before** any hand-crafting (R15.7)", "Every Wolverine artefact hand-written into the scaffold; the Baseline captured to the spec folder (R15.8)", "None — this is the first wave"],
     ["R16", "Reference Solution + the correspondence table above + the Software Factory's own staged diff", "Provider designation stereotypes and module settings applied to the reference pair, before the first parity run (phase 5)", "Every Golden Sample artefact; the recorded diff justifications; the R16.8 no-change verification", "R15"],
     ["R17", "Hand-written tests", "Nothing", "Four xUnit tests plus the Testcontainers fixtures, in their own solution", "R15, R16"]
