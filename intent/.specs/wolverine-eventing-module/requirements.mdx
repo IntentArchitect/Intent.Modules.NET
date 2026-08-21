@@ -193,8 +193,10 @@ flowchart TD
 - **Wolverine Host Configuration** — the single generated setup where Wolverine's transports, subscriptions, durability and handler discovery are registered for an application. Exactly one per application, shared with `Intent.Application.Wolverine` when both are installed.
 - **Tenant Identifier** — the value identifying which tenant a message belongs to, carried in a message header so a Consumer can restore the publishing tenant's context.
 - **Software Factory** — the Intent Architect process that turns the modelled application into generated code.
-- **Reference Solution** — the hand-written WolverineFx publisher and subscriber pair that is this feature's ground truth. Built and proven before any module artefact exists, and never edited to match generated output. Exactly one Reference Solution, exercised once per Transport.
-- **Golden Sample** — one hand-written artefact inside the Reference Solution that exactly one generated artefact must reproduce. One Golden Sample per generated artefact.
+- **Reference Solution** — the Intent-scaffolded publisher and subscriber pair under `Tests/` into which every Wolverine artefact is then hand-written, and which is this feature's ground truth. Hand-crafted and proven before any Wolverine module artefact exists, and never edited to match generated output. Exactly one Reference Solution, exercised at full test depth on one Transport.
+- **Golden Sample** — one hand-written artefact inside the Reference Solution that exactly one generated artefact must reproduce. One Golden Sample per generated artefact, and one per Transport variant where that artefact varies by Transport.
+- **Baseline** — the committed copy of the Reference Solution's hand-crafted files, taken before any Wolverine module is installed into it and held under the spec folder. This is what "never edited to match generated output" attaches to; the live applications are free to move on.
+- **Test Application** — a generated Intent Architect application under `Tests/` whose generated output is committed, so that a later change to a module surfaces as a difference in version control. Covers configuration permutations. Distinct from the Reference Solution by phase and by direction of correction, not by file layout.
 
 ## Non-Goals
 
@@ -302,7 +304,7 @@ Scope A pins the runtime, the package set and which artefacts must exist, becaus
 1. THE Wolverine eventing module SHALL expose a Transport module setting with exactly four options — Local, RabbitMQ, Azure Service Bus, Amazon SQS — defaulting to Local.
 2. WHEN a Transport is selected, THE Software Factory SHALL register exactly that Transport in the Wolverine Host Configuration, and SHALL NOT register any other Transport.
 3. WHEN a Transport is selected, THE Software Factory SHALL add that Transport's `appsettings.json` section and keys with the defaults given in the table above, and SHALL leave a key with no default as an empty string rather than inventing a value.
-4. WHEN the Transport setting is changed and the Software Factory is re-run, THE Software Factory SHALL replace the previous Transport's registration and SHALL remove its `appsettings.json` section.
+4. WHEN the Transport setting is changed and the Software Factory is re-run, THE Software Factory SHALL replace the previous Transport's registration so that no trace of the previous Transport remains in generated code. THE previous Transport's `appsettings.json` section SHALL be left in place and THE module documentation SHALL name the section to delete by hand — the Intent Architect app-settings mechanism adds and updates keys but has no removal request, and `appsettings.json` is a developer-owned file that a module pruning would be reaching outside what it owns.
 5. THE Local Transport SHALL be documented as in-process only and non-durable — it cannot carry messages between applications, and messages held in it are lost if the process stops.
 6. IF a required configuration value for the selected Transport is absent or empty at runtime, THEN the application SHALL fail at startup with an error naming the configuration section and key, and SHALL NOT fall back to the Local Transport or to any default endpoint.
 
@@ -405,7 +407,7 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 1. THE Wolverine eventing module SHALL expose an Error Handling Policy module setting with exactly four options — None, Retry, Retry with cooldown, Schedule retry — defaulting to Retry with cooldown.
 2. WHEN an Error Handling Policy is selected, THE Software Factory SHALL register that policy in the Wolverine Host Configuration and SHALL add its `appsettings.json` keys with the defaults given in the table above.
 3. WHEN an Error Handling Policy is exhausted for a message, THE application SHALL move that message to the Error Queue and SHALL NOT discard it.
-4. WHEN the Error Handling Policy setting is changed and the Software Factory is re-run, THE Software Factory SHALL replace the previous policy's registration and SHALL remove its `appsettings.json` keys.
+4. WHEN the Error Handling Policy setting is changed and the Software Factory is re-run, THE Software Factory SHALL replace the previous policy's registration so that no trace of the previous policy remains in generated code. THE previous policy's `appsettings.json` keys SHALL be left in place and THE module documentation SHALL name the keys to delete by hand, for the same reason given in R2.4.
 5. IF a delay sequence is configured as an empty list, THEN the application SHALL treat the policy as None — the first failure moves the message to the Error Queue — and SHALL NOT retry indefinitely.
 
 ### Requirement 8: Coexistence with the Wolverine CQRS module
@@ -421,6 +423,8 @@ Names are validated only for emptiness and a 250-character ceiling, which sits b
 3. WHEN both modules are installed, THE single Wolverine Host Configuration SHALL contain the CQRS module's handler discovery and this module's Transport, subscriptions, Transactional Outbox and Error Handling Policy registrations, with no duplicated and no conflicting registration.
 4. WHEN one of the two modules is uninstalled and the Software Factory is re-run, THE Software Factory SHALL remove that module's registrations from the shared Wolverine Host Configuration and SHALL leave the remaining module's registrations intact and working.
 5. WHEN only the Wolverine eventing module is installed, THE Software Factory SHALL generate a complete Wolverine Host Configuration on its own, with no dependency on `Intent.Application.Wolverine` being present.
+6. WHEN both modules are installed, THE generated project files SHALL reference exactly one version of the core WolverineFx package, so that the two modules can never resolve to different Wolverine majors in one application.
+
 
 <Callout id="imessagebus-collision" tone="risk" title="R8.3 — two different interfaces are both called IMessageBus">
 
@@ -535,12 +539,14 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 
 #### Acceptance Criteria
 
-1. THE Reference Solution SHALL consist of two applications — a publisher and a subscriber — each targeting the same .NET version as the Clean Architecture application template this module is verified against.
+1. THE Reference Solution SHALL consist of two Intent Architect applications under `Tests/` — a publisher and a subscriber — scaffolded from the Clean Architecture application template this module is verified against, and targeting the same .NET version as that template.
 2. THE Reference Solution SHALL reference the `WolverineFx` core package, plus exactly one transport package for the Transport under test, and no transport package when the Transport under test is Local.
 3. WHEN the Transactional Outbox is exercised, THE Reference Solution SHALL reference Wolverine's Entity Framework Core integration package and the durability package matching its database, and no other persistence package.
 4. THE Reference Solution SHALL declare only MIT-licensed WolverineFx and JasperFx packages and SHALL run to completion with no licence key and no licence file present, so that R10.1 is proven by the Reference Solution rather than asserted by the module.
-5. EVERY package version declared in the Reference Solution SHALL be the same version the module declares, so the Reference Solution and the generated output cannot diverge by version.
-6. EVERY artefact in the Reference Solution SHALL be hand-written; no artefact in it may be produced by the module under construction.
+5. EVERY package version declared in the Reference Solution SHALL be the same version the Wolverine modules declare for that package, so the Reference Solution and the generated output cannot diverge by version. Note that no single module declares them all — the core package and the transport and durability satellites are owned by different modules.
+6. EVERY Wolverine artefact in the Reference Solution SHALL be hand-written; no artefact produced by the Wolverine modules under construction may stand in for one. Artefacts generated by other, already-released modules — the application scaffold, the Clean Architecture layers, the Entity Framework Core DbContext, the message contracts — are permitted and expected, since the Reference Solution is scaffolded by Intent Architect before it is hand-crafted.
+7. THE Reference Solution's Integration Events, Integration Commands and subscriptions SHALL be modelled in the Services designer BEFORE its Wolverine artefacts are hand-written, so that every hand-written artefact corresponds to a modelled element the Wolverine modules will later read, rather than the model being reverse-engineered from the hand-written code.
+8. THE Reference Solution's hand-crafted state SHALL be committed to version control AND copied to a Baseline under the spec folder before any Wolverine module is installed into it, so that the comparison in R16 has an immutable counterpart to diff against.
 
 ### Requirement 16: Golden Samples and the direction of correction
 
@@ -551,11 +557,15 @@ Wolverine's own publishing interface is named `IMessageBus`, and so is the Messa
 #### Acceptance Criteria
 
 1. THE Reference Solution SHALL contain, hand-written and compiling: a Wolverine Host Configuration, one Consumer per subscribed message delegating to an `IIntegrationEventHandler<T>` implementation, an implementation of the Message Bus contract over Wolverine's own bus, and the `appsettings.json` sections given in R2.
-2. EVERY artefact listed in R16.1 SHALL be a Golden Sample corresponding to exactly one artefact the module generates, and that correspondence SHALL be recorded so each Scope B requirement names the Golden Sample it must reproduce.
+2. EVERY artefact listed in R16.1 SHALL be a Golden Sample corresponding to exactly one artefact the module generates, and that correspondence SHALL be recorded so each Scope B requirement names the Golden Sample it must reproduce. WHERE a generated artefact varies by Transport, THERE SHALL be one Golden Sample per Transport variant rather than one for the artefact as a whole.
 3. THE Reference Solution SHALL build with zero errors before any module artefact is built.
 4. WHEN the module generates against an application modelled to match the Reference Solution, THE generated output SHALL differ from the Reference Solution only in ways recorded and justified as intended.
 5. IF generated output differs from the Reference Solution in a way that is not recorded as intended, THEN the module SHALL be changed until it matches, and the Reference Solution SHALL NOT be edited to match the generated output.
-6. THE Reference Solution SHALL be exercised once per Transport, across all four, before the module is considered complete.
+6. THE Reference Solution SHALL be exercised at full R17 test depth on one non-Local Transport, and SHALL additionally prove, for each remaining Transport, only the transport registration call and the error-handling and dead-letter shape, by compiling and running a minimal path.
+7. THE permitted classes of difference under R16.4 SHALL be exactly these, and any difference outside them SHALL be treated as the module not meeting expectation: Roslyn Weaver code-management attributes; formatting normalisation; `using` directive set, order and aliasing; and member ordering within a type. A difference in emitted statements, type names, signatures, file paths or configuration values is never permitted.
+8. WHEN the Software Factory reports no changes against a hand-crafted Golden Sample, THE absence of changes SHALL be verified rather than accepted, by confirming that the module version under test is actually the version installed, that the message carries the provider designation the templates filter on, that the file is not in Intent Architect's ignored-files list, and that the file's code-management mode permits the template to write it.
+9. EVERY Transport SHALL be covered by a Test Application whose generated output is committed to version control.
+10. IF a Transport's minimal path under R16.6 reveals a transport registration or error-handling shape differing from the fully-exercised Transport, THEN that Transport SHALL be promoted to full R17 test depth in the Reference Solution before its template branch is written.
 
 ### Requirement 17: Reference Solution test coverage
 
