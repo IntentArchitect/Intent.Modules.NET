@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3281c162-3ebf-46cc-96fb-16e09f5f7679" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>OrderLine</name>
+  <display>OrderLine</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</parentFolderId>
+  <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+  <packageName>Dapper.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="auto-manage-keys" value="false" />
+  </metadata>
+  <childElements>
+    <childElement id="c71dadf8-36fe-4626-bf26-f4b8974a20bc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9f31ffbf-4943-40f7-9d4d-fa929bd4a29e">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3281c162-3ebf-46cc-96fb-16e09f5f7679</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0ee89cc4-03c4-4dd1-9631-bb3a61678adb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ProductId</name>
+      <display>ProductId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="33b06b80-cfac-4947-8a47-b96631f193ff">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3281c162-3ebf-46cc-96fb-16e09f5f7679</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f7ccf98d-a9ec-4548-8ebe-ef29f2d165c6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Quantity</name>
+      <display>Quantity: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fa661fc6-ba9f-44b2-a8ab-53e1ea9c709f">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3281c162-3ebf-46cc-96fb-16e09f5f7679</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

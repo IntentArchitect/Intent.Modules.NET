@@ -14,6 +14,8 @@ namespace Dapper.Tests.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ICustomerRepository : IDapperRepository<Customer>
     {
+        Task UpdateAsync(Customer entity, CancellationToken cancellationToken = default);
+        Task RemoveAsync(Customer entity, CancellationToken cancellationToken = default);
         Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         List<Customer> SearchCustomer(string searchTerm);
         List<CustomerSummaryDataContract> GetCustomerSummaries(string searchTerm);

@@ -44,22 +44,33 @@ namespace Intent.Modules.Dapper.Templates.EntityRepositoryInterface
 
                     @interface.RepresentsModel(model);
 
-                    @interface.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
+                    if (model.HasPks())
                     {
-                        var pks = model.GetPks();
+                        @interface.AddMethod("Task", "UpdateAsync", method => method
+                            .AddParameter(EntityName, "entity")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        );
+                        @interface.AddMethod("Task", "RemoveAsync", method => method
+                            .AddParameter(EntityName, "entity")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        );
+                        @interface.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
+                        {
+                            var pks = model.GetPks();
 
-                        if (pks.Count == 1)
-                        {
-                            var pk = pks[0];
-                            method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
-                        }
-                        else
-                        {
-                            method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
-                        }
-                        method
-                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
-                    });
+                            if (pks.Count == 1)
+                            {
+                                var pk = pks[0];
+                                method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
+                            }
+                            else
+                            {
+                                method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
+                            }
+                            method
+                                .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
+                        });
+                    }
                 });
         }
         public string EntityName => GetTypeName("Domain.Entity", Model);

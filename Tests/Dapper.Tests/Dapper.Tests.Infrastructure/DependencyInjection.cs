@@ -16,7 +16,11 @@ namespace Dapper.Tests.Infrastructure
         [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<IAuditLogEntryRepository, AuditLogEntryRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IDualGeneratedKeyEntityRepository, DualGeneratedKeyEntityRepository>();
+            services.AddTransient<IMixedKeyEntityRepository, MixedKeyEntityRepository>();
+            services.AddTransient<IOrderLineRepository, OrderLineRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

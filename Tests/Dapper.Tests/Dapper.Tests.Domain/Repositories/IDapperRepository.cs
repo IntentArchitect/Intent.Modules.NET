@@ -14,8 +14,6 @@ namespace Dapper.Tests.Domain.Repositories
     public interface IDapperRepository<TDomain>
     {
         Task AddAsync(TDomain entity, CancellationToken cancellationToken = default);
-        Task UpdateAsync(TDomain entity, CancellationToken cancellationToken = default);
-        Task RemoveAsync(TDomain entity, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
     }
 }
