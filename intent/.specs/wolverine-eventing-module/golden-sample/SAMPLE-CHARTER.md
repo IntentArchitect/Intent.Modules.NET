@@ -58,7 +58,41 @@ C12 is not decoration. Verification proved that Wolverine discovers a concrete `
 
 ---
 
-## Test list
+## Scope narrowed — D3
+
+**D3 — How much does this sample have to prove? A SIMPLE NON-TRANSACTIONAL PATTERN, and no more.**
+
+Developer decision, quoted: _"we're not busy testing every thing scenario here. we just want a simple non-transactional-outbox sample that will give us a rough idea what the pattern will look like when integrated into clean architecture"_, and on the test harness: _"what is this ReferenceSolutionFixture test? Looks completely unnecessary and a huge hindrance."_
+
+Acted on. `Tests/Wolverine.Reference.Tests` is **deleted**, and with it the Testcontainers dependency, the `extern alias Sub` scheme, the `ObservingHandler`/`AlwaysThrowingHandler` doubles and the `.slnx`. The sample is now two Intent applications carrying hand-written Wolverine artefacts that build clean, in the module's default configuration: RabbitMQ, Transactional Outbox = None, auto-provision, retry with cooldown.
+
+**Consequence, recorded rather than glossed:** with no automated test there is no automated gate for G0 #2 and #3. The runtime evidence for this sample is the probe recorded below plus manual verification. The test list that used to be here — T-1 to T-7, including the transaction-boundary and error-queue tests — is **descoped**, not deferred silently. If the outbox, error handling or the remaining three transports are ever brought into scope, those tests come back with them.
+
+**Do not share libraries between Intent applications.** An earlier draft of this charter floated a shared contracts project to dodge the CS0433 collision below. That is wrong and is retracted: Intent deliberately gives each application its own copy of the message contracts, matched across the wire by type name, and coupling two applications' solutions to suit a test harness would have distorted the sample away from what every real consumer gets.
+
+### Runtime evidence
+
+One probe, run against WolverineFx 5.39.5 and a real RabbitMQ container, exercising the shipped `WolverineEventingConfiguration` and `WolverineMessageBus` verbatim:
+
+- **DELIVERED.** Publisher → RabbitMQ exchange `order-shipped-event` → bound queue → the generated `OrderShippedEventConsumer` → `IIntegrationEventHandler<OrderShippedEvent>`, with no database anywhere.
+
+Two faults were found and fixed getting there, both of which the templates would otherwise have reproduced:
+
+1. **Missing handler discovery.** `WolverineOptions.ApplicationAssembly` is the entry assembly (`*.Api`); the Consumers live in `*.Infrastructure`. Without `options.Discovery.IncludeAssembly(...)` Wolverine logs _"found no handlers"_ and no Consumer is ever invoked — in the shipped application, not merely under test.
+2. **Outbox=None is the absence of a message store, not a mode.** `DurabilityMode.MediatorOnly` is emphatically _not_ how to express it: it disables external messaging and makes `PublishAsync` throw.
+
+### The co-hosting constraint (carry into the design)
+
+Two Intent applications that share message contract namespaces **cannot be hosted in one process** under Wolverine:
+
+```
+CS0433: The type 'OrderShippedEvent' exists in both
+  'Wolverine.Publish.RabbitMQ.Application' and 'Wolverine.Subscribe.RabbitMQ.Application'
+```
+
+Wolverine compiles its handler wrappers at runtime, emitting source that names the message type. Each application generates its own copy of the contract under the publisher's namespace — correct, and what makes names match on the wire — so in a single process that name is ambiguous and codegen fails. An `extern alias` cannot rescue it: the ambiguous source is Wolverine's, not ours. This is the reason the deleted fixture could never have worked, and it constrains any future in-process integration test.
+
+## Descoped test list (retained for reference)
 
 Every test boots the sample's **real** startup path — `Program`/`WebApplication.CreateBuilder` and the application's own `AddApplication`/`AddInfrastructure`/`UseWolverine` chain. A test that constructs its own host with `Host.CreateDefaultBuilder()` and re-registers DI by hand does not count for this gate, and that is what the current four tests do.
 

@@ -1,9 +1,0 @@
-<Solution>
-  <Project Path="../Wolverine.Publish.RabbitMQ/Wolverine.Publish.RabbitMQ.Application/Wolverine.Publish.RabbitMQ.Application.csproj" />
-  <Project Path="../Wolverine.Publish.RabbitMQ/Wolverine.Publish.RabbitMQ.Domain/Wolverine.Publish.RabbitMQ.Domain.csproj" />
-  <Project Path="../Wolverine.Publish.RabbitMQ/Wolverine.Publish.RabbitMQ.Infrastructure/Wolverine.Publish.RabbitMQ.Infrastructure.csproj" />
-  <Project Path="../Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.Application/Wolverine.Subscribe.RabbitMQ.Application.csproj" />
-  <Project Path="../Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.Domain/Wolverine.Subscribe.RabbitMQ.Domain.csproj" />
-  <Project Path="../Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.Infrastructure/Wolverine.Subscribe.RabbitMQ.Infrastructure.csproj" />
-  <Project Path="Wolverine.Reference.Tests.csproj" />
-</Solution>
