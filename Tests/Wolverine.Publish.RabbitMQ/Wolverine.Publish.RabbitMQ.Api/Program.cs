@@ -1,11 +1,13 @@
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
+using Wolverine;
 using Wolverine.Publish.RabbitMQ.Api.Configuration;
 using Wolverine.Publish.RabbitMQ.Api.Filters;
 using Wolverine.Publish.RabbitMQ.Api.Logging;
 using Wolverine.Publish.RabbitMQ.Application;
 using Wolverine.Publish.RabbitMQ.Infrastructure;
+using Wolverine.Publish.RabbitMQ.Infrastructure.Configuration;
 using Wolverine.Publish.RabbitMQ.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,12 +30,6 @@ namespace Wolverine.Publish.RabbitMQ.Api
             {
                 var builder = WebApplication.CreateBuilder(args);
 
-                // Add services to the container.
-                builder.Host.UseSerilog((context, services, configuration) => configuration
-                    .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
-
                 builder.Services.AddControllers(
                     opt =>
                     {
@@ -52,7 +48,17 @@ namespace Wolverine.Publish.RabbitMQ.Api
                 // directive on Main - without it the Intent.AspNetCore.Program template rebuilds
                 // this body wholesale and strips the line. Comments above the attribute are NOT
                 // protected by Body = Mode.Merge, which is why this note lives inside the body.
-                builder.Host.UseWolverine(opts => WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration));
+                builder.Host.UseWolverine(opts =>
+                {
+                    WolverineConfiguration.Configure(opts);
+                    WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
+                });
+
+                // Add services to the container.
+                builder.Host.UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 var app = builder.Build();
 
@@ -73,9 +79,9 @@ namespace Wolverine.Publish.RabbitMQ.Api
             }
             catch (HostAbortedException)
             {
-            // Excluding HostAbortedException from being logged, as this is an expected
-            // exception when working with EF Core migrations (as per the .NET team on the below link)
-            // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
+                // Excluding HostAbortedException from being logged, as this is an expected
+                // exception when working with EF Core migrations (as per the .NET team on the below link)
+                // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
             }
             catch (Exception ex)
             {

@@ -13,11 +13,11 @@
     <file>
       <correlationId>Intent.AspNetCore.Program#715f51bf-2dba-48c1-9c63-b1ff9b85c8df</correlationId>
       <path>Wolverine.Subscribe.RabbitMQ.Api/Program.cs</path>
-      <count>2</count>
+      <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-21T20:40:24.0876287Z</updatedAt>
-      <deviationsHash>1F72DAFFC04510F3870F004FD26250648070070D47497458984C0FD5B9F8002E</deviationsHash>
+      <updatedAt>2026-08-22T14:45:55.5060208Z</updatedAt>
+      <deviationsHash>5725E8CF27F4CB2954354DB1ABBD74BEAC6B78F571936B1056DB977B685E0052</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#029f0068-52e2-4cae-879b-e6a49c534b51</correlationId>

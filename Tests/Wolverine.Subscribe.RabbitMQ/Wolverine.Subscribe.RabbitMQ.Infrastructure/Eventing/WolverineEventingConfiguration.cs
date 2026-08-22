@@ -14,14 +14,19 @@ namespace Wolverine.Subscribe.RabbitMQ.Infrastructure.Eventing
 
         public static void ConfigureRabbitMq(WolverineOptions options, IConfiguration configuration)
         {
-            // C12 / assumption a2. Wolverine discovers a concrete <Message>Consumer by naming
-            // convention, but ONLY in assemblies it scans, and WolverineOptions.ApplicationAssembly
-            // is the entry assembly - the .Api project here. The Consumers live in this
-            // .Infrastructure assembly, so without this call Wolverine logs "found no handlers",
-            // every listener receives messages that route nowhere, and no Integration Event Handler
-            // is ever invoked. Verified against WolverineFx 5.39.5: default discovery yields 0
-            // handler chains, IncludeAssembly yields 2 (one per Consumer).
-            options.Discovery.IncludeAssembly(typeof(OrderShippedEventConsumer).Assembly);
+            // Extend handler discovery to this Infrastructure assembly, where the Consumers live.
+            //
+            // Two separate reasons it is needed, and neither is covered elsewhere:
+            //   1. WolverineOptions.ApplicationAssembly is the ENTRY assembly - the .Api project -
+            //      so Infrastructure is not scanned by default. Verified against 5.39.5: default
+            //      discovery yields 0 handler chains here; this call yields 2, one per Consumer.
+            //   2. Intent.Application.Wolverine's generated WolverineConfiguration includes only
+            //      the Application assembly (typeof(ICommand).Assembly), so installing the CQRS
+            //      module does not cover this either.
+            //
+            // Without it Wolverine logs "found no handlers", listeners receive messages that route
+            // nowhere, and no Integration Event Handler is ever invoked.
+            options.Discovery.IncludeAssembly(typeof(WolverineEventingConfiguration).Assembly);
 
             var rabbitMqSection = configuration.GetSection("Wolverine:RabbitMq");
             var host = rabbitMqSection["Host"] ?? "localhost";

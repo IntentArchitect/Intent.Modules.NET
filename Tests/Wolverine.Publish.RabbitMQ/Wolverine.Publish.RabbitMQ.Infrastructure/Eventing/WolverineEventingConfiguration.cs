@@ -1,8 +1,11 @@
 using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Wolverine;
 using Wolverine.ErrorHandling;
+using Wolverine.Publish.RabbitMQ.Application.Common.Interfaces;
+using Wolverine.Publish.RabbitMQ.Infrastructure.Dispatch.Middleware;
 using Wolverine.RabbitMQ;
 
 namespace Wolverine.Publish.RabbitMQ.Infrastructure.Eventing
@@ -39,6 +42,21 @@ namespace Wolverine.Publish.RabbitMQ.Infrastructure.Eventing
             // is the absence of configuration rather than a mode setting - and note that
             // DurabilityMode.MediatorOnly is NOT the way to express it: that disables external
             // messaging entirely and makes PublishAsync throw.
+
+            // Extend handler discovery to the Infrastructure assembly. Intent.Application.Wolverine's
+            // generated WolverineConfiguration includes only the Application assembly
+            // (typeof(ICommand).Assembly), but the eventing module's Consumers - and this Dispatch
+            // pipeline - live in Infrastructure. Verified against 5.39.5: without this, discovery
+            // reports "found no handlers" for anything in Infrastructure.
+            options.Discovery.IncludeAssembly(typeof(WolverineEventingConfiguration).Assembly);
+
+            // The eventing module registers its own flush middleware into the Dispatch pipeline.
+            // It cannot go in ApplicationHandlerPolicy, which Intent.Application.Wolverine owns and
+            // regenerates wholesale; registering it here keeps it with the module that needs it.
+            options.Policies.AddMiddleware<MessageBusPublishMiddleware>(
+                chain => typeof(ICommand).IsAssignableFrom(chain.MessageType));
+            options.Services.AddTransient<MessageBusPublishMiddleware>();
+
             ConfigureErrorHandling(options, configuration);
         }
 

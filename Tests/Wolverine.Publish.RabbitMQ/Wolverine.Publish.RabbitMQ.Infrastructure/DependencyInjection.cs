@@ -2,9 +2,11 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wolverine.Publish.RabbitMQ.Application.Common.Interfaces;
 using Wolverine.Publish.RabbitMQ.Domain.Common.Interfaces;
 using Wolverine.Publish.RabbitMQ.Infrastructure.Eventing;
 using Wolverine.Publish.RabbitMQ.Infrastructure.Persistence;
+using Wolverine.Publish.RabbitMQ.Infrastructure.Services;
 using ContractsMessageBus = Wolverine.Publish.RabbitMQ.Application.Common.Eventing.IMessageBus;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -25,7 +27,7 @@ namespace Wolverine.Publish.RabbitMQ.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddScoped<ContractsMessageBus, WolverineMessageBus>();
+            services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
     }

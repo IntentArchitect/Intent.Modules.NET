@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5f41ad68-0f88-45b1-a84f-7358ebff97ff" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Services</name>
+  <display>Services</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b1f8ae91-b995-492d-a0bd-0f43df5af81e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b59aa2f1-0789-47ab-baf4-f7055b68f862" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.DomainEvents.DomainEventService</name>
+      <display>Intent.Application.Wolverine.DomainEvents.DomainEventService</display>
+      <externalReference>Intent.Application.Wolverine.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5f41ad68-0f88-45b1-a84f-7358ebff97ff</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

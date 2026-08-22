@@ -1,20 +1,19 @@
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Wolverine.Publish.RabbitMQ.Application.Common.Eventing;
 using Wolverine.Publish.RabbitMQ.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Application.Wolverine.CommandHandler", Version = "1.0")]
 
 namespace Wolverine.Publish.RabbitMQ.Application.RequestOrderProcessing
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RequestOrderProcessingCommandHandler : IRequestHandler<RequestOrderProcessingCommand>
+    public class RequestOrderProcessingCommandHandler
     {
-        private readonly IMessageBus _messageBus;
+        private readonly global::Wolverine.Publish.RabbitMQ.Application.Common.Eventing.IMessageBus _messageBus;
 
         [IntentManaged(Mode.Merge)]
-        public RequestOrderProcessingCommandHandler(IMessageBus messageBus)
+        public RequestOrderProcessingCommandHandler(global::Wolverine.Publish.RabbitMQ.Application.Common.Eventing.IMessageBus messageBus)
         {
             _messageBus = messageBus;
         }
