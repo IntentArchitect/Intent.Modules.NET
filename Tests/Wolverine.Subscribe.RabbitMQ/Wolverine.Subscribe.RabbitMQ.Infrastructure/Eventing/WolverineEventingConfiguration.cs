@@ -2,10 +2,8 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
-using Wolverine.EntityFrameworkCore;
 using Wolverine.ErrorHandling;
 using Wolverine.RabbitMQ;
-using Wolverine.SqlServer;
 
 namespace Wolverine.Subscribe.RabbitMQ.Infrastructure.Eventing
 {
@@ -46,12 +44,9 @@ namespace Wolverine.Subscribe.RabbitMQ.Infrastructure.Eventing
             options.ListenToRabbitQueue(OrderShippedEventQueue);
             options.ListenToRabbitQueue(ProcessOrderCommandQueue);
 
-            var connectionString = configuration.GetConnectionString("DefaultConnection")
-                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
-
-            options.PersistMessagesWithSqlServer(connectionString, "wolverine");
-            options.UseEntityFrameworkCoreTransactions();
-
+            // Transactional Outbox = None, the module's default. No message store is configured at
+            // all, so Wolverine uses buffered (non-durable) endpoints and needs no database. With
+            // no inbox, R6.5's at-most-once guarantee does not apply in this configuration.
             ConfigureErrorHandling(options, configuration);
         }
 

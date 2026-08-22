@@ -68,6 +68,6 @@
   <file path="Wolverine.Subscribe.RabbitMQ.Infrastructure/Migrations/README.md" />
   <file path="Wolverine.Subscribe.RabbitMQ.Infrastructure/Persistence/ApplicationDbContext.cs" />
   <file path="Wolverine.Subscribe.RabbitMQ.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Wolverine.Subscribe.RabbitMQ.Infrastructure/Wolverine.Subscribe.RabbitMQ.Infrastructure.csproj" deviationsHash="895E527DF88C6AF7ED8DEA19BF03E14B729C36139D41D8EE617A2FBA239A52B0" />
+  <file path="Wolverine.Subscribe.RabbitMQ.Infrastructure/Wolverine.Subscribe.RabbitMQ.Infrastructure.csproj" />
   <file path="Wolverine.Subscribe.RabbitMQ.sln" />
 </managedFiles>

@@ -28,14 +28,5 @@
       <updatedAt>2026-08-21T16:04:18.2575714Z</updatedAt>
       <deviationsHash>8100946D8CC7DBE9389614A62E5522C629062123390814838D681EF0E719EBA8</deviationsHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#b1f8ae91-b995-492d-a0bd-0f43df5af81e</correlationId>
-      <path>Wolverine.Subscribe.RabbitMQ.Infrastructure/Wolverine.Subscribe.RabbitMQ.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-21T16:04:18.257603Z</updatedAt>
-      <deviationsHash>895E527DF88C6AF7ED8DEA19BF03E14B729C36139D41D8EE617A2FBA239A52B0</deviationsHash>
-    </file>
   </files>
 </deviationsLog>
