@@ -5,6 +5,7 @@
   <file path=".agents/instructions/exception-guidelines.instructions.md" />
   <file path=".agents/instructions/known-build-gotchas.instructions.md" />
   <file path=".agents/instructions/module-building-workflow.instructions.md" />
+  <file path=".agents/instructions/sdd-wave-evidence.instructions.md" />
   <file path=".agents/skills/add-association-type/SKILL.md" />
   <file path=".agents/skills/add-association-type/resources/association-type-workflow.md" />
   <file path=".agents/skills/add-designer-extension/SKILL.md" />
@@ -35,11 +36,13 @@
   <file path=".agents/skills/module-svg-icon/SKILL.md" />
   <file path=".agents/skills/module-version-increment/SKILL.md" />
   <file path=".agents/skills/module-versioning/SKILL.md" />
+  <file path=".agents/skills/sdd-golden-sample/SKILL.md" />
   <file path=".claude/agents/build-module-sdd.agent.md" />
   <file path=".claude/instructions/csharp-guidelines.md" />
   <file path=".claude/instructions/exception-guidelines.instructions.md" />
   <file path=".claude/instructions/known-build-gotchas.instructions.md" />
   <file path=".claude/instructions/module-building-workflow.instructions.md" />
+  <file path=".claude/instructions/sdd-wave-evidence.instructions.md" />
   <file path=".claude/skills/add-association-type/SKILL.md" />
   <file path=".claude/skills/add-association-type/resources/association-type-workflow.md" />
   <file path=".claude/skills/add-designer-extension/SKILL.md" />
@@ -70,4 +73,5 @@
   <file path=".claude/skills/module-svg-icon/SKILL.md" />
   <file path=".claude/skills/module-version-increment/SKILL.md" />
   <file path=".claude/skills/module-versioning/SKILL.md" />
+  <file path=".claude/skills/sdd-golden-sample/SKILL.md" />
 </managedFiles>

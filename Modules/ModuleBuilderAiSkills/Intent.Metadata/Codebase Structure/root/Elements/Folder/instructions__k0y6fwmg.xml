@@ -147,5 +147,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="6425787e-c81c-48e5-8a7e-aeb6914bbcda" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</name>
+      <display>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</display>
+      <externalReference>Intent.ModuleBuilder.AI.SDD</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>754c6af6-e97f-47f2-9dbf-c95af4fb09cf</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

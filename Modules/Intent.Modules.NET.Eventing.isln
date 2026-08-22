@@ -7,6 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.17" />
   <applications>
     <application id="8c05ab5b-e166-4c12-8c8c-5c230905057a" name="Intent.Modules.Eventing.MassTransit" solutionFolder="Modules/MassTransit" relativePath="Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.application.config" />
     <application id="b989913b-9bcd-478b-9134-e53553efd5f8" name="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore" solutionFolder="Modules/MassTransit" relativePath="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore/Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.application.config" />
@@ -63,5 +64,7 @@
     <application id="31ac754c-9bd6-45cf-9eff-adc02d98f105" name="AzureFunction.QueueStorage" solutionFolder="Tests" relativePath="../Tests/AzureFunction.QueueStorage/AzureFunction.QueueStorage.application.config" />
     <application id="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" name="CompositeMessageBus" solutionFolder="Tests" relativePath="../Tests/CompositeMessageBus/CompositeMessageBus.application.config" />
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Tests" relativePath="../Tests/EventingSubscribers/EventingSubscribers.application.config" />
+    <application id="c1acd605-e4fa-43a0-805e-953e79a3e186" name="Wolverine.Publish.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/Wolverine.Publish.RabbitMQ/Wolverine.Publish.RabbitMQ.application.config" />
+    <application id="3b8ef40e-ca9a-4bbd-bcfe-d3eacc3dfebd" name="Wolverine.Subscribe.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.application.config" />
   </applications>
 </solution>
