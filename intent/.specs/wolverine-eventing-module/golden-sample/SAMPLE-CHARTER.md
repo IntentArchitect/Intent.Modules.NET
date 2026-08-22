@@ -66,15 +66,34 @@ Developer decision, quoted: _"we're not busy testing every thing scenario here. 
 
 Acted on. `Tests/Wolverine.Reference.Tests` is **deleted**, and with it the Testcontainers dependency, the `extern alias Sub` scheme, the `ObservingHandler`/`AlwaysThrowingHandler` doubles and the `.slnx`. The sample is now two Intent applications carrying hand-written Wolverine artefacts that build clean, in the module's default configuration: RabbitMQ, Transactional Outbox = None, auto-provision, retry with cooldown.
 
-**Consequence, recorded rather than glossed:** with no automated test there is no automated gate for G0 #2 and #3. The runtime evidence for this sample is the probe recorded below plus manual verification. The test list that used to be here — T-1 to T-7, including the transaction-boundary and error-queue tests — is **descoped**, not deferred silently. If the outbox, error handling or the remaining three transports are ever brought into scope, those tests come back with them.
+**Consequence, recorded rather than glossed:** with no automated test there is no automated _gate_ for G0 #2 and #3 — nothing fails a build if this regresses. The runtime evidence is the real-host verification recorded below, reproducible in minutes by the runbook at the end of this document. The test list that used to be here — T-1 to T-7, including the transaction-boundary test — is **descoped**, not deferred silently. If the outbox, error handling or the remaining three transports are ever brought into scope, those tests come back with them.
 
 **Do not share libraries between Intent applications.** An earlier draft of this charter floated a shared contracts project to dodge the CS0433 collision below. That is wrong and is retracted: Intent deliberately gives each application its own copy of the message contracts, matched across the wire by type name, and coupling two applications' solutions to suit a test harness would have distorted the sample away from what every real consumer gets.
 
-### Runtime evidence
+### Runtime evidence — real host, docker RabbitMQ, separate processes
 
-One probe, run against WolverineFx 5.39.5 and a real RabbitMQ container, exercising the shipped `WolverineEventingConfiguration` and `WolverineMessageBus` verbatim:
+Verified against WolverineFx 5.39.5 with `docker run rabbitmq:3.13-management`, no database anywhere. The subscriber ran as its **own real ASP.NET host** (`dotnet run` on `Wolverine.Subscribe.RabbitMQ.Api`, i.e. `Program.Main`), and the publisher published from a **separate process** using the sample's own `WolverineEventingConfiguration` and `WolverineMessageBus` verbatim. Separate processes is both the production topology and the reason the CS0433 collision below cannot arise.
 
-- **DELIVERED.** Publisher → RabbitMQ exchange `order-shipped-event` → bound queue → the generated `OrderShippedEventConsumer` → `IIntegrationEventHandler<OrderShippedEvent>`, with no database anywhere.
+What the subscriber's real host did on startup, from its own log:
+
+- discovered handlers by scanning `Wolverine.Subscribe.RabbitMQ.Infrastructure` — the `Discovery.IncludeAssembly` fix working where it actually matters, in the shipped host
+- auto-provisioned the topology: exchange `order-shipped-event` (fanout), queue `wolverine-subscribe-rabbitmq-order-shipped-event` with its binding, queue `process-order-command`, plus `wolverine-dead-letter-queue` and its exchange and binding
+- started listening on both queues; RabbitMQ reported 1 consumer on each
+
+What happened when the publisher published one Integration Event and sent one Integration Command:
+
+| Behaviour                                                    | Evidence                                                                                                                                                    | Requirement |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| Event published fan-out to its Topic Name                    | Arrived on the bound queue                                                                                                                                  | R3.1, R3.2  |
+| Command sent point-to-point to its Destination Queue         | Arrived on `process-order-command`                                                                                                                          | R4.1, R4.2  |
+| Generated Consumer received it and delegated to the handler  | Stack shows `Internal.Generated.WolverineHandlers.OrderShippedEventHandler861627025` → `OrderShippedEventConsumer` → `OrderShippedEventHandler.HandleAsync` | R5.1, R5.2  |
+| Handler failure surfaced to the policy, not swallowed        | The scaffold stub's `NotImplementedException` propagated                                                                                                    | R5.6        |
+| Retry with cooldown on the configured schedule               | Attempts at `11:27:49`, `11:27:50`, `11:27:55` — the `00:00:01, 00:00:05, 00:00:15` sequence                                                                | R7.2        |
+| Exhausted message retained on the Error Queue, not discarded | `wolverine-dead-letter-queue` went to 2 messages; both working queues returned to 0                                                                         | R7.3        |
+
+The handler bodies are still the generated `throw new NotImplementedException` stubs, and that is what makes this evidence unambiguous: reaching the stub proves the whole chain — transport, generated Consumer, DI resolution, hand-written handler — without a single test double in it.
+
+Two faults were found and fixed getting here, both of which the templates would otherwise have reproduced:
 
 Two faults were found and fixed getting there, both of which the templates would otherwise have reproduced:
 
@@ -185,6 +204,36 @@ The residual risk is specific. The module's templates will be calibrated against
 The surface still pushes at the skill's L-split tripwires, so the variant table above is what holds it to a gate-sized shape: three variants at full runtime depth, three explicitly compile-only. If the compile-only work uncovers a diverging error-handling or dead-letter shape, R16.10 promotes that transport rather than quietly widening this sample.
 
 ---
+
+## Runbook — reproduce the runtime verification
+
+No test project, no Testcontainers. Three terminals and about two minutes.
+
+**1. Broker.** The default `appsettings.json` already points at `localhost:5672` with `guest`/`guest`, so nothing needs configuring.
+
+```
+docker run -d --name wolv-rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
+```
+
+**2. Subscriber.** Its real host, which is the point — this is `Program.Main`, not a test-constructed host.
+
+```
+dotnet run --project Tests/Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.Api
+```
+
+Expect in its log: `Searching assembly Wolverine.Subscribe.RabbitMQ.Infrastructure ... for Wolverine message handlers`, the `Declared Rabbit MQ queue`/`binding` lines, then `Started message listening at rabbitmq://queue/...` for both queues. If the discovery line names only the `.Api` assembly, `Discovery.IncludeAssembly` has been lost and nothing will ever be consumed.
+
+**3. Publish.** Trigger `ShipOrderCommand` on the publisher (it is modelled with a Publish Integration Event association, so `ShipOrderCommandHandler` publishes `OrderShippedEvent` and `MessageBusPublishBehaviour` flushes it). The publisher currently exposes no HTTP endpoint, so either add one or drive the bus from a short console host that calls `WolverineEventingConfiguration.ConfigureRabbitMq` and resolves the contracts `IMessageBus`. **Run it as its own process** — see the CS0433 constraint above; co-hosting it with the subscriber cannot work.
+
+**4. What success looks like.** The subscriber logs `Failed to process message ... System.NotImplementedException: Implement your handler logic here...` with a stack running through `Internal.Generated.WolverineHandlers.*` → `<Message>Consumer` → the hand-written handler. That exception **is** the pass: the handler bodies are still generated stubs, so reaching one proves transport, Consumer, DI resolution and handler dispatch with no test double anywhere. Then watch the retry cadence match the configured delays, and:
+
+```
+docker exec wolv-rabbit rabbitmqctl -q list_queues name messages consumers
+```
+
+Once retries are exhausted, `wolverine-dead-letter-queue` holds the messages and the working queues return to 0.
+
+**5. Tidy up.** `docker rm -f wolv-rabbit`
 
 ## What approval of this charter authorises
 
