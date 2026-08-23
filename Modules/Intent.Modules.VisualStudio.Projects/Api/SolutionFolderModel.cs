@@ -6,6 +6,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Modelers.CodebaseStructure.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -14,7 +15,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class SolutionFolderModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
+    public class SolutionFolderModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IAllowsCustomFileClassificationModel
     {
         public const string SpecializationType = "Solution Folder";
         protected readonly IElement _element;

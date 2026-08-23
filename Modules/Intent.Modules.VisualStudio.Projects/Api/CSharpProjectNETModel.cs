@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Modelers.CodebaseStructure.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,7 +18,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class CSharpProjectNETModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper
+    public class CSharpProjectNETModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper, IAllowsCustomFileClassificationModel
     {
         public const string SpecializationType = "C# Project (.NET)";
         public const string SpecializationTypeId = "8e9e6693-2888-4f48-a0d6-0f163baab740";
