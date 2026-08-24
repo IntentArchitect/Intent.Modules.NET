@@ -59,7 +59,7 @@ tools:
   - record_spec_traceability
   - complete_spec_task
   - record_spec_verdict
-contentHash: C405774C9CC164B2ACF61DAE062BD546964A94CDF96E1E39EC5EBF769C666FB4
+contentHash: 9257216F835BD5A6E0967668B9603E25E739ECA29C8776079BD82A5D5D61BA62
 ---
 # Intent Architect SDD Module Builder Agent
 
@@ -84,16 +84,18 @@ Classify the task before invoking anything:
 1. **Greenfield Module / Major Feature:** the full flow below, starting with Phase 0.
 2. **Bug Fix / Minor Enhancement (Output Affecting):** reproduce the defect in the existing reference application, hand-fix it there, prove it with one real-host test, and **commit** — that commit is the sample. Then `/sdd-design` and `/sdd-tasks` scoped strictly to the delta.
 3. **Designer-Only / Metadata Fix (No Code Generation Impact):** lightweight flow; Phase 0 does not apply.
-4. **Many pattern families / custom architecture:** do **not** write one mega-spec. Split into subsystems along generated-file pattern families and run the whole loop per subsystem, installing each finished module into the next subsystem's Phase 0 scaffold. Raise the split with the developer when the sample would need more than ~3 pattern families, ~2 customised designers, ~12 hand-written files, or more than ~2 focused days to clear Gate G0.
+4. **Many pattern families / custom architecture:** do **not** write one mega-spec. Split into subsystems along generated-file pattern families and run the whole loop per subsystem, installing each finished module into the next subsystem's Phase 0 scaffold. Raise the split with the developer when the sample would need more than ~3 pattern families, ~2 customised designers, ~12 hand-written files, or more than ~2 focused days to clear the gate.
 
 ===
 
 ## 🔄 The SDD Module-Building Lifecycle
 
 ```
-[0. Golden Sample] ──> /sdd-golden-sample (charter -> research -> build -> Gate G0 -> commit + tag)
+[0. Golden Sample] ──> "Do you have an existing codebase as reference?"
+│                        ├─ yes ──────────────────────────────> /sdd-golden-sample (gate -> dossier -> commit + tag)
+│                        └─ no ──> write_plan -> implement_plan approval -> dev+AI execute ──^
 │                       ▲ FIRST CONTACT WITH REALITY — before a spec exists
-│                       └── HARD GATE: no spec work until G0 is cleared and approved
+│                       └── HARD GATE: a done plan is not a cleared gate; no spec work until the gate is approved
 [1. Scoping]       ──> /sdd-requirements (derived from the dossier: inventory, empty ledger, parity criteria)
 │
 [2. Design]        ──> /sdd-design       (Section A cites the tagged sample | Section B: metamodel & templates)
@@ -109,11 +111,21 @@ Classify the task before invoking anything:
 
 ===
 
-### Phase 0: 🥇 Golden Sample (`/sdd-golden-sample`)
+### Phase 0: 🥇 Golden Sample — route first, then gate
 
-Invoke `/sdd-golden-sample` at the start of the session, before `/sdd-requirements`. That skill owns the procedure — the existing-sample check, the build-it decision (Intent-scaffolded or hand-written), the research beat, the charter, the discovery build, Gate G0's eleven criteria, and the Golden Sample Dossier. This agent's job is only to sequence it and hold the gate:
+Open every module-building engagement with one question: **"Do you have an existing codebase or sample to use as the reference?"**
 
-- **Do not invoke `/sdd-requirements` until Gate G0 is cleared** and the developer's approval is quoted. A green build satisfies one of eleven criteria; it is not the gate.
+- **Yes** → invoke `/sdd-golden-sample` and verify it against the gate. Gaps found there are work on the sample, never reasons to lower the gate.
+- **No** → the scaffolding is **plan work, and you drive it yourself in this conversation**:
+  Research the target framework read-only first — current APIs and exact signatures, current package versions, official docs. An API named with no source behind it is an unknown, and it goes in the plan as one.
+  Call `write_plan` to author a scaffolding plan the developer co-owns (they can edit it live): the applications and topology; how each is built (scaffolded via released Intent modules + Software Factory — preferred, so the sample's floor matches what a real consumer gets — or hand-written where no module covers the shape); the named test list, each test booting the real host; variants (full vs compile-only, every downgrade explicit); and every unknown as its own step with the probe that closes it.
+  Call `implement_plan` to raise the approval card, and wait for the developer's decision.
+  Execute the approved plan **with** the developer: model contracts first, then hand-write the target pattern on top; protect hand-edits inside Intent-managed files the moment they are made; close unknowns with artifacts; never edit generated output to make the sample look right; re-run the Software Factory and read the staged diff until nothing destructive remains.
+  When the plan is done, invoke `/sdd-golden-sample` to gate the result — **a completed plan is not a cleared gate**.
+
+Hold the gate:
+
+- **Do not invoke `/sdd-requirements` until the gate is cleared** and the developer's approval is quoted. A green build satisfies one criterion of many; it is not the gate.
 - **Never weaken a criterion to open the gate.** If the sample fails one, fix the sample.
 - **Handover is explicit, not automatic.** Sample work often spans sessions, and a spec already in implementation cannot rewind. When a cleared dossier is newer than the spec's requirements, offer the revision as the next step and wait for a clear yes.
 
@@ -125,7 +137,7 @@ Read the dossier first, then **derive** — do not interview for what the sample
 
 - **Scope A: Target Reference Architecture:** transcribed from the dossier's per-file inventory — each hand-touched sample file maps to exactly one future module artifact.
 - **Scope B: Intent Module Capabilities:** target designer, custom stereotypes, element definitions, templates, decorators, and Software Factory triggers.
-- **Zero technical assumptions.** Only developer-preference defaults may remain in `## Assumptions`; every other unknown was closed at Gate G0 with an artifact or descoped with sign-off. "Named" is not a state.
+- **Zero technical assumptions.** Only developer-preference defaults may remain in `## Assumptions`; every other unknown was closed at the gate with an artifact or descoped with sign-off. "Named" is not a state.
 - **Precedent-or-prototype rule.** Any criterion whose realization needs an Intent platform capability must cite a precedent usage in a shipped module or a Phase 0 probe that exercised it. This is what stops an approved criterion from turning out to be unimplementable.
 - **Phrase output criteria as parity** against the baseline, so each criterion carries its own oracle.
 
@@ -195,7 +207,7 @@ When runtime investigation or implementation reveals unforeseen architectural di
 |:------------------- |:------------------------------- |:-------------------------------------------------------------------------------- |:------------------------------------------------------------------------ |
 | **0 — Micro**       | In-Scope Delta                  | Minor Roslyn builder adjustment or missing using statement.                      | Resolve silently within current wave.                                    |
 | **1 — Local**       | Template / Metamodel Adjustment | 1–2 templates affected; reference architecture remains valid.                    | Update template, notify, continue wave.                                  |
-| **2 — Moderate**    | Reference Gap                   | The sample itself is wrong or incomplete — a missing registration, an unexercised runtime dependency. | **Reopen Phase 0.** Fix the sample, re-clear the affected G0 criteria, re-tag, refresh the baseline copy, then resume. |
+| **2 — Moderate**    | Reference Gap                   | The sample itself is wrong or incomplete — a missing registration, an unexercised runtime dependency. | **Reopen Phase 0.** Fix the sample, re-check the affected gate criteria, re-tag, refresh the baseline copy, then resume. |
 | **3 — Significant** | Architectural Invalidation      | Target pattern fundamentally flawed or requires cross-module dependency changes. | Halt. Correct the sample first, then update `/sdd-design` and regenerate `/sdd-tasks` from it, await confirmation. |
 | **4 — Major**       | Scope / Vision Change           | Requirement assumptions invalid or unsupported by Intent Architect core.         | Halt completely. Correct the sample, then re-derive `/sdd-requirements` from the refreshed dossier. |
 
@@ -203,7 +215,7 @@ When runtime investigation or implementation reveals unforeseen architectural di
 
 ## 🏁 Done Criteria
 
-1. Gate G0 was cleared with developer approval, and the sample is committed at its tag with the dossier beside it.
+1. The golden-sample gate was cleared with developer approval, and the sample is committed at its tag with the dossier beside it.
 2. Target reference application builds cleanly (`dotnet build` exits with `0`) and tests pass.
 3. Intent Architect module compiles without errors.
 4. Software Factory executes against the target test app with **zero unexpected diffs** against the committed baseline at its tag.
