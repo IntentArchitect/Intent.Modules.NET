@@ -66,5 +66,6 @@
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Tests" relativePath="../Tests/EventingSubscribers/EventingSubscribers.application.config" />
     <application id="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" name="WolverineEventing.Publish.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/WolverineEventing.Publish.RabbitMQ/WolverineEventing.Publish.RabbitMQ.application.config" />
     <application id="e74b3878-7b44-403c-a208-ec678c431940" name="WolverineEventing.Subscribe.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/WolverineEventing.Subscribe.RabbitMQ/WolverineEventing.Subscribe.RabbitMQ.application.config" />
+    <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" solutionFolder="AI Skills" relativePath="ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
   </applications>
 </solution>
