@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="08d2e1f0-42a5-48b1-95a6-4f20e6a1eaf0" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Eventing Integration</name>
+  <display>Eventing Integration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ce37afcc-6081-46bd-847d-4dfa94f84fc8</parentFolderId>
+  <packageId>288cb683-6eed-4657-87ba-b34b6830bf30</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

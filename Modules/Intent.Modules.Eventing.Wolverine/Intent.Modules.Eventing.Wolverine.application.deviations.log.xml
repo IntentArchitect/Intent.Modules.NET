@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files />
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T21:44:08.5649574Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/.gitignore</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T21:44:08.6827148Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T21:44:08.6985103Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Module Builder/Module Builder.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T21:44:08.7193835Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T21:44:08.7357149Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

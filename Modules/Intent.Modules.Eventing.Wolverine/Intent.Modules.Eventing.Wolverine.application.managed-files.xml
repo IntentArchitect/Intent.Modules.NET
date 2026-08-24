@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a996061a-83b6-4171-aa55-6f77d88a36ee">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Intent.Eventing.Wolverine.imodspec" />
+  <file path="Intent.Modules.Eventing.Wolverine.csproj" />
+  <file path="release-notes.md" />
+</managedFiles>
