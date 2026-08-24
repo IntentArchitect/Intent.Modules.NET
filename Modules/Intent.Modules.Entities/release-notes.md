@@ -1,3 +1,7 @@
+### Version 5.3.3
+
+- Fixed: The Domain Entity State template now falls back to the behaviour template's role when resolving a generalization parent that only registered a behaviour-role template (e.g. a stub for a referenced-package base class), and raises a clear error naming the class when neither role resolves, instead of a raw dependency-resolution exception.
+
 ### Version 5.3.2
 
 - Fixed: When "Separate state from behaviour" is enabled, the state template now uses a live `CSharpClass` reference (instead of a string) for parent class inheritance. This ensures `BaseType` carries metadata, allowing `GetRootEntity()` to correctly walk the inheritance hierarchy and resolve primary keys in downstream modules (e.g. EF Core Repositories).

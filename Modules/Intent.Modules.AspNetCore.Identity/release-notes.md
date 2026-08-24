@@ -1,3 +1,7 @@
+### Version 4.2.12
+
+- Fixed: Software Factory no longer crashes with a "Could not find template from dependency" error when a consumer entity generalizes from an Identity base class (e.g. `IdentityUser<T>`) and the "Separate State from Behaviour" domain setting is enabled.
+
 ### Version 4.2.11
 
 - Improvement: Updated NuGet package versions.

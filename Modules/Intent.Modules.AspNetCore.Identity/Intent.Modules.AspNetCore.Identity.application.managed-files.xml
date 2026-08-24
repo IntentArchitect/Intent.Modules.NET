@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a3d00c09-e5ff-442c-9378-14b304a2b2c7">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/IdentityUserFactoryExtension.cs" deviationsHash="B3846839049EF88982B2C39CECDD98EDB4B0A523722EEA918895A3B9EBBF6E38" />
+  <file path="Intent.AspNetCore.Identity.imodspec" />
+  <file path="Intent.Modules.AspNetCore.Identity.csproj" />
+  <file path="Migrations/Migration_04_02_00_Pre_00.cs" />
+  <file path="Migrations/OnInstallMigration.cs" />
+  <file path="NugetPackages.cs" />
+  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplatePartial.cs" />
+  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplateRegistration.cs" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.cs" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.tt" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplatePartial.cs" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="487D4E56351BCAC28A15B3CFD3A75E157E9B509018933AC8AAB592C09404960B" />
+  <file path="modelers/Domain Extensions.designer.settings" />
+</managedFiles>
