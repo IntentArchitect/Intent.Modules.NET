@@ -104,6 +104,13 @@
       "approvedVia": "panel-button",
       "conversationId": null,
       "timestampUtc": "2026-08-24T21:07:28Z"
+    },
+    {
+      "fromPhase": "design",
+      "toPhase": "tasks",
+      "approvedVia": "panel-button",
+      "conversationId": null,
+      "timestampUtc": "2026-08-24T21:26:01Z"
     }
   ]
 }
