@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f87921fb-8edb-4482-b6de-6c6c8ae12a97" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Handles the ProcessOrderCommand integration command from its destination queue.</comment>
+  <name>ProcessOrderCommandHandler</name>
+  <display>ProcessOrderCommandHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65082173-ae53-47fb-a822-80cb802ca51f</parentFolderId>
+  <packageId>65082173-ae53-47fb-a822-80cb802ca51f</packageId>
+  <packageName>WolverineEventing.Subscribe.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

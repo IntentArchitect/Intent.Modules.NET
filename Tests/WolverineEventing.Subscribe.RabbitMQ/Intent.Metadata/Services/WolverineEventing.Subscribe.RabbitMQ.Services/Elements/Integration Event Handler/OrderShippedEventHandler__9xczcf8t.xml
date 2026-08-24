@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2ccca004-cf77-4b3b-8b47-3c4bbc2c3069" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Handles the OrderShippedEvent integration event. Hand-written body.</comment>
+  <name>OrderShippedEventHandler</name>
+  <display>OrderShippedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65082173-ae53-47fb-a822-80cb802ca51f</parentFolderId>
+  <packageId>65082173-ae53-47fb-a822-80cb802ca51f</packageId>
+  <packageName>WolverineEventing.Subscribe.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

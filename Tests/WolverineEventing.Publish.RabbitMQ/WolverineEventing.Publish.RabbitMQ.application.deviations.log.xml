@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#22d97451-c547-425f-9a11-05eee3ea7ada</correlationId>
+      <path>WolverineEventing.Publish.RabbitMQ.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-24T08:15:03.343336Z</updatedAt>
+      <deviationsHash>DF1D78E57A3592D2B2C95EB699A694D06CFB4D62A313E9AE6C082DF887513199</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

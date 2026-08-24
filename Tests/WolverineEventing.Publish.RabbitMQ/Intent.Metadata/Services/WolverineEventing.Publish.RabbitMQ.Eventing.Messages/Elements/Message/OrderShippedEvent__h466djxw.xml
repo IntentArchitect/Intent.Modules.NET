@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4b63ffda-f315-4277-bf1b-edccbbde45c9" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <comment>Integration Event published when an order ships. Fan-out: any number of applications may subscribe.</comment>
+  <name>OrderShippedEvent</name>
+  <display>OrderShippedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4e21d764-5b35-4049-a33c-2b8499f0334e</parentFolderId>
+  <packageId>4e21d764-5b35-4049-a33c-2b8499f0334e</packageId>
+  <packageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c859c513-2179-4826-9393-5b2390c19b76" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="908d1f51-1bec-4eff-902f-09f073be3b7e">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4b63ffda-f315-4277-bf1b-edccbbde45c9</parentFolderId>
+      <packageId>4e21d764-5b35-4049-a33c-2b8499f0334e</packageId>
+      <packageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e7b078de-0257-4c4e-b8c2-f33057b3ef48" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>ShippedAt</name>
+      <display>ShippedAt: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="467bef45-2d54-4112-9e9b-259b1b73fac9">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4b63ffda-f315-4277-bf1b-edccbbde45c9</parentFolderId>
+      <packageId>4e21d764-5b35-4049-a33c-2b8499f0334e</packageId>
+      <packageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
