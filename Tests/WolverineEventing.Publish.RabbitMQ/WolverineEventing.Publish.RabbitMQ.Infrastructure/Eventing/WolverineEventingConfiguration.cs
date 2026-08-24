@@ -5,6 +5,7 @@ using Wolverine;
 using Wolverine.ErrorHandling;
 using Wolverine.RabbitMQ;
 using WolverineEventing.Publish.RabbitMQ.Application.Common.Interfaces;
+using WolverineEventing.Publish.RabbitMQ.Application.Orders.FailOrder;
 using WolverineEventing.Publish.RabbitMQ.Application.Orders.RequestOrderProcessing;
 using WolverineEventing.Publish.RabbitMQ.Application.Orders.ShipOrder;
 using WolverineEventing.Publish.RabbitMQ.Eventing.Messages;
@@ -48,6 +49,7 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
             options.Discovery.DisableConventionalDiscovery();
             options.Discovery.IncludeType<ShipOrderCommandHandler>();
             options.Discovery.IncludeType<RequestOrderProcessingCommandHandler>();
+            options.Discovery.IncludeType<FailOrderCommandHandler>();
         }
 
         private static void ConfigureTransport(WolverineOptions options, IConfiguration configuration)
@@ -77,6 +79,9 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
 
             // Integration Command to a queue, point-to-point.
             options.PublishMessage<ProcessOrderCommand>().ToRabbitQueue("process-order-command");
+
+            // Retry probe. Ordinary publish rule - it is the SUBSCRIBER's handler that throws.
+            options.PublishMessage<FailingOrderEvent>().ToRabbitExchange("failing-order-event");
         }
 
 

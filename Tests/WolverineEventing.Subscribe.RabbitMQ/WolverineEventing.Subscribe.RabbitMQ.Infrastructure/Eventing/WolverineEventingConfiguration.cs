@@ -21,6 +21,8 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing
         private const string OrderShippedEventQueue = "wolverine-eventing-subscribe-rabbitmq-order-shipped-event";
         private const string OrderShippedEventExchange = "order-shipped-event";
         private const string ProcessOrderCommandQueue = "process-order-command";
+        private const string FailingOrderEventQueue = "wolverine-eventing-subscribe-rabbitmq-failing-order-event";
+        private const string FailingOrderEventExchange = "failing-order-event";
 
         public static void ConfigureRabbitMq(WolverineOptions options, IConfiguration configuration)
         {
@@ -49,6 +51,7 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing
             options.Discovery.DisableConventionalDiscovery();
             options.Discovery.IncludeType<OrderShippedEventHandler>();
             options.Discovery.IncludeType<ProcessOrderCommandHandler>();
+            options.Discovery.IncludeType<FailingOrderEventHandler>();
         }
 
         private static void ConfigureTransport(WolverineOptions options, IConfiguration configuration)
@@ -69,13 +72,15 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing
                     rabbit.Password = password;
                 })
                 .AutoProvision()
-                .BindExchange(OrderShippedEventExchange).ToQueue(OrderShippedEventQueue);
+                .BindExchange(OrderShippedEventExchange).ToQueue(OrderShippedEventQueue)
+                .BindExchange(FailingOrderEventExchange).ToQueue(FailingOrderEventQueue);
         }
 
         private static void ConfigureListeners(WolverineOptions options)
         {
             options.ListenToRabbitQueue(OrderShippedEventQueue);
             options.ListenToRabbitQueue(ProcessOrderCommandQueue);
+            options.ListenToRabbitQueue(FailingOrderEventQueue);
         }
 
         private static void ConfigureErrorHandling(WolverineOptions options, IConfiguration configuration)

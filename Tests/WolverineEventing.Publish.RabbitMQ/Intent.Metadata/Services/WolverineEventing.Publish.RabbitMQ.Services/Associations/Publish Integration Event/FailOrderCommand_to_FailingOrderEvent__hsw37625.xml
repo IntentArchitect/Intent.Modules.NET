@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ceada5e4-d9b5-4c57-a6e8-78cda888ddc7">
+  <sourceEnd id="ab554923-61c6-4a94-9d65-1b493c3c5873" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.FailOrderCommand</display>
+    <order>0</order>
+    <typeReference id="d7b3dc58-ffb2-4e60-a0ee-a971c6d22d3f">
+      <typeId>e52c6c3d-c2c7-4160-bd16-69bb9879ee2a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Publish.RabbitMQ.Services</typePackageName>
+      <typePackageId>4fac86f1-aca9-43db-adf2-5ddf30dae673</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ceada5e4-d9b5-4c57-a6e8-78cda888ddc7" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] FailingOrderEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9ff45b85-2ff7-4f46-8724-dfb0d2698236">
+      <typeId>5ebb606c-e195-44f1-b81f-5df8a30db34e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>4e21d764-5b35-4049-a33c-2b8499f0334e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e52c6c3d-c2c7-4160-bd16-69bb9879ee2a" location="[WolverineEventing.Publish.RabbitMQ].[Services].[FailOrderCommand]" />
+        <target applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5ebb606c-e195-44f1-b81f-5df8a30db34e" location="[WolverineEventing.Publish.RabbitMQ].[Services].[FailingOrderEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="5ebb606c-e195-44f1-b81f-5df8a30db34e" name="FailingOrderEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e7d8867-9234-4b6b-b42f-2cdfa2d37966" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="e52c6c3d-c2c7-4160-bd16-69bb9879ee2a" name="FailOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c2977587-a1e3-48ae-b9ad-19f74dab3666" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

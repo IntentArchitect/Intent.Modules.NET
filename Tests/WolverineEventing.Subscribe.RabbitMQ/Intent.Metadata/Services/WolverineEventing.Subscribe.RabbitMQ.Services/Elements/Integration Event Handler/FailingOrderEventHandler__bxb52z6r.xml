@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="19d4e99d-f8df-486d-9d81-b701e6ae28a4" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Throws deliberately so the Error Handling Policy can be exercised: retry with cooldown on the configured delays, then the Error Queue. Never make this succeed - it is the retry probe.</comment>
+  <name>FailingOrderEventHandler</name>
+  <display>FailingOrderEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65082173-ae53-47fb-a822-80cb802ca51f</parentFolderId>
+  <packageId>65082173-ae53-47fb-a822-80cb802ca51f</packageId>
+  <packageName>WolverineEventing.Subscribe.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

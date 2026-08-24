@@ -47,7 +47,11 @@
   <file path="WolverineEventing.Publish.RabbitMQ.Application/Common/Validation/ValidatorProvider.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/DependencyInjection.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/IntegrationCommands/ProcessOrderCommand.cs" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Application/IntegrationEvents/FailingOrderEvent.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/IntegrationEvents/OrderShippedEvent.cs" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/FailOrder/FailOrderCommand.cs" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/FailOrder/FailOrderCommandHandler.cs" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/FailOrder/FailOrderCommandValidator.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/RequestOrderProcessing/RequestOrderProcessingCommand.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/RequestOrderProcessing/RequestOrderProcessingCommandHandler.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Application/Orders/RequestOrderProcessing/RequestOrderProcessingCommandValidator.cs" />

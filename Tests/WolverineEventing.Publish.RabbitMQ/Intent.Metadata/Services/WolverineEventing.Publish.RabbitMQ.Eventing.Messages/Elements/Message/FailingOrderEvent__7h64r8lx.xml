@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5ebb606c-e195-44f1-b81f-5df8a30db34e" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <comment>Integration Event whose subscriber handler throws on purpose, so the Error Handling Policy - retry with cooldown, then the Error Queue - can be exercised repeatably without disturbing the happy path.</comment>
+  <name>FailingOrderEvent</name>
+  <display>FailingOrderEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4e21d764-5b35-4049-a33c-2b8499f0334e</parentFolderId>
+  <packageId>4e21d764-5b35-4049-a33c-2b8499f0334e</packageId>
+  <packageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1e7d8867-9234-4b6b-b42f-2cdfa2d37966" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="32b065a5-8749-4f68-854f-147790edaee5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5ebb606c-e195-44f1-b81f-5df8a30db34e</parentFolderId>
+      <packageId>4e21d764-5b35-4049-a33c-2b8499f0334e</packageId>
+      <packageName>WolverineEventing.Publish.RabbitMQ.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

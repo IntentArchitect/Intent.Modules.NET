@@ -21,6 +21,7 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<FailingOrderEvent>, FailingOrderEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderShippedEvent>, OrderShippedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<ProcessOrderCommand>, ProcessOrderCommandHandler>();
             return services;
