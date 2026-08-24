@@ -32,4 +32,12 @@
       <fileHash>F97360D4E25F4D35316524A175B03C682AC93633AA1F1E381D234F12EE7CB8B4</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.MassTransit/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T11:23:19.5019357Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -251,6 +251,19 @@ The outbox supports two persistence backends:
 
 Both outbox paths are important supported scenarios.
 
+### Dispatcher Coverage
+
+When the outbox is selected, `NServiceBusMessageBusInteropExtension.InstallNServiceBusForXDispatch`
+strips the generic post-handler `IMessageBus.FlushAllAsync()` call out of whichever dispatcher is
+installed — MediatR (`InstallNServiceBusForMediatRDispatch`), ServiceContract controllers
+(`InstallNServiceBusForServiceContractDispatch`), and Wolverine
+(`InstallNServiceBusForWolverineDispatch`, added alongside `Intent.Application.Wolverine`'s
+`MessageBusFlushMiddleware` — see that module's `CONTEXT.md`) — since the flush is already spliced
+into `DbContext.SaveChanges`/`SaveChangesAsync` and must not run twice. The Wolverine path finds its
+target by the `"eventbus-flush"` metadata tag on the `ApplicationHandlerPolicy` template's
+`AddMiddleware`/`AddTransient` statements, the same tag convention the other two dispatchers already
+use on their own flush statements.
+
 ---
 
 ## Rejected Approaches

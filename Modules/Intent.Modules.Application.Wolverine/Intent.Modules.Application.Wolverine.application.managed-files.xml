@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2b27db41-cc54-43ad-9e44-7c787b1efd44">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/AITasksFactoryExtension.cs" />
+  <file path="FactoryExtensions/WolverineRegistrationFactoryExtension.cs" />
+  <file path="Intent.Application.Wolverine.imodspec" />
+  <file path="Intent.Modules.Application.Wolverine.csproj" />
+  <file path="NugetPackages.cs" />
+  <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplatePartial.cs" />
+  <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplateRegistration.cs" />
+  <file path="Templates/AuthorizationMiddleware/AuthorizationMiddlewareTemplatePartial.cs" />
+  <file path="Templates/AuthorizationMiddleware/AuthorizationMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplatePartial.cs" deviationsHash="7511EBD3CE69DBC2E7E5CEB7F46242DE60E9B01B261F647A670CAD58399B51EB" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplateRegistration.cs" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplatePartial.cs" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplateRegistration.cs" />
+  <file path="Templates/CommandInterface/CommandInterfaceTemplatePartial.cs" />
+  <file path="Templates/CommandInterface/CommandInterfaceTemplateRegistration.cs" />
+  <file path="Templates/CommandModels/CommandModelsTemplatePartial.cs" />
+  <file path="Templates/CommandModels/CommandModelsTemplateRegistration.cs" />
+  <file path="Templates/LoggingMiddleware/LoggingMiddlewareTemplatePartial.cs" />
+  <file path="Templates/LoggingMiddleware/LoggingMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/MessageBusFlushMiddleware/MessageBusFlushMiddlewareTemplatePartial.cs" />
+  <file path="Templates/MessageBusFlushMiddleware/MessageBusFlushMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/PerformanceMiddleware/PerformanceMiddlewareTemplatePartial.cs" />
+  <file path="Templates/PerformanceMiddleware/PerformanceMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplatePartial.cs" deviationsHash="DEBEC73C144F7540D53808ADED3C75AE5E88D39260FAEC7C319BB24D3EDF07F7" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplateRegistration.cs" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplatePartial.cs" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplateRegistration.cs" />
+  <file path="Templates/QueryInterface/QueryInterfaceTemplatePartial.cs" />
+  <file path="Templates/QueryInterface/QueryInterfaceTemplateRegistration.cs" />
+  <file path="Templates/QueryModels/QueryModelsTemplatePartial.cs" />
+  <file path="Templates/QueryModels/QueryModelsTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="Templates/UnhandledExceptionMiddleware/UnhandledExceptionMiddlewareTemplatePartial.cs" />
+  <file path="Templates/UnhandledExceptionMiddleware/UnhandledExceptionMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplatePartial.cs" />
+  <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs" />
+  <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplateRegistration.cs" />
+  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplatePartial.cs" />
+  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplateRegistration.cs" />
+  <file path="release-notes.md" />
+</managedFiles>

@@ -1,3 +1,7 @@
+### Version 7.2.2
+
+- Fixed: Now that `Intent.Application.Wolverine` generates its own message bus flush middleware, selecting the Entity Framework transactional outbox pattern in a Wolverine-dispatched application would have double-flushed events (once via the middleware, once via the `DbContext.SaveChanges` splice). `MessageBusInteropExtension` now strips the Wolverine flush middleware when the outbox pattern is selected, matching the existing behaviour for MediatR and ServiceContract dispatch.
+
 ### Version 7.2.1
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.

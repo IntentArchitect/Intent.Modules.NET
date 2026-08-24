@@ -30,6 +30,7 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
         {
             InstallNServiceBusForServiceContractDispatch(application);
             InstallNServiceBusForMediatRDispatch(application);
+            InstallNServiceBusForWolverineDispatch(application);
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -66,6 +67,31 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
                     return;
                 }
                 statementToMove.Remove();
+            }, 1000);
+        }
+
+        private void InstallNServiceBusForWolverineDispatch(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Wolverine.ApplicationHandlerPolicy");
+            if (template == null)
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var method = priClass.FindMethod("Apply");
+                var statementsToRemove = method.FindStatements(stmt => stmt.HasMetadata("eventbus-flush")).ToList();
+                foreach (var statement in statementsToRemove)
+                {
+                    statement.Remove();
+                }
             }, 1000);
         }
 

@@ -31,6 +31,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
         {
             InstallMessageBusForServiceContractDispatch(application);
             InstallMessageBusForMediatRDispatch(application);
+            InstallMessageBusForWolverineDispatch(application);
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -67,6 +68,31 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     return;
                 }
                 statementToMove.Remove();
+            }, 1000);
+        }
+
+        private void InstallMessageBusForWolverineDispatch(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Wolverine.ApplicationHandlerPolicy");
+            if (template == null)
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var method = priClass.FindMethod("Apply");
+                var statementsToRemove = method.FindStatements(stmt => stmt.HasMetadata("eventbus-flush")).ToList();
+                foreach (var statement in statementsToRemove)
+                {
+                    statement.Remove();
+                }
             }, 1000);
         }
 

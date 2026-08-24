@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="95295b57-a5d3-41ed-8c13-e83eb386bd6a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.0.2</name>
-      <display>7.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>7.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,110 +49,140 @@
       <childElements>
         <childElement id="9f730b6f-8a22-4812-956d-361c8d5de0ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="62f3d17c-13fd-4056-81a4-1c7192a17ea3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="23ce22a2-407c-4818-9af2-77173d1f4662" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9e90bad3-ca04-43c3-9c7b-203f29b56b63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f8469307-1c68-45ab-a57b-25156000d1d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="cc1c9286-b9c1-4627-bc71-73a2fbdbe513" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="7d3ba31e-09bf-458c-abc8-60e9b3660a44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="62457192-b1f2-4e20-898c-d3e3cb70010c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8c557434-1eae-4abb-84bc-37d1b259a9da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="310603ab-3b98-42e9-8414-7b37a8f56b2e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>95295b57-a5d3-41ed-8c13-e83eb386bd6a</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -161,7 +191,7 @@
     </childElement>
     <childElement id="25102724-e423-44bf-acd2-24f31aa47be4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.0.2</name>
-      <display>7.0.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>7.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -184,110 +214,140 @@
       <childElements>
         <childElement id="d18e8295-3fed-436b-a3f1-399c7e96e8c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (9.0.13)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c9462946-4e8f-4296-9ae3-c6e31ddd129e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e0393f5a-4bd4-45a7-a8df-cab9f4b69389" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="0cd181d3-1607-4490-a96d-f2f284ea336e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="18ee434e-4a81-4b41-a911-a35c88561324" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (9.0.13)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="252b3dac-a716-4c05-bd2c-7b688b3cde4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="67a2432e-d031-4e7e-a466-53d9da79020a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="6c05baca-fa15-4441-b077-e94861fc6d4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="732d5d1d-48df-409e-944a-5190f1bc0908" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (9.0.13)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="01e6b0a2-54d6-4aaf-946d-171f3967d783" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (9.0.13)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>25102724-e423-44bf-acd2-24f31aa47be4</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -296,7 +356,7 @@
     </childElement>
     <childElement id="71316f61-81a1-479f-bd6c-b5e0192a3cd5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.0.2</name>
-      <display>7.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>7.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -319,132 +379,168 @@
       <childElements>
         <childElement id="8a2b7d7c-fc4b-49b1-bbe2-96b88826cc0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.Cryptography</name>
+          <display>Microsoft.Bcl.Cryptography (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="52ddac58-1e11-4ce0-9455-8d20962e5f2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Extensions.Abstractions</name>
+          <display>Microsoft.Data.SqlClient.Extensions.Abstractions (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="cacc6519-0f79-418b-9e40-efb466df5f50" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.Internal.Logging</name>
+          <display>Microsoft.Data.SqlClient.Internal.Logging (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fc30d9e7-200b-4b05-8b8d-d5ca3da34821" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
+          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ef0e2f47-de9f-4329-a026-5dd725aa934b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fb558d5f-30b0-41a7-b208-06686dde32b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bb5f2a48-657a-45cb-ae47-064fb6137911" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f93b0186-1365-4dea-8f3e-ef3dd4206809" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
+          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9a2bc07e-2487-4a0f-ada4-8faf08b5e020" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d629c830-4e49-44bc-b1ff-2247ebd51bd4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="b2b7ac6e-77b1-439b-9a31-42f88ed1e876" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (10.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ae91b40d-e14b-4c1a-b8e9-7fbe256c13d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
+          <display>System.Threading.Channels (10.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71316f61-81a1-479f-bd6c-b5e0192a3cd5</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />

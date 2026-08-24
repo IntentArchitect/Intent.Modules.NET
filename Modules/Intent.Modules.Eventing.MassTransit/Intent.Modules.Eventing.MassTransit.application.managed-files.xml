@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="8c05ab5b-e166-4c12-8c8c-5c230905057a">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" />
+  <file path="Api/SendIntegrationCommandTargetEndModelStereotypeExtensions.cs" />
+  <file path="Api/SubscribeIntegrationCommandTargetEndModelStereotypeExtensions.cs" />
+  <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" deviationsHash="918C58D82E037F27DA08C9480ED8D0CC66BE561AA43A3B7C8F256086D208D843" />
+  <file path="FactoryExtensions/FinbuckleConfiguratorExtension.cs" />
+  <file path="FactoryExtensions/MessageBusInterfaceExtension.cs" />
+  <file path="FactoryExtensions/MessageBusInteropExtension.cs" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" />
+  <file path="FactoryExtensions/TelemetryConfiguratorExtension.cs" />
+  <file path="Intent.Eventing.MassTransit.imodspec" />
+  <file path="Intent.Modules.Eventing.MassTransit.csproj" />
+  <file path="NugetPackages.cs" deviationsHash="359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC" />
+  <file path="Settings/ModuleSettingsExtensions.cs" />
+  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs" />
+  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplateRegistration.cs" />
+  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplatePartial.cs" />
+  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplateRegistration.cs" />
+  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplatePartial.cs" />
+  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplateRegistration.cs" />
+  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplatePartial.cs" />
+  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplateRegistration.cs" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplatePartial.cs" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplateRegistration.cs" />
+  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplatePartial.cs" />
+  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="release-notes.md" />
+  <file path="resources/documentation.json" />
+</managedFiles>

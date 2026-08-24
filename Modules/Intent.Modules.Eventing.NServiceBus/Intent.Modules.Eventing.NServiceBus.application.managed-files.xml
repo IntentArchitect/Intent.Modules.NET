@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="52e77c5c-d9ed-416c-8e1c-7414f149924c">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/NServiceBusMessageBusInteropExtension.cs" />
+  <file path="FactoryExtensions/NServiceBusRegistrationExtension.cs" />
+  <file path="Intent.Eventing.NServiceBus.imodspec" />
+  <file path="Intent.Modules.Eventing.NServiceBus.csproj" />
+  <file path="NugetPackages.cs" />
+  <file path="Settings/ModuleSettingsExtensions.cs" />
+  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs" />
+  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplateRegistration.cs" />
+  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplatePartial.cs" />
+  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplateRegistration.cs" />
+  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs" deviationsHash="12AD4D237AF8FDBBDDA19951C10482A3AB22F34D1C57880CD8CFF7DFF2BD65E5" />
+  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="modelers/NServiceBus Settings.designer.settings" />
+  <file path="release-notes.md" />
+</managedFiles>
