@@ -59,7 +59,7 @@ tools:
   - record_spec_traceability
   - complete_spec_task
   - record_spec_verdict
-contentHash: 9257216F835BD5A6E0967668B9603E25E739ECA29C8776079BD82A5D5D61BA62
+contentHash: E68FF03044AD1255144DD0904164B1E84AA8C46209B617473444695396181779
 ---
 # Intent Architect SDD Module Builder Agent
 
@@ -169,6 +169,7 @@ The sample already exists and is committed, so the waves contain **module work o
 
 - **Cap each wave at roughly 6–8 leaf tasks, and end every wave at a runnable checkpoint** (a build/test pass, or a committed report). Carry-forward fidelity is what decays first in a long wave.
 - **Make gate verification its own `[code]` task with an on-disk deliverable** — a parity or evidence report, traceability-linked. `/sdd-verify` should judge an artifact, not a claim in a transcript.
+- **The parity wave owns the golden-sample marker sweep.** The sample's hand-written lines were held by temporary code-management directives, each tagged `GOLDEN-SAMPLE:`. Removing one and confirming the template emits that exact line *is* the per-line parity proof — a directive left in place makes the check pass while proving nothing. The `sdd-wave-evidence` instruction file binds every wave agent to this, including in a session that never ran the gate.
 
 ===
 
@@ -220,4 +221,5 @@ When runtime investigation or implementation reveals unforeseen architectural di
 3. Intent Architect module compiles without errors.
 4. Software Factory executes against the target test app with **zero unexpected diffs** against the committed baseline at its tag.
 5. The assumption ledger is still empty — nothing re-opened during implementation was left as an assumption.
-6. `/sdd-verify` returns **PASS** on all acceptance requirements, and the verdict is recorded via `record_spec_verdict`.
+6. No golden-sample scaffolding remains: `grep -rn "GOLDEN-SAMPLE:"` over the sample returns nothing, and every directive it named is gone.
+7. `/sdd-verify` returns **PASS** on all acceptance requirements, and the verdict is recorded via `record_spec_verdict`.

@@ -1,9 +1,9 @@
 ---
 applyTo: '**'
-description: "What a wave of an Intent Architect SDD spec must produce as evidence before any of its tasks may be reported complete."
-keywords: [sdd, wave, evidence, traceability, completion, verification]
+description: "What a wave of an Intent Architect SDD spec must produce as evidence before any of its tasks may be reported complete, including the golden-sample parity obligations that outlive the session which created them."
+keywords: [sdd, wave, evidence, traceability, completion, verification, golden-sample, parity]
 template-id: Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd
-contentHash: 3BF7E2402B146D85A5F2CA76C5DBFC9584284CEA865622555D356600D0CB39EC
+contentHash: 05125388DDCBFA9B6D0E0570DB22106554B7E6448578121EC0F7CC7760E6E498
 ---
 # SDD Wave Evidence Contract
 
@@ -72,6 +72,46 @@ unfinished wave, and the honest thing to return.
 
   make its check a task whose deliverable is a file on disk — a parity or evidence report — so
   verification is durable and reviewable rather than a sentence in a transcript.
+
+## Before You Implement: Find The Parity Oracle
+
+A module-building spec is derived from a **golden sample** — a committed, gated reference the
+generated output is supposed to reproduce. That sample was very likely gated in a different
+session from the one you are in now, so nothing in your context mentions it unless you go looking.
+
+Look for a Golden Sample Dossier (typically `GOLDEN-SAMPLE.md`) at the sample's root or in the
+spec's `baseline/` folder, and read it before implementing. It carries what you cannot infer from
+the spec alone:
+
+- the **pre-module delta** — the enumeration of lines the module is supposed to generate
+- the **API citation index** — the exact calls, cited at a tag, that your templates must emit
+- the **per-file inventory** — which sample file each template is answerable for
+- what was **descoped**, and therefore what the spec may not assert
+
+If a task's wording and the dossier disagree, say so rather than picking one. The dossier records
+what was actually verified; the spec records what someone believed at authoring time.
+
+## The Golden-Sample Marker Sweep
+
+While the module did not exist, the sample's hand-written lines were held in place by
+code-management directives so regeneration could not silently delete them. Each one carries a
+marker with the token `GOLDEN-SAMPLE:` naming the template that will take the line over.
+
+Those directives are **temporary scaffolding, and leaving one in place makes a parity check pass
+while proving nothing** — the hand-written line stays, the template's output is suppressed, and the
+diff comes back clean. So for every marker inside your wave's scope:
+
+1. Remove the marker and its directive.
+2. Regenerate.
+3. Confirm the template emits that exact line. If the line disappears once unprotected, the
+
+   template is incomplete — that is the finding, not a cleanup detail.
+
+Step 3 is the per-line parity proof, which is why the removal is real work rather than tidying.
+
+Sweep evidence *is* completion evidence: a parity or verification task is not complete until
+`grep -rn "GOLDEN-SAMPLE:"` over the sample returns nothing, and the report says so. A marker must
+never reach a real consumer: templates do not emit it, so a leftover also shows up as a parity diff.
 
 ## For The Orchestrator
 
