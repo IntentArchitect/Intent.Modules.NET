@@ -64,7 +64,7 @@
     <application id="31ac754c-9bd6-45cf-9eff-adc02d98f105" name="AzureFunction.QueueStorage" solutionFolder="Tests" relativePath="../Tests/AzureFunction.QueueStorage/AzureFunction.QueueStorage.application.config" />
     <application id="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" name="CompositeMessageBus" solutionFolder="Tests" relativePath="../Tests/CompositeMessageBus/CompositeMessageBus.application.config" />
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Tests" relativePath="../Tests/EventingSubscribers/EventingSubscribers.application.config" />
-    <application id="c1acd605-e4fa-43a0-805e-953e79a3e186" name="Wolverine.Publish.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/Wolverine.Publish.RabbitMQ/Wolverine.Publish.RabbitMQ.application.config" />
-    <application id="3b8ef40e-ca9a-4bbd-bcfe-d3eacc3dfebd" name="Wolverine.Subscribe.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/Wolverine.Subscribe.RabbitMQ/Wolverine.Subscribe.RabbitMQ.application.config" />
+    <application id="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" name="WolverineEventing.Publish.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/WolverineEventing.Publish.RabbitMQ/WolverineEventing.Publish.RabbitMQ.application.config" />
+    <application id="e74b3878-7b44-403c-a208-ec678c431940" name="WolverineEventing.Subscribe.RabbitMQ" solutionFolder="Tests" relativePath="../Tests/WolverineEventing.Subscribe.RabbitMQ/WolverineEventing.Subscribe.RabbitMQ.application.config" />
   </applications>
 </solution>
