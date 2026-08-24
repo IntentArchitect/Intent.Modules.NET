@@ -36,6 +36,37 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3dc58890-dcb9-466f-9175-3f6bcaf9d7a4" location="[WolverineEventing.Publish.RabbitMQ].[Services].[ShipOrderCommand]" />
+        <target applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4b63ffda-f315-4277-bf1b-edccbbde45c9" location="[WolverineEventing.Publish.RabbitMQ].[Services].[OrderShippedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="4b63ffda-f315-4277-bf1b-edccbbde45c9" name="OrderShippedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="c859c513-2179-4826-9393-5b2390c19b76" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3dc58890-dcb9-466f-9175-3f6bcaf9d7a4" name="ShipOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="abdf4714-a1e0-49c3-a670-8be8d0a4e946" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>DateTime.UtcNow</expression>
+            <path>
+              <target id="4b63ffda-f315-4277-bf1b-edccbbde45c9" name="OrderShippedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="e7b078de-0257-4c4e-b8c2-f33057b3ef48" name="ShippedAt" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources />
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

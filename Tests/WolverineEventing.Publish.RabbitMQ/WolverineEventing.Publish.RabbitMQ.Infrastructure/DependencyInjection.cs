@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WolverineEventing.Publish.RabbitMQ.Domain.Common.Interfaces;
-using WolverineEventing.Publish.RabbitMQ.Infrastructure.Persistence;
 using WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing;
+using WolverineEventing.Publish.RabbitMQ.Infrastructure.Persistence;
 using ContractsMessageBus = WolverineEventing.Publish.RabbitMQ.Application.Common.Eventing.IMessageBus;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

@@ -23,6 +23,8 @@ namespace WolverineEventing.Publish.RabbitMQ.Application.Orders.ShipOrder
         {
             _messageBus.Publish(new OrderShippedEvent
             {
+                OrderId = request.OrderId,
+                ShippedAt = DateTime.UtcNow
             });
         }
     }

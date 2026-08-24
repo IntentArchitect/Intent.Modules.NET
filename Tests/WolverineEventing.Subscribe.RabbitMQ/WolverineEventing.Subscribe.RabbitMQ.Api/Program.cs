@@ -10,6 +10,7 @@ using WolverineEventing.Subscribe.RabbitMQ.Application;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing;
+using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]

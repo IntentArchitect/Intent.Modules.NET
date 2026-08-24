@@ -36,6 +36,29 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="90972957-08bd-4384-8282-8d2a19611ac3" location="[WolverineEventing.Publish.RabbitMQ].[Services].[RequestOrderProcessingCommand]" />
+        <target applicationId="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="39b07f07-4d7f-446f-a5a8-fbd4719d8022" location="[WolverineEventing.Publish.RabbitMQ].[Services].[ProcessOrderCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="39b07f07-4d7f-446f-a5a8-fbd4719d8022" name="ProcessOrderCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="cb1e25df-e975-4b75-b80c-2333b6d332e0" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="90972957-08bd-4384-8282-8d2a19611ac3" name="RequestOrderProcessingCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31618949-ad1c-4e6c-b7fe-5cd02ad03e6c" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

@@ -69,6 +69,7 @@
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/ApplicationHandlerPolicy.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/AuthorizationMiddleware.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/LoggingMiddleware.cs" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/MessageBusFlushMiddleware.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/PerformanceMiddleware.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" />

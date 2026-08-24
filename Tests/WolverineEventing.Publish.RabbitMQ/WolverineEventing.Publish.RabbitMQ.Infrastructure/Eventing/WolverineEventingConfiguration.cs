@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Wolverine;
 using Wolverine.ErrorHandling;
 using Wolverine.RabbitMQ;
@@ -9,7 +8,6 @@ using WolverineEventing.Publish.RabbitMQ.Application.Common.Interfaces;
 using WolverineEventing.Publish.RabbitMQ.Application.Orders.RequestOrderProcessing;
 using WolverineEventing.Publish.RabbitMQ.Application.Orders.ShipOrder;
 using WolverineEventing.Publish.RabbitMQ.Eventing.Messages;
-using WolverineEventing.Publish.RabbitMQ.Infrastructure.Dispatch.Middleware;
 
 namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
 {
@@ -25,7 +23,6 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
             ConfigureHandlerDiscovery(options);
             ConfigureTransport(options, configuration);
             ConfigurePublishing(options);
-            ConfigureMessageBusFlush(options);
             ConfigureErrorHandling(options, configuration);
         }
 
@@ -82,18 +79,6 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
             options.PublishMessage<ProcessOrderCommand>().ToRabbitQueue("process-order-command");
         }
 
-        /// <summary>
-        /// Registers the flush middleware. Nothing else provides it: under MediatR the flush came
-        /// from Intent.Application.MediatR.Behaviours, and Intent.Application.Wolverine ships no
-        /// equivalent, so without this Publish/Send queue a message that never leaves the process
-        /// and nothing throws.
-        /// </summary>
-        private static void ConfigureMessageBusFlush(WolverineOptions options)
-        {
-            options.Policies.AddMiddleware<MessageBusPublishMiddleware>(
-                chain => typeof(ICommand).IsAssignableFrom(chain.MessageType));
-            options.Services.AddTransient<MessageBusPublishMiddleware>();
-        }
 
         private static void ConfigureErrorHandling(WolverineOptions options, IConfiguration configuration)
         {

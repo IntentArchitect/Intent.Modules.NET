@@ -23,6 +23,7 @@ namespace WolverineEventing.Publish.RabbitMQ.Application.Orders.RequestOrderProc
         {
             _messageBus.Send(new ProcessOrderCommand
             {
+                OrderId = request.OrderId
             });
         }
     }

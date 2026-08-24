@@ -203,5 +203,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="1dde5556-07d9-4586-a182-59f80b771db6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Wolverine.MessageBusFlushMiddleware</name>
+      <display>Intent.Application.Wolverine.MessageBusFlushMiddleware</display>
+      <externalReference>Intent.Application.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7a5e600-973f-4c3a-959a-2a944e5d4caa</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
