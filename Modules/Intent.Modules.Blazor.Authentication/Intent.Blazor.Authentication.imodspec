@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Authentication</id>
-  <version>2.0.2-pre.2</version>
+  <version>2.0.2-pre.3</version>
   <supportedClientVersions>[5.0.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Automates Authentication components for a Blazor application</summary>
   <description>Automates Authentication components for a Blazor application</description>
@@ -268,6 +268,7 @@
   </moduleSettingsExtensions>
   <metadata>
     <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Intent.Blazor.Authentication.pkg.config" externalReference="b9d38f7c-7a8d-4007-b33d-7f386ccf119a" />
+    <install target="User Interface" src="modelers/Blazor Authentication UI Extensions.designer.settings" externalReference="75e3546c-a1c7-41a8-abfa-bad1d0571e2b" />
   </metadata>
   <migrations />
 </package>
