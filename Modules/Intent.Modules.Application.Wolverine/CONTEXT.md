@@ -39,10 +39,41 @@ This document contains durable architectural decisions, constraints, and pattern
 ### Clean Architecture Layer Boundaries
 - **Application Layer**: Zero Wolverine dependency contamination in command/query handler classes. They are POCO classes discovered by convention, using constructor injection for dependencies.
 - **Marker Interfaces**: `ICommand` and `IQuery` marker interfaces live in the Application layer (no external dependencies) and act as predicates for routing and middleware policies.
-- **Middleware**: Validation, Unit of Work, Exception Handling, Logging, Performance, and Authorization are generated as explicit behaviours in the Application layer first.
+- **Middleware**: Validation, Unit of Work, Exception Handling, Logging, Performance, Authorization, and Message Bus Flush are generated as explicit behaviours in the Application layer first.
   - To prevent broad convention mapping errors, use `Envelope` as the middleware method parameter (e.g. `Envelope envelope`) rather than interface-typed or `object` parameters.
   - Middleware types applied by policy must be explicitly registered via `services.AddTransient<TBehavior>()` inside the Application layer's DI config.
   - Host builder uses `builder.Host.UseWolverine(opts => ...)` registering assembly discovery (`opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly)`) and policies.
+
+### Message Bus Flush Middleware — Ordering Constraint
+
+`MessageBusFlushMiddleware` (`AfterAsync`) exists to mirror `Intent.Application.MediatR.Behaviours`'
+`MessageBusPublishBehaviour`: it flushes `IEventBus`/`IMessageBus` (from `Intent.Eventing.Contracts`)
+after a command/query handler succeeds, so integration events queued via `Publish`/`Send` during the
+handler actually reach the broker. Without it, apps combining Wolverine with a `Intent.Eventing.*`
+module would queue events that are never flushed. `CanRunTemplate()` only emits it when
+`EventBusInterface`/`MessageBusInterface` resolves, so it is a no-op unless an eventing module is
+installed.
+
+**Registration order in `ApplicationHandlerPolicy.Apply` is load-bearing.** Wolverine's
+`opts.Policies.AddMiddleware<T>(...)` nests in registration order — the first-added middleware is
+outermost, so its `After`/`AfterAsync` runs LAST (after every middleware added after it has already
+run its own `After`). `MessageBusFlushMiddleware` is registered **before** `UnitOfWorkMiddleware`
+(which is added last, making it innermost) specifically so the flush's `AfterAsync` runs *after*
+`UnitOfWorkMiddleware.AfterAsync` commits the transaction — matching the MediatR priorities
+(`UnitOfWorkBehaviour` = 5 innermost, `MessageBusPublishBehaviour` = 4 wrapping it). Moving the flush
+registration to after `uowMiddleware` would flush events before the commit, breaking outbox ordering
+(a rolled-back transaction could still have published its events).
+
+Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its companion
+`opts.Services.AddTransient<MessageBusFlushMiddleware>();` statement are tagged with
+`.AddMetadata("eventbus-flush", true)` — the same tag `Intent.Eventing.MassTransit` and
+`Intent.Eventing.NServiceBus` already use to strip the generic post-handler flush call out of
+MediatR/ServiceContract dispatch when a DB-backed transactional outbox is selected (see those
+modules' `MessageBusInteropExtension`/`NServiceBusMessageBusInteropExtension`). In that scenario the
+flush is spliced directly into `DbContext.SaveChanges`/`SaveChangesAsync` instead (dispatcher-agnostic,
+unchanged by this addition), so both eventing modules' `InstallXForWolverineDispatch` methods find the
+tagged statements in the Wolverine `ApplicationHandlerPolicy` template and remove them the same way
+they already do for the MediatR config lambda and controller dispatch templates.
 
 ---
 

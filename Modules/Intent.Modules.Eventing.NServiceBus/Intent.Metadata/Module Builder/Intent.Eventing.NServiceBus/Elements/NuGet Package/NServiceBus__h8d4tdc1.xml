@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="e797c230-8ee5-4894-b1e0-3b51815cfd7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.2.7</name>
-      <display>10.2.6 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <display>10.2.7 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,33 +49,42 @@
       <childElements>
         <childElement id="4e9a6c27-9c9c-4249-87c1-3f88576e5d01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e797c230-8ee5-4894-b1e0-3b51815cfd7e</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e071afbe-0d27-4f75-85de-16ddf0747e44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus.MessageInterfaces</name>
+          <display>NServiceBus.MessageInterfaces (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e797c230-8ee5-4894-b1e0-3b51815cfd7e</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ff11159f-82fe-439a-8c33-b8f2937e77ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
+          <display>System.IO.Hashing (10.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e797c230-8ee5-4894-b1e0-3b51815cfd7e</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />

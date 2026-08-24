@@ -1,3 +1,7 @@
+### Version 4.1.9
+
+- Improvement: `C# Project (.NET)` and `Solution Folders` can now have the `Custom File Classification` stereotype applied to them.
+
 ### Version 4.1.8
 
 - Fixed: Root Folder's `Relative Location` is now applied to template content outside of the Visual Studio solution as well.

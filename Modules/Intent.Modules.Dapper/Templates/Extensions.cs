@@ -29,6 +29,11 @@ namespace Intent.Modules.Dapper.Templates
 			return new List<AttributeModel>();
 		}
 
+		public static bool HasPks(this ClassModel entity)
+		{
+			return entity.GetPks().Count > 0;
+		}
+
 		public static string SqlTableName(this ClassModel model)
 		{
 			if (string.IsNullOrEmpty( model.FindSchema()))

@@ -22,4 +22,12 @@
       <fileHash>7AB14305E5F8B01559A9D51921D0CA7F494DA7D836D17008253520DCDD263817</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Wolverine/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-24T11:23:19.2128935Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

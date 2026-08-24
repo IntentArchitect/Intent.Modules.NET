@@ -9,6 +9,7 @@ using Intent.Persistence.V2;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
+using FolderModelStereotypeExtensions = Intent.Modules.Common.CSharp.Api.FolderModelStereotypeExtensions;
 using IElementPersistable = Intent.Persistence.V2.IElementPersistable;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

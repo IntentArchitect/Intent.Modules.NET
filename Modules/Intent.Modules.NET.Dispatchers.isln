@@ -46,5 +46,7 @@
     <application id="b40bf9f0-3286-4fe7-8a7d-39df74c0e322" name="Application.Dtos.Pagination" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.Dtos.Pagination/Application.Dtos.Pagination.application.config" />
     <application id="1c34282d-3bcc-4b29-9853-56e36f7e4fa2" name="ObjectMapping.Strict" solutionFolder="Tests" relativePath="../Tests/ObjectMapping.Strict/ObjectMapping.Strict.application.config" />
     <application id="71a75efe-e817-42a1-9ed8-13a5c09e18b5" name="ObjectMapping.Lenient" solutionFolder="Tests" relativePath="../Tests/ObjectMapping.Lenient/ObjectMapping.Lenient.application.config" />
+    <application id="8c05ab5b-e166-4c12-8c8c-5c230905057a" name="Eventing.MassTransit" solutionFolder="Modules/Support" relativePath="Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.application.config" />
+    <application id="52e77c5c-d9ed-416c-8e1c-7414f149924c" name="Eventing.NServiceBus" solutionFolder="Modules/Support" relativePath="Intent.Modules.Eventing.NServiceBus/Intent.Modules.Eventing.NServiceBus.application.config" />
   </applications>
 </solution>

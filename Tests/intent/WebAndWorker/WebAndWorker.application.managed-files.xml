@@ -44,7 +44,7 @@
   <file path="BlazorWebApp/Components/Layout/AppBrand.razor" />
   <file path="BlazorWebApp/Components/Layout/AppBrand.razor.css" />
   <file path="BlazorWebApp/Components/Layout/MainLayout.razor" />
-  <file path="BlazorWebApp/Components/Layout/MainLayout.razor.cs" deviationsHash="25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB" />
+  <file path="BlazorWebApp/Components/Layout/MainLayout.razor.cs" />
   <file path="BlazorWebApp/Components/Layout/MainLayoutHeader.razor" />
   <file path="BlazorWebApp/Components/Layout/MainLayoutHeader.razor.cs" />
   <file path="BlazorWebApp/Components/Layout/MainLayoutSider.razor" />

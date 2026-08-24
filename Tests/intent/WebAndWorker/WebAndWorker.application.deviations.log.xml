@@ -2,18 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#162e6f9e-6d59-4cc3-b90a-b5a0e232af53</correlationId>
-      <path>BlazorWebApp/Components/Layout/MainLayout.razor.cs</path>
-      <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T18:47:54.5038879Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-08-20T05:57:44.2801069Z</approvedAt>
-      <deviationsHash>25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#38ab4197-32af-4f3b-a46f-5c55c05b4399</correlationId>
       <path>WebAndWorker.Application/OnTest/OnTestCommandHandler.cs</path>
       <count>1</count>

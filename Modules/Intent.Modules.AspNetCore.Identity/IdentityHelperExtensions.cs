@@ -1,4 +1,4 @@
-﻿using Intent.AspNetCore.Identity.Api;
+using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -31,6 +31,18 @@ public static class IdentityHelperExtensions
             {
                 c.AddUsing("Microsoft.AspNetCore.Identity");
             });
+
+            // When "Separate State from Behaviour" is enabled, "Domain.Entity" resolves to the
+            // state partial, but the behaviour partial independently re-declares the same base
+            // type in its own file and needs the using too.
+            if (template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity.Behaviour", @class, out var behaviourTemplate))
+            {
+                behaviourTemplate.AddNugetDependency(NugetPackages.MicrosoftExtensionsIdentityStores(behaviourTemplate.OutputTarget));
+                behaviourTemplate.CSharpFile.AfterBuild(c =>
+                {
+                    c.AddUsing("Microsoft.AspNetCore.Identity");
+                });
+            }
             return @class.Name;
         }
 
@@ -93,8 +105,8 @@ public static class IdentityHelperExtensions
 
         return models.Select(p => p.ParentElement.AsClassModel())
             .Where(m => m is not null && (m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
-                                           m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
-                                           m.Name == "IdentityUserLogin")).ToList();
+                m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
+                m.Name == "IdentityUserLogin")).ToList();
     }
 
     public static string GetIdentityDbContextGenericParameters<T>(this CSharpTemplateBase<T> template)

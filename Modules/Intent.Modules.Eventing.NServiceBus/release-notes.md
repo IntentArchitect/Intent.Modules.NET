@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: Now that `Intent.Application.Wolverine` generates its own message bus flush middleware, selecting NServiceBus's transactional outbox in a Wolverine-dispatched application would have double-flushed events (once via the middleware, once via the `DbContext.SaveChanges` splice). `NServiceBusMessageBusInteropExtension` now strips the Wolverine flush middleware when the outbox is enabled, matching the existing behaviour for MediatR and ServiceContract dispatch.
+
 ### Version 1.0.2
 
 - Fixed: The generated `using NServiceBus;` was nondeterministically stripped or kept depending on whether `obj`/`bin` existed. NServiceBus now registers itself as an implicit using directly, so generation is consistent regardless of build state.

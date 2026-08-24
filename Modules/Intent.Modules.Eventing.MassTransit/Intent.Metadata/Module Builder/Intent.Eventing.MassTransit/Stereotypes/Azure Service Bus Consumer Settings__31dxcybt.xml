@@ -54,7 +54,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>False</defaultValue>
+      <defaultValue>false</defaultValue>
     </property>
     <property id="3b7d1adc-528b-4e29-8705-187b87deb246">
       <hint>Format - d.hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -78,7 +78,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>False</defaultValue>
+      <defaultValue>false</defaultValue>
       <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
@@ -96,7 +96,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>True</defaultValue>
+      <defaultValue>false</defaultValue>
     </property>
     <property id="94ed3877-3876-4fa2-bc45-ae679ec6cd21">
       <hint>Move messages to the dead letter queue on expiration (time to live exceeded).</hint>
@@ -104,7 +104,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <defaultValue>True</defaultValue>
+      <defaultValue>false</defaultValue>
     </property>
     <property id="23748e16-ae82-41e6-9bc5-bfeae97ba89e">
       <hint>Sets the maximum size of the queue in megabytes (1024 MB is lowest setting).</hint>

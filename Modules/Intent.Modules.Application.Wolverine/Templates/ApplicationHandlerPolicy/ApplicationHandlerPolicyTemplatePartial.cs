@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -37,6 +38,15 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                     var perfMiddleware = GetTypeName("Intent.Application.Wolverine.PerformanceMiddleware");
                     var errMiddleware = GetTypeName("Intent.Application.Wolverine.UnhandledExceptionMiddleware");
                     var uowMiddleware = GetTypeName("Intent.Application.Wolverine.UnitOfWorkMiddleware");
+                    // Checks the same condition MessageBusFlushMiddlewareTemplate.CanRunTemplate() checks.
+                    // GetTypeName(templateId, DoNotThrow) is NOT sufficient here: MessageBusFlushMiddleware
+                    // belongs to this always-installed module, so its type name resolves regardless of
+                    // whether an eventing module is installed, even when CanRunTemplate() would skip it.
+                    var hasBusFlush = TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _) ||
+                                      TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _);
+                    var busFlushMiddleware = hasBusFlush
+                        ? GetTypeName("Intent.Application.Wolverine.MessageBusFlushMiddleware")
+                        : null;
                     var hasIdentity = !string.IsNullOrEmpty(
                         GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface", TemplateDiscoveryOptions.DoNotThrow));
 
@@ -55,6 +65,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         method.AddStatement($"opts.Policies.AddMiddleware<{logMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{perfMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{errMiddleware}>(IsApplicationMessage);");
+                        if (hasBusFlush)
+                        {
+                            // Registered before UnitOfWorkMiddleware so it wraps it: the flush must happen
+                            // after the unit of work commits, not before, to preserve outbox ordering.
+                            method.AddStatement($"opts.Policies.AddMiddleware<{busFlushMiddleware}>(IsApplicationMessage);", cfg => cfg.AddMetadata("eventbus-flush", true));
+                        }
                         method.AddStatement($"opts.Policies.AddMiddleware<{uowMiddleware}>(c => typeof({commandType}).IsAssignableFrom(c.MessageType));");
                         method.AddStatement("");
                         if (hasIdentity)
@@ -65,6 +81,10 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         method.AddStatement($"opts.Services.AddTransient<{logMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{perfMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{errMiddleware}>();");
+                        if (hasBusFlush)
+                        {
+                            method.AddStatement($"opts.Services.AddTransient<{busFlushMiddleware}>();", cfg => cfg.AddMetadata("eventbus-flush", true));
+                        }
                         method.AddStatement($"opts.Services.AddTransient<{uowMiddleware}>();");
                     });
 

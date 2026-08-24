@@ -6,6 +6,7 @@ using Intent.Modules.Application.Wolverine.Templates.CommandHandler;
 using Intent.Modules.Application.Wolverine.Templates.CommandInterface;
 using Intent.Modules.Application.Wolverine.Templates.CommandModels;
 using Intent.Modules.Application.Wolverine.Templates.LoggingMiddleware;
+using Intent.Modules.Application.Wolverine.Templates.MessageBusFlushMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.PerformanceMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.QueryHandler;
 using Intent.Modules.Application.Wolverine.Templates.QueryInterface;
@@ -62,6 +63,11 @@ namespace Intent.Modules.Application.Wolverine.Templates
         public static string GetLoggingMiddlewareName(this IIntentTemplate template)
         {
             return template.GetTypeName(LoggingMiddlewareTemplate.TemplateId);
+        }
+
+        public static string GetMessageBusFlushMiddlewareName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(MessageBusFlushMiddlewareTemplate.TemplateId);
         }
 
         public static string GetPerformanceMiddlewareName(this IIntentTemplate template)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -61,15 +62,20 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 
                     if (Model.ParentClass != null)
                     {
-                        // It's important we use the actual CSharpClass here from the other template
-                        // and not a string because its metadata is checked by other templates and/or
-                        // factory extensions.
-                        var parentRole = ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour()
-                            ? TemplateRoles.Domain.Entity.State
-                            : TemplateRoles.Domain.Entity.Primary;
+                        // Modules which stub out entity templates for classes in referenced packages (e.g.
+                        // Intent.AspNetCore.Identity's IdentityUser<T>) may only register the behaviour template,
+                        // so fall back to it. Both emit the same partial class, so either yields the same base type.
+                        if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.State, Model.ParentClass, out var parentTemplate) &&
+                            !TryGetTemplate<ICSharpFileBuilderTemplate>(DomainEntityTemplate.TemplateId, Model.ParentClass, out parentTemplate))
+                        {
+                            throw new ElementException(Model.InternalElement,
+                                $"Cannot resolve the base class for {Model.Name} because no entity template was found for " +
+                                $"its parent class {Model.ParentClass.Name}. If the parent class comes from a referenced " +
+                                "package, the module which owns that package must register a Domain Entity State template " +
+                                "for it when the Separate State from Behaviour setting is enabled.");
+                        }
 
-                        var baseType = GetTemplate<ICSharpFileBuilderTemplate>(parentRole, Model.ParentClass)
-                            .CSharpFile.Classes.First();
+                        var baseType = parentTemplate.CSharpFile.Classes.First();
 
                         @class.ExtendsClass(
                             @class: baseType,

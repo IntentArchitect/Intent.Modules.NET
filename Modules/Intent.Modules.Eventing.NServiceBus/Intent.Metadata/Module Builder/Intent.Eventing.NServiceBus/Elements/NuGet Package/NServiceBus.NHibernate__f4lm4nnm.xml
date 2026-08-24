@@ -102,6 +102,73 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="b48f6341-df4e-493e-9f44-c8c572bf1ac9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.6.4</name>
+      <display>8.6.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>05063fbe-177e-4230-8a63-a8421a642bbd</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="891d51fe-d09b-4ff0-90aa-3151b3135cc2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="95869454-7a8f-4311-b747-e0f61a4d697d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NHibernate</name>
+          <display>NHibernate (5.5.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.5.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="af26259c-cb06-4826-9810-83eed24f0cbc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NServiceBus</name>
+          <display>NServiceBus (7.8.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.8.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="28ef333b-8c26-430b-9951-04081aca9b7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.6</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
@@ -135,60 +202,6 @@
           <parentFolderId>28ef333b-8c26-430b-9951-04081aca9b7e</parentFolderId>
           <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
           <packageName>Intent.Eventing.NServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="b48f6341-df4e-493e-9f44-c8c572bf1ac9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.6.4</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>05063fbe-177e-4230-8a63-a8421a642bbd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="891d51fe-d09b-4ff0-90aa-3151b3135cc2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.CSharp</name>
-          <isAbstract>false</isAbstract>
-          <value>4.7.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="95869454-7a8f-4311-b747-e0f61a4d697d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>NHibernate</name>
-          <isAbstract>false</isAbstract>
-          <value>5.5.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="af26259c-cb06-4826-9810-83eed24f0cbc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>NServiceBus</name>
-          <isAbstract>false</isAbstract>
-          <value>7.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b48f6341-df4e-493e-9f44-c8c572bf1ac9</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

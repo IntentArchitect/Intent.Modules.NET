@@ -15,6 +15,41 @@ This module generates code to work with Dapper's [`Dapper` NuGet package](https:
 - Repositories, for persistence.
 - Stored procedure invocations on those repositories.
 
+## Primary keys
+
+`AddAsync` decides which primary key attributes to insert, and which to capture back onto the entity after insert, per-attribute based on the `Primary Key` stereotype's _Data source_ property (`Auto-generated`, `User supplied`, or `Default` — treated as auto-generated for `guid`/`int`/`long`/`short` attributes). This applies equally to single-attribute and composite (multi-attribute) keys:
+
+- **No auto-generated key attributes** (e.g. a fully user-supplied composite key such as `OrderId` + `ProductId`): all key columns are included in the `INSERT`, and no value is captured back.
+
+  ```csharp
+  var sql = @"
+  INSERT INTO [OrderLine]
+  (OrderId, ProductId, Quantity)
+  VALUES
+  (@OrderId, @ProductId, @Quantity)
+  ";
+  await connection.ExecuteAsync(sql, entity);
+  ```
+
+- **One auto-generated key attribute**: that column is omitted from the `INSERT`'s column list, added to an `OUTPUT` clause, and read back with `QuerySingleAsync<T>`.
+
+  ```csharp
+  var newId = await connection.QuerySingleAsync<Guid>(sql, entity);
+  entity.Id = newId;
+  ```
+
+- **Two or more auto-generated key attributes** (a composite key with multiple generated members): all of them are listed in the `OUTPUT` clause and read back in one dynamic row via Dapper's non-generic `QuerySingleAsync`.
+
+  ```csharp
+  var generatedResult = await connection.QuerySingleAsync(sql, entity);
+  entity.KeyPartA = generatedResult.KeyPartA;
+  entity.KeyPartB = generatedResult.KeyPartB;
+  ```
+
+### No primary key
+
+If an entity has no `Primary Key`-stereotyped attribute, there is no column to build a safe `WHERE` clause from, so `FindByIdAsync`, `UpdateAsync`, and `RemoveAsync` are not generated for it — neither on the repository interface nor its implementation. `AddAsync` (insert) and `FindAllAsync` (select all) are still generated, since neither needs a key.
+
 ## Stored procedures
 
 A `Repository` in the Domain designer can invoke a stored procedure in any of the three ways provided by the `Intent.Modules.Modelers.Domain.StoredProcedures` module:
