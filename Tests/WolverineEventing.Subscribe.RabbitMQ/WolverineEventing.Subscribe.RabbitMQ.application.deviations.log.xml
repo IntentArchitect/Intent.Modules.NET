@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#19d4e99d-f8df-486d-9d81-b701e6ae28a4</correlationId>
+      <path>WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/FailingOrderEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-24T14:35:30.6381611Z</updatedAt>
+      <deviationsHash>6D3DFE1AF2430A03D6C9992699AD6443F1421EDE1F6B00E3F82DDF908148FB85</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#2ccca004-cf77-4b3b-8b47-3c4bbc2c3069</correlationId>
       <path>WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/OrderShippedEventHandler.cs</path>
       <count>3</count>

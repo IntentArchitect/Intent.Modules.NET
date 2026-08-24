@@ -248,3 +248,184 @@ Fixing the sample, in this order. No module work, no requirements or design edit
 7. Close the ledger rows with artefacts (a1, a8, a9, a11, n1, n2, n3)
 8. Produce the licence inventory (G0 #9)
 9. Re-run G0, write the dossier, commit and tag, bring the scorecard back for approval
+
+---
+
+# Addendum — 2026-08-24: charter staleness and three settled decisions
+
+Recorded during an aborted `/sdd-requirements` run. The developer chose to gate the sample before
+any requirements work, so this addendum carries forward what that run established rather than
+letting it die with the conversation.
+
+## Why the body above can no longer be read as current
+
+Everything from `# Sample Charter` down to `## Decisions — settled` describes a sample that no
+longer exists on disk. Verified against the working tree at `0bc5da7eb0`:
+
+| Charter says                                                     | On disk today                                                                       |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Tests/Wolverine.Publish.RabbitMQ`, `Tests/Wolverine.Subscribe.RabbitMQ` | `Tests/WolverineEventing.Publish.RabbitMQ`, `Tests/WolverineEventing.Subscribe.RabbitMQ` |
+| `Tests/Wolverine.Reference.Tests` deleted by D3                  | Still absent — confirmed                                                            |
+| Pinned runtime .NET 8                                            | `net10.0`; WolverineFx and WolverineFx.RabbitMQ both 5.39.5                         |
+| D1: do NOT rename off the `Wolverine.*` root                     | Reversed — apps renamed to `WolverineEventing.*` at `1c5b23728c` / `02aa98e80b`     |
+| G0 #8 namespace pre-check fails, descoped                        | The rename resolves it; no `extern alias` remains anywhere                          |
+| Sample scaffolded on MediatR-style dispatch                      | `Intent.Application.Wolverine` 1.0.3-pre.0 — Wolverine CQRS dispatch throughout      |
+| A generated `<Message>Consumer` sits between transport and handler | No Consumer class exists; see D4                                                     |
+
+Commits that moved it: `02aa98e80b`, `ddabc452d8`, `5cc223a3b4`, `98b4b4df2a`, `4c474f0478`.
+
+Ledger row `n3` and Decision D1 are therefore **closed by the rename**, not by the probe D1
+proposed. G0 #8 should now be re-checked as a pass rather than carried as a descope.
+
+## D4 — Is there a generated Consumer class? NO.
+
+Developer decision: the `IIntegrationEventHandler<T>` implementation **is** the Wolverine handler.
+
+This is not a preference; the sample proves the alternative is broken. Each handler is named
+`<Message>Handler` and exposes `HandleAsync(TMessage, CancellationToken)`, which is exactly the
+signature Wolverine invokes. Interposing a generated Consumer makes Wolverine find two handlers for
+one message, and its runtime codegen emits the same local variable twice — CS0128, codegen fails,
+no handler runs, messages are dropped in silence. Cited at
+`WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs:38-45`.
+
+Consequence: `requirements.mdx` R5.1, R5.2 and R5.5 are **falsified** as written and must be
+re-derived once this gate clears. R5.3, R5.4, R5.6 and R5.7 survive.
+
+## D5 — Who owns handler discovery? A COMMON MODULE DISABLES IT; EACH MODULE REGISTERS ITS OWN TYPES.
+
+Developer decision, quoted: _"common module disables conventional discovery and the relevant
+wolverine module introduces their relevant types"_.
+
+This is a **change the sample must absorb before it can be gated.** As it stands the eventing
+configuration does both jobs — it calls `DisableConventionalDiscovery()` and then registers the CQRS
+module's handlers as well as its own:
+
+- `WolverineEventing.Publish.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs:49-54`
+  registers `ShipOrderCommandHandler`, `RequestOrderProcessingCommandHandler`, `FailOrderCommandHandler`
+  — all three are CQRS handlers owned by `Intent.Application.Wolverine`.
+- `WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs:52-57`
+  registers the three eventing handlers, which is correctly its own business.
+- `Intent.Application.Wolverine` meanwhile still emits
+  `opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly)` in
+  `Infrastructure/Configuration/WolverineConfiguration.cs`, which the eventing config's
+  `DisableConventionalDiscovery()` then defeats — the two are in direct conflict inside one
+  `UseWolverine` callback in `Program.cs`.
+
+Target shape to build and re-verify:
+
+1. A common Wolverine module owns the single host configuration and is the only caller of
+   `DisableConventionalDiscovery()`.
+2. `Intent.Application.Wolverine` registers its own CQRS handler types explicitly, replacing
+   `IncludeAssembly`.
+3. The eventing module registers only the eventing handler types.
+
+## D6 — How much surface must the sample carry? THE FULL SURFACE.
+
+Developer decision: keep all four Transports and both Transactional Outbox modes in scope rather
+than narrowing to what is proven today.
+
+The gating consequence is concrete and unavoidable: `/sdd-design` operates under a verbatim-API
+rule, so every framework call a template will emit must already appear in a committed sample file.
+The sample currently contains **no** Durable outbox call site, and no Azure Service Bus, Amazon SQS
+or Local transport registration. Requirements R6.3, R6.5, R6.6, R6.8 and the non-RabbitMQ half of
+R2.2 have nothing to cite. Those variants must be added — compile-only depth is sufficient for the
+three extra transports per assumption a10, but a Durable-outbox call site has to exist.
+
+## Open items this run did not settle
+
+Left for the gate, not dropped:
+
+- What flushes the Message Bus in an application that does **not** use Wolverine CQRS dispatch. The
+  sample relies on `Intent.Application.Wolverine`'s `MessageBusFlushMiddleware`
+  (`Infrastructure/Dispatch/Middleware/MessageBusFlushMiddleware.cs`) to call
+  `FlushAllAsync`. A MediatR application installing only the eventing module has nothing that does.
+- The `Program.cs` host registration is hand-written inside a file carrying
+  `[assembly: DefaultIntentManaged(Mode.Fully)]` — a duplicated `using ... Infrastructure.Eventing;`
+  at `WolverineEventing.Subscribe.RabbitMQ.Api/Program.cs:12-13` is the hand-edit fingerprint. The
+  Software Factory will strip it. This is the charter's own G0 #5 item, still open.
+- `WolverineMessageBus` is registered in the publisher's `AddInfrastructure` but not the
+  subscriber's. Intended asymmetry or an omission — undecided.
+- The subscriber-queue naming convention the sample uses for a fanned-out Integration Event,
+  `{application-name-kebab}-{message-name-kebab}`, appears in no requirement. R3 covers the exchange
+  name only.
+
+
+---
+
+# Addendum II — 2026-08-24: D3/D6 reconciled, and the descope register
+
+## D3 and D6 do not conflict — they scope different things
+
+Recorded because the first reading of this pair treated them as contradictory, and they are not.
+
+- D6 scopes the **module's shipped surface**: four Transports, both Transactional Outbox modes.
+- D3 scopes the **sample's proof surface**: one path, RabbitMQ with Outbox None, proven by hand.
+
+A module may ship more than its sample proves. What it may not do is let the *spec* assert what
+nothing supports. Gate criterion 4 is therefore not "every shipped default has a runtime variant"
+but **citable surface**: every capability the design quotes verbatim must exist somewhere
+committed — a full variant, a compile-only variant, or a probe.
+
+## Descope register — each descope with the consequence it imposes
+
+The rule this table exists to enforce: a descope whose consequence is not written down comes back
+later as an approved requirement nobody can satisfy.
+
+| Descoped | Decision | Consequence the spec inherits |
+| --- | --- | --- |
+| Automated tests, entire T-1..T-7 list (gate criteria 2 and 3) | D3 | **The spec may assert generated SHAPE only.** No acceptance criterion in `requirements.md` may claim that a message is delivered, retried, dead-lettered, or handled. Criteria must be phrased against generated code and configuration — what is emitted, where, containing which registration — never against runtime behaviour. This binds every later wave |
+| Runtime proof for Transactional Outbox Durable | D3 + D6 | Design may cite the SQL Server and PostgreSQL durability APIs from the committed probe. No criterion may claim a message is dispatched if and only if the transaction commits |
+| Runtime proof for Azure Service Bus, Amazon SQS, Local | a10, D3 | Design may cite their registration APIs from the committed probe. No criterion may claim delivery on those transports |
+| Runtime proof for Broker Topology = Externally owned | D3 | Design may cite the non-declaring registration form from the probe. No criterion may claim it joins a pre-provisioned estate successfully |
+| A third and fourth sample application for outbox variants | D3 | Replaced by the compile-only probe, which is cheaper and which criterion 7 accepts as closing evidence |
+
+Manual real-host verification against docker RabbitMQ was performed and is recorded in the body of
+this charter. It is retained as **context**, not as an oracle: nothing re-runs it, so no acceptance
+criterion may cite it.
+
+## Known deviation — the sample registers another module's handlers
+
+`WolverineEventingConfiguration.ConfigureHandlerDiscovery` in the **publisher** registers
+`ShipOrderCommandHandler`, `RequestOrderProcessingCommandHandler` and `FailOrderCommandHandler`
+(`WolverineEventing.Publish.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs:49-54`).
+
+All three are CQRS handlers owned by `Intent.Application.Wolverine`, not by the eventing module.
+They are registered there only because `DisableConventionalDiscovery()` is called in the same method
+and would otherwise strand them.
+
+**This is a deviation, not intended shape.** `/sdd-design` must not transcribe it into the eventing
+module's templates. The intended shape is D5: a common module owns `DisableConventionalDiscovery()`,
+and each Wolverine module registers its own handler types. The sample demonstrates the *effect* D5
+requires while attributing it to the wrong owner, because no common module exists yet to attribute
+it to.
+
+## Gate fixes applied on 2026-08-24
+
+| Fix | Files | Result |
+| --- | --- | --- |
+| Protected the eventing host registration with `//IntentIgnore` (criterion 5b) | `*.Api/Program.cs`, both applications | Software Factory re-run: **0 changes** in both applications |
+| Removed the duplicated `using ... Infrastructure.Eventing;` | `*.Api/Program.cs`, both applications | CS0105 gone; both solutions build with 0 errors |
+| Moved the retry-probe explanation inside the merge-managed body | `FailingOrderEventHandler.cs` | Survives regeneration |
+| Added a compile-only probe for Durable outbox and the three uncovered transports | `golden-sample/probes/DurableAndTransportProbe/` | Builds clean; closes ledger row a1 and gate criterion 4 |
+
+## Ledger closure — 2026-08-24
+
+Gate criterion 7 requires every row closed with an artifact or descoped with sign-off.
+"Investigated" is not closure; a file path is.
+
+| Row | Was | Now | Artifact or reason |
+| --- | --- | --- | --- |
+| a1 | Partial — only 4 of 7 WolverineFx packages verified at 5.39.5 | **CLOSED** | `probes/DurableAndTransportProbe/` references and compiles against all seven at 5.39.5 |
+| a2 | Closed but split | **CLOSED, superseded by D4** | No Consumer exists. Explicit `Discovery.IncludeType<T>()` in both `WolverineEventingConfiguration.cs` |
+| a8 | Open — does an Intent-managed `.sln` tolerate a foreign test project | **DESCOPED** | No test project exists (D3). The probe is a standalone project outside every Intent-managed solution, so the question no longer arises |
+| a9 | Open — is the ActivitySource named "Wolverine"; all of R11 rests on it | **CLOSED** | `probes/DurableAndTransportProbe/TelemetryProbe.cs`. `Wolverine.Runtime.WolverineTracing.ActivitySource.Name` is exactly `Wolverine` at 5.39.5, confirmed by reflection. A template emits `AddSource("Wolverine")` |
+| a11 | Open — is Durable + Local coherent; is R2.5's loss claim wrong | **DESCOPED** | A behavioural claim, and runtime proof is descoped. R2.5 must be re-phrased as generated shape or dropped; it may not assert message loss |
+| n1 | Open — does the real host reach Consumers in `*.Infrastructure` | **CLOSED, obsolete** | No Consumers exist. Handlers live in `*.Application` and are registered explicitly by type, so assembly scanning is not relied on |
+| n2 | Open — does an exhausted message land on the Error Queue | **DESCOPED** | Behavioural. No criterion may assert it |
+| n3 | Open — does the `Wolverine.*` root namespace cause resolution problems | **CLOSED** | The rename to `WolverineEventing.*` removes the collision. Gate criterion 8 now passes |
+| Addendum I — host registration unprotected | Open | **CLOSED** | `//IntentIgnore` in both `*.Api/Program.cs`; Software Factory re-run reports 0 changes in both applications |
+| Addendum I — flush path outside Wolverine CQRS | Open | **CLOSED by precedent** | The flush seam is per-dispatch-mechanism, not per-eventing-provider. A MediatR application already gets `Application/Common/Behaviours/MessageBusPublishBehaviour.cs` calling `FlushAllAsync` (shipped precedent in `Tests/Publish.CleanArch.MassTransit.OutboxNone.TestApplication`); a Wolverine-CQRS application gets `MessageBusFlushMiddleware`. The eventing module supplies the bus; the dispatch module supplies the flush |
+| Addendum I — `WolverineMessageBus` registered in publisher only | Open | **CLOSED, intended** | The subscriber publishes nothing, so it needs no `IMessageBus`. The module must register the implementation exactly when the application has something to publish or send, not unconditionally |
+| Addendum I — subscriber queue naming convention unstated | Open | **Reclassified** | Not an unknown but a Scope A input. The sample's convention is: Integration Event exchange = message name kebab-cased; subscriber queue = `{application-name-kebab}-{message-name-kebab}`; Integration Command queue = message name kebab-cased, shared by every sender. Cited at `WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs:20-25` |
+
+Open rows remaining: **none.**

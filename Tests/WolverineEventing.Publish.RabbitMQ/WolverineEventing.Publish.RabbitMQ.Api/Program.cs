@@ -10,7 +10,6 @@ using WolverineEventing.Publish.RabbitMQ.Application;
 using WolverineEventing.Publish.RabbitMQ.Infrastructure;
 using WolverineEventing.Publish.RabbitMQ.Infrastructure.Configuration;
 using WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing;
-using WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -42,7 +41,8 @@ try
     builder.Host.UseWolverine(opts =>
     {
         WolverineConfiguration.Configure(opts);
-        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
+        //IntentIgnore
+        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);  // GOLDEN-SAMPLE: pre-module delta - remove this marker and the //IntentIgnore above once Intent.Eventing.Wolverine generates this host-configuration registration (startup DSL contributed into Intent.AspNetCore.Program).
     });
 
     builder.Host.UseSerilog((context, services, configuration) => configuration

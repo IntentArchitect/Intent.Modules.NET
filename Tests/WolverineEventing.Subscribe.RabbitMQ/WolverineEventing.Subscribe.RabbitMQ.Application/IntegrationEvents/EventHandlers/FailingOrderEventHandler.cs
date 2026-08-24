@@ -19,14 +19,14 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Application.IntegrationEvents.Eve
             _logger = logger;
         }
 
-        /// <summary>
-        /// Throws on every delivery, on purpose. This is the retry probe: it makes the Error Handling
-        /// Policy observable - retry with cooldown on the configured delays, then the Error Queue -
-        /// without the happy-path handlers having to fail. Never make this succeed.
-        /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(FailingOrderEvent message, CancellationToken cancellationToken = default)
         {
+            // Throws on every delivery, on purpose. This is the retry probe: it makes the Error
+            // Handling Policy observable - retry with cooldown on the configured delays, then the
+            // Error Queue - without the happy-path handlers having to fail. Never make this
+            // succeed. Kept inside the body because the body is Mode.Merge and a doc comment above
+            // the signature is stripped on every Software Factory run.
             // Logged before throwing so each delivery attempt is timestamped in the log, which is
             // what makes the retry cadence measurable rather than inferred.
             _logger.LogWarning("ATTEMPT FailingOrderEvent OrderId={OrderId}", message.OrderId);

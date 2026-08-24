@@ -46,7 +46,7 @@
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/Common/Validation/ValidatorProvider.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/DependencyInjection.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationCommands/ProcessOrderCommand.cs" />
-  <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/FailingOrderEventHandler.cs" />
+  <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/FailingOrderEventHandler.cs" deviationsHash="6D3DFE1AF2430A03D6C9992699AD6443F1421EDE1F6B00E3F82DDF908148FB85" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/OrderShippedEventHandler.cs" deviationsHash="7E09762C587CFA9B5649D987DB1B4015CFEF94CE6413F7532792663375EB74EB" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/ProcessOrderCommandHandler.cs" deviationsHash="7B036CDAE5EBED575AE6CBA46CD1066E0B2F30A627EAB64B8C74AD9FE371492F" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/FailingOrderEvent.cs" />
