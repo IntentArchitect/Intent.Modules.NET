@@ -823,9 +823,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="485855cb-89ae-4480-9b47-0701afe9fe70" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.SDD.Skills.SddGoldenSample_SkillMd_Agents</name>
-      <display>Intent.ModuleBuilder.AI.SDD.Skills.SddGoldenSample_SkillMd_Agents</display>
+    <childElement id="a8df338c-0c46-4906-aa0f-552597cf2828" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.SDD.Skills.SddBuildModule_SkillMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.SDD.Skills.SddBuildModule_SkillMd_Agents</display>
       <externalReference>Intent.ModuleBuilder.AI.SDD</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

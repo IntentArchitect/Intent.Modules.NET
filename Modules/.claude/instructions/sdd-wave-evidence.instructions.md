@@ -3,7 +3,7 @@ applyTo: '**'
 description: "What a wave of an Intent Architect SDD spec must produce as evidence before any of its tasks may be reported complete, including the golden-sample parity obligations that outlive the session which created them."
 keywords: [sdd, wave, evidence, traceability, completion, verification, golden-sample, parity]
 template-id: Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd
-contentHash: 05125388DDCBFA9B6D0E0570DB22106554B7E6448578121EC0F7CC7760E6E498
+contentHash: 9E40B9F5A0E734661EB4CEC4FD79D8FCB87D8AE7BE442F3605C1BBDB3C908A2B
 ---
 # SDD Wave Evidence Contract
 
@@ -73,23 +73,26 @@ unfinished wave, and the honest thing to return.
   make its check a task whose deliverable is a file on disk — a parity or evidence report — so
   verification is durable and reviewable rather than a sentence in a transcript.
 
-## Before You Implement: Find The Parity Oracle
+## Before You Implement: Find The Golden Sample Reference
 
-A module-building spec is derived from a **golden sample** — a committed, gated reference the
-generated output is supposed to reproduce. That sample was very likely gated in a different
-session from the one you are in now, so nothing in your context mentions it unless you go looking.
+A module-building spec is derived from a **golden sample** — a committed reference codebase the
+generated output is supposed to reproduce — and its **Golden Sample Reference**, the document that
+describes it. Both were very likely produced in a different session from the one you are in now,
+so nothing in your context mentions them unless you go looking.
 
-Look for a Golden Sample Dossier (typically `GOLDEN-SAMPLE.md`) at the sample's root or in the
-spec's `baseline/` folder, and read it before implementing. It carries what you cannot infer from
-the spec alone:
+The requirements document records the Reference's path — that is the intended discovery route. If
+it does not, look for the newest module-building plan in `intent/.plans/` and at the sample's
+root. Read the Reference before implementing; it carries what you cannot infer from the spec
+alone:
 
+- **where things live** — which sample file each template is answerable for
+- **key snippets** — the exact code your templates must emit, without re-scouting the sample
 - the **pre-module delta** — the enumeration of lines the module is supposed to generate
-- the **API citation index** — the exact calls, cited at a tag, that your templates must emit
-- the **per-file inventory** — which sample file each template is answerable for
-- what was **descoped**, and therefore what the spec may not assert
+- **variations explored** and what is **out of scope** — and therefore what the spec may not assert
 
-If a task's wording and the dossier disagree, say so rather than picking one. The dossier records
-what was actually verified; the spec records what someone believed at authoring time.
+If a task's wording and the Reference disagree, say so rather than picking one. The Reference
+records what was actually built and verified; the spec records what someone believed at authoring
+time.
 
 ## The Golden-Sample Marker Sweep
 
