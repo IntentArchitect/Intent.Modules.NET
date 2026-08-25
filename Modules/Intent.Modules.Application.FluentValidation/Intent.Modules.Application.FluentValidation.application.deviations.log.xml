@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#3942985b-5e6f-4104-8211-6c0e83c6f983</correlationId>
+      <path>Intent.Modules.Application.FluentValidation.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-24T13:38:43.3768904Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:28.4505997Z</approvedAt>
+      <deviationsHash>0E7D015D5E86E92409993817B3CB65F07DC2D00DD0EDFF6CE82246453FB94B3D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.FluentValidation/.gitattributes</path>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:24.0845731Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

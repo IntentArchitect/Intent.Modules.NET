@@ -1,3 +1,7 @@
+### Version 4.7.4
+
+- Improvement: Reworded the `mediatr-command-handler` and `mediatr-query-handler` AI skill descriptions to an imperative "MUST load before..." trigger naming the handler file the agent is about to edit, so coding agents reliably load them instead of skipping them.
+
 ### Version 4.7.3
 
 - Improvement: Scoped the `CommandHandlerSkillTemplate` / `QueryHandlerSkillTemplate` AI skill files to the new `AI.Context.Skills.Handler` role so EF Core, EF Repositories, and AutoMapper handler-specific guidance (SaveChanges rules, repository Update rules, mapper verification gates) is generated onto them, matching the same guidance already generated for other CQRS transports (e.g. Wolverine).

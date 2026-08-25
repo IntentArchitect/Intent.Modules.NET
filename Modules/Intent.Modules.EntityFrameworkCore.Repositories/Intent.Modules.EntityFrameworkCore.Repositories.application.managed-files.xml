@@ -10,8 +10,8 @@
   <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" />
   <file path="FactoryExtensions/DbContextInterfaceExtension.cs" />
   <file path="FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs" />
-  <file path="Intent.EntityFrameworkCore.Repositories.imodspec" deviationsHash="20152D78B0BB8D69374465F967044A158C9076CFB89A58A57CFF54F5A036F0AB" />
-  <file path="Intent.Modules.EntityFrameworkCore.Repositories.csproj" deviationsHash="74713D1B0E636849B488CF369845EE691FE51625E2529B7BCCAC2A1BD602C9E6" />
+  <file path="Intent.EntityFrameworkCore.Repositories.imodspec" />
+  <file path="Intent.Modules.EntityFrameworkCore.Repositories.csproj" deviationsHash="7A55B486A67109E32A6DD0F9B4B2BE59A4894489620332FF53670267178BBF3C" />
   <file path="Settings/ModuleSettingsExtensions.cs" />
   <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplatePartial.cs" />
   <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplateRegistration.cs" />

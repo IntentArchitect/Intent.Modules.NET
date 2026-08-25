@@ -2,23 +2,16 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.IModSpecFile#234cbc02-02c7-49f6-9de2-981fb517a4ce</correlationId>
-      <path>Intent.EntityFrameworkCore.Repositories.imodspec</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-20T12:06:48.3307044Z</updatedAt>
-      <deviationsHash>20152D78B0BB8D69374465F967044A158C9076CFB89A58A57CFF54F5A036F0AB</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#3e5e932f-a74c-4c96-ad5a-e6eb4356f9a4</correlationId>
       <path>Intent.Modules.EntityFrameworkCore.Repositories.csproj</path>
       <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-20T12:06:48.3308543Z</updatedAt>
-      <deviationsHash>74713D1B0E636849B488CF369845EE691FE51625E2529B7BCCAC2A1BD602C9E6</deviationsHash>
-      <fileHash>0D51008AC3A58908EB0C83608CD1539A4C45801416A6E699EF7354F42B01FDDE</fileHash>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-24T13:38:50.2935915Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:28.549234Z</approvedAt>
+      <deviationsHash>7A55B486A67109E32A6DD0F9B4B2BE59A4894489620332FF53670267178BBF3C</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>

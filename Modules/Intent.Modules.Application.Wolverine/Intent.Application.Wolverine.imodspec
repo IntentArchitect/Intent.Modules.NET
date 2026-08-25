@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Wolverine</id>
-  <version>1.0.3-pre.0</version>
+  <version>1.0.3-pre.1</version>
   <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</summary>
   <description>Generates Wolverine CQRS command and query handlers, middleware behaviours, and marker interfaces for .NET applications.</description>
@@ -171,16 +171,16 @@
         <package id="Intent.Application.Wolverine.DomainEvents" version="1.0.0" />
       </install>
     </detect>
-	<detect id="Intent.Eventing.MassTransit">
-	  <install>
-		<package id="Intent.Eventing.MassTransit" version="7.2.2-pre.0" />
-	  </install>
-	</detect>
-	<detect id="Intent.Eventing.NServiceBus">
-	  <install>
-		<package id="Intent.Eventing.NServiceBus" version="1.0.3-pre.0" />
-	  </install>
-	</detect>
+    <detect id="Intent.Eventing.MassTransit">
+      <install>
+        <package id="Intent.Eventing.MassTransit" version="7.2.2-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Eventing.NServiceBus">
+      <install>
+        <package id="Intent.Eventing.NServiceBus" version="1.0.3-pre.0" />
+      </install>
+    </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.EntityFrameworkCore">
       <install>

@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.FluentValidation.Templates.CustomValidation
                 .FromMarkdown($"""
 ---
 name: fluent-validation-custom-validation
-description: implement or revise fluent validation custom async method logic in an existing validator file. use when a c# fluent validation validator has an incomplete or incorrect custom async validation method and the agent should update the method body, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the validator.
+description: Implements custom and async FluentValidation rules. MUST load before creating or editing any validator e.g. *Validator.cs.
 template-id: {TemplateId}
 ---
 

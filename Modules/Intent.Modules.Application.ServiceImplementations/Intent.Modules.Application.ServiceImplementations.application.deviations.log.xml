@@ -25,4 +25,12 @@
       <fileHash>5BB473E3FEB3748E696B6AAD403C399449DF46D5A858EEE95ACB0B7A1DA2515B</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.ServiceImplementations/.gitattributes</path>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:24.1083579Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

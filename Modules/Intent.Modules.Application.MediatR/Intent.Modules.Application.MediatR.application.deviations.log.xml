@@ -3,13 +3,15 @@
   <files>
     <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#221043f0-7703-4326-909c-6689fd961f8a</correlationId>
-      <path>Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.csproj</path>
+      <path>Intent.Modules.Application.MediatR.csproj</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-08T14:46:52.7146672Z</updatedAt>
-      <deviationsHash>FB3929C954EE8946F0905548609485877EFEC73608208B3B9068FC7D52C99687</deviationsHash>
-      <fileHash>60AA727B09CF449FE99356C918272414978A1AD7F674AFACBAA5C71B9366CA33</fileHash>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-24T13:38:40.1137441Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:28.6000062Z</approvedAt>
+      <deviationsHash>AFB9832F31E1863CF433A02A84A87896154C90D36F81A5A471A3868865BE140C</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#9c8ff153-4dca-4d95-8136-043ed779abd1</correlationId>
@@ -160,4 +162,12 @@
       <fileHash>4DB90EC5AA5864AF9C911ACBE5C4E9BAB095E557454359356D6F175E682AF1C6</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.MediatR/.gitattributes</path>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:24.1281797Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

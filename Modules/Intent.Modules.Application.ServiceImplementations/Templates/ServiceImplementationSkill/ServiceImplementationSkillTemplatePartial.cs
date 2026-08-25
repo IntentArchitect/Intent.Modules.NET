@@ -31,7 +31,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 .FromMarkdown($"""
 ---
 name: {SkillName}
-description: Implement or fix business logic in traditional style application services, following this codebase's established architectural conventions. Use when a C# application service class has incomplete or incorrect business logic.
+description: Implements business logic in traditional (non-CQRS) application services. MUST load before creating or editing a traditional application service class in the Application layer.
 template-id: {TemplateId}
 ---
 
