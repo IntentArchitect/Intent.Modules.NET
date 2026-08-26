@@ -1,8 +1,8 @@
 ---
 name: application-service-implementation
-description: Implement or fix business logic in traditional style application services, following this codebase's established architectural conventions. Use when a C# application service class has incomplete or incorrect business logic.
+description: Implements business logic in traditional (non-CQRS) application services. MUST load before creating or editing a traditional application service class in the Application layer.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: D99AD2EA9B6C03CC42F67EF09930E02E62A1398D5793330740C7F2A0DAD4CE86
+contentHash: 86A88F974B73085ED5C71298B3226516AC94784AFDBE9B7DA1E19A04F51FFC87
 ---
 # Traditional Service Implementation
 

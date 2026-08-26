@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0383bf92-fdf9-4f70-99fc-3db21db75e11">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="01-applications/azure-event-grid-resources.tf" />
+  <file path="01-applications/azure-function-queue-storage.tf" />
+  <file path="01-applications/azure-functions-azure-event-grid-group-a.tf" />
+  <file path="01-applications/azure-functions-azure-event-grid-group-b.tf" />
+  <file path="01-applications/azure-functions-azure-service-bus-group-a.tf" />
+  <file path="01-applications/azure-functions-azure-service-bus-group-b.tf" />
+  <file path="01-applications/azure-functions-mongo-db.tf" />
+  <file path="01-applications/azure-functions-net6.tf" />
+  <file path="01-applications/azure-functions-net8.tf" />
+  <file path="01-applications/azure-main.tf" />
+  <file path="01-applications/azure-service-bus-resources.tf" />
+  <file path="01-applications/graph-ql-azure-function-test-application.tf" />
+  <file path="02-subscriptions/azure-functions-azure-event-grid-group-a.tf" />
+  <file path="02-subscriptions/azure-functions-azure-event-grid-group-b.tf" />
+  <file path="02-subscriptions/azure-main.tf" />
+</managedFiles>

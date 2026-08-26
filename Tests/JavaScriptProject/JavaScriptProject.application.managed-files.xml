@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="f30a8ca0-4346-4589-a466-22bc302e8f67">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="JavaScriptProject.sln" />
+  <file path="JavaScriptProject/Folder1/azure-pipelines.yaml" />
+  <file path="JavaScriptProject/JavaScriptProject.esproj" />
+</managedFiles>

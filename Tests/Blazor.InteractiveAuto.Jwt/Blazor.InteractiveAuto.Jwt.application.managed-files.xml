@@ -97,7 +97,6 @@
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/AccountLayout.razor.cs" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/StatusMessage.razor" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/StatusMessage.razor.cs" />
-  <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/_Imports.razor" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/App.razor" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/_Imports.razor" />
   <file path="Blazor.InteractiveAuto.Jwt/Configuration/ProblemDetailsConfiguration.cs" />

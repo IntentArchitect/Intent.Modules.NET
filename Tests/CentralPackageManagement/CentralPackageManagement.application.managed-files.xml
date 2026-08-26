@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="9534342e-b577-43f8-86d3-ad489ac18b60">
+  <file path="../Directory.Packages.props" />
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".gitignore" />
+  <file path="CentralPackageManagement.Api/CentralPackageManagement.Api.csproj" />
+  <file path="CentralPackageManagement.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="CentralPackageManagement.Api/Filters/ExceptionFilter.cs" />
+  <file path="CentralPackageManagement.Api/Program.cs" />
+  <file path="CentralPackageManagement.Api/Properties/launchSettings.json" />
+  <file path="CentralPackageManagement.Api/Startup.cs" />
+  <file path="CentralPackageManagement.Api/appsettings.json" />
+  <file path="CentralPackageManagement.Application/CentralPackageManagement.Application.csproj" />
+  <file path="CentralPackageManagement.Application/DependencyInjection.cs" />
+  <file path="CentralPackageManagement.Domain/CentralPackageManagement.Domain.csproj" />
+  <file path="CentralPackageManagement.Infrastructure/CentralPackageManagement.Infrastructure.csproj" />
+  <file path="CentralPackageManagement.Infrastructure/DependencyInjection.cs" />
+  <file path="CentralPackageManagement.sln" />
+</managedFiles>

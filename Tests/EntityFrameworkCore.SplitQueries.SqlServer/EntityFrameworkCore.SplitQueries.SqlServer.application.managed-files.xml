@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="35e30096-1762-47c3-b25f-008a4d9895b3">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/EntityFrameworkCore.SplitQueries.SqlServer.Api.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Filters/ExceptionFilter.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Program.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Properties/launchSettings.json" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Startup.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/appsettings.json" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/Common/Pagination/PagedList.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/DependencyInjection.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/EntityFrameworkCore.SplitQueries.SqlServer.Application.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/CollectionExtensions.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/UpdateHelper.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Entities/Order.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/EntityFrameworkCore.SplitQueries.SqlServer.Domain.csproj" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IEFRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IOrderRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IPagedList.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/DependencyInjection.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj" deviationsHash="A0A368121A93B540DA8FE3C6ED3462C12D3DD64863FB93A85401A3D56218FD44" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Migrations/README.md" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/OrderRepository.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries.sln" />
+</managedFiles>

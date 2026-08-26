@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="5385b8fc-6bf9-4b2c-8268-12844932228c">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/MassTransit.RetryPolicy.Incremental.Api.csproj" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/Program.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/Properties/launchSettings.json" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/Startup.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Api/appsettings.json" />
+  <file path="MassTransit.RetryPolicy.Incremental.Application/Common/Eventing/IEventBus.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Application/Common/Eventing/IIntegrationEventHandler.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Application/MassTransit.RetryPolicy.Incremental.Application.csproj" />
+  <file path="MassTransit.RetryPolicy.Incremental.Domain/MassTransit.RetryPolicy.Incremental.Domain.csproj" />
+  <file path="MassTransit.RetryPolicy.Incremental.Infrastructure/Configuration/MassTransitConfiguration.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Infrastructure/DependencyInjection.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/MassTransitMessageBus.cs" />
+  <file path="MassTransit.RetryPolicy.Incremental.Infrastructure/MassTransit.RetryPolicy.Incremental.Infrastructure.csproj" />
+  <file path="MassTransit.RetryPolicy.Incremental.sln" />
+</managedFiles>

@@ -1,8 +1,8 @@
 ---
 name: wolverine-query-handler
-description: Implement or fix business logic in a Wolverine query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in Wolverine query handler Handle methods. MUST load before creating or editing any query handler e.g. *QueryHandler.cs.
 template-id: Intent.Application.Wolverine.QueryHandlerSkillTemplate
-contentHash: D8398DCD600EE6213CC79E56D8451B24C5C5FCBF7CF7F658F8A1EB99631EC1BD
+contentHash: 5A5C68B652AB225A3BFFD9F997B7E122983A6EEFD7158582F6DCB377363CDD0F
 ---
 # Wolverine Query Handler
 

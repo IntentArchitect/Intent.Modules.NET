@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/domain-services/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
+  <file path=".gitignore" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Interfaces/IDomainEventService.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Models/DomainEventNotification.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Pagination/PagedList.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Pagination/PagedResult.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Validation/IValidatorProvider.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/Common/Validation/ValidatorProvider.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/DependencyInjection.cs" />
+  <file path="SharedKernel.Kernel.Tests.Application/EventHandlers/CurrencyCreatedHandler.cs" deviationsHash="0E5096DE87D807D90BAD5B17A174FEB7F3678C318E69F29BB19EA5612287BEF7" />
+  <file path="SharedKernel.Kernel.Tests.Application/SharedKernel.Kernel.Tests.Application.csproj" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/CollectionExtensions.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/DomainEvent.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/IHasDomainEvent.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Common/UpdateHelper.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Entities/Country.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Entities/Currency.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Events/CountryCreated.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Events/CurrencyCreated.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Repositories/ICountryRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Repositories/ICurrencyRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Repositories/IEFRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Repositories/IPagedList.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Repositories/IRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Services/CurrencyService.cs" deviationsHash="115DB19B8588E35A44FE987F37352C30805B75A85EBD5F9FDFD8146D751BB592" />
+  <file path="SharedKernel.Kernel.Tests.Domain/Services/ICurrencyService.cs" />
+  <file path="SharedKernel.Kernel.Tests.Domain/SharedKernel.Kernel.Tests.Domain.csproj" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/DependencyInjection.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Persistence/Configurations/CountryConfiguration.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Persistence/Configurations/CurrencyConfiguration.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Repositories/CountryRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Repositories/CurrencyRepository.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/Services/DomainEventService.cs" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/SharedKernel.Kernel.Tests.Infrastructure.csproj" deviationsHash="2C47922BA9B64A3C4753F790CB12140934B8D51FE4306B24868B95B689E49030" />
+  <file path="SharedKernel.Kernel.Tests.sln" />
+</managedFiles>

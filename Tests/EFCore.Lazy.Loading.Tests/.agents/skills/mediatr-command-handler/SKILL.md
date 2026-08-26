@@ -1,8 +1,8 @@
 ---
 name: mediatr-command-handler
-description: Implement or fix business logic in a MediatR command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in MediatR command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 73B3E68A499E3A53B7E8B69B63746C15E8A41F3C76636310C193FE47A02D44EC
+contentHash: 6F5CCB5C10547630BFF66A9E4B113BE00DC10BBCA9647980E9BBB703BBFB9375
 ---
 # MediatR Command Handler
 

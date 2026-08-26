@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="90057001-3f88-4be0-8a65-cc23cafbf6a6">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".gitignore" />
+  <file path="AspNetControllers.SecuredByDefault.Api/AspNetControllers.SecuredByDefault.Api.csproj" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Controllers/TestController.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Filters/ExceptionFilter.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Program.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Properties/launchSettings.json" />
+  <file path="AspNetControllers.SecuredByDefault.Api/appsettings.json" />
+  <file path="AspNetControllers.SecuredByDefault.Application/AspNetControllers.SecuredByDefault.Application.csproj" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/HttpClientRequestException.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/DependencyInjection.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/IntegrationServices/ITestService.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Interfaces/ITestService.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Domain/AspNetControllers.SecuredByDefault.Domain.csproj" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/AspNetControllers.SecuredByDefault.Infrastructure.csproj" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/Configuration/HttpClientConfiguration.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/HttpClients/TestServiceHttpClient.cs" />
+  <file path="AspNetControllers.SecuredByDefault.sln" />
+</managedFiles>

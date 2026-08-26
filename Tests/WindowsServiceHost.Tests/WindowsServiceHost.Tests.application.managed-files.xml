@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2442638e-5601-4d9a-a9bc-493024ec6e4e">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path="WindowsServiceHost.Tests.sln" />
+  <file path="WindowsServiceHost.Tests/Caching/DistributedCacheWithUnitOfWork.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Eventing/IEventBus.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Eventing/IIntegrationEventHandler.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Exceptions/HttpClientRequestException.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Exceptions/ProblemDetailsWithErrors.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Interfaces/DistributedCacheExtensions.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Interfaces/ICommand.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
+  <file path="WindowsServiceHost.Tests/Common/Interfaces/IQuery.cs" />
+  <file path="WindowsServiceHost.Tests/Configuration/AzureServiceBusConfiguration.cs" />
+  <file path="WindowsServiceHost.Tests/Configuration/AzureServiceBusPublisherOptions.cs" />
+  <file path="WindowsServiceHost.Tests/Configuration/AzureServiceBusSubscriptionOptions.cs" />
+  <file path="WindowsServiceHost.Tests/Configuration/HttpClientConfiguration.cs" />
+  <file path="WindowsServiceHost.Tests/Configuration/QuartzConfiguration.cs" />
+  <file path="WindowsServiceHost.Tests/DependencyInjection.cs" />
+  <file path="WindowsServiceHost.Tests/Deployment.md" />
+  <file path="WindowsServiceHost.Tests/Eventing/AzureServiceBusMessageBus.cs" />
+  <file path="WindowsServiceHost.Tests/Eventing/AzureServiceBusMessageDispatcher.cs" />
+  <file path="WindowsServiceHost.Tests/Eventing/IAzureServiceBusMessageDispatcher.cs" />
+  <file path="WindowsServiceHost.Tests/Jobs/DispatchJob.cs" />
+  <file path="WindowsServiceHost.Tests/Jobs/NonConcurrentJob.cs" deviationsHash="18EB6C32280C6971165F6AF9D5C3A6C457178CFB92C61E4A97C79AC471365D28" />
+  <file path="WindowsServiceHost.Tests/Jobs/RunEvery15Seconds.cs" deviationsHash="A620B0FFAE841A20452E7C4A97A0284DAA212A72C89E966BCA6B237343AB490B" />
+  <file path="WindowsServiceHost.Tests/Jobs/UnScheduledJob.cs" />
+  <file path="WindowsServiceHost.Tests/MyScheduled/MyScheduledCommand.cs" />
+  <file path="WindowsServiceHost.Tests/MyScheduled/MyScheduledCommandHandler.cs" deviationsHash="01B2231E692A3049E62D8F1F201069618F89B65BD0ABA3E4C194864DACA6D1BB" />
+  <file path="WindowsServiceHost.Tests/Program.cs" />
+  <file path="WindowsServiceHost.Tests/Properties/launchSettings.json" />
+  <file path="WindowsServiceHost.Tests/Services/AzureServiceBusHostedService.cs" />
+  <file path="WindowsServiceHost.Tests/WindowsBackgroundService.cs" />
+  <file path="WindowsServiceHost.Tests/WindowsServiceHost.Tests.csproj" />
+  <file path="WindowsServiceHost.Tests/appsettings.json" />
+</managedFiles>

@@ -1,8 +1,8 @@
 ---
 name: mediatr-query-handler
-description: Implement or fix business logic in a MediatR query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in MediatR query handler Handle methods. MUST load before creating or editing any query handler e.g. *QueryHandler.cs.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 337B85091C820B674ACC8B37163558D3BBBA7EB0D3EF95DDA6AC5DAE5B827E12
+contentHash: 9A4E553050E9DABB3F9C1DB5F6D8A45F38B52145F6A309EAD17608A22CF2CA1B
 ---
 # MediatR Query Handler
 
