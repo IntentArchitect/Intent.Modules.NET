@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="204d76aa-64c9-4223-b93e-291d9e86bd4b" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ea770250-812c-451b-829b-72cc4f72c969</parentFolderId>
+  <packageId>ea770250-812c-451b-829b-72cc4f72c969</packageId>
+  <packageName>WolverineEventing.Coexist.Cqrs.Services</packageName>
+  <diagram>
+    <targetPackageId>ea770250-812c-451b-829b-72cc4f72c969</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0A3868B4-5C9F-45D1-BE4B-78166A825C55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.RetryWithCooldown.Api", "WolverineEventing.ErrorPolicy.RetryWithCooldown.Api\WolverineEventing.ErrorPolicy.RetryWithCooldown.Api.csproj", "{085E85D3-BC23-4A89-838D-AAF471764DCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{1BA8D45E-EC9D-4611-A216-E2064C72121A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.RetryWithCooldown.Application", "WolverineEventing.ErrorPolicy.RetryWithCooldown.Application\WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.csproj", "{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.UnitTests", "WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.UnitTests\WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.UnitTests.csproj", "{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{7E109641-55DC-41D5-B10B-A4ADD027CE37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain", "WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain\WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain.csproj", "{F746F2E4-86B3-43CF-868D-1A53D3D1709A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CEA86BA8-05BA-4ADD-BF2B-024073407A1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure", "WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure\WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.csproj", "{7C5B3505-4596-47B8-BF1F-E98C97700F82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{085E85D3-BC23-4A89-838D-AAF471764DCA} = {0A3868B4-5C9F-45D1-BE4B-78166A825C55}
+		{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C} = {1BA8D45E-EC9D-4611-A216-E2064C72121A}
+		{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C} = {1BA8D45E-EC9D-4611-A216-E2064C72121A}
+		{F746F2E4-86B3-43CF-868D-1A53D3D1709A} = {7E109641-55DC-41D5-B10B-A4ADD027CE37}
+		{7C5B3505-4596-47B8-BF1F-E98C97700F82} = {CEA86BA8-05BA-4ADD-BF2B-024073407A1A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{085E85D3-BC23-4A89-838D-AAF471764DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085E85D3-BC23-4A89-838D-AAF471764DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085E85D3-BC23-4A89-838D-AAF471764DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085E85D3-BC23-4A89-838D-AAF471764DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5573BB51-C4D3-4DD1-8F70-0DA1D4813D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6AC022E-CA2F-4A90-B7C2-64A9CB96680C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F746F2E4-86B3-43CF-868D-1A53D3D1709A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F746F2E4-86B3-43CF-868D-1A53D3D1709A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F746F2E4-86B3-43CF-868D-1A53D3D1709A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F746F2E4-86B3-43CF-868D-1A53D3D1709A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5B3505-4596-47B8-BF1F-E98C97700F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5B3505-4596-47B8-BF1F-E98C97700F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5B3505-4596-47B8-BF1F-E98C97700F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5B3505-4596-47B8-BF1F-E98C97700F82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

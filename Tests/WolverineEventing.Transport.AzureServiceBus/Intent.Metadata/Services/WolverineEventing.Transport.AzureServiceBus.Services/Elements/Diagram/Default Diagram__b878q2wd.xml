@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e8f88894-f651-4aa3-acac-50b37ef43ad8" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>08e9bf50-0acf-4562-becf-b96a56245218</parentFolderId>
+  <packageId>08e9bf50-0acf-4562-becf-b96a56245218</packageId>
+  <packageName>Wolverine.Transport.AzureServiceBus.Services</packageName>
+  <diagram>
+    <targetPackageId>08e9bf50-0acf-4562-becf-b96a56245218</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

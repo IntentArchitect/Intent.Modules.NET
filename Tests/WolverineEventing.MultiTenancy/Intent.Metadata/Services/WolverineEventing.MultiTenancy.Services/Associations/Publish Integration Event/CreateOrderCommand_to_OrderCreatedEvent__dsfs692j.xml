@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6a050ab9-e551-4c11-a1d8-9f531ae69356">
+  <sourceEnd id="9ca029f9-50e9-4c45-8941-9b279566d959" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="a61c765d-5d08-4094-8e58-47342124b0d5">
+      <typeId>bcbb3010-4d7c-42e3-b6da-9897e2fc1fd2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.MultiTenancy.Services</typePackageName>
+      <typePackageId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6a050ab9-e551-4c11-a1d8-9f531ae69356" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="68238a34-cf92-4b39-a137-e79f38230c76">
+      <typeId>97e0b8c2-4fac-45ac-8b03-a67358262646</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.MultiTenancy.Eventing.Messages</typePackageName>
+      <typePackageId>3d5c8768-6c45-4855-b809-30ca35351ec3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

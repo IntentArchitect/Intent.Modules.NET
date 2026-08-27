@@ -2,7 +2,9 @@
 <managedFiles version="1" applicationId="619128f4-2f6d-458d-af6c-65b9e9bb9cfd">
   <file path="../.agents/instructions/csharp-guidelines.md" />
   <file path="../Intent.Modules.NET.sln" />
+  <file path="FactoryExtensions/WolverineHostRegistrationExtension.cs" deviationsHash="827488DA8917DA7C56E73E16961682F7C5581A88ADC9950C3A5297444097C431" />
   <file path="Intent.Modules.Wolverine.Common.csproj" />
   <file path="Intent.Wolverine.Common.imodspec" />
+  <file path="NugetPackages.cs" />
   <file path="release-notes.md" />
 </managedFiles>

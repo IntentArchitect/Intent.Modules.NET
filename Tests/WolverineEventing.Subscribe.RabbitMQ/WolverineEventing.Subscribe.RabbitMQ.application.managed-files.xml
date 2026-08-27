@@ -71,6 +71,8 @@
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" />
+  <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Eventing/WolverineEventingConfiguration.cs" />
+  <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Eventing/WolverineMessageBus.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Migrations/README.md" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Persistence/ApplicationDbContext.cs" />
   <file path="WolverineEventing.Subscribe.RabbitMQ.Infrastructure/Repositories/RepositoryBase.cs" />

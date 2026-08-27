@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cf65536f-80d3-4715-934a-822323a22f25">
+  <sourceEnd id="9a5cff3e-194a-4b21-a474-aa1e1dd66f5a" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="e2ef04ec-2c4d-4f3b-b323-c4574cf45c0a">
+      <typeId>bc840d91-6f57-4514-92b6-fe4325118946</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.ErrorPolicy.RetryWithCooldown.Services</typePackageName>
+      <typePackageId>833f58f1-3bd6-47ff-ab77-b5b45642614d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cf65536f-80d3-4715-934a-822323a22f25" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="70e33b28-155d-4b1f-8682-c2d5052dcec5">
+      <typeId>ecc0b03c-7e81-49c7-b2ab-d0f197107600</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.ErrorPolicy.RetryWithCooldown.Eventing.Messages</typePackageName>
+      <typePackageId>11edab22-e991-4e78-a52d-56ed246d52de</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

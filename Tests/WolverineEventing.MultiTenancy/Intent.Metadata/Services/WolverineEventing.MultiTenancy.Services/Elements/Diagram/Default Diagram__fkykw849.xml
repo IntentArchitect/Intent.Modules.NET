@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cb987ac4-3385-4d8d-b667-8192f09dee2d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</parentFolderId>
+  <packageId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</packageId>
+  <packageName>WolverineEventing.MultiTenancy.Services</packageName>
+  <diagram>
+    <targetPackageId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

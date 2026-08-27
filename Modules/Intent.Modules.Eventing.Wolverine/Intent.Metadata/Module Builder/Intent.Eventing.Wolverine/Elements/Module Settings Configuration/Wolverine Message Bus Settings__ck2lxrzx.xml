@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a37422a7-64ad-446f-905b-75651043fe33" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Wolverine Message Bus Settings</name>
+  <display>Wolverine Message Bus Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7882d907-6087-482f-bfae-3292c31c2c96</parentFolderId>
+  <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+  <packageName>Intent.Eventing.Wolverine</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="15b3e709-aeb8-410a-9172-1273eb7b0864" name="Configuration">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="ce4eefa2-657c-42b0-a8cf-bbe35ef1d8a9" display="Settings Type" value="Application Settings" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="dc046cdc-e50f-4822-86f5-8372b2a6e2b0" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Transport</name>
+      <display>Transport</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a37422a7-64ad-446f-905b-75651043fe33</parentFolderId>
+      <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+      <packageName>Intent.Eventing.Wolverine</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Local runs entirely in-process (no external broker); the other options require a real broker connection." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="local" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="dff9ac89-6ba4-4e91-9357-59b81682fcc3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Local</name>
+          <display>Local = local</display>
+          <isAbstract>false</isAbstract>
+          <value>local</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc046cdc-e50f-4822-86f5-8372b2a6e2b0</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="85423d03-f871-4bb1-9516-c1ccd17aa492" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>RabbitMQ</name>
+          <display>RabbitMQ = rabbitmq</display>
+          <isAbstract>false</isAbstract>
+          <value>rabbitmq</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc046cdc-e50f-4822-86f5-8372b2a6e2b0</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="698e0251-7e09-47a6-b1cc-a6a206af4dc2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Azure Service Bus</name>
+          <display>Azure Service Bus = azure-service-bus</display>
+          <isAbstract>false</isAbstract>
+          <value>azure-service-bus</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc046cdc-e50f-4822-86f5-8372b2a6e2b0</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c2e1dbb8-5f35-4fa2-9883-5d22075ac68a" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Amazon SQS</name>
+          <display>Amazon SQS = amazon-sqs</display>
+          <isAbstract>false</isAbstract>
+          <value>amazon-sqs</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc046cdc-e50f-4822-86f5-8372b2a6e2b0</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2c31038a-8056-4b04-a183-9da3b504cbbe" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Transactional Outbox</name>
+      <display>Transactional Outbox</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a37422a7-64ad-446f-905b-75651043fe33</parentFolderId>
+      <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+      <packageName>Intent.Eventing.Wolverine</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Durable storage is derived from the application's modelled Database Provider - this setting names no persistence technology." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="none" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ba74073f-a3ae-4ec5-8f20-ae7d38b69076" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c31038a-8056-4b04-a183-9da3b504cbbe</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="05470d8c-9d4f-4fac-b40c-119f27d9dc85" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Durable</name>
+          <display>Durable = durable</display>
+          <isAbstract>false</isAbstract>
+          <value>durable</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c31038a-8056-4b04-a183-9da3b504cbbe</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d016cdb6-f1ec-49f2-82af-4d6be226532b" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Error Handling Policy</name>
+      <display>Error Handling Policy</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a37422a7-64ad-446f-905b-75651043fe33</parentFolderId>
+      <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+      <packageName>Intent.Eventing.Wolverine</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="retry-with-cooldown" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ab31e346-66bb-48ae-92d7-00fac5ca0e15" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d016cdb6-f1ec-49f2-82af-4d6be226532b</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e0efb57b-2aff-4317-be6c-0742822c1914" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Retry</name>
+          <display>Retry = retry</display>
+          <isAbstract>false</isAbstract>
+          <value>retry</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d016cdb6-f1ec-49f2-82af-4d6be226532b</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a8760d7b-00f5-4118-8ec9-4869d5a8df82" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Retry with cooldown</name>
+          <display>Retry with cooldown = retry-with-cooldown</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-with-cooldown</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d016cdb6-f1ec-49f2-82af-4d6be226532b</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="85661bdd-36f2-4edc-a95e-aba7519ee4b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Schedule retry</name>
+          <display>Schedule retry = schedule-retry</display>
+          <isAbstract>false</isAbstract>
+          <value>schedule-retry</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d016cdb6-f1ec-49f2-82af-4d6be226532b</parentFolderId>
+          <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+          <packageName>Intent.Eventing.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

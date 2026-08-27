@@ -24,6 +24,17 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Host.UseWolverine(opts =>
+    {
+        WolverineConfiguration.Configure(opts);
+        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
+    });
+
+    builder.Host.UseSerilog((context, services, configuration) => configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services)
+        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+
     // Add services to the container.
     builder.Services.AddControllers(
         opt =>
@@ -37,18 +48,6 @@ try
     builder.Services.ConfigureApiVersioning();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.ConfigureSwagger(builder.Configuration);
-
-    builder.Host.UseWolverine(opts =>
-    {
-        WolverineConfiguration.Configure(opts);
-        //IntentIgnore
-        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);  // GOLDEN-SAMPLE: pre-module delta - remove this marker and the //IntentIgnore above once Intent.Eventing.Wolverine generates this host-configuration registration (startup DSL contributed into Intent.AspNetCore.Program).
-    });
-
-    builder.Host.UseSerilog((context, services, configuration) => configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services)
-        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
     var app = builder.Build();
 

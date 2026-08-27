@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files />
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:35.7063546Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:35.9927956Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:36.2463737Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:36.3866278Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:36.7037236Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.MultiTenancy/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:36.9829006Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

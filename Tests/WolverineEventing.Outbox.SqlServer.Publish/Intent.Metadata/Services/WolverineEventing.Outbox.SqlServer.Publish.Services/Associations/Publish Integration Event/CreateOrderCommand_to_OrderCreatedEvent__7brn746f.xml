@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ffbe4e6a-3cb7-42f6-b431-a880b1403373">
+  <sourceEnd id="83b3e31b-6189-4c19-98a2-27fe9c7f1022" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="0f2c81b4-438d-4f94-994a-f08a06766402">
+      <typeId>b9f7323d-c385-412d-9bc0-4b1d61dd0156</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Outbox.SqlServer.Publish.Services</typePackageName>
+      <typePackageId>1393174a-4f33-4954-b640-a8ddaccb8420</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ffbe4e6a-3cb7-42f6-b431-a880b1403373" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="cb1b77ac-b5f0-4560-a6d9-ed1bb35e019f">
+      <typeId>d4374f15-f024-4940-97e7-1de3cc1ece77</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Outbox.SqlServer.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>284d6137-492c-4e7e-b413-769792a55cf5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

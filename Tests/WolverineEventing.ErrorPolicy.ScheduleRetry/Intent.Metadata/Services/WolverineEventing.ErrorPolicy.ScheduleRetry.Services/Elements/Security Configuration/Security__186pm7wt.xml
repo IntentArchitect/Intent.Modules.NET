@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1fd04d12-7aca-4aae-9bcf-69b2343a252c" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>31dcb002-6649-4e4c-beaa-663c7a0d7bd4</parentFolderId>
+  <packageId>31dcb002-6649-4e4c-beaa-663c7a0d7bd4</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.ScheduleRetry.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

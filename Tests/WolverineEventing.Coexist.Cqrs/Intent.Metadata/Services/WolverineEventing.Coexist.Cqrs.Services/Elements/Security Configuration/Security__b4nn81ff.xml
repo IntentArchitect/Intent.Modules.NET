@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2491de92-18dc-4313-a462-c5d7c6783e80" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ea770250-812c-451b-829b-72cc4f72c969</parentFolderId>
+  <packageId>ea770250-812c-451b-829b-72cc4f72c969</packageId>
+  <packageName>WolverineEventing.Coexist.Cqrs.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

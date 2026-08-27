@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d223ee43-ad47-46ba-b99e-a3a3f67d37bb" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa256c50-e988-4de5-8789-52053c44d812</parentFolderId>
+  <packageId>aa256c50-e988-4de5-8789-52053c44d812</packageId>
+  <packageName>Intent.Wolverine.Common</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

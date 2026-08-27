@@ -118,6 +118,13 @@
       "approvedVia": "chat-gate",
       "conversationId": "conv-1787606763529-918426000",
       "timestampUtc": "2026-08-24T21:32:40Z"
+    },
+    {
+      "fromPhase": "implementation",
+      "toPhase": "done",
+      "approvedVia": "panel-button",
+      "conversationId": null,
+      "timestampUtc": "2026-08-27T09:07:20Z"
     }
   ]
 }

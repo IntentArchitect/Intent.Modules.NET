@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files />
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:00.3897579Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:00.6711888Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:00.9254707Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:01.1921731Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:01.4336021Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:01.7957024Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/instructions/csharp-guidelines.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:02.0623889Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/instructions/unit-test-guidelines.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:02.3603924Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/application-service-implementation/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:02.5066008Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/domain-entity/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:02.7803024Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/ef-repository/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:02.9813309Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/fluent-validation-custom-validation/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:03.1122149Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/mediatr-command-handler/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:03.4534556Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.agents/skills/mediatr-query-handler/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:03.7544294Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.gitignore</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:04.019812Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/appsettings.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:04.3004981Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/ApiVersioningConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:04.5679585Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/ApiVersionSwaggerGenOptions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:04.869904Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/ApplicationSecurityConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:05.2119714Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/HealthChecksConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:05.4820135Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/ProblemDetailsConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:05.6437935Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Configuration/SwashbuckleConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:05.9670841Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Controllers/OrdersController.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:06.1764699Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Filters/AuthorizeCheckOperationFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:06.4150268Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Filters/ExceptionFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:06.652638Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:06.9379692Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Filters/TypeSchemaFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:07.2484314Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Logging/BoundedLoggingDestructuringPolicy.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:07.5085214Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Program.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:07.7790493Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Properties/launchSettings.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:07.9679364Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/Services/CurrentUserService.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:08.1189645Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api/WolverineEventing.ErrorPolicy.RetryWithCooldown.Api.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:08.3266237Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.UnitTests/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.UnitTests.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:08.454607Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/AssemblyAttributes.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:08.7082006Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/AuthorizationBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:08.8172781Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/LoggingBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:09.0779621Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:09.2661807Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/PerformanceBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:09.5286073Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:09.7708877Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:10.0586912Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Behaviours/ValidationBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:10.2756645Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Eventing/IIntegrationEventHandler.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:10.4917811Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Eventing/IMessageBus.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:10.6382685Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Exceptions/ForbiddenAccessException.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:11.0300077Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Interfaces/IBypassPipelineValidation.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:11.4062325Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Interfaces/ICommand.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:11.8153839Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Interfaces/ICurrentUser.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:12.1236733Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Interfaces/ICurrentUserService.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:12.3859072Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Interfaces/IQuery.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:12.6044193Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Models/Result.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:12.9130066Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Pagination/PagedList.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:13.1286625Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Pagination/PagedResult.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:13.4053373Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Pagination/PagedResultMappingExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:13.7287981Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Security/AuthorizeAttribute.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:14.0667194Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Validation/IValidatorProvider.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:14.3729305Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Common/Validation/ValidatorProvider.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:14.6298112Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/DependencyInjection.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:14.9005427Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/IntegrationEvents/OrderCreatedEvent.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:15.1627254Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Orders/CreateOrder/CreateOrderCommand.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:15.4662816Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:15.7458594Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:16.0374698Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:16.3318574Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Common/CollectionExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:16.6288947Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Common/Exceptions/NotFoundException.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:16.8943062Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Common/Interfaces/IUnitOfWork.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:17.1574871Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Common/UpdateHelper.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:17.4163487Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Repositories/IEFRepository.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:17.7060476Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Repositories/IPagedList.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:17.7571934Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/Repositories/IRepository.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:17.9702835Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/ValueObject.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.1785107Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain/WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.2756685Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/DependencyInjection.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.4805568Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/Eventing/WolverineEventingConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.575409Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/Eventing/WolverineMessageBus.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.7592395Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/Migrations/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:18.9059254Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/Persistence/ApplicationDbContext.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:19.0749745Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/Repositories/RepositoryBase.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:19.2288006Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure/WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:19.4469183Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/WolverineEventing.ErrorPolicy.RetryWithCooldown.sln</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:19.4815048Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

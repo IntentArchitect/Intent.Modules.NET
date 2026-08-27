@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#12139538-8a11-4add-9024-77f595b629e0</correlationId>
+      <path>FactoryExtensions/WolverineHostRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-24T22:12:39.5276799Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:31.529674Z</approvedAt>
+      <deviationsHash>827488DA8917DA7C56E73E16961682F7C5581A88ADC9950C3A5297444097C431</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Modules/Intent.Modules.Wolverine.Common/.gitattributes</path>
@@ -13,6 +26,24 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-24T21:44:08.7680634Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Wolverine.Common/Api/WolverineHostConfigurationRequest.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.9386601Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Wolverine.Common/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:31.094263Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Wolverine.Common/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:31.3026968Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/Intent.Modules.Wolverine.Common/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>

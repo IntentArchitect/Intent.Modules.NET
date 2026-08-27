@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="09f0033f-d5df-4d6f-9c1d-07baa721d599" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>15f30d7f-56f0-4f58-a323-671919b8dfa0</parentFolderId>
+  <packageId>15f30d7f-56f0-4f58-a323-671919b8dfa0</packageId>
+  <packageName>WolverineEventing.Outbox.SqlServer.Subscribe.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

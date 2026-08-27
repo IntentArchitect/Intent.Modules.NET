@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="193a6d38-a3e2-46b9-ad77-fd04e144a93a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ExtensionMethods</name>
+  <display>ExtensionMethods</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>55024466-8265-4004-b4c3-fd3e2fd8180f</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="013e62b8-ca02-4b85-b3ac-dc66cdb7a959" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods</name>
+      <display>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>193a6d38-a3e2-46b9-ad77-fd04e144a93a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

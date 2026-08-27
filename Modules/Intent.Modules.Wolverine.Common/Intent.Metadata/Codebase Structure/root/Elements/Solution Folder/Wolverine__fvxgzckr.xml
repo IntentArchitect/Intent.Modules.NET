@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7167906-0cb1-4c0f-817d-d207dfa7e983" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Wolverine</name>
+  <display>Wolverine</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>153a9ce2-6c00-4674-b47b-dd835585d99a</parentFolderId>
+  <packageId>04e56a24-5412-4c80-bed4-6e3f42ec2c0d</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,2 @@
+The Assembly file name(s) field is required.
+Specify --help for a list of available options and commands.

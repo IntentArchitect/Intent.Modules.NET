@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#048cd60a-1984-407a-8ef6-88f7d9bb5f35</correlationId>
+      <path>WolverineEventing.Transport.AmazonSqs.Api/appsettings.json</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T14:24:43.0683224Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.5220238Z</approvedAt>
+      <deviationsHash>999A06FE0CC888A8B87C8FB527B0BE76573F94DD28745127C437D815CBBB1989</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:05.7229438Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:05.8681962Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.0635058Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.1881532Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.2974979Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AmazonSqs/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.3900356Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

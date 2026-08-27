@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3e29f01c-391f-4bb8-bb74-57ebb935deba">
+  <sourceEnd id="8349aab1-6105-4c89-91e9-8d517d5bef70" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="ce6402a5-431f-4e26-96b9-c8e32ebe3e90">
+      <typeId>dd034b0e-9267-4d2d-9d48-b06f7fd0e82a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.Transport.AzureServiceBus.Services</typePackageName>
+      <typePackageId>08e9bf50-0acf-4562-becf-b96a56245218</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3e29f01c-391f-4bb8-bb74-57ebb935deba" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a3096e62-002d-407a-84bc-921e18d827ce">
+      <typeId>5cfd9ac8-e093-4718-9598-2076f12f7d99</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Wolverine.Transport.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>4622dc7f-1d60-449b-8c35-c1783d910e42</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

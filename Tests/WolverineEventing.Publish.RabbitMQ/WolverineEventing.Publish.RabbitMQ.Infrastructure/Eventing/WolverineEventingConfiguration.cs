@@ -1,5 +1,4 @@
-using System;
-using System.Linq;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
 using Wolverine.ErrorHandling;
@@ -10,49 +9,13 @@ using WolverineEventing.Publish.RabbitMQ.Application.Orders.RequestOrderProcessi
 using WolverineEventing.Publish.RabbitMQ.Application.Orders.ShipOrder;
 using WolverineEventing.Publish.RabbitMQ.Eventing.Messages;
 
+[assembly: IntentTemplate("Intent.Eventing.Wolverine.WolverineEventingConfiguration", Version = "1.0")]
+
 namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
 {
-    /// <summary>
-    /// Golden sample for the Wolverine eventing module's host contribution. Transport = RabbitMQ,
-    /// Transactional Outbox = None, Broker Topology = Auto-provision, Error Handling = Retry with
-    /// cooldown.
-    /// </summary>
     public static class WolverineEventingConfiguration
     {
-        public static void ConfigureRabbitMq(WolverineOptions options, IConfiguration configuration)
-        {
-            ConfigureHandlerDiscovery(options);
-            ConfigureTransport(options, configuration);
-            ConfigurePublishing(options);
-            ConfigureErrorHandling(options, configuration);
-        }
-
-        /// <summary>
-        /// Deterministic handler registration. This is the shape Intent.Wolverine.Common should own,
-        /// because DisableConventionalDiscovery is global and no single module can safely call it.
-        /// </summary>
-        /// <remarks>
-        /// Convention-based discovery matches any type whose name ends in Handler or Consumer. That
-        /// is too broad once more than one module contributes handlers: the Application layer's
-        /// IIntegrationEventHandler implementations match it, and so would a generated Consumer, so
-        /// Wolverine finds two handlers for one message and its runtime codegen emits the same local
-        /// variable twice (CS0128) - codegen fails, no handler runs, and messages are dropped in
-        /// silence. Registering explicitly removes that whole class of accident, and it is what
-        /// makes per-message provider filtering possible when several providers are installed.
-        ///
-        /// Note the CQRS handlers are registered here too. Intent.Application.Wolverine currently
-        /// only emits Discovery.IncludeAssembly(typeof(ICommand).Assembly), relying on the
-        /// convention; disabling that globally means its handlers need explicit entries as well.
-        /// </remarks>
-        private static void ConfigureHandlerDiscovery(WolverineOptions options)
-        {
-            options.Discovery.DisableConventionalDiscovery();
-            options.Discovery.IncludeType<ShipOrderCommandHandler>();
-            options.Discovery.IncludeType<RequestOrderProcessingCommandHandler>();
-            options.Discovery.IncludeType<FailOrderCommandHandler>();
-        }
-
-        private static void ConfigureTransport(WolverineOptions options, IConfiguration configuration)
+        public static void ConfigureRabbitMq(WolverineOptions opts, IConfiguration configuration)
         {
             var section = configuration.GetSection("Wolverine:RabbitMq");
             var host = section["Host"] ?? "localhost";
@@ -61,49 +24,43 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Eventing
             var username = section["Username"] ?? "guest";
             var password = section["Password"] ?? "guest";
 
-            options.UseRabbitMq(rabbit =>
-                {
-                    rabbit.HostName = host;
-                    rabbit.Port = port;
-                    rabbit.VirtualHost = virtualHost;
-                    rabbit.UserName = username;
-                    rabbit.Password = password;
-                })
-                .AutoProvision();
+            var transport = opts.UseRabbitMq(rabbit =>
+{
+    rabbit.HostName = host;
+    rabbit.Port = port;
+    rabbit.VirtualHost = virtualHost;
+    rabbit.UserName = username;
+    rabbit.Password = password;
+});
+
+            transport.AutoProvision();
+
+            opts.PublishMessage<FailingOrderEvent>().ToRabbitExchange("failing-order-event");
+            opts.PublishMessage<OrderShippedEvent>().ToRabbitExchange("order-shipped-event");
+            opts.PublishMessage<ProcessOrderCommand>().ToRabbitQueue("process-order-command");
+
+            ApplyErrorHandlingPolicy(opts, configuration);
         }
 
-        private static void ConfigurePublishing(WolverineOptions options)
+        public static void ApplyErrorHandlingPolicy(WolverineOptions opts, IConfiguration configuration)
         {
-            // Integration Event to an exchange, fan-out. Destination is the message type kebab-cased.
-            options.PublishMessage<OrderShippedEvent>().ToRabbitExchange("order-shipped-event");
+            var delays = ParseDelays(configuration["Wolverine:ErrorHandling:RetryWithCooldown:Delays"] ?? "00:00:01, 00:00:05, 00:00:15");
 
-            // Integration Command to a queue, point-to-point.
-            options.PublishMessage<ProcessOrderCommand>().ToRabbitQueue("process-order-command");
-
-            // Retry probe. Ordinary publish rule - it is the SUBSCRIBER's handler that throws.
-            options.PublishMessage<FailingOrderEvent>().ToRabbitExchange("failing-order-event");
-        }
-
-
-        private static void ConfigureErrorHandling(WolverineOptions options, IConfiguration configuration)
-        {
-            var section = configuration.GetSection("Wolverine:ErrorHandling:RetryWithCooldown:Delays");
-            var delays = (section.Exists()
-                    ? section.Get<string[]>() ?? Array.Empty<string>()
-                    : new[] { "00:00:01", "00:00:05", "00:00:15" })
-                .Select(TimeSpan.Parse)
-                .ToArray();
-
-            // An empty Delays list degrades to no retry: the first failure goes to the Error Queue
-            // rather than retrying forever. RetryWithCooldown requires at least one delay.
             if (delays.Length == 0)
             {
-                options.OnException<Exception>().MoveToErrorQueue();
+                opts.OnException<Exception>().MoveToErrorQueue();
             }
             else
             {
-                options.OnException<Exception>().RetryWithCooldown(delays).Then.MoveToErrorQueue();
+                opts.OnException<Exception>().RetryWithCooldown(delays).Then.MoveToErrorQueue();
             }
+        }
+
+        public static System.TimeSpan[] ParseDelays(string value)
+        {
+            return value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+.Select(TimeSpan.Parse)
+.ToArray();
         }
     }
 }

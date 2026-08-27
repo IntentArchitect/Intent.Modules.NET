@@ -424,6 +424,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Wol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Wolverine.Common", "Intent.Modules.Wolverine.Common\Intent.Modules.Wolverine.Common.csproj", "{87A35126-D84F-4129-AD76-64947869EF0E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wolverine", "Wolverine", "{D7167906-0CB1-4C0F-817D-D207DFA7E983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1313,6 +1315,7 @@ Global
 		{0F7821EC-79B4-4BDC-B4C9-84EA7DB0ED6D} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{9B749D9F-852C-489F-AC7C-0D215E5D24A1} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{869B2FEB-3FEC-4F92-92BB-4E8B8246BD59} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
+		{87A35126-D84F-4129-AD76-64947869EF0E} = {D7167906-0CB1-4C0F-817D-D207DFA7E983}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5cfd9ac8-e093-4718-9598-2076f12f7d99" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <comment>Integration Event published over Azure Service Bus.</comment>
+  <name>OrderCreatedEvent</name>
+  <display>OrderCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4622dc7f-1d60-449b-8c35-c1783d910e42</parentFolderId>
+  <packageId>4622dc7f-1d60-449b-8c35-c1783d910e42</packageId>
+  <packageName>Wolverine.Transport.AzureServiceBus.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" name="Wolverine Message">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
+      <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="1d42c58c-6ae8-481e-a18b-f406e4d65991" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4df491c4-2b60-48d8-b7b2-e463a8c5c256">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5cfd9ac8-e093-4718-9598-2076f12f7d99</parentFolderId>
+      <packageId>4622dc7f-1d60-449b-8c35-c1783d910e42</packageId>
+      <packageName>Wolverine.Transport.AzureServiceBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

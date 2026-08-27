@@ -77,6 +77,39 @@ Packages most commonly affected: `Intent.Modules.Common`, `Intent.Modules.Common
 
 ===
 
+### Consumer App Name Colliding With a Referenced Broker Library's Root Namespace
+
+If a consumer application's own name (and therefore its root C# namespace) starts with the same
+segment as a broker/framework package's own namespace — e.g. an app called `Wolverine.*` alongside
+the `WolverineFx` package (namespace `Wolverine`), an app called `MassTransit.*` alongside the
+`MassTransit` package (namespace `MassTransit`), or `NServiceBus.*` alongside `NServiceBus` — any
+unqualified type name that exists in BOTH namespaces (`IMessageBus`, `IBus`, `Envelope`, etc.)
+resolves to the WRONG one, silently.
+
+**Why:** C# resolves an unqualified name by walking OUTWARD through enclosing namespaces before it
+ever consults `using` directives. A class in namespace `Wolverine.Transport.Local.Application.Orders`
+has `Wolverine` as an enclosing namespace segment — so if `WolverineFx` is referenced, its top-level
+`Wolverine.IMessageBus` is visible as an enclosing-namespace member and wins over a `using` that was
+written to bring in the app's own `...Application.Common.Eventing.IMessageBus`. The result compiles
+against the wrong interface and fails with a misleading `CS1061 'IMessageBus' does not contain a
+definition for 'Publish'` — the RIGHT interface (with `Publish`) is right there, but never reached.
+
+This is invisible until a consumer app happens to be named the same as the broker package's own
+namespace — a golden sample or test app named `WolverineEventing.*` / `MyCompany.MassTransit.*`
+never collides; one named bare `Wolverine.*` / `MassTransit.*` always will, for every ambiguous type
+the two namespaces share.
+
+**How to avoid it, in priority order:**
+1. **Never name a consumer/test application after the broker package's own namespace verbatim.**
+   Prefix or suffix it (`WolverineEventing.*`, `AcmeWolverine.*`) so the app's root namespace segment
+   never textually equals the package's own top-level namespace.
+2. **Templates that emit a type whose unqualified name could collide** (any generated
+   `IMessageBus`/`IBus`/similar) should consider emitting it via a fully-qualified reference or a
+   distinctive alias rather than relying on an unqualified name plus a `using`, precisely because the
+   template author cannot control what the consumer names their application.
+
+===
+
 ### Template Changes Not Taking Effect
 
 Building a module compiles the `.csproj` that represents it, and the step that packages the `.imod` runs off that compilation. If your changes were to non-C# files, the compilation may not trigger, the package step is skipped, and no new `.imod` is produced — the templates then keep generating from the previously packaged content, with nothing reported.

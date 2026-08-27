@@ -5,9 +5,11 @@ using CompositeMessageBus.Api.Services;
 using CompositeMessageBus.Application;
 using CompositeMessageBus.Infrastructure;
 using CompositeMessageBus.Infrastructure.Configuration;
+using CompositeMessageBus.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
+using Wolverine;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -30,6 +32,10 @@ namespace CompositeMessageBus.Api
                 // Add services to the container.
                 builder.Host.UseNServiceBusHost();
 
+                builder.Host.UseWolverine(opts =>
+                {
+                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                });
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)

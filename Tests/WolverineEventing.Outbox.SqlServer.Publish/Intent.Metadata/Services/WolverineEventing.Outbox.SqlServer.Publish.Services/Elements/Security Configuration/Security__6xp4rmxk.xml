@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="06c83364-3c9c-4e71-a19b-4333787da468" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1393174a-4f33-4954-b640-a8ddaccb8420</parentFolderId>
+  <packageId>1393174a-4f33-4954-b640-a8ddaccb8420</packageId>
+  <packageName>WolverineEventing.Outbox.SqlServer.Publish.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

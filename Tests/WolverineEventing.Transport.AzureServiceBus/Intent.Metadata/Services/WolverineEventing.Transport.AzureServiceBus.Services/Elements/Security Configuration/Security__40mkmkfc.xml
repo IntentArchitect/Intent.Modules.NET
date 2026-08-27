@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a3d42b3a-3427-4b2b-ac56-81704d11edfc" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>08e9bf50-0acf-4562-becf-b96a56245218</parentFolderId>
+  <packageId>08e9bf50-0acf-4562-becf-b96a56245218</packageId>
+  <packageName>Wolverine.Transport.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

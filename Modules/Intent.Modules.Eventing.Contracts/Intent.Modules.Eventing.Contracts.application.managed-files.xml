@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="244e1544-6d4b-490b-afe0-8865bd737121">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/EventingPackageModelStereotypeExtensions.cs" />
+  <file path="Api/FolderExtensionsModel.cs" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" />
+  <file path="Api/MessageBusProviderModel.cs" />
+  <file path="Api/MessageBusProviderModelStereotypeExtensions.cs" />
+  <file path="Api/ModuleBuilderExtensionsModel.cs" />
+  <file path="ApiMetadataProviderExtensions.cs" />
+  <file path="FactoryExtensions/ApplicationServiceInteractionInstaller.cs" />
+  <file path="Intent.Eventing.Contracts.imodspec" />
+  <file path="Intent.Modules.Eventing.Contracts.csproj" />
+  <file path="Migrations/Migration_06_01_00_Pre_00.cs" />
+  <file path="Settings/ModuleSettingsExtensions.cs" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs" deviationsHash="A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs" />
+  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplatePartial.cs" />
+  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplateRegistration.cs" />
+  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplatePartial.cs" />
+  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplateRegistration.cs" />
+  <file path="Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs" />
+  <file path="Templates/EventBusInterface/EventBusInterfaceTemplateRegistration.cs" />
+  <file path="Templates/IntegrationCommand/IntegrationCommandTemplatePartial.cs" />
+  <file path="Templates/IntegrationCommand/IntegrationCommandTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplate.cs" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs" />
+  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplatePartial.cs" />
+  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplateRegistration.cs" />
+  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplatePartial.cs" />
+  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplateRegistration.cs" />
+  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplatePartial.cs" />
+  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplateRegistration.cs" />
+  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplatePartial.cs" />
+  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+  <file path="modelers/Message Bus Providers.designer.settings" />
+  <file path="modelers/Message Bus Services Settings.designer.settings" />
+</managedFiles>

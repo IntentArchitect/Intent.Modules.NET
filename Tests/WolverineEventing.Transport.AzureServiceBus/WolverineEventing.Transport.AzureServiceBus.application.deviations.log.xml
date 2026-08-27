@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#e1a7756e-730b-4428-afbd-8a4d64941c4c</correlationId>
+      <path>WolverineEventing.Transport.AzureServiceBus.Api/appsettings.json</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T14:25:10.8694604Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:07.3630257Z</approvedAt>
+      <deviationsHash>B8A95146B8F4CEE88B02026A1F0EA12B80C2111A7A05E6BBBA4EBDA8F6E98049</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.6195877Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.7557113Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.8914951Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:06.9867359Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:07.0838676Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Transport.AzureServiceBus/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:24:07.2252347Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

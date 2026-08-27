@@ -252,6 +252,12 @@ ModelManifest.xml
 *.BASE
 *.BACKUP
 
+# R19.5 (wolverine-eventing-module): the Wolverine.Transport.Local Test Application's folder name
+# ends in ".Local", which *.LOCAL above matches case-insensitively - un-ignore it explicitly so its
+# generated output can be committed.
+!Tests/Wolverine.Transport.Local/
+!Tests/Wolverine.Transport.Local/**
+
 # INTENT FILES:
 *.imod
 *.iat

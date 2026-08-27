@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="97e0b8c2-4fac-45ac-8b03-a67358262646" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <comment>Integration Event published over Wolverine (Local transport) within a multi-tenant host — the Finbuckle tenant context is established/restored around this handler via WolverineTenantMiddleware.</comment>
+  <name>OrderCreatedEvent</name>
+  <display>OrderCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3d5c8768-6c45-4855-b809-30ca35351ec3</parentFolderId>
+  <packageId>3d5c8768-6c45-4855-b809-30ca35351ec3</packageId>
+  <packageName>WolverineEventing.MultiTenancy.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" name="Wolverine Message">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
+      <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="58adf6e1-5c97-4c59-9dab-75e3554e04dd" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5a3f549d-d5ed-498a-b212-11ed75e372be">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>97e0b8c2-4fac-45ac-8b03-a67358262646</parentFolderId>
+      <packageId>3d5c8768-6c45-4855-b809-30ca35351ec3</packageId>
+      <packageName>WolverineEventing.MultiTenancy.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

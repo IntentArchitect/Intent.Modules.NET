@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{057D098F-067B-4C67-86DB-F0941690D3CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Outbox.SqlServer.Publish.Api", "WolverineEventing.Outbox.SqlServer.Publish.Api\WolverineEventing.Outbox.SqlServer.Publish.Api.csproj", "{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0EC7A1C1-F0FB-45EA-8C50-529647ABF029}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Outbox.SqlServer.Publish.Application", "WolverineEventing.Outbox.SqlServer.Publish.Application\WolverineEventing.Outbox.SqlServer.Publish.Application.csproj", "{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests", "WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests\WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests.csproj", "{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{63FEE3BB-57FF-4C96-B7A8-4C1B9A816D40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Outbox.SqlServer.Publish.Domain", "WolverineEventing.Outbox.SqlServer.Publish.Domain\WolverineEventing.Outbox.SqlServer.Publish.Domain.csproj", "{DD6500E8-C93B-4991-B85B-65C77CA60335}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F3B19C36-742B-40A8-AFC9-6F167F4CF906}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Outbox.SqlServer.Publish.Infrastructure", "WolverineEventing.Outbox.SqlServer.Publish.Infrastructure\WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.csproj", "{3E08B409-5675-4C19-BB73-ED05F8B80B89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097} = {057D098F-067B-4C67-86DB-F0941690D3CF}
+		{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421} = {0EC7A1C1-F0FB-45EA-8C50-529647ABF029}
+		{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759} = {0EC7A1C1-F0FB-45EA-8C50-529647ABF029}
+		{DD6500E8-C93B-4991-B85B-65C77CA60335} = {63FEE3BB-57FF-4C96-B7A8-4C1B9A816D40}
+		{3E08B409-5675-4C19-BB73-ED05F8B80B89} = {F3B19C36-742B-40A8-AFC9-6F167F4CF906}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D495FEE-7C5B-41C9-AFA7-7C2EF7053097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9AB27D-DFDC-4BAB-82FA-7A0750B0E421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB0082D-8EA2-486B-83A9-BBD6FDBCD759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6500E8-C93B-4991-B85B-65C77CA60335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6500E8-C93B-4991-B85B-65C77CA60335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6500E8-C93B-4991-B85B-65C77CA60335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6500E8-C93B-4991-B85B-65C77CA60335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E08B409-5675-4C19-BB73-ED05F8B80B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E08B409-5675-4C19-BB73-ED05F8B80B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E08B409-5675-4C19-BB73-ED05F8B80B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E08B409-5675-4C19-BB73-ED05F8B80B89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

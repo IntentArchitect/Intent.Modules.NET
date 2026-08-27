@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b4be7d94-204e-470f-b8db-a8fb7193af48" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2945f0c5-9201-4a1c-8149-c16b49b73078</parentFolderId>
+  <packageId>2945f0c5-9201-4a1c-8149-c16b49b73078</packageId>
+  <packageName>Wolverine.Transport.AmazonSqs.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

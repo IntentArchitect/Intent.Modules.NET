@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="43a39fb7-8f03-449b-8d7c-93c3f56d972d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2945f0c5-9201-4a1c-8149-c16b49b73078</parentFolderId>
+  <packageId>2945f0c5-9201-4a1c-8149-c16b49b73078</packageId>
+  <packageName>Wolverine.Transport.AmazonSqs.Services</packageName>
+  <diagram>
+    <targetPackageId>2945f0c5-9201-4a1c-8149-c16b49b73078</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

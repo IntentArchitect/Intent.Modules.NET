@@ -1,6 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2a4017ae-c90e-458e-ab77-342d36a450c0</correlationId>
+      <path>FactoryExtensions/WolverineEventingRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T11:19:00.8814823Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.418928Z</approvedAt>
+      <deviationsHash>B53F5BCFDB0414242877CEE6696CB5CCF2194D6A26D6EDAFF571ED15CB02F021</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef6ebd2c-9819-46a9-87c6-79bdedaffca9</correlationId>
+      <path>FactoryExtensions/WolverineFinbuckleConfiguratorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T11:19:00.881784Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.602071Z</approvedAt>
+      <deviationsHash>6671341CC1490CA3E6C2360362245E0B4BF2C624E413AD8926D77D4FBF7C3BEB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbce3e2d-4b6a-4a9d-8a17-1b235098a9cf</correlationId>
+      <path>FactoryExtensions/WolverineMessageBusInteropExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-25T07:50:06.8698699Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.8163243Z</approvedAt>
+      <deviationsHash>F2755255DF80A412B668641D37F16FB41E75E23DBCB42CE462B12B85F46C947B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1d7c539a-1b3f-4440-adee-c0d75a8ea418</correlationId>
+      <path>FactoryExtensions/WolverineTelemetryConfiguratorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-25T08:07:09.9659215Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.9696792Z</approvedAt>
+      <deviationsHash>FB4B09BCD871527D5E9BEC7BA248F09153D9B6B2208379B38A52EC2553FB75AB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1572ff11-a611-4ec4-bb0c-404cf579bd41</correlationId>
+      <path>Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T14:02:46.8208511Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.2212095Z</approvedAt>
+      <deviationsHash>F6CFB0706A85298A89812279EB46E6F92579501C22A5FD38EE675C987BAA9CA6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9ed994d3-5235-4bd4-b1a8-4a93ca1ce76c</correlationId>
+      <path>Templates/WolverineMessageBus/WolverineMessageBusTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-25T07:12:35.6905345Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.3836349Z</approvedAt>
+      <deviationsHash>BAE218DB54E0071C9111383F09A7BC9B9BCFDF7C765BF24378B0903B6B84ECF8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#46188ba4-a470-4e1f-bb9b-0cb1b059a2d9</correlationId>
+      <path>Templates/WolverineTenantHeaderStrategy/WolverineTenantHeaderStrategyTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-26T11:19:00.8824885Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.5901628Z</approvedAt>
+      <deviationsHash>CD278867542C8B08A4A3CCCB46F0EDA7DCB3E6E8A4FFE9EA484143E0D5F8AF8F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cadbcd8-3759-4f6f-85ca-8f8cddbc6096</correlationId>
+      <path>Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-25T08:12:08.7730709Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.7287069Z</approvedAt>
+      <deviationsHash>2CD958CCBC3F8D3C379FCA9C30182DAD8F17FAC95EF95CDD05D9CB5119C191E0</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Modules/Intent.Modules.Eventing.Wolverine/.gitattributes</path>
@@ -15,10 +112,28 @@
       <approvedAt>2026-08-24T21:44:08.6827148Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.0569735Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:28.2586962Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-24T21:44:08.6985103Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:29.1960251Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Module Builder/Module Builder.designer.config</path>
@@ -27,10 +142,34 @@
       <approvedAt>2026-08-24T21:44:08.7193835Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:29.3543342Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Settings/DatabaseProviderExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:29.6211005Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/Intent.Modules.Eventing.Wolverine/tasks.json</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-24T21:44:08.7357149Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Templates/Constants.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:29.7988307Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Wolverine/Templates/MessageDesignationExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:30.0184593Z</approvedAt>
     </customFile>
   </customFiles>
 </deviationsLog>

@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F2FF95BC-90F0-460F-B8DB-7669663A1B4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.ScheduleRetry.Api", "WolverineEventing.ErrorPolicy.ScheduleRetry.Api\WolverineEventing.ErrorPolicy.ScheduleRetry.Api.csproj", "{F11A5F42-1BF9-49DF-A333-856D5845BC0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D0745B09-8125-4548-AB46-85047A0C4A29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.ScheduleRetry.Application", "WolverineEventing.ErrorPolicy.ScheduleRetry.Application\WolverineEventing.ErrorPolicy.ScheduleRetry.Application.csproj", "{0836CF1A-0F39-42B9-8EB8-924EC66982BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.ScheduleRetry.Application.UnitTests", "WolverineEventing.ErrorPolicy.ScheduleRetry.Application.UnitTests\WolverineEventing.ErrorPolicy.ScheduleRetry.Application.UnitTests.csproj", "{BD3382A5-E62A-4B96-889B-87396BE7A2E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{EFA15378-51C8-4BB7-A791-A977A23AB6E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.ScheduleRetry.Domain", "WolverineEventing.ErrorPolicy.ScheduleRetry.Domain\WolverineEventing.ErrorPolicy.ScheduleRetry.Domain.csproj", "{E3EE8305-2B07-4412-8FA1-BB3622948413}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F9CE7856-8520-4822-B79A-816DC5AE660F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure", "WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure\WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure.csproj", "{D7D35359-C80D-4399-852C-57277A6EC820}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F11A5F42-1BF9-49DF-A333-856D5845BC0C} = {F2FF95BC-90F0-460F-B8DB-7669663A1B4A}
+		{0836CF1A-0F39-42B9-8EB8-924EC66982BE} = {D0745B09-8125-4548-AB46-85047A0C4A29}
+		{BD3382A5-E62A-4B96-889B-87396BE7A2E7} = {D0745B09-8125-4548-AB46-85047A0C4A29}
+		{E3EE8305-2B07-4412-8FA1-BB3622948413} = {EFA15378-51C8-4BB7-A791-A977A23AB6E4}
+		{D7D35359-C80D-4399-852C-57277A6EC820} = {F9CE7856-8520-4822-B79A-816DC5AE660F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F11A5F42-1BF9-49DF-A333-856D5845BC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11A5F42-1BF9-49DF-A333-856D5845BC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11A5F42-1BF9-49DF-A333-856D5845BC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11A5F42-1BF9-49DF-A333-856D5845BC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0836CF1A-0F39-42B9-8EB8-924EC66982BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0836CF1A-0F39-42B9-8EB8-924EC66982BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0836CF1A-0F39-42B9-8EB8-924EC66982BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0836CF1A-0F39-42B9-8EB8-924EC66982BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3382A5-E62A-4B96-889B-87396BE7A2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3382A5-E62A-4B96-889B-87396BE7A2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3382A5-E62A-4B96-889B-87396BE7A2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3382A5-E62A-4B96-889B-87396BE7A2E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3EE8305-2B07-4412-8FA1-BB3622948413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3EE8305-2B07-4412-8FA1-BB3622948413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3EE8305-2B07-4412-8FA1-BB3622948413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3EE8305-2B07-4412-8FA1-BB3622948413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D35359-C80D-4399-852C-57277A6EC820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D35359-C80D-4399-852C-57277A6EC820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D35359-C80D-4399-852C-57277A6EC820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D35359-C80D-4399-852C-57277A6EC820}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

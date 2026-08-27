@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files />
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.045161Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.265447Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.3876105Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.5954404Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.7671408Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:32.9891965Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

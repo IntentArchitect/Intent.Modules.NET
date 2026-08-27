@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5c2e0ae-a921-4cbe-80bf-0f52f37b86d5" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</parentFolderId>
+  <packageId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.None.Services</packageName>
+  <diagram>
+    <targetPackageId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

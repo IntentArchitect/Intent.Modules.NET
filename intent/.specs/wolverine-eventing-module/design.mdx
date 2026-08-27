@@ -12,7 +12,7 @@ The two existing eventing modules are the pattern to follow. <ModelRef applicati
 
 <Callout id="scope-counts" tone="info" title="Scope in counts">
 
-**2 modules created**, **1 changed**, **1 read but untouched**. Inside the new eventing module: **4 C# templates**, **4 factory extensions**, **1 module settings configuration with 4 fields**, **1 message bus provider**, **3 stereotype definitions**, **7 NuGet package registrations**. The shared host module adds **1 factory extension** and **1 broadcast request type**. **17 Test Applications**, mirroring the coverage MassTransit and NServiceBus already carry.
+**2 modules created**, **1 changed**, **1 read but untouched**. Inside the new eventing module: **4 C# templates**, **4 factory extensions**, **1 module settings configuration with 3 fields**, **1 message bus provider**, **1 stereotype definition**, **7 NuGet package registrations**.
 
 </Callout>
 
@@ -52,7 +52,7 @@ A single module covering all four Transports and both Transactional Outbox modes
 
 <Callout id="d4-queue-name-placement" tone="decision" title="D4 — Destination Queue Name goes on the Integration Command, not on the send association">
 
-The `Destination Queue Name` property is defined on a stereotype applicable to `Integration Command`. MassTransit puts its equivalent on the `Send Integration Command Target End` association.
+The `Destination Queue Name` property is defined on the `Wolverine Message` stereotype and displayed only when that stereotype sits on an `Integration Command`, per R9.9. MassTransit puts its equivalent on the `Send Integration Command Target End` association.
 
 **Why:** R4.3 requires it on the element itself, because the queue an Integration Command is delivered to is declared by the application that owns the Command and must be identical for every application that sends it. Putting it on the association would let two senders of the same Command resolve different queues, which R4.4's "resolved from the single place it is declared" forbids.
 
@@ -144,7 +144,7 @@ This is what makes R8.2 real. `ConfigureHostBuilderChainStatement` on <FileRef p
 
 <ModelChanges id="eventing-templates" caption="Intent.Eventing.Wolverine — templates and factory extensions" changes={[
   { element: "WolverineEventingConfiguration", designer: "Module Builder", change: "added", note: "C# Template, C# File Builder, Single File. Role `Infrastructure.DependencyInjection.Wolverine.Eventing`, Default Location `Eventing`. Emits transport, publish rules, exchange-to-queue bindings, listeners, error handling and durability. Satisfies R2, R3.1 to R3.7, R4, R5.1, R5.6, R5.8, R6, R7." },
-  { element: "WolverineMessageBus", designer: "Module Builder", change: "added", note: "C# Template, C# File Builder, Single File. Role `Infrastructure.Eventing.WolverineEventBus`, Default Location `Eventing`. The buffered Message Bus contract implementation with its flush method. Satisfies R3.8, R4.1, R8.8." },
+  { element: "WolverineMessageBus", designer: "Module Builder", change: "added", note: "C# Template, C# File Builder, Single File. Role `Infrastructure.Eventing.WolverineEventBus`, Default Location `Eventing`. The buffered Message Bus contract implementation with its flush method. Emits an addressed-send overload ONLY where the application's contract declares one — which happens only when MassTransit is installed — and honours the address when it does. Satisfies R3.8, R3.11, R4.1, R8.8." },
   { element: "WolverineTenantHeaderStrategy", designer: "Module Builder", change: "added", note: "C# Template. Reads and writes the Tenant Identifier header. Emitted only when the multi-tenancy module is installed. Satisfies R12.1, R12.3." },
   { element: "WolverineTenantMiddleware", designer: "Module Builder", change: "added", note: "C# Template. Wolverine middleware establishing and restoring Finbuckle context around handler invocation, registered once at host scope. Satisfies R12.2, R12.4. Probe-gated per D6." },
   { element: "WolverineEventingRegistrationExtension", designer: "Module Builder", change: "added", note: "Factory Extension. Broadcasts the host-configuration request to Intent.Wolverine.Common; raises the DI registration for the bus and the appsettings registrations. Satisfies R2.3, R3.9, R7.2, R14.4." },
@@ -161,33 +161,37 @@ Four C# templates, not five. There is deliberately **no consumer template** — 
 <DataModel
   id="wolverine-settings"
   entity="Wolverine Message Bus Settings — Module Settings Configuration, Settings Type = Application Settings"
-  caption="R14.2 — exactly four fields, each a Select control with Is Required true"
+  caption="R14.2 — exactly three fields, each a Select control with Is Required true"
   fields={[
     { name: "Transport", type: "Select — Local, RabbitMQ, Azure Service Bus, Amazon SQS", change: "added", note: "Default `Local`. Four Module Settings Field Options. Realizes R2.1" },
     { name: "Transactional Outbox", type: "Select — None, Durable", change: "added", note: "Default `None`. Names no persistence technology; durable storage is derived from the modelled Database Provider. Realizes R6.1" },
     { name: "Error Handling Policy", type: "Select — None, Retry, Retry with cooldown, Schedule retry", change: "added", note: "Default `Retry with cooldown`. Realizes R7.1" },
-    { name: "Broker Topology", type: "Select — Auto-provision, Externally owned", change: "added", note: "Default `Auto-provision`. Realizes R2.7" }
+    { name: "Broker Topology", type: "Select — Auto-provision, Externally owned", change: "removed", note: "WITHDRAWN per R2.7. The field is not created; if it already exists in the model it is deleted. The module always declares the destinations it uses" }
   ]}
 />
 
 Each field is a `Module Settings Field Configuration` with a `Field Configuration` stereotype carrying `Control Type = Select`, `Is Required = true`, its `Default Value`, and a `Hint`. The Transport field's hint carries R2.5's obligation that Local is in-process only. Options are `Module Settings Field Option` children — the schema's own mechanism, so the option set is model-driven rather than a string parsed in a template.
 
-No fifth setting is added. R14.2 forbids one for the Subscriber Queue naming rule, the serialization format and the durable storage technology, each of which is derived.
+No fourth setting is added. R14.2 forbids one for the Broker Topology, the Subscriber Queue naming rule, the serialization format and the durable storage technology — the first withdrawn, the rest derived.
 
 ### Stereotype definitions
 
 <Table
   id="stereotypes"
-  caption="Three stereotype definitions, each created under a `Stereotypes` folder in the module package"
+  caption="R9.8 — ONE stereotype definition, created under a `Stereotypes` folder in the module package"
   columns={["Stereotype", "Applicable to", "Properties", "Realizes"]}
   rows={[
-    ["`Wolverine Message`", "`Message`, `Integration Command`", "none — a marker", "R9.1. Referenced by `Message Bus Provider Settings.Applicable Stereotypes`, which is how the provider becomes selectable on the Message Bus stereotype"],
-    ["`Message Topology Settings`", "`Message`", "`Topic Name` — text box, optional", "R3.3 to R3.6. Overrides the kebab-cased convention name; validated for emptiness and a 250-character ceiling by the template's `Validate Function`"],
-    ["`Command Distribution`", "`Integration Command`", "`Destination Queue Name` — text box, optional", "R4.3 to R4.6. On the element itself per D4, not on the send association"]
+    ["`Wolverine Message`", "`Message`, `Integration Command`", "`Topic Name` — text box, optional, Is Active Function `return element.specialization === 'Message';` · `Destination Queue Name` — text box, optional, Is Active Function `return element.specialization === 'Integration Command';`", "R9.1, R9.8, R9.9, R3.3 to R3.6, R4.3 to R4.6. Referenced by `Message Bus Provider Settings.Applicable Stereotypes`, which is how the provider becomes selectable on the Message Bus stereotype; both overrides are validated for emptiness and a 250-character ceiling by the template"]
   ]}
 />
 
-The names `Message Topology Settings` and `Command Distribution` deliberately match MassTransit's equivalents so a migrator meets the same vocabulary, even though `Command Distribution` is attached to a different element type per D4.
+R9.8 requires this to be the module's **only** stereotype. `Message Topology Settings` and `Command Distribution` are not created — the two override properties they used to carry move onto `Wolverine Message` itself, each gated by an Is Active Function so it is displayed only on the element type it means something for. That gating is what makes one stereotype an improvement rather than a regression, and R9.9 states it as a criterion for exactly that reason.
+
+<Callout id="is-active-precedent" tone="info" title="The Is Active Function can read the element it is applied to">
+
+A Stereotype Definition Property carries an `Is Active Function` — a JavaScript predicate returning true or false that decides whether the property is displayed. Its scope includes the sibling properties by name and an `element` object, so branching on the element's type is supported rather than assumed: shipped Intent modules in this repository's own module cache already do it, for example `return Ignore != "true" && element.specialization != "Service";` and `return EndpointType == "Receive Endpoint";`.
+
+</Callout>
 
 ### NuGet package registrations
 
@@ -223,19 +227,16 @@ Both Azure Functions and ASP.NET host loops call this same helper today; the Azu
 <Table
   id="test-apps"
   density="compact"
-  caption="R19 — 17 Test Applications with committed generated output, mirroring the MassTransit and NServiceBus coverage in `Tests/`"
+  caption="R19 — Test Applications with committed generated output, mirroring the MassTransit and NServiceBus coverage in `Tests/`. Three rows (Transport.Local, Topology.ExternallyOwned, Outbox.Postgresql) were withdrawn — see the requirements' withdrawn-test-apps callout"
   columns={["Test Application", "Configuration", "Requirements"]}
   rows={[
-    ["`Wolverine.Transport.Local`", "Local, Outbox None", "R2.1, R2.2"],
-    ["`Wolverine.Transport.RabbitMQ.Publish` · `.Subscribe`", "RabbitMQ, Outbox None, Auto-provision — the Golden Sample's own path, as a publish/subscribe pair", "R2, R3, R4, R5"],
+    ["`WolverineEventing.Publish.RabbitMQ` · `WolverineEventing.Subscribe.RabbitMQ`", "RabbitMQ, Outbox None — the Golden Sample pair itself, serving as this row's Test Application. No second `Wolverine.Transport.RabbitMQ` pair is created", "R2, R3, R4, R5"],
     ["`Wolverine.Transport.AzureServiceBus`", "Azure Service Bus", "R2.1, R2.2, R2.6"],
     ["`Wolverine.Transport.AmazonSqs`", "Amazon SQS", "R2.1, R2.2, R2.6"],
-    ["`Wolverine.Topology.ExternallyOwned`", "Externally owned, name overrides on every message", "R2.7, R3.3, R4.3"],
     ["`Wolverine.Outbox.SqlServer.Publish` · `.Subscribe`", "Outbox Durable, SQL Server", "R6.1, R6.3, R6.8"],
-    ["`Wolverine.Outbox.Postgresql.Publish` · `.Subscribe`", "Outbox Durable, PostgreSQL", "R6.1, R6.3"],
     ["`Wolverine.ErrorPolicy.None` · `.Retry` · `.RetryWithCooldown` · `.ScheduleRetry`", "One per Error Handling Policy, matching the four MassTransit retry-policy apps", "R7.1, R7.2, R7.3, R7.5"],
     ["`Wolverine.Coexist.Cqrs`", "Eventing + Intent.Application.Wolverine on one shared host", "R8, R18"],
-    ["`Wolverine.MultiProvider`", "Wolverine alongside MassTransit, messages designated to each", "R9 — sole evidence"],
+    ["`CompositeMessageBus` — existing, extended", "Wolverine installed into the existing shared Test Application alongside the seven Eventing Providers it already carries. No `Wolverine.MultiProvider` application is created", "R9 — sole evidence"],
     ["`Wolverine.MultiTenancy`", "Eventing + the Finbuckle multi-tenancy module", "R12 — sole evidence"]
   ]}
 />
@@ -252,9 +253,9 @@ Every requirement names a concrete mechanism. `[model]` is Module Builder model 
   columns={["Req", "[model]", "[code]", "Depends on"]}
   rows={[
     ["R1", "Message Bus Provider element; `Wolverine Message` stereotype", "Model-filtering logic in `WolverineEventingConfiguration` reading the Services designer's existing message and subscription elements", "R9 (provider element)"],
-    ["R2", "4-option Transport field; Broker Topology field; 4 transport NuGet packages", "Transport branch in `WolverineEventingConfiguration`; appsettings registration requests in `WolverineEventingRegistrationExtension`; R2.6 fail-fast read", "R18, D6 probe for R2.6"],
-    ["R3", "`Message Topology Settings` stereotype; `WolverineMessageBus` template element", "Publish-rule emission; kebab-case convention; override validation; buffered bus with flush; conditional DI registration", "R1, R18"],
-    ["R4", "`Command Distribution` stereotype on Integration Command", "Send-rule emission and override resolution from the single declaration site", "R1, R3"],
+    ["R2", "4-option Transport field; 4 transport NuGet packages. NO Broker Topology field — withdrawn per R2.7", "Transport branch in `WolverineEventingConfiguration`, always declaring destinations; appsettings registration requests in `WolverineEventingRegistrationExtension`; R2.6 fail-fast read", "R18, D6 probe for R2.6"],
+    ["R3", "`Topic Name` property on the single `Wolverine Message` stereotype; `WolverineMessageBus` template element", "Publish-rule emission; kebab-case convention; override validation; the property's Is Active Function; buffered bus with flush; conditional DI registration", "R1, R18"],
+    ["R4", "`Destination Queue Name` property on the same `Wolverine Message` stereotype, targeting Integration Command", "Send-rule emission and override resolution from the single declaration site; the property's Is Active Function", "R1, R3"],
     ["R5", "None beyond R1 — no consumer template exists", "Listener and binding emission; Subscriber Queue naming; host-scope error policy placement", "R1, R2, R18"],
     ["R6", "Transactional Outbox field; 3 durability NuGet packages", "Durability registrations; Database Provider derivation; R6.4 and R6.8 stopping conditions as `FriendlyException`; `eventbus-flush` interop", "R2, R18"],
     ["R7", "Error Handling Policy field with 4 options", "Policy emission per option, each terminating in move-to-error-queue; empty-delay branch; appsettings keys", "R2, D6 probe for Retry and Schedule retry"],
@@ -264,7 +265,7 @@ Every requirement names a concrete mechanism. `[model]` is Module Builder model 
     ["R11", "`WolverineTelemetryConfiguratorExtension` element", "Conditional `AddSource(\"Wolverine\")` registration", "R18"],
     ["R12", "2 template elements; 1 factory extension element", "Header strategy; host-scope middleware; conditional emission", "R3, R5, D6 probe"],
     ["R13", "None", "Module docs — migration section, setting-equivalence table, artefact list", "R1 to R14 settled"],
-    ["R14", "Module Settings Configuration with 4 fields; module dependency on Intent.Eventing.Contracts", "Uninstall behaviour; documentation of additive-only appsettings", "R2, R6, R7"],
+    ["R14", "Module Settings Configuration with 3 fields; module dependency on Intent.Eventing.Contracts", "Uninstall behaviour; documentation of additive-only appsettings", "R2, R6, R7"],
     ["R18", "New Intent.Wolverine.Common package; 1 factory extension; 1 NuGet package; version increment on Intent.Application.Wolverine", "Broadcast request type; host registration extension; de-duplicated discovery; removal of `Statements.Clear()` and the Azure Functions loop; marker sweep", "— (first wave)"],
     ["R19", "17 Test Application models", "READMEs; committed generated output; clean re-run confirmation", "R1 to R14, R18"]
   ]}
@@ -305,7 +306,7 @@ flowchart LR
 
 R18 is first and alone. Nothing else can be verified until one `UseWolverine` registration exists and the `Statements.Clear()` collision is gone — every other requirement writes into that lambda. The D6 probes run in parallel with R18 since they touch nothing the modules own.
 
-The Domain → Services → UI ordering that governs application specs does not apply here: this feature mutates only the Module Builder designer. Where it reads other designers it reads the Services designer's **existing** message and subscription elements, adding nothing to them beyond the three stereotype definitions, which are declared in the Wolverine module's own package and attach by `applicableTo`.
+The Domain → Services → UI ordering that governs application specs does not apply here: this feature mutates only the Module Builder designer. Where it reads other designers it reads the Services designer's **existing** message and subscription elements, adding nothing to them beyond the single `Wolverine Message` stereotype definition, which is declared in the Wolverine module's own package and attaches by `applicableTo`.
 
 ## Code placement
 
@@ -326,11 +327,11 @@ Module documentation and version increments are not separate tasks. Each module'
   id="design-assumptions"
   items={[
     { id: "d-a1", label: "R5.1 and R5.5 are satisfied by discovery configuration rather than a per-message registration", note: "The direct consequence of D1. If you want the literal per-message Handler Type Registration those criteria describe, that is the approved-R18 path and it costs the breaking change to Intent.Application.Wolverine and .DomainEvents. Flagged because this is the one place the design reinterprets an approved criterion." },
-    { id: "d-a2", label: "R9's designation filtering rests on routing, not on registration", note: "With conventional discovery on, a handler for a message designated to MassTransit is also registered with Wolverine. It receives nothing, because Wolverine has no listener bound for that message and the Composite Message Bus routes its publishes elsewhere. `Wolverine.MultiProvider` is the Test Application that has to demonstrate this holds." },
+    { id: "d-a2", label: "R9's designation filtering rests on routing, not on registration", note: "With conventional discovery on, a handler for a message designated to MassTransit is also registered with Wolverine. It receives nothing, because Wolverine has no listener bound for that message and the Composite Message Bus routes its publishes elsewhere. The existing `CompositeMessageBus` application, with Wolverine installed alongside the providers it already carries, is the Test Application that has to demonstrate this holds." },
     { id: "d-a3", label: "Intent.Wolverine.Common ships as a module rather than a shared project", note: "Two modules each bundling their own copy of a shared DLL binds to whichever loads first and skews on version drift. A common module is the structural fix, and it is also the only place a single `UseWolverine` registration can be arbitrated." },
     { id: "d-a4", label: "The Azure Functions registration removal is a minor increment, not a major", note: "See the risk callout. It rests on the module's own CONTEXT.md recording that serverless Wolverine never worked under any `TypeLoadMode`, so the removed registration could not have been running successfully. Correct this to `2.0.0-pre.0` if any consumer is on it." },
     { id: "d-a5", label: "Module documentation stays in `docs/README.md` rather than modelled Documentation Topics", note: "Requirements assumption a12 decided this, but its stated rationale is wrong: `Intent.Eventing.MassTransit` DOES model a `Module Documentation` element with two Documentation Topics, so a12's claim that no eventing module does is inaccurate. NServiceBus does not. The decision stands as approved; the option remains open if you would rather match MassTransit." },
-    { id: "d-a6", label: "Stereotype names match MassTransit's where the concept matches", note: "`Message Topology Settings` and `Command Distribution` carry the same names a migrator already knows, even though the latter attaches to a different element type per D4." },
+    { id: "d-a6", label: "The module defines exactly ONE stereotype, and its two override properties are conditionally displayed", note: "Superseded the earlier assumption that stereotype names should mirror MassTransit's. `Message Topology Settings` and `Command Distribution` are NOT created; `Topic Name` and `Destination Queue Name` become properties of `Wolverine Message`, each gated by an Is Active Function on `element.specialization` so neither element type shows a property that is meaningless for it. R9.8 and R9.9 make this binding. The familiar MassTransit property NAMES are preserved, so a migrator still meets the same vocabulary — it is the extra stereotypes that are dropped, not the terminology." },
     { id: "d-a7", label: "Test Application generated output is committed, and a clean re-run is confirmed rather than assumed", note: "R19.5's checks — right module version installed, provider designation present, file not ignored, code-management mode permits writing — are part of each Test Application task, because a clean run against a file no template was going to write proves nothing." }
   ]}
 />

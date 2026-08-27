@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" version="3.1.0">
+  <name>Wolverine Message</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>31b41b2b-596b-4336-b802-772bc61d2128</parentFolderId>
+  <order>0</order>
+  <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+  <packageName>Intent.Eventing.Wolverine</packageName>
+  <properties>
+    <property id="a34e3125-4aeb-44c8-a66a-15ebf176fa7f">
+      <hint>Overrides the kebab-cased convention name used to route this Integration Event. Leave blank to use the convention.</hint>
+      <name>Topic Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <isActiveFunction>return element.specialization === "Message";</isActiveFunction>
+    </property>
+    <property id="575e43e9-12b8-4bf6-86bf-1218fecaa296">
+      <hint>Overrides the kebab-cased convention name used to route this Integration Command. Declared here so every sender resolves the same queue.</hint>
+      <name>Destination Queue Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <isActiveFunction>return element.specialization === "Integration Command";</isActiveFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

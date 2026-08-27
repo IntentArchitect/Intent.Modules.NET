@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5504b91a-cf7f-4c18-8b01-197f3e410b3b" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</parentFolderId>
+  <packageId>6d81e9a9-9ed6-4d10-abc0-9be4167ca0bf</packageId>
+  <packageName>WolverineEventing.MultiTenancy.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1386342f-2739-41e8-94bf-a5b02b8ba192" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>833f58f1-3bd6-47ff-ab77-b5b45642614d</parentFolderId>
+  <packageId>833f58f1-3bd6-47ff-ab77-b5b45642614d</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.RetryWithCooldown.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

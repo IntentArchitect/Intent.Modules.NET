@@ -168,10 +168,10 @@ flowchart TD
 
 - **UJ-6. Rashid joins a broker estate that already has its own names.**
   - **Persona + context:** Rashid is adding a new Intent Architect application to an organisation whose RabbitMQ topology is owned by a platform team. The exchange and queue names are fixed by that team's convention and are not his to change.
-  - **Entry state:** The Wolverine eventing module is installed and generating convention-derived names that do not match the platform team's topology, so nothing he publishes is picked up. His credentials also have no permission to declare or delete a destination.
-  - **Path:** He sets Broker Topology to Externally owned; sets a Topic Name override on each Integration Event and a Destination Queue Name override on each Integration Command, each on the element itself; re-runs the Software Factory; checks the generated destinations against the platform team's list.
-  - **Climax:** The generated code publishes and sends to the platform team's exact names, character for character, with no kebab-casing applied on top, and starts without attempting to declare anything.
-  - **Resolution:** His application joins an existing estate without asking anyone to rename anything and without needing configure permission, and two of his Integration Commands deliberately share one queue to keep their order.
+  - **Entry state:** The Wolverine eventing module is installed and generating convention-derived names that do not match the platform team's topology, so nothing he publishes is picked up.
+  - **Path:** He sets a Topic Name override on each Integration Event and a Destination Queue Name override on each Integration Command, each on the element itself; re-runs the Software Factory; checks the generated destinations against the platform team's list.
+  - **Climax:** The generated code publishes and sends to the platform team's exact names, character for character, with no kebab-casing applied on top.
+  - **Resolution:** His application joins an existing estate without asking anyone to rename anything, and two of his Integration Commands deliberately share one queue to keep their order.
   - **Edge case:** He pastes a name that trims to nothing, and generation stops with an error pointing at that exact Integration Event rather than quietly falling back to the convention name and publishing to a destination nobody is listening on.
 
 ```mermaid
@@ -201,13 +201,13 @@ flowchart TD
 - **Eventing Provider** — a module that implements the Message Bus contract over one messaging technology. This feature adds one. An application may have one or many installed.
 - **Composite Message Bus** — the generated routing implementation of the Message Bus contract that appears when two or more Eventing Providers are installed, dispatching each message to the Eventing Provider(s) designated for it.
 - **Message Bus stereotype** — the designer stereotype, owned by `Intent.Eventing.Contracts`, that designates which Eventing Provider(s) carry a message. Applied to a package, folder or individual message; inherited by children.
+- **`Wolverine Message` stereotype** — the one and only stereotype this module defines, per R9.8. It plays two roles at once: it is the applicable stereotype that makes Wolverine selectable as an Eventing Provider, and it carries the optional Topic Name and Destination Queue Name overrides. Applied automatically by the Message Bus stereotype when Wolverine is designated; applied by hand only when an override is wanted.
 - **Transport** — the messaging technology carrying messages off the process: Local, RabbitMQ, Azure Service Bus or Amazon SQS. Exactly one Transport per application.
 - **Transactional Outbox** — the mechanism that records outgoing messages in the application's database within the same transaction as the business change, then dispatches them, so a committed change can never lose its messages. Either None, or Durable — in which case the durable store is derived from the persistence the application already has modelled rather than chosen again here.
 - **Error Handling Policy** — the rule deciding what happens when an Integration Event Handler throws: how many times and after what delays the message is re-delivered, and where it goes once those are exhausted. Exactly one per application, registered at Wolverine Host Configuration scope rather than per message.
 - **Error Queue** — the broker destination a message lands on once its Error Handling Policy is exhausted, so it is retained rather than lost.
-- **Topic Name** — the broker destination an Integration Event is published to. Derived by convention from the message type, optionally overridden per Integration Event.
-- **Destination Queue Name** — the broker queue an Integration Command is sent to. Derived by convention from the message type, optionally overridden on the Integration Command itself, since the queue belongs to the application that owns the Command.
-- **Broker Topology** — whether the application declares the exchanges, topics and queues it uses, or expects them to already exist and never touches them. Exactly one choice per application.
+- **Topic Name** — the broker destination an Integration Event is published to. Derived by convention from the message type, optionally overridden per Integration Event through the `Wolverine Message` stereotype.
+- **Destination Queue Name** — the broker queue an Integration Command is sent to. Derived by convention from the message type, optionally overridden on the Integration Command itself through the same `Wolverine Message` stereotype, since the queue belongs to the application that owns the Command.
 - **Wolverine Host Configuration** — the single generated setup where Wolverine's transports, publish rules, listeners, durability, error handling and handler type registrations are registered for an application. Exactly one per application, contributed into by every installed Wolverine module.
 - **Shared Host Module** — the module that owns the one host registration and the decision to disable Wolverine's conventional handler discovery, so that each Wolverine module contributes its own Handler Type Registrations into a single configuration rather than competing for it. Exactly one per application; does not exist yet and is created by this feature.
 - **Host** — the application entry point the Wolverine Host Configuration is registered on. Only the ASP.NET host is supported; Azure Functions and AWS Lambda hosts are Non-Goals and receive no registration. An application may have more than one ASP.NET host, and each gets its own registration.
@@ -276,7 +276,7 @@ flowchart TD
 
 ## Evidence and extrapolation
 
-The Golden Sample settles one path and one path only: RabbitMQ, Transactional Outbox None, Broker Topology Auto-provision, Error Handling Policy Retry with cooldown. It models <ModelRef application="WolverineEventing.Publish.RabbitMQ" name="OrderShippedEvent" designer="Services" type="Message" /> as a fanned-out Integration Event, <ModelRef application="WolverineEventing.Publish.RabbitMQ" name="ProcessOrderCommand" designer="Services" type="Integration Command" /> as a point-to-point Integration Command, and <ModelRef application="WolverineEventing.Publish.RabbitMQ" name="FailingOrderEvent" designer="Services" type="Message" /> as the error-handling probe.
+The Golden Sample settles one path and one path only: RabbitMQ, Transactional Outbox None, Error Handling Policy Retry with cooldown, with the application declaring its own destinations.
 
 Everything the module ships beyond that path is **extrapolated**, and this table is the mechanism for catching a bad extrapolation: a reviewer reading a row marked *no citation* is the only gate between it and an approved requirement nobody can satisfy.
 
@@ -291,11 +291,11 @@ Everything the module ships beyond that path is **extrapolated**, and this table
     ["Retry with cooldown, and the no-retry form when the delay list is empty", "R7.2, R7.5", "**Golden Sample** — both branches emitted, both compiled"],
     ["Durable Transactional Outbox on SQL Server and PostgreSQL", "R6.3", "**Compile-only probe** — persistence and policy registrations compile at 5.39.5; nothing asserts commit-coupled dispatch"],
     ["Azure Service Bus, Amazon SQS and Local transports", "R2.1, R2.2", "**Compile-only probe** — registration, publish and listen calls compile; no delivery is claimed"],
-    ["Broker Topology = Externally owned", "R2.7", "**Compile-only probe** — the non-declaring registration form compiles; joining a real pre-provisioned estate is not proven"],
+    ["Always declaring the destinations the application uses", "R2.7", "**Golden Sample** — the declaring registration form is the sample's own path. The non-declaring alternative is withdrawn from this release"],
     ["OpenTelemetry source name", "R11.1", "**Compile-only probe** — the ActivitySource is named `Wolverine` at 5.39.5, confirmed by reflection"],
     ["MIT licensing of all seven WolverineFx packages", "R10", "**Verified** — read from each resolved package's `.nuspec` at 5.39.5"],
     ["Error Handling Policy options Retry and Schedule retry", "R7.1", "**EXTRAPOLATED — no citation.** Neither form appears in the sample or the probe. A probe must compile both before their template branches are written"],
-    ["Running alongside other Eventing Providers via the Composite Message Bus", "R9", "**EXTRAPOLATED.** Untouched by the sample, but with shipped precedent in the MassTransit and NServiceBus modules. Test Application planned per R19"],
+    ["Running alongside other Eventing Providers via the Composite Message Bus", "R9", "**EXTRAPOLATED.** Untouched by the sample, but with shipped precedent in the MassTransit and NServiceBus modules. Checked per R19.4 by installing Wolverine into the existing `CompositeMessageBus` Test Application"],
     ["Finbuckle multi-tenancy header propagation", "R12", "**EXTRAPOLATED — no citation.** No sample coverage and no probe; the incoming side needs a Wolverine middleware shape nobody has compiled. Test Application planned per R19"],
     ["Failing generation when a required configuration key has no default", "R2.6", "**EXTRAPOLATED.** The sample's RabbitMQ reader applies silent defaults for every key rather than failing, so the fail-fast form for Azure Service Bus and Amazon SQS is a design decision, not an observation"]
   ]}
@@ -353,13 +353,23 @@ The Golden Sample has already pinned the exact WolverineFx calls, and the Refere
 4. WHEN the Transport setting is changed and the Software Factory is re-run, THE Software Factory SHALL emit the newly selected Transport's registration and SHALL NOT emit the previous Transport's registration, in generated code. THE module makes no claim about the previous Transport's `appsettings.json` section: Intent Architect's app-settings mechanism registers and updates keys and has **no removal request**, so the stale section persists and THE module documentation SHALL name the sections a developer deletes by hand.
 5. THE module documentation SHALL state that the Local Transport is in-process only and cannot carry messages between applications, and THE Transport setting's own hint SHALL say the same, so that the default is not mistaken for a working cross-application configuration. No claim is made here about whether messages held in a Local queue survive a process stop — that depends on the Transactional Outbox setting and is unverified.
 6. WHEN the selected Transport is Azure Service Bus or Amazon SQS, THE generated configuration reader SHALL read that Transport's no-default key and SHALL emit a throw naming the configuration section and key when it is absent or empty, and SHALL NOT emit a fallback to the Local Transport or to a default endpoint. WHEN the selected Transport is RabbitMQ, THE generated reader SHALL apply the code-level default given in the table above for each absent key, and THE module documentation SHALL list every key that has such a silent default.
-7. THE Wolverine eventing module SHALL expose a Broker Topology module setting with exactly two options — Auto-provision and Externally owned — defaulting to Auto-provision. WHEN it is Auto-provision, THE Software Factory SHALL generate code that declares the exchanges, topics and queues the application uses. WHEN it is Externally owned, THE Software Factory SHALL generate code that uses those destinations without declaring them and without deleting them, so that an application can join a broker estate it has no configure permission on.
+7. THE Software Factory SHALL generate code that declares the exchanges, topics and queues the application uses, for every application. THERE SHALL BE no Broker Topology setting and no non-declaring mode — see the callout below.
 
 <Callout id="local-transport-risk" tone="risk" title="R2.5 — Local is a default that cannot do the job">
 
 Local is the default so a freshly installed application generates and builds without any infrastructure, matching the MassTransit module's In Memory default. It is also the one Transport that cannot carry a message out of the process, so the migration guide and the setting's own hint must both say so — the generated code compiles and looks complete either way, which is precisely why the documentation obligation in R2.5 is a criterion rather than a nicety.
 
 The same trap sits one level down in R2.6: RabbitMQ's reader defaults `Host` to `localhost` and its credentials to `guest`, so an application with no RabbitMQ configuration at all still starts up pointed somewhere. Azure Service Bus and Amazon SQS have no such default and throw instead. That asymmetry is inherited from the Golden Sample, not chosen — and it is why R2.6 makes the silent-default list a documentation obligation.
+
+</Callout>
+
+<Callout id="broker-topology-removed" tone="warning" title="R2.7 — Broker Topology is removed, and this costs a real capability">
+
+An earlier revision exposed a Broker Topology setting with Auto-provision and Externally owned. It is withdrawn: the module has one behaviour, it always declares the destinations it uses, and there is no setting.
+
+**What this costs, stated plainly.** An application whose broker credentials have no permission to declare a destination is no longer supported. It will attempt to declare on startup and the broker will refuse it. Joining a platform-team-owned estate is therefore out of scope for this release, and UJ-6 has been narrowed accordingly — Rashid can still match the platform team's exact names through the Topic Name and Destination Queue Name overrides, which is the half of that journey the module still delivers, but he cannot avoid the declaration attempt.
+
+That is accepted rather than overlooked. Reinstating it is a setting plus one branch in the transport registration, so the door is not closed — but nothing in this release claims it works, and no criterion below may be read as promising it.
 
 </Callout>
 
@@ -373,7 +383,7 @@ The same trap sits one level down in R2.6: RabbitMQ's reader defaults `Host` to 
 
 1. WHEN an Integration Event is modelled in an application and designated to Wolverine, THE Software Factory SHALL emit into the Wolverine Host Configuration a publish rule routing that message type to its Topic Name on the configured Transport using that Transport's fan-out destination kind — an exchange or topic rather than a queue.
 2. THE Wolverine eventing module SHALL derive an Integration Event's Topic Name from its message type name converted to kebab-case when no override is present.
-3. THE Wolverine eventing module SHALL provide an optional Topic Name override on an Integration Event, and WHEN one is present THE Software Factory SHALL use it in place of the convention-derived name.
+3. THE Wolverine eventing module SHALL provide an optional Topic Name override on an Integration Event, carried as a property of the single `Wolverine Message` stereotype of R9.8 and NOT as a stereotype of its own, and WHEN one is present THE Software Factory SHALL use it in place of the convention-derived name.
 4. WHEN a Topic Name override is present, THE Software Factory SHALL use it verbatim, without kebab-casing or otherwise transforming it.
 5. IF a Topic Name override is present but empty or whitespace-only after trimming, THEN THE Software Factory SHALL stop with an error highlighting that Integration Event and SHALL NOT substitute the convention-derived name.
 6. IF a Topic Name override is longer than 250 characters, THEN THE Software Factory SHALL stop with an error highlighting that Integration Event and naming the limit.
@@ -381,6 +391,7 @@ The same trap sits one level down in R2.6: RabbitMQ's reader defaults `Host` to 
 8. THE Software Factory SHALL generate an implementation of the Message Bus contract that delegates to Wolverine's own bus, and THAT implementation SHALL buffer each publish and send call rather than dispatching it immediately, exposing a single asynchronous flush method that dispatches the buffered calls in the order they were made and clears the buffer.
 9. THE Software Factory SHALL register the Message Bus contract implementation in the application's dependency injection **only when that application has at least one Integration Event to publish or Integration Command to send**, and SHALL NOT register it in an application that only subscribes.
 10. THE Wolverine eventing module SHALL NOT generate the call that invokes the flush method. THAT call belongs to the application's dispatch mechanism — `Intent.Application.Wolverine` contributes it as middleware, a MediatR application as a pipeline behaviour — and THE module documentation SHALL state that an application publishing through this bus with no dispatch module installed has nothing that flushes it.
+11. THE generated Message Bus contract implementation SHALL implement exactly the members the Message Bus contract declares in THAT application, and no others. IN PARTICULAR, an addressed send overload — one taking a destination address alongside the message — SHALL be emitted ONLY in an application whose contract declares it, since the contract gains that member only when another Eventing Provider that supports addressed sending is installed. AND WHERE it is emitted, THE implementation SHALL route the message to the address it was given; IF the address cannot be honoured, THE implementation SHALL fail rather than silently sending to the default destination.
 
 <Callout id="flush-seam-risk" tone="risk" title="R3.8 to R3.10 — the buffered bus is only half a mechanism">
 
@@ -400,7 +411,7 @@ The consequence R3.10 makes explicit: an application that installs this module a
 
 1. WHEN an Integration Command is modelled in an application and designated to Wolverine, THE Software Factory SHALL emit into the Wolverine Host Configuration a publish rule routing that message type to its Destination Queue Name on the configured Transport using that Transport's point-to-point destination kind — a queue rather than an exchange or topic. THE Message Bus contract implementation of R3.8 SHALL buffer a send through the same mechanism as a publish.
 2. THE Wolverine eventing module SHALL derive an Integration Command's Destination Queue Name from its message type name converted to kebab-case when no override is present.
-3. THE Wolverine eventing module SHALL provide an optional Destination Queue Name override on the Integration Command element itself, since the queue an Integration Command is delivered to is declared by the application that owns the Command and must be identical for every application that sends it.
+3. THE Wolverine eventing module SHALL provide an optional Destination Queue Name override on the Integration Command element itself, carried as a property of the same single `Wolverine Message` stereotype of R9.8 and NOT as a stereotype of its own, since the queue an Integration Command is delivered to is declared by the application that owns the Command and must be identical for every application that sends it.
 4. WHEN a Destination Queue Name override is present, THE Software Factory SHALL use it verbatim on both the sending and the subscribing side, resolved from the single place it is declared.
 5. IF a Destination Queue Name override is present but empty or whitespace-only after trimming, THEN THE Software Factory SHALL stop with an error highlighting that Integration Command, and SHALL NOT substitute the convention-derived name.
 6. IF a Destination Queue Name override is longer than 250 characters, THEN THE Software Factory SHALL stop with an error highlighting that Integration Command and naming the limit.
@@ -526,12 +537,24 @@ That is what makes this a risk rather than a nuisance: a developer following a W
 5. WHEN a message is designated to both Wolverine and another Eventing Provider, THE Software Factory SHALL generate that message's handling for both providers.
 6. WHEN two or more Eventing Providers are installed, application code SHALL continue to publish and send through the single Message Bus contract, and THE Composite Message Bus SHALL route each message to its designated Eventing Provider(s) with no provider-specific code in the application layer.
 7. WHEN a message is re-designated from another Eventing Provider to Wolverine and the Software Factory is re-run, THE Software Factory SHALL generate that message's Wolverine handling and SHALL remove the previous provider's handling for it, leaving all other messages untouched.
+8. THE Wolverine eventing module SHALL define exactly one stereotype, named `Wolverine Message`, and SHALL NOT define `Message Topology Settings`, `Command Distribution`, or any other additional stereotype. THAT single stereotype SHALL be the one registered as the provider's applicable stereotype under R9.1, AND SHALL carry both the Topic Name override of R3.3 and the Destination Queue Name override of R4.3 as optional properties of its own.
+9. `Wolverine Message` SHALL target both Integration Events and Integration Commands, AND each of its two override properties SHALL be hidden on the element type it does not apply to — Topic Name shown only on an Integration Event, Destination Queue Name only on an Integration Command — so that neither element type ever displays a property that is meaningless for it. SINCE R9.2 requires no designation at all when Wolverine is the only Eventing Provider installed, applying `Wolverine Message` by hand SHALL be necessary only in order to set an override; where two or more providers are installed the Message Bus stereotype applies it as the designation of R9.3.
+
+<Callout id="single-stereotype-decision" tone="decision" title="R9.8 / R9.9 — one stereotype, not three, and why the property gating is a criterion">
+
+The module previously defined three stereotypes: `Wolverine Message` as an empty designation marker, plus `Message Topology Settings` and `Command Distribution` cloned from MassTransit's names to carry the two overrides. That shape puts two boxes on a modeller's screen where one belongs, and it was never what was asked for.
+
+Collapsing them is only tolerable because a stereotype property can be hidden conditionally: a Stereotype Definition Property carries an Is Active Function, a JavaScript predicate returning true or false that decides whether the property is displayed, and that predicate can read the element it is applied to. Shipped Intent modules already branch on exactly that — `return Ignore != "true" && element.specialization != "Service";` — so the mechanism is precedent, not invention.
+
+R9.9 states the gating as a criterion rather than leaving it to the design, because without it a single stereotype is strictly worse than three: every Integration Event would show a Destination Queue Name box that does nothing, and every Integration Command a Topic Name box that does nothing. The consolidation is only a win if the gating comes with it.
+
+</Callout>
 
 <Callout id="r9-extrapolated" tone="risk" title="R9 is extrapolated — nothing in the Golden Sample exercises it">
 
 The Golden Sample installs one Eventing Provider. Every criterion above is inferred from how the MassTransit and NServiceBus modules already participate in the Composite Message Bus, which is real shipped precedent — but precedent from another provider is not evidence about this one, and the interaction that matters here is specific to Wolverine: R5's Handler Type Registrations are exactly what must be filtered by designation, and filtering them wrongly produces an application that compiles with a handler registered for a message it will never be routed.
 
-R19 plans a multi-provider Test Application as the check. Until its generated output is committed, treat R9 as designed rather than demonstrated.
+R19.4 makes the existing `Tests/CompositeMessageBus` application the check — Wolverine is installed into it alongside the providers it already carries, rather than a bespoke multi-provider application being created. Until the resulting change to that application's committed output has been reviewed, treat R9 as designed rather than demonstrated.
 
 </Callout>
 
@@ -638,8 +661,8 @@ It is retained on the developer's explicit stipulation, for capability parity. T
 #### Acceptance Criteria
 
 1. THE developer SHALL install exactly one module to get all four Transports and the Durable Transactional Outbox — no companion module is selected by hand and no transport-specific or persistence-specific module exists to choose. THE Shared Host Module of R18 SHALL be brought in automatically as a dependency, not presented as a second decision.
-2. THE Wolverine eventing module SHALL expose exactly four module settings — Transport, Transactional Outbox, Error Handling Policy, Broker Topology — each with the options and default given in R2.1, R2.7, R6.1 and R7.1. No setting SHALL be added for the Subscriber Queue naming rule, the serialization format, or the durable storage technology, each of which is derived rather than chosen.
-3. WHEN the Wolverine eventing module is installed and no setting is changed, THE Software Factory SHALL generate an application that compiles, configured for the Local Transport, Transactional Outbox None, Broker Topology Auto-provision and Error Handling Policy Retry with cooldown.
+2. THE Wolverine eventing module SHALL expose exactly three module settings — Transport, Transactional Outbox, Error Handling Policy — each with the options and default given in R2.1, R6.1 and R7.1. No setting SHALL be added for the Broker Topology, the Subscriber Queue naming rule, the serialization format, or the durable storage technology, each of which is either withdrawn or derived rather than chosen.
+3. WHEN the Wolverine eventing module is installed and no setting is changed, THE Software Factory SHALL generate an application that compiles, configured for the Local Transport, Transactional Outbox None and Error Handling Policy Retry with cooldown, declaring its own destinations.
 4. WHEN the Wolverine eventing module is installed, THE module SHALL install the message contract module it depends on, so that Integration Events, Integration Commands and the Message Bus contract are available without a separate install step.
 5. WHEN the Wolverine eventing module is uninstalled and the Software Factory is re-run, THE Software Factory SHALL cease emitting the publish rules, listeners, Handler Type Registrations, Transport, outbox and error-handling registrations it added, and SHALL leave hand-written Integration Event Handler classes in place. THE module makes no claim about the `appsettings.json` sections it added: the app-settings mechanism has **no removal request**, so those sections persist and THE module documentation SHALL name the sections a developer deletes by hand, as in R2.4 and R7.4.
 
@@ -688,26 +711,47 @@ This is a recorded deviation, not intended shape. It demonstrates the *effect* R
   caption="R19.1 — the required Test Applications. Each one's generated output is committed, so a template change surfaces as a version-control diff."
   columns={["Test Application", "Configuration under test", "Requirement covered"]}
   rows={[
-    ["`Wolverine.Transport.Local`", "Transport Local, Outbox None", "R2.1, R2.2"],
-    ["`Wolverine.Transport.RabbitMQ`", "Transport RabbitMQ, Outbox None, Auto-provision — the Golden Sample's own path", "R2, R3, R4, R5"],
+    ["`WolverineEventing.Publish.RabbitMQ` · `WolverineEventing.Subscribe.RabbitMQ`", "Transport RabbitMQ, Outbox None. The Golden Sample pair itself serves as this row's Test Application — a second `Wolverine.Transport.RabbitMQ` pair is NOT created, because it would model the identical configuration twice", "R2, R3, R4, R5"],
     ["`Wolverine.Transport.AzureServiceBus`", "Transport Azure Service Bus", "R2.1, R2.2, R2.6"],
     ["`Wolverine.Transport.AmazonSqs`", "Transport Amazon SQS", "R2.1, R2.2, R2.6"],
-    ["`Wolverine.Topology.ExternallyOwned`", "Broker Topology Externally owned, with name overrides on every message", "R2.7, R3.3, R4.3"],
     ["`Wolverine.Outbox.Durable.SqlServer`", "Outbox Durable, Database Provider SQL Server", "R6.1, R6.3"],
-    ["`Wolverine.Outbox.Durable.Postgresql`", "Outbox Durable, Database Provider PostgreSQL", "R6.1, R6.3"],
     ["`Wolverine.ErrorPolicy.None` · `.Retry` · `.RetryWithCooldown` · `.ScheduleRetry`", "One per Error Handling Policy option", "R7.1, R7.2, R7.3"],
     ["`Wolverine.Coexist.Cqrs`", "Wolverine eventing plus `Intent.Application.Wolverine` on one shared host", "R8, R18"],
-    ["`Wolverine.MultiProvider`", "Wolverine alongside MassTransit, messages designated to each", "R9 — the check on an extrapolated requirement"],
+    ["`CompositeMessageBus` — the EXISTING shared Test Application", "Wolverine installed alongside the Eventing Providers that application already carries, with messages designated to each. A dedicated `Wolverine.MultiProvider` application is NOT created — see the callout below", "R9 — the check on an extrapolated requirement"],
     ["`Wolverine.MultiTenancy`", "Wolverine plus the Finbuckle multi-tenancy module", "R12 — the check on an extrapolated requirement"]
   ]}
 />
+
+<Callout id="no-duplicate-test-apps" tone="decision" title="R19.1 / R19.4 — reuse an existing application rather than cloning its configuration">
+
+Two rows of this matrix previously named applications that duplicated something already in `Tests/`, and both have been folded back.
+
+**Multi-provider.** `Tests/CompositeMessageBus` already installs seven Eventing Providers and already has its generated output committed. A separate `Wolverine.MultiProvider` application reproduced that harness for one more provider while starting from zero committed files. Installing Wolverine into the existing application is strictly better evidence: R9's proof becomes a diff against output that was already under version control, which is exactly the regression signal R19 exists to produce, instead of a fresh tree where every file is new and nothing can be compared.
+
+**RabbitMQ.** The Golden Sample pair and a `Wolverine.Transport.RabbitMQ` pair modelled the same Transport and the same Outbox setting.
+
+The cost, accepted: `CompositeMessageBus` is not owned by this feature, so installing Wolverine into it will churn generated files that other providers' regression coverage also depends on. That churn must be reviewed as part of this feature rather than waved through, and a change there that is not attributable to adding Wolverine is a defect in this feature, not an unrelated one.
+
+</Callout>
+
+<Callout id="withdrawn-test-apps" tone="warning" title="R19.1 — three rows withdrawn, and the coverage they took with them">
+
+Three applications named by an earlier revision of this matrix were never built, and rather than carry them as a standing gap they are withdrawn from the requirement. Each takes real coverage with it, recorded here so the loss is deliberate rather than discovered later.
+
+**`Wolverine.Transport.Local`** — the Local transport, the module's default setting, now has no Test Application. A fresh install with nothing configured is the most common first experience of this module, and nothing in `Tests/` exercises it.
+
+**`Wolverine.Topology.ExternallyOwned`** — the Topic Name and Destination Queue Name overrides now have no application-level coverage. R3.3 and R4.3 are verified at the template and stereotype level only; no committed generated output shows an override actually changing an emitted destination name.
+
+**`Wolverine.Outbox.Durable.Postgresql`** — the durable outbox is covered on SQL Server only. R6.3's PostgreSQL branch (`PersistMessagesWithPostgresql`) is compile-verified against the package but never generated into a real application.
+
+</Callout>
 
 #### Acceptance Criteria
 
 1. EVERY configuration listed in the table above SHALL be covered by a Test Application under `Tests/` whose generated output is committed to version control.
 2. EVERY Test Application SHALL build with zero errors.
 3. WHEN the Software Factory is re-run against a Test Application whose model and module settings are unchanged, IT SHALL propose zero file changes, so that a genuine template change is the only thing a committed diff can represent.
-4. THE Test Applications covering an extrapolated requirement — `Wolverine.MultiProvider` for R9 and `Wolverine.MultiTenancy` for R12 — SHALL exist before that requirement is considered met, since no other evidence for either exists.
+4. THE Test Application coverage for an extrapolated requirement — `CompositeMessageBus` carrying Wolverine for R9, and `Wolverine.MultiTenancy` for R12 — SHALL exist before that requirement is considered met, since no other evidence for either exists. FOR R9 specifically, THE Wolverine eventing module SHALL be installed into the existing `Tests/CompositeMessageBus` application rather than a new application being created, AND THE resulting change to that application's already-committed generated output SHALL itself be the evidence.
 5. WHERE a Test Application's committed output is the sole evidence for a criterion, THE absence of a proposed change SHALL be confirmed rather than assumed — by checking that the module version under test is the version installed, that the message carries the provider designation the templates filter on, that the file is not in the ignored-files list, and that the file's code-management mode permits the template to write it. A clean run against a file no template was ever going to write proves nothing.
 
 ## Assumptions
@@ -727,7 +771,7 @@ This is a recorded deviation, not intended shape. It demonstrates the *effect* R
     { id: "a10", label: "No Transport is verified at runtime; all four are verified by generating, compiling and committing the output", note: "RabbitMQ additionally has a hand-run against a Docker broker recorded as context, but nothing re-runs it, so it is not evidence. The accepted consequence is that a transport-specific fault which still compiles — a wrong dead-letter registration, say — is caught by nothing here. R19's committed Test Application output is what catches a regression in the shape; a first-time fault in the shape is caught only by review against the Reference." },
     { id: "a11", label: "Wolverine's own inbox is trusted for re-delivery idempotency, and this feature verifies none of it", note: "R6.3 emits the durable-inbox-on-all-listeners policy and R6.5 makes the guarantee a documentation obligation. Nothing asserts that a re-delivered message reaches its handler only once — that is Wolverine's behaviour, not this module's output, and it is outside what a shape-only specification can check." },
     { id: "a14", label: "The pinned runtime is `net10.0` with WolverineFx 5.39.5 across all seven packages", note: "Every citation in this document was taken at that version. A version raise re-opens R10.3's licence check and invalidates any API citation the design records, so the pin is a decision rather than an incidental." },
-    { id: "a15", label: "A subscribed Integration Event's queue name is derived and not overridable", note: "R5.8's rule gives each subscriber its own queue so a fan-out actually fans out. R5.9 declines an override to keep the settings surface at R14.2's four. The cost is real and accepted: under Broker Topology Externally owned a platform team must accept the derived queue name, because R3.3 lets Rashid override the exchange he binds from but nothing lets him override the queue he binds to." },
+    { id: "a15", label: "A subscribed Integration Event's queue name is derived and not overridable", note: "R5.8's rule gives each subscriber its own queue so a fan-out actually fans out. R5.9 declines an override to keep the settings surface at R14.2's three. The cost is real and accepted: a platform team must accept the derived subscriber queue name, because R3.3 lets Rashid override the exchange he binds from but nothing lets him override the queue he binds to." },
     { id: "a16", label: "Extrapolated criteria are proven by a probe before their template branch is written, not after", note: "R7.1's Retry and Schedule retry policies and R12.2's tenancy middleware have no citation at all. Compiling each against the pinned version is cheap; discovering during a parity wave that the API does not exist in the assumed shape is not. The ordering is the mitigation." },
     { id: "a12", label: "Documentation is the module's own `docs/README.md`, not modelled help topics", note: "Every requirement that says \"module documentation\" or \"migration section\" — R1.6, R2.4, R2.5, R2.6, R3.10, R5.9, R6.5, R6.7, R7.4, R8.8, R10.3, R13.1 to R13.5, R14.5 — is satisfied by a README section, matching how every other eventing module in this repository carries its prose. No `Module Documentation` element is modelled, so none of those criteria may be verified by pointing at a generated topic. This list is long by design: with runtime verification descoped, a documented warning is the only mitigation several of these risks have." },
     { id: "a13", label: "Wolverine ships durable storage for SQL Server and PostgreSQL only", note: "R6.8's stopping condition rests on this. The provider list it names as unsupported — In Memory, Cosmos, MySQL, Oracle, SQLite — is the set Intent's Entity Framework Core module offers today; a provider added to that module later inherits the error rather than silently generating a durability registration that cannot work." }

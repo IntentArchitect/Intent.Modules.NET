@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files />
+  <customFiles>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:37.272847Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:37.5849957Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Intent.Metadata/Domain/Domain.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:37.8261986Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Intent.Metadata/Services/Services.designer.config</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:38.1150773Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:38.3531221Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/tasks.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:38.5909214Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/instructions/csharp-guidelines.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:38.6354582Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/instructions/unit-test-guidelines.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:38.8828574Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/application-service-implementation/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:39.086805Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/domain-entity/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:39.1948071Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/ef-repository/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:39.4221041Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/fluent-validation-custom-validation/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:39.6391104Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/mediatr-command-handler/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:39.8971524Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.agents/skills/mediatr-query-handler/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:40.0638478Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/.gitignore</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:40.3414965Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/appsettings.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:40.4546997Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersioningConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:40.6742574Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersionSwaggerGenOptions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:40.8652291Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApplicationSecurityConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:41.0265767Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/HealthChecksConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:41.2236609Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ProblemDetailsConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:41.5754533Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/SwashbuckleConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:41.8171659Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Controllers/OrdersController.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:42.067915Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/AuthorizeCheckOperationFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:42.2161396Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/ExceptionFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:42.5261707Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:42.7708211Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/TypeSchemaFilter.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:43.1025718Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Logging/BoundedLoggingDestructuringPolicy.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:43.3615077Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Program.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:43.62825Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Properties/launchSettings.json</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:43.8867223Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/Services/CurrentUserService.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:44.1388283Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Api/WolverineEventing.Outbox.SqlServer.Publish.Api.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:44.379265Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests/WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:44.6704764Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/AssemblyAttributes.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:44.8127448Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/AuthorizationBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:45.1637111Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/LoggingBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:45.3646421Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:45.7381441Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/PerformanceBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:46.0438266Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:46.1901138Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:46.5230457Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/ValidationBehaviour.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:46.7602697Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IIntegrationEventHandler.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:47.083132Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IMessageBus.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:47.3687962Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Exceptions/ForbiddenAccessException.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:47.6448113Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IBypassPipelineValidation.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:47.7676088Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICommand.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.050764Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUser.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.2816894Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUserService.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.4070518Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IQuery.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.6370104Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Models/Result.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.7630042Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedList.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:48.9995382Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResult.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:49.1452218Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResultMappingExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:49.3303041Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Security/AuthorizeAttribute.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:49.5196088Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/IValidatorProvider.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:49.7268443Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/ValidatorProvider.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:49.9943205Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/DependencyInjection.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.1119844Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/IntegrationEvents/OrderCreatedEvent.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.3299342Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommand.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.4409703Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.5654106Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.8545477Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Application/WolverineEventing.Outbox.SqlServer.Publish.Application.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:50.9692581Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/CollectionExtensions.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:51.1732263Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Exceptions/NotFoundException.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:51.2824495Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Interfaces/IUnitOfWork.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:51.4938131Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/UpdateHelper.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:51.7597141Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IEFRepository.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:51.9210865Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IPagedList.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.0575453Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IRepository.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.1572443Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/ValueObject.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.3539664Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Domain/WolverineEventing.Outbox.SqlServer.Publish.Domain.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.4516041Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/DependencyInjection.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.6379405Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Eventing/WolverineEventingConfiguration.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.8152723Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Eventing/WolverineMessageBus.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:52.9200872Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Migrations/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:53.0562451Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Persistence/ApplicationDbContext.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:53.2339811Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Repositories/RepositoryBase.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:53.3911662Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.csproj</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:53.4917918Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Outbox.SqlServer.Publish/Tests/WolverineEventing.Outbox.SqlServer.Publish/WolverineEventing.Outbox.SqlServer.Publish.sln</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:23:53.6079211Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

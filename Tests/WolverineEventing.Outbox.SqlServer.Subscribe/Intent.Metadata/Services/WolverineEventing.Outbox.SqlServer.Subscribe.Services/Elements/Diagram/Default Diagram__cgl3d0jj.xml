@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="95bbf7a5-8c90-43a2-a4ef-44bf84b9660a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>15f30d7f-56f0-4f58-a323-671919b8dfa0</parentFolderId>
+  <packageId>15f30d7f-56f0-4f58-a323-671919b8dfa0</packageId>
+  <packageName>WolverineEventing.Outbox.SqlServer.Subscribe.Services</packageName>
+  <diagram>
+    <targetPackageId>15f30d7f-56f0-4f58-a323-671919b8dfa0</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

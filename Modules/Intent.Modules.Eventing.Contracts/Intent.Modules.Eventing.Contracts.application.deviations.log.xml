@@ -12,4 +12,12 @@
       <fileHash>0EC36ADE70545E236E5D9EC6308CF574ADB7348904E95459E791C55991E0AA13</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Contracts/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-27T09:22:27.5620666Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

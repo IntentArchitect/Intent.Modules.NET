@@ -41,8 +41,7 @@ try
     builder.Host.UseWolverine(opts =>
     {
         WolverineConfiguration.Configure(opts);
-        //IntentIgnore
-        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);  // GOLDEN-SAMPLE: pre-module delta - remove this marker and the //IntentIgnore above once Intent.Eventing.Wolverine generates this host-configuration registration (startup DSL contributed into Intent.AspNetCore.Program).
+        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
     });
 
     builder.Host.UseSerilog((context, services, configuration) => configuration

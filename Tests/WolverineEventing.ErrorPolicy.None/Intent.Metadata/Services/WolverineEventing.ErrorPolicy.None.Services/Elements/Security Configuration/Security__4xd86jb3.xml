@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6b512147-fe0a-44c5-a456-cbec2aaf1c62" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</parentFolderId>
+  <packageId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.None.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

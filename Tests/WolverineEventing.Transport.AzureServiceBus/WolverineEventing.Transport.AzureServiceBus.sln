@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F6241448-FA28-47FB-86EA-7649651C3086}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Transport.AzureServiceBus.Api", "WolverineEventing.Transport.AzureServiceBus.Api\WolverineEventing.Transport.AzureServiceBus.Api.csproj", "{E1A7756E-730B-4428-AFBD-8A4D64941C4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{6847CBC6-7B73-4664-A01C-C7A18DF5E027}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Transport.AzureServiceBus.Application", "WolverineEventing.Transport.AzureServiceBus.Application\WolverineEventing.Transport.AzureServiceBus.Application.csproj", "{729F75B7-CB0E-40A6-B47B-B77439527730}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Transport.AzureServiceBus.Application.UnitTests", "WolverineEventing.Transport.AzureServiceBus.Application.UnitTests\WolverineEventing.Transport.AzureServiceBus.Application.UnitTests.csproj", "{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{3E442603-058F-43DD-BD75-E473C31B5FBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Transport.AzureServiceBus.Domain", "WolverineEventing.Transport.AzureServiceBus.Domain\WolverineEventing.Transport.AzureServiceBus.Domain.csproj", "{94489D51-B88A-4CDC-861A-03493E3FBCD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{80748A8D-E61F-466F-A107-3AFECA982417}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WolverineEventing.Transport.AzureServiceBus.Infrastructure", "WolverineEventing.Transport.AzureServiceBus.Infrastructure\WolverineEventing.Transport.AzureServiceBus.Infrastructure.csproj", "{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1A7756E-730B-4428-AFBD-8A4D64941C4C} = {F6241448-FA28-47FB-86EA-7649651C3086}
+		{729F75B7-CB0E-40A6-B47B-B77439527730} = {6847CBC6-7B73-4664-A01C-C7A18DF5E027}
+		{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E} = {6847CBC6-7B73-4664-A01C-C7A18DF5E027}
+		{94489D51-B88A-4CDC-861A-03493E3FBCD6} = {3E442603-058F-43DD-BD75-E473C31B5FBB}
+		{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD} = {80748A8D-E61F-466F-A107-3AFECA982417}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1A7756E-730B-4428-AFBD-8A4D64941C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A7756E-730B-4428-AFBD-8A4D64941C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A7756E-730B-4428-AFBD-8A4D64941C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A7756E-730B-4428-AFBD-8A4D64941C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729F75B7-CB0E-40A6-B47B-B77439527730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729F75B7-CB0E-40A6-B47B-B77439527730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729F75B7-CB0E-40A6-B47B-B77439527730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729F75B7-CB0E-40A6-B47B-B77439527730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC4B2A3-F2DB-472C-AB39-CA0B1345950E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94489D51-B88A-4CDC-861A-03493E3FBCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94489D51-B88A-4CDC-861A-03493E3FBCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94489D51-B88A-4CDC-861A-03493E3FBCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94489D51-B88A-4CDC-861A-03493E3FBCD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBC256C-E86B-4BF4-BBA9-CE20B6E4EEDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d7c539a-1b3f-4440-adee-c0d75a8ea418" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>WolverineTelemetryConfiguratorExtension</name>
+  <display>WolverineTelemetryConfiguratorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5adec887-2071-4887-a9de-5e2768dd05c5</parentFolderId>
+  <packageId>7882d907-6087-482f-bfae-3292c31c2c96</packageId>
+  <packageName>Intent.Eventing.Wolverine</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
