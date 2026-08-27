@@ -145,6 +145,20 @@ earlier changes in the same version line often went undocumented. Cover them, bu
 entry they belong with** rather than appending a bullet per change. The aim is that the version's
 entries account for everything in it, not that there is an entry per change.
 
+## Verify The Write Actually Landed
+
+Before trusting a `patch_file`/`write_file` call against `release-notes.md`, `docs/README.md`, or
+any other hand-maintained artifact, check whether the target is on the application's Software
+Factory ignore list (`list_ignored_files`). A write against an ignored file reports
+`"success": true` with a plausible insertions/deletions count, but **nothing reaches disk** —
+re-running the identical patch matches the original unpatched text again, silently. Always re-read
+the file back after writing to confirm the change is actually there; the tool's own success
+response is not sufficient proof. If the target is genuinely ignored and needs a hand-maintained
+edit, a native file-edit tool (bypassing the Software Factory's virtual file system) is the working
+fallback — don't `unignore_file` first just to make the write succeed, since there's no
+tool-exposed way to restore that protection afterward, and it exposes the file to being clobbered
+by a future regeneration.
+
 ## Checklist
 
 - [ ] Module summary, description, and tags describe current behaviour
@@ -155,3 +169,4 @@ entries account for everything in it, not that there is an entry per change.
 - [ ] `docs/README.md` reflects the change — created if the module had none
 - [ ] Module icon created if missing, described from `.imodspec`/`CONTEXT.md` — existing icons left untouched
 - [ ] Earlier undocumented changes in the same version line covered
+- [ ] Every write to a hand-maintained artifact verified by reading the file back, not just trusting the write tool's response
