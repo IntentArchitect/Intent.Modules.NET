@@ -3,7 +3,7 @@ name: module-context-capture
 description: "Read and maintain a module's CONTEXT.md — the durable why behind its design decisions, invariants, and cross-module relationships, kept in the module's project folder. USE ONLY WHEN a design decision is made or a module change concludes (write it), or before modifying any module (read it first). DO NOT USE FOR the change's user-facing docs (see module-docs-chore) or its version bump (see module-version-increment). REQUIRES the module's project folder to already exist."
 keywords: [context, decisions, architecture, invariants, cross-module, durable]
 template-id: Intent.ModuleBuilder.AI.Workflow.Skills.ModuleContextCapture_SkillMd_Agents
-contentHash: 9E664BF685972800147D847BD005F703E294789627B35B5BC52FABF1AC24ADB8
+contentHash: B47B0EFA8272B7DA657DA3F35403D89D3BB03F9A58099FC2F992453FD8BFFE89
 ---
 # Skill: module-context-capture
 
@@ -18,6 +18,15 @@ Inside the **module project folder** — e.g. `Modules/Intent.Modules.X/CONTEXT.
 - Never at the repository root — there is no global `CONTEXT.md`.
 - Never in a transient or build-state folder — those get cleared; this must survive.
 - Never inside an `intent` / `.intent` metadata folder.
+
+## When A Module Has No CONTEXT.md
+
+Create one, but not on arrival. A `CONTEXT.md` written before there is anything to record is a
+template with headings and no content, and the next session learns to skip it.
+
+Write the file at the moment the first durable decision actually lands — a design choice with a
+rejected alternative, an invariant something else now depends on, a constraint discovered the hard
+way. Start with the Purpose section and that one entry. Let it grow from there.
 
 ## Read It Before You Modify
 
@@ -81,6 +90,7 @@ A confidently wrong `CONTEXT.md` is worse than none, because the next session tr
 ## Checklist
 
 - [ ] `CONTEXT.md` exists in the module project folder — not the repo root, not a transient folder
+- [ ] A module with no `CONTEXT.md` had one created once its first durable decision landed
 - [ ] Every module modified by this change had its `CONTEXT.md` read first
 - [ ] New decisions recorded with reasoning, including rejected alternatives
 - [ ] Superseded entries updated or removed — no stale claims left standing

@@ -3,10 +3,34 @@
   <files />
   <customFiles>
     <customFile>
+      <path>Modules/.agents/instructions/known-build-gotchas.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.8351328Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.agents/instructions/module-building-workflow.instructions.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.3127874Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/instructions/sdd-wave-evidence.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.8558788Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/add-association-type/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.8747308Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/add-designer-extension/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.8935425Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.agents/skills/add-module-migration/SKILL.md</path>
@@ -15,16 +39,82 @@
       <approvedAt>2026-08-20T17:18:08.8019778Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.agents/skills/intent-metadata-consumer/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.9106444Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/resources/domain.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.9287123Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/resources/eventing.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.9529425Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/resources/integration-recipe.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.9705983Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/resources/services.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:24.9946904Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/resources/user-interface.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.0227861Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/intent-modelers-integration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.0429086Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/module-building-strategies/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.0669667Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.agents/skills/module-context-capture/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.3433644Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.agents/skills/module-dependency-audit/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.0972011Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.agents/skills/module-docs-chore/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.3665816Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/module-docs/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.1304982Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/module-element-icons/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.1636235Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.agents/skills/module-svg-icon/SKILL.md</path>
@@ -39,10 +129,46 @@
       <approvedAt>2026-08-18T12:39:18.3906058Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.agents/skills/module-versioning/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.202629Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.agents/skills/sdd-build-module/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.2475181Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/instructions/known-build-gotchas.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.2850445Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.claude/instructions/module-building-workflow.instructions.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.4105208Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/instructions/sdd-wave-evidence.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.3116015Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/add-association-type/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.346754Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/add-designer-extension/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.380906Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.claude/skills/add-module-migration/SKILL.md</path>
@@ -51,16 +177,82 @@
       <approvedAt>2026-08-20T17:18:08.8354635Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.claude/skills/intent-metadata-consumer/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.4058283Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/resources/domain.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.4303779Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/resources/eventing.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.4551798Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/resources/integration-recipe.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.4784189Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/resources/services.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.5102586Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/resources/user-interface.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.5446651Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/intent-modelers-integration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.5776432Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/module-building-strategies/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.6117217Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.claude/skills/module-context-capture/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.4358514Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.claude/skills/module-dependency-audit/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.6431962Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/.claude/skills/module-docs-chore/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.4601728Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/module-docs/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.6666223Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/module-element-icons/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.6901142Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.claude/skills/module-svg-icon/SKILL.md</path>
@@ -73,6 +265,18 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.4889427Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/module-versioning/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.7129577Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/skills/sdd-build-module/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:04:25.7437952Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/CLAUDE.md</path>
