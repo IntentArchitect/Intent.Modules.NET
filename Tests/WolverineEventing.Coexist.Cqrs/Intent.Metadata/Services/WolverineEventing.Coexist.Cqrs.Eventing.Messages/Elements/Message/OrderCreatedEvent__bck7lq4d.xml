@@ -15,7 +15,10 @@
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
       <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
-      <properties />
+      <properties>
+        <property name="a34e3125-4aeb-44c8-a66a-15ebf176fa7f" display="Topic Name" isActive="true" />
+        <property name="575e43e9-12b8-4bf6-86bf-1218fecaa296" display="Destination Queue Name" isActive="false" />
+      </properties>
     </stereotype>
   </stereotypes>
   <metadata />

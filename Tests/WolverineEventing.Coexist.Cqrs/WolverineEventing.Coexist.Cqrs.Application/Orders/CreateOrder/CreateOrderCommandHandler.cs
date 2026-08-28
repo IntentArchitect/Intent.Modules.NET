@@ -23,6 +23,7 @@ namespace WolverineEventing.Coexist.Cqrs.Application.Orders.CreateOrder
         {
             _messageBus.Publish(new OrderCreatedEvent
             {
+                OrderId = request.OrderId
             });
         }
     }
