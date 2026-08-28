@@ -24,6 +24,7 @@ namespace WolverineEventing.ErrorPolicy.Retry.Application.Orders.CreateOrder
         {
             _messageBus.Publish(new OrderCreatedEvent
             {
+                OrderId = request.OrderId
             });
         }
     }

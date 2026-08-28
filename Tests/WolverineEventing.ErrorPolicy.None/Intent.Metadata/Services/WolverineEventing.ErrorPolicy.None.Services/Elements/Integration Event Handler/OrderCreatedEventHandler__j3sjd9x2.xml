@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b89f46e9-936e-4474-89f1-38b9a7970627" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Throws deliberately so the Error Handling Policy (None: straight to the error queue, no retry) can be exercised. Never make this succeed.</comment>
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</parentFolderId>
+  <packageId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.None.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

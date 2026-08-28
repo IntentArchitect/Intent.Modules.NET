@@ -36,6 +36,29 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="ea8b6d11-7281-454d-9919-a7dce1f26317" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b9f7323d-c385-412d-9bc0-4b1d61dd0156" location="[WolverineEventing.Outbox.SqlServer.Publish].[Services].[CreateOrderCommand]" />
+        <target applicationId="ea8b6d11-7281-454d-9919-a7dce1f26317" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d4374f15-f024-4940-97e7-1de3cc1ece77" location="[WolverineEventing.Outbox.SqlServer.Publish].[Services].[OrderCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="d4374f15-f024-4940-97e7-1de3cc1ece77" name="OrderCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="d66f4574-0b7c-4a6c-be69-5779f132b2c6" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b9f7323d-c385-412d-9bc0-4b1d61dd0156" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="686a2d7d-c09e-454e-9193-33a6b82ab1b3" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
     <metadata />
     <childElements />
   </targetEnd>

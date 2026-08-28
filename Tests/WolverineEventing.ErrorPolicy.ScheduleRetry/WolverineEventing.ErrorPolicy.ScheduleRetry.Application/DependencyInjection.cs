@@ -4,7 +4,10 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Application.Common.Behaviours;
+using WolverineEventing.ErrorPolicy.ScheduleRetry.Application.Common.Eventing;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Application.Common.Validation;
+using WolverineEventing.ErrorPolicy.ScheduleRetry.Application.IntegrationEvents.EventHandlers;
+using WolverineEventing.ErrorPolicy.ScheduleRetry.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -29,6 +32,7 @@ namespace WolverineEventing.ErrorPolicy.ScheduleRetry.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             return services;
         }
     }

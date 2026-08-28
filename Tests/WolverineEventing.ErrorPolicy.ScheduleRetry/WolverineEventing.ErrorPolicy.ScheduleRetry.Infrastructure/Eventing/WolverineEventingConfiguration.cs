@@ -2,6 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
 using Wolverine.ErrorHandling;
+using WolverineEventing.ErrorPolicy.ScheduleRetry.Application.IntegrationEvents.EventHandlers;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,6 +15,8 @@ namespace WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure.Eventing
         public static void ConfigureLocal(WolverineOptions opts, IConfiguration configuration)
         {
             opts.PublishMessage<OrderCreatedEvent>().ToLocalQueue("order-created-event");
+
+            opts.Discovery.IncludeType<OrderCreatedEventHandler>();
 
             ApplyErrorHandlingPolicy(opts, configuration);
         }

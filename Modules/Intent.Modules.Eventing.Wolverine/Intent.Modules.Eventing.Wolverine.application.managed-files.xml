@@ -13,11 +13,11 @@
   <file path="NugetPackages.cs" />
   <file path="Settings/ModuleSettingsExtensions.cs" />
   <file path="Templates/TemplateExtensions.cs" />
-  <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs" deviationsHash="F6CFB0706A85298A89812279EB46E6F92579501C22A5FD38EE675C987BAA9CA6" />
+  <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs" deviationsHash="08E7E25E005F59B06E71CF932B272533BDEF28BFB5498EC1990787A537C5B592" />
   <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplateRegistration.cs" />
   <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplatePartial.cs" deviationsHash="BAE218DB54E0071C9111383F09A7BC9B9BCFDF7C765BF24378B0903B6B84ECF8" />
   <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplateRegistration.cs" />
-  <file path="Templates/WolverineTenantHeaderStrategy/WolverineTenantHeaderStrategyTemplatePartial.cs" deviationsHash="CD278867542C8B08A4A3CCCB46F0EDA7DCB3E6E8A4FFE9EA484143E0D5F8AF8F" />
+  <file path="Templates/WolverineTenantHeaderStrategy/WolverineTenantHeaderStrategyTemplatePartial.cs" deviationsHash="CF0B412132B39F67566FF476EA5977BE78DB0F39880555A2AFE0895BF03BC54B" />
   <file path="Templates/WolverineTenantHeaderStrategy/WolverineTenantHeaderStrategyTemplateRegistration.cs" />
   <file path="Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplatePartial.cs" deviationsHash="2CD958CCBC3F8D3C379FCA9C30182DAD8F17FAC95EF95CDD05D9CB5119C191E0" />
   <file path="Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplateRegistration.cs" />

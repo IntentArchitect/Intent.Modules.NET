@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#09f0033f-d5df-4d6f-9c1d-07baa721d599</correlationId>
+      <path>WolverineEventing.Outbox.SqlServer.Subscribe.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-27T15:39:38.3367405Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:33:04.0896215Z</approvedAt>
+      <deviationsHash>12D92DED87C21D27A097331861C21D386089A734EDD03238AE8726A119869E04</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Tests/WolverineEventing.Outbox.SqlServer.Subscribe/.gitattributes</path>

@@ -32,6 +32,7 @@ namespace WolverineEventing.MultiTenancy.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IMessageBus, WolverineMessageBus>();
+            services.AddScoped<WolverineTenantHeaderStrategy>();
             return services;
         }
     }

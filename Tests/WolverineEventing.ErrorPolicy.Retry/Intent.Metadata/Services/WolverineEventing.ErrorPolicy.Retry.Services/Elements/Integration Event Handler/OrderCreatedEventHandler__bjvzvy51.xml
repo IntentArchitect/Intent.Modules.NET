@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b5db9098-c4bb-498a-aa67-90db225e7354" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Throws deliberately so the Error Handling Policy (Retry: fixed immediate retries, then the error queue) can be exercised. Never make this succeed.</comment>
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dff885b9-bfb8-4ea0-98b2-d3ab93a060f0</parentFolderId>
+  <packageId>dff885b9-bfb8-4ea0-98b2-d3ab93a060f0</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.Retry.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

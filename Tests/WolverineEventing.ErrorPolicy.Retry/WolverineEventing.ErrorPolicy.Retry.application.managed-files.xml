@@ -51,6 +51,7 @@
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/Common/Validation/IValidatorProvider.cs" />
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/Common/Validation/ValidatorProvider.cs" />
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/DependencyInjection.cs" />
+  <file path="WolverineEventing.ErrorPolicy.Retry.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs" deviationsHash="4D225C6CF91D5A14102424A3D6115A714B612CB0C016E8C62ED9B884AF8F53AB" />
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/IntegrationEvents/OrderCreatedEvent.cs" />
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/Orders/CreateOrder/CreateOrderCommand.cs" />
   <file path="WolverineEventing.ErrorPolicy.Retry.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" />

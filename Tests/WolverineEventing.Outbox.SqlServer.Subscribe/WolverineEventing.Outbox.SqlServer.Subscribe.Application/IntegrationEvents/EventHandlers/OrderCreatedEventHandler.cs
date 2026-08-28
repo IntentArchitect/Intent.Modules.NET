@@ -1,6 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
+using WolverineEventing.Outbox.SqlServer.Publish.Eventing.Messages;
 using WolverineEventing.Outbox.SqlServer.Subscribe.Application.Common.Eventing;
-using WolverineEventing.Outbox.SqlServer.Subscribe.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
@@ -10,16 +11,24 @@ namespace WolverineEventing.Outbox.SqlServer.Subscribe.Application.IntegrationEv
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OrderCreatedEventHandler : IIntegrationEventHandler<OrderCreatedEvent>
     {
+        private readonly ILogger<OrderCreatedEventHandler> _logger;
+
         [IntentManaged(Mode.Merge)]
-        public OrderCreatedEventHandler()
+        public OrderCreatedEventHandler(ILogger<OrderCreatedEventHandler> logger)
         {
+            _logger = logger;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(OrderCreatedEvent message, CancellationToken cancellationToken = default)
         {
-            // TODO: Implement HandleAsync (OrderCreatedEventHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            // Hand-written body. Logs the payload rather than throwing, so a runtime check can prove
+            // the DATA arrived intact and not merely that the handler was reached.
+            _logger.LogInformation(
+                "HANDLED OrderCreatedEvent OrderId={OrderId}",
+                message.OrderId);
+
+            await Task.CompletedTask;
         }
     }
 }

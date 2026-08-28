@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -69,7 +70,7 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantHeaderStrat
                             """
                             if (tenantIdentifier is null)
                             {
-                                return null;
+                            return null;
                             }
                             """,
                             s => s.SeparatedFromPrevious());
@@ -103,10 +104,20 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantHeaderStrat
         /// R12.3: registers the header-name key so it actually appears in appsettings.json - the
         /// generated ResolveHeaderName above already falls back to DefaultHeaderName in code, but
         /// that alone never surfaces the key for a developer to override.
+        /// R12.2 (bugfix): also self-registers this class in DI. WolverineMessageBusTemplate injects
+        /// it by CONCRETE type (there's no interface), so without this registration
+        /// WolverineMessageBus fails to resolve at runtime with "Unable to resolve service for type
+        /// WolverineTenantHeaderStrategy" the moment any request reaches it - the middleware/appsetting
+        /// wiring alone is not enough. Scoped to match IMultiTenantContextAccessor's own lifetime and
+        /// WolverineMessageBus's own registration, avoiding a captive-dependency mismatch.
         /// </summary>
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(HeaderNameConfigurationKey, DefaultHeaderName));
+
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .WithPerServiceCallLifeTime());
         }
 
         /// <summary>

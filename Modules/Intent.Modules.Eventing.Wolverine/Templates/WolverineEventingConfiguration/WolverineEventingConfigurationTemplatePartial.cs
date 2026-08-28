@@ -291,10 +291,18 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineEventingConfigura
         }
 
         // Transport = Local. In-process only, no external broker. Wolverine already defaults every
-        // message to a local, in-process queue when no other routing is configured, so there is
-        // nothing to wire up here yet - explicit per-message local-queue routing lands alongside
-        // message designation (wave 4+). The IConfiguration parameter is kept even though unused,
-        // so every Configure{Transport} method shares one call shape at the host call-site.
+        // message to a local, in-process queue when no other routing is configured, so there is no
+        // transport-specific listener/exchange-binding plumbing to wire up here, unlike the other
+        // Configure{Transport} methods.
+        // Bugfix: this method still needs AddHandlerTypeRegistrations though - Wolverine's default
+        // Discovery only scans the entry (.Api) assembly, and a subscribed handler lives in the
+        // .Application assembly. Every other transport gets this for free as the last statement
+        // inside AddListenerRules; Local has no listener rules to piggyback on, so it must be called
+        // directly. Without it, a Local-transport handler is silently never invoked - Wolverine logs
+        // "found no handlers" at startup and every message logs "No known handler" instead of being
+        // dispatched, with no build-time or Software-Factory-time signal that anything is wrong.
+        // The IConfiguration parameter is kept even though unused, so every Configure{Transport}
+        // method shares one call shape at the host call-site.
         private void AddConfigureLocal(CSharpClass @class)
         {
             @class.AddMethod("void", "ConfigureLocal", method =>
@@ -304,6 +312,7 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineEventingConfigura
                 method.AddParameter("IConfiguration", "configuration");
 
                 AddPublishAndSendRules(method, "ToLocalQueue", "ToLocalQueue");
+                AddHandlerTypeRegistrations(method);
                 AddTransactionalOutboxHook(method);
                 AddErrorHandlingPolicyHook(method);
             });
@@ -638,10 +647,10 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineEventingConfigura
             return allHandlers
                 .Where(handler =>
                     this.GetWolverineDesignatedMessages(handler.IntegrationEventSubscriptions()
-                            .Select(subscription => subscription.TypeReference.Element.AsMessageModel()))
+                        .Select(subscription => subscription.TypeReference.Element.AsMessageModel()))
                         .Any()
                     || this.GetWolverineDesignatedIntegrationCommands(handler.IntegrationCommandSubscriptions()
-                            .Select(subscription => subscription.TypeReference.Element.AsIntegrationCommandModel()))
+                        .Select(subscription => subscription.TypeReference.Element.AsIntegrationCommandModel()))
                         .Any())
                 .OrderBy(handler => handler.Name)
                 .ToList();

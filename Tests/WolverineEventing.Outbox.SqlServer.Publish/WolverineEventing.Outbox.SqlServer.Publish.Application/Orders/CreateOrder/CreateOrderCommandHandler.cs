@@ -24,6 +24,7 @@ namespace WolverineEventing.Outbox.SqlServer.Publish.Application.Orders.CreateOr
         {
             _messageBus.Publish(new OrderCreatedEvent
             {
+                OrderId = request.OrderId
             });
         }
     }

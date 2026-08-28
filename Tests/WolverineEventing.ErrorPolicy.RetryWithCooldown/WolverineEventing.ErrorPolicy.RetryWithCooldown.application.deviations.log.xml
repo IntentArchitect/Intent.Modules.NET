@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#3ad7371d-8acf-4ddd-8a63-93b7a187c612</correlationId>
+      <path>WolverineEventing.ErrorPolicy.RetryWithCooldown.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-08-27T16:13:50.7264924Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-28T11:33:04.0555407Z</approvedAt>
+      <deviationsHash>D83E79C39545AAE479641BE734E6C1BEC91A73A6061328EEE57B9142BA4AFF12</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown/.gitattributes</path>

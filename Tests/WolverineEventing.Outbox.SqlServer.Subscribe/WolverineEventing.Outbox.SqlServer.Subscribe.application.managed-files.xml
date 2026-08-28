@@ -50,7 +50,7 @@
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/Common/Validation/IValidatorProvider.cs" />
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/Common/Validation/ValidatorProvider.cs" />
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/DependencyInjection.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs" />
+  <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs" deviationsHash="12D92DED87C21D27A097331861C21D386089A734EDD03238AE8726A119869E04" />
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/IntegrationEvents/OrderCreatedEvent.cs" />
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Application/WolverineEventing.Outbox.SqlServer.Subscribe.Application.csproj" />
   <file path="WolverineEventing.Outbox.SqlServer.Subscribe.Domain/Common/CollectionExtensions.cs" />

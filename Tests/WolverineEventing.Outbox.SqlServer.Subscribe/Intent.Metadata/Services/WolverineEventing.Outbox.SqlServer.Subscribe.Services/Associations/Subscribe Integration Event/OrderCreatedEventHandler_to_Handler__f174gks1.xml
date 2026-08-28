@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="e6102fee-e0d7-454a-8793-ba9b5657ea0f">
-  <sourceEnd id="5868318d-6ce4-4896-9e32-8bf6807a7fac" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+<association id="9156acbc-6762-4b16-adbd-8a7b900ef608">
+  <sourceEnd id="1bb83911-c75d-4387-bd24-fcb6f15f0be7" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
     <display>handled by: WolverineEventing.Outbox.SqlServer.Subscribe.Services.OrderCreatedEventHandler</display>
     <order>0</order>
-    <typeReference id="b067c563-8735-41b0-90b1-d8d075cc911b">
+    <typeReference id="265c993f-7ab6-405f-8c7d-8e696576ece3">
       <typeId>09f0033f-d5df-4d6f-9c1d-07baa721d599</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -18,21 +18,21 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="e6102fee-e0d7-454a-8793-ba9b5657ea0f" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+  <targetEnd id="9156acbc-6762-4b16-adbd-8a7b900ef608" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
     <name>Handler</name>
     <display>[handles] OrderCreatedEvent</display>
     <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
     </traits>
-    <typeReference id="b507089c-4342-4781-a214-ffa487ce84d3">
-      <typeId>820ec678-9731-408f-a49a-ba5b23992f1f</typeId>
+    <typeReference id="38d395d6-3d6e-4a8c-ae50-37b160a66704">
+      <typeId>d4374f15-f024-4940-97e7-1de3cc1ece77</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>WolverineEventing.Outbox.SqlServer.Subscribe.Eventing.Messages</typePackageName>
-      <typePackageId>91e14686-a4b9-45f1-9cfc-4c8626d282e2</typePackageId>
+      <typePackageName>WolverineEventing.Outbox.SqlServer.Publish.Eventing.Messages</typePackageName>
+      <typePackageId>284d6137-492c-4e7e-b413-769792a55cf5</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

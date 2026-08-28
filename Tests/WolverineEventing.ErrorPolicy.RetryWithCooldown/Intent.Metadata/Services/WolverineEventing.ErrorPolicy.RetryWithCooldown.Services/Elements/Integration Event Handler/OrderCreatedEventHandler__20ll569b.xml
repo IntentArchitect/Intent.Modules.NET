@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3ad7371d-8acf-4ddd-8a63-93b7a187c612" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>Throws deliberately so the Error Handling Policy (Retry with cooldown: increasing delays, then the error queue) can be exercised. Never make this succeed.</comment>
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>833f58f1-3bd6-47ff-ab77-b5b45642614d</parentFolderId>
+  <packageId>833f58f1-3bd6-47ff-ab77-b5b45642614d</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.RetryWithCooldown.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

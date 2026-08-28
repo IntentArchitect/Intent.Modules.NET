@@ -3,11 +3,11 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WolverineEventing.Outbox.SqlServer.Publish.Eventing.Messages;
 using WolverineEventing.Outbox.SqlServer.Subscribe.Application.Common.Behaviours;
 using WolverineEventing.Outbox.SqlServer.Subscribe.Application.Common.Eventing;
 using WolverineEventing.Outbox.SqlServer.Subscribe.Application.Common.Validation;
 using WolverineEventing.Outbox.SqlServer.Subscribe.Application.IntegrationEvents.EventHandlers;
-using WolverineEventing.Outbox.SqlServer.Subscribe.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1919e66e-9613-4fa4-b05d-073cbcb4de06">
+  <sourceEnd id="1b933b9f-990e-4b97-ac4c-ef99e2201e34" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: WolverineEventing.ErrorPolicy.None.Services.OrderCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="f5b1ce4d-4c87-4749-a5ec-0d84c8524f67">
+      <typeId>b89f46e9-936e-4474-89f1-38b9a7970627</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.ErrorPolicy.None.Services</typePackageName>
+      <typePackageId>6da37c20-a2dc-47fb-8622-3b9ce86acfde</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1919e66e-9613-4fa4-b05d-073cbcb4de06" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] OrderCreatedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="c41306ca-d0dd-4726-9eb6-2509e907ecbe">
+      <typeId>a2ae9bab-c9f0-4176-a272-cd2761c0e142</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.ErrorPolicy.None.Eventing.Messages</typePackageName>
+      <typePackageId>8e8e9a5c-e472-44a8-9d6a-7c88087a5321</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

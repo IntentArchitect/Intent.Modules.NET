@@ -42,7 +42,17 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantMiddleware
                     // SDK derives this template's own output filename from its first added class, so
                     // resolving a foreign type before any class exists throws a NullReferenceException
                     // on a consumer application that has never generated this file before.
-                    var headerStrategyTypeName = GetTypeName(WolverineTenantHeaderStrategyTemplate.TemplateId);
+                    // Forcing the target's existence check FIRST (ThrowIfNotFound = false, TrackDependency =
+                    // false) rather than calling GetTypeName directly - mirrors WolverineMessageBusTemplate's
+                    // own workaround for the identical hazard. GetTypeName alone can hit the target
+                    // template mid-construction (its own file metadata not yet populated), throwing
+                    // NullReferenceException from CSharpTemplateBase.NormalizeNamespace; routing through
+                    // GetTemplate first forces the target to fully construct before its type name is read.
+                    var headerStrategyTemplate = GetTemplate<object>(WolverineTenantHeaderStrategyTemplate.TemplateId,
+                        new TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false });
+                    var headerStrategyTypeName = headerStrategyTemplate != null
+                        ? GetTypeName(WolverineTenantHeaderStrategyTemplate.TemplateId)
+                        : null;
 
                     @class.AddMethod("IMultiTenantContext?", "Before", method =>
                     {
@@ -59,7 +69,7 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantMiddleware
                             """
                             if (!envelope.Headers.TryGetValue(headerName, out var tenantId) || string.IsNullOrEmpty(tenantId))
                             {
-                                return previous;
+                            return previous;
                             }
                             """,
                             s => s.SeparatedFromPrevious());
