@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c2da5748-bfe9-4bb3-8abc-2805a19fb50e">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Controllers/InvoiceController.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Controllers/TagController.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Entities.PrivateSetters.EF.CosmosDb.Api.csproj" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Filters/ExceptionFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Program.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Properties/launchSettings.json" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/Startup.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/StartupJobs/DbInitializationExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Api/appsettings.json" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Common/Pagination/PagedList.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Common/Pagination/PagedResult.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/CreateInvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/CreateInvoiceLineDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/CreateTagDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Entities.PrivateSetters.EF.CosmosDb.Application.csproj" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Implementation/InvoiceService.cs" deviationsHash="ED7FC54B1FAC83A87580D836B360B67A040E54015208F2DEDB0602B75D31CDFA" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Implementation/TagService.cs" deviationsHash="95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Interfaces/IInvoiceService.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/Interfaces/ITagService.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/InvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/InvoiceDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/LineDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/LineDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/TagDto.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Application/TagDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Common/CollectionExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Common/UpdateHelper.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Contracts/LineDataContract.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Entities.PrivateSetters.EF.CosmosDb.Domain.csproj" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Entities/Invoice.cs" deviationsHash="B0F05116FF7F884C1B33DBF6B886F71A8E2499BFDE0CB0FB12A23373D1833FDE" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Entities/Line.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Entities/Tag.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IEFRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IInvoiceRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IPagedList.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/ITagRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj" deviationsHash="CD39E9B1D1DA1142A25B4CB3C4BB9B857D6B4E2E0CBADD45B188C01A4B5746D0" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Migrations/README.md" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Persistence/Configurations/TagConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Repositories/InvoiceRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Repositories/TagRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.sln" />
+</managedFiles>

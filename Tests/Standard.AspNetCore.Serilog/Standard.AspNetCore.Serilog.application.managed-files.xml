@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6e5e03eb-f608-4392-9a67-c392120303a3">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path="Standard.AspNetCore.Serilog.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Controllers/TestingController.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Filters/ExceptionFilter.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Program.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Properties/launchSettings.json" />
+  <file path="Standard.AspNetCore.Serilog.Api/Services/CurrentUserService.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/Standard.AspNetCore.Serilog.Api.csproj" />
+  <file path="Standard.AspNetCore.Serilog.Api/Startup.cs" />
+  <file path="Standard.AspNetCore.Serilog.Api/appsettings.Development.json" />
+  <file path="Standard.AspNetCore.Serilog.Api/appsettings.Production.json" />
+  <file path="Standard.AspNetCore.Serilog.Api/appsettings.UAT.json" />
+  <file path="Standard.AspNetCore.Serilog.Api/appsettings.json" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Behaviours/LoggingBehaviour.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Behaviours/PerformanceBehaviour.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICommand.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Interfaces/IQuery.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Models/Result.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/DependencyInjection.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Standard.AspNetCore.Serilog.Application.csproj" />
+  <file path="Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLogging.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLoggingHandler.cs" deviationsHash="F28E4622F7CAA98DA8EF09A0FE24916DAAED2D7EBD2112EA15B16086A5DD83B6" />
+  <file path="Standard.AspNetCore.Serilog.Application/Testing/PerformSmallObjectLogging/PerformSmallObjectLogging.cs" />
+  <file path="Standard.AspNetCore.Serilog.Application/Testing/PerformSmallObjectLogging/PerformSmallObjectLoggingHandler.cs" deviationsHash="EF4D7A840168BF6159E1A62E7225B77608A83D702795D547583C25BE1022C7E7" />
+  <file path="Standard.AspNetCore.Serilog.Domain/Standard.AspNetCore.Serilog.Domain.csproj" />
+  <file path="Standard.AspNetCore.Serilog.Infrastructure/DependencyInjection.cs" />
+  <file path="Standard.AspNetCore.Serilog.Infrastructure/Standard.AspNetCore.Serilog.Infrastructure.csproj" />
+  <file path="Standard.AspNetCore.Serilog.sln" />
+</managedFiles>

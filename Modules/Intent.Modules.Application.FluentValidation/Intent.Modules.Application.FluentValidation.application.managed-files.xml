@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="20cc8969-8c41-4c7e-a7a8-f4f2a0bf7325">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/DTOFieldModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/FluentValidationDependencyInjectionExtension.cs" />
+  <file path="Intent.Application.FluentValidation.imodspec" />
+  <file path="Intent.Modules.Application.FluentValidation.csproj" deviationsHash="0E7D015D5E86E92409993817B3CB65F07DC2D00DD0EDFF6CE82246453FB94B3D" />
+  <file path="NugetPackages.cs" />
+  <file path="Settings/ModuleSettingsExtensions.cs" />
+  <file path="Templates/CustomValidationSkill/CustomValidationSkillTemplatePartial.cs" />
+  <file path="Templates/CustomValidationSkill/CustomValidationSkillTemplateRegistration.cs" />
+  <file path="modelers/Service Designer Extensions.designer.settings" />
+</managedFiles>

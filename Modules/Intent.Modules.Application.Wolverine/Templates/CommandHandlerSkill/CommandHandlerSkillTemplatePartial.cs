@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.Wolverine.Templates.CommandHandlerSkill
                 .FromMarkdown($"""
 ---
 name: {SkillName}
-description: Implement or fix business logic in a Wolverine command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in Wolverine command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: {TemplateId}
 ---
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="258a4504-901d-4cc2-94b0-7b23ae69050f">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="SwashbuckleSettings.None.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
+  <file path="SwashbuckleSettings.None.Api/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="SwashbuckleSettings.None.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="SwashbuckleSettings.None.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="SwashbuckleSettings.None.Api/Filters/ExceptionFilter.cs" />
+  <file path="SwashbuckleSettings.None.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="SwashbuckleSettings.None.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="SwashbuckleSettings.None.Api/Program.cs" />
+  <file path="SwashbuckleSettings.None.Api/Properties/launchSettings.json" />
+  <file path="SwashbuckleSettings.None.Api/Startup.cs" />
+  <file path="SwashbuckleSettings.None.Api/SwashbuckleSettings.None.Api.csproj" />
+  <file path="SwashbuckleSettings.None.Api/appsettings.json" />
+  <file path="SwashbuckleSettings.None.Application/DependencyInjection.cs" />
+  <file path="SwashbuckleSettings.None.Application/SwashbuckleSettings.None.Application.csproj" />
+  <file path="SwashbuckleSettings.None.Domain/SwashbuckleSettings.None.Domain.csproj" />
+  <file path="SwashbuckleSettings.None.Infrastructure/DependencyInjection.cs" />
+  <file path="SwashbuckleSettings.None.Infrastructure/SwashbuckleSettings.None.Infrastructure.csproj" />
+  <file path="SwashbuckleSettings.None.sln" />
+</managedFiles>

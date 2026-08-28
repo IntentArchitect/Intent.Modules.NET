@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandlerSkill
                 .FromMarkdown($"""
 ---
 name: {SkillName}
-description: Implement or fix business logic in a MediatR query handler's Handle method, following this codebase's established architectural conventions. Use when a C# query handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in MediatR query handler Handle methods. MUST load before creating or editing any query handler e.g. *QueryHandler.cs.
 template-id: {TemplateId}
 ---
 

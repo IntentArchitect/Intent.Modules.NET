@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c4e959b3-b652-4224-a8a0-aaf2a2a14942">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Filters/AuthorizeCheckOperationFilter.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Filters/ExceptionFilter.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Program.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Properties/launchSettings.json" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Services/CurrentUserService.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Startup.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/Subscribe.MassTransit.OutboxEF.Api.csproj" />
+  <file path="Subscribe.MassTransit.OutboxEF.Api/appsettings.json" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/AssemblyAttributes.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/LoggingBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/PerformanceBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/ValidationBehaviour.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Eventing/IEventBus.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Eventing/IIntegrationEventHandler.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/ICommand.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/IDomainEventService.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Interfaces/IQuery.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Models/DomainEventNotification.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Models/Result.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Pagination/PagedList.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Pagination/PagedResult.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Validation/IValidatorProvider.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Common/Validation/ValidatorProvider.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/DependencyInjection.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs" deviationsHash="673B5C06100A54A8A0BEE20FB12B0CB188934653FD16D4A4226F147E824383B0" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderDeletedEventHandler.cs" deviationsHash="120AF185926166CDEB589381A8FE06A9E90A168B92B3071B35C29F6C016A5FA1" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderUpdatedEventHandler.cs" deviationsHash="F7984B73D3AF41A3FD9BBE042CB8966586DC458FC29ACD2BBB51F119AC4B46D8" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserCreatedEventHandler.cs" deviationsHash="AEFB9A84A7A9B7C3B7B0AE2D3E6E3AC97697958241AF886DB59D152D88AB3A9E" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserDeletedEventHandler.cs" deviationsHash="C54FA09F6E206E78E9D1A820253DE9E4A1D1DE45DB612AE9BB5E36B0B7A66983" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserUpdatedEventHandler.cs" deviationsHash="286D52DC02DCA547756EB31E31711E83F139ACED0AF217767116F4883F9AF466" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Orders/OrderCreatedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Orders/OrderDeletedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Orders/OrderItemDto.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Orders/OrderUpdatedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/UserType.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/PreferenceDto.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserCreatedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserDeletedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserUpdatedEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Application/Subscribe.MassTransit.OutboxEF.Application.csproj" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/CollectionExtensions.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/DomainEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/IHasDomainEvent.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Common/UpdateHelper.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Repositories/IEFRepository.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Repositories/IPagedList.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Repositories/IRepository.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Domain/Subscribe.MassTransit.OutboxEF.Domain.csproj" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Configuration/MassTransitConfiguration.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/DependencyInjection.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Eventing/MassTransitMessageBus.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Migrations/README.md" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Services/DomainEventService.cs" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Subscribe.MassTransit.OutboxEF.Infrastructure.csproj" deviationsHash="9A8A0CE133AAB62A66516EAAE5986C90332D71481C56DB338ED5EB8033D46F39" />
+  <file path="Subscribe.MassTransit.OutboxEF.sln" />
+</managedFiles>

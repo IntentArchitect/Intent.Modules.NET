@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="71903893-a1ac-4813-b542-56a8a7b93fa8">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Controllers/AuditedController.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Controllers/InvoiceController.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Controllers/TagController.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Entities.PrivateSetters.EF.SqlServer.Api.csproj" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Filters/ExceptionFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Program.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Properties/launchSettings.json" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Services/CurrentUserService.cs" deviationsHash="E9EA97E5C541B1E018011322C85573E055717AD9B6C4AF0942E55E6B644948DA" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/Startup.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Api/appsettings.json" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Models/Result.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Pagination/PagedList.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/CreateInvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/CreateInvoiceLineDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/CreateTagDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Entities.PrivateSetters.EF.SqlServer.Application.csproj" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/AuditedService.cs" deviationsHash="8391467F538129A6434D67879F8AF7A0957E247915CED40B01FF7986589901D8" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/InvoiceService.cs" deviationsHash="2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/TagService.cs" deviationsHash="95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/IAuditedService.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/IInvoiceService.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/ITagService.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/InvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/InvoiceDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/LineDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/LineDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/TagDto.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/TagDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/CollectionExtensions.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/Interfaces/IAuditable.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/Interfaces/ISoftDelete.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Common/UpdateHelper.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Contracts/LineDataContract.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities.PrivateSetters.EF.SqlServer.Domain.csproj" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Audited.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Customer.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Invoice.cs" deviationsHash="04EDC5FF715F234C8CCEA391E01D3A98ECF35DDB2592D8E76AFDB9E72A27E9E5" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Line.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Person.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/SoftDeleteEntity.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Tag.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IAuditedRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/ICustomerRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IEFRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IInvoiceRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IPagedList.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IPersonRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/ISoftDeleteEntityRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/ITagRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj" deviationsHash="97B33C1FAE70A3308724CF41F4854A4F1A6E868B569DE8645047F55BFA134AB6" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Migrations/README.md" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/AuditedConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/PersonConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/SoftDeleteEntityConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/TagConfiguration.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/AuditedRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/CustomerRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/InvoiceRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/PersonRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/SoftDeleteEntityRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Repositories/TagRepository.cs" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.sln" />
+</managedFiles>

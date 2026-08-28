@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="85910570-7e99-4f58-8f6c-38f0342ec8bc">
+  <file path=".gitignore" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICurrentUser.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Security/AuthorizeAttribute.cs" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Intent.Modules.NET.Tests.Application.Core.csproj" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Intent.Modules.NET.Tests.Domain.Core.csproj" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Behaviours/AuthorizationBehaviour.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Behaviours/LoggingBehaviour.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Behaviours/MessageBusPublishBehaviour.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Behaviours/PerformanceBehaviour.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Common/Models/Result.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ApiVersionSwaggerGenOptions.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs" deviationsHash="7033EDAC466FDC9598BAE7AF0F2C180C51CF877B7D5D2EA0C6DF8AE60D0FAF6C" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/DependencyInjection.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Eventing/MassTransitConfiguration.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Filters/AuthorizeCheckOperationFilter.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Filters/ExceptionFilter.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Filters/TypeSchemaFilter.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" />
+  <file path="Intent.Modules.NET.Tests.Host/Program.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" />
+  <file path="Intent.Modules.NET.Tests.Host/Services/CurrentUserService.cs" />
+  <file path="Intent.Modules.NET.Tests.Host/appsettings.json" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Intent.Modules.NET.Tests.Infrastructure.Core.csproj" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Interfaces/IModuleInstaller.cs" />
+  <file path="Intent.Modules.NET.Tests.sln" />
+</managedFiles>

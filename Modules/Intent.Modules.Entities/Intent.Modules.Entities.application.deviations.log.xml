@@ -2,6 +2,18 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#caf76cc7-8bfb-4698-999d-a4748122ded9</correlationId>
+      <path>Intent.Modules.Entities.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-08-24T13:38:46.7579958Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-08-24T13:59:28.4987921Z</approvedAt>
+      <deviationsHash>DFB43227476701DF21C86764EC794D35A412EFF3BECD7A2A8063589C3596BBC2</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#49871fba-2c9a-4e92-b322-9da36cdb6cce</correlationId>
       <path>Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs</path>
       <count>1</count>

@@ -1,3 +1,7 @@
+### Version 4.7.4
+
+- Improvement: Reworded the `application-service-implementation` AI skill description to an imperative "MUST load before..." trigger naming the file the agent is about to edit, so coding agents reliably load it instead of skipping it.
+
 ### Version 4.7.3
 
 - Improvement: Scoped the `ServiceImplementationSkillTemplate` AI skill file to the new `AI.Context.Skills.Handler` role so EF Core, EF Repositories, and AutoMapper handler-specific guidance (SaveChanges rules, repository Update rules, mapper verification gates) is generated onto it, matching the same guidance already generated for other CQRS transports (e.g. Wolverine).

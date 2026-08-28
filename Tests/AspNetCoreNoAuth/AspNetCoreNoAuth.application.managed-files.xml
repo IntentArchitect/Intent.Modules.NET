@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2cb9a48b-f484-4d52-918e-54a8be38b3d1">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".gitignore" />
+  <file path="AspNetCoreNoAuth.Api/AspNetCoreNoAuth.Api.csproj" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="AspNetCoreNoAuth.Api/Filters/ExceptionFilter.cs" />
+  <file path="AspNetCoreNoAuth.Api/Program.cs" />
+  <file path="AspNetCoreNoAuth.Api/Properties/launchSettings.json" />
+  <file path="AspNetCoreNoAuth.Api/Services/CurrentUserService.cs" />
+  <file path="AspNetCoreNoAuth.Api/appsettings.json" />
+  <file path="AspNetCoreNoAuth.Application/AspNetCoreNoAuth.Application.csproj" />
+  <file path="AspNetCoreNoAuth.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="AspNetCoreNoAuth.Application/Common/Models/Result.cs" />
+  <file path="AspNetCoreNoAuth.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="AspNetCoreNoAuth.Application/DependencyInjection.cs" />
+  <file path="AspNetCoreNoAuth.Domain/AspNetCoreNoAuth.Domain.csproj" />
+  <file path="AspNetCoreNoAuth.Infrastructure/AspNetCoreNoAuth.Infrastructure.csproj" />
+  <file path="AspNetCoreNoAuth.Infrastructure/DependencyInjection.cs" />
+  <file path="AspNetCoreNoAuth.sln" />
+</managedFiles>

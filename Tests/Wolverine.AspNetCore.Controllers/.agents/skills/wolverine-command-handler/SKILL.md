@@ -1,8 +1,8 @@
 ---
 name: wolverine-command-handler
-description: Implement or fix business logic in a Wolverine command handler's Handle method, following this codebase's established architectural conventions. Use when a C# command handler's Handle method is missing, incomplete, or needs correction.
+description: Implements business logic in Wolverine command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: Intent.Application.Wolverine.CommandHandlerSkillTemplate
-contentHash: 78EF1E2F30B13855F484FCA3251591406CDB7B283B1BE7C63A9AD85116F0DB89
+contentHash: 21DD6F1115A8322139E4BABC9157CE798BCBE6D54236093A6CACE23E1D093C44
 ---
 # Wolverine Command Handler
 

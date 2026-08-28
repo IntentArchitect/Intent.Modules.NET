@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="3eb83206-a40a-4eff-b7b6-facd5e6f88c4">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path=".gitignore" />
+  <file path="HttpClientLibrary.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="HttpClientLibrary.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="HttpClientLibrary.Api/HttpClientLibrary.Api.csproj" />
+  <file path="HttpClientLibrary.Api/Program.cs" />
+  <file path="HttpClientLibrary.Api/Properties/launchSettings.json" />
+  <file path="HttpClientLibrary.Api/Services/CurrentUserService.cs" />
+  <file path="HttpClientLibrary.Api/appsettings.json" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/LoggingBehaviour.cs" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/PerformanceBehaviour.cs" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
+  <file path="HttpClientLibrary.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICommand.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/IQuery.cs" />
+  <file path="HttpClientLibrary.Application/Common/Models/Result.cs" />
+  <file path="HttpClientLibrary.Application/Common/Pagination/PagedResult.cs" />
+  <file path="HttpClientLibrary.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="HttpClientLibrary.Application/DependencyInjection.cs" />
+  <file path="HttpClientLibrary.Application/HttpClientLibrary.Application.csproj" />
+  <file path="HttpClientLibrary.Domain/HttpClientLibrary.Domain.csproj" />
+  <file path="HttpClientLibrary.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
+  <file path="HttpClientLibrary.Infrastructure/DependencyInjection.cs" />
+  <file path="HttpClientLibrary.Infrastructure/HttpClientLibrary.Infrastructure.csproj" />
+  <file path="HttpClientLibrary.Shared/Configuration/HttpClientConfiguration.cs" />
+  <file path="HttpClientLibrary.Shared/Contracts/CleanArchitecture/SingleFiles/Services/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" />
+  <file path="HttpClientLibrary.Shared/Contracts/Test Clients/IAdvancedMappingCosmosInvoicesService.cs" />
+  <file path="HttpClientLibrary.Shared/Exceptions/HttpClientRequestException.cs" />
+  <file path="HttpClientLibrary.Shared/Exceptions/ProblemDetailsWithErrors.cs" />
+  <file path="HttpClientLibrary.Shared/HttpClientLibrary.Shared.csproj" />
+  <file path="HttpClientLibrary.Shared/HttpClients/JsonResponse.cs" />
+  <file path="HttpClientLibrary.Shared/HttpClients/Test Clients/AdvancedMappingCosmosInvoicesServiceHttpClient.cs" />
+  <file path="HttpClientLibrary.sln" />
+</managedFiles>

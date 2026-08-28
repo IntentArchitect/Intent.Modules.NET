@@ -1,3 +1,7 @@
+### Version 3.12.3
+
+- Improvement: Reworded the `fluent-validation-custom-validation` AI skill description to an imperative "MUST load before..." trigger naming the validator file the agent is about to edit, so coding agents reliably load it instead of skipping it.
+
 ### Version 3.12.2
 
 - Improvement: Added a helpful hint to the `Email Address` validation option to clarify that it checks email format only and does not verify that the email exists.

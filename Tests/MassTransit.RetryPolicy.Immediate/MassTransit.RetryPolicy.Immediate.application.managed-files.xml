@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b86ee49d-5c65-47b8-ad9b-b99710c799ab">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/MassTransit.RetryPolicy.Immediate.Api.csproj" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/Program.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/Properties/launchSettings.json" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/Startup.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Api/appsettings.json" />
+  <file path="MassTransit.RetryPolicy.Immediate.Application/Common/Eventing/IEventBus.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Application/Common/Eventing/IIntegrationEventHandler.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Application/MassTransit.RetryPolicy.Immediate.Application.csproj" />
+  <file path="MassTransit.RetryPolicy.Immediate.Domain/MassTransit.RetryPolicy.Immediate.Domain.csproj" />
+  <file path="MassTransit.RetryPolicy.Immediate.Infrastructure/Configuration/MassTransitConfiguration.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Infrastructure/DependencyInjection.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Infrastructure/Eventing/MassTransitMessageBus.cs" />
+  <file path="MassTransit.RetryPolicy.Immediate.Infrastructure/MassTransit.RetryPolicy.Immediate.Infrastructure.csproj" />
+  <file path="MassTransit.RetryPolicy.Immediate.sln" />
+</managedFiles>

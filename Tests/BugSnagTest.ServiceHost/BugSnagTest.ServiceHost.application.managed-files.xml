@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="481b3f15-06af-424a-bd6c-40f99ce14793">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path="BugSnagTest.ServiceHost.sln" />
+  <file path="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.csproj" />
+  <file path="BugSnagTest.ServiceHost/Common/Interfaces/ICommand.cs" />
+  <file path="BugSnagTest.ServiceHost/Common/Interfaces/IQuery.cs" />
+  <file path="BugSnagTest.ServiceHost/Configuration/BugsnagConfiguration.cs" />
+  <file path="BugSnagTest.ServiceHost/Configuration/QuartzConfiguration.cs" />
+  <file path="BugSnagTest.ServiceHost/DependencyInjection.cs" />
+  <file path="BugSnagTest.ServiceHost/Deployment.md" />
+  <file path="BugSnagTest.ServiceHost/Jobs/BugSnagQuartzJobListener.cs" />
+  <file path="BugSnagTest.ServiceHost/Jobs/ScheduledJob.cs" />
+  <file path="BugSnagTest.ServiceHost/Program.cs" />
+  <file path="BugSnagTest.ServiceHost/Properties/launchSettings.json" />
+  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommand.cs" />
+  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommandHandler.cs" />
+  <file path="BugSnagTest.ServiceHost/WindowsBackgroundService.cs" />
+  <file path="BugSnagTest.ServiceHost/appsettings.json" />
+</managedFiles>

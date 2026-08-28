@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="08faffbb-9f31-42d2-bbc4-cdf37b00cc77">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".gitignore" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Configuration/OpenApiConfiguration.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Filters/ExceptionFilter.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Program.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Properties/launchSettings.json" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Scalar.NET10.OAuth2Implicit.Api.csproj" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/appsettings.json" />
+  <file path="Scalar.NET10.OAuth2Implicit.Application/DependencyInjection.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Application/Scalar.NET10.OAuth2Implicit.Application.csproj" />
+  <file path="Scalar.NET10.OAuth2Implicit.Domain/Scalar.NET10.OAuth2Implicit.Domain.csproj" />
+  <file path="Scalar.NET10.OAuth2Implicit.Infrastructure/DependencyInjection.cs" />
+  <file path="Scalar.NET10.OAuth2Implicit.Infrastructure/Scalar.NET10.OAuth2Implicit.Infrastructure.csproj" />
+  <file path="Scalar.NET10.OAuth2Implicit.sln" />
+</managedFiles>

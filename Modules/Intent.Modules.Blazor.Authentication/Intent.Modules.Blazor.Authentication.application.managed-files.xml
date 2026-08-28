@@ -71,5 +71,6 @@
   <file path="content/ComponentsMudBlazor/Account/Shared/readme.txt" />
   <file path="content/Theme/readme.txt" />
   <file path="content/ThemeMudBlazor/readme.txt" />
+  <file path="modelers/Blazor Authentication UI Extensions.designer.settings" />
   <file path="resources/documentation.json" />
 </managedFiles>

@@ -1,6 +1,7 @@
 ### Version 4.8.5
 
 - Improvement: Repository operations that invoke a Stored Procedure whose return type doesn't match the operation's declared return type now raise a clear error naming the operation and stored procedure when no Stored Procedure Result mapping exists to bridge them.
+- Improvement: Reworded the `ef-repository` AI skill description to an imperative "MUST load before..." trigger naming the repository file the agent is about to edit, so coding agents reliably load it instead of skipping it.
 
 ### Version 4.8.4
 

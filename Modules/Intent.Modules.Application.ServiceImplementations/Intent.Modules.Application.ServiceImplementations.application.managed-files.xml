@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b43e280b-5711-433f-87d1-ba8bba65465c">
+  <file path="../.agents/instructions/csharp-guidelines.md" />
+  <file path="../Intent.Modules.NET.sln" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" />
+  <file path="FactoryExtensions/AITaskFactoryExtension.cs" />
+  <file path="Intent.Application.ServiceImplementations.imodspec" />
+  <file path="Intent.Modules.Application.ServiceImplementations.csproj" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationDecorator.cs" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs" deviationsHash="B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationTemplateRegistration.cs" />
+  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplatePartial.cs" />
+  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplateRegistration.cs" />
+  <file path="Templates/TemplateExtensions.cs" />
+</managedFiles>

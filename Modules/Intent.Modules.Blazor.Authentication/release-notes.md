@@ -3,6 +3,7 @@
 - Improvement: Added Authentication selection type to the package, and model out the relevant pages bsed on selection
 - Improvement: A number of styling updates to bootstrap pages to align more with Mudblazor styling.
 - Improvement: Default stylesheets not overwritten by the software factory.
+- Improvement: Added context menu to set the authentication type
 
 ### Version 2.0.1
 

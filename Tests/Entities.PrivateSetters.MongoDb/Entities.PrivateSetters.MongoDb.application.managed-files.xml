@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="fd35607d-60bc-40aa-a91c-c7fad672ee3b">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Controllers/InvoiceController.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Controllers/TagController.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Entities.PrivateSetters.MongoDb.Api.csproj" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Filters/ExceptionFilter.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Program.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Properties/launchSettings.json" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Startup.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/appsettings.json" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Common/Mappings/IMapFrom.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Common/Mappings/MappingProfile.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/CreateInvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/CreateInvoiceLineDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/CreateTagDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Entities.PrivateSetters.MongoDb.Application.csproj" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs" deviationsHash="2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs" deviationsHash="95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Interfaces/IInvoiceService.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Interfaces/ITagService.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/InvoiceDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/InvoiceDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/LineDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/LineDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/TagDto.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/TagDtoMappingExtensions.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Common/CollectionExtensions.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Common/UpdateHelper.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Contracts/LineDataContract.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Entities.PrivateSetters.MongoDb.Domain.csproj" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Entities/Invoice.cs" deviationsHash="A9A9523C97609238701ED2335813DB60488D9188BF7F67944CE7C38911C44040" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Entities/Line.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Entities/Tag.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Repositories/IInvoiceRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Repositories/IMongoRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Repositories/IPagedList.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Repositories/IRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Domain/Repositories/ITagRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Configuration/MongoConfigurationExtensions.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/DependencyInjection.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Entities.PrivateSetters.MongoDb.Infrastructure.csproj" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Persistence/Mappings/InvoiceMapping.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Persistence/Mappings/TagMapping.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Persistence/MongoDbUnitOfWork.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Repositories/InvoiceMongoRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Repositories/MongoPagedList.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Repositories/MongoRepositoryBase.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.Infrastructure/Repositories/TagMongoRepository.cs" />
+  <file path="Entities.PrivateSetters.MongoDb.sln" />
+</managedFiles>

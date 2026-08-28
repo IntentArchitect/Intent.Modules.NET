@@ -28,7 +28,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntitySkill
                 .FromMarkdown($"""
 ---
 name: domain-entity
-description: guide coding agents to implement missing c# domain behaviour on a single domain entity or aggregate that lives in a dependency-free clean architecture domain project and may be persisted by a technology like ef core. use when a user shares a c# domain class with missing methods, not implemented exceptions, incomplete constructors, weak invariants, or unclear placement of business logic, and they want help finishing the domain behaviour while keeping persistence concerns secondary.
+description: Implements domain behaviour, invariants, and constructors on entities and aggregates. MUST load before creating or editing any entity, aggregate, or value object.
 template-id: {TemplateId}
 ---
 

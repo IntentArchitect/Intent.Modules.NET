@@ -6,7 +6,7 @@
   <file path="Api/OperationModelStereotypeExtensions.cs" />
   <file path="FactoryExtensions/AITaskFactoryExtension.cs" />
   <file path="Intent.Entities.imodspec" />
-  <file path="Intent.Modules.Entities.csproj" />
+  <file path="Intent.Modules.Entities.csproj" deviationsHash="DFB43227476701DF21C86764EC794D35A412EFF3BECD7A2A8063589C3596BBC2" />
   <file path="Settings/ModuleSettingsExtensions.cs" />
   <file path="Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs" deviationsHash="5864FEEDB17856DBE98117E20EC14B59C855326E85F9744E294C69452714287A" />
   <file path="Templates/CollectionExtensions/CollectionExtensionsTemplateRegistration.cs" />

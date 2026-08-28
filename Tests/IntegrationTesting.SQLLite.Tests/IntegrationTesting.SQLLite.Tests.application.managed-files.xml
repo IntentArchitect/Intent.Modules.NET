@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="baf6bef2-6185-4c0d-945c-8a4da5859aaa">
+  <file path=".agents/instructions/csharp-guidelines.md" />
+  <file path=".agents/instructions/unit-test-guidelines.md" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" />
+  <file path=".agents/skills/domain-entity/SKILL.md" />
+  <file path=".agents/skills/ef-repository/SKILL.md" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
+  <file path=".agents/skills/integration-test/SKILL.md" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
+  <file path=".gitignore" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/ApiVersioningConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/HealthChecksConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/SwashbuckleConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Controllers/CustomersController.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/ExceptionFilter.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/TypeSchemaFilter.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/IntegrationTesting.SQLLite.Tests.Api.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Program.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Properties/launchSettings.json" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Services/CurrentUserService.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/appsettings.json" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/BaseIntegrationTest.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/CreateCustomerTests.cs" deviationsHash="CF87F2F738206C3C49292B6F7E657CA1772071FBB9FDB9F363E61B2E49DE3FA5" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/DeleteCustomerTests.cs" deviationsHash="4015AFBA6D357C935AE91153207045C1510B197815948E03E56ECCFBC0B242EB" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomerByIdTests.cs" deviationsHash="2C722BB863B8B1B244FB316B0806B59EB6AA5BB351ECDFB6E27181450FEE27B9" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomersTests.cs" deviationsHash="5788787062A81FA2242901BCF8E4C87832DB09FA3B26C5FA5FD23E53E6B6C762" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/UpdateCustomerTests.cs" deviationsHash="8162989B862B77389385886C99ECBC179C79DEE326D506036F58120E2257527B" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/EFContainerFixture.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/GlobalUsings.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/IntegrationTestWebAppFactory.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/IntegrationTesting.SQLLite.Tests.Application.IntegrationTests.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/SharedContainerFixture.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.UnitTests/IntegrationTesting.SQLLite.Tests.Application.UnitTests.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Interfaces/ICommand.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Interfaces/ICurrentUser.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Interfaces/ICurrentUserService.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Interfaces/IQuery.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Models/Result.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Pagination/PagedList.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Pagination/PagedResult.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Security/AuthorizeAttribute.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Validation/IValidationService.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Validation/IValidatorProvider.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Validation/ValidationService.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Common/Validation/ValidatorProvider.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" deviationsHash="0B37353CE0EB9D7A926B8E02743F3377AC25FE98FFB927E61A6386160714AE99" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/CustomerDto.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" deviationsHash="9AF86BBECA9B6BE4F2CC57EE1A4919E7012E0ACBCC2ABA0DF002013274215737" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" deviationsHash="3004911F9D42642822B08E9F66B0BC74FBEC8BEB3D9B168B90A7FAAA50560CFE" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQuery.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" deviationsHash="2FCA2A8C696DBE677FE845863B8503B0894F71361D1C37EDD955E87684D03257" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" deviationsHash="900144CA1E90199974E9B448BE54681047BD08308B54C6644C22E0A90C840BAF" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/DependencyInjection.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/IntegrationTesting.SQLLite.Tests.Application.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Common/CollectionExtensions.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Common/Exceptions/NotFoundException.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Common/UpdateHelper.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Entities/Customer.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/IntegrationTesting.SQLLite.Tests.Domain.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Repositories/ICustomerRepository.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Repositories/IEFRepository.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Repositories/IPagedList.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/Repositories/IRepository.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Domain/ValueObject.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/DependencyInjection.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/IntegrationTesting.SQLLite.Tests.Infrastructure.csproj" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/Migrations/README.md" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/Repositories/CustomerRepository.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.Infrastructure/Repositories/RepositoryBase.cs" />
+  <file path="IntegrationTesting.SQLLite.Tests.sln" />
+</managedFiles>

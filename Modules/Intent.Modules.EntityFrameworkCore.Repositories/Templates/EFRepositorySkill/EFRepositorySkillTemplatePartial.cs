@@ -30,7 +30,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                 .FromMarkdown($"""
 ---
 name: {SkillName}
-description: Guidance for extending Entity Framework Repositories. Use when a wanting to modify or extend existing Entity Framework repository functionality (Interfaces or Concretes).
+description: Extends EF repository contracts and implementations with new query or persistence methods. MUST load before creating or editing any I*Repository.cs or its Infrastructure implementation.
 template-id: {TemplateId}
 ---
 

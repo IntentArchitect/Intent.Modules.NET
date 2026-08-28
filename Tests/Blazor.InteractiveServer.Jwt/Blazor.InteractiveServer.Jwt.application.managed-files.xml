@@ -57,7 +57,6 @@
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/StatusMessage.razor" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/StatusMessage.razor.cs" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/UserInfo.cs" />
-  <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/_Imports.razor" />
   <file path="Blazor.InteractiveServer.Jwt/Components/App.razor" deviationsHash="E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Layout/AppBrand.razor" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Layout/AppBrand.razor.css" />
