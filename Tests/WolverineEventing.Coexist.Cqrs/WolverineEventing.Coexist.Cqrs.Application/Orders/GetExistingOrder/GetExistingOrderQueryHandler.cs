@@ -16,8 +16,8 @@ namespace WolverineEventing.Coexist.Cqrs.Application.Orders.GetExistingOrder
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<OrderDto> Handle(GetExistingOrderQuery request, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (GetExistingOrderQueryHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            await Task.CompletedTask;
+            return new OrderDto { Field = request.OrderId.ToString() };
         }
     }
 }

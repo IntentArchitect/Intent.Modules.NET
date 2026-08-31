@@ -46,6 +46,7 @@
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />

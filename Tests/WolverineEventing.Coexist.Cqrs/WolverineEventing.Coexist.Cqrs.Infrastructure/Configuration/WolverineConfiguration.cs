@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Wolverine;
 using Wolverine.ErrorHandling;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Interfaces;
+using WolverineEventing.Coexist.Cqrs.Application.IntegrationEvents.EventHandlers;
 using WolverineEventing.Coexist.Cqrs.Application.Orders.CreateOrder;
 using WolverineEventing.Coexist.Cqrs.Application.Orders.GetExistingOrder;
 using WolverineEventing.Coexist.Cqrs.Eventing.Messages;
@@ -34,12 +35,19 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Configuration
         {
             ConfigurePublishing(opts);
 
+            ConfigureListeners(opts);
+
             ApplyErrorHandlingPolicy(opts, configuration);
         }
 
         private static void ConfigurePublishing(WolverineOptions opts)
         {
             opts.PublishMessage<OrderCreatedEvent>().ToLocalQueue("order-created-event");
+        }
+
+        private static void ConfigureListeners(WolverineOptions opts)
+        {
+            opts.Discovery.IncludeType<OrderCreatedEventHandler>();
         }
 
         private static void ApplyErrorHandlingPolicy(WolverineOptions opts, IConfiguration configuration)
