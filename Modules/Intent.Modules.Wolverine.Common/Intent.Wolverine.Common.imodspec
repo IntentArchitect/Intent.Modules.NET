@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Wolverine.Common</id>
-  <version>1.0.0-pre.3</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
   <summary>Provides the shared Wolverine host registration used by other Wolverine-based modules for .NET applications.</summary>
   <description>Provides the shared Wolverine host registration used by other Wolverine-based modules for .NET applications.</description>
