@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3b79a947-4f34-45e3-b0ac-8ba8966b1921">
+  <sourceEnd id="dec8dfd4-6f9d-4d63-9999-56f74427d333" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="46755fe1-4f25-4caf-8e4d-fb1049d1fed0">
+      <typeId>b0d86b06-f776-4aa9-9c03-e045813af396</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Coexist.Cqrs.Services</typePackageName>
+      <typePackageId>ea770250-812c-451b-829b-72cc4f72c969</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3b79a947-4f34-45e3-b0ac-8ba8966b1921" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetExistingOrderQuery(...): OrderDto</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a29c3e68-daa9-45a3-ba05-1b864535ef15">
+      <typeId>70af4817-c2d0-45ae-a9d0-00a4f9a215c6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Coexist.Cqrs.Services</typePackageName>
+      <typePackageId>ea770250-812c-451b-829b-72cc4f72c969</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="5c019738-3b1b-4dc2-97f7-823afc13e5a6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b0d86b06-f776-4aa9-9c03-e045813af396" location="[WolverineEventing.Coexist.Cqrs].[Services].[CreateOrderCommand]" />
+        <target applicationId="5c019738-3b1b-4dc2-97f7-823afc13e5a6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="70af4817-c2d0-45ae-a9d0-00a4f9a215c6" location="[WolverineEventing.Coexist.Cqrs].[Services].[GetExistingOrderQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrderCommand}</expression>
+            <path>
+              <target id="70af4817-c2d0-45ae-a9d0-00a4f9a215c6" name="GetExistingOrderQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="b0d86b06-f776-4aa9-9c03-e045813af396" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="70af4817-c2d0-45ae-a9d0-00a4f9a215c6" name="GetExistingOrderQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="9dadd7ec-6855-4e0c-890a-28c16193b341" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="b0d86b06-f776-4aa9-9c03-e045813af396" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d3e3b421-8759-4484-a82c-a5f4f812da46" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

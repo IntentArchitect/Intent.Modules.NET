@@ -2,6 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Wolverine;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Interfaces;
 using WolverineEventing.Coexist.Cqrs.Application.Orders.CreateOrder;
+using WolverineEventing.Coexist.Cqrs.Application.Orders.GetExistingOrder;
 using WolverineEventing.Coexist.Cqrs.Infrastructure.Dispatch.Middleware;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -15,6 +16,7 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Configuration
         {
             opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly);
             opts.Discovery.IncludeType<CreateOrderCommandHandler>();
+            opts.Discovery.IncludeType<GetExistingOrderQueryHandler>();
             ApplicationHandlerPolicy.Apply(opts);
         }
     }

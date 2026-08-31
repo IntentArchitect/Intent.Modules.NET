@@ -41,13 +41,19 @@
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/GetExistingOrder/GetExistingOrderQuery.cs" templateId="Intent.Application.Wolverine.QueryModels" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/GetExistingOrder/GetExistingOrderQueryHandler.cs" templateId="Intent.Application.Wolverine.QueryHandler" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/GetExistingOrder/GetExistingOrderQueryValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.QueryValidator" />
+  <file path="WolverineEventing.Coexist.Cqrs.Application/Orders/OrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="WolverineEventing.Coexist.Cqrs.Application/WolverineEventing.Coexist.Cqrs.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="WolverineEventing.Coexist.Cqrs.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="WolverineEventing.Coexist.Cqrs.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
