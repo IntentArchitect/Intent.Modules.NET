@@ -1,7 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Wolverine.Templates.CommandHandler;
+using Intent.Modules.Application.Wolverine.Templates.QueryHandler;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -16,12 +23,10 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
     {
         public override string Id => "Intent.Application.Wolverine.WolverineRegistrationFactoryExtension";
 
-        // Deliberate, not incidental: this must run after Intent.Wolverine.Common's
-        // WolverineHostRegistrationExtension (Order 0), which establishes the shared
-        // UseWolverine(opts => ...) lambda, and before Intent.Eventing.Wolverine (Order 20), whose
-        // transport configuration is layered on top of this module's core configuration. Statements
-        // land inside the lambda in ascending Order, so changing this value reorders the generated
-        // Program.cs.
+        // Deliberate, not incidental: this decides the order ConfigureCqrs's call statement lands
+        // inside Intent.Wolverine.Common's shared Configure method body - before
+        // Intent.Eventing.Wolverine's ConfigureEventing (Order 20). This module no longer touches
+        // Program.cs at all; see ContributeCqrsConfiguration below.
         [IntentManaged(Mode.Ignore)]
         public override int Order => 10;
 
@@ -35,45 +40,91 @@ namespace Intent.Modules.Application.Wolverine.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Wolverine host registration is ASP.NET-host-only ("App.Program"). Azure Functions is
-            // deliberately out of scope - it never worked correctly under any TypeLoadMode (see this
-            // module's CONTEXT.md), so do not restore a host loop for it. A host-scoped template can
-            // have more than one instance in a multi-host application (e.g. App.Api + Mobile.Api),
-            // so this must use the plural lookup and loop rather than FindTemplateInstance, which
-            // throws once a second host exists.
-            foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("App.Program"))
-            {
-                RegisterWolverineOnHost(programTemplate);
-            }
+            ContributeCqrsConfiguration(application);
         }
 
-        private static void RegisterWolverineOnHost(IProgramTemplate programTemplate)
+        /// <summary>
+        /// Finds Intent.Wolverine.Common's WolverineConfiguration template and contributes this
+        /// module's CQRS configuration to it: a private <c>ConfigureCqrs</c> method carrying the
+        /// logic, plus one call statement into the shared <c>Configure</c> method body. Same
+        /// find-template + OnBuild + AddMethod/AddStatement idiom Intent.Eventing.MassTransit's
+        /// FinbuckleConfiguratorExtension already uses on MassTransitConfigurationTemplate.
+        /// <para>
+        /// This module takes no ProjectReference on Intent.Wolverine.Common (see that module's
+        /// CONTEXT.md for why), so its TemplateId is a string literal here, not a compiled constant.
+        /// </para>
+        /// </summary>
+        private static void ContributeCqrsConfiguration(IApplication application)
         {
-            if (programTemplate == null)
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Wolverine.Common.WolverineConfiguration");
+            if (template == null)
             {
                 return;
             }
 
-            programTemplate.CSharpFile.OnBuild(file =>
+            template.CSharpFile.OnBuild(file =>
             {
-                // Appends to the shared lambda that Intent.Wolverine.Common already established at
-                // Order -10. ConfigureHostBuilderChainStatement is find-or-create, so this resolves
-                // that same lambda rather than emitting a competing registration.
-                //
-                // Intent.Wolverine.Common owns the WolverineFx package reference and the
-                // "using Wolverine" on this file - do not re-declare either here.
-                //
-                // NEVER call lambdaBlock.Statements.Clear(). Doing so discards whatever another
-                // contributor has already added, and was the original defect that made this whole
-                // area order-dependent.
-                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
-                    (lambdaBlock, parameters) =>
+                var @class = file.Classes.First();
+                var configureMethod = @class.FindMethod("Configure");
+
+                var commandType = template.GetTypeName("Intent.Application.Wolverine.CommandInterface");
+                var handlerPolicyType = template.GetTypeName("Intent.Application.Wolverine.ApplicationHandlerPolicy");
+
+                @class.AddMethod("void", "ConfigureCqrs", method =>
+                {
+                    method.Private().Static();
+                    method.AddParameter("WolverineOptions", "opts");
+
+                    // Load-bearing, and NOT redundant with the per-type registrations below.
+                    // Wolverine's conventional discovery only scans the ENTRY assembly, so this line
+                    // is the only thing that brings the Application layer assembly into discovery
+                    // scope at all. Sibling modules that generate convention-named handlers into that
+                    // same assembly and register nothing of their own - notably
+                    // Intent.Application.Wolverine.DomainEvents - depend on it. See CONTEXT.md.
+                    method.AddStatement($"opts.Discovery.IncludeAssembly(typeof({commandType}).Assembly);");
+
+                    // R18.3: this module's OWN CQRS handlers, registered explicitly and by type so
+                    // each registration is attributable to the module that owns the handler rather
+                    // than riding in on another module's blanket scan.
+                    foreach (var handlerTypeName in GetOwnedHandlerTypeNames(template))
                     {
-                        var opts = parameters[0];
-                        var wolverineConfigType = programTemplate.GetTypeName("Intent.Application.Wolverine.WolverineConfiguration");
-                        lambdaBlock.AddStatement($"{wolverineConfigType}.Configure({opts});");
-                    });
+                        method.AddStatement($"opts.Discovery.IncludeType<{handlerTypeName}>();");
+                    }
+
+                    method.AddStatement($"{handlerPolicyType}.Apply(opts);");
+                });
+
+                configureMethod.AddStatement("ConfigureCqrs(opts);");
             });
+        }
+
+        /// <summary>
+        /// The CQRS handler types this module generates: one per Command and one per Query in the
+        /// Services designer. Deduplicated and ordered, so the emitted statement set is a pure
+        /// function of the model and therefore identical across Software Factory runs.
+        /// </summary>
+        private static IEnumerable<string> GetOwnedHandlerTypeNames(ICSharpFileBuilderTemplate template)
+        {
+            var services = template.ExecutionContext.MetadataManager.Services(template.ExecutionContext.GetApplicationConfig().Id);
+            var handlerTypeNames = new SortedSet<string>(StringComparer.Ordinal);
+
+            foreach (var command in services.GetCommandModels())
+            {
+                if (template.TryGetTypeName(CommandHandlerTemplate.TemplateId, command, out var handlerTypeName))
+                {
+                    handlerTypeNames.Add(handlerTypeName);
+                }
+            }
+
+            foreach (var query in services.GetQueryModels())
+            {
+                if (template.TryGetTypeName(QueryHandlerTemplate.TemplateId, query, out var handlerTypeName))
+                {
+                    handlerTypeNames.Add(handlerTypeName);
+                }
+            }
+
+            return handlerTypeNames;
         }
 
         /// <summary>

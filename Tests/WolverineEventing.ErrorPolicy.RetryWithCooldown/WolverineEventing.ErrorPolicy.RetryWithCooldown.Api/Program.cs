@@ -7,7 +7,7 @@ using WolverineEventing.ErrorPolicy.RetryWithCooldown.Api.Filters;
 using WolverineEventing.ErrorPolicy.RetryWithCooldown.Api.Logging;
 using WolverineEventing.ErrorPolicy.RetryWithCooldown.Application;
 using WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure;
-using WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Eventing;
+using WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace WolverineEventing.ErrorPolicy.RetryWithCooldown.Api
                 // Add services to the container.
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

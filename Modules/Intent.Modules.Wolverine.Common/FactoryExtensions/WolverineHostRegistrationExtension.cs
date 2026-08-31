@@ -2,7 +2,9 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Wolverine.Common.Templates.WolverineConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -16,10 +18,10 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
     {
         public override string Id => "Intent.Wolverine.Common.WolverineHostRegistrationExtension";
 
-        // Runs ahead of every Wolverine-based contributor (Intent.Application.Wolverine at 10,
-        // Intent.Eventing.Wolverine at 20) so that this module, not whichever contributor happened
-        // to execute first, is what establishes the shared UseWolverine(opts => ...) lambda. See
-        // SeedWolverineHostRegistration for why that ordering is the whole mechanism.
+        // This module is the only one that ever reaches into Program.cs for Wolverine - contributing
+        // modules (Intent.Application.Wolverine, Intent.Eventing.Wolverine) target this module's own
+        // WolverineConfiguration template instead, at Order 10/20 there. This Order value only decides
+        // where the WolverineConfiguration.Configure(...) statement LANDS in Program.cs itself.
         //
         // Deliberately left at 0 rather than moved negative. Where the generated
         // builder.Host.UseWolverine(...) statement LANDS in Program.cs depends on when the DSL's
@@ -53,9 +55,16 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
         }
 
         /// <summary>
-        /// Establishes the single <c>builder.Host.UseWolverine(opts => ...)</c> registration on the
-        /// given ASP.NET host, and owns the <c>WolverineFx</c> package and <c>using Wolverine</c>
-        /// that registration needs. Contributing modules do not re-declare either.
+        /// Establishes the single <c>builder.Host.UseWolverine(opts => WolverineConfiguration.Configure(opts,
+        /// builder.Configuration))</c> registration on the given ASP.NET host, and owns the <c>WolverineFx</c>
+        /// package and <c>using Wolverine</c> that registration needs.
+        /// <para>
+        /// This is the ONLY place any Wolverine module touches <c>Program.cs</c>. Contributing modules
+        /// (<c>Intent.Application.Wolverine</c>, <c>Intent.Eventing.Wolverine</c>) no longer reach into the
+        /// host builder at all - they instead find <see cref="WolverineConfigurationTemplate"/> and add
+        /// their own private method plus one call statement to its <c>Configure</c> method body. See
+        /// their own FactoryExtensions for that contribution mechanism.
+        /// </para>
         /// </summary>
         private static void SeedWolverineHostRegistration(IProgramTemplate programTemplate)
         {
@@ -72,25 +81,18 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
             {
                 file.AddUsing("Wolverine");
 
-                // Seed the lambda with no statements of its own. ConfigureHostBuilderChainStatement
-                // is find-or-create: it looks for an existing "builder.Host.UseWolverine(" statement
-                // and only creates one when absent, so every later caller naming "UseWolverine"
-                // resolves to THIS lambda instead of emitting a competing registration.
-                //
-                // Seeding it here, from a factory extension ordered ahead of every contributor, is
-                // what makes the result deterministic in two ways that matter:
-                //   1. the position of the UseWolverine statement within Program.cs no longer
-                //      depends on which contributing modules happen to be installed, and
-                //   2. contributions land in ascending factory-extension Order, because each
-                //      contributor's OnBuild callback is registered on this same CSharpFile during
-                //      its own OnAfterTemplateRegistrations, and OnBuild callbacks fire in
-                //      registration order.
-                //
-                // Ordering cannot be expressed through the DSL's own `priority` parameter: the
-                // ASP.NET implementation of ConfigureHostBuilderChainStatement accepts it and never
-                // reads it, and the ConfigureServices callback it delegates to has no priority
-                // parameter at all. Factory-extension Order is the only lever.
-                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" });
+                // ConfigureHostBuilderChainStatement is find-or-create: it looks for an existing
+                // "builder.Host.UseWolverine(" statement and only creates one when absent. Since this
+                // module is now the only contributor to Program.cs, this both creates the lambda AND
+                // supplies its one statement in the same call - there is nothing left for another
+                // module to append.
+                var configType = programTemplate.GetTypeName(WolverineConfigurationTemplate.TemplateId);
+                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
+                    (lambdaBlock, parameters) =>
+                    {
+                        var opts = parameters[0];
+                        lambdaBlock.AddStatement($"{configType}.Configure({opts}, builder.Configuration);");
+                    });
             });
         }
 

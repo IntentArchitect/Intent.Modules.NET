@@ -7,8 +7,8 @@ Five foundation defects in the Wolverine module family, fixed before any further
 | # | Problem | Owning module | Fix |
 | --- | --- | --- | --- |
 | 1 | `IMessageBus` is ambiguous in every Wolverine-dispatched handler — the app does not compile | `Intent.Application.Wolverine`, `Intent.AspNetCore.Controllers.Dispatch.Wolverine` | Delete one redundant `AddUsing` per module |
-| 2 | Generated `WolverineEventingConfiguration` has body text at column 0 | `Intent.Eventing.Wolverine` | Replace two raw multi-line strings with builder constructs |
-| 3 | Eventing configuration is a second, disconnected class in the wrong project | `Intent.Wolverine.Common` (new owner) | One `WolverineConfiguration`; eventing reached by private method |
+| 2 | Generated `WolverineEventingConfiguration` has body text at column 0 | `Intent.Eventing.Wolverine` | Folded into #3 — the file is retired and rebuilt with builder constructs |
+| 3 | Two modules reach into `Program.cs` directly, and the eventing side's method names leak the transport choice | `Intent.Wolverine.Common` (new owner), `Intent.Application.Wolverine` + `Intent.Eventing.Wolverine` (contributors) | One seeded `WolverineConfiguration.Configure`; each module contributes a private method |
 | 4 | Tenancy invented its own header and middleware instead of using Finbuckle + Wolverine natives | `Intent.Eventing.Wolverine` | `WithStrategy<T>` + `Envelope.TenantId`; delete the custom header |
 | 5 | Wolverine is the one broker with no `CompositeMessageBus` test case and no conformance to the pattern | `Intent.Eventing.Wolverine` + test app model | Add `Test10Command`/`MsgWolverine`, implement the six conformance points |
 
@@ -111,110 +111,171 @@ Both sites are in `WolverineEventingConfigurationTemplatePartial.cs`:
 > reason about a continuation. Only an unterminated construct — a lambda body, a local function body —
 > exposes the per-statement rule. Two targeted rewrites, not a sweep of the file.
 
+> **This fix lands as a side effect of Point 3, not as its own patch.** `WolverineEventingConfigurationTemplatePartial.cs`
+> is retired as part of Point 3's redesign (see below) and its `UseRabbitMq` lambda is rebuilt from proper
+> nested builder statements rather than a raw string — so the indentation defect has nowhere to reappear,
+> rather than being patched in place on a file about to be deleted.
+
 ---
 
-### 3. Eventing configuration is a second class, disconnected, in the wrong project
+### 3. Two modules reach into `Program.cs` directly, and the eventing side's method names leak the transport
 
 #### The issue
 
-Two configuration classes doing one job. `WolverineConfiguration` wires CQRS handler discovery;
-`WolverineEventingConfiguration` separately wires transports, routing and eventing handler discovery.
-They do not call each other — both are reached independently from the host builder — and the eventing
-one carries method names (`ConfigureLocal`, `ConfigureRabbitMq`) that leak the transport choice into the
-public shape of generated code.
+This was originally scoped as "two disconnected configuration classes" — that part turned out to already
+be fixed by the time this plan was executed: `Intent.Wolverine.Common` seeds one shared
+`builder.Host.UseWolverine(opts => { ... })` lambda, and both `Intent.Application.Wolverine`'s
+`WolverineConfiguration.Configure(opts)` and `Intent.Eventing.Wolverine`'s
+`WolverineEventingConfiguration.ConfigureRabbitMq(opts, configuration)` already append their own
+statement into it, ordered by `Order` (10/20). Verified directly in generated `Program.cs` across five
+different test apps before touching anything further — there is no disconnect left to fix.
+
+Two smaller things are still worth fixing:
+
+- **Two modules still reach into `Program.cs` directly** — a file neither of them owns. That should stay
+exceptional, reserved for a module that genuinely needs the host builder itself, not the default shape
+every Wolverine module reaches for.
+- **The eventing side's method names carry the transport** (`ConfigureLocal`, `ConfigureRabbitMq`,
+`ConfigureAzureServiceBus`, `ConfigureAmazonSqs`), so which transport is selected leaks into the public
+shape of generated code instead of staying a body detail.
 
 ```mermaid
 flowchart TB
-  classDef existing fill:#3f4b5b,stroke:#94a3b8,color:#ffffff
-  classDef changed fill:#8a6d1f,stroke:#fbbf24,color:#ffffff
-  classDef removed fill:#7f1d1d,stroke:#f87171,color:#ffffff
-  classDef added fill:#1f7a4d,stroke:#34d399,color:#ffffff
+classDef existing fill:#3f4b5b,stroke:#94a3b8,color:#ffffff
+classDef changed fill:#8a6d1f,stroke:#fbbf24,color:#ffffff
+classDef added fill:#1f7a4d,stroke:#34d399,color:#ffffff
 
-  subgraph today["Today — two disconnected entry points"]
-    P1[Program.cs / host builder]:::existing
-    C1["WolverineConfiguration.Configure<br/>CQRS module, Api project"]:::existing
-    E1["WolverineEventingConfiguration.Configure<br/>Eventing module, Infrastructure project"]:::existing
+subgraph today["Today — two modules reach into Program.cs"]
+    P1["Program.cs — UseWolverine lambda,<br/>seeded by Wolverine.Common"]:::existing
+    C1["WolverineConfiguration.Configure(opts)<br/>Application.Wolverine, Order 10"]:::existing
+    E1["WolverineEventingConfiguration.ConfigureRabbitMq(opts, config)<br/>Eventing.Wolverine, Order 20"]:::existing
     P1 --> C1
     P1 --> E1
-    E1 --> L1["ConfigureLocal / ConfigureRabbitMq<br/>transport name in the method name"]:::removed
-  end
+end
 
-  subgraph target["Proposed — one entry point"]
-    P2[Program.cs / host builder]:::existing
-    C2["WolverineConfiguration.Configure<br/>Wolverine.Common, Api project"]:::added
+subgraph target["Proposed — Program.cs touched once, by Common only"]
+    P2["Program.cs — one line, forever:<br/>WolverineConfiguration.Configure(opts, configuration)"]:::existing
+    C2["WolverineConfiguration<br/>Wolverine.Common, Api project"]:::added
     P2 --> C2
-    C2 --> Q1["private ConfigureCqrs opts"]:::changed
-    C2 --> Q2["private ConfigureEventing opts, configuration"]:::changed
-  end
+    C2 --> Q1["private ConfigureCqrs(opts)<br/>contributed by Application.Wolverine"]:::changed
+    C2 --> Q2["private ConfigureEventing(opts, configuration)<br/>contributed by Eventing.Wolverine"]:::changed
+    Q2 --> R1["private ConfigurePublishing / ConfigureListeners /<br/>Configure{Transport}Transport — Wolverine's own vocabulary"]:::changed
+end
 ```
-
-#### Where it lives, and what is related
-
-The obstacle is ownership, not shape. `WolverineConfiguration` belongs to the CQRS module, which is not
-installed everywhere the eventing module is.
-
-| App group | CQRS module installed | `WolverineConfiguration` | `WolverineEventingConfiguration` |
-| --- | --- | --- | --- |
-| `WolverineEventing.Coexist.Cqrs` | Yes | Yes | Yes |
-| `WolverineEventing.ErrorPolicy.*` (×4) | No | **No** | Yes |
-| `WolverineEventing.Outbox.SqlServer.*` (×2) | No | **No** | Yes |
-| `WolverineEventing.MultiTenancy` | No | **No** | Yes |
-| `CompositeMessageBus` | No | **No** | Yes |
-| CQRS/dispatch samples (no eventing) | Yes | Yes | No |
-
-Five of the twelve Wolverine apps have `WolverineConfiguration`; seven have no `Configuration/` folder at
-all. So the merged class cannot live in the CQRS module — it would vanish from the seven apps that need
-eventing configuration. `Intent.Wolverine.Common` is installed in **all twelve** and currently has
-**zero templates**, which makes it the correct owner and gives it a reason to exist.
 
 #### The proposed solution
 
-`Intent.Wolverine.Common` owns `WolverineConfiguration`. Each dependent module contributes into it by
-statement-metadata anchor, the mechanism already used across this family.
+`Intent.Wolverine.Common` gains a template that seeds a `WolverineConfiguration` class with one public,
+near-empty method:
 
 ```csharp
-// Tests/…/Api/Configuration/WolverineConfiguration.cs — target generated shape
 public static class WolverineConfiguration
 {
     public static void Configure(WolverineOptions opts, IConfiguration configuration)
     {
-        ConfigureCqrs(opts);                        // ← private calls only
-        ConfigureEventing(opts, configuration);
-    }
-
-    private static void ConfigureCqrs(WolverineOptions opts)
-    {
-        // contributed by Intent.Application.Wolverine
-    }
-
-    private static void ConfigureEventing(WolverineOptions opts, IConfiguration configuration)
-    {
-        // contributed by Intent.Eventing.Wolverine:
-        // transport setup, publish/send rules, handler type registrations
     }
 }
 ```
 
-- **Single public entry point**, owned by Wolverine.Common, present in every Wolverine app.
-- **Both helpers are emitted unconditionally** with empty bodies; each module fills its own, so an app
-  with only one module installed still compiles.
-- **`ConfigureLocal` / `ConfigureRabbitMq` collapse to one `ConfigureEventing`.** The transport choice
-  becomes a body detail, not part of the method name.
-
-`Program.cs` is unchanged — the host registration already lives in Wolverine.Common and already calls
-this signature, so consuming apps see the consolidation as a shrinking file set, not a migration:
+`Program.cs` calls this once, and never needs a second statement for a new Wolverine module to show up:
 
 ```csharp
-builder.Host.UseWolverine((context, opts) =>
-    WolverineConfiguration.Configure(opts, context.Configuration));   // identical before and after
+builder.Host.UseWolverine(opts => WolverineConfiguration.Configure(opts, builder.Configuration));
 ```
 
-> **Tradeoff — `WolverineEventingConfiguration.cs` is deleted from seven apps.** Regeneration removes a
-> file that currently exists in the seven eventing-only apps and moves its content into
-> `Api/Configuration/WolverineConfiguration.cs`. That is a destructive diff and the Software Factory will
-> report it as such. Accepted because these are golden-sample test apps with no hand-written code in that
-> file — but a real consumer upgrading across this version needs it in the release notes as a breaking
-> change, not a bullet.
+Each contributing module finds this template and extends it the same way
+`Intent.Eventing.MassTransit`'s `FinbuckleConfiguratorExtension` already finds and extends
+`MassTransitConfigurationTemplate` — no new mechanism, just this codebase's existing pattern for one
+module extending a class another module owns:
+
+```csharp
+var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+    TemplateDependency.OnTemplate(WolverineConfigurationTemplate.TemplateId));
+
+template?.CSharpFile.OnBuild(file =>
+{
+    var @class = file.Classes.First();
+    var configureMethod = @class.FindMethod("Configure");
+
+    @class.AddMethod("void", "ConfigureCqrs", method => { /* this module's own logic */ });
+    configureMethod.AddStatement("ConfigureCqrs(opts);");
+});
+```
+
+`Intent.Application.Wolverine` contributes a private `ConfigureCqrs(WolverineOptions opts)` — its
+existing `Configure` body, unchanged, just relocated. `Intent.Eventing.Wolverine` contributes a private
+`ConfigureEventing(WolverineOptions opts, IConfiguration configuration)`, itself decomposed into further
+private methods named after Wolverine's own vocabulary — its API return types are `PublishingExpression`
+and `ListenerConfiguration`, and the broker plumbing is a "Transport" (`IRabbitMqTransportExpression`,
+etc.):
+
+```csharp
+private static void ConfigureEventing(WolverineOptions opts, IConfiguration configuration)
+{
+    var transport = ConfigureRabbitMqTransport(opts, configuration);
+    ConfigurePublishing(opts);
+    ConfigureListeners(opts, transport);
+    ApplyErrorHandlingPolicy(opts, configuration);
+}
+
+private static IRabbitMqTransportExpression ConfigureRabbitMqTransport(WolverineOptions opts, IConfiguration configuration)
+{
+    var section = configuration.GetSection("Wolverine:RabbitMq");
+    var host = section["Host"] ?? "localhost";
+    var port = int.Parse(section["Port"] ?? "5672");
+    var virtualHost = section["VirtualHost"] ?? "/";
+    var username = section["Username"] ?? "guest";
+    var password = section["Password"] ?? "guest";
+
+    var transport = opts.UseRabbitMq(rabbit =>
+    {
+        rabbit.HostName = host;
+        rabbit.Port = port;
+        rabbit.VirtualHost = virtualHost;
+        rabbit.UserName = username;
+        rabbit.Password = password;
+    });
+
+    transport.AutoProvision();
+    return transport;
+}
+
+private static void ConfigurePublishing(WolverineOptions opts)
+{
+    opts.PublishMessage<OrderCreatedEvent>().ToRabbitExchange("order-created-event");
+}
+
+private static void ConfigureListeners(WolverineOptions opts, IRabbitMqTransportExpression transport)
+{
+    transport.BindExchange("order-created-event").ToQueue("subscribe-rabbitmq-order-created-event");
+    opts.ListenToRabbitQueue("subscribe-rabbitmq-order-created-event");
+    opts.Discovery.IncludeType<OrderCreatedEventHandler>();
+}
+```
+
+- **`Configure{Transport}Transport` also folds in Point 2's indentation fix for free** — the
+`UseRabbitMq` lambda is built from nested builder statements instead of a raw string, so there is no
+raw multi-line literal left to mis-indent.
+- **A seam with nothing to say is omitted, not emitted empty.** A publish-only app has no
+`ConfigureListeners` method and no call to it — not an empty method contributed for symmetry.
+- **`transport` is threaded through as a return value**, because RabbitMQ's exchange-to-queue binding
+needs the same transport object `.AutoProvision()` was called on — it cannot be re-obtained from `opts`
+later. Azure Service Bus and Amazon SQS don't need this thread at all: Azure's `ConfigureListeners`
+calls `opts.ListenToAzureServiceBusQueue(...)` directly with no binding step, and Amazon SQS's fan-out
+is expressed entirely on the publish side (`SubscribeSqsQueue(...)` chained onto `ConfigurePublishing`'s
+rule), so it needs no `ConfigureListeners` method at all.
+- **`ConfigureLocal` / `ConfigureRabbitMq` collapse into one name, `ConfigureEventing`**, called
+identically regardless of transport. Which transport is selected now only decides which private
+`Configure{Transport}Transport`/`ConfigureListeners` bodies get emitted inside it — never part of a name
+`Program.cs` or another module can see.
+
+> **Tradeoff — both `WolverineConfiguration.cs` (Application.Wolverine's) and
+> `WolverineEventingConfiguration.cs` (Eventing.Wolverine's) are retired as their own templates,
+> everywhere either exists today.** Their content becomes contributed methods inside
+> `Api/Configuration/WolverineConfiguration.cs`, owned by `Intent.Wolverine.Common`. Regeneration reports
+> this as a destructive removal in every app that had either file. Accepted because these are
+> golden-sample test apps with no hand-written code in either file — a real consumer upgrading across
+> this version needs it called out as a breaking change in the release notes, not a bullet.
 
 ---
 
@@ -450,8 +511,11 @@ Module code only — nothing hand-written into a generated app.
 | --- | --- | --- |
 | `Modules/Intent.Modules.Application.Wolverine/InteractionStrategies/SendOnWolverineInteractionStrategy.cs` | modified | Point 1 — delete the `AddUsing` at line 32 |
 | `Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/FactoryExtensions/WolverineControllerDispatchExtension.cs` | modified | Point 1 — delete the `AddUsing` at line 56 |
-| `Modules/Intent.Modules.Eventing.Wolverine/Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs` | modified | Points 2, 3, 5 — indentation, contribute into the merged class, role + `Add*Configuration` |
-| `Modules/Intent.Modules.Wolverine.Common/Templates/WolverineConfiguration/` | **added** | Point 3 — the merged configuration class, this module's first template |
+| `Modules/Intent.Modules.Wolverine.Common/Templates/WolverineConfiguration/` | **added** | Point 3 — the shared configuration seed, this module's first template |
+| `Modules/Intent.Modules.Application.Wolverine/Templates/WolverineConfiguration/` | **removed** | Point 3 — retired as its own template |
+| `Modules/Intent.Modules.Application.Wolverine/FactoryExtensions/WolverineConfigurationContributionExtension.cs` | **added** | Point 3 — contributes `ConfigureCqrs` into Wolverine.Common's `WolverineConfiguration` |
+| `Modules/Intent.Modules.Eventing.Wolverine/Templates/WolverineEventingConfiguration/` | **removed** | Points 2, 3 — retired as its own template |
+| `Modules/Intent.Modules.Eventing.Wolverine/FactoryExtensions/WolverineEventingConfigurationContributionExtension.cs` | **added** | Points 2, 3, 5 — contributes `ConfigureEventing` (+ `ConfigurePublishing`/`ConfigureListeners`/`Configure{Transport}Transport`) into Wolverine.Common's `WolverineConfiguration`, plus the role/registry wiring from Point 5 |
 | `Modules/Intent.Modules.Eventing.Wolverine/Templates/WolverineTenantStrategy/` | **added** | Point 4 — the Finbuckle strategy |
 | `Modules/Intent.Modules.Eventing.Wolverine/Templates/WolverineTenantHeaderStrategy/` | **removed** | Point 4 — superseded by `Envelope.TenantId` |
 | `Modules/Intent.Modules.Eventing.Wolverine/Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplatePartial.cs` | modified | Point 4 — `BeforeAsync`, two lines |
@@ -472,21 +536,27 @@ for the correct `UseType`-without-`AddUsing` shape.
    model — never by hand-editing an `.imodspec`. A rebuild at an unchanged version serves a stale
    `.imod` extraction; clear `Modules/.cache/modules` rather than bumping again.
 3. **Point 1** — delete both `AddUsing` calls. Regenerate `Coexist.Cqrs` and confirm the handler compiles.
-4. **Point 2** — replace the two raw strings with builder constructs. Verify against generated output,
-   not against the template source.
-5. **Point 3a** — add `WolverineConfiguration` to `Intent.Wolverine.Common` with both private helpers
-   emitted unconditionally.
-6. **Point 3b** — move the eventing module's contributions into `ConfigureEventing`; delete
-   `WolverineEventingConfiguration`; drop the transport-named methods.
+4. **Point 3a** — add `WolverineConfiguration` to `Intent.Wolverine.Common`: the seed template, with one
+    public `Configure(opts, configuration)` method, near-empty.
+5. **Point 3b** — retire `Intent.Application.Wolverine`'s own `WolverineConfiguration` template; replace
+    it with a factory extension contributing a private `ConfigureCqrs` method + one call statement into
+    Common's class.
+6. **Point 3c / Point 2** — retire `Intent.Eventing.Wolverine`'s `WolverineEventingConfiguration`
+    template; replace it with a factory extension contributing a private `ConfigureEventing` method,
+    decomposed into `ConfigurePublishing`/`ConfigureListeners`/`Configure{Transport}Transport`, built from
+    proper builder constructs rather than raw strings — this is where Point 2's indentation defect is
+    fixed, by construction rather than by patching a file about to be deleted.
 7. **Point 4a** — add `WolverineTenantStrategy`; wire `WithStrategy<T>(ServiceLifetime.Scoped)` into the
-   foreign chain via `InsertAbove`.
+    foreign chain via `InsertAbove`.
 8. **Point 4b** — simplify the middleware to `BeforeAsync`; switch the bus to `DeliveryOptions.TenantId`;
-   delete `WolverineTenantHeaderStrategy` and the `Wolverine:TenantHeader` setting.
-9. **Point 5a** — add `FulfillsRole`, `AddWolverineEventingConfiguration`, the DI registration and the registry
-   mapping; honour `RequiresCompositeMessageBus()`.
+    delete `WolverineTenantHeaderStrategy` and the `Wolverine:TenantHeader` setting.
+9. **Point 5a** — add `FulfillsRole`, `AddWolverineEventingConfiguration`, the DI registration and the
+    registry mapping to the new `WolverineEventingConfigurationContributionExtension`; honour
+    `RequiresCompositeMessageBus()`.
 10. **Point 5b** — model `Test10Command` / `MsgWolverine` in `CompositeMessageBus` and regenerate.
 11. **Regenerate every Wolverine app**, inspecting diffs via `get_file_diffs` before applying. Expect the
-    destructive `WolverineEventingConfiguration.cs` removal in seven of them.
+    destructive removal of `WolverineConfiguration.cs`/`WolverineEventingConfiguration.cs` wherever either
+    exists today, replaced by the shared file.
 12. **Close out** — `module-dependency-audit` across all four modules, then `module-docs-chore` for
     release notes and `docs/README.md`, then `module-context-capture` for the durable findings.
 
@@ -498,10 +568,12 @@ for the correct `UseType`-without-`AddUsing` shape.
       `WolverineEventing.MultiTenancy`.
 - [ ] **Build gate** — `dotnet build` each affected solution. `Coexist.Cqrs` currently fails with CS0104;
       it must build. **Point 1 is only proven here.**
-- [ ] **One `WolverineConfiguration` per app, no `WolverineEventingConfiguration` anywhere** — and
-      `ConfigureEventing` present in all twelve, `ConfigureCqrs` non-empty only in the five.
-- [ ] **Indentation** — read the generated configuration file: the `UseRabbitMq` lambda body and
-      `ParseDelays` body are indented inside their braces.
+- [ ] **One `WolverineConfiguration.cs` per app, nothing named `WolverineEventingConfiguration` anywhere**
+        — `Program.cs` calls it exactly once; `ConfigureEventing` is present wherever Eventing.Wolverine is
+        installed, `ConfigureCqrs` wherever Application.Wolverine is installed, and a seam with nothing to
+        contribute (e.g. `ConfigureListeners` in a publish-only app) is absent, not present-but-empty.
+- [ ] **Indentation** — read the generated configuration file: the `UseRabbitMq` lambda body inside
+        `Configure{Transport}Transport` is indented inside its braces.
 - [ ] **Tenancy runtime** — MultiTenancy app, `POST /api/orders` with `X-Tenant-Identifier: tenant1`.
       Handler runs and reports `tenant1`; no `MultiTenantException`.
 - [ ] **Repeat with `tenant2`** — not redundant. Finbuckle's accessor is `AsyncLocal`-backed, so a
@@ -516,8 +588,13 @@ for the correct `UseType`-without-`AddUsing` shape.
 
 | Decision | Chosen | Why not the alternative |
 | --- | --- | --- |
-| Owner of the merged configuration class | `Intent.Wolverine.Common` | The CQRS module is installed in only five of twelve Wolverine apps; the class would vanish from the other seven |
-| Eventing reached from the merged class | Private `ConfigureEventing` method | A second public entry point is what the consolidation exists to remove |
+| Owner of the shared configuration class | `Intent.Wolverine.Common` | It is installed wherever any Wolverine module is, and had zero templates of its own, giving it a reason to exist |
+| How contributors reach the shared class | Find-template + `OnBuild` + `AddMethod`/`AddStatement`, the same idiom `Intent.Eventing.MassTransit`'s `FinbuckleConfiguratorExtension` already uses on `MassTransitConfigurationTemplate` | Reuses an existing, proven cross-template pattern instead of inventing a new merging mechanism just for this class |
+| `Program.cs` touch points | Only `Intent.Wolverine.Common`, once, forever | The two contributors reaching into a file neither owns should be exceptional, not the default shape |
+| Eventing reached from the shared class | Private `ConfigureEventing` method | A second public entry point is what the consolidation exists to remove |
+| Naming for eventing's private sub-methods | `ConfigurePublishing` / `ConfigureListeners` / `Configure{Transport}Transport` | Matches Wolverine's own API vocabulary (`PublishingExpression`, `ListenerConfiguration`, `IRabbitMqTransportExpression`) rather than inventing new terms |
+| A seam with nothing to contribute | Omitted entirely — not emitted as an empty method | An empty method contributed for symmetry is dead code with no caller reading it |
+| Sharing the transport object across sub-methods | Returned from `Configure{Transport}Transport`, passed as a parameter to `ConfigureListeners` | RabbitMQ's exchange-to-queue binding needs the exact transport object `.AutoProvision()` was called on; it cannot be re-obtained from `opts` later |
 | Handler `using Wolverine` contamination | Delete the `AddUsing`, record the rule | Aliasing or renaming a contract would push the cost onto every consuming app |
 | Strategy shape | Read `Envelope.TenantId` directly, no mutable carrier | MassTransit's carrier exists because its filter has no framework-owned tenant field; Wolverine does, so priming state per message is unnecessary |
 | Strategy class name | `WolverineTenantStrategy` | — |

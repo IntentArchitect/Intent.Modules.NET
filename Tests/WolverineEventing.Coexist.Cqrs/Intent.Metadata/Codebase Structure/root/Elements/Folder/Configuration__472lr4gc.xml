@@ -9,10 +9,10 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="143c6dd5-8a25-4ed9-bbee-af018d9cdaf8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Wolverine.WolverineConfiguration</name>
-      <display>Intent.Application.Wolverine.WolverineConfiguration</display>
-      <externalReference>Intent.Application.Wolverine</externalReference>
+    <childElement id="1035da9e-9151-48b4-8d5b-078f8797b52d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -23,10 +23,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1035da9e-9151-48b4-8d5b-078f8797b52d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
-      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
-      <externalReference>Intent.Eventing.Contracts</externalReference>
+    <childElement id="ac976c96-8911-46bc-a281-58740fddd607" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Wolverine.Common.WolverineConfiguration</name>
+      <display>Intent.Wolverine.Common.WolverineConfiguration</display>
+      <externalReference>Intent.Wolverine.Common</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

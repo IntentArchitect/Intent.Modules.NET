@@ -64,7 +64,7 @@
   <file path="WolverineEventing.Coexist.Cqrs.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="WolverineEventing.Coexist.Cqrs.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="WolverineEventing.Coexist.Cqrs.Domain/WolverineEventing.Coexist.Cqrs.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Application.Wolverine.WolverineConfiguration" />
+  <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Dispatch/Middleware/ApplicationHandlerPolicy.cs" templateId="Intent.Application.Wolverine.ApplicationHandlerPolicy" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Dispatch/Middleware/AuthorizationMiddleware.cs" templateId="Intent.Application.Wolverine.AuthorizationMiddleware" />
@@ -74,7 +74,6 @@
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" templateId="Intent.Application.Wolverine.UnhandledExceptionMiddleware" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" templateId="Intent.Application.Wolverine.UnitOfWorkMiddleware" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" templateId="Intent.Application.Wolverine.ValidationMiddleware" />
-  <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Eventing/WolverineEventingConfiguration.cs" templateId="Intent.Eventing.Wolverine.WolverineEventingConfiguration" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="WolverineEventing.Coexist.Cqrs.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

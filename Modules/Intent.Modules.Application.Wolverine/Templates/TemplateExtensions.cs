@@ -14,7 +14,6 @@ using Intent.Modules.Application.Wolverine.Templates.QueryModels;
 using Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.UnitOfWorkMiddleware;
 using Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware;
-using Intent.Modules.Application.Wolverine.Templates.WolverineConfiguration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -113,11 +112,6 @@ namespace Intent.Modules.Application.Wolverine.Templates
         public static string GetValidationMiddlewareName(this IIntentTemplate template)
         {
             return template.GetTypeName(ValidationMiddlewareTemplate.TemplateId);
-        }
-
-        public static string GetWolverineConfigurationName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(WolverineConfigurationTemplate.TemplateId);
         }
 
     }

@@ -30,19 +30,17 @@ This document contains durable architectural decisions, constraints, and pattern
 
 - Favor NuGet package references over local project references (`<ProjectReference>`) for dependent modules (e.g. `Intent.Modules.AspNetCore.Controllers`) to ensure correct packaging and dependency resolution in the Intent Software Factory ecosystem.
 
-### 5. Host Registration Is Seeded By `Intent.Wolverine.Common` (since 1.1.0)
+### 5. Host Registration Is Seeded By `Intent.Wolverine.Common`
 
-`WolverineRegistrationFactoryExtension` calls `ConfigureHostBuilderChainStatement("UseWolverine", ...)` directly, appending `{WolverineConfiguration}.Configure(opts)` to the lambda that `Intent.Wolverine.Common` has already seeded. That DSL method is find-or-create, so this appends rather than emitting a competing registration.
+`WolverineRegistrationFactoryExtension` calls `ConfigureHostBuilderChainStatement("UseWolverine", ...)` directly, appending `{WolverineConfiguration}.Configure(opts)` to the lambda that `Intent.Wolverine.Common` has already seeded. That DSL method is find-or-create, so this appends rather than emitting a competing registration — see `Intent.Wolverine.Common`'s CONTEXT.md for the full mechanism and why it's shaped this way.
 
 This module declares `Intent.Wolverine.Common` as an `.imodspec` `<dependency>` but takes **no `ProjectReference`** on it and references none of its types — see that module's `CONTEXT.md` for why (a `PrivateAssets="All"` reference would bundle a duplicate copy of its DLL).
 
 **`Order` is load-bearing and must stay above `Intent.Wolverine.Common`'s.** The values are Common `0`, this module `10`, `Intent.Eventing.Wolverine` `20`. Statements land inside the lambda in ascending factory-extension `Order`, and Intent's own `priority` argument cannot be used instead — the ASP.NET implementation accepts it and never reads it.
 
-**Never call `lambdaBlock.Statements.Clear()`** — it discards whatever another contributor has already added, and was the original defect here.
+**Never call `lambdaBlock.Statements.Clear()`** inside the callback — the lambda is shared with other contributors, and clearing it discards whatever they already added.
 
-> An earlier revision of this entry forbade calling `ConfigureHostBuilderChainStatement` from this module at all, routing contributions through a `WolverineHostConfigurationRequest` and `WolverineHostRegistrationExtension.Contribute(...)` instead. That request type has been removed: it wrapped a raw statement-emitting callback rather than declarative data, its ordering and discovery features were unused or unimplementable, and its correctness relied on an unenforceable call-site rule. The risk it was guarding against — two modules racing over one lambda — is now managed by explicit `Order` rather than by prohibition.
-
-Also do not restore the Azure Functions host registration loop this extension used to have — see the "Known Unresolved Problem" section below; it never worked correctly under any `TypeLoadMode`, so its removal (R8.7 of the `wolverine-eventing-module` spec) discards nothing that was functioning.
+Do not restore the Azure Functions host registration loop this extension used to have — see the "Known Unresolved Problem" section below; it never worked correctly under any `TypeLoadMode`, so its removal (R8.7 of the `wolverine-eventing-module` spec) discards nothing that was functioning.
 
 ---
 
@@ -130,3 +128,9 @@ Wolverine's code generation mechanism (`JasperFx.CodeGeneration`) was designed f
 2. A pre-publish MSBuild target that runs codegen as a build step.
 3. Wait for WolverineFx to provide native serverless startup hooks in a future version.
 4. Investigate whether `TypeLoadMode.Dynamic` actually avoids disk writes (JasperFx source review needed).
+
+## `SendOnWolverineInteractionStrategy` — `Wolverine.IMessageBus` is a hardcoded literal, not `UseType`'s return value
+
+`ImplementInteraction` (the CS0104 fix that removed `AddUsing("Wolverine")`, see the "No Handler Contamination" anti-pattern above) originally still routed the constructor parameter's type through `template.UseType("Wolverine.IMessageBus")`. That call was replaced with the literal string `"Wolverine.IMessageBus"` — `UseType` decides short-vs-qualified from whatever the file already imports **at the moment it is called**, and that moment races against a *different* interaction strategy (owned by `Intent.Eventing.Contracts`) adding the eventing bus's own `IMessageBus` constructor parameter to the same handler. If this strategy runs first, `UseType` sees no clash yet and can return the short `"IMessageBus"`, silently re-importing `using Wolverine;` and reproducing the exact ambiguity the Point-1 fix removed.
+
+Confirmed fixed: `Coexist.Cqrs` (the app with a cross-command `Perform Invocation` interaction, the shape that raced) regenerates and builds cleanly with no `CS0104`, and no stray `using Wolverine;` reappears in its command handlers.

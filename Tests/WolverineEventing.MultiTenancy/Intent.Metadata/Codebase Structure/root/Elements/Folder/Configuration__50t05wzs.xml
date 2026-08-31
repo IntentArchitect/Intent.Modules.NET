@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="490203c8-59f1-4d1b-9c91-001a4ca20484" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Wolverine.Common.WolverineConfiguration</name>
+      <display>Intent.Wolverine.Common.WolverineConfiguration</display>
+      <externalReference>Intent.Wolverine.Common</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c6e3b848-ecc6-411c-aca8-06e69b5eaa43</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

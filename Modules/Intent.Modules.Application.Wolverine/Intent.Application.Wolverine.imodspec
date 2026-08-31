@@ -127,14 +127,6 @@
       <role>Infrastructure.Wolverine.Dispatch.Middleware.ValidationMiddleware</role>
       <location>Dispatch/Middleware</location>
     </template>
-    <template id="Intent.Application.Wolverine.WolverineConfiguration" externalReference="372e3c23-ebbb-48a8-bedc-6dbde4fea505">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Wolverine.Configuration.WolverineConfiguration</role>
-      <location>Configuration</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>

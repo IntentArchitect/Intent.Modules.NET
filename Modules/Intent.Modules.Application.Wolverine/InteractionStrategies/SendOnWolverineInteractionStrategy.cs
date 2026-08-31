@@ -29,7 +29,6 @@ public class SendOnWolverineInteractionStrategy : IInteractionStrategy
         var interaction = (IAssociationEnd)interactionElement;
         var handlerClass = method.Class;
         var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
-        template.CSharpFile.AddUsing("Wolverine");
         template.AddNugetDependency(NugetPackages.WolverineFx(template.OutputTarget));
         template.AddTypeSource(TemplateRoles.Application.Query);
         template.AddTypeSource(TemplateRoles.Application.Command);
@@ -39,9 +38,18 @@ public class SendOnWolverineInteractionStrategy : IInteractionStrategy
         csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
         var @class = handlerClass;
         var ctor = @class.Constructors.First();
-        if (ctor.Parameters.All(x => x.Type != template.UseType("Wolverine.IMessageBus")))
+        // Hardcoded literal, not routed through UseType: UseType decides short-vs-qualified from
+        // whatever it already knows about this file's OTHER using directives AT THE MOMENT it is
+        // called - and that moment is racy relative to WHEN the eventing contracts' own IMessageBus
+        // gets added to this same constructor by a different interaction strategy. If this call
+        // runs first, UseType sees no clash yet and returns the short "IMessageBus", silently
+        // importing `using Wolverine;` - which then collides with the contracts IMessageBus exactly
+        // like the CS0104 this module's Point 1 fix removed. The type is well-known and never needs
+        // shortening for correctness, so it is spelled out unconditionally instead.
+        const string wolverineBusType = "Wolverine.IMessageBus";
+        if (ctor.Parameters.All(x => x.Type != wolverineBusType))
         {
-            ctor.AddParameter(template.UseType("Wolverine.IMessageBus"), "sender",
+            ctor.AddParameter(wolverineBusType, "sender",
                 param => { param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()); });
         }
 

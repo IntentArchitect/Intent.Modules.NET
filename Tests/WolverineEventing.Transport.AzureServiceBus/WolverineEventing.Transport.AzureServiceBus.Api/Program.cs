@@ -8,7 +8,6 @@ using WolverineEventing.Transport.AzureServiceBus.Api.Logging;
 using WolverineEventing.Transport.AzureServiceBus.Application;
 using WolverineEventing.Transport.AzureServiceBus.Infrastructure;
 using WolverineEventing.Transport.AzureServiceBus.Infrastructure.Configuration;
-using WolverineEventing.Transport.AzureServiceBus.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,8 +30,7 @@ namespace WolverineEventing.Transport.AzureServiceBus.Api
 
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineConfiguration.Configure(opts);
-                    WolverineEventingConfiguration.ConfigureAzureServiceBus(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

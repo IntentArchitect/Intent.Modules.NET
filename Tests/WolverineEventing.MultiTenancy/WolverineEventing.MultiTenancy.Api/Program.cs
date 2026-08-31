@@ -7,7 +7,7 @@ using WolverineEventing.MultiTenancy.Api.Filters;
 using WolverineEventing.MultiTenancy.Api.Logging;
 using WolverineEventing.MultiTenancy.Application;
 using WolverineEventing.MultiTenancy.Infrastructure;
-using WolverineEventing.MultiTenancy.Infrastructure.Eventing;
+using WolverineEventing.MultiTenancy.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace WolverineEventing.MultiTenancy.Api
                 // Add services to the container.
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

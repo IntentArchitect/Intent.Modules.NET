@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="497e3ece-4a42-47c6-8a02-679c8986691e">
+  <sourceEnd id="70cac0cc-2f76-4306-9a90-4daee052980e" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : CompositeMessageBus.Services.Test10Command</display>
+    <order>0</order>
+    <typeReference id="d72a69d7-2eec-4529-961e-f94c0ebdf904">
+      <typeId>30505355-804b-4ddf-a45a-d26515a93853</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Services</typePackageName>
+      <typePackageId>4dc00151-140b-48c6-a29c-ce3b8cf39bb4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="497e3ece-4a42-47c6-8a02-679c8986691e" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] MsgWolverine</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c6e0f611-c0b2-4dc3-b6ee-9989ab570729">
+      <typeId>c8a6388d-2782-4847-9219-f21f2be7b508</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Eventing.Messages</typePackageName>
+      <typePackageId>e6528887-f142-4ec9-8063-9ada970e8855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="30505355-804b-4ddf-a45a-d26515a93853" location="[CompositeMessageBus].[Services].[Test10Command]" />
+        <target applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c8a6388d-2782-4847-9219-f21f2be7b508" location="[CompositeMessageBus].[Services].[MsgWolverine]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="c8a6388d-2782-4847-9219-f21f2be7b508" name="MsgWolverine" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="fec884fa-d644-40fe-89c7-5aca21d6ae18" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="30505355-804b-4ddf-a45a-d26515a93853" name="Test10Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bca9afee-d99d-4733-8567-a5ed2f0494c6" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

@@ -5,7 +5,6 @@ using CompositeMessageBus.Api.Services;
 using CompositeMessageBus.Application;
 using CompositeMessageBus.Infrastructure;
 using CompositeMessageBus.Infrastructure.Configuration;
-using CompositeMessageBus.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
@@ -34,7 +33,7 @@ namespace CompositeMessageBus.Api
 
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)

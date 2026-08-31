@@ -7,7 +7,7 @@ using WolverineEventing.ErrorPolicy.None.Api.Filters;
 using WolverineEventing.ErrorPolicy.None.Api.Logging;
 using WolverineEventing.ErrorPolicy.None.Application;
 using WolverineEventing.ErrorPolicy.None.Infrastructure;
-using WolverineEventing.ErrorPolicy.None.Infrastructure.Eventing;
+using WolverineEventing.ErrorPolicy.None.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace WolverineEventing.ErrorPolicy.None.Api
                 // Add services to the container.
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

@@ -2,9 +2,12 @@
 <managedFiles version="1" applicationId="619128f4-2f6d-458d-af6c-65b9e9bb9cfd">
   <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
-  <file path="FactoryExtensions/WolverineHostRegistrationExtension.cs" deviationsHash="402EC73792453CBBA5C3F730AC58AC92CAF9287A99F3D0937B05768966450B21" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineHostRegistrationExtension.cs" deviationsHash="123624EFDC52DB5879D4CD33136AE8BC3BAAE17A43E9F66BA72DFA326EFF19B3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.Wolverine.Common.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.Wolverine.Common.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

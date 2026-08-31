@@ -9,7 +9,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
-using Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantHeaderStrategy;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -62,21 +61,29 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus
 
                     @class.ImplementsInterface(ContractsBusAlias);
 
-                    // R12.2: only present when Finbuckle multi-tenancy is installed - WolverineTenantHeaderStrategyTemplate
-                    // gates itself on the same check, so this simply mirrors whatever that template decided.
-                    // Resolved HERE rather than in the constructor: GetTypeName resolves a foreign type,
-                    // and the SDK derives this template's own output path from its first added class, so
-                    // resolving before AddClass throws NullReferenceException for any application
-                    // generating this file for the first time.
-                    // Gate on the SAME condition WolverineTenantHeaderStrategyTemplate.CanRunTemplate()
-                    // uses, not on that template's mere existence: its instance is registered
-                    // unconditionally and only declines to produce a file, so an existence check
-                    // reports "present" for an application that never gets the class - leaving this
-                    // bus referencing a type nobody generated (CS0246).
-                    var tenantHeaderStrategyTypeName = GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration",
-                        new TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false }) != null
-                        ? GetTypeName(WolverineTenantHeaderStrategyTemplate.TemplateId)
-                        : null;
+                    // R12.2: only present when Finbuckle multi-tenancy is installed -
+                    // WolverineTenantStrategyTemplate gates itself on the same check, so this simply
+                    // mirrors whatever that template decided. Resolved HERE rather than in the
+                    // constructor: the SDK derives this template's own output path from its first
+                    // added class, so resolving a foreign type before AddClass throws
+                    // NullReferenceException for any application generating this file for the first
+                    // time. This bus no longer depends on a generated strategy class at all - the
+                    // tenant identifier is read directly off IMultiTenantContextAccessor and carried
+                    // on DeliveryOptions.TenantId, Wolverine's own envelope-native tenant field.
+                    var finbuckleInstalled = GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration",
+                        new TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false }) != null;
+
+                    if (finbuckleInstalled)
+                    {
+                        // Only needed for DeliveryOptions (BuildDeliveryOptions, below) - an app
+                        // with no Finbuckle installed never references it, so this stays out of the
+                        // unconditional using list rather than risk shadowing this file's OWN
+                        // ContractsMessageBus/WolverineBus aliases the way an unconditional
+                        // `using Wolverine;` shadowed the sibling contract's IMessageBus in the
+                        // CS0104 this module's Point 1 fix removed.
+                        CSharpFile.AddUsing("Wolverine");
+                        CSharpFile.AddUsing("Finbuckle.MultiTenant.Abstractions");
+                    }
 
                     // PublishAsync/SendAsync return ValueTask, not Task.
                     @class.AddField($"List<Func<{WolverineBusAlias}, ValueTask>>", "_pendingActions", field => field
@@ -86,14 +93,14 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(WolverineBusAlias, "bus", param => param.IntroduceReadonlyField());
-                        if (tenantHeaderStrategyTypeName != null)
+                        if (finbuckleInstalled)
                         {
-                            ctor.AddParameter(tenantHeaderStrategyTypeName, "tenantHeaderStrategy", param => param.IntroduceReadonlyField());
+                            ctor.AddParameter("IMultiTenantContextAccessor", "multiTenantContextAccessor", param => param.IntroduceReadonlyField());
                         }
                     });
 
-                    var deliveryOptionsArg = tenantHeaderStrategyTypeName != null
-                        ? ", _tenantHeaderStrategy.BuildDeliveryOptions()"
+                    var deliveryOptionsArg = finbuckleInstalled
+                        ? ", BuildDeliveryOptions()"
                         : string.Empty;
 
                     @class.AddMethod("void", "Publish", method =>
@@ -111,6 +118,20 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus
                             .AddParameter(tMessage, "message");
                         method.AddStatement($"_pendingActions.Add(bus => bus.SendAsync(message{deliveryOptionsArg}));");
                     });
+
+                    if (finbuckleInstalled)
+                    {
+                        // A resolved tenant is optional here, not required: a message may
+                        // legitimately be published without one (e.g. a background/system process
+                        // with no ambient tenant). Only set it when a tenant is actually present -
+                        // never throw (R12.1/R12.3).
+                        @class.AddMethod("DeliveryOptions?", "BuildDeliveryOptions", method =>
+                        {
+                            method.Private();
+                            method.AddStatement("var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;");
+                            method.AddStatement("return tenantIdentifier is null ? null : new DeliveryOptions { TenantId = tenantIdentifier };", s => s.SeparatedFromPrevious());
+                        });
+                    }
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
                     {

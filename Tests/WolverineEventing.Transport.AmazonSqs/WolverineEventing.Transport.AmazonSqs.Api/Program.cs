@@ -8,7 +8,6 @@ using WolverineEventing.Transport.AmazonSqs.Api.Logging;
 using WolverineEventing.Transport.AmazonSqs.Application;
 using WolverineEventing.Transport.AmazonSqs.Infrastructure;
 using WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration;
-using WolverineEventing.Transport.AmazonSqs.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,8 +30,7 @@ namespace WolverineEventing.Transport.AmazonSqs.Api
 
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineConfiguration.Configure(opts);
-                    WolverineEventingConfiguration.ConfigureAmazonSqs(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

@@ -1,4 +1,6 @@
+using Finbuckle.MultiTenant.Abstractions;
 using Intent.RoslynWeaver.Attributes;
+using Wolverine;
 using WolverineBus = Wolverine.IMessageBus;
 using ContractsMessageBus = WolverineEventing.MultiTenancy.Application.Common.Eventing.IMessageBus;
 
@@ -11,24 +13,24 @@ namespace WolverineEventing.MultiTenancy.Infrastructure.Eventing
     {
         private readonly List<Func<WolverineBus, ValueTask>> _pendingActions = new();
         private readonly WolverineBus _bus;
-        private readonly WolverineTenantHeaderStrategy _tenantHeaderStrategy;
+        private readonly IMultiTenantContextAccessor _multiTenantContextAccessor;
 
-        public WolverineMessageBus(WolverineBus bus, WolverineTenantHeaderStrategy tenantHeaderStrategy)
+        public WolverineMessageBus(WolverineBus bus, IMultiTenantContextAccessor multiTenantContextAccessor)
         {
             _bus = bus;
-            _tenantHeaderStrategy = tenantHeaderStrategy;
+            _multiTenantContextAccessor = multiTenantContextAccessor;
         }
 
         public void Publish<TMessage>(TMessage message)
             where TMessage : class
         {
-            _pendingActions.Add(bus => bus.PublishAsync(message, _tenantHeaderStrategy.BuildDeliveryOptions()));
+            _pendingActions.Add(bus => bus.PublishAsync(message, BuildDeliveryOptions()));
         }
 
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
-            _pendingActions.Add(bus => bus.SendAsync(message, _tenantHeaderStrategy.BuildDeliveryOptions()));
+            _pendingActions.Add(bus => bus.SendAsync(message, BuildDeliveryOptions()));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -46,6 +48,13 @@ namespace WolverineEventing.MultiTenancy.Infrastructure.Eventing
                 cancellationToken.ThrowIfCancellationRequested();
                 await action(_bus);
             }
+        }
+
+        private DeliveryOptions? BuildDeliveryOptions()
+        {
+            var tenantIdentifier = _multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Identifier;
+
+            return tenantIdentifier is null ? null : new DeliveryOptions { TenantId = tenantIdentifier };
         }
     }
 }

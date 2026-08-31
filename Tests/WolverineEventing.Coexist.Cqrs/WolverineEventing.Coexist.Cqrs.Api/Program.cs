@@ -8,7 +8,6 @@ using WolverineEventing.Coexist.Cqrs.Api.Logging;
 using WolverineEventing.Coexist.Cqrs.Application;
 using WolverineEventing.Coexist.Cqrs.Infrastructure;
 using WolverineEventing.Coexist.Cqrs.Infrastructure.Configuration;
-using WolverineEventing.Coexist.Cqrs.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,8 +30,7 @@ namespace WolverineEventing.Coexist.Cqrs.Api
 
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineConfiguration.Configure(opts);
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

@@ -1,5 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using Wolverine;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Eventing;
 using WolverineEventing.Coexist.Cqrs.Application.Orders.GetExistingOrder;
 using WolverineEventing.Coexist.Cqrs.Eventing.Messages;

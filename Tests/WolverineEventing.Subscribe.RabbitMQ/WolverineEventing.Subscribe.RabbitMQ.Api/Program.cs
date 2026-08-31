@@ -9,7 +9,6 @@ using WolverineEventing.Subscribe.RabbitMQ.Api.Logging;
 using WolverineEventing.Subscribe.RabbitMQ.Application;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration;
-using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -24,6 +23,16 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Host.UseWolverine(opts =>
+    {
+        WolverineConfiguration.Configure(opts, builder.Configuration);
+    });
+
+    builder.Host.UseSerilog((context, services, configuration) => configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services)
+        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+
     // Add services to the container.
     builder.Services.AddControllers(
         opt =>
@@ -37,17 +46,6 @@ try
     builder.Services.ConfigureApiVersioning();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.ConfigureSwagger(builder.Configuration);
-
-    builder.Host.UseWolverine(opts =>
-    {
-        WolverineConfiguration.Configure(opts);
-        WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
-    });
-
-    builder.Host.UseSerilog((context, services, configuration) => configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services)
-        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
     var app = builder.Build();
 

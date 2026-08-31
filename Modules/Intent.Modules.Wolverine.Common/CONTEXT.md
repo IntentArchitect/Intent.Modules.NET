@@ -2,21 +2,57 @@
 
 This document contains durable architectural decisions, constraints, and patterns for the shared Wolverine host module.
 
-## Why a module rather than shared code
+## Why this module exists
 
-Two modules each bundling their own copy of the `WolverineFx` package binds to whichever loads first and skews on version drift. A common module is the structural fix, and it's the only place a single owner for the registration can live. (Design assumption d-a3, `wolverine-eventing-module` spec.)
+Wolverine is configured once per host, via a single `builder.Host.UseWolverine(opts => { ... })` call. Multiple Wolverine-based modules (CQRS dispatch, eventing) need to contribute to that one call without knowing about each other or fighting over it. Two problems fall out of that:
 
-**One part of the original rationale was wrong and has been corrected.** This document previously claimed that "no shared-code approach can arbitrate a single `UseWolverine(...)` registration across modules that don't know about each other." Intent's own `ConfigureHostBuilderChainStatement` already arbitrates _existence_ — it is find-or-create, keyed on the emitted `builder.Host.{methodName}(` text, and `SetParameters` accumulates lambda parameters idempotently. Several modules naming `UseWolverine` have always resolved to one lambda. What the platform does **not** provide is ordering (see "Ordering is the actual problem" below), and that is what this module exists for.
+- **Package duplication.** If each contributing module bundled its own `WolverineFx` package reference, an app installing more than one would end up with two copies of the DLL, and the loader binds to whichever loads first — a version-skew hazard that's easy to hit and hard to diagnose. A single common module is the one place `WolverineFx` is referenced.
+- **Ordering.** Intent's `ConfigureHostBuilderChainStatement` DSL already merges same-named host builder calls into one lambda — it is find-or-create, keyed on the emitted `builder.Host.{methodName}(` text, so several modules calling `UseWolverine` always resolve to one lambda for free. What it does **not** provide is control over which contributor's statement lands first inside that lambda: the ASP.NET `ConfigureHostBuilderChainStatement` accepts a `priority` parameter and never reads it, and the `ConfigureServices` overload it delegates to has no priority parameter at all. Left alone, statement order is decided purely by the order contributors happen to queue their callbacks.
+
+This module exists to arbitrate that ordering and to be the single owner of the `WolverineFx` package reference. (Design assumption d-a3, `wolverine-eventing-module` spec.)
+
+## Cross-module contribution mechanism (revised at 1.0.0-pre.1 — supersedes the DSL-append design below)
+
+**As of 1.0.0-pre.1 this module owns a C# Template, `WolverineConfiguration` (`Templates/WolverineConfiguration/`), and it is the SOLE place any Wolverine module touches `Program.cs`.** `WolverineHostRegistrationExtension.SeedWolverineHostRegistration` (`Order => 0`) does two things in one `OnBuild` callback on the ASP.NET host's program template: it finds-or-creates the `builder.Host.UseWolverine(opts => { ... })` lambda via `ConfigureHostBuilderChainStatement`, **and** supplies its one and only statement — `{WolverineConfiguration}.Configure(opts, builder.Configuration);` — in the same call. Contributing modules (`Intent.Application.Wolverine`, `Intent.Eventing.Wolverine`) no longer reach into the host builder at all.
+
+```csharp
+public static class WolverineConfiguration
+{
+    public static void Configure(WolverineOptions opts, IConfiguration configuration)
+    {
+        ConfigureCqrs(opts);                        // contributed by Intent.Application.Wolverine
+        ConfigureEventing(opts, configuration);      // contributed by Intent.Eventing.Wolverine
+    }
+}
+```
+
+Instead, each contributor finds this module's `WolverineConfigurationTemplate` by its string `TemplateId` (`"Intent.Wolverine.Common.WolverineConfiguration"` — no `ProjectReference` here, so it cannot be a compiled constant on the contributor's side) and, inside its own `OnAfterTemplateRegistrations`, registers an `OnBuild` callback on that **foreign** `CSharpFile`: it adds its own private method (`ConfigureCqrs` / `ConfigureEventing`) to the class, and one call statement into the shared `Configure` method body. This is the identical find-template + `OnBuild` + `AddMethod`/`AddStatement` idiom `Intent.Eventing.MassTransit`'s `FinbuckleConfiguratorExtension` already uses on `MassTransitConfigurationTemplate` — nothing new was invented for it.
+
+Contribution order (which contributor's call statement lands first in `Configure`'s body) is still controlled by factory-extension `Order`, because `OnBuild` callbacks on the same `CSharpFile` fire in registration order:
+
+| Module                            | `Order` | What it contributes |
+| --------------------------------- | ------- | -------------------- |
+| `Intent.Wolverine.Common` (seeds `Program.cs` only) | `0`     | — |
+| `Intent.Application.Wolverine`    | `10`    | `ConfigureCqrs(opts)` |
+| `Intent.Eventing.Wolverine`       | `20`    | `ConfigureEventing(opts, configuration)` |
+
+An app with only one of the two contributor modules installed simply gets one private method and one call statement — the constructor emits both helper method NAMES unconditionally with empty bodies as an anchor (see the template source), so an app with neither eventing nor CQRS installed still compiles; each contributor's callback is independent and self-contained.
+
+**`Order` on `Intent.Wolverine.Common`'s OWN extension still decides where the `builder.Host.UseWolverine(...)` STATEMENT lands in `Program.cs`** relative to unrelated neighbours (e.g. `Intent.Modules.AspNetCore.Logging.Serilog`'s `UseSerilog(...)`), for the same DSL-queuing reason as before — `Order => 0` is deliberate, not a leftover from the old design; do not move it negative.
+
+**Never call `lambdaBlock.Statements.Clear()`** inside the `Program.cs` `OnBuild` callback, and never call `file.Classes.First().Methods.Clear()`/similar on `WolverineConfigurationTemplate`'s own file — both are shared with other contributors.
+
+### Why this replaced the original DSL-append-per-module design
+
+The original design (each contributor independently calling `ConfigureHostBuilderChainStatement("UseWolverine", ...)` to append its OWN class's call, `Intent.Application.Wolverine`'s `WolverineConfiguration.Configure(opts)` and `Intent.Eventing.Wolverine`'s `WolverineEventingConfiguration.Configure{Transport}(opts, config)` both appending into the SAME seeded lambda) worked, but left two classes doing one job, with transport-named methods (`ConfigureLocal`, `ConfigureRabbitMq`, …) leaking the eventing transport choice into the public shape of generated code — and no single place a consumer could point at as "the" Wolverine configuration. The two alternative mechanisms considered when the DSL-append design was FIRST chosen (a dedicated request type collected and replayed; the `OnEmitOrPublished`/`EmitOrPublish` event-bus pattern `ContainerRegistrationRequest` uses) were rejected then for the same reasons they're still not used now — see the git history of this file for that reasoning if it's needed again. What changed is that "one shared class, contributors adding a private method + call statement to it" turned out to be a third option that gets the single-entry-point property the DSL-append design couldn't, using the SAME `TemplateDependency`/`OnBuild` cross-template mechanism this codebase already established elsewhere (`FinbuckleConfiguratorExtension`), not a new one.
 
 ## D1 — Conventional discovery stays ON
 
-The originally-approved design had this module disable Wolverine's conventional handler discovery (`DisableConventionalDiscovery()`) and require every contributing module to register its handler types explicitly. That was reversed during design: `Intent.Application.Wolverine`'s own CONTEXT.md records its discovery model as assembly scanning by class-name suffix, and `Intent.Application.Wolverine.DomainEvents`'s CONTEXT.md explicitly calls convention discovery "Wolverine's native pattern — match it exactly". Disabling it would strand both modules' handlers unless they were rewritten to register per-type, which is a breaking change neither shipped module asked for.
+This module **never** calls `DisableConventionalDiscovery()`, and registers **no discovery assemblies or types of its own**. A contributing module that needs an assembly or type brought into discovery scope emits that statement from its own contribution — `Intent.Application.Wolverine`'s `opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly)` is the live example.
 
-This module therefore **never** calls `DisableConventionalDiscovery()`, and registers **no discovery assemblies or types of its own**. A contributing module that needs an assembly or type brought into discovery scope emits that statement from its own contribution — `Intent.Application.Wolverine`'s `opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly)` is the live example.
+**Conventional discovery only scans the ENTRY assembly.** Measured against WolverineFx 5.39.5: a convention-named handler in a referenced (non-entry) assembly is NOT found by bare conventional discovery — it needs either `IncludeAssembly` or `IncludeType<T>()`. This makes `Intent.Application.Wolverine`'s `IncludeAssembly` call load-bearing rather than redundant: it is the only thing pulling the Application layer into discovery scope, and sibling modules that generate convention-named handlers into that assembly while registering nothing of their own (notably `Intent.Application.Wolverine.DomainEvents`) depend on it.
 
-> An earlier revision of this document stated the guarantee differently: that this module "guarantees each contributing module's assembly is registered for discovery exactly once, via `WolverineHostConfigurationRequest.RequiringDiscoveryOf(assembly)`, de-duplicated across contributors." That was never true in practice. `RequiringDiscoveryOf` took a runtime-loaded `System.Reflection.Assembly`, but the only assemblies loaded while the Software Factory runs are Intent module/SDK assemblies — the consuming application's Application-layer assembly does not exist yet. The method had no callers and could not have produced compilable output; it has been removed along with the request type that carried it.
-
-**Consequence — double-registering the same type is SAFE (measured, not assumed).** An earlier revision asserted that a handler type registered explicitly AND discovered conventionally would make Wolverine see two handlers for one message and fail codegen with a duplicate local (`CS0128`). **That is wrong, and was never measured.** Verified empirically against WolverineFx 5.39.5 (probe app; `HandlerGraph.ChainFor(messageType)` inspected, then the message actually invoked to force handler codegen):
+**Registering a handler type explicitly, on top of conventional discovery finding the same type, is safe — measured, not assumed.** Verified empirically against WolverineFx 5.39.5 (probe app; `HandlerGraph.ChainFor(messageType)` inspected, then the message actually invoked to force handler codegen):
 
 | Registration of one handler type | HandlerCalls in chain | Invoke                |
 | -------------------------------- | --------------------- | --------------------- |
@@ -24,50 +60,18 @@ This module therefore **never** calls `DisableConventionalDiscovery()`, and regi
 | `IncludeType<T>()` only          | 1                     | OK, body ran once     |
 | **both**                         | **1**                 | **OK, body ran once** |
 
-Wolverine de-duplicates by handler type **plus method**, so registering a type by both routes is idempotent. Contributors may safely emit an explicit per-type registration for a type an `IncludeAssembly` already covers — which is what R18.3's attributability requirement needs.
+Wolverine de-duplicates by handler type **plus method**, so registering a type by both routes is idempotent — contributors may safely emit an explicit per-type registration for a type an `IncludeAssembly` already covers, which is what R18.3's attributability requirement needs (each module's registration is attributable to the module that owns the handler, not just riding in on someone else's blanket scan).
 
-The genuine multi-handler case is **two distinct handler classes** for one message type. In 5.39.5 that yields 2 `HandlerCall`s combined under `MultipleHandlerBehavior.ClassicCombineIntoOneLogicalHandler`, and in the simple case measured it still generated and executed cleanly — so the `CS0128` failure mode is narrower than the old note claimed and is unrelated to double-registering a single type.
-
-**Conventional discovery only scans the ENTRY assembly.** Also measured: a convention-named handler in a _referenced_ (non-entry) assembly is NOT found by bare conventional discovery — it needs either `IncludeAssembly` or `IncludeType<T>()`. This makes `Intent.Application.Wolverine`'s `opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly)` load-bearing rather than redundant: it is the only thing pulling the Application layer into discovery scope, and sibling modules that generate convention-named handlers into that assembly while registering nothing of their own (notably `Intent.Application.Wolverine.DomainEvents`) depend on it.
-
-## Ordering is the actual problem
-
-Two defects were conflated in the original design. Separating them is what let the mechanism shrink.
-
-**The `Statements.Clear()` bug.** Before this module, `Intent.Application.Wolverine`'s `WolverineRegistrationFactoryExtension` called `lambdaBlock.Statements.Clear()` inside its `ConfigureHostBuilderChainStatement("UseWolverine", ...)` callback, before adding its own statement. Nothing stopped one module's callback from wiping out whatever an earlier module's callback had already added. **The fix for this is deleting that one line** — it never needed an architecture.
-
-**The genuine, remaining problem is order.** The ASP.NET `ProgramFile.ConfigureHostBuilderChainStatement` accepts a `priority` parameter and **never reads it** — it is declared and dropped. The `IAppStartupFile.ConfigureServices(...)` overload it delegates to has no priority parameter at all. So statement order inside the lambda is decided purely by the order contributors queue their callbacks, which before this module was arbitrary: all three Wolverine factory extensions were `Order => 0`.
-
-## Cross-module contribution mechanism
-
-This module **seeds** the lambda: from `OnAfterTemplateRegistrations`, inside a `CSharpFile.OnBuild(...)` callback on the ASP.NET host's program template, it calls `ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" })` with **no configure callback**. Contributing modules then call the same DSL method with their own callback; find-or-create resolves them onto the seeded lambda.
-
-Contribution order is factory-extension `Order`, because each contributor registers its `OnBuild` callback on the same `CSharpFile` during its own `OnAfterTemplateRegistrations`, and `OnBuild` callbacks fire in registration order:
-
-| Module                            | `Order` |
-| --------------------------------- | ------- |
-| `Intent.Wolverine.Common` (seeds) | `0`     |
-| `Intent.Application.Wolverine`    | `10`    |
-| `Intent.Eventing.Wolverine`       | `20`    |
-
-**`Order` also decides where the statement LANDS in `Program.cs`, not just contribution order.** This was measured, not predicted. Seeding from `Order => -10` queues the DSL's `ConfigureServices` callback earlier than the previous implementation did, which relocates the whole `builder.Host.UseWolverine(...)` statement from _above_ the `builder.Services.*` block to _below_ it — and drags the neighbouring `builder.Host.UseSerilog(...)` call, owned by `Intent.Modules.AspNetCore.Logging.Serilog`, along with it. `0` is the value the previous implementation effectively used, so it preserves placement; the contributors move out to `10`/`20` instead. **Do not move this module negative to make it "more first".**
-
-**Why there is no request type any more.** The previous design routed contributions through a `WolverineHostConfigurationRequest` recorded in a static `ConditionalWeakTable` keyed by the `IProgramTemplate`, consumed inside this module's own `OnBuild`. It was removed because it bought nothing the DSL does not already provide, and cost three things:
-
-- It was not a _request_ in the sense `ContainerRegistrationRequest` is. A request is declarative data the owning template interprets; that type carried a raw `(lambdaBlock, parameters)` callback, so the contributor still wrote the statement string itself and still had to know the lambda's shape (`parameters[0]` is `opts`, and `Intent.Eventing.Wolverine` hardcoded `builder.Configuration`, a variable belonging to the host template's scope). The encapsulation it advertised leaked straight back out.
-- Correctness depended on an unenforceable call-site rule — contributors had to call `Contribute()` eagerly and never from inside `OnBuild`, or the contribution silently vanished — documented only in a comment triplicated across three files.
-- Its `WithPriority` had no callers (both contributors sat at the default `0`), and its `RequiringDiscoveryOf` was unimplementable (see D1).
-
-**Why not the `OnEmitOrPublished`/`EmitOrPublish` event bus** (the pattern `Intent.Modules.Application.DependencyInjection`'s `DependencyInjectionTemplate` uses for `ContainerRegistrationRequest`): that pattern requires the _owning_ template to subscribe `OnEmitOrPublished<T>` in its own constructor. Here the "owning" template (`IProgramTemplate`, role `App.Program`) belongs to `Intent.Modules.AspNetCore`, a module this one does not own and cannot add a constructor subscription to. That reasoning still holds — but the conclusion drawn from it originally (a static contribution registry) skipped the option that turned out to be correct: use the DSL, which already merges.
+The genuine multi-handler case is **two distinct handler classes** for one message type — that is a real duplicate-handler shape, and unrelated to double-registering a single type by two routes.
 
 ## Host scope
 
-This module targets the ASP.NET host (`App.Program`) only. Azure Functions and other non-ASP.NET hosts are explicitly out of scope — see `Intent.Application.Wolverine`'s own removal of its Azure Functions registration (R8.7 of the `wolverine-eventing-module` spec), which was never functioning correctly under any `TypeLoadMode` in that hosting model.
+This module targets the ASP.NET host (`App.Program`) only. Azure Functions and other non-ASP.NET hosts are out of scope — see `Intent.Application.Wolverine`'s own CONTEXT.md for why serverless hosts don't work with Wolverine's code generation model today (R8.7 of the `wolverine-eventing-module` spec).
 
-## No C# template and no API surface of its own
+## One C# Template, `WolverineConfiguration` — superseded, see "Cross-module contribution mechanism" above
 
-This module emits no file and exposes no public types for other modules to reference. It is a single Factory Extension. The only output it touches is the ASP.NET Core `Program` file, owned by `Intent.Modules.AspNetCore`.
+Until 1.0.0-pre.1 this module emitted no file of its own and exposed no public types — a single Factory Extension only, touching nothing but the ASP.NET Core `Program` file. That is **no longer true**: it now owns `WolverineConfiguration` (`Templates/WolverineConfiguration/WolverineConfigurationTemplatePartial.cs`), a public static class every Wolverine app generates, whose `Configure(WolverineOptions, IConfiguration)` is the single entry point contributors extend. `Program.cs` is still the only OTHER output this module touches, and still only through the seed described above.
 
-That is deliberate: **contributors take no `ProjectReference` on this module.** They declare it as an `.imodspec` `<dependency>` so it is installed and its seed runs, but they reference none of its types — Tier-0 coupling in `intent-module-orchestrator`'s terms. A `PrivateAssets="All"` `ProjectReference` would bundle a second copy of this module's DLL into each contributor alongside the copy this module itself ships, and the loader binds to whichever loads first.
+**Contributors still take no `ProjectReference` on this module** — they reach `WolverineConfigurationTemplate` by its string `TemplateId`, not a compiled type reference, and declare it as an `.imodspec` `<dependency>` so it is installed and both its template and its `Program.cs` seed run. This is Tier-1 coupling in `intent-module-orchestrator`'s terms (role/id-string lookup through a generic interface, `ICSharpFileBuilderTemplate`) — deliberately not Tier-2 (a typed model reference), for the same package-duplication reason as always: a `PrivateAssets="All"` `ProjectReference` would bundle a second copy of this module's DLL into each contributor alongside the copy this module itself ships, and the loader binds to whichever loads first.
 
-Removing those `ProjectReference`s also retired a documented hazard. This section previously warned that a module taking a `ProjectReference` here while referencing `Intent.Modules.Common.CSharp` at a different version could fail to compile with a misleading error (e.g. `'CSharpLambdaBlock' does not contain a definition for 'AddStatement'`, whose actual cause in `Intent.Eventing.Wolverine` turned out to be a missing `using Intent.Modules.Common.CSharp.Builder`). It also claimed this module's package references had been bumped to match `Intent.Application.Wolverine`'s "to keep the three Wolverine modules on one consistent floor" — **that was never true on disk**: this module builds against `Intent.Modules.Common` 3.7.2 / `.CSharp` 3.8.1 while both contributors use 3.11.2 / 3.10.10. With no `ProjectReference` between them the skew no longer affects compilation, so the versions have been left alone rather than churned.
+This module's package references (`Intent.Modules.Common` / `Intent.Modules.Common.CSharp`) are versioned independently of its contributors'. With no `ProjectReference` between them, a version difference doesn't affect compilation, so there is no need to keep them in lockstep.

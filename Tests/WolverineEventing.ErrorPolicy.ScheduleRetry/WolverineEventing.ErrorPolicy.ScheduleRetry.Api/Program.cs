@@ -7,7 +7,7 @@ using WolverineEventing.ErrorPolicy.ScheduleRetry.Api.Filters;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Api.Logging;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Application;
 using WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure;
-using WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure.Eventing;
+using WolverineEventing.ErrorPolicy.ScheduleRetry.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace WolverineEventing.ErrorPolicy.ScheduleRetry.Api
                 // Add services to the container.
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureLocal(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

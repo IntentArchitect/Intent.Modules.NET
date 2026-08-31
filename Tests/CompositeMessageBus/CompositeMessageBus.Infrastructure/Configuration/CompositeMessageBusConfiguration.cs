@@ -27,6 +27,7 @@ namespace CompositeMessageBus.Infrastructure.Configuration
             services.AddNServiceBusConfiguration(configuration, registry);
 
             services.AddSolaceConfiguration(configuration, registry);
+            services.AddWolverineEventingConfiguration(configuration, registry);
             services.AddSingleton(registry);
             services.AddScoped<MessageBrokerResolver>();
             services.AddScoped<IEventBus, Infrastructure.Eventing.CompositeMessageBus>();

@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="ea8b6d11-7281-454d-9919-a7dce1f26317">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/instructions/unit-test-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Controllers/OrdersController.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/ExceptionFilter.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Program.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Properties/launchSettings.json" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Services/CurrentUserService.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/WolverineEventing.Outbox.SqlServer.Publish.Api.csproj" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/appsettings.json" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests/WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests.csproj" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/AssemblyAttributes.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IMessageBus.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICommand.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IQuery.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Models/Result.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedList.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResult.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/DependencyInjection.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/IntegrationEvents/OrderCreatedEvent.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommand.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/WolverineEventing.Outbox.SqlServer.Publish.Application.csproj" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/CollectionExtensions.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/UpdateHelper.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IEFRepository.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IPagedList.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IRepository.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/ValueObject.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/WolverineEventing.Outbox.SqlServer.Publish.Domain.csproj" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/DependencyInjection.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Eventing/WolverineEventingConfiguration.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Eventing/WolverineMessageBus.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Migrations/README.md" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.csproj" />
-  <file path="WolverineEventing.Outbox.SqlServer.Publish.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/instructions/unit-test-guidelines.md" templateId="Intent.UnitTesting.UnitTestInstructionTemplate" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Controllers/OrdersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/WolverineEventing.Outbox.SqlServer.Publish.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests/WolverineEventing.Outbox.SqlServer.Publish.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Application/WolverineEventing.Outbox.SqlServer.Publish.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Domain/WolverineEventing.Outbox.SqlServer.Publish.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.Infrastructure/WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.Outbox.SqlServer.Publish.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

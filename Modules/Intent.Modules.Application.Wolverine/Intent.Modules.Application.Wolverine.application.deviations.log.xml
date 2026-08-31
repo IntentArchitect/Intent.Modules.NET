@@ -2,18 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.IModSpecFile#97e21761-721c-478b-a8e8-30184d0b6138</correlationId>
-      <path>Intent.Application.Wolverine.imodspec</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-28T14:59:09.4294395Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-08-31T05:18:56.4077527Z</approvedAt>
-      <deviationsHash>F7339403827586F72B3379BE1565C2C0226CDB7BBCEDC9AB1AB8D6BEFE437580</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#2c954eeb-64a0-4c7e-b0df-8c5e148ef90b</correlationId>
       <path>Intent.Modules.Application.Wolverine.csproj</path>
       <count>1</count>
@@ -58,6 +46,12 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-31T05:18:56.2222486Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Wolverine/InteractionStrategies/SendOnWolverineInteractionStrategy.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-31T20:18:22.7612295Z</approvedAt>
     </customFile>
   </customFiles>
 </deviationsLog>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c8a6388d-2782-4847-9219-f21f2be7b508" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>MsgWolverine</name>
+  <display>MsgWolverine</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e6528887-f142-4ec9-8063-9ada970e8855</parentFolderId>
+  <packageId>e6528887-f142-4ec9-8063-9ada970e8855</packageId>
+  <packageName>CompositeMessageBus.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" name="Wolverine Message">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
+      <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
+      <properties>
+        <property name="a34e3125-4aeb-44c8-a66a-15ebf176fa7f" display="Topic Name" isActive="true" />
+        <property name="575e43e9-12b8-4bf6-86bf-1218fecaa296" display="Destination Queue Name" isActive="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="fec884fa-d644-40fe-89c7-5aca21d6ae18" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="65d1b205-8442-421d-9e69-3eee0b700c55">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c8a6388d-2782-4847-9219-f21f2be7b508</parentFolderId>
+      <packageId>e6528887-f142-4ec9-8063-9ada970e8855</packageId>
+      <packageName>CompositeMessageBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

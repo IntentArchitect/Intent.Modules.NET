@@ -51,20 +51,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f9117bec-bdad-4ed3-83ea-c2d3eb88e53b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Wolverine.WolverineEventingConfiguration</name>
-      <display>Intent.Eventing.Wolverine.WolverineEventingConfiguration</display>
-      <externalReference>Intent.Eventing.Wolverine</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fe0f2080-0eed-46c3-8ced-18e14f0ee182</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="b0ec9393-6099-41c8-a257-5250faafbddc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Wolverine.WolverineMessageBus</name>
       <display>Intent.Eventing.Wolverine.WolverineMessageBus</display>
@@ -79,9 +65,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="73c59c4f-c8cb-4015-a1be-ae08ee5711ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Wolverine.WolverineTenantHeaderStrategy</name>
-      <display>Intent.Eventing.Wolverine.WolverineTenantHeaderStrategy</display>
+    <childElement id="835376ca-4406-4d5a-9a50-7829af84b0b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Wolverine.WolverineTenantMiddleware</name>
+      <display>Intent.Eventing.Wolverine.WolverineTenantMiddleware</display>
       <externalReference>Intent.Eventing.Wolverine</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -93,9 +79,23 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="835376ca-4406-4d5a-9a50-7829af84b0b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Wolverine.WolverineTenantMiddleware</name>
-      <display>Intent.Eventing.Wolverine.WolverineTenantMiddleware</display>
+    <childElement id="cb0cd6eb-08f0-4be8-88cb-216fdf14a834" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Wolverine.WolverineCompositeConfiguration</name>
+      <display>Intent.Eventing.Wolverine.WolverineCompositeConfiguration</display>
+      <externalReference>Intent.Eventing.Wolverine</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fe0f2080-0eed-46c3-8ced-18e14f0ee182</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c432c938-8292-42cb-9503-22728c0617d5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Wolverine.WolverineTenantStrategy</name>
+      <display>Intent.Eventing.Wolverine.WolverineTenantStrategy</display>
       <externalReference>Intent.Eventing.Wolverine</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

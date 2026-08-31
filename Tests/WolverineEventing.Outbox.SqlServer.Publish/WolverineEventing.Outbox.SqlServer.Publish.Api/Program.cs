@@ -7,7 +7,7 @@ using WolverineEventing.Outbox.SqlServer.Publish.Api.Filters;
 using WolverineEventing.Outbox.SqlServer.Publish.Api.Logging;
 using WolverineEventing.Outbox.SqlServer.Publish.Application;
 using WolverineEventing.Outbox.SqlServer.Publish.Infrastructure;
-using WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.Eventing;
+using WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace WolverineEventing.Outbox.SqlServer.Publish.Api
                 // Add services to the container.
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineEventingConfiguration.ConfigureRabbitMq(opts, builder.Configuration);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

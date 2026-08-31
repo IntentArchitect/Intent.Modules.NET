@@ -67,11 +67,11 @@
   <file path="WolverineEventing.MultiTenancy.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="WolverineEventing.MultiTenancy.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="WolverineEventing.MultiTenancy.Domain/WolverineEventing.MultiTenancy.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="WolverineEventing.MultiTenancy.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="WolverineEventing.MultiTenancy.Infrastructure/Eventing/WolverineEventingConfiguration.cs" templateId="Intent.Eventing.Wolverine.WolverineEventingConfiguration" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
-  <file path="WolverineEventing.MultiTenancy.Infrastructure/Eventing/WolverineTenantHeaderStrategy.cs" templateId="Intent.Eventing.Wolverine.WolverineTenantHeaderStrategy" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/Eventing/WolverineTenantMiddleware.cs" templateId="Intent.Eventing.Wolverine.WolverineTenantMiddleware" />
+  <file path="WolverineEventing.MultiTenancy.Infrastructure/Eventing/WolverineTenantStrategy.cs" templateId="Intent.Eventing.Wolverine.WolverineTenantStrategy" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/MultiTenant/TenantExtendedInfo.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" />
   <file path="WolverineEventing.MultiTenancy.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

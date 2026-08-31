@@ -4,7 +4,7 @@
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/AITasksFactoryExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineRegistrationFactoryExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="Intent.Application.Wolverine.imodspec" deviationsHash="F7339403827586F72B3379BE1565C2C0226CDB7BBCEDC9AB1AB8D6BEFE437580" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Application.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Application.Wolverine.csproj" deviationsHash="B278870EAE85D07B353E9853FDD34358C9965021F9A57E69B5FB4BA69CFDAD9E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
@@ -40,7 +40,5 @@
   <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
-  <file path="Templates/WolverineConfiguration/WolverineConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

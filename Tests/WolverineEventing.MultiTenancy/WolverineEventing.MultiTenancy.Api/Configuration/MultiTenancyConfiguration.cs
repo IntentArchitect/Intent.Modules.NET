@@ -2,6 +2,7 @@ using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.Stores.InMemoryStore;
 using Intent.RoslynWeaver.Attributes;
+using WolverineEventing.MultiTenancy.Infrastructure.Eventing;
 using WolverineEventing.MultiTenancy.Infrastructure.MultiTenant;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,6 +18,7 @@ namespace WolverineEventing.MultiTenancy.Api.Configuration
         {
             services.AddMultiTenant<TenantExtendedInfo>()
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
+                .WithStrategy<WolverineTenantStrategy>(ServiceLifetime.Scoped)
                 .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
             return services;
         }
