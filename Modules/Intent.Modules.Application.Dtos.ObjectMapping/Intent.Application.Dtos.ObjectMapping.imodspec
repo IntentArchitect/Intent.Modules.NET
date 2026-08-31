@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.ObjectMapping</id>
-  <version>1.0.0-pre.4</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0)</supportedClientVersions>
   <summary>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities, producing readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.</summary>
   <description>Generates explicit C# object mapping extension methods for DTOs mapped from domain entities, producing readable, refactor-safe code with no runtime reflection or third-party mapping library dependency.</description>
@@ -36,7 +36,7 @@
   <interoperability>
     <detect id="Intent.Application.DomainInteractions">
       <install>
-        <package id="Intent.Application.DomainInteractions" version="1.2.10-pre.0" />
+        <package id="Intent.Application.DomainInteractions" version="1.2.10" />
       </install>
     </detect>
   </interoperability>
