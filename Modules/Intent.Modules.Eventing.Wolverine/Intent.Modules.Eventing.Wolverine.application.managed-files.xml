@@ -4,16 +4,16 @@
   <file path="../Intent.Modules.NET.sln" />
   <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" />
   <file path="Api/MessageModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="B53F5BCFDB0414242877CEE6696CB5CCF2194D6A26D6EDAFF571ED15CB02F021" />
+  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="FDEE5DE5D609F49E9F10F0F8817BD2D0548E81DE4ACC1ECB2FAD99EBE66AF878" />
   <file path="FactoryExtensions/WolverineFinbuckleConfiguratorExtension.cs" deviationsHash="6671341CC1490CA3E6C2360362245E0B4BF2C624E413AD8926D77D4FBF7C3BEB" />
   <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="F2755255DF80A412B668641D37F16FB41E75E23DBCB42CE462B12B85F46C947B" />
   <file path="FactoryExtensions/WolverineTelemetryConfiguratorExtension.cs" deviationsHash="FB4B09BCD871527D5E9BEC7BA248F09153D9B6B2208379B38A52EC2553FB75AB" />
-  <file path="Intent.Eventing.Wolverine.imodspec" />
-  <file path="Intent.Modules.Eventing.Wolverine.csproj" />
+  <file path="Intent.Eventing.Wolverine.imodspec" deviationsHash="4CB385BAE3ED5DF9BB00044D199F5209661AF93C8920E03567A3D5A56E426F6C" />
+  <file path="Intent.Modules.Eventing.Wolverine.csproj" deviationsHash="64FB4A19994C5BF3A318D5BCECCC6DB294EDF492B24B78816095AD06E4D48920" />
   <file path="NugetPackages.cs" />
   <file path="Settings/ModuleSettingsExtensions.cs" />
   <file path="Templates/TemplateExtensions.cs" />
-  <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs" deviationsHash="08E7E25E005F59B06E71CF932B272533BDEF28BFB5498EC1990787A537C5B592" />
+  <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplatePartial.cs" deviationsHash="8ECED62639B756E063F89D0304322B811F716CF173160F11DCB95DC57FD32497" />
   <file path="Templates/WolverineEventingConfiguration/WolverineEventingConfigurationTemplateRegistration.cs" />
   <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplatePartial.cs" deviationsHash="BAE218DB54E0071C9111383F09A7BC9B9BCFDF7C765BF24378B0903B6B84ECF8" />
   <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplateRegistration.cs" />

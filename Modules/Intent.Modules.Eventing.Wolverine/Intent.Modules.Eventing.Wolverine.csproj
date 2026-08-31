@@ -18,8 +18,12 @@
         <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
     </ItemGroup>
 
+    <!-- Intent.Modules.Wolverine.Common is deliberately NOT a ProjectReference. This module needs
+         Intent.Wolverine.Common installed (declared as an .imodspec <dependency>) so its factory
+         extension seeds the shared UseWolverine lambda, but it references none of its types. A
+         PrivateAssets="All" ProjectReference would bundle a second copy of that module's DLL
+         alongside the one the module itself ships, and the loader binds to whichever loads first. -->
     <ItemGroup>
-        <ProjectReference Include="..\Intent.Modules.Wolverine.Common\Intent.Modules.Wolverine.Common.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     </ItemGroup>
 </Project>

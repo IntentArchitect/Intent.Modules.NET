@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Wolverine.Common.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,47 +16,20 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
     {
         public override string Id => "Intent.Wolverine.Common.WolverineHostRegistrationExtension";
 
+        // Runs ahead of every Wolverine-based contributor (Intent.Application.Wolverine at 10,
+        // Intent.Eventing.Wolverine at 20) so that this module, not whichever contributor happened
+        // to execute first, is what establishes the shared UseWolverine(opts => ...) lambda. See
+        // SeedWolverineHostRegistration for why that ordering is the whole mechanism.
+        //
+        // Deliberately left at 0 rather than moved negative. Where the generated
+        // builder.Host.UseWolverine(...) statement LANDS in Program.cs depends on when the DSL's
+        // ConfigureServices callback is queued relative to the ones adding builder.Services.*.
+        // Seeding from a negative Order queues it earlier and relocates the statement below the
+        // builder.Services block - taking the neighbouring builder.Host.UseSerilog(...) call, owned
+        // by another module, along with it. 0 is the value the previous implementation effectively
+        // used, so it keeps placement unchanged; the contributors move out instead.
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
-
-        // Contributions are recorded here rather than via the OnEmitOrPublished/EmitOrPublish event
-        // bus. That bus only works when the *owning* template subscribes in its own constructor
-        // (see DependencyInjectionTemplate subscribing OnEmitOrPublished<ContainerRegistrationRequest>
-        // in its own constructor, and SerilogStartupConfigurationExtension calling EmitOrPublish
-        // against that already-subscribed template instance). Here the "owning" template
-        // (IProgramTemplate/"App.Program") belongs to a different module (Intent.Modules.AspNetCore),
-        // so nothing subscribes OnEmitOrPublished<WolverineHostConfigurationRequest> against it and
-        // no amount of factory-extension Order tuning would make that reliable.
-        //
-        // Instead, contributing modules call Contribute(...) directly - a plain, order-independent
-        // registry keyed by the IProgramTemplate instance. Order-independence is guaranteed by
-        // *when* it's consumed rather than when it's written: contributions are recorded during the
-        // AfterTemplateRegistrations phase (from any factory extension's OnAfterTemplateRegistrations),
-        // while consumption happens inside a CSharpFile.OnBuild callback, which only runs once the
-        // whole application has moved into the later Build phase - i.e. strictly after every factory
-        // extension's OnAfterTemplateRegistrations, across the entire application, has completed.
-        private static readonly ConditionalWeakTable<IProgramTemplate, List<WolverineHostConfigurationRequest>> _contributions = new();
-
-        /// <summary>
-        /// Contribute a request to the single, shared <c>builder.Host.UseWolverine(opts => ...)</c>
-        /// registration for the given ASP.NET host program template. Safe to call from any factory
-        /// extension's <c>OnAfterTemplateRegistrations</c>, regardless of that extension's <c>Order</c>
-        /// relative to <see cref="WolverineHostRegistrationExtension"/>.
-        /// </summary>
-        public static void Contribute(IProgramTemplate programTemplate, WolverineHostConfigurationRequest request)
-        {
-            if (programTemplate == null)
-            {
-                throw new ArgumentNullException(nameof(programTemplate));
-            }
-
-            if (request == null)
-            {
-                throw new ArgumentNullException(nameof(request));
-            }
-
-            _contributions.GetOrCreateValue(programTemplate).Add(request);
-        }
 
         /// <summary>
         /// This is an example override which would extend the
@@ -76,75 +43,55 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
         {
             // This module only ever targets the ASP.NET host role. Azure Functions is deliberately
             // excluded - it has its own program template shape and is out of scope for this module.
+            // A host-scoped template can have more than one instance in a multi-host application, so
+            // this uses the plural lookup rather than FindTemplateInstance, which throws once a
+            // second host exists.
             foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>("App.Program"))
             {
-                RegisterWolverineOnHost(programTemplate);
+                SeedWolverineHostRegistration(programTemplate);
             }
         }
 
-        private static void RegisterWolverineOnHost(IProgramTemplate programTemplate)
+        /// <summary>
+        /// Establishes the single <c>builder.Host.UseWolverine(opts => ...)</c> registration on the
+        /// given ASP.NET host, and owns the <c>WolverineFx</c> package and <c>using Wolverine</c>
+        /// that registration needs. Contributing modules do not re-declare either.
+        /// </summary>
+        private static void SeedWolverineHostRegistration(IProgramTemplate programTemplate)
         {
             if (programTemplate == null)
             {
                 return;
             }
 
+            // Outside the OnBuild callback deliberately - NuGet dependencies declared inside a build
+            // callback are not reliably picked up.
             programTemplate.AddNugetDependency(NugetPackages.WolverineFx(programTemplate.OutputTarget));
 
             programTemplate.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("Wolverine");
 
-                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
-                    (lambdaBlock, parameters) =>
-                    {
-                        // Deliberately never call lambdaBlock.Statements.Clear() here - doing so would
-                        // silently discard whatever an earlier contributor (or this method, on a second
-                        // pass) already added, which is exactly the "one module's contribution
-                        // overwrites another's" bug this module exists to prevent.
-                        var contributions = _contributions.TryGetValue(programTemplate, out var requests)
-                            ? requests.OrderBy(x => x.Priority).ToList()
-                            : new List<WolverineHostConfigurationRequest>();
-
-                        foreach (var contribution in contributions)
-                        {
-                            contribution.ConfigureAction?.Invoke(lambdaBlock, parameters);
-                        }
-
-                        var discoveryAssemblies = contributions
-                            .SelectMany(x => x.DiscoveryAssemblies)
-                            .Distinct()
-                            .ToList();
-
-                        foreach (var assembly in discoveryAssemblies)
-                        {
-                            lambdaBlock.AddStatement($"opts.Discovery.IncludeAssembly({GetAssemblyExpression(assembly)});");
-                        }
-                    });
+                // Seed the lambda with no statements of its own. ConfigureHostBuilderChainStatement
+                // is find-or-create: it looks for an existing "builder.Host.UseWolverine(" statement
+                // and only creates one when absent, so every later caller naming "UseWolverine"
+                // resolves to THIS lambda instead of emitting a competing registration.
+                //
+                // Seeding it here, from a factory extension ordered ahead of every contributor, is
+                // what makes the result deterministic in two ways that matter:
+                //   1. the position of the UseWolverine statement within Program.cs no longer
+                //      depends on which contributing modules happen to be installed, and
+                //   2. contributions land in ascending factory-extension Order, because each
+                //      contributor's OnBuild callback is registered on this same CSharpFile during
+                //      its own OnAfterTemplateRegistrations, and OnBuild callbacks fire in
+                //      registration order.
+                //
+                // Ordering cannot be expressed through the DSL's own `priority` parameter: the
+                // ASP.NET implementation of ConfigureHostBuilderChainStatement accepts it and never
+                // reads it, and the ConfigureServices callback it delegates to has no priority
+                // parameter at all. Factory-extension Order is the only lever.
+                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" });
             });
-        }
-
-        /// <summary>
-        /// Produces a compilable <c>typeof(SomeType).Assembly</c> expression that resolves, at
-        /// application runtime, to the given assembly. There is no direct way to embed a
-        /// <see cref="Assembly"/> reference as a C# literal, so a representative exported type from
-        /// that assembly is used instead - the same idiom
-        /// <c>Intent.Application.Wolverine</c>'s own <c>WolverineConfigurationTemplatePartial</c> uses
-        /// for a single, statically-known type (<c>typeof({commandType}).Assembly</c>), generalized
-        /// here to an arbitrary, dynamically-supplied assembly.
-        /// </summary>
-        private static string GetAssemblyExpression(Assembly assembly)
-        {
-            var representativeType = assembly.GetExportedTypes().FirstOrDefault(t => !t.IsGenericTypeDefinition);
-
-            if (representativeType == null)
-            {
-                throw new InvalidOperationException(
-                    $"Assembly '{assembly.GetName().Name}' has no exported, non-generic types that can be used to reference it via a typeof(...).Assembly expression.");
-            }
-
-            var typeName = representativeType.FullName!.Replace('+', '.');
-            return $"typeof({typeName}).Assembly";
         }
 
         /// <summary>
@@ -157,7 +104,7 @@ namespace Intent.Modules.Wolverine.Common.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // Your custom logic here.
+        // Your custom logic here.
         }
     }
 }

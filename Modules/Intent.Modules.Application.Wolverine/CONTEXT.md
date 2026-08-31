@@ -5,10 +5,12 @@ This document contains durable architectural decisions, constraints, and pattern
 ## 🏗️ Architectural Constraints & Rules
 
 ### 1. Constructor-Based CQRS Models
+
 - Command and Query models in Wolverine generate parameterized constructors by default, assigning values to properties (aligning with the MediatR module pattern).
 - If a command/query contains properties that can be constructor-initialized, we map constructor parameters to those properties.
 
 ### 2. Controller Dispatcher Constructor Mapping
+
 - When dispatching queries/commands from controllers using Wolverine's dispatcher, dynamically check if the command/query model template contains a constructor.
 - If it does, generate the instantiation using constructor syntax:
   ```csharp
@@ -20,29 +22,41 @@ This document contains durable architectural decisions, constraints, and pattern
   ```
 
 ### 3. Fluent Builder Type Resolution Timing
+
 - Never call `GetTypeName` or `UseType` directly in a template constructor before the `CSharpFile` fluent structure is defined to avoid premature resolution.
 - Instead, invoke type resolutions inside callback actions (e.g., `.AfterBuild(...)`, `.OnBuild(...)`) or class/method configuration lambdas.
 
 ### 4. Dependency Management
+
 - Favor NuGet package references over local project references (`<ProjectReference>`) for dependent modules (e.g. `Intent.Modules.AspNetCore.Controllers`) to ensure correct packaging and dependency resolution in the Intent Software Factory ecosystem.
 
-### 5. Host Registration Now Lives in `Intent.Wolverine.Common` (since 1.1.0)
+### 5. Host Registration Is Seeded By `Intent.Wolverine.Common` (since 1.1.0)
 
-`WolverineRegistrationFactoryExtension` no longer calls `ConfigureHostBuilderChainStatement("UseWolverine", ...)` itself. It depends on `Intent.Wolverine.Common` (version `1.0.0-pre.0`+) and, for every ASP.NET host program template, calls `WolverineHostRegistrationExtension.Contribute(programTemplate, request)` with a `WolverineHostConfigurationRequest` carrying the `{WolverineConfiguration}.Configure(opts)` statement. `Intent.Wolverine.Common` is the only place the shared `UseWolverine(opts => ...)` lambda is actually built — see its own `CONTEXT.md` for why (two modules racing to register that lambda used to silently strand or overwrite one another, depending on factory-extension `Order`).
+`WolverineRegistrationFactoryExtension` calls `ConfigureHostBuilderChainStatement("UseWolverine", ...)` directly, appending `{WolverineConfiguration}.Configure(opts)` to the lambda that `Intent.Wolverine.Common` has already seeded. That DSL method is find-or-create, so this appends rather than emitting a competing registration.
 
-Do not reintroduce a direct `ConfigureHostBuilderChainStatement("UseWolverine", ...)` call here, and never call `lambdaBlock.Statements.Clear()` — that was the root cause this change removes. Also do not restore the Azure Functions host registration loop this extension used to have — see the "Known Unresolved Problem" section below; it never worked correctly under any `TypeLoadMode`, so its removal (R8.7 of the `wolverine-eventing-module` spec) discards nothing that was functioning.
+This module declares `Intent.Wolverine.Common` as an `.imodspec` `<dependency>` but takes **no `ProjectReference`** on it and references none of its types — see that module's `CONTEXT.md` for why (a `PrivateAssets="All"` reference would bundle a duplicate copy of its DLL).
+
+**`Order` is load-bearing and must stay above `Intent.Wolverine.Common`'s.** The values are Common `0`, this module `10`, `Intent.Eventing.Wolverine` `20`. Statements land inside the lambda in ascending factory-extension `Order`, and Intent's own `priority` argument cannot be used instead — the ASP.NET implementation accepts it and never reads it.
+
+**Never call `lambdaBlock.Statements.Clear()`** — it discards whatever another contributor has already added, and was the original defect here.
+
+> An earlier revision of this entry forbade calling `ConfigureHostBuilderChainStatement` from this module at all, routing contributions through a `WolverineHostConfigurationRequest` and `WolverineHostRegistrationExtension.Contribute(...)` instead. That request type has been removed: it wrapped a raw statement-emitting callback rather than declarative data, its ordering and discovery features were unused or unimplementable, and its correctness relied on an unenforceable call-site rule. The risk it was guarding against — two modules racing over one lambda — is now managed by explicit `Order` rather than by prohibition.
+
+Also do not restore the Azure Functions host registration loop this extension used to have — see the "Known Unresolved Problem" section below; it never worked correctly under any `TypeLoadMode`, so its removal (R8.7 of the `wolverine-eventing-module` spec) discards nothing that was functioning.
 
 ---
 
 ## 🏷️ Technical Profile & Design Choices
 
 ### Core Abstractions & Dispatch
+
 - **Primary Send API (no response)**: `IMessageBus.InvokeAsync(command, CancellationToken)`
 - **Primary Send API (with response)**: `IMessageBus.InvokeAsync<T>(query, CancellationToken)`
 - **Discovery Model**: Assembly scanning by class name suffix (`Handler` or `Consumer`), **plus** an explicit `opts.Discovery.IncludeType<THandler>()` per CQRS handler this module generates (see "Handler discovery — both routes, deliberately" below). Static classes are not used; instance classes are generated by default.
 - **Wolverine Version**: Pin `WolverineFx` NuGet package to `5.39.5` (supports .NET 8/9/10, whereas `6.x` drops .NET 8).
 
 ### Clean Architecture Layer Boundaries
+
 - **Application Layer**: Zero Wolverine dependency contamination in command/query handler classes. They are POCO classes discovered by convention, using constructor injection for dependencies.
 - **Marker Interfaces**: `ICommand` and `IQuery` marker interfaces live in the Application layer (no external dependencies) and act as predicates for routing and middleware policies.
 - **Middleware**: Validation, Unit of Work, Exception Handling, Logging, Performance, Authorization, and Message Bus Flush are generated as explicit behaviours in the Application layer first.
@@ -52,69 +66,26 @@ Do not reintroduce a direct `ConfigureHostBuilderChainStatement("UseWolverine", 
 
 ### Handler discovery — both routes, deliberately
 
-`WolverineConfiguration.Configure` emits **both** an assembly include and per-type includes, and
-neither is redundant:
+`WolverineConfiguration.Configure` emits **both** an assembly include and per-type includes, and neither is redundant:
 
 ```csharp
 opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly);  // scope: the Application layer
 opts.Discovery.IncludeType<CreateOrderCommandHandler>();    // one per Command / Query
 ```
 
-- **The per-type includes exist for attributability** (R18.3 of the `wolverine-eventing-module`
-  spec): every Wolverine module registers the handlers it itself owns, so no handler's registration
-  is attributable to a module that doesn't own it. `GetOwnedHandlerTypeNames()` derives them from
-  `Services.GetCommandModels()` / `GetQueryModels()` via `TryGetTypeName`, deduplicated and ordered,
-  so the emitted set is a pure function of the model and identical across SF runs.
-- **The assembly include is load-bearing, not legacy.** Measured against WolverineFx 5.39.5:
-  conventional discovery scans only the **entry** assembly, so a convention-named handler in a
-  *referenced* assembly is not found without an explicit `IncludeAssembly`/`IncludeType`. Handlers
-  live in the Application layer, not the entry (Api) assembly — so this line is the only thing
-  bringing that assembly into scope. Removing it would silently strand every sibling module that
-  generates convention-named handlers there and registers nothing of its own, notably
-  `Intent.Application.Wolverine.DomainEvents` (whose CONTEXT.md commits to convention discovery and
-  emits no registration at all).
-- **Registering the same type by both routes is safe.** Also measured on 5.39.5: with
-  `IncludeAssembly` and `IncludeType<T>()` both present, the message's handler chain holds exactly
-  one `HandlerCall` for that type/method and the handler body runs once. Wolverine de-duplicates by
-  handler type plus method. `Intent.Wolverine.Common`'s CONTEXT.md previously asserted the opposite
-  (a `CS0128` duplicate-local codegen failure); that claim was never measured and has been corrected
-  there.
+- **The per-type includes exist for attributability** (R18.3 of the `wolverine-eventing-module` spec): every Wolverine module registers the handlers it itself owns, so no handler's registration is attributable to a module that doesn't own it. `GetOwnedHandlerTypeNames()` derives them from `Services.GetCommandModels()` / `GetQueryModels()` via `TryGetTypeName`, deduplicated and ordered, so the emitted set is a pure function of the model and identical across SF runs.
+- **The assembly include is load-bearing, not legacy.** Measured against WolverineFx 5.39.5: conventional discovery scans only the **entry** assembly, so a convention-named handler in a _referenced_ assembly is not found without an explicit `IncludeAssembly`/`IncludeType`. Handlers live in the Application layer, not the entry (Api) assembly — so this line is the only thing bringing that assembly into scope. Removing it would silently strand every sibling module that generates convention-named handlers there and registers nothing of its own, notably `Intent.Application.Wolverine.DomainEvents` (whose CONTEXT.md commits to convention discovery and emits no registration at all).
+- **Registering the same type by both routes is safe.** Also measured on 5.39.5: with `IncludeAssembly` and `IncludeType<T>()` both present, the message's handler chain holds exactly one `HandlerCall` for that type/method and the handler body runs once. Wolverine de-duplicates by handler type plus method. `Intent.Wolverine.Common`'s CONTEXT.md previously asserted the opposite (a `CS0128` duplicate-local codegen failure); that claim was never measured and has been corrected there.
 
-**Consequence for R18.3:** the per-owner half now holds, but the blanket `IncludeAssembly` still
-brings other modules' handlers into discovery, so registrations are not *exclusively* per-owner.
-Closing that fully requires `Intent.Application.Wolverine.DomainEvents` to register its own handler
-types explicitly, after which the assembly include can be dropped. Until then, keep it.
+**Consequence for R18.3:** the per-owner half now holds, but the blanket `IncludeAssembly` still brings other modules' handlers into discovery, so registrations are not _exclusively_ per-owner. Closing that fully requires `Intent.Application.Wolverine.DomainEvents` to register its own handler types explicitly, after which the assembly include can be dropped. Until then, keep it.
 
 ### Message Bus Flush Middleware — Ordering Constraint
 
-`MessageBusFlushMiddleware` (`AfterAsync`) exists to mirror `Intent.Application.MediatR.Behaviours`'
-`MessageBusPublishBehaviour`: it flushes `IEventBus`/`IMessageBus` (from `Intent.Eventing.Contracts`)
-after a command/query handler succeeds, so integration events queued via `Publish`/`Send` during the
-handler actually reach the broker. Without it, apps combining Wolverine with a `Intent.Eventing.*`
-module would queue events that are never flushed. `CanRunTemplate()` only emits it when
-`EventBusInterface`/`MessageBusInterface` resolves, so it is a no-op unless an eventing module is
-installed.
+`MessageBusFlushMiddleware` (`AfterAsync`) exists to mirror `Intent.Application.MediatR.Behaviours`' `MessageBusPublishBehaviour`: it flushes `IEventBus`/`IMessageBus` (from `Intent.Eventing.Contracts`) after a command/query handler succeeds, so integration events queued via `Publish`/`Send` during the handler actually reach the broker. Without it, apps combining Wolverine with a `Intent.Eventing.*` module would queue events that are never flushed. `CanRunTemplate()` only emits it when `EventBusInterface`/`MessageBusInterface` resolves, so it is a no-op unless an eventing module is installed.
 
-**Registration order in `ApplicationHandlerPolicy.Apply` is load-bearing.** Wolverine's
-`opts.Policies.AddMiddleware<T>(...)` nests in registration order — the first-added middleware is
-outermost, so its `After`/`AfterAsync` runs LAST (after every middleware added after it has already
-run its own `After`). `MessageBusFlushMiddleware` is registered **before** `UnitOfWorkMiddleware`
-(which is added last, making it innermost) specifically so the flush's `AfterAsync` runs *after*
-`UnitOfWorkMiddleware.AfterAsync` commits the transaction — matching the MediatR priorities
-(`UnitOfWorkBehaviour` = 5 innermost, `MessageBusPublishBehaviour` = 4 wrapping it). Moving the flush
-registration to after `uowMiddleware` would flush events before the commit, breaking outbox ordering
-(a rolled-back transaction could still have published its events).
+**Registration order in `ApplicationHandlerPolicy.Apply` is load-bearing.** Wolverine's `opts.Policies.AddMiddleware<T>(...)` nests in registration order — the first-added middleware is outermost, so its `After`/`AfterAsync` runs LAST (after every middleware added after it has already run its own `After`). `MessageBusFlushMiddleware` is registered **before** `UnitOfWorkMiddleware` (which is added last, making it innermost) specifically so the flush's `AfterAsync` runs _after_ `UnitOfWorkMiddleware.AfterAsync` commits the transaction — matching the MediatR priorities (`UnitOfWorkBehaviour` = 5 innermost, `MessageBusPublishBehaviour` = 4 wrapping it). Moving the flush registration to after `uowMiddleware` would flush events before the commit, breaking outbox ordering (a rolled-back transaction could still have published its events).
 
-Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its companion
-`opts.Services.AddTransient<MessageBusFlushMiddleware>();` statement are tagged with
-`.AddMetadata("eventbus-flush", true)` — the same tag `Intent.Eventing.MassTransit` and
-`Intent.Eventing.NServiceBus` already use to strip the generic post-handler flush call out of
-MediatR/ServiceContract dispatch when a DB-backed transactional outbox is selected (see those
-modules' `MessageBusInteropExtension`/`NServiceBusMessageBusInteropExtension`). In that scenario the
-flush is spliced directly into `DbContext.SaveChanges`/`SaveChangesAsync` instead (dispatcher-agnostic,
-unchanged by this addition), so both eventing modules' `InstallXForWolverineDispatch` methods find the
-tagged statements in the Wolverine `ApplicationHandlerPolicy` template and remove them the same way
-they already do for the MediatR config lambda and controller dispatch templates.
+Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its companion `opts.Services.AddTransient<MessageBusFlushMiddleware>();` statement are tagged with `.AddMetadata("eventbus-flush", true)` — the same tag `Intent.Eventing.MassTransit` and `Intent.Eventing.NServiceBus` already use to strip the generic post-handler flush call out of MediatR/ServiceContract dispatch when a DB-backed transactional outbox is selected (see those modules' `MessageBusInteropExtension`/`NServiceBusMessageBusInteropExtension`). In that scenario the flush is spliced directly into `DbContext.SaveChanges`/`SaveChangesAsync` instead (dispatcher-agnostic, unchanged by this addition), so both eventing modules' `InstallXForWolverineDispatch` methods find the tagged statements in the Wolverine `ApplicationHandlerPolicy` template and remove them the same way they already do for the MediatR config lambda and controller dispatch templates.
 
 ---
 
@@ -134,6 +105,7 @@ they already do for the MediatR config lambda and controller dispatch templates.
 ### What was tried
 
 Wolverine dispatch modules for Azure Functions isolated worker and AWS Lambda Annotation Functions were built and tested. The modules correctly configure:
+
 - `opts.Discovery.DisableConventionalDiscovery()` — prevents bin-sweep from loading incompatible host DLLs
 - `opts.Discovery.IncludeType<T>()` — registers each handler explicitly
 - `opts.Durability.Mode = DurabilityMode.Serverless` — disables background inbox/outbox workers
@@ -142,11 +114,11 @@ These three settings work correctly. The **unresolved problem** is `TypeLoadMode
 
 ### Why every TypeLoadMode fails in Azure Functions
 
-| Mode | What it does | Why it fails |
-|---|---|---|
-| `Auto` | Generates handler executor types dynamically; writes `.cs` files to `bin/Debug/Internal/Generated/WolverineHandlers/` at runtime | Azure Functions file watcher detects the new files and restarts the isolated worker process. Worker 2 tries to re-register already-loaded functions → "function already exists" conflict. |
-| `Static` | Loads pre-built handler executor types from the assembly; throws `ExpectedTypeMissingException` if not found | Requires `wolverine codegen write` CLI (Oakton command routing via `WolverineApplication.RunAsync(args)`). Azure Functions overrides the startup entry point — `dotnet run -- wolverine codegen write` launches the Functions host instead of routing the command. Pre-built types are never generated. |
-| `Dynamic` | Compiles handler types in-memory via Roslyn | Not fully investigated; may behave similarly to `Auto` regarding disk writes. User halted investigation. |
+| Mode      | What it does                                                                                                                     | Why it fails                                                                                                                                                                                                                                                                                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Auto`    | Generates handler executor types dynamically; writes `.cs` files to `bin/Debug/Internal/Generated/WolverineHandlers/` at runtime | Azure Functions file watcher detects the new files and restarts the isolated worker process. Worker 2 tries to re-register already-loaded functions → "function already exists" conflict.                                                                                                               |
+| `Static`  | Loads pre-built handler executor types from the assembly; throws `ExpectedTypeMissingException` if not found                     | Requires `wolverine codegen write` CLI (Oakton command routing via `WolverineApplication.RunAsync(args)`). Azure Functions overrides the startup entry point — `dotnet run -- wolverine codegen write` launches the Functions host instead of routing the command. Pre-built types are never generated. |
+| `Dynamic` | Compiles handler types in-memory via Roslyn                                                                                      | Not fully investigated; may behave similarly to `Auto` regarding disk writes. User halted investigation.                                                                                                                                                                                                |
 
 ### Root cause
 

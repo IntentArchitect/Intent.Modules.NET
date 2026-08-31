@@ -114,3 +114,15 @@ TemplateDiscoveryOptions { ThrowIfNotFound = false, TrackDependency = false })` 
 **Fix:** `AddConfigureLocal` now calls `AddHandlerTypeRegistrations(method)` directly (not via `AddListenerRules`, which Local transport doesn't need at all).
 
 **Separately, and unrelated to discovery:** `CreateOrderCommandHandler.Handle` across several golden samples (`ErrorPolicy.*`, `Outbox.SqlServer.Publish`, and later also `Coexist.Cqrs` and `MultiTenancy`) published `new OrderCreatedEvent { }` without mapping `OrderId` from the request - the field was silently dropped even once the handler was reachable. Not a module bug: each app's `CreateOrderCommand → OrderCreatedEvent` [Publish Integration Event] association simply had no `Publish Message Mapping`. Fixed per-app by mapping `OrderId → OrderId` on that association. **Lesson to carry:** when scaffolding a new Publish/Send Integration Event or Command association in any golden sample, map its fields immediately - an unmapped association compiles and runs without error, silently emitting a default-valued message.
+
+## D8 — Host registration appends to a lambda `Intent.Wolverine.Common` seeds, and `Order` is load-bearing
+
+`WolverineEventingRegistrationExtension` calls `ConfigureHostBuilderChainStatement("UseWolverine", ...)` directly, appending `{WolverineEventingConfiguration}.Configure{Transport}(opts, builder.Configuration)` to the lambda `Intent.Wolverine.Common` has already seeded. That DSL method is find-or-create, so this appends rather than emitting a competing registration.
+
+**`Order` must stay above both `Intent.Wolverine.Common` and `Intent.Application.Wolverine`.** The values are Common `0`, `Intent.Application.Wolverine` `10`, this module `20` — so this module's transport configuration is layered on top of that module's core configuration. Statements land inside the lambda in ascending factory-extension `Order`; Intent's own `priority` argument cannot be used instead, because the ASP.NET implementation of `ConfigureHostBuilderChainStatement` accepts it and never reads it, and the `ConfigureServices` overload it delegates to has no priority parameter at all.
+
+**Never call `lambdaBlock.Statements.Clear()`** — it discards whatever another contributor has already added.
+
+This module declares `Intent.Wolverine.Common` as an `.imodspec` `<dependency>` but takes **no `ProjectReference`** on it and references none of its types. A `PrivateAssets="All"` reference would bundle a duplicate copy of that module's DLL alongside the one it ships itself, with the loader binding to whichever loads first — and it was the reference graph behind the misleading `'CSharpLambdaBlock' does not contain a definition for 'AddStatement'` error this module hit in T3.5 (whose actual cause was a missing `using Intent.Modules.Common.CSharp.Builder`).
+
+> Superseded: contributions used to be routed through a `WolverineHostConfigurationRequest` and `WolverineHostRegistrationExtension.Contribute(...)`. That type has been removed — see `Intent.Wolverine.Common`'s `CONTEXT.md` for why.

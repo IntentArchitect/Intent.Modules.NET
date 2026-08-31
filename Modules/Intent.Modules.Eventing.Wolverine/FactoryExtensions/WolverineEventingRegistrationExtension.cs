@@ -13,8 +13,6 @@ using Intent.Modules.Eventing.Wolverine.Settings;
 using Intent.Modules.Eventing.Wolverine.Templates;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineEventingConfiguration;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus;
-using Intent.Modules.Wolverine.Common.Api;
-using Intent.Modules.Wolverine.Common.FactoryExtensions;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -28,8 +26,14 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
     {
         public override string Id => "Intent.Eventing.Wolverine.WolverineEventingRegistrationExtension";
 
+        // Deliberate, not incidental: this must run after Intent.Wolverine.Common's
+        // WolverineHostRegistrationExtension (Order 0), which establishes the shared
+        // UseWolverine(opts => ...) lambda, and after Intent.Application.Wolverine (Order 10), so
+        // that this module's transport configuration is layered on top of that module's core
+        // configuration. Statements land inside the lambda in ascending Order, so changing this
+        // value reorders the generated Program.cs.
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => 20;
 
         /// <summary>
         /// This is an example override which would extend the
@@ -104,27 +108,32 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 return;
             }
 
-            programTemplate.CSharpFile.OnBuild(file => file.AddUsing("Wolverine"));
-
-            // Contribute() must be called NOW, synchronously during OnAfterTemplateRegistrations -
-            // not deferred inside a CSharpFile.OnBuild callback. WolverineHostRegistrationExtension
-            // (Intent.Wolverine.Common) reads the contributions table from its OWN OnBuild callback
-            // on this same CSharpFile; OnBuild callbacks fire in registration order, so a contribution
-            // registered inside OnBuild here could lose the race against Common's consuming callback
-            // depending on factory-extension execution order, silently vanishing from the generated
-            // lambda. Calling Contribute() eagerly here guarantees the entry exists in the table
-            // before ANY OnBuild callback runs. The type name / configure-method-name resolution
-            // still happens lazily inside the ConfigureAction closure, which Common invokes during
-            // its own OnBuild callback (after every template has been registered).
-            WolverineHostRegistrationExtension.Contribute(programTemplate,
-                WolverineHostConfigurationRequest.Configure((lambdaBlock, parameters) =>
-                {
-                    var opts = parameters[0];
-                    var eventingConfigType = programTemplate.GetTypeName(WolverineEventingConfigurationTemplate.TemplateId);
-                    var transport = programTemplate.ExecutionContext.Settings.GetWolverineMessageBusSettings().Transport().AsEnum();
-                    var configureMethodName = WolverineEventingConfigurationTemplate.GetConfigureMethodName(transport);
-                    lambdaBlock.AddStatement($"{eventingConfigType}.{configureMethodName}({opts}, builder.Configuration);");
-                }));
+            programTemplate.CSharpFile.OnBuild(file =>
+            {
+                // Appends to the shared lambda that Intent.Wolverine.Common already established at
+                // Order -10. ConfigureHostBuilderChainStatement is find-or-create, so this resolves
+                // that same lambda rather than emitting a competing registration.
+                //
+                // Intent.Wolverine.Common owns the WolverineFx package reference and the
+                // "using Wolverine" on this file - do not re-declare either here.
+                //
+                // NEVER call lambdaBlock.Statements.Clear(). Doing so discards whatever another
+                // contributor has already added, and was the original defect that made this whole
+                // area order-dependent.
+                //
+                // The type name and configure-method-name resolution happens inside this callback
+                // rather than earlier, because the DSL only invokes it once every template has been
+                // registered.
+                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseWolverine", new[] { "opts" },
+                    (lambdaBlock, parameters) =>
+                    {
+                        var opts = parameters[0];
+                        var eventingConfigType = programTemplate.GetTypeName(WolverineEventingConfigurationTemplate.TemplateId);
+                        var transport = programTemplate.ExecutionContext.Settings.GetWolverineMessageBusSettings().Transport().AsEnum();
+                        var configureMethodName = WolverineEventingConfigurationTemplate.GetConfigureMethodName(transport);
+                        lambdaBlock.AddStatement($"{eventingConfigType}.{configureMethodName}({opts}, builder.Configuration);");
+                    });
+            });
         }
 
         /// <summary>
@@ -137,7 +146,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // Your custom logic here.
+        // Your custom logic here.
         }
     }
 }

@@ -4,8 +4,8 @@
   <file path="../Intent.Modules.NET.sln" />
   <file path="FactoryExtensions/AITasksFactoryExtension.cs" />
   <file path="FactoryExtensions/WolverineRegistrationFactoryExtension.cs" />
-  <file path="Intent.Application.Wolverine.imodspec" />
-  <file path="Intent.Modules.Application.Wolverine.csproj" />
+  <file path="Intent.Application.Wolverine.imodspec" deviationsHash="F7339403827586F72B3379BE1565C2C0226CDB7BBCEDC9AB1AB8D6BEFE437580" />
+  <file path="Intent.Modules.Application.Wolverine.csproj" deviationsHash="B278870EAE85D07B353E9853FDD34358C9965021F9A57E69B5FB4BA69CFDAD9E" />
   <file path="NugetPackages.cs" />
   <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplatePartial.cs" />
   <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplateRegistration.cs" />
