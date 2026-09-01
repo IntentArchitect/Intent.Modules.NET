@@ -8,6 +8,26 @@
 
 ---
 
+## Code paths this module has to account for
+
+Read this table first if you're building a **new, similar broker module** — it's the axis
+inventory a comparable module tends to need, cross-referenced to where each branch actually lives.
+
+| Axis | Values | Where the branch lives | Notes |
+|---|---|---|---|
+| Transport | Learning Transport / RabbitMQ / Azure Service Bus / Amazon SQS / SQL Server | `TransportOptionsEnum`, `AddTransportStatements` | Amazon SQS and SQL Server don't fit the "read a `ConnectionStrings:X` key" convention the others follow — see Transport-Specific Quirks below |
+| Recoverability policy | none / immediate-only / delayed-only / immediate-and-delayed | `Recoverability Policy` setting | Each generated policy block itself reads further nested config keys (`ImmediateRetries`, `DelayedRetries`, `DelayIncreaseSeconds`, `ErrorQueue`) with their own hardcoded defaults — the setting controls *which blocks exist*, not the numbers inside them |
+| Persistence / outbox | none / sql-persistence / nhibernate, crossed with Enable Outbox on/off | `Persistence`, `Enable Outbox` settings | Three genuinely distinct "flush" code paths exist, not one — see Outbox and Persistence below |
+| Host wiring (.NET major version) | `<10` (NServiceBus 9, `IHostBuilder.UseNServiceBus`) / `>=10` (NServiceBus 10, `AddNServiceBusEndpoint` via DI) | `OutputTarget.GetMaxNetAppVersion().Major < 10` (`_isLegacyFramework`) | Two structurally different registration APIs, not just a version bump |
+| Per-transport/persistence NuGet version | multiple framework-keyed tiers (roughly net2/6/8/10 bands) | `NugetPackages.cs` | A whole additional versioning axis, independent of the host-wiring split above — every transport **and** persistence backend **and** `NServiceBus.Extensions.Hosting` has its own framework-keyed version ladder with transitive pins |
+| Audit queue | on/off | `Enable Audit Queue` setting | Reads `NServiceBus:AuditQueue` (required) and `NServiceBus:AuditTimeToBeReceived` (optional) |
+| Instance identification | on/off | `Enable Instance Identification` setting | Reads `NServiceBus:InstanceId` (required) |
+| Multi-broker coexistence | single broker / composite (≥2 broker modules installed) | `MessageBusExtensions.RequiresCompositeMessageBus()` / `FilterMessagesForThisMessageBroker(...)` (shared in `Eventing.Contracts`) | In composite mode this is a **hard failure mode, not a soft convention**: any Integration Command/Event with no broker stereotype at all throws once ≥2 broker modules are installed — see Coexistence below |
+| Multi-tenancy | **not supported** | — | No `Finbuckle`/`MultiTenan*` reference anywhere in this module, confirmed by full read + grep. Not a hidden gap — genuinely out of scope today. If a similar module needs tenancy, look at `Intent.Eventing.MassTransit`'s or `Intent.Eventing.Wolverine`'s Finbuckle wiring instead |
+| Dispatcher coverage (outbox flush stripping) | MediatR / ServiceContract controllers / Wolverine | `NServiceBusMessageBusInteropExtension.InstallNServiceBusFor{MediatR,ServiceContract,Wolverine}Dispatch` | Strips the generic post-handler flush wherever the outbox is active, since the flush is already spliced into `DbContext.SaveChanges`/`SaveChangesAsync` — see Dispatcher Coverage below |
+
+---
+
 ## Core Architecture
 
 ### Single Endpoint Per Application
@@ -232,6 +252,18 @@ See `.agents/instructions/exception-guidelines.md` for the general rule on when 
 
 **Known `install_or_update_modules` footgun**: calling with the default `installApplicationSettings: true` when reinstalling to refresh the settings schema resets all checkbox values to their defaults. Always use `installApplicationSettings: false` when the only goal is to pick up a new module DLL without changing application settings.
 
+**Unverified: possible duplicate app-settings registration.** `NServiceBusRegistrationExtension.OnBeforeTemplateExecution`
+publishes its own `AppSettingRegistrationRequest`s for `NServiceBus:EndpointName` (hardcoded
+default `"MyApplication"`), `NServiceBus:Recoverability:*`, `NServiceBus:ErrorQueue`, and
+`ConnectionStrings:RabbitMQ`/`ConnectionStrings:AzureServiceBus` — overlapping in purpose (and
+diverging in default value/shape) with `NServiceBusConfigurationTemplate.PublishAppSettings`, which
+does the same job with different, more correct-looking defaults (e.g. `OutputTarget.ApplicationName()`
+instead of the literal `"MyApplication"`). `NServiceBusRegistrationExtension.cs` carries a comment
+stating its intended scope is "app-settings + Program.cs host-builder wiring only," which suggests
+this may be vestigial from before `PublishAppSettings` existed rather than intentional
+double-registration. Verify and prune before extending either path further — don't assume the
+overlap is deliberate.
+
 ## Outbox and Persistence
 
 The outbox supports two persistence backends:
@@ -250,6 +282,49 @@ The outbox supports two persistence backends:
 - Two NHibernate test apps exist as of v1.0.0-pre.3: `Tests/N_ServiceBus.Persistence.NHibernate.Publish` and `Tests/N_ServiceBus.Persistence.NHibernate.Subscribe` (Learning Transport + RabbitMQ, NServiceBus 10.x / net10.0)
 
 Both outbox paths are important supported scenarios.
+
+### Three Distinct Outbox-Related Code Paths — Not One
+
+It's easy to read the above as "the outbox is one splice point into `DbContext.SaveChanges`." In
+practice there are **three separate mechanisms**, each solving a different half of the problem:
+
+1. **Outbound splice (API/controller-originated dispatch, no active NSB handler context).**
+   `NServiceBusMessageBusInteropExtension.InstallNServiceBusForXDispatch` wires
+   `IMessageBus.FlushAllAsync()` into `DbContext.SaveChanges`/`SaveChangesAsync` — this is the
+   mechanism described above and in Dispatcher Coverage.
+2. **Inbound handler bridging (SQL persistence only).** `NServiceBusMessageHandlerTemplatePartial.cs`
+   generates code inside `Handle()` that pulls `context.SynchronizedStorageSession.SqlPersistenceSession()`,
+   calls `_dbContext.Database.SetDbConnection(...)` + `UseTransactionAsync(...)`, then
+   `SaveChangesAsync`, then `FlushAllAsync` — bridging the *inbound* NSB transaction into the app's
+   own `DbContext` so a handler's DB writes and its outbound messages commit atomically.
+   **NHibernate's handler body has no equivalent** — NHibernate's session is opaque to the app, so
+   this bridging step simply doesn't exist on that path. Don't assume SQL-persistence and
+   NHibernate handler bodies are structurally parallel; they aren't.
+3. **`NServiceBusMessageBus.FlushAllAsync`'s own `ActiveContext` branch.** Independent of the two
+   above: `FlushAllAsync` checks whether it's running inside a message handler
+   (`ActiveContext is IMessageHandlerContext` → dispatch via `handlerContext.Publish/Send`
+   directly, riding the ambient outbox transaction NSB already opened for the inbound message) or
+   not (any other context, e.g. a controller call with no active handler → open its own
+   `ITransactionalSession`/`IMessageSession`, wrapped in a **`TransactionScope(...,
+   TransactionScopeOption.Suppress, ...)`** block). The suppression exists to stop ASB/RabbitMQ/SQL
+   clients from attempting DTC enlistment — removing it would risk reintroducing that failure mode.
+
+A change to "how the outbox flushes" needs to be evaluated against all three, not just the one
+that happens to be top of mind.
+
+### Transport-Specific Quirks
+
+- **Amazon SQS takes no connection string at all.** `new SqsTransport()` relies purely on the AWS
+  SDK's ambient credential/region resolution; no `ConnectionStrings:*` appsetting is registered for
+  it. Every other transport follows the "read a `ConnectionStrings:X` key" convention — SQS is the
+  one exception.
+- **RabbitMQ hardcodes `RoutingTopology.Conventional(QueueType.Quorum)`**, and **Azure Service Bus
+  hardcodes `TopicTopology.Default`.** Both are fixed choices baked into the template, not
+  currently exposed as settings — treat as a deliberate simplification to revisit only with a
+  concrete reason, not as an oversight to "fix" silently.
+- **`IMessageHandlerContext.Publish`/`Send` have no `CancellationToken` overload** — pass
+  `PublishOptions`/`SendOptions` instead. Easy to reach for the wrong overload by habit from other
+  broker APIs in this repo.
 
 ### Dispatcher Coverage
 
@@ -327,6 +402,11 @@ Changes in this module must be evaluated against the broader matrix, not just on
   module integrations, Kafka, and similar technologies.
 - The `NServiceBus` stereotype is the disambiguation mechanism — it marks which Integration
   Commands/Events belong to NServiceBus in a multi-broker application.
+- **Once ≥2 broker modules are installed in the same app, tagging is not optional — it's
+  enforced.** `FilterMessagesForThisMessageBroker` (shared in `Eventing.Contracts`) throws if
+  `RequiresCompositeMessageBus()` is true and a message/command has no broker stereotype at all.
+  This is a hard generation-time failure, not a soft convention: every Integration Command/Event in
+  a composite-bus app must carry a broker stereotype or the Software Factory run fails outright.
 - `CompositeMessageBus` mode (multiple brokers in one app) is a verified scenario. In this
   mode `AddNServiceBusConfiguration` accepts a `MessageBrokerRegistry` parameter and registers
   message types against the NServiceBus bus rather than publishing a `ServiceConfigurationRequest`.
@@ -343,6 +423,7 @@ authoritative source of the acceptance matrix — this section summarises their 
 | RabbitMQ | `Tests/NServiceBus.RabbitMQ` | [README](../../../../Tests/NServiceBus.RabbitMQ/README.md) | ✓ 2026-06-11 |
 | Azure Service Bus | `Tests/NServiceBus.AzureServiceBus` | [README](../../../../Tests/NServiceBus.AzureServiceBus/README.md) | ✓ 2026-06-11 |
 | Amazon SQS | `Tests/NServiceBus.SQS` | [README](../../../../Tests/NServiceBus.SQS/README.md) | Requires live AWS credentials |
+| SQL Server | *(none)* | — | **Gap.** SQL Server transport shipped in v1.0.0 and is fully wired in `AddTransportStatements`/`PublishAppSettings`, but has no dedicated test-app/verification row — add one before relying on this transport being exercised end-to-end |
 | RabbitMQ + SQL Outbox | `Tests/NServiceBus.OutboxPattern.Publish` + `.Subscribe` | [Publish README](../../../../Tests/NServiceBus.OutboxPattern.Publish/README.md) · [Subscribe README](../../../../Tests/NServiceBus.OutboxPattern.Subscribe/README.md) | ✓ 2026-06-11 |
 
 ### Outbox Coverage

@@ -85,6 +85,8 @@ opts.Discovery.IncludeType<CreateOrderCommandHandler>();    // one per Command /
 
 Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its companion `opts.Services.AddTransient<MessageBusFlushMiddleware>();` statement are tagged with `.AddMetadata("eventbus-flush", true)` — the same tag `Intent.Eventing.MassTransit` and `Intent.Eventing.NServiceBus` already use to strip the generic post-handler flush call out of MediatR/ServiceContract dispatch when a DB-backed transactional outbox is selected (see those modules' `MessageBusInteropExtension`/`NServiceBusMessageBusInteropExtension`). In that scenario the flush is spliced directly into `DbContext.SaveChanges`/`SaveChangesAsync` instead (dispatcher-agnostic, unchanged by this addition), so both eventing modules' `InstallXForWolverineDispatch` methods find the tagged statements in the Wolverine `ApplicationHandlerPolicy` template and remove them the same way they already do for the MediatR config lambda and controller dispatch templates.
 
+**Confirmed accurate, not aspirational.** This paragraph described the intended shape before `Intent.Eventing.Wolverine` actually implemented the DbContext splice — until it did, the strip ran with no replacement and every durable-outbox message was silently discarded (see that module's `CONTEXT.md`, D5 carve-out, for the fix). No change was needed in this module: `ApplicationHandlerPolicyTemplatePartial` and `MessageBusFlushMiddlewareTemplatePartial` were already correct, the gate and the tagging were already correct, and the missing half lived entirely on the eventing-module side of the strip/splice pair.
+
 ---
 
 ## ⚠️ Anti-Patterns (Must Nots)
