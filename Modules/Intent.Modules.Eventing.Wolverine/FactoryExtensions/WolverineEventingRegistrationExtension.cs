@@ -173,6 +173,11 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                         "is not supported. Wolverine's durable outbox only supports SQL Server and PostgreSQL. Change the Database " +
                         "Provider to one of those, or change the Transactional Outbox setting to None.");
                 }
+
+                template.AddNugetDependency(NugetPackages.WolverineFxEntityFrameworkCore(template.OutputTarget));
+                template.AddNugetDependency(ctx.DatabaseProvider.IsSqlServer()
+                    ? NugetPackages.WolverineFxSqlServer(template.OutputTarget)
+                    : NugetPackages.WolverineFxPostgresql(template.OutputTarget));
             }
 
             template.CSharpFile.OnBuild(file =>

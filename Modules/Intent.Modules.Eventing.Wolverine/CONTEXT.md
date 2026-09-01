@@ -135,3 +135,27 @@ Following the D8 consolidation into `Intent.Wolverine.Common`'s `WolverineConfig
 
 - **`RabbitMqTransportExpression` is not `IRabbitMqTransportExpression`, and it is not in `Wolverine.RabbitMQ`.** `WolverineEventingRegistrationExtension.AddRabbitMqBody`/`ConfigureListeners` declared the transport type as `IRabbitMqTransportExpression` — no such interface exists in WolverineFx 5.39.5; the real, concrete, public type is `Wolverine.RabbitMQ.Internal.RabbitMqTransportExpression`. This had **never been build-verified**: every RabbitMQ-transport app regenerated before this pass had only ever been checked against Local transport, so the CS0246 this produces was latent since the original Point-3 refactor. Fixed by correcting the type name and adding `file.AddUsing("Wolverine.RabbitMQ.Internal")` (conditionally, only for the Rabbitmq transport branch — `Wolverine.RabbitMQ` alone does not bring the `.Internal` sub-namespace into scope).
 - **`WolverineMessageBusTemplatePartial.cs` had an unconditional `.AddUsing("Wolverine")`.** Added for `DeliveryOptions` (needed only by `BuildDeliveryOptions()`, itself only emitted when Finbuckle is installed) but placed outside the `if (finbuckleInstalled)` guard — so every app got `using Wolverine;` in `WolverineMessageBus.cs` regardless. Harmless in that specific file (no bare `IMessageBus` reference there), but it is exactly the anti-pattern the module's own CS0104 fix (see the `SendOnWolverineInteractionStrategy` entry in `Intent.Application.Wolverine`'s CONTEXT.md) exists to avoid. Moved inside the guard.
+
+## Durable outbox regenerating with missing NuGet packages (fresh-app-only defect)
+
+`ContributeEventingConfiguration` emitted `using Wolverine.EntityFrameworkCore;` and `using
+Wolverine.SqlServer;`/`Wolverine.Postgresql`, plus `opts.PersistMessagesWithSqlServer(...)` /
+`UseEntityFrameworkCoreTransactions()`, whenever `ctx.TransactionalOutbox.IsDurable()` — but never
+called `AddNugetDependency` for the `WolverineFx.EntityFrameworkCore` /
+`WolverineFx.SqlServer`/`WolverineFx.Postgresql` packages those statements require, even though the
+static factory methods for both already existed in `NugetPackages.cs` and D2 (above) explicitly
+documents these as intended conditional NuGet registrations. Fixed by adding the two missing
+`template.AddNugetDependency(...)` calls next to the existing `DatabaseProvider.IsSupported()` guard,
+gated the same way the `using` statements already are.
+
+**Why this was invisible in this repo's own golden samples.** Both `WolverineEventing.Outbox.SqlServer.Publish`
+and `.Subscribe`'s `.csproj` files already had `WolverineFx.EntityFrameworkCore`/`WolverineFx.SqlServer`
+hand-pinned from before this regression, so regenerating them kept building fine regardless of whether
+the module declared the dependency itself — NuGet package references SF writes are additive-only and
+never pruned, so a stale hand-pin (or one left over from before a bug was introduced) silently keeps
+masking the bug it should have caught. A **brand-new** application selecting Transactional Outbox =
+Durable + SQL Server/PostgreSQL for the first time hit `CS0234`/`CS1061` immediately, because it never
+had those packages to begin with. **Lesson to carry:** a golden sample that predates a regression is not
+proof the current module code is correct — verify a fix like this by stripping the suspect package
+references from a golden sample's `.csproj` and re-running the Software Factory, not by trusting that
+sample's `.csproj` already looks right.
