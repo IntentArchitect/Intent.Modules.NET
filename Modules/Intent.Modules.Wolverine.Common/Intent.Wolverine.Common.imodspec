@@ -28,6 +28,13 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
+  <interoperability>
+	<detect id="Intent.Application.Wolverine">
+	  <install>
+		<package id="Intent.Application.Wolverine" version="1.1.0-pre.0" />
+	  </install>
+	</detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
