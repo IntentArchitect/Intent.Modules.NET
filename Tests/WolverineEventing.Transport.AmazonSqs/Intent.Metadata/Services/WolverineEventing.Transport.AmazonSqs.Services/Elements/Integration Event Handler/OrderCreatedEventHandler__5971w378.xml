@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b1aa74c-1f46-45f0-857a-ff1b11d415a2" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2296d3e3-9512-4c84-922f-4140726d5d9d</parentFolderId>
+  <packageId>2945f0c5-9201-4a1c-8149-c16b49b73078</packageId>
+  <packageName>WolverineEventing.Transport.AmazonSqs.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

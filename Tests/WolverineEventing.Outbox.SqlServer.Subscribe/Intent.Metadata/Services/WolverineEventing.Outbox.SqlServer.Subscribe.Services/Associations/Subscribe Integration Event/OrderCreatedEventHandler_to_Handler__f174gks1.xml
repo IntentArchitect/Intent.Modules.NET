@@ -36,11 +36,29 @@
       <stereotypes />
       <genericTypeParameters />
     </typeReference>
-    <stereotypes />
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="d87eb941-51a7-4ac2-99d1-3516fa6c58b2" name="Wolverine Subscription">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
+        <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
+        <properties>
+          <property name="0d2d9935-54c0-45c4-b8a3-a6a4f2ffec61" display="Subscriber Queue Name" value="outbox-subscribe-order-created-event" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
     <metadata />
     <childElements />
   </targetEnd>
   <associationType>Subscribe Integration Event</associationType>
   <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="d87eb941-51a7-4ac2-99d1-3516fa6c58b2" name="Wolverine Subscription">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
+      <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
+      <properties>
+        <property name="0d2d9935-54c0-45c4-b8a3-a6a4f2ffec61" display="Subscriber Queue Name" value="outbox-subscribe-order-created-event" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
 </association>

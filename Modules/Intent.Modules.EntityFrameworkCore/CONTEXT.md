@@ -13,10 +13,22 @@
 ### What It Is
 
 `HasDbTransaction()` is a method added by `UnitOfWorkExternalTransactionExtension` that lets
-the MediatR `UnitOfWorkBehaviour` detect whether an external party (e.g. NServiceBus
+a dispatch stack's unit-of-work seam detect whether an external party (e.g. NServiceBus
 `ITransactionalSession`, raw ADO.NET) has already enlisted an EF connection/transaction.
-When it returns `true`, the behaviour skips wrapping in `TransactionScope` to avoid MSDTC
-escalation.
+When it returns `true`, the seam skips wrapping in `TransactionScope` to avoid MSDTC
+escalation. Two dispatch stacks are wired to this guard, held to the same behavioural bar
+(run the handler, save, return — no scope):
+
+- **MediatR** — `UnitOfWorkBehaviour.Handle`, the original implementation.
+- **Wolverine** — `UnitOfWorkMiddleware.Before` (`ModifyUnitOfWorkMiddleware`, added alongside
+
+  fixing the durable-outbox `TransactionMiddlewareMode.Lightweight` collision in
+  `Intent.Eventing.Wolverine`). Wolverine's `Before` always opened an unconditional
+  `TransactionScope`, unlike MediatR's guarded one, so it collided with an external
+  transaction owner the same way MediatR's used to before this guard existed. `AfterAsync`
+  already calls `SaveChangesAsync` unconditionally and null-guards the scope
+  (`tx?.Complete()` / `tx?.Dispose()`), so `Before` returning `null` reproduces MediatR's
+  three effects (run, save, no scope) without a second code path.
 
 ### Where the Method Must Appear
 
@@ -35,13 +47,16 @@ The method must be present in **three places** for a project to compile:
    intentional: the interface check was too narrow (a DbContext may implement `IApplicationDbContext`
    rather than `IUnitOfWork`), and an extra method on a class that doesn't need it is harmless.
 
-3. **`UnitOfWorkBehaviour.Handle`** — the injected early-return guard. See below.
+3. **`UnitOfWorkBehaviour.Handle`** (MediatR) **and/or `UnitOfWorkMiddleware.Before`**
+   (Wolverine) — whichever dispatch template(s) the application has, each gets its own
+   injected guard. See below.
 
 ### Guard: Non-EF Unit-of-Work Backends
 
-`ModifyUnitOfWorkBehaviour` must **not** inject the `HasDbTransaction` guard into projects
-that don't use EF at all (e.g. Dapr, in-memory). Those projects have no `_dataSource` field
-and the injected code won't compile.
+`ModifyUnitOfWorkBehaviour`/`ModifyUnitOfWorkMiddleware` must **not** inject the
+`HasDbTransaction` guard into projects that don't use EF at all (e.g. Dapr, in-memory).
+Those projects have no data source to call `HasDbTransaction()` on and the injected code
+won't compile.
 
 Guard condition: skip injection if **no** template fulfills either
 `TemplateRoles.Infrastructure.Data.DbContext` or

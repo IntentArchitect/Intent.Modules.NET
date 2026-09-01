@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- New Feature: `UnitOfWorkMiddleware.Before` (Wolverine dispatch) now detects an externally-managed EF transaction via `HasDbTransaction()` and skips its own `TransactionScope`, bringing Wolverine to parity with the existing MediatR `UnitOfWorkBehaviour` guard (added in 5.0.46) and preventing MSDTC escalation.
+
 ### Version 5.1.1
 
 - Improvement: `ntext, text, and image data` deprecated warning will now only be shown for `SQL Server` database provider, as these types are not deprecated in other database providers.

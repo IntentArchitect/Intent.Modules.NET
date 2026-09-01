@@ -7,6 +7,7 @@ using Wolverine.AmazonSns;
 using Wolverine.AmazonSqs;
 using Wolverine.ErrorHandling;
 using WolverineEventing.Transport.AmazonSqs.Application.Common.Interfaces;
+using WolverineEventing.Transport.AmazonSqs.Application.IntegrationEvents.EventHandlers.Orders;
 using WolverineEventing.Transport.AmazonSqs.Application.Orders.CreateOrder;
 using WolverineEventing.Transport.AmazonSqs.Eventing.Messages;
 using WolverineEventing.Transport.AmazonSqs.Infrastructure.Dispatch.Middleware;
@@ -37,6 +38,8 @@ namespace WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration
             ConfigureAmazonSqsTransport(opts, configuration);
 
             ConfigurePublishing(opts);
+
+            ConfigureListeners(opts);
 
             ApplyErrorHandlingPolicy(opts, configuration);
         }
@@ -76,7 +79,14 @@ namespace WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration
 
         private static void ConfigurePublishing(WolverineOptions opts)
         {
-            opts.PublishMessage<OrderCreatedEvent>().ToSnsTopic("order-created-event");
+            opts.PublishMessage<OrderCreatedEvent>().ToSnsTopic("order-created-event").SubscribeSqsQueue("wolverine-eventing-transport-amazon-sqs-order-created-event", config => config.RawMessageDelivery = true);
+        }
+
+        private static void ConfigureListeners(WolverineOptions opts)
+        {
+            opts.ListenToSqsQueue("wolverine-eventing-transport-amazon-sqs-order-created-event");
+
+            opts.Discovery.IncludeType<OrderCreatedEventHandler>();
         }
 
         private static void ApplyErrorHandlingPolicy(WolverineOptions opts, IConfiguration configuration)

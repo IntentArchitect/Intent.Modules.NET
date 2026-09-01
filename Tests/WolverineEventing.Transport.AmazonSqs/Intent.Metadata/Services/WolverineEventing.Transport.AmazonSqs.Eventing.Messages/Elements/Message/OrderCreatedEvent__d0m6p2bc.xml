@@ -9,13 +9,16 @@
   <isMapped>false</isMapped>
   <parentFolderId>712dca63-0fff-4c27-bed0-55f6601e789b</parentFolderId>
   <packageId>712dca63-0fff-4c27-bed0-55f6601e789b</packageId>
-  <packageName>Wolverine.Transport.AmazonSqs.Eventing.Messages</packageName>
+  <packageName>WolverineEventing.Transport.AmazonSqs.Eventing.Messages</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" name="Wolverine Message">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Eventing.Wolverine</definitionPackageName>
       <definitionPackageId>7882d907-6087-482f-bfae-3292c31c2c96</definitionPackageId>
-      <properties />
+      <properties>
+        <property name="a34e3125-4aeb-44c8-a66a-15ebf176fa7f" display="Topic Name" isActive="true" />
+        <property name="575e43e9-12b8-4bf6-86bf-1218fecaa296" display="Destination Queue Name" isActive="false" />
+      </properties>
     </stereotype>
   </stereotypes>
   <metadata />
@@ -39,7 +42,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>1b47ebad-c053-4153-9a4e-73a5975b1802</parentFolderId>
       <packageId>712dca63-0fff-4c27-bed0-55f6601e789b</packageId>
-      <packageName>Wolverine.Transport.AmazonSqs.Eventing.Messages</packageName>
+      <packageName>WolverineEventing.Transport.AmazonSqs.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

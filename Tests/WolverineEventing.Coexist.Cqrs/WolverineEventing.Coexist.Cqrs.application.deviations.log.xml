@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#fb0a8cf1-776e-4a02-8c35-abe492da2876</correlationId>
+      <path>WolverineEventing.Coexist.Cqrs.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-01T15:06:34.5758921Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-01T22:49:43.3702868Z</approvedAt>
+      <deviationsHash>0CA9FF706075B1138FA629E08E8969D7DD0FF86276A819E0E84250DEEA539F5A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Wolverine.QueryHandler#70af4817-c2d0-45ae-a9d0-00a4f9a215c6</correlationId>
+      <path>WolverineEventing.Coexist.Cqrs.Application/Orders/GetExistingOrder/GetExistingOrderQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-01T14:56:51.6431004Z</updatedAt>
+      <deviationsHash>F50D3FEA616BF9E78238EA54423CA05F6254C5C410FBEC78973BC0605DAD2DEE</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Tests/WolverineEventing.Coexist.Cqrs/.gitattributes</path>
@@ -37,6 +59,24 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-27T09:22:32.9891965Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/WolverineEventing.Coexist.Cqrs.Infrastructure/Migrations/20260901150618_AddOrder.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-01T22:49:43.422358Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/WolverineEventing.Coexist.Cqrs.Infrastructure/Migrations/20260901150618_AddOrder.Designer.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-01T22:49:43.4858671Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Tests/WolverineEventing.Coexist.Cqrs/WolverineEventing.Coexist.Cqrs.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-01T22:49:43.5005702Z</approvedAt>
     </customFile>
   </customFiles>
 </deviationsLog>

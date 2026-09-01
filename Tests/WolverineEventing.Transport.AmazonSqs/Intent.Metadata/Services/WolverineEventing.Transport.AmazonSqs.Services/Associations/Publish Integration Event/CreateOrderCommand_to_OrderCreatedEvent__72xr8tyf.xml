@@ -9,7 +9,7 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>Wolverine.Transport.AmazonSqs.Services</typePackageName>
+      <typePackageName>WolverineEventing.Transport.AmazonSqs.Services</typePackageName>
       <typePackageId>2945f0c5-9201-4a1c-8149-c16b49b73078</typePackageId>
       <stereotypes />
       <genericTypeParameters />
@@ -30,7 +30,7 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>Wolverine.Transport.AmazonSqs.Eventing.Messages</typePackageName>
+      <typePackageName>WolverineEventing.Transport.AmazonSqs.Eventing.Messages</typePackageName>
       <typePackageId>712dca63-0fff-4c27-bed0-55f6601e789b</typePackageId>
       <stereotypes />
       <genericTypeParameters />

@@ -9,10 +9,10 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="ee55897f-1754-4f28-b249-7489da418a6b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Wolverine.WolverineConfiguration</name>
-      <display>Intent.Application.Wolverine.WolverineConfiguration</display>
-      <externalReference>Intent.Application.Wolverine</externalReference>
+    <childElement id="c069db22-893e-416c-925a-2dbe591262cf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Wolverine.Common.WolverineConfiguration</name>
+      <display>Intent.Wolverine.Common.WolverineConfiguration</display>
+      <externalReference>Intent.Wolverine.Common</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

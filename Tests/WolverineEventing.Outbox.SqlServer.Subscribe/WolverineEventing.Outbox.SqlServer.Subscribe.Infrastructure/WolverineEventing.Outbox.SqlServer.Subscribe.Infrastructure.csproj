@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.9" />
     <PackageReference Include="WolverineFx" Version="5.39.5" />
+    <PackageReference Include="WolverineFx.AzureServiceBus" Version="5.39.5" />
     <PackageReference Include="WolverineFx.EntityFrameworkCore" Version="5.39.5" />
     <PackageReference Include="WolverineFx.RabbitMQ" Version="5.39.5" />
     <PackageReference Include="WolverineFx.SqlServer" Version="5.39.5" />

@@ -4,8 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Eventing;
 using WolverineEventing.Coexist.Cqrs.Domain.Common.Interfaces;
+using WolverineEventing.Coexist.Cqrs.Domain.Repositories;
 using WolverineEventing.Coexist.Cqrs.Infrastructure.Eventing;
 using WolverineEventing.Coexist.Cqrs.Infrastructure.Persistence;
+using WolverineEventing.Coexist.Cqrs.Infrastructure.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -19,11 +21,14 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.UseInMemoryDatabase("DefaultConnection");
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IMessageBus, WolverineMessageBus>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             return services;
         }
     }

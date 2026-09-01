@@ -15,10 +15,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 {
     /// <summary>
-    /// When both the EF DbContext and MediatR UnitOfWorkBehaviour templates are present, this extension
-    /// wires three cross-module changes so that the MediatR pipeline correctly co-exists with any
-    /// infrastructure that externally manages an EF connection/transaction (e.g. NServiceBus
-    /// ITransactionalSession, raw ADO.NET orchestrators, etc.):
+    /// When the EF DbContext and either dispatch stack's unit-of-work template (MediatR's
+    /// UnitOfWorkBehaviour, or Wolverine's UnitOfWorkMiddleware) are present, this extension wires
+    /// cross-module changes so that dispatch correctly co-exists with any infrastructure that
+    /// externally manages an EF connection/transaction (e.g. NServiceBus ITransactionalSession, raw
+    /// ADO.NET orchestrators, etc.):
     ///
     /// 1. Adds <c>HasDbTransaction()</c> to the <c>IUnitOfWork</c> interface so the pipeline behavior
     ///    can detect whether an externally-managed EF transaction is already active.
@@ -26,12 +27,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
     /// 2. Implements <c>HasDbTransaction()</c> on <c>ApplicationDbContext</c> returning
     ///    <c>Database.CurrentTransaction != null</c>.
     ///
-    /// 3. Modifies <c>UnitOfWorkBehaviour.Handle</c> to skip wrapping in <c>TransactionScope</c> when
-    ///    <c>HasDbTransaction()</c> is true — prevents MSDTC escalation when an external party already
-    ///    owns the connection.
+    /// 3. Modifies <c>UnitOfWorkBehaviour.Handle</c> (MediatR) and <c>UnitOfWorkMiddleware.Before</c>
+    ///    (Wolverine) to skip wrapping in <c>TransactionScope</c> when <c>HasDbTransaction()</c> is
+    ///    true — prevents MSDTC escalation when an external party already owns the connection. Both
+    ///    are held to the same behavioural bar: run the handler, save, return, with no scope.
     ///
-    /// This is an EF concern, not a transport/messaging concern. Any module that externally enlists an
-    /// EF connection benefits automatically once this extension fires.
+    /// This is an EF concern, not a transport/messaging/dispatch concern. Any module that externally
+    /// enlists an EF connection benefits automatically once this extension fires.
     /// </summary>
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Comments = Mode.Ignore)]
     public class UnitOfWorkExternalTransactionExtension : FactoryExtensionBase
@@ -48,6 +50,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             AddHasDbTransactionToDbContextInterface(application);
             AddHasDbTransactionToDbContext(application);
             ModifyUnitOfWorkBehaviour(application);
+            ModifyUnitOfWorkMiddleware(application);
         }
 
         private static void AddHasDbTransactionToInterface(IApplication application)
@@ -143,6 +146,46 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     $"    var result = await {nextInvocation};\r\n" +
                     "    await _dataSource.SaveChangesAsync(cancellationToken);\r\n" +
                     "    return result;\r\n" +
+                    "}",
+                    s => s.SeparatedFromNext());
+            }, 500);
+        }
+
+        /// <summary>
+        /// Sibling of <see cref="ModifyUnitOfWorkBehaviour"/> for the Wolverine dispatch stack.
+        /// Wolverine's <c>UnitOfWorkMiddleware.Before</c> always opens a <c>TransactionScope</c> —
+        /// unlike MediatR's <c>UnitOfWorkBehaviour</c>, it has no <c>HasDbTransaction()</c> guard, so
+        /// an external EF transaction owner collides with it exactly the way it used to collide with
+        /// the unguarded MediatR behaviour. <c>AfterAsync</c> already calls <c>SaveChangesAsync</c>
+        /// unconditionally and null-guards the scope (<c>tx?.Complete()</c> / <c>tx?.Dispose()</c>), so
+        /// <c>Before</c> returning <c>null</c> here produces the same three effects, in the same
+        /// order, as MediatR's guarded path (run the handler, save, return — no scope).
+        /// </summary>
+        private static void ModifyUnitOfWorkMiddleware(IApplication application)
+        {
+            // Only inject when an EF DbContext is present — other unit-of-work backends (e.g. Dapr)
+            // don't have a data source to call HasDbTransaction() on.
+            var hasDbContext = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext).Any()
+                || application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext).Any();
+            if (!hasDbContext) return;
+
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                "Intent.Application.Wolverine.UnitOfWorkMiddleware");
+            if (template == null) return;
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var beforeMethod = file.Classes.First().FindMethod("Before");
+                if (beforeMethod == null) return;
+
+                // Idempotency guard — skip if already modified
+                if (beforeMethod.Statements.Any(s => s.ToString().Contains("HasDbTransaction"))) return;
+
+                beforeMethod.InsertStatement(0,
+                    "if (dataSource.HasDbTransaction())\r\n" +
+                    "{\r\n" +
+                    "    // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.\r\n" +
+                    "    return null;\r\n" +
                     "}",
                     s => s.SeparatedFromNext());
             }, 500);

@@ -1,10 +1,10 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
+using Wolverine.AzureServiceBus;
 using Wolverine.EntityFrameworkCore;
 using Wolverine.ErrorHandling;
-using Wolverine.RabbitMQ;
-using Wolverine.RabbitMQ.Internal;
+using Wolverine.Persistence;
 using Wolverine.SqlServer;
 using WolverineEventing.Outbox.SqlServer.Publish.Eventing.Messages;
 
@@ -22,7 +22,7 @@ namespace WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.Configuratio
 
         private static void ConfigureEventing(WolverineOptions opts, IConfiguration configuration)
         {
-            var transport = ConfigureRabbitMqTransport(opts, configuration);
+            ConfigureAzureServiceBusTransport(opts, configuration);
 
             ConfigurePublishing(opts);
 
@@ -31,34 +31,25 @@ namespace WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.Configuratio
             ApplyTransactionalOutbox(opts, configuration);
         }
 
-        private static RabbitMqTransportExpression ConfigureRabbitMqTransport(
-            WolverineOptions opts,
-            IConfiguration configuration)
+        private static void ConfigureAzureServiceBusTransport(WolverineOptions opts, IConfiguration configuration)
         {
-            var section = configuration.GetSection("Wolverine:RabbitMq");
-            var host = section["Host"] ?? "localhost";
-            var port = int.Parse(section["Port"] ?? "5672");
-            var virtualHost = section["VirtualHost"] ?? "/";
-            var username = section["Username"] ?? "guest";
-            var password = section["Password"] ?? "guest";
+            const string section = "Wolverine:AzureServiceBus";
+            const string key = "ConnectionString";
+            var connectionString = configuration[$"{section}:{key}"];
 
-            var transport = opts.UseRabbitMq(rabbit =>
+            if (string.IsNullOrEmpty(connectionString))
             {
-                rabbit.HostName = host;
-                rabbit.Port = port;
-                rabbit.VirtualHost = virtualHost;
-                rabbit.UserName = username;
-                rabbit.Password = password;
-            });
+                throw new InvalidOperationException($"Configuration key '{key}' in section '{section}' is required when Transport is Azure Service Bus.");
+            }
+
+            var transport = opts.UseAzureServiceBus(connectionString);
 
             transport.AutoProvision();
-
-            return transport;
         }
 
         private static void ConfigurePublishing(WolverineOptions opts)
         {
-            opts.PublishMessage<OrderCreatedEvent>().ToRabbitExchange("order-created-event");
+            opts.PublishMessage<OrderCreatedEvent>().ToAzureServiceBusTopic("order-created-event");
         }
 
         private static void ApplyErrorHandlingPolicy(WolverineOptions opts, IConfiguration configuration)
@@ -85,7 +76,7 @@ namespace WolverineEventing.Outbox.SqlServer.Publish.Infrastructure.Configuratio
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             opts.PersistMessagesWithSqlServer(connectionString);
-            opts.UseEntityFrameworkCoreTransactions();
+            opts.UseEntityFrameworkCoreTransactions(TransactionMiddlewareMode.Lightweight);
             opts.Policies.AutoApplyTransactions();
             opts.Policies.UseDurableOutboxOnAllSendingEndpoints();
             opts.Policies.UseDurableInboxOnAllListeners();

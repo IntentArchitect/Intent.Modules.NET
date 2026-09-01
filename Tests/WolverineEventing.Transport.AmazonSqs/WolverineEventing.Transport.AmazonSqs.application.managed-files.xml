@@ -44,6 +44,7 @@
   <file path="WolverineEventing.Transport.AmazonSqs.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
   <file path="WolverineEventing.Transport.AmazonSqs.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
   <file path="WolverineEventing.Transport.AmazonSqs.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="WolverineEventing.Transport.AmazonSqs.Application/IntegrationEvents/EventHandlers/Orders/OrderCreatedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
   <file path="WolverineEventing.Transport.AmazonSqs.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
   <file path="WolverineEventing.Transport.AmazonSqs.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
   <file path="WolverineEventing.Transport.AmazonSqs.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />

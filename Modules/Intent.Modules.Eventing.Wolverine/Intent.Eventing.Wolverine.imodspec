@@ -84,6 +84,13 @@
       </settings>
     </group>
   </moduleSettings>
+  <interoperability>
+	<detect id="Intent.EntityFrameworkCore">
+	  <install>
+		<package id="Intent.EntityFrameworkCore" version="5.2.0-pre.0" />
+	  </install>
+	</detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />

@@ -1,7 +1,10 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
+using Wolverine.EntityFrameworkCore;
 using Wolverine.ErrorHandling;
+using Wolverine.Persistence;
+using Wolverine.SqlServer;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Interfaces;
 using WolverineEventing.Coexist.Cqrs.Application.IntegrationEvents.EventHandlers;
 using WolverineEventing.Coexist.Cqrs.Application.Orders.CreateOrder;
@@ -38,6 +41,8 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Configuration
             ConfigureListeners(opts);
 
             ApplyErrorHandlingPolicy(opts, configuration);
+
+            ApplyTransactionalOutbox(opts, configuration);
         }
 
         private static void ConfigurePublishing(WolverineOptions opts)
@@ -67,6 +72,17 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Configuration
         private static System.TimeSpan[] ParseDelays(string value)
         {
             return value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(TimeSpan.Parse).ToArray();
+        }
+
+        private static void ApplyTransactionalOutbox(WolverineOptions opts, IConfiguration configuration)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            opts.PersistMessagesWithSqlServer(connectionString);
+            opts.UseEntityFrameworkCoreTransactions(TransactionMiddlewareMode.Lightweight);
+            opts.Policies.AutoApplyTransactions();
+            opts.Policies.UseDurableOutboxOnAllSendingEndpoints();
+            opts.Policies.UseDurableInboxOnAllListeners();
         }
     }
 }

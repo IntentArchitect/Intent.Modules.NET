@@ -170,7 +170,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.SignalR", "Intent.Modules.AspNetCore.SignalR\Intent.Modules.AspNetCore.SignalR.csproj", "{DCEEDF9C-F645-408B-8E3C-8E3F214BB797}"
 EndProject
@@ -1355,6 +1355,7 @@ Global
 		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{863dedbb-b0a4-467e-96ea-f1ee97d7bd10}*SharedItemsImports = 5
+		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{869b2feb-3fec-4f92-92bb-4e8b8246bd59}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{87be90b8-bd52-4284-8fc9-8a38ad6d283c}*SharedItemsImports = 13
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{8de7db33-7d69-403f-ad45-3b3d753705f2}*SharedItemsImports = 5

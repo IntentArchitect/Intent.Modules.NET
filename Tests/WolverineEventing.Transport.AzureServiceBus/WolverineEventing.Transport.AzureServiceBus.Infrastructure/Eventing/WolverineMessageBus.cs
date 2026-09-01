@@ -1,3 +1,4 @@
+using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using WolverineBus = Wolverine.IMessageBus;
 using ContractsMessageBus = WolverineEventing.Transport.AzureServiceBus.Application.Common.Eventing.IMessageBus;
@@ -39,11 +40,15 @@ namespace WolverineEventing.Transport.AzureServiceBus.Infrastructure.Eventing
             var toFlush = new List<Func<WolverineBus, ValueTask>>(_pendingActions);
             _pendingActions.Clear();
 
+            using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
+
             foreach (var action in toFlush)
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 await action(_bus);
             }
+
+            scope.Complete();
         }
     }
 }

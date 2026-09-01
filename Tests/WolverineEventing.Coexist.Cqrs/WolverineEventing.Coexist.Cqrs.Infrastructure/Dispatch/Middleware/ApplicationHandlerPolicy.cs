@@ -19,7 +19,6 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Dispatch.Middleware
             opts.Policies.AddMiddleware<LoggingMiddleware>(IsApplicationMessage);
             opts.Policies.AddMiddleware<PerformanceMiddleware>(IsApplicationMessage);
             opts.Policies.AddMiddleware<UnhandledExceptionMiddleware>(IsApplicationMessage);
-            opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(IsApplicationMessage);
 
             opts.Policies.AddMiddleware<UnitOfWorkMiddleware>(c => typeof(ICommand).IsAssignableFrom(c.MessageType));
             opts.Services.AddTransient<AuthorizationMiddleware>();
@@ -27,7 +26,6 @@ namespace WolverineEventing.Coexist.Cqrs.Infrastructure.Dispatch.Middleware
             opts.Services.AddTransient<LoggingMiddleware>();
             opts.Services.AddTransient<PerformanceMiddleware>();
             opts.Services.AddTransient<UnhandledExceptionMiddleware>();
-            opts.Services.AddTransient<MessageBusFlushMiddleware>();
             opts.Services.AddTransient<UnitOfWorkMiddleware>();
         }
 

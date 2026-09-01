@@ -6,6 +6,35 @@ The Wolverine eventing provider: transport selection, publish/send rules, listen
 
 It depends on `Intent.Wolverine.Common` for the single shared `builder.Host.UseWolverine(opts => ...)` registration — see that module's own CONTEXT.md for why the host registration is arbitrated there rather than here.
 
+## Code paths this module has to account for
+
+This section is the axis inventory — read it first if you're comparing this module against a
+similar broker (`Intent.Eventing.MassTransit`, `Intent.Eventing.NServiceBus`) or building a new
+one. The prose sections below (D1 onward) explain the *why*; this table is the *what*.
+
+| Axis | Values | Where the branch lives | Notes |
+|---|---|---|---|
+| Transport | `Local` / `Rabbitmq` / `AzureServiceBus` / `AmazonSqs` | `WolverineMessageBusSettings.TransportOptions`; `AddConfigureEventing` dispatches to `AddLocalBody`/`AddRabbitMqBody`/`AddAzureServiceBusBody`/`AddAmazonSqsBody` | **The historical method names `AddConfigureLocal`/`AddConfigureRabbitMq`/`AddConfigureAzureServiceBus`/`AddConfigureAmazonSqs` you'll see in this file's own bug-history sections below no longer exist in code** — they were retired by the "Foundations pass." Grepping current code for those names finds nothing; the live names are the `*Body` methods listed here |
+| Transactional Outbox | `None` / `Durable` | `ctx.TransactionalOutbox.IsDurable()` | Throws `FriendlyException` if `Intent.EntityFrameworkCore` isn't installed |
+| Database Provider (sub-axis of Durable) | `SqlServer` / `PostgreSQL` | `Settings/DatabaseProviderExtensions.cs` | Anything else throws `FriendlyException` |
+| Error Handling Policy | `None` / `Retry` / `RetryWithCooldown` / `ScheduleRetry` | `WolverineEventingRegistrationExtension.AddApplyErrorHandlingPolicyMethod` | The two delay-based policies share `AddParseDelaysMethod`, added once |
+| Multi-tenancy (Finbuckle) | installed / not installed | `WolverineTenantStrategyTemplate`/`WolverineTenantMiddlewareTemplate.CanRunTemplate()` probing for `MultiTenancyConfiguration` | Tenancy is envelope-native (`Envelope.TenantId`), not header-based — see the Foundations-pass entry below |
+| Composite message bus | on / off | `WolverineCompositeConfigurationTemplate.CanRunTemplate() => RequiresCompositeMessageBus()` | Design-time detection is seeded by `WolverineMessageBusInteropExtension.OnAfterMetadataLoad` calling `MessageBusRegistry.Register(...)` — this registration step is easy to miss because only its *consumption* (the composite template, `RegisterWolverineMessageBus`'s skip) is otherwise documented in this file |
+| Bus registration against `IMessageBus` | registered / skipped | `RegisterWolverineMessageBus` | Skipped when composite mode is required (the shared bus interface is owned by `CompositeMessageBus` there) and when the app has zero Wolverine-designated published messages/sent commands (subscribe-only apps) |
+| Handler discovery | conventional (owned by `Wolverine.Common`) + explicit `IncludeType<T>()` per subscribed handler | `AddHandlerTypeRegistrations`, called from each transport's `ConfigureListeners` or directly from `AddLocalBody` | See D1/D1b below for why double-registration is safe |
+| Publish/Send name resolution | convention (kebab-case type name) / explicit override | `ResolvePublishName`/`ResolveSendName` reading the `Wolverine Message` stereotype | `ValidateNameOverride` throws `ElementException` on a blank/whitespace name **or one over 250 characters** — the limit itself isn't obvious from the requirement IDs alone, worth remembering as a concrete number |
+| Subscriber queue naming | convention (kebab-case app+message name) / explicit override | `GetSubscriberQueueName` → `{appName-kebab}-{message-kebab}`, or the `Wolverine Subscription` stereotype's `Subscriber Queue Name` (see below) | Was never overridable prior to `1.0.0-pre.1`'s AWS runtime testing — see the dedicated section below for why that changed |
+| AmazonSqs fan-out shape | published+subscribed / publish-only / subscribe-only | `AddAmazonSqsBody`'s `ConfigurePublishing` | See D7 below |
+| OpenTelemetry tracing | wired / not wired | `WolverineTelemetryConfiguratorExtension` | Gated on `Intent.OpenTelemetry.OpenTelemetryConfiguration` being installed **and** the `telemetry-tracing`-tagged statement being enabled; appends `AddSource("Wolverine")`. Not mentioned elsewhere in this file — the only place this axis is documented |
+| Eventing/dispatch interop (Durable outbox only) | ServiceContract/Controller / Wolverine CQRS / MediatR | `WolverineMessageBusInteropExtension`'s three `InstallMessageBusFor*Dispatch` methods | Strips `eventbus-flush`-tagged statements from three different foreign templates when the outbox makes the generic post-handler flush redundant — this module actively *removes* code another module generated, not just abstains from generating its own (see D5) |
+| Appsettings defaults | additive-only | `PublishAppSettings` | Per-transport connection defaults and per-error-policy delay defaults are registered via `AppSettingRegistrationRequest`, which cannot remove a previously-registered key — same additive-only constraint documented for this repo's other modules |
+
+**Sanity check before trusting version numbers in this file:** `Intent.Eventing.Wolverine.imodspec`
+on disk is still pinned at `1.0.0-pre.0` (and lists `Intent.Wolverine.Common` at `1.0.0-pre.0` too),
+even though the bug-fix history below narrates fixes landing through `1.0.0-pre.4`. That's an
+imodspec-not-yet-repackaged signal, not a code defect — confirm the actual packaged version before
+assuming the fixes below are in what's currently published.
+
 ## Design decisions (durable — read before changing behaviour this module relies on)
 
 ### D1 / D1b — Conventional discovery stays ON, _and_ handler types are registered explicitly
@@ -44,11 +73,15 @@ MassTransit's equivalent (`Command Distribution` → `Destination Queue Name`) i
 
 **Why:** the queue an Integration Command is delivered to is a property of the command's destination, not of any one application's decision to send it. If the property lived on the send association, two different applications sending the same Integration Command could each set a different destination queue, and the command would be delivered inconsistently depending on who sent it. Putting it on the element means there is exactly one place it can be declared, and every sender resolves the same value. Do not move this property onto an association-level stereotype even to match MassTransit's exact placement — that would reopen the inconsistency this design closes.
 
-### D5 — This module supplies the bus and its flush method; it does not call it
+### D5 — This module supplies the bus and its flush method; it does not call it from a dispatch seam — with one carve-out
 
-`WolverineMessageBus` (the buffered `IMessageBus` implementation) and its flush method are generated here. Nothing generated by this module calls that flush method.
+`WolverineMessageBus` (the buffered `IMessageBus` implementation) and its flush method are generated here. Nothing this module generates into the **dispatch layer** (commands/queries) calls that flush method.
 
-**Why:** the flush seam belongs to whichever dispatch mechanism is buffering commands/queries around it, not to the eventing provider — that seam is per-dispatch-mechanism, and the precedent already exists on both sides of the codebase: `Intent.Application.Wolverine` supplies `MessageBusFlushMiddleware` for a Wolverine-CQRS application, and a MediatR application gets `MessageBusPublishBehaviour` from its own module. Each of those middleware/behaviour implementations already only emits when an eventing module's bus interface actually resolves, so the two halves find each other without this module needing to know which dispatch mechanism (if any) is installed. If a future change makes this module flush itself, check whether that breaks an application with no dispatch/CQRS module installed at all — R8's requirement that this module works standalone depends on it not needing one.
+**Why:** the flush seam belongs to whichever dispatch mechanism is buffering commands/queries around it, not to the eventing provider — that seam is per-dispatch-mechanism, and the precedent already exists on both sides of the codebase: `Intent.Application.Wolverine` supplies `MessageBusFlushMiddleware` for a Wolverine-CQRS application, and a MediatR application gets `MessageBusPublishBehaviour` from its own module. Each of those middleware/behaviour implementations already only emits when an eventing module's bus interface actually resolves, so the two halves find each other without this module needing to know which dispatch mechanism (if any) is installed. If a future change makes this module flush itself from that seam, check whether that breaks an application with no dispatch/CQRS module installed at all — R8's requirement that this module works standalone depends on it not needing one.
+
+**Carve-out — the durable-outbox `DbContext` splice is not the dispatch seam D5 is about, and this module does call the flush there.** When `TransactionalOutbox.IsDurable()`, the `hasBusFlush`-tagged dispatch-layer statements are stripped (see the defect-fix note below) and `WolverineMessageBusInteropExtension.InstallMessageBusForDbContextForTransactionalOutboxPattern` splices `_messageBus.FlushAllAsync(...)` directly into `ApplicationDbContext.SaveChanges`/`SaveChangesAsync` instead — mirroring `Intent.Eventing.MassTransit`'s `MessageBusInteropExtension.InstallMessageBusForDbContextForTransactionalOutboxPattern`. This is **dispatcher-agnostic**: it fires on every `SaveChangesAsync` regardless of whether MediatR, Wolverine dispatch, or no dispatch module at all is installed, which is exactly why it cannot live in a per-dispatch-mechanism middleware/behaviour. D5's rationale (a per-dispatch-mechanism seam finds its own dispatch module without this module needing to know which one is installed) holds for the **non-durable** path, where the tagged statements are left in place and the dispatch module's own middleware/behaviour does the flush. The durable-outbox path is a different case D5 did not originally account for: there is no dispatch-layer flush left to strip-and-replace-with, because the strip already removed it, so the DbContext splice is the only remaining seam. Do not read this carve-out as license to move the non-durable flush into this module too — that path stays exactly as D5 originally described it.
+
+**Fixed defect (this version line):** prior to this fix, the durable-outbox path stripped the dispatch-layer flush and added no replacement, so every published message was silently discarded once buffered onto `WolverineMessageBus._pendingActions` and never flushed. See the "Durable outbox regenerating with missing NuGet packages" entry below for the sibling defect (missing NuGet dependencies) found in the same area.
 
 ### D7 — Amazon SQS fan-out goes through SNS, in a second package
 
@@ -136,6 +169,56 @@ Following the D8 consolidation into `Intent.Wolverine.Common`'s `WolverineConfig
 - **`RabbitMqTransportExpression` is not `IRabbitMqTransportExpression`, and it is not in `Wolverine.RabbitMQ`.** `WolverineEventingRegistrationExtension.AddRabbitMqBody`/`ConfigureListeners` declared the transport type as `IRabbitMqTransportExpression` — no such interface exists in WolverineFx 5.39.5; the real, concrete, public type is `Wolverine.RabbitMQ.Internal.RabbitMqTransportExpression`. This had **never been build-verified**: every RabbitMQ-transport app regenerated before this pass had only ever been checked against Local transport, so the CS0246 this produces was latent since the original Point-3 refactor. Fixed by correcting the type name and adding `file.AddUsing("Wolverine.RabbitMQ.Internal")` (conditionally, only for the Rabbitmq transport branch — `Wolverine.RabbitMQ` alone does not bring the `.Internal` sub-namespace into scope).
 - **`WolverineMessageBusTemplatePartial.cs` had an unconditional `.AddUsing("Wolverine")`.** Added for `DeliveryOptions` (needed only by `BuildDeliveryOptions()`, itself only emitted when Finbuckle is installed) but placed outside the `if (finbuckleInstalled)` guard — so every app got `using Wolverine;` in `WolverineMessageBus.cs` regardless. Harmless in that specific file (no bare `IMessageBus` reference there), but it is exactly the anti-pattern the module's own CS0104 fix (see the `SendOnWolverineInteractionStrategy` entry in `Intent.Application.Wolverine`'s CONTEXT.md) exists to avoid. Moved inside the guard.
 
+## Integration event handlers already have a unit-of-work seam under Durable outbox — verified empirically, no middleware needed
+
+A handover investigation (2026-09-01) hypothesized that Wolverine integration-event handlers have no
+transaction/save seam at all — unlike MassTransit's generated `IntegrationEventConsumer`, this module
+generates no intermediate consumer class (by design, `CONTEXT.md` R5.2), and `UnitOfWorkMiddleware` is
+`ICommand`-gated so it never sees an integration event (see the D1/D1b entry's sibling reasoning and #3
+in `Intent.Modules.EntityFrameworkCore`'s work). The concern: a subscribed handler that writes via a
+repository might silently never commit.
+
+**Settled by direct measurement, not inferred.** `AddApplyTransactionalOutboxMethod` already emits
+`opts.Policies.AutoApplyTransactions();` whenever `Transactional Outbox = Durable` (this predates the
+investigation). Modelled a real `Order` entity + repository in `WolverineEventing.Coexist.Cqrs` (the
+only Wolverine-eventing + Wolverine-dispatch app), switched it to `Transactional Outbox = Durable` +
+SQL Server, gave `OrderCreatedEventHandler` a repository write with **no explicit `SaveChangesAsync`
+call**, and ran it end-to-end against a real SQL Server (LocalDB) instance:
+
+- **Happy path:** the handler took only `IOrderRepository` (no `DbContext` parameter in its signature)
+
+  and never called `SaveChangesAsync`. The row was persisted anyway — confirmed by direct query.
+
+- **Failure path:** same handler, repository `Add()` followed by a forced exception. The row was
+
+  **not** persisted — confirmed by direct query, and the message went to Wolverine's configured
+  retry policy rather than half-committing.
+
+- **Mechanism, visible in the host log:** Wolverine logs a "Utilizing service location" warning for
+
+  the handler's resolved `ApplicationDbContext` dependency, reached transitively through
+  `IOrderRepository`/`IUnitOfWork` — i.e. `AutoApplyTransactions()` walks the handler's full DI
+  dependency graph, not just its own parameter list, to find the `DbContext` to wrap a transaction
+  and a save around.
+
+**Conclusion: no new middleware is needed.** `AutoApplyTransactions()` already supplies everything the
+originally-proposed `WolverineEventUnitOfWorkMiddleware` would have supplied — transaction wrap,
+save-on-success, rollback-on-failure — for any handler whose resolved dependencies eventually touch a
+DbContext, integration event handlers included. This only holds under `Transactional Outbox = Durable`
+(the gate `AutoApplyTransactions()` is already conditioned on) — a subscriber under `Outbox = None` has
+no such safety net, which is consistent with what "None" means, not a gap this module needs to close.
+
+**Do not build a "GOLDEN-SAMPLE" `WolverineEventUnitOfWorkMiddleware` template for this** without a new,
+concrete measured gap — the premise it would have closed does not hold under the conditions it would
+have applied in. If a future report claims integration event handlers "don't commit," reproduce it the
+same way: a real repository write, no explicit save, under Durable outbox, watched end-to-end — a
+generated-output diff alone cannot show this, since the whole point is runtime behaviour with no
+line of generated code to diff.
+
+**Handler convention this confirms:** `OrderCreatedEventHandler` (and any integration event handler
+that writes via a repository under Durable outbox) should follow the same convention Command/Query
+handlers already do — the middleware saves, the handler body does not call `SaveChangesAsync` itself.
+
 ## Durable outbox regenerating with missing NuGet packages (fresh-app-only defect)
 
 `ContributeEventingConfiguration` emitted `using Wolverine.EntityFrameworkCore;` and `using
@@ -159,3 +242,308 @@ had those packages to begin with. **Lesson to carry:** a golden sample that pred
 proof the current module code is correct — verify a fix like this by stripping the suspect package
 references from a golden sample's `.csproj` and re-running the Software Factory, not by trusting that
 sample's `.csproj` already looks right.
+
+## Amazon SQS/SNS subscriber never actually receives a message (two stacked defects, found only by testing against real AWS)
+
+Neither defect below showed up in a generated-output diff or a local build — both needed a real AWS
+account, because both are about what AWS actually does with a name/attribute at runtime, not about
+what code got emitted. **Lesson to carry, alongside the NuGet-pin one above:** for this module, "the
+generated code compiles and looks right" and "the message actually arrives" are proven by two
+different kinds of check, and only the second one exercises AWS's own naming/format rules.
+
+### 1. `GetSubscriberQueueName`'s dotted app name isn't a valid AWS SQS/SNS resource name
+
+`GetSubscriberQueueName` (see above) returns `{ApplicationNameKebab}-{messageNameKebab}`, and
+`ApplicationNameKebab` is `GetApplicationConfig().Name.ToKebabCase()` — a kebab-cased *application
+display name*. `.ToKebabCase()` only inserts hyphens at word boundaries; it does not strip characters
+that aren't valid in an identifier. Every app in this repo is named with dots
+(`WolverineEventing.Transport.AmazonSqs`, `WolverineEventing.Outbox.SqlServer.Publish`, …), so this
+name is *routinely* dotted — e.g. `wolverine-eventing.transport.amazon-sqs-order-created-event`.
+
+RabbitMQ queue names and Azure Service Bus entity names both accept a literal period, so this was
+invisible on those two transports. AWS SQS/SNS resource names do not — only alphanumerics, `-` and
+`_`. Confirmed live: `ListenToSqsQueue` with the dotted name still created a queue (AWS/the SDK
+silently tolerated the invalid character in that specific call), but Wolverine's SNS transport
+resolves the queue to subscribe **by that same literal string**, and no queue by that exact name
+exists — only the one actually created, whose name and this string are never equal. Every startup
+failed permanently with `WolverineSnsTransportException` → `QueueDoesNotExistException`, retrying
+20 times before giving up.
+
+**Fixed** by `SanitizeAmazonQueueName` (`.Replace('.', '-')`), applied only inside `AddAmazonSqsBody`
+— at both `SubscribeSqsQueue` call sites and the `ListenToSqsQueue` call for `ctx.SubscribedMessages`
+— so RabbitMQ's and Azure Service Bus's dotted names, which are valid there, are untouched.
+
+### 2. SNS wraps the payload in its own JSON envelope unless `RawMessageDelivery` is set
+
+Fixing #1 got a message all the way to the subscriber's SQS listener, which then threw
+`FormatException: The input is not a valid Base-64 string` inside Wolverine's own
+`DefaultSqsEnvelopeMapper.ReadEnvelopeData`. AWS SNS-to-SQS subscriptions default to wrapping the
+published payload in SNS's own notification envelope (`Type`/`MessageId`/`TopicArn`/`Message`/
+`Timestamp`/…) as the SQS message body. Wolverine's SQS listener expects its own raw base64-encoded
+envelope there instead — the two formats are incompatible, and the mismatch only appears once a
+message is actually in flight, never in a generated-output diff.
+
+**Fixed** by passing a configuration action to `SubscribeSqsQueue(name, config => config.RawMessageDelivery
+= true)` (WolverineFx 5.39.5's `Wolverine.AmazonSns` — verified against wolverinefx.net's own SNS
+docs, not decompiled), which tells AWS to deliver the original message body unwrapped so the SQS side
+sees exactly what a direct `ListenToSqsQueue` subscriber would.
+
+**Trap for next time:** `Subscribe` (the underlying SNS API `SubscribeSqsQueue`/`AutoProvision` call)
+is idempotent on protocol+endpoint — re-running an app against a subscription that already exists
+does **not** update that subscription's attributes. A subscription created before this fix keeps
+`RawMessageDelivery = false` forever unless it is deleted (or its attributes are updated out of band)
+so `AutoProvision` creates it fresh. Symptom if this bites again: the FormatException above persists
+even after the code fix is deployed, because the *old* subscription is still the one in effect.
+
+**Verified live, end to end, against a real AWS account (`us-east-1`):** `POST /api/orders` → 201 →
+`OrderCreatedEvent` published to SNS topic `order-created-event` → delivered via the now-corrected
+subscription to SQS queue `wolverine-eventing-transport-amazon-sqs-order-created-event` → Wolverine's
+SQS listener correctly decodes it → routed to `OrderCreatedEventHandler.HandleAsync`. The only
+failure at that point was the handler's own scaffolded `NotImplementedException` stub body — not a
+module defect.
+
+## `Wolverine Subscription` stereotype — the subscriber queue name became overridable
+
+`GetSubscriberQueueName`'s convention (`{appName-kebab}-{message-kebab}`) was "never overridable" by
+design from R5.7/R5.9 onward — the point being every subscriber of a fanned-out event automatically
+gets its own uniquely-named queue, with no configuration required. Testing
+`WolverineEventing.Outbox.SqlServer.Subscribe` against a real Azure Service Bus account broke that:
+the app's own long, dot-segmented name pushed the convention name to 69 characters —
+`wolverine-eventing.outbox.sql-server.subscribe-order-created-event` — against ASB's hard 50-character
+subscription name limit (`ArgumentOutOfRangeException`, live, on startup).
+
+**Why not just drop the app-name prefix, matching MassTransit's default?** Checked first, not assumed:
+MassTransit's own `KebabCaseEndpointNameFormatter.Instance` (`Intent.Eventing.MassTransit`'s
+`MessageBrokerBase.cs`) is the *unconfigured* singleton — no prefix — so its default endpoint name is
+just the consumer class's own name, kebab-cased, with no app-identifying anything. That is not a safer
+convention; it is an unguarded one. Two different applications with an identically-named consumer
+class for the same event (a very plausible coincidence — `OrderCreatedEventHandler` is the natural
+name for it in both) would silently share one queue under MassTransit's default. Wolverine's
+app-name-prefixed convention is the more *correct* default on the uniqueness axis; the fix here adds
+an escape hatch without giving that up as the default.
+
+**The fix:** the `Wolverine Subscription` stereotype (`Subscriber Queue Name` property), attached to
+the **Subscribe Integration Event association's target end** — the exact same attachment point
+MassTransit's own `Azure Service Bus Consumer Settings`/`RabbitMQ Consumer Settings` stereotypes use
+for their `Endpoint Name` (`SubscribeIntegrationEventTargetEndModel`, confirmed by reading
+`Intent.Eventing.MassTransit`'s own stereotype definition and its consumer-enumeration code, not
+guessed). `GetSubscriberQueueName` checks `ctx.SubscriptionsByMessageId` (a lookup built once in
+`EventingContext.Build`, keyed by subscribed message id) for an override before falling back to the
+convention. Consistent with `Topic Name`/`Destination Queue Name` on `Wolverine Message`: **an
+override is taken verbatim — never kebab-cased or otherwise transformed** — only validated via the
+existing `ValidateNameOverride` (blank/whitespace, >250 chars). The convention-generated default is
+unaffected and still gets kebab-cased; only an explicit override skips that.
+
+**Tool limitation hit building this — record it so it isn't rediscovered.** `run_designer_script`'s
+association-end handles (`assoc.getTargetEnd()`) expose `hasStereotype`/`getStereotype(s)` but **not**
+`addStereotype`/`ensureStereotype`. Verified exhaustively, because the obvious workarounds all look
+plausible and all fail: `findElements({ specialization: "Subscribe Integration Event Target End" })`
+returns 0 results; the end does not appear as a child element (`handler.getChildren()` yields the
+association itself); and `lookupById` on either the association or the end returns the same
+non-mutating handle — **the target end shares the association's id**. Only element and package handles
+carry the mutating stereotype methods. So a stereotype targeting an association end (this one, and
+MassTransit's consumer-settings stereotypes) **cannot be *applied* via script** — that step must go
+through the Intent Architect desktop UI.
+
+**But the split is finer than "not scriptable", and the useful half is scriptable:** once the
+stereotype instance exists on the end, its *property values* ARE settable from script —
+`assoc.getTargetEnd().getStereotype("Wolverine Subscription").getProperty("Subscriber Queue Name").setValue(...)`
+works and reports a proper `changes[]` entry. So the only genuinely manual step is the initial apply;
+everything after it can be automated. (The stereotype *definition* — targeting, properties — is fully
+scriptable via `pkg.addStereotypeDefinition(...)`.)
+
+**Icons:** both `Wolverine Message` and `Wolverine Subscription` carry a bespoke icon derived from the
+module's own package icon (the claw-mark "W") rather than a generic FontAwesome glyph — `Wolverine
+Message` uses it as-is (outbound motion, fits publishing), `Wolverine Subscription` uses a horizontal
+mirror of the same artwork (fits receiving). Same source asset, so the two read as a matched pair
+rather than unrelated icons. Setting a `UrlImagePath` icon via script requires passing the full `data:`
+URI string directly to `setIcon(...)` — passing `{ type, source }` throws (`setIcon` only accepts a
+string and parses the type from its shape: `fa-`-prefixed → FontAwesome, otherwise treated as a raw
+`UrlImagePath` source). Also: a script that throws **anywhere** rolls back its **entire** set of
+mutations, including ones that had already succeeded earlier in the same script — verified by
+inspecting the on-disk model file after a script errored on an unrelated line **after** a working
+`setIcon(...)` call, and finding the old icon still there. Keep scripts that set icons free of any
+other statement that could throw afterward, or split them into separate calls.
+
+## The DbContext flush splice must agree with the bus-registration gate (subscribe-only apps)
+
+The D5 carve-out's DbContext splice (`InstallMessageBusForDbContextForTransactionalOutboxPattern`,
+fix #1) was originally gated on `IsTransactionalOutboxPatternSelected(application)` alone — copied
+from `Intent.Eventing.MassTransit`'s equivalent, which gates on exactly that. **That copy was wrong
+for this module**, and it is the one defect in this whole line that was *introduced* by a fix rather
+than found by one.
+
+`RegisterWolverineMessageBus` deliberately registers **no bus at all** for a subscribe-only
+application — no Wolverine-designated published Message and no sent Integration Command means no
+`IMessageBus` registration (its own XML doc states this: *"a subscribe-only application gets no
+registration"*). The splice, gated only on the outbox setting, injected `IMessageBus` into
+`ApplicationDbContext`'s constructor anyway. The two disagreed, and a subscribe-only app with
+`Transactional Outbox = Durable` died at startup on DI validation:
+
+```
+Unable to resolve service for type '...Application.Common.Eventing.IMessageBus'
+while attempting to activate '...Infrastructure.Persistence.ApplicationDbContext'
+```
+
+**Why MassTransit's version doesn't need the guard:** MassTransit has no subscribe-only registration
+skip, so its splice can't disagree with its own registration. This is therefore a **deliberate
+divergence from the reference implementation**, not an oversight — noted in the method's XML doc so
+the next person to "align it with MassTransit" doesn't reintroduce the bug.
+
+**The guard is semantic, not defensive.** A subscribe-only application buffers no outgoing messages
+on the bus, so there is nothing for a flush to dispatch — splicing one in was pointless as well as
+fatal. `PublishesAnyWolverineMessages` mirrors `RegisterWolverineMessageBus`'s own test exactly
+(published messages OR sent commands, both filtered for this broker). Composite-bus apps are
+unaffected: they publish by definition, and the shared interface is registered by
+`CompositeMessageBus`.
+
+**Invariant to preserve:** anything that injects the bus interface into generated code must agree
+with `RegisterWolverineMessageBus`'s gate. If that gate ever changes, every injection site has to
+move with it.
+
+**Found only by running the app** — the generated code compiled cleanly, and the bad constructor
+parameter looks perfectly reasonable in a diff. Same lesson as the AWS section above.
+
+## Round trip verified — Azure Service Bus + Durable outbox + SQL Server
+
+The `WolverineEventing.Outbox.SqlServer.Publish` → `.Subscribe` pair, run end to end against a real
+Azure Service Bus namespace (`dandre-test`) and a real SQL Server instance:
+
+- `POST /api/orders` → **201**, no `ambient transaction has been detected` (proves fix #2's
+
+  `TransactionMiddlewareMode.Lightweight`)
+
+- Subscriber logged `HANDLED OrderCreatedEvent OrderId=<the exact posted GUID>` and
+
+  `Successfully processed message ... from asb://topic/order-created-event/outbox-subscribe-order-created-event`
+  (proves fix #4's topic→subscription binding, and the `Subscriber Queue Name` override being used
+  verbatim — the listener bound to the 36-character override, not the 69-character convention name)
+
+- `wolverine_outgoing_envelopes` drained to **0** in the publisher's database — proves fix #1's
+
+  DbContext splice actually dispatched the message. Without it the message is silently discarded and
+  this count would never have been non-zero in the first place.
+
+- `wolverine_dead_letters` **0** on both sides; subscriber's `wolverine_incoming_envelopes` = 1
+- **Zero** `MSDTC` / `distributed transaction` / `ambient transaction` entries in either log
+
+This is the combination (ASB + Durable outbox + a real subscriber) that had never been generated or
+run before this work, and it is what the four publish-side defects were hiding in.
+
+## LOAD-BEARING INVARIANT — the flush seam must stay OUTSIDE the unit-of-work `TransactionScope`
+
+`WolverineMessageBus.FlushAllAsync` does **not** wrap its dispatch in a suppressing
+`TransactionScope`, and **must not be given a blanket one** (see the trap below). It is safe today
+only because of *registration ordering*, which is implicit and easy to break. Write this down before
+anyone "tidies" the middleware list.
+
+**The hazard is real, not theoretical.** Azure Service Bus enlists in an ambient
+`TransactionScope` as a *volatile participant*, and ASB explicitly does **not** support DTC /
+2-phase-commit with another resource manager. So an ASB send issued inside a scope that a SQL
+connection has also enlisted in throws
+`InvalidOperationException: Local transactions are not supported with other resource managers/DTC`
+([Transactions in Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-transactions)).
+
+**This module is the ONLY eventing provider here that does not suppress.** Establish this by
+searching generated output, not module source — the suppression lives in several different template
+families and a folder-scoped grep of two modules misses most of it:
+
+| Module | Suppresses? | Where |
+|---|---|---|
+| `Intent.Eventing.NServiceBus` | yes | `NServiceBusMessageBus.FlushAllAsync`, wrapping BOTH the outbox (`ITransactionalSession`) and non-outbox paths — commented *"prevent ASB/RabbitMQ/SQL clients from attempting DTC enlistment"* |
+| `Intent.Eventing.AzureServiceBus` | yes, unconditionally | `AzureServiceBusMessageBus.FlushAllAsync` — the closest structural analogue to `WolverineMessageBus` |
+| `Intent.Eventing.MassTransit` | yes | `ServiceRequestClient` (the request/response client, around `IRequestClient.GetResponse`) — NOT in its message bus |
+| **`Intent.Eventing.Wolverine`** | **no** | — |
+
+**MEASURED — and the answer is different for the raw ASB SDK than for Wolverine's bus.** Two repros
+against the real `dandre-test` namespace. Read both tables together; the second is the one that
+governs this module.
+
+*Raw `Azure.Messaging.ServiceBus` SDK (what NServiceBus's and `Intent.Eventing.AzureServiceBus`'s buses
+call directly):*
+
+| Scenario | Result |
+|---|---|
+| send, no ambient transaction | OK |
+| send inside `TransactionScope(ReadCommitted)`, SQL enlisted | **throws** `InvalidOperationException: The only supported IsolationLevel is Serializable` |
+| send inside `TransactionScope(ReadCommitted)`, **no SQL at all** | **throws — same error** |
+| send inside `TransactionScope(Serializable)` | send succeeds, then commit throws `TransactionInDoubtException` |
+| send wrapped in `TransactionScopeOption.Suppress` | OK |
+
+Worth knowing on its own: it is **not** a DTC problem (`DistributedIdentifier` stayed all-zeros —
+nothing was ever promoted; ASB rejects the scope purely on isolation level), a database is **not**
+required to trigger it, and `Serializable` is not an escape.
+
+*Wolverine's `IMessageBus.PublishAsync` — what this module's `FlushAllAsync` actually calls, with a
+real Wolverine host on the ASB transport:*
+
+| Scenario | Result |
+|---|---|
+| `PublishAsync` inside `TransactionScope(ReadCommitted)`, **no suppression** | **OK** |
+| same, wrapped in `Suppress` | OK |
+
+**So this module was never exposed, and the difference is architectural, not an oversight.**
+Wolverine's `PublishAsync` hands the envelope to Wolverine's own sending agent; the ASB SDK call
+happens on a background sender, outside any ambient transaction. NServiceBus and
+`Intent.Eventing.AzureServiceBus` call the broker SDK *inline* inside their flush, which is precisely
+why they need the suppression and this module does not. Confirmed the module never emits
+`SendInline()` — every generated endpoint is buffered (default) or durable — so the inline case cannot
+arise from generated configuration.
+
+**This also corrects an earlier claim in this file:** the flush-outside-the-unit-of-work ordering was
+described here as the only thing preventing every ASB publish from throwing. That is **false for
+Wolverine** — measured above. The ordering remains sound design, but it is not load-bearing for this
+hazard.
+
+**Decision: a `Suppress` scope IS emitted, but only when `Transactional Outbox = None`** (see
+`WolverineMessageBusTemplate.FlushAllAsync`). Given the measurement it is **inert by construction, not
+a fix** — it is cheap insurance that only becomes load-bearing if an endpoint is ever configured for
+inline sending, at which point the raw-SDK table above applies again. Verified it costs nothing:
+regenerated, rebuilt, and re-ran the ASB app end to end with it in place — message still delivered to
+the subscriber, no errors. **Do not cite it as evidence a hazard existed here.** If it is ever removed
+as dead code, that is a defensible call — but re-add it the moment inline sending appears.
+
+**The Durable path deliberately keeps NO suppression**, because the two suppressing siblings are not
+precedents for it: NServiceBus's outbox uses `ITransactionalSession` with an explicit `Commit` so it
+never leans on the ambient scope, and `Intent.Eventing.AzureServiceBus` has no outbox at all. Under
+Durable, fix #1's DbContext splice calls `FlushAllAsync` *inside* `SaveChangesAsync` — inside the
+ambient scope on purpose — and Wolverine enrols outgoing envelopes on the DbContext's own connection
+so they commit atomically with the entity changes. No broker call happens there (the durability agent
+dispatches later, out of band), so there is nothing to protect against; suppressing would only risk
+decoupling the envelope write from the commit.
+
+> **Still outstanding — outbox rollback atomicity has never been tested.** Force an exception after a
+> publish but before the commit and assert that **neither** an entity row **nor** a
+> `wolverine_outgoing_envelopes` row survives. This was on the original plan's checklist and is still
+> unticked. It is the test that would prove the Durable reasoning above rather than merely arguing it,
+> and note its failure mode is *silent* — orphaned envelopes, not an exception.
+
+**Why this module is nonetheless safe:** in BOTH dispatch stacks the flush seam is the OUTER
+wrapper around the unit of work, so the broker call always happens after `tx.Complete()` /
+`tx.Dispose()` — there is no ambient transaction in scope by the time anything reaches the broker.
+
+| Dispatch stack | Registration (order = outermost first) | Effect |
+|---|---|---|
+| Wolverine | `AddMiddleware<MessageBusFlushMiddleware>` **then** `AddMiddleware<UnitOfWorkMiddleware>` | flush wraps the UoW; send happens after the scope closes |
+| MediatR | `AddOpenBehavior(MessageBusPublishBehaviour<,>)` **then** `AddOpenBehavior(UnitOfWorkBehaviour<,>)` | same shape |
+
+**Break the ordering and you get a runtime failure no build or generated-output diff will show** —
+and only on a transport that enlists (ASB), only when the handler also wrote to SQL in the same
+scope. Empirically confirmed passing on `WolverineEventing.Transport.AzureServiceBus`
+(`Outbox = None`, real ASB): POST → 201, message reached the topic, no DTC error. **Note that run
+did not actually exercise the hazard** — that app writes nothing to its DbContext, so no SQL resource
+manager ever enlisted, and the flush was outside the scope anyway. It is evidence the happy path
+works, NOT evidence the guard is unnecessary.
+
+> **Trap — do NOT "fix parity with NServiceBus" by adding a blanket `Suppress` to `FlushAllAsync`.**
+> It would break the Durable outbox. Under `Transactional Outbox = Durable`, fix #1's DbContext
+> splice calls `FlushAllAsync` *inside* `SaveChangesAsync`, i.e. deliberately **inside** the ambient
+> scope — and there the flush writes Wolverine's outgoing envelopes to SQL on the DbContext's own
+> connection, which **must** enlist in that transaction or the outbox stops being atomic, which is
+> the entire reason the outbox exists. No ASB call happens at that moment (the durability agent
+> dispatches later, out of band), so there is no DTC hazard on that path to suppress. NServiceBus can
+> suppress unconditionally because its outbox path uses `ITransactionalSession` with an explicit
+> `Commit`, so it does not depend on the ambient scope the way this one does.
+>
+> If suppression is ever genuinely needed, it must be conditional — applied only on the
+> `Outbox = None` path, never on the Durable path.

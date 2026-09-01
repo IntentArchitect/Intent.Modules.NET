@@ -4,12 +4,13 @@
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="EFD825085FB429B0CA53CE6F4EB60288993360BFA90C2E6A3326EBFCB583FF38" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="885CCB0436536B6339F366D60F8FA4CAD67FD580C864D97DFD2489BFEFCCA684" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineFinbuckleConfiguratorExtension.cs" deviationsHash="E35709048EBDAC68A1CE8C666B101E10D0144749CF99E4F8A91EBF27361263E0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="F2755255DF80A412B668641D37F16FB41E75E23DBCB42CE462B12B85F46C947B" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="585292EB6790FFBDB77C2F36203A9B91DFC4B63362E0CF78F6295F86B67FCF99" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineTelemetryConfiguratorExtension.cs" deviationsHash="FB4B09BCD871527D5E9BEC7BA248F09153D9B6B2208379B38A52EC2553FB75AB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Eventing.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
-  <file path="Intent.Modules.Eventing.Wolverine.csproj" deviationsHash="64FB4A19994C5BF3A318D5BCECCC6DB294EDF492B24B78816095AD06E4D48920" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.Eventing.Wolverine.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />

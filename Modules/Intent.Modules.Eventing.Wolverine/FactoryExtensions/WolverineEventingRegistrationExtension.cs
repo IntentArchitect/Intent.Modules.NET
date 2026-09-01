@@ -221,6 +221,11 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 {
                     file.AddUsing("Wolverine.EntityFrameworkCore");
                     file.AddUsing(ctx.DatabaseProvider!.IsSqlServer() ? "Wolverine.SqlServer" : "Wolverine.Postgresql");
+
+                    if (ctx.HasUnitOfWorkTransactionScope)
+                    {
+                        file.AddUsing("Wolverine.Persistence");
+                    }
                 }
 
                 var @class = file.Classes.First();
@@ -372,9 +377,12 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
             }
         }
 
-        // Transport = Azure Service Bus. No exchange-to-queue binding step - AzureServiceBusTransport
-        // exposes no equivalent to RabbitMQ's transport.BindExchange, so ConfigureListeners here needs
-        // no reference to the transport object at all.
+        // Transport = Azure Service Bus. Unlike RabbitMQ's transport.BindExchange, the topic-to-
+        // subscription binding is expressed on the LISTEN side itself:
+        // ListenToAzureServiceBusSubscription(subscriptionName).FromTopic(topicName) - so
+        // ConfigureListeners here still needs no reference to the transport object (AutoProvision,
+        // already called above, creates both the topic and the subscription at startup), but a
+        // subscribed Integration Event does need the publish side's topic name to bind against.
         private static void AddAzureServiceBusBody(CSharpClass @class, CSharpClassMethod method, EventingContext ctx)
         {
             @class.AddMethod("void", "ConfigureAzureServiceBusTransport", transportMethod =>
@@ -413,12 +421,20 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     listeners.Private().Static();
                     listeners.AddParameter("WolverineOptions", "opts");
 
+                    // Subscribed Integration Events are fanned out via a topic on the publish side
+                    // (ToAzureServiceBusTopic), so the listen side must bind a subscription to that
+                    // SAME topic - a plain queue binds to nothing an event was ever published to.
                     foreach (var message in ctx.SubscribedMessages)
                     {
-                        var queueName = GetSubscriberQueueName(ctx, message);
-                        listeners.AddStatement($"opts.ListenToAzureServiceBusQueue(\"{queueName}\");", s => s.SeparatedFromPrevious());
+                        var subscriptionName = GetSubscriberQueueName(ctx, message);
+                        var topicName = ResolvePublishName(ctx, message);
+                        listeners.AddStatement(
+                            $"opts.ListenToAzureServiceBusSubscription(\"{subscriptionName}\").FromTopic(\"{topicName}\");",
+                            s => s.SeparatedFromPrevious());
                     }
 
+                    // Integration Commands stay point-to-point, matching the publish side's
+                    // ToAzureServiceBusQueue - a subscription would not match a queue send.
                     foreach (var command in ctx.ReceivedCommands)
                     {
                         var queueName = ResolveSendName(ctx, command);
@@ -500,11 +516,23 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                         publishing.AddStatement(statement, s => { if (separate) s.SeparatedFromPrevious(); });
                     }
 
+                    // R3.1: RawMessageDelivery = true - verified against WolverineFx 5.39.5's own SNS
+                    // docs (SubscribeSqsQueue's second, optional configuration-action parameter).
+                    // Without it, AWS wraps the published payload in SNS's own JSON notification
+                    // envelope (Type/MessageId/TopicArn/Message/Timestamp/...) before it reaches the
+                    // SQS queue. Confirmed live: the subscriber's SQS listener then hands that JSON to
+                    // Wolverine's DefaultSqsEnvelopeMapper, which expects ITS OWN raw base64-encoded
+                    // envelope in the message body and throws FormatException trying to base64-decode
+                    // the SNS wrapper instead. RawMessageDelivery makes SNS deliver the original
+                    // message body unwrapped, so the SQS side sees exactly what a direct
+                    // ListenToSqsQueue subscriber would.
+                    const string rawMessageDeliveryConfig = ", config => config.RawMessageDelivery = true";
+
                     foreach (var message in ctx.PublishedMessages)
                     {
                         var typeName = ctx.Template.UseType(ctx.Template.GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, message));
                         var subscription = subscribedIds.Contains(message.Id)
-                            ? $".SubscribeSqsQueue(\"{GetSubscriberQueueName(ctx, message)}\")"
+                            ? $".SubscribeSqsQueue(\"{SanitizeAmazonQueueName(GetSubscriberQueueName(ctx, message))}\"{rawMessageDeliveryConfig})"
                             : string.Empty;
                         AddStatement($"opts.PublishMessage<{typeName}>().ToSnsTopic(\"{ResolvePublishName(ctx, message)}\"){subscription};");
                     }
@@ -512,7 +540,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     foreach (var message in ctx.SubscribedMessages.Where(x => !publishedIds.Contains(x.Id)))
                     {
                         var typeName = ctx.Template.UseType(ctx.Template.GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, message));
-                        AddStatement($"opts.PublishMessage<{typeName}>().ToSnsTopic(\"{ResolvePublishName(ctx, message)}\").SubscribeSqsQueue(\"{GetSubscriberQueueName(ctx, message)}\");");
+                        AddStatement($"opts.PublishMessage<{typeName}>().ToSnsTopic(\"{ResolvePublishName(ctx, message)}\").SubscribeSqsQueue(\"{SanitizeAmazonQueueName(GetSubscriberQueueName(ctx, message))}\"{rawMessageDeliveryConfig});");
                     }
 
                     foreach (var command in ctx.SentCommands)
@@ -530,6 +558,18 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 {
                     listeners.Private().Static();
                     listeners.AddParameter("WolverineOptions", "opts");
+
+                    // Wolverine's own SNS transport does no listening of its own - SubscribeSqsQueue
+                    // on the publish side only declares subscription intent (verified against
+                    // WolverineFx 5.39.5's SNS docs). The queue must ALSO be registered as a listener
+                    // on the SQS transport, both so AutoProvision actually creates it and so Wolverine
+                    // processes messages from it - without this, the queue is never created and the
+                    // host fails to start once AutoProvision tries to point the SNS subscription at it.
+                    foreach (var message in ctx.SubscribedMessages)
+                    {
+                        var queueName = SanitizeAmazonQueueName(GetSubscriberQueueName(ctx, message));
+                        listeners.AddStatement($"opts.ListenToSqsQueue(\"{queueName}\");", s => s.SeparatedFromPrevious());
+                    }
 
                     foreach (var command in ctx.ReceivedCommands)
                     {
@@ -690,7 +730,18 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     ? "opts.PersistMessagesWithSqlServer(connectionString);"
                     : "opts.PersistMessagesWithPostgresql(connectionString);";
                 method.AddStatement(persistStatement, s => s.SeparatedFromPrevious());
-                method.AddStatement("opts.UseEntityFrameworkCoreTransactions();");
+
+                // Eager (the default) calls Database.BeginTransactionAsync() before the handler runs,
+                // which throws "An ambient transaction has been detected" against the TransactionScope
+                // either UnitOfWorkMiddleware (Wolverine dispatch) or UnitOfWorkBehaviour (MediatR)
+                // already opened. Lightweight makes SaveChangesAsync() the transactional boundary
+                // instead, which enlists in that ambient scope cleanly - outbox atomicity is unaffected,
+                // since Wolverine persists outgoing envelopes on the DbContext's own connection as part
+                // of the same SaveChangesAsync. Only condition this when one of those two middlewares/
+                // behaviours is actually present - an app with neither has no ambient scope to collide with.
+                method.AddStatement(ctx.HasUnitOfWorkTransactionScope
+                    ? "opts.UseEntityFrameworkCoreTransactions(TransactionMiddlewareMode.Lightweight);"
+                    : "opts.UseEntityFrameworkCoreTransactions();");
                 method.AddStatement("opts.Policies.AutoApplyTransactions();");
                 method.AddStatement("opts.Policies.UseDurableOutboxOnAllSendingEndpoints();");
                 method.AddStatement("opts.Policies.UseDurableInboxOnAllListeners();");
@@ -760,15 +811,51 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
         }
 
         /// <summary>
-        /// R5.7/R5.9: the subscribing application's name and the message's name, each kebab-cased and
-        /// joined by a hyphen. Never overridable, so every subscriber of a fanned-out Integration Event
-        /// ends up with its own queue rather than sharing one.
+        /// R5.7/R5.9: by convention, the subscribing application's name and the message's name, each
+        /// kebab-cased and joined by a hyphen - so every subscriber of a fanned-out Integration Event
+        /// ends up with its own queue rather than sharing one. Overridable per subscription via the
+        /// "Wolverine Subscription" stereotype's "Subscriber Queue Name" property, applied on the
+        /// Subscribe Integration Event association's target end - added because the convention name's
+        /// length scales with the application's own display name, which has no ceiling, while Azure
+        /// Service Bus caps subscription names at 50 characters and AWS SQS/SNS names allow only
+        /// alphanumerics, hyphens and underscores (see <see cref="SanitizeAmazonQueueName"/>). An
+        /// override is taken verbatim - it is the modeller's job to keep it valid for the transport
+        /// they chose, the same way Topic Name/Destination Queue Name already work on Wolverine Message.
         /// </summary>
         private static string GetSubscriberQueueName(EventingContext ctx, MessageModel message)
         {
+            if (ctx.SubscriptionsByMessageId.TryGetValue(message.Id, out var subscription))
+            {
+                var queueNameOverride = subscription.GetWolverineSubscription()?.SubscriberQueueName();
+                if (!string.IsNullOrWhiteSpace(queueNameOverride))
+                {
+                    ValidateNameOverride(queueNameOverride, subscription.InternalElement, message.Name, "Subscriber Queue Name");
+                    return queueNameOverride;
+                }
+            }
+
             var messageNameKebab = GetConventionName(ctx.Template.GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, message));
             return $"{ctx.ApplicationNameKebab}-{messageNameKebab}";
         }
+
+        /// <summary>
+        /// AWS SQS/SNS resource names allow only alphanumeric characters, hyphens and underscores -
+        /// unlike RabbitMQ queue names or Azure Service Bus entity names, both of which accept a
+        /// literal period. <c>ApplicationNameKebab</c> (<see cref="GetSubscriberQueueName"/>) is a
+        /// kebab-cased *application display name*, and <c>.ToKebabCase()</c> only inserts hyphens at
+        /// word boundaries - it does not strip characters that are not valid identifier characters, so
+        /// a dotted application name (routine in this codebase, e.g. "WolverineEventing.Transport.
+        /// AmazonSqs") survives into the queue name verbatim as "wolverine-eventing.transport.amazon-
+        /// sqs-...". Verified live against a real AWS account: the SQS queue this name is passed to
+        /// gets created anyway (the AWS SDK/Wolverine silently tolerates the invalid character there),
+        /// but Wolverine's SNS transport looks the queue up by that same literal name during
+        /// subscription creation and gets QueueDoesNotExistException, because no queue by that exact
+        /// (dotted) name exists - only the one Wolverine itself created is reachable, and its name and
+        /// the name being searched for are never the same string. Applying this exclusively inside
+        /// AddAmazonSqsBody, not to GetSubscriberQueueName itself, keeps RabbitMQ's and Azure Service
+        /// Bus's dotted names - which are valid on those brokers - untouched.
+        /// </summary>
+        private static string SanitizeAmazonQueueName(string queueName) => queueName.Replace('.', '-');
 
         /// <summary>
         /// Registers default appsettings.json entries for the connection settings the generated
@@ -832,6 +919,24 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
             public string ApplicationNameKebab { get; private set; } = "";
             public IReadOnlyList<IntegrationEventHandlerModel> SubscribedHandlers { get; private set; } = Array.Empty<IntegrationEventHandlerModel>();
 
+            /// <summary>
+            /// This application's Subscribe Integration Event associations, keyed by the subscribed
+            /// message's id - the seam <see cref="GetSubscriberQueueName"/> reads the "Wolverine
+            /// Subscription" stereotype's override from. Built once here rather than re-walked per
+            /// message, since every transport's queue-naming loop calls GetSubscriberQueueName per
+            /// subscribed message.
+            /// </summary>
+            public IReadOnlyDictionary<string, SubscribeIntegrationEventTargetEndModel> SubscriptionsByMessageId { get; private set; } =
+                new Dictionary<string, SubscribeIntegrationEventTargetEndModel>();
+
+            /// <summary>
+            /// True when either dispatch stack's unit-of-work opens a <c>TransactionScope</c> around
+            /// the handler - Wolverine's own <c>UnitOfWorkMiddleware</c>, or MediatR's
+            /// <c>UnitOfWorkBehaviour</c>. Both collide with Wolverine's Eager EF transactional
+            /// middleware the same way, so ApplyTransactionalOutbox probes for either.
+            /// </summary>
+            public bool HasUnitOfWorkTransactionScope { get; private set; }
+
             /// <summary>Tracks which classes already got a ParseDelays method, so a second Error Handling Policy branch never duplicates it.</summary>
             public HashSet<CSharpClass> ParseDelaysAdded { get; } = new();
 
@@ -864,9 +969,16 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 {
                     ctx.DatabaseProvider = template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider();
                     ctx.ConnectionStringName = template.ExecutionContext.Settings.GetDatabaseSettings().ConnectionStringName();
+                    ctx.HasUnitOfWorkTransactionScope =
+                        template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Wolverine.UnitOfWorkMiddleware") != null ||
+                        template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour") != null;
                 }
 
                 ctx.SubscribedHandlers = GetWolverineDesignatedSubscribedHandlers(template);
+                ctx.SubscriptionsByMessageId = ctx.SubscribedHandlers
+                    .SelectMany(handler => handler.IntegrationEventSubscriptions())
+                    .GroupBy(subscription => subscription.TypeReference.Element.AsMessageModel().Id)
+                    .ToDictionary(g => g.Key, g => g.First());
 
                 return ctx;
             }

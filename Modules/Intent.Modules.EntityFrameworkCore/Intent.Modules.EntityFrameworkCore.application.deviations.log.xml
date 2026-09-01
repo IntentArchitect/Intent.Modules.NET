@@ -91,4 +91,12 @@
       <fileHash>EF344B959025D2FC00C6DA27EF1972FEE15D292389210B663EC2C49F06E7CF27</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-01T22:49:43.1373286Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

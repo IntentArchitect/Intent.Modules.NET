@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Wolverine.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -149,11 +150,48 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus
                             """,
                             s => s.SeparatedFromPrevious());
 
+                        // R6.3: brokers must never be called under an ambient TransactionScope.
+                        // Verified against a real Azure Service Bus namespace: a send inside a
+                        // TransactionScope throws "The only supported IsolationLevel is Serializable",
+                        // and UnitOfWorkMiddleware/UnitOfWorkBehaviour both open theirs at
+                        // ReadCommitted - so any flush reached while one is open is a hard failure,
+                        // with or without a database enlisted. (Serializable is no escape either:
+                        // the send succeeds and the commit then throws TransactionInDoubtException.)
+                        // Today the dispatch-layer flush seam is registered OUTSIDE the unit of work
+                        // in both stacks, so this never triggers - but that is implicit ordering, and
+                        // this makes the guarantee explicit. Matches Intent.Eventing.AzureServiceBus's
+                        // AzureServiceBusMessageBus and Intent.Eventing.NServiceBus's bus.
+                        //
+                        // Deliberately NOT emitted for the Durable outbox: there the DbContext splice
+                        // (WolverineMessageBusInteropExtension) calls this from inside SaveChangesAsync,
+                        // where Wolverine enrols outgoing envelopes on the DbContext's own connection so
+                        // they commit atomically with the entity changes. Suppressing the ambient
+                        // transaction there risks decoupling the envelope write from that commit, which
+                        // is the one guarantee the outbox exists to provide. No broker call happens on
+                        // that path anyway - the durability agent dispatches later, out of band.
+                        var isDurableOutbox = ExecutionContext.Settings
+                            .GetWolverineMessageBusSettings()?.TransactionalOutbox()?.IsDurable() == true;
+                        var suppressAmbientTransaction = !isDurableOutbox;
+
+                        if (suppressAmbientTransaction)
+                        {
+                            CSharpFile.AddUsing("System.Transactions");
+                            method.AddStatement(
+                                "using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);",
+                                s => s.SeparatedFromPrevious());
+                        }
+
                         method.AddForEachStatement("action", "toFlush", loop =>
                         {
+                            loop.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines;
                             loop.AddStatement("cancellationToken.ThrowIfCancellationRequested();");
                             loop.AddStatement("await action(_bus);");
                         });
+
+                        if (suppressAmbientTransaction)
+                        {
+                            method.AddStatement("scope.Complete();", s => s.SeparatedFromPrevious());
+                        }
                     });
                 });
         }
