@@ -4,170 +4,86 @@ This module integrates [NServiceBus](https://particular.net/nservicebus) as a me
 
 ## What is NServiceBus?
 
-NServiceBus is a battle-tested service bus for .NET that provides reliable messaging, automatic retries, error queues, and durable outbox support. It is built around the concept of a single named endpoint per application, with support for multiple transport technologies.
+NServiceBus is a mature, commercially-supported service bus for .NET, built by Particular Software. It wraps a message transport (RabbitMQ, Azure Service Bus, Amazon SQS, SQL Server, or its file-based Learning Transport) behind a single named endpoint per application, and adds durable retries, an error queue, audit trails and a transactional outbox on top.
 
 For more information, see the [NServiceBus documentation](https://docs.particular.net/nservicebus/).
 
-## What's in this module?
-
-- Modeling Integration Events and Integration Commands in the Services designer.
-- NServiceBus endpoint configuration generation (transport, serialization, recoverability, installers).
-- Open generic handler wiring (`NServiceBusMessageHandler<TMessage>`) with explicit registry registration — no assembly scanning required.
-- Command routing (`RouteToEndpoint`) for commands sent to other endpoints.
-- SQL Persistence transactional outbox (with EF Core shared connection).
-- `appsettings.json` configuration entries.
-- Dependency Injection wiring.
-- Multi-broker coexistence support via the `NServiceBus` stereotype.
-- .NET 8/9 (`UseNServiceBusHost`) and .NET 10+ (`AddNServiceBusEndpoint`) host registration.
-
-## Module Settings
-
-### Transport
-
-Selects the underlying message transport. Options:
-
-| Setting | Transport | NuGet |
-|---|---|---|
-| `Learning Transport` | File-based, local only — ideal for development | Included in `NServiceBus` |
-| `RabbitMQ` | RabbitMQ (Quorum queues, Conventional routing) | `NServiceBus.RabbitMQ` |
-| `Azure Service Bus` | Azure Service Bus Topics | `NServiceBus.Transport.AzureServiceBus` |
-| `Amazon SQS` | AWS SQS + SNS | `NServiceBus.AmazonSQS` |
-| `SQL Server` | SQL Server tables as queues — cross-platform, no extra broker | `NServiceBus.Transport.SqlServer` |
-
-The default is `Learning Transport`. Change the setting in Intent Architect's application settings and rerun the Software Factory to switch transports.
-
-### License Path
-
-Optional. When `NServiceBus:LicensePath` is present in `appsettings.json`, the generated configuration calls `endpointConfiguration.LicensePath(path)`. Omit the key entirely to use the default NServiceBus license discovery (environment variable, XML file, etc.).
-
-### Persistence
-
-Selects the persistence provider for saga storage, subscription storage, and (when the outbox is enabled) exactly-once message dispatch.
-
-| Setting | Behaviour |
-|---|---|
-| `None` | No persistence configured. |
-| `SQL Persistence` | Uses `NServiceBus.Persistence.Sql` with a shared EF Core `DbConnection`/`DbTransaction`. Requires `Intent.EntityFrameworkCore`. |
-| `NHibernate` | Uses `NServiceBus.NHibernate` for persistence. |
-
-### Enable Outbox
-
-Enables the NServiceBus transactional outbox, which ensures messages are only dispatched after the database transaction commits. Requires `Persistence` to be set to `SQL Persistence` or `NHibernate`.
-
-> [!IMPORTANT]
->
-> Enabling the outbox with `SQL Persistence` requires the `Intent.EntityFrameworkCore` module. The Software Factory will fail with a descriptive error if it is not installed.
-
-### Enable Audit Queue
-
-When enabled, generates audit queue configuration that forwards processed messages to an audit queue. Set the following keys in `appsettings.json`:
-
-| Key | Required | Description |
-|---|---|---|
-| `NServiceBus:AuditQueue` | Yes | Name of the audit queue (e.g. `audit`). |
-| `NServiceBus:AuditTimeToBeReceived` | No | TimeSpan string (e.g. `00:10:00`). Omit to use NServiceBus defaults. |
-
-### Enable Instance Identification
-
-When enabled, generates `UniquelyIdentifyRunningInstance().UsingNames(instanceId, endpointName)` for use with the Particular Service Platform monitoring tools. Set the following key in `appsettings.json`:
-
-| Key | Required | Description |
-|---|---|---|
-| `NServiceBus:InstanceId` | Yes | Unique identifier for this running instance (e.g. `MyApp-1`). |
-
-### Recoverability Policy
-
-Configures automatic retry behaviour when message processing fails.
-
-| Setting | Behaviour |
-|---|---|
-| `None` | No retries. Failed messages are immediately sent to the error queue. |
-| `Immediate Only` | Immediate consecutive retries before moving to the error queue. |
-| `Delayed Only` | Delayed retries with configurable back-off before moving to the error queue. |
-| `Immediate and Delayed` | Immediate retries followed by delayed retries. |
-
-Retry counts and delay values are driven by `appsettings.json` and can be overridden per environment.
-
 ## Modeling Integration Events and Commands
 
-Integration Events and Integration Commands are modeled in the Services designer. This module installs the `Intent.Modelers.Eventing` module which provides the designer elements.
+Integration Events and Integration Commands are modeled in the Services designer, using the same `Intent.Modelers.Eventing` module every other broker in this repository builds on — see its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) for how to model the message contracts themselves. `Intent.Eventing.NServiceBus` installs it automatically.
 
-### Integration Events
+- **Integration Events** are broadcast: any application can publish one, any application can subscribe, and NServiceBus's pub/sub mechanism (SNS for SQS, Topics for Azure Service Bus, exchanges for RabbitMQ) takes care of fan-out. They carry no endpoint name.
+- **Integration Commands** are point-to-point: exactly one endpoint owns and handles a given command type, and every sender needs to know where to send it.
 
-Events represent something that happened. Any application can publish an event; any application can subscribe to it. Events do not require an endpoint name — they are broadcast via the transport's pub/sub mechanism (SNS for SQS, Topics for Azure Service Bus, Exchanges for RabbitMQ).
+### The `NServiceBus` Stereotype on Integration Commands
 
-### Integration Commands
-
-Commands target a specific endpoint. The **NServiceBus stereotype** is mandatory on every Integration Command:
+Because a command is only ever handled by one endpoint, that endpoint has to be named somewhere both the sender and the handler agree on. Apply the **NServiceBus** stereotype to the Integration Command and set **Endpoint Name** to the `NServiceBus:EndpointName` value of the application that handles it:
 
 1. Open the Integration Command in the Services designer.
 2. Right-click → **Add Stereotype** → **NServiceBus**.
-3. Set **Endpoint Name** to the `NServiceBus:EndpointName` config value of the application that handles this command.
+3. Set **Endpoint Name**.
 
 > [!IMPORTANT]
->
-> `EndpointName` must be set on every NServiceBus Integration Command — both in the application that sends it and in the application that subscribes to it. The value identifies which endpoint owns the command. Omitting it causes the Software Factory to fail with a descriptive error pointing to the offending command.
+> `EndpointName` is a property of the command itself, not of any one sender — both the sending application and the handling application must carry the same value. Omit it and the Software Factory fails with an `ElementException` naming the offending command, rather than generating something that silently can't be routed.
 
-## Generated Code
+## What This Module Generates
 
-### NServiceBusConfiguration
+- `NServiceBusConfiguration` — builds the `EndpointConfiguration` (transport, persistence, installers, serialization, recoverability, message conventions) and registers the message bus in DI.
+- `NServiceBusMessageHandler<TMessage>` — a single open-generic handler, registered once per subscribed message, that delegates to the application layer's `IIntegrationEventHandler<TMessage>`.
+- Command routing entries (`RouteToEndpoint`) for every Integration Command this application sends.
+- `appsettings.json` default entries for the selected transport and recoverability policy.
 
-The primary generated file. Contains:
+## Open Generic Handlers, Not Assembly Scanning
 
-- `AddNServiceBusConfiguration(IServiceCollection, IConfiguration)` — registers the message bus in DI and (on .NET 10+) starts the NServiceBus endpoint.
-- `UseNServiceBusHost(IHostBuilder)` — (.NET 8/9 only) extension method called from `Program.cs` to start the endpoint on the host builder.
-- `ConfigureMainEndpoint(IConfiguration)` — private method that builds the full `EndpointConfiguration`: transport, persistence, installers, serialization, recoverability, message conventions, handler registration, and command routing.
+NServiceBus's own handler discovery scans assemblies for types implementing `IHandleMessages<T>` — but it explicitly skips open generic type definitions, which is exactly what `NServiceBusMessageHandler<TMessage>` is. Registering it via DI doesn't help either: DI is only consulted once NServiceBus's internal handler registry already knows a type should be resolved, so a handler DI can see but the registry doesn't know about is never invoked.
 
-### Handler Pattern
-
-NServiceBus handler discovery via assembly scanning does not work for open generic types. This module uses explicit registry registration instead:
+This module works around that by registering each subscribed message's handler directly against NServiceBus's internal registries:
 
 ```csharp
 RegisterHandler<NServiceBusMessageHandler<TMessage>, TMessage>(endpointConfiguration);
 ```
 
-`NServiceBusMessageHandler<TMessage>` implements `IHandleMessages<TMessage>` and delegates to the application-layer `IIntegrationEventHandler<TMessage>`, keeping infrastructure concerns out of the application layer.
+There's no generated per-message consumer class to look at or customize — `NServiceBusMessageHandler<TMessage>` is the only handler type, for every subscribed message, and your business logic lives entirely in the `IIntegrationEventHandler<TMessage>` implementation `Intent.Eventing.Contracts` scaffolds.
 
-### Command Routing
+## Module Settings
 
-Commands sent to other endpoints get a `RouteToEndpoint` entry using the endpoint name from the NServiceBus stereotype:
+### Transport
 
-```csharp
-routing.RouteToEndpoint(typeof(OrderAnimal), configuration["NServiceBus:Routing:Commands:OrderAnimal"] ?? "TargetApp");
-```
+| Setting | Transport | NuGet |
+|---|---|---|
+| `Learning Transport` (default) | File-based, local only | Included in `NServiceBus` |
+| `RabbitMQ` | RabbitMQ, Quorum queues, conventional routing | `NServiceBus.RabbitMQ` |
+| `Azure Service Bus` | Azure Service Bus Topics | `NServiceBus.Transport.AzureServiceBus` |
+| `Amazon SQS` | AWS SQS + SNS | `NServiceBus.AmazonSQS` |
+| `SQL Server` | SQL Server tables used as queues — no separate broker to run | `NServiceBus.Transport.SqlServer` |
 
-The configuration key allows per-environment overrides without regenerating.
+Change the setting in Intent Architect's application settings and rerun the Software Factory to switch. Amazon SQS is the one transport with nothing to configure in `appsettings.json` — it relies entirely on the [AWS credential chain](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html).
 
-Commands handled by the same endpoint are self-routed (routed to `endpointName`).
+### Persistence and Enable Outbox
 
-## Working with Multiple Message Bus Providers
+**Persistence** selects the storage behind sagas, subscriptions and (when the outbox is on) exactly-once dispatch: `None`, `SQL Persistence` (shares the EF Core `DbConnection`/`DbTransaction`, requires `Intent.EntityFrameworkCore`), or `NHibernate` (manages its own session, no EF Core dependency).
 
-This module can coexist with other message bus providers (e.g. MassTransit) in the same application. When multiple providers are installed, Intent Architect generates a **Composite Message Bus** that routes messages to the correct broker.
+**Enable Outbox** turns on NServiceBus's transactional outbox, so a published message only leaves the endpoint once the database transaction that produced it has committed. It requires `Persistence` to be `SQL Persistence` or `NHibernate` — the Software Factory fails with a descriptive error if that dependency isn't satisfied.
 
-### Designating Messages for NServiceBus
+### Recoverability Policy
 
-When only this module is installed, all messages automatically use NServiceBus — no additional configuration is needed.
+Controls what happens when handling a message throws: `None` (straight to the error queue), `Immediate Only`, `Delayed Only`, or `Immediate and Delayed`. Retry counts and delay values live in `appsettings.json` so they can be tuned per environment without regenerating.
 
-When multiple providers are installed, mark messages for NServiceBus using the **NServiceBus** stereotype:
+### Enable Audit Queue / Enable Instance Identification
 
-1. Right-click on a **Package** or **Folder** in the Services designer.
-2. Select **Add Stereotype** → **NServiceBus**.
+Both are opt-in. Audit Queue forwards every processed message to an audit queue (`NServiceBus:AuditQueue`, plus an optional `NServiceBus:AuditTimeToBeReceived`); Instance Identification tags the running process for the Particular Service Platform's monitoring tools (`NServiceBus:InstanceId`).
 
-The stereotype can be applied at package or folder level. Child elements inherit the designation automatically.
+### License Path
+
+Not a module setting — if `NServiceBus:LicensePath` is present in `appsettings.json`, the generated configuration calls `endpointConfiguration.LicensePath(path)`. Leave the key out entirely to fall back to NServiceBus's own license discovery.
 
 ## `appsettings.json` Configuration
-
-The module generates default entries. Key sections:
 
 ```json
 {
   "NServiceBus": {
     "EndpointName": "MyApplication",
     "ErrorQueue": "error",
-    "LicensePath": "C:\\path\\to\\license.xml",
-    "AuditQueue": "audit",
-    "AuditTimeToBeReceived": "00:10:00",
-    "InstanceId": "MyApplication-1",
     "Recoverability": {
       "ImmediateRetries": 5,
       "DelayedRetries": 3,
@@ -184,57 +100,31 @@ The module generates default entries. Key sections:
   },
   "ConnectionStrings": {
     "RabbitMQ": "amqp://guest:guest@localhost:5672",
-    "AzureServiceBus": "Endpoint=sb://<namespace>.servicebus.windows.net/;..."
-  }
-}
-```
-
-`LicensePath`, `AuditQueue`, `AuditTimeToBeReceived`, and `InstanceId` are optional — omit any key that is not needed.
-
-Amazon SQS uses the AWS credential chain — no connection string is needed.
-
-### SQL Server Transport
-
-SQL Server transport uses SQL tables as queues. Add a `ConnectionStrings:NServiceBus` entry pointing to a SQL Server instance:
-
-```json
-{
-  "ConnectionStrings": {
+    "AzureServiceBus": "Endpoint=sb://<namespace>.servicebus.windows.net/;...",
     "NServiceBus": "Server=.;Database=NServiceBus;Integrated Security=true;TrustServerCertificate=true"
   }
 }
 ```
 
-`EnableInstallers()` automatically creates the queue tables on first run — no manual schema setup is required.
+`LicensePath`, `AuditQueue`, `AuditTimeToBeReceived` and `InstanceId` are only written when their corresponding setting is enabled. The `ConnectionStrings:NServiceBus` entry is only relevant to the SQL Server transport, whose `EnableInstallers()` call creates the queue tables on first run — no manual schema setup required.
 
-## Dependency Injection Wiring
+## Working with Multiple Message Bus Providers
 
-The module registers `AddNServiceBusConfiguration` into the Infrastructure DI extension:
+This module coexists with other message bus providers — MassTransit, Kafka, and the rest — in the same application. With only `Intent.Eventing.NServiceBus` installed, every message automatically routes through it, no configuration required.
 
-```csharp
-public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-{
-    // ...
-    services.AddNServiceBusConfiguration(configuration);
-    // ...
-}
-```
+Once a second provider is installed, Intent Architect generates a **Composite Message Bus** that routes each message to the right broker, and every message needs a broker designation: apply the **NServiceBus** stereotype to a Package or Folder in the Services designer, and its child elements inherit it automatically. An Integration Command or Event installed in a multi-broker application with no designation at all fails the Software Factory run outright, rather than silently going nowhere.
 
-On .NET 8/9, the host builder call is also injected into `Program.cs`:
-
-```csharp
-builder.Host.UseNServiceBusHost();
-```
+For the full architecture behind this — the generated `CompositeMessageBus`, the `MessageBrokerRegistry`, and how `IMessageBus` routing actually works — see the [Intent.Eventing.Contracts documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html).
 
 ## Local Development
 
 ### Learning Transport (no infrastructure required)
 
-The Learning Transport stores messages as files on disk. It requires no external service and is the fastest way to verify handler wiring locally. Set Transport to `Learning Transport` in module settings.
+The default. Stores messages as files on disk — no external service needed, and the fastest way to confirm handler wiring locally.
 
 ### SQL Server Transport (LocalDB or Docker)
 
-For local development, use SQL Server LocalDB (already installed with Visual Studio):
+LocalDB, already installed alongside Visual Studio, works out of the box:
 
 ```json
 {
@@ -244,13 +134,13 @@ For local development, use SQL Server LocalDB (already installed with Visual Stu
 }
 ```
 
-Or start SQL Server via Docker:
+Or run SQL Server in Docker:
 
 ```bash
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-`EnableInstallers()` creates the queue tables automatically on first run.
+Either way, `EnableInstallers()` creates the queue tables automatically on first run.
 
 ### RabbitMQ (Docker)
 
@@ -262,9 +152,7 @@ Admin console: `http://localhost:15672/` (guest/guest).
 
 ### Azure Service Bus
 
-Use a real Azure namespace with a connection string, or use the [Azure Service Bus emulator](https://learn.microsoft.com/en-us/azure/service-bus-messaging/overview-emulator) for local development.
-
-Store connection strings in [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets):
+Use a real Azure namespace, or the [Azure Service Bus emulator](https://learn.microsoft.com/en-us/azure/service-bus-messaging/overview-emulator) for local development. Store the connection string in [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) rather than `appsettings.json`:
 
 ```bash
 dotnet user-secrets set "ConnectionStrings:AzureServiceBus" "<your-connection-string>"
@@ -272,16 +160,22 @@ dotnet user-secrets set "ConnectionStrings:AzureServiceBus" "<your-connection-st
 
 ### Amazon SQS
 
-SQS uses the [AWS credential chain](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html). Set up credentials via IAM access keys or AWS SSO:
+Uses the [AWS credential chain](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html) — no connection string. Either run `aws configure`, or set the environment variables directly:
 
 ```bash
-# IAM access keys
-aws configure
-
-# Or set environment variables
 $env:AWS_ACCESS_KEY_ID = "..."
 $env:AWS_SECRET_ACCESS_KEY = "..."
 $env:AWS_REGION = "eu-west-1"
 ```
 
-`EnableInstallers()` automatically creates SQS queues and SNS topics on first run.
+`EnableInstallers()` creates the SQS queues and SNS topics automatically on first run.
+
+## Related Modules
+
+### [Intent.Eventing.Contracts](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Eventing.Contracts/docs/README.md)
+
+Owns the transport-agnostic `IMessageBus` interface and `IIntegrationEventHandler<T>` this module implements against, plus the Composite Message Bus that routes between providers when more than one is installed.
+
+### [Intent.EntityFrameworkCore](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/docs/README.md)
+
+Required when **Persistence** is set to `SQL Persistence` and **Enable Outbox** is on — the outbox shares this module's `DbContext` connection and transaction to get exactly-once dispatch.
