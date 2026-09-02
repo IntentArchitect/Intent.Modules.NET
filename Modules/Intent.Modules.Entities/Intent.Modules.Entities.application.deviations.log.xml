@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8853b39c-4fd2-48e4-91e0-4625b4a0a61f</correlationId>
+      <path>FactoryExtensions/AITaskFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:04.505586Z</updatedAt>
+      <deviationsHash>39EDCBB5197CD50AAF77211C29D74341DB5DC12F2BB329758F68A28EF41A56E2</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#caf76cc7-8bfb-4698-999d-a4748122ded9</correlationId>
       <path>Intent.Modules.Entities.csproj</path>
       <count>1</count>
@@ -25,6 +34,15 @@
       <approvedAt>2024-11-14T16:13:25.2078213Z</approvedAt>
       <deviationsHash>5864FEEDB17856DBE98117E20EC14B59C855326E85F9744E294C69452714287A</deviationsHash>
       <fileHash>190F61B8609458B98A12CEB1561A2228CB02C79D8CC62B1D7671B06ED1CFC627</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f5b37691-80dc-4e35-94fa-e40e5df08b88</correlationId>
+      <path>Templates/CollectionWrapper/CollectionWrapperTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:04.5064717Z</updatedAt>
+      <deviationsHash>FABC5429266C25848D18C8D8D0B6DD4FE4128F3ED60215908AED00C21381A607</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d25a607-58e9-42bd-b578-6fd47f8767e0</correlationId>
@@ -55,11 +73,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</correlationId>
       <path>Templates/DomainEntityState/DomainEntityStateTemplatePartial.cs</path>
-      <count>3</count>
+      <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-02T10:14:09.2581179Z</updatedAt>
-      <deviationsHash>E4619CAD6D897C9BAD400075DD6FED7D00AB24DF80DC64F04A27B1980EAC83C4</deviationsHash>
+      <updatedAt>2026-09-02T13:57:04.507242Z</updatedAt>
+      <deviationsHash>376746662EE48131AABEE4D3279AA81F267A25ED46150E3A8FCEFC06489279D7</deviationsHash>
       <fileHash>50E9E6E037F7CBB15AB41F5155ADDBBAC2E069A4C579D5AE0EE55083838EB966</fileHash>
     </file>
     <file>

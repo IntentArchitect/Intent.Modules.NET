@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="ef1945f3-b5bf-4321-859b-bda2c6ef4747">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ServiceContractEndpointExtension.cs" deviationsHash="ADE5CF1E4688A72C844718E146C58A7816847AC1B2916ABADC565DCFABA5F8D1" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.FastEndpoints.Dispatch.Services.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.FastEndpoints.Dispatch.Services.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="03e0114e-4f03-474f-a16e-57fa1d247007">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/DTOFieldModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MediatRControllerInstaller.cs" deviationsHash="54083FD7CCA89621EBC17382E20BFE8A55E72D5AE6B4E5EE0801A1F17E92CC8C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Controllers.Dispatch.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="modelers/Http CQRS Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+</managedFiles>

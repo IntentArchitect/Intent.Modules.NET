@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b7db91ac-8839-48cd-8389-8b32ff4eaf41">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MediatRCommandExtension.cs" deviationsHash="5F5F11ECA8134B2CBB498839E4A6A5298A766825EF7B6512E54D0B68E56F2AC1" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MvcControllerMediatRCommandExtension.cs" deviationsHash="5E3778FD164C37176C5ADADC9CB1627892B76EA280E09A052FBE77D5732EF1D5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MvcControllerTraditionalServiceExtension.cs" deviationsHash="95BCEDB42BC2211F1F348B1169B6E799FBFCA7072EF222857269E6F5DDC66C3D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/PatchInteractionStrategyProviderExtension.cs" deviationsHash="D11801405DB7B414F903C99E6BC4140FC698E61E4FA5631162DC87FA96E9A2BD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/TraditionalServiceDtoExtension.cs" deviationsHash="77572CF167CAC5D5FC1157B2F1744153FDD445088E2349D2887AAFD8F53F806D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Controllers.JsonPatch.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Controllers.JsonPatch.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/Templates/JsonMergePatchExecutor/JsonMergePatchExecutorTemplatePartial.cs" deviationsHash="A5D9A178AD996056E364290832908329DCC77EB9235C4F16D71C9D6FBDCDA478" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/JsonMergePatchExecutor/JsonMergePatchExecutorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/JsonMergePatchOperationFilter/JsonMergePatchOperationFilterTemplatePartial.cs" deviationsHash="FA57E018E74C203C331912178DE7942DB4171DB5E86E5F35B092E96224CF7B86" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/JsonMergePatchOperationFilter/JsonMergePatchOperationFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/JsonMergePatchOperationTransformer/JsonMergePatchOperationTransformerTemplatePartial.cs" deviationsHash="1461BA200875B0C8678C2AFB5AE0A4F9FE6C4504EB3BF4BED7B7FB74195D8611" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/JsonMergePatchOperationTransformer/JsonMergePatchOperationTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/PatchExecutorInterface/PatchExecutorInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/PatchExecutorInterface/PatchExecutorInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/PatchIgnoreMetadataProvider/PatchIgnoreMetadataProviderTemplatePartial.cs" deviationsHash="9697DCC6115FD85860AC0C12C36FF04A45526B9340FD200F1B95B55C4C3687C2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/PatchIgnoreMetadataProvider/PatchIgnoreMetadataProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="modelers/JSON Patch Services Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

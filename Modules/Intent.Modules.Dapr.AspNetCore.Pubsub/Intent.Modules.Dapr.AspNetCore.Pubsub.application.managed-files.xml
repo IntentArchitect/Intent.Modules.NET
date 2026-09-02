@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="858ff064-47cf-4765-be7f-75a121e9c8d6">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/DaprEventingFactoryExtension.cs" deviationsHash="D7DA686070C3B0F2F35FF200F3C1B40EE40CFF9CEEF7525335C7C99EA44045E2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="AF4BF7897D0191D793961B442B1D6004040376D1A9179151399576A247194942" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Dapr.AspNetCore.Pubsub.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Dapr.AspNetCore.Pubsub.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_03_00_00_Pre_01.cs" deviationsHash="4D5DC89F8EF10446CE95EF39738CF9B0C35C2EE8853FA8C123DA27EB9675B324" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_03_01_00_Pre_01.cs" deviationsHash="021C4260BB029E63914D7812174313AB36990F524F6DD86B36F2F04FEF291D0C" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Templates/DaprConfiguration/DaprConfigurationTemplatePartial.cs" deviationsHash="4B623747A842C0F52B8D6EF6F3239D316AB2E2EDE6A05945CE2B32592D339944" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprConfiguration/DaprConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DaprEventHandlerController/DaprEventHandlerControllerTemplatePartial.cs" deviationsHash="A26DFE906E7FAC5CDF86E695B3373537AB63E283AC9745D5B55772DE8AEE3F4B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprEventHandlerController/DaprEventHandlerControllerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DaprMessageBus/DaprMessageBusTemplatePartial.cs" deviationsHash="A1A19B55EC8568DA26018335F9EA1DE2758D568DBDC23B6EF6F1D5E03F0F9C6B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprMessageBus/DaprMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EventInterface/EventInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EventInterface/EventInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/DAPR Services Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+</managedFiles>

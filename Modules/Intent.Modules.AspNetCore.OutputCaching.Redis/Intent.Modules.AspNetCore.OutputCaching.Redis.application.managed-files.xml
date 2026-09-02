@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="672867be-508c-4d6f-955a-d59b79ad1470">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CachingPoliciesModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/CachingPolicyModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/CachingPolicyModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/PackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="ApiMetadataProviderExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions" />
+  <file path="FactoryExtensions/ControllerExtension.cs" deviationsHash="61986963DA6E545D82EBE05F8CFF9F213C7FBFAD79633079DE92BBE608A90381" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.OutputCaching.Redis.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.OutputCaching.Redis.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_01_01_00_Pre_00.cs" deviationsHash="1AEF5E7D7CDCD341D2B7347377A897E4DB69CD3EC068A7C6912301DDE62676A0" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplatePartial.cs" deviationsHash="29E74E9EBD6E80F345C6DDB0D29C817836362C69AD4ACAA5D59D7A0712E65B6E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplateRegistration.cs" deviationsHash="A0E45C5066D6300D22E0D8DB1C4BE8C2336EFCCB1B109D0B9BDB0D416BC79748" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Caching Policy Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

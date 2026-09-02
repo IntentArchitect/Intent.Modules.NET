@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="f509ceb6-2825-4aa4-9dc4-b3288602e1a0">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MvcControllerDispatchExtension.cs" deviationsHash="479EE22ECC87102C91BCD5A5833EE25E6A89CF2025E75579BC927331617B17E6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Mvc.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Mvc.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/MvcController/MvcControllerTemplatePartial.cs" deviationsHash="1995B93C99A115784E2C5F552BDBE9E684828D2FF3417A2A9BF0F1360550BED6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MvcController/MvcControllerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MvcViewStub/MvcViewStubTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/MvcViewStub/MvcViewStubTemplatePartial.cs" deviationsHash="54E527100CBF177B7C4F08D2913D1239246ADFA097C15D6A7F6EA0DDD04AC6F7" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/MvcViewStub/MvcViewStubTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Services Extension.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

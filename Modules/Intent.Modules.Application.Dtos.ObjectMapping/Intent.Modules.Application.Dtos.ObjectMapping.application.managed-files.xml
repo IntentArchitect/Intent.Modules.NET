@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5906ef37-8ce9-4dcd-a4ae-8ab1f7ad2cbb">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Intent.Application.Dtos.ObjectMapping.imodspec" />
-  <file path="Intent.Modules.Application.Dtos.ObjectMapping.csproj" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs" deviationsHash="8214E14FF71D42197EA653004785CF4F6C18029B8A8844C22546840479E667F7" />
-  <file path="Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Application.Dtos.ObjectMapping.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Dtos.ObjectMapping.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs" deviationsHash="8214E14FF71D42197EA653004785CF4F6C18029B8A8844C22546840479E667F7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

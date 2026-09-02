@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0cdff09c-343d-4e7a-a590-e81e9da7345f">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="E345636E2946579FF8E8DF3B43C064164C6C391FD112C0524025C4CCC2958205" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Aws.Sqs.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Aws.Sqs.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/SqsConfiguration/SqsConfigurationTemplatePartial.cs" deviationsHash="93A2C12E6150B86A3C56AF07EF92EC72AB01ED1FF4BFF9BCA19F518D71F99138" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsConfiguration/SqsConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SqsMessageBus/SqsMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsMessageBus/SqsMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SqsMessageDispatcher/SqsMessageDispatcherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsMessageDispatcher/SqsMessageDispatcherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SqsMessageDispatcherInterface/SqsMessageDispatcherInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsMessageDispatcherInterface/SqsMessageDispatcherInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SqsPublisherOptions/SqsPublisherOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/SqsPublisherOptions/SqsPublisherOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsPublisherOptions/SqsPublisherOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SqsSubscriptionOptions/SqsSubscriptionOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/SqsSubscriptionOptions/SqsSubscriptionOptionsTemplatePartial.cs" deviationsHash="6227EE1A482EB51091ECAF26E2E22DC913E48E1631C85202CB043648EC9869E2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SqsSubscriptionOptions/SqsSubscriptionOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#b9b0f3bd-6829-4088-8378-3427b22c8f05</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:32.9725143Z</updatedAt>
+      <deviationsHash>1E1CA97516068F9D6FBDAFBABE252A699B93C779302F033999777CF095238DF5</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b8c1ef43-3669-4e36-bd75-b4853e467c24</correlationId>
       <path>Templates/HttpClientStub/HttpClientStubTemplatePartial.cs</path>
       <count>2</count>
@@ -42,4 +51,12 @@
       <fileHash>050BEBC807B3DC433C17BEDA7FBC4DB8D4869E15AC31E1140DC940B14317175E</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Integration.HttpClients.Stubs/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.3997315Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

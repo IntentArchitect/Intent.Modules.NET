@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#a51ff2c8-8ea5-4c37-855e-3c5ec711e580</correlationId>
+      <path>FactoryExtensions/WebAssemblyProgramIntegrationFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:45.0331119Z</updatedAt>
+      <deviationsHash>E4CAAA1BF956F3B646A04C488B0733C08387F42182C218F78C37636DD8E58ED4</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1914f670-b1fc-49c1-9821-3bd4038d128c</correlationId>
       <path>Templates/DtoContract/DtoContractTemplatePartial.cs</path>
       <count>7</count>
@@ -39,6 +48,15 @@
       <approvedAt>2024-08-20T12:08:43.1473349Z</approvedAt>
       <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
       <fileHash>CD863FE7F11978375764FE28205D25C4330DC49B2B4D205CB121732AB3A2E0A4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dc09e8b0-3fa3-48f5-9c9a-12378dce269e</correlationId>
+      <path>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:45.0368895Z</updatedAt>
+      <deviationsHash>0AC81D27E152CEC696AB7750617309D7ECE687BD6CBD9AE42E3B7D36CB39DC86</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3986d9ae-05f9-4329-98b6-c8a0e67f7c4b</correlationId>
@@ -116,4 +134,12 @@
       <fileHash>00280E3E55A41D9ED80D8453973E4BD928C7BD63E66A02BCCDC947E9F3C55D41</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Blazor.HttpClients/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:12.9202363Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

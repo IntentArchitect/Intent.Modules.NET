@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#741f5903-5068-49c4-aeeb-31480f0e14a6</correlationId>
+      <path>FactoryExtensions/ProgramConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.6899203Z</updatedAt>
+      <deviationsHash>14B854E74FA8C79D40AF62580FBED31E4A5B932F7EAB6A7A3A8610A7E2527437</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9ee62e7e-be4a-45e9-925a-92f7653bde12</correlationId>
       <path>Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs</path>
       <count>1</count>
@@ -12,4 +21,12 @@
       <fileHash>1EA31424DE534090297EF090A1E3BB6AECABF78AEDE99C9CC9416EA4D6733B4B</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.OpenTelemetry/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.9801003Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

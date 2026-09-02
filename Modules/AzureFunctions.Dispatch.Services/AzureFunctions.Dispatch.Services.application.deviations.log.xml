@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#549d57c1-113f-45c3-85a7-460bc18872f5</correlationId>
+      <path>FactoryExtensions/ContractDispatchExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:33.5359623Z</updatedAt>
+      <deviationsHash>88E52E417AD939ABC01F46A8B02582EE03DC502F3F75B51884F20CD76909066A</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

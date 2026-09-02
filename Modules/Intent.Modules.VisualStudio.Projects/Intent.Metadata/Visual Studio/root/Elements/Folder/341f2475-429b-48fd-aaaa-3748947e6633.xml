@@ -9,6 +9,9 @@
   <parentFolderId>f31fb6c6-dbb0-4710-a988-c04e0f43dc36</parentFolderId>
   <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
   <packageName>root</packageName>
+  <traits>
+    <trait id="60fd85c8-5de8-45b6-9ba7-570cc701c3ab" name="Allows Custom File Classification" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>

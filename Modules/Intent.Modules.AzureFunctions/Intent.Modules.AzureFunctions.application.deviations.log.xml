@@ -35,6 +35,33 @@
       <fileHash>48CBF9DCF3CFF11ACFDCFAFE769BCC0689ADADACB69B8F29F4A2B413775CA82E</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dd8ccc08-d1be-4269-a60f-aef7d9e8325c</correlationId>
+      <path>Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:42.1061114Z</updatedAt>
+      <deviationsHash>30A750FA76F55D86D72D2F883137F2418A36CA779356A5F211E2DD16B392430E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cc2b906-6a28-4d05-9721-548e8a541abd</correlationId>
+      <path>Templates/InProcess/Startup/StartupTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:42.106416Z</updatedAt>
+      <deviationsHash>BC2A3208D0777863D26EEE2ECE56E63156CB98460147360A07A297979D9D6D66</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#26c19497-a98d-493f-b692-66713d4f78ca</correlationId>
+      <path>Templates/Isolated/GlobalExceptionMiddleware/GlobalExceptionMiddlewareTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:42.1061321Z</updatedAt>
+      <deviationsHash>F19DCE958B9700EF148711F6DBA661E22BD3832B946D534A04AE819634701BF6</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3bb69eff-0d9c-43f6-b15d-72022316574e</correlationId>
       <path>Templates/Isolated/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>
@@ -44,5 +71,22 @@
       <deviationsHash>827BDF19C93D48C7A8EB08EB554C70FF447AEDE80256B15A1346010B078A9E3F</deviationsHash>
       <fileHash>8D66DC1CD6302FF6663C8203631E1D248B4169A485E4D8C938699D80935FB181</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</correlationId>
+      <path>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:42.1063964Z</updatedAt>
+      <deviationsHash>46345AF078918757B53F666C11298B0ED51C10BB90D03C77AF1AFB37B45CB684</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AzureFunctions/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:12.403406Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

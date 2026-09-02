@@ -15,4 +15,12 @@
       <fileHash>1D4814218489062FD1DA6732228D2AB177FAA9C22D3F617B9917911437B5D009</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:12.8119948Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#32283d3d-8021-4136-ab4a-e45de7922a1f</correlationId>
+      <path>FactoryExtensions/FluentValidationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:33.326369Z</updatedAt>
+      <deviationsHash>88233AD790E199DC0BDE3ABE907A83F0DC5DC144DB0964FA76092F16C6EB5B6A</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AzureFunctions.FluentValidation/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:11.9943437Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

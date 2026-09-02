@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="dfab424d-aea2-4c5e-9a49-d0e3cc7215e8">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Modules.WindowsServiceHost.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.WindowsServiceHost.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/DeploymentMD/DeploymentMDTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/DeploymentMD/DeploymentMDTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/DeploymentMD/DeploymentMDTemplatePartial.cs" deviationsHash="AA3787AA62A5DBF9022343ADD24109D4F3D3E2E30B5979D3472CE5A6A7001786" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DeploymentMD/DeploymentMDTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProgramPartial/ProgramPartialTemplatePartial.cs" deviationsHash="59F86C6F69F6679B58F59243B56EC3EA736044C0C889917041D8B042D0EE7145" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProgramPartial/ProgramPartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/WindowsBackgroundService/WindowsBackgroundServiceTemplatePartial.cs" deviationsHash="4A63DA1A9E999D503BE849B06FE26E481D6FABE9C16A7BA4926392F54BB7FA20" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/WindowsBackgroundService/WindowsBackgroundServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="66906e06-e076-421e-b2af-1950345519dd" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>instructions</name>
-  <display>instructions</display>
+  <name>rules</name>
+  <display>rules</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -9,6 +9,9 @@
   <parentFolderId>6cb36383-40e6-497e-91d4-f6b31d5ba63e</parentFolderId>
   <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
   <packageName>root</packageName>
+  <traits>
+    <trait id="60fd85c8-5de8-45b6-9ba7-570cc701c3ab" name="Allows Custom File Classification" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>

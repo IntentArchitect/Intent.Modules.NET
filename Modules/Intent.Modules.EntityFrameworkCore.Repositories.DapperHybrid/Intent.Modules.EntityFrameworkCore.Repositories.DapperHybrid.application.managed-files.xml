@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a415efe1-7ccb-4e9c-bbb1-4381684a918a">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/RepositoryAdapterFactoryExtension.cs" deviationsHash="8FEB6AB2ED5736C6E0DC1B4DC11D648421C0AC88BAEB3E3939D241059863D81D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.Repositories.DapperHybrid.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

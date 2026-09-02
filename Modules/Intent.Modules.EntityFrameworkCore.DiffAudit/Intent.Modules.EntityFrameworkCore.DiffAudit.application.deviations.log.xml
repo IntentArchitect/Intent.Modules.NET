@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dbf43ad1-b736-4fe6-94c8-e4a463350a48</correlationId>
+      <path>FactoryExtensions/DiffAuditExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:07.3392834Z</updatedAt>
+      <deviationsHash>0EB3BE0A98EB8F5AA9DF79463976928190393C9E1BCB15598E2BFC949CEEC07C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#76267192-ec61-4491-a710-856945af2da1</correlationId>
+      <path>FactoryExtensions/EfCoreExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:07.3393145Z</updatedAt>
+      <deviationsHash>F3F3B64CDCA9630192EB8D812BE30D400F9AB9B6AD122059B7FD595C3942BBA4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#d415f5dc-c46d-4d87-a523-71babb94c1ff</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:07.3393476Z</updatedAt>
+      <deviationsHash>C86B6ADE02045E9AAAEFC89D61AE338ECA14E831455FF012D42E98564B0AB1DE</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.DiffAudit/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.7376626Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

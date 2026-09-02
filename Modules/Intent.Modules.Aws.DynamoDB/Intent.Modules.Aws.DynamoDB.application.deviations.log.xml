@@ -2,6 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b4c1e60b-dc33-40f6-ac21-6afa69ed883c</correlationId>
+      <path>FactoryExtensions/DiConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3959119Z</updatedAt>
+      <deviationsHash>ADDC2C38DA5FFB8537167B6BEC5B8223E46FEA9C978D00C040BACD5BF168F794</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d21fc1b9-ded0-494e-b829-b6c04e8cabe3</correlationId>
+      <path>FactoryExtensions/EnsureParameterlessConstructorsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3959331Z</updatedAt>
+      <deviationsHash>5F27343642107EA633BF16B39DA5CCF1E83E3F67C6AF65654087DEDE5DBD39B9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1708b699-fba7-419b-a0ad-c4a7cefb568f</correlationId>
+      <path>FactoryExtensions/EntityFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3959569Z</updatedAt>
+      <deviationsHash>3C956A74983D1E565E02DC6030070DB1F280EECC137641E4C407D56ABBB18F60</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#26415c04-9c0f-4daf-9723-cade3d17eeed</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3959848Z</updatedAt>
+      <deviationsHash>EEB28B33293EA3B6D6A0B7709945FDCCB51AA3E868F314EA53234A2AE3A6D6B8</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9037cc75-09ff-4977-8a64-efcaa5c8f5ab</correlationId>
       <path>Templates/DynamoDBDocument/DynamoDBDocumentTemplatePartial.cs</path>
       <count>1</count>
@@ -11,5 +47,67 @@
       <deviationsHash>315760919B124CA83E36CA88B8B651CC2F731DE0A74225F460FD8D689F07B017</deviationsHash>
       <fileHash>4C6D27D448BEB06B6D2F97E629699C88C37887488DFFFD1F91727EA8AAA8D26F</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#425e96f3-3008-4ffa-bcab-60ff39222f7c</correlationId>
+      <path>Templates/DynamoDBRepository/DynamoDBRepositoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3967304Z</updatedAt>
+      <deviationsHash>FB23B1C352E73D41CFBCAC9A37E1F23D9F0F38D8FA45AFCFBB337DC2073A8455</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e29826b7-a256-426e-9869-53a7693825dc</correlationId>
+      <path>Templates/DynamoDBRepositoryInterface/DynamoDBRepositoryInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3967731Z</updatedAt>
+      <deviationsHash>B8AD9CB0A98B8BB073B88CFAFBA1BD2A43ECEAE2738BB42A1ABCDEBF0087C1D7</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2377c357-e036-4d81-ba7b-c0f15e563486</correlationId>
+      <path>Templates/DynamoDBTableInitializer/DynamoDBTableInitializerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3967956Z</updatedAt>
+      <deviationsHash>1D1CD09C88BF19234BDFDD4A89F3B1761608DD8FA6F94FC726B473124732E688</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d4e4eae8-b8b3-4714-be94-3be33e25f17b</correlationId>
+      <path>Templates/DynamoDBUnitOfWork/DynamoDBUnitOfWorkTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3968161Z</updatedAt>
+      <deviationsHash>5E1154FFDC96EF302294C9AC060A47DEEBBA5404C648A74ECC77E852FFBB9C80</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#26b549a4-34c4-4296-bae2-5276b54d887c</correlationId>
+      <path>Templates/EnumAsStringConverter/EnumAsStringConverterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3968855Z</updatedAt>
+      <deviationsHash>32EDBDC64563F3D055358DB6438FB13CBB5CD6182580B41FBDBC7C9821763126</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1f1c450f-5d3e-41c7-9166-660e53e5ccdf</correlationId>
+      <path>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:55.3969065Z</updatedAt>
+      <deviationsHash>DC9D6BF1209ED77D946DFD6D09FF0D6EFB139DFCDD55BE7A4D739EABC1CD7CC8</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.DynamoDB/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.0157928Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

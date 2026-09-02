@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="95c39cbb-fdbb-46ee-806b-2392da2438bd">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/DataContractModelStereotypeExtensions.cs" />
-  <file path="Api/RepositoryExtensionsModel.cs" />
-  <file path="Api/StoredProcedureModelStereotypeExtensions.cs" />
-  <file path="Api/StoredProcedureParameterModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/AISkillsExtension.cs" />
-  <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" />
-  <file path="FactoryExtensions/DbContextInterfaceExtension.cs" />
-  <file path="FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs" />
-  <file path="Intent.EntityFrameworkCore.Repositories.imodspec" />
-  <file path="Intent.Modules.EntityFrameworkCore.Repositories.csproj" deviationsHash="7A55B486A67109E32A6DD0F9B4B2BE59A4894489620332FF53670267178BBF3C" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplatePartial.cs" />
-  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplateRegistration.cs" />
-  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs" />
-  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplateRegistration.cs" />
-  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplatePartial.cs" />
-  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplateRegistration.cs" />
-  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplatePartial.cs" />
-  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplateRegistration.cs" />
-  <file path="Templates/Repository/RepositoryTemplatePartial.cs" deviationsHash="E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7" />
-  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" deviationsHash="072F45ED50D1934E0B1E6CDA3B4470FD2BFA410B9B80B0FDCF723EC16DB13FB6" />
-  <file path="Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs" deviationsHash="07ECB8B32D962EB82E840D368D86B0866652DC876BB523AB46826AC4815236F8" />
-  <file path="Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="modelers/Domain Extensions.designer.settings" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/DataContractModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/RepositoryExtensionsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/StoredProcedureModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/StoredProcedureParameterModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/AISkillsExtension.cs" deviationsHash="CCE275AEAC91660F8F1A277A1E8AAC308B0EA2B60EAD90A444287A2C82DFD92A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" deviationsHash="88744283C308AF309A30FCB3C55D89E3AC7588E8EA49E4657A4351B72206B7B0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DbContextInterfaceExtension.cs" deviationsHash="F363E80ED7F7BB827460FACDA9F6A4BCCB4FF42BBE0218ADFFA21AAA3137594C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs" deviationsHash="FA9C932719CE6188351A6A43C2E372E48B10A5EA06D80F62A2B4F3CC5D9FFA5C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.Repositories.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.Repositories.csproj" deviationsHash="7A55B486A67109E32A6DD0F9B4B2BE59A4894489620332FF53670267178BBF3C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DataContractEntityTypeConfiguration/DataContractEntityTypeConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplatePartial.cs" deviationsHash="6BA74DD2CFA46BD288274D6F1A2B2C97B62A0B59F19538BE8A34D6D415B86DD1" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/EFRepositorySkill/EFRepositorySkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Repository/RepositoryTemplatePartial.cs" deviationsHash="E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" deviationsHash="072F45ED50D1934E0B1E6CDA3B4470FD2BFA410B9B80B0FDCF723EC16DB13FB6" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs" deviationsHash="07ECB8B32D962EB82E840D368D86B0866652DC876BB523AB46826AC4815236F8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs" deviationsHash="AAE201EBC31461AB448603D7CD06A8DB7C8B46FC76C645458DF95DA644755CF1" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Domain Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

@@ -6,28 +6,28 @@
   <file path="Api/Extensions/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/Extensions/DomainPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/Extensions/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/AISkillGuidanceForServiceImplementations.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/ConfigureConventionsExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/DependencyInjectionExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/AISkillGuidanceForServiceImplementations.cs" deviationsHash="8813D666D66F253F8E12F13424E1FC8D23EE4F5DEA61D84505793E85E0F35458" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ConfigureConventionsExtension.cs" deviationsHash="D6EC8D162DE9D2B3AB7574EEE73ACAC81B4FF427CFD2848CF06D16213606B841" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DependencyInjectionExtension.cs" deviationsHash="25E6C41431316E8D946B600B0E7A584570614E43B58631979D9E246D8BB05F11" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="F3131A22B9D77AB676A4E06C0B3CAE435001FE5802F5C7B3BF44A5655253F695" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/LazyLoadingProxyFactoryExtension.cs" deviationsHash="43DEA69B9C24155332935A36B388923D337A08312C8B20A8F0B3B1A9A9E4E2E4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/PostgresUtcConverterExtension.cs" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs" deviationsHash="55B564D16D3D08EBA3FA2654DC3D85452C03D417126C3DF4AFCC2D8FB133F952" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/PostgresUtcConverterExtension.cs" deviationsHash="A0AE98E8092BC9BD6413BFA81DDB4A802FE5492AEFFBB04361EC4DB8F49630F3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/UnitOfWorkExternalTransactionExtension.cs" deviationsHash="5DC679407CDDA03B774134579FD1B8A873B8FEFBFDEAACE39E86D3226202A1C1" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.EntityFrameworkCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.EntityFrameworkCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Migrations/Migration_05_00_28_Pre_02.cs" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
-  <file path="Migrations/OnInstallMigration.cs" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Migrations/Migration_05_00_28_Pre_02.cs" deviationsHash="3AB3956CABBBC8DA46B3FCAF74A4715035BC2E1F05822A6A019D517CA744E3D3" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="3C62477F6835CF453B091039A35FD117F2E503DD1490DBFFE15C0DE12AD12DED" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/DbContext/DbContextTemplatePartial.cs" deviationsHash="FA7A431AB9EEC76019EC79F9E5B06AB565636236D6214F0E19F6A1BEA28D44FE" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DbContext/DbContextTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
-  <file path="Templates/DbContextInterface/DbContextInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DbContextInterface/DbContextInterfaceTemplatePartial.cs" deviationsHash="6FF82FC94B53C25038CF251EE41D998B13385D9061311EA54964C5C81B135CF6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DbContextInterface/DbContextInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
   <file path="Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
-  <file path="Templates/DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs" deviationsHash="AD2411A69887D61AF9FDC5D602A5057B7EE9BBF10A04DA56F758379A2ADB10C9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DbInitializationExtensions/DbInitializationExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs" deviationsHash="6D416E87E7E265FC6D7C11BD9B5833A75AFE3F15E316315E687B77B572DEE63E" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
   <file path="Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs" deviationsHash="0A231C2890C50F2C301427C454F6699516FF286FA8F03AA8B17E6D54F5CBEAA5" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs" deviationsHash="6CA987185FA20749CF1CCB36174FBC249527C8D395F3451F5C26C9D55E95CBD5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
@@ -35,7 +35,7 @@
   <file path="Templates/PagedList/PagedListTemplatePartial.cs" deviationsHash="6C8A26F94484E9C86F84432B7B5C92BD0987E0C49426ECCC11362BC634D55254" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/PagedList/PagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
-  <file path="Templates/UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplatePartial.cs" deviationsHash="1F2B48E8344E87890EAD0C9E96B1311C5E7DBDC7D70547915C2DF7984D6E3942" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="modelers/EF Core Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />

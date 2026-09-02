@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="25929a5b-e346-4676-b602-ce00f0d62117">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/HideRouteParametersFromBodyOperationTransformerExtension.cs" deviationsHash="6B6652B820336EF0C4BFC46630776A69E78648BDA94B3269711BA2F669BFD1EA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ScalarStartupConfigurationExtension.cs" deviationsHash="092D23B0D8F32F9897B883A6B09FB1420358F46EA8D5DE13ABE8C2C1EA720FBE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Scalar.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Scalar.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplatePartial.cs" deviationsHash="2247C10A2C29349AABA6D12DC9E35115F462752442C5A96839B03B70B1235DA6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs" deviationsHash="1902E8D249E7C4A6417DE13B972D7C23AE75BD08A6EB1D8AC86B493B7660DD05" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

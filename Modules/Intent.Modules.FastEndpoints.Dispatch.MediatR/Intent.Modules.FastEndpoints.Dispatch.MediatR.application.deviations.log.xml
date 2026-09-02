@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fa33b952-536e-4aea-8c96-1c1e4f83386d</correlationId>
+      <path>FactoryExtensions/MediatREndpointExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:17.7717411Z</updatedAt>
+      <deviationsHash>7F4230DC3FEA9A476E03CD05C49542BED4D26D29AFC86EE88CA8B972812EEB6F</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.FastEndpoints.Dispatch.MediatR/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.5118005Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

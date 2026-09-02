@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#9e7e3734-7d48-4c04-b731-10390e126643</correlationId>
+      <path>FactoryExtensions/HttpClientHeaderConfiguratorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:56.4592965Z</updatedAt>
+      <deviationsHash>0B3D29878114A0B8D02B168A69675BFFFE0AF2C3B7A5C076B4E81C48BF290949</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbde9dd0-6494-4534-a11e-cc500061ad79</correlationId>
+      <path>FactoryExtensions/InteractionStrategyRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:56.4593331Z</updatedAt>
+      <deviationsHash>2E3DB1EA3A46F2B79F5B53E8EF3D3AFB8E1F272372B4A50779B62CC4EBD00746</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a7d8872f-eb1d-4835-84cb-377b8953bb6a</correlationId>
       <path>Templates/HttpClient/HttpClientTemplatePartial.cs</path>
       <count>6</count>
@@ -106,4 +124,12 @@
       <fileHash>CB9D1270A91E18EC99AF6DA04C1D06AA5C81BF216B881F45FFB685DF0DE4D3F7</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Dapr.AspNetCore.ServiceInvocation/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.5025779Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

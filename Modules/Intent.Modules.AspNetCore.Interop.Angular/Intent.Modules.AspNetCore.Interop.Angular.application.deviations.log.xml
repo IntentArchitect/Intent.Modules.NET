@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd13c4cd-f06b-472d-8f79-56965d4ebaaf</correlationId>
+      <path>FactoryExtensions/AngularStartupConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:10.8738762Z</updatedAt>
+      <deviationsHash>1D149AF45C038DD727BFD14AB0C57E7DB8D1CBBE481228C32A211445A13A0ECF</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Interop.Angular/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:08.4040074Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

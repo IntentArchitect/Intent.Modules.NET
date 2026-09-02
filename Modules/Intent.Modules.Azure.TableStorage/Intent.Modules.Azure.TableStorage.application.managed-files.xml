@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6e53e156-5533-4def-95e4-e4cd8bb4f992">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="CAF060427032E7DA9A8B165A22A777F168C4390402B6D7170116AA6C1B191DA7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="EAD1EE0DDC7F1E7788DD524C1A9A4E7C72A5F02C5FB1B6545E75E8CA89DC4D1A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Azure.TableStorage.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Azure.TableStorage.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="836D7FC2696D5935A433FD307A5BC496F3804B3B88C76F71FB1D038B3D24860D" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/CursorPagedList/CursorPagedListTemplatePartial.cs" deviationsHash="0D9FE03D5485B031C0CC430E27EA6D8A78C8FC9F5C16A160946D9B24BBA77CED" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CursorPagedList/CursorPagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/TableStorageRepository/TableStorageRepositoryTemplatePartial.cs" deviationsHash="7D8E3F9B2BAAA8502F722F2C42EA5AF38F3DC6B76F600788EA96A34B40C6694B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageRepository/TableStorageRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TableStorageRepositoryBase/TableStorageRepositoryBaseTemplatePartial.cs" deviationsHash="9B3424A2CC2CF419783B1F033382959F7E633090A8496CBEB7BB7039BB417C37" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageRepositoryBase/TableStorageRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/TableStorageRepositoryInterface/TableStorageRepositoryInterfaceTemplatePartial.cs" deviationsHash="89B41263CDE991D48FC67A104CD9A378E8A951F8A8B4BBFA4B040DDFF356690A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageRepositoryInterface/TableStorageRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/TableStorageTableAdapterInterface/TableStorageTableAdapterInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageTableAdapterInterface/TableStorageTableAdapterInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TableStorageTableEntity/TableStorageTableEntityTemplatePartial.cs" deviationsHash="27E76C6DACB8B9B9569F478C60DF57DFD417798B999B6F95A72180DA3EADCC23" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageTableEntity/TableStorageTableEntityTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplatePartial.cs" deviationsHash="25D6582B7163C608705B96C6B8C439F519CDEE1D6DE4C385915628B12BDAE17F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TableStorageUnitOfWork/TableStorageUnitOfWorkTemplatePartial.cs" deviationsHash="8965409CC33A941650541188B00C3CAC69E3D050CA09C1BDAA1EB781632F73E8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageUnitOfWork/TableStorageUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TableStorageUnitOfWorkInterface/TableStorageUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TableStorageUnitOfWorkInterface/TableStorageUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

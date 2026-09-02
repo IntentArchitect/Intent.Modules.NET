@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#423ef223-e628-4829-8611-7eebb395b81a</correlationId>
+      <path>Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:28.9500889Z</updatedAt>
+      <deviationsHash>A2485C8CEF4236A150E7CC873D8FCA1670847E909F1DBE82385CD88EA9241096</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AzureFunctions.AzureQueueStorage/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:11.7286016Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

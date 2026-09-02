@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#14fc2437-0298-4299-9a4f-0baf96b71cec</correlationId>
+      <path>FactoryExtensions/ServiceImplementationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:50.2826054Z</updatedAt>
+      <deviationsHash>4C1213BC1A8077F051A002705AF5102B0EC253264D0F206C957FAC4F63146FCD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d8c4b35-3d93-4c38-9776-de92a855f6ca</correlationId>
+      <path>Templates/ServiceCallHandlerImplementation/ServiceCallHandlerImplementationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:50.2829959Z</updatedAt>
+      <deviationsHash>810A4C06647D8ED599F96C58844F12892641CFF5FE8E3E8F0419312DD3FA8FC0</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.ServiceCallHandlers/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:05.9150984Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

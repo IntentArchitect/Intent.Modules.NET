@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#94f747a2-b83b-4cb4-aa98-d4a354bccbde</correlationId>
+      <path>FactoryExtensions/CqrsHandlerCrudExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:35.6189331Z</updatedAt>
+      <deviationsHash>9C44C9A2E8892CF453A84C29ECED50A88B3268DBC4D7E287694BDED39BA55108</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#6c06fe9e-d240-49c9-b664-cca3bbabad1a</correlationId>
+      <path>FactoryExtensions/MongoDbRepositoryUpdateExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:35.6194637Z</updatedAt>
+      <deviationsHash>F65B493E500B7D4E3AAEF9E68C6E4281CF97303232F20DD776E1DBF0438ABFD2</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.MediatR.CRUD/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:05.6542237Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

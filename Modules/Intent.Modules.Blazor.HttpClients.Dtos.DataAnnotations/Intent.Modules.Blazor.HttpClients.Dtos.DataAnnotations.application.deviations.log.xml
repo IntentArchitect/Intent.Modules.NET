@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#be4b3f9b-a7f8-4317-8782-a301eea378d5</correlationId>
+      <path>FactoryExtensions/BlazorHttpClientDataAnnotations.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:39.7210845Z</updatedAt>
+      <deviationsHash>A6A14269E524118EBEF548A058FBF4052C72B04902276B8E40568D7DFA99B9DD</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:12.6259508Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

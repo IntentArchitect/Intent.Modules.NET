@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="510a23ce-6417-46e7-bf54-7ff862e535a5">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtensions/DbContextApplicationIdentityUserFactoryExtension.cs" />
-  <file path="FactoryExtensions/IdentityUserFactoryExtension.cs" />
-  <file path="Intent.AspNetCore.Identity.AccountController.imodspec" />
-  <file path="Intent.Modules.AspNetCore.Identity.AccountController.csproj" />
-  <file path="Migrations/Migration_04_01_04_Pre_00.cs" />
-  <file path="Migrations/Migration_04_01_06_Pre_00.cs" />
-  <file path="Migrations/OnInstallMigration.cs" />
-  <file path="NugetPackages.cs" />
-  <file path="Templates/AccountController/AccountControllerTemplatePartial.cs" deviationsHash="77C94E2DD5E41C56AC9FC8179A5447A4F347F3C82EA113CF7992A9ACA2B3F74C" />
-  <file path="Templates/AccountController/AccountControllerTemplateRegistration.cs" />
-  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplate.cs" />
-  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplate.tt" />
-  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplatePartial.cs" />
-  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplateRegistration.cs" />
-  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplate.cs" />
-  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplate.tt" />
-  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplatePartial.cs" />
-  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="Templates/TokenServiceConcrete/TokenServiceConcreteTemplatePartial.cs" />
-  <file path="Templates/TokenServiceConcrete/TokenServiceConcreteTemplateRegistration.cs" />
-  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs" />
-  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/DbContextApplicationIdentityUserFactoryExtension.cs" deviationsHash="661F7F0424FC9F80C1823A177E0A9B7FCB17C39E98BAEE355A4D4E01EF8532C5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/IdentityUserFactoryExtension.cs" deviationsHash="8586CAD7253A630595D7B144AF7B83117848A759D1AE9401EC3FF5C09EE926D0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Identity.AccountController.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Identity.AccountController.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_04_01_04_Pre_00.cs" deviationsHash="FFF6D81A68957346C7018956E29931ECDE808E60639B7D591980E699D7774663" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_04_01_06_Pre_00.cs" deviationsHash="EF7A001F6D3D42F01A5D65BCA17A79F268A6E9510282CC5405F4DBC83E8B2820" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="B7AE8E272A805380FB1A2CC7BF1CACE336E927A8B6DB9B2B05406F23969D0947" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AccountController/AccountControllerTemplatePartial.cs" deviationsHash="77C94E2DD5E41C56AC9FC8179A5447A4F347F3C82EA113CF7992A9ACA2B3F74C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AccountController/AccountControllerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplatePartial.cs" deviationsHash="6FFF61E2F2D1109F6FD56295397AC7044F165878FC1E786D36BE5A5C7F86E4D2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AccountEmailSender/AccountEmailSenderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AccountEmailSenderInterface/AccountEmailSenderInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TokenServiceConcrete/TokenServiceConcreteTemplatePartial.cs" deviationsHash="F38C6C3E0A3D949872ECCF4F04BFC92599E6A24AAB894B83A4FF370E4E41EFF3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TokenServiceConcrete/TokenServiceConcreteTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
 </managedFiles>

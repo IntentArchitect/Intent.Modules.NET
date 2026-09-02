@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="ae988c9c-02cf-4669-9529-003c8c1d8851">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/AspNetCoreIntegrationExtension.cs" deviationsHash="3C528B11F01CC63148CFCF9715570CF6FC30FD402D8C8031E9656438A5217D23" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.AspNetCore.MultiTenancy.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.AspNetCore.MultiTenancy.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs" deviationsHash="79BED6D6BD01B6B2E78BB121FDAC54550632960687A9D5DF252FA380F21DBEAD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplatePartial.cs" deviationsHash="841A5E6E1C59E46D491C9A25285B2E49C7062786C62959C6597FD2079BA21625" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplateRegistration.cs" deviationsHash="DB6D390436DB71CCCFCBB9738F236FFC1232457A5191DA35D14433ABEC2722BF" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TenantConnectionsInterface/TenantConnectionsInterfaceTemplatePartial.cs" deviationsHash="45AD197B77B11751F29F89BDF5000A443BC51C7560AB0196F3025DBFE78FA45A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TenantConnectionsInterface/TenantConnectionsInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs" deviationsHash="D132540BE60254A82663589407E6390C320B1CE7A59F297814F594EE111B24D4" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TenantExtendedInfo/TenantExtendedInfoTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs" deviationsHash="F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="modelers/Multi Tenancy Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

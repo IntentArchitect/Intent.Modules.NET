@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6e3ac6b3-6b47-4b2c-acde-a84838179c41">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/GraphQLServiceDispatchExtension.cs" deviationsHash="B6B14BE6B17DCF3C2BD75592886B828A87D7D2CD693F250FDA803AD161B803D9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.HotChocolate.GraphQL.Dispatch.Services.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+</managedFiles>

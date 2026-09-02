@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#0d2dd29a-b452-4af3-b4c2-5eb36b6e1d3f</correlationId>
+      <path>FactoryExtensions/AITaskFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:58.8638661Z</updatedAt>
+      <deviationsHash>35AA9B9C3919395147F995FCFF8127E31AA4B679299EDBEFFC63F7FBFE354F45</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ef54f9ff-b933-4b66-af42-d61a7b1da91b</correlationId>
+      <path>Templates/DomainServiceImplementation/DomainServiceImplementationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:58.8639456Z</updatedAt>
+      <deviationsHash>0B4EAB24EB8FE89C94FA5A61A6B85E842B8A26F3934D593FE4A3AE97A131F530</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#12a8ead7-58c2-4a54-8ffd-d1d4783625f0</correlationId>
+      <path>Templates/DomainServiceInterface/DomainServiceInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:58.8639827Z</updatedAt>
+      <deviationsHash>F0BF2B3AB5E144894D5A03C4B03BD85425E0B61489807055C0EB876A123CE150</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.DomainServices/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.9820167Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

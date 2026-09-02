@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#736805ee-9057-4b8c-89c4-2d0762801923</correlationId>
+      <path>FactoryExtensions/MigrationsReadMeExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:04.8671997Z</updatedAt>
+      <deviationsHash>A60D6D67280A3745BF41257F3D0207892BCDA0ADEA70044BA391954770E227D7</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a44b31ac-f4db-4460-9625-04ff21395ba0</correlationId>
       <path>Templates/ApplicationSettingsJson/ApplicationSettingsJsonTemplatePartial.cs</path>
       <count>1</count>
@@ -28,4 +37,12 @@
       <fileHash>E45153443128028E36102B76E135585929AAF85A160B108FE403DC76760CD467</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.678422Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

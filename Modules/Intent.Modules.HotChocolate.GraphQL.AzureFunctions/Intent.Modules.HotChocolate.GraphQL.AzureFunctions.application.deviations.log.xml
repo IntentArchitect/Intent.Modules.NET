@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#652186aa-a71c-41b4-95f5-b234f31db9e9</correlationId>
+      <path>Templates/GraphQLConfig/GraphQLConfigTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:27.877329Z</updatedAt>
+      <deviationsHash>D4598CE0ED511225B22A5420C781C215F06F6F54A6E523473359B321A54E9D1D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.HotChocolate.GraphQL.AzureFunctions/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.9229131Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

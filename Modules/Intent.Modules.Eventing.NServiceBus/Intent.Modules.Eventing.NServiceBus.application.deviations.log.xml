@@ -2,13 +2,40 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17b4280e-2f8f-41c0-a70d-166cd3e351a8</correlationId>
-      <path>Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fdeb5fbe-21ee-4545-a874-df29642b61aa</correlationId>
+      <path>FactoryExtensions/NServiceBusMessageBusInteropExtension.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-05-18T19:37:34.4620154Z</updatedAt>
-      <deviationsHash>12AD4D237AF8FDBBDDA19951C10482A3AB22F34D1C57880CD8CFF7DFF2BD65E5</deviationsHash>
+      <updatedAt>2026-09-02T13:57:24.3179269Z</updatedAt>
+      <deviationsHash>D061FEAC98DBABACF42D7471A5B88733E97B198663D8360470D79722CB27ACDD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#99e6d024-7e01-4b4c-a56a-9dbb2aa8b836</correlationId>
+      <path>FactoryExtensions/NServiceBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:24.3179874Z</updatedAt>
+      <deviationsHash>E214E63DC3705EDE57D9446E30DA5198D781399174153EA496174C7C7B504498</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#541e259d-2cd9-4c57-8a8f-d36f7eb21daf</correlationId>
+      <path>Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:24.3180535Z</updatedAt>
+      <deviationsHash>5DC0D2B64D41783F602B1CD7D9E3545B5D0C40B6DCC1AEFD9B827FC9CDF47489</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17b4280e-2f8f-41c0-a70d-166cd3e351a8</correlationId>
+      <path>Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:24.3190534Z</updatedAt>
+      <deviationsHash>DA554655E00CA8BABF2F3F6F8E1C20E338A515A55BAEB9AFA746E60C08574BC8</deviationsHash>
       <fileHash>347190B639FB02AA5E35A1CBA988B21122DC899E5C1250D36B49325D6EFB4951</fileHash>
     </file>
   </files>

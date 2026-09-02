@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="8d97d581-efbb-47bd-b460-05a3293a5afa">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Decorators/ConfigurationSettingsJWTDecorator.cs" deviationsHash="450F703ED4C96F40D3EB2C18B5965C528B540EAE257ACEF11BDCFA5921A0E2B1" templateId="Intent.ModuleBuilder.Templates.TemplateDecorator" />
+  <file path="Decorators/ConfigurationSettingsJWTDecoratorRegistration.cs" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration" />
+  <file path="FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs" deviationsHash="9739023BB59C1182D15763E1537BF859EDFF1363A30C852E63E287F68B71871B" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" deviationsHash="D44FAFF736AC60DC2567DCD193832B1D66A2F2C5134603D9B5BCCCBCE9BDE649" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.Security.JWT.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Security.JWT.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

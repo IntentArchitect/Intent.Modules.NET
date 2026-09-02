@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a196fb3e-312e-4c7b-bdce-be69b3b25e1b">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/GraphQLStartupConfigurationExtension.cs" deviationsHash="6AC83CFFA113ED9497313AA1899EC449EA299DCE5EBA4633049562E09310784E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.HotChocolate.GraphQL.AspNetCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs" deviationsHash="69CE7F38B586C8C71830738AAC2D5301B34155B35F7EDADF3ADBFCE429E4F39F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GraphQLConfiguration/GraphQLConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

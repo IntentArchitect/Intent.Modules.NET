@@ -1,4 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2d76791c-4815-45d3-bae7-e02335209228</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.869456Z</updatedAt>
+      <deviationsHash>5EDBABDDD5D8641EEA3FE1EA177472A86D520B8D58421CBE32BBBE1284B3A856</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e285dfdd-34ff-4b2c-a69e-7374051cd1e2</correlationId>
+      <path>Templates/Applications/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.8700233Z</updatedAt>
+      <deviationsHash>CBF8AFA17456917D20A18C26E501FFB51490D2582A72E98BC0ABFB1D7344982B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7b2b5228-48da-4289-a5d0-fa7bb1cf95e9</correlationId>
+      <path>Templates/Applications/AzureFunctionAppTf/AzureFunctionAppTfTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.8701168Z</updatedAt>
+      <deviationsHash>7BCEC2E43B2377B5072ACDAA3BABEB353E571967261645FD085CCB8E838229D5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#c8b8221e-293c-4a95-8dba-cb6fa61990cc</correlationId>
+      <path>Templates/Applications/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.8702231Z</updatedAt>
+      <deviationsHash>C7B889A5BE9A416B90AF6C35A0EA1623FAB5B05912CA61E901C1BA0F0671C29E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4877aace-a09b-4fdc-b495-26308c0d44db</correlationId>
+      <path>Templates/Subscriptions/AzureEventGridTf/AzureEventGridTfTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.8700734Z</updatedAt>
+      <deviationsHash>A567AB167088C20A6FF2D6BC4FACF976B646EA8E8E00EE777F7313ED88127462</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#2c864c3b-b1c7-40ac-83af-150a3cf9fb95</correlationId>
+      <path>Templates/Subscriptions/AzureMainTf/AzureMainTfTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:33.870154Z</updatedAt>
+      <deviationsHash>65C2004DB61A45AD73C001D3DBB5C5511054B98560EE192D5B84B2C6362855CB</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.IaC.Terraform/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.2320953Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

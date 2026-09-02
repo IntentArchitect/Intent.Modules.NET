@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c3880144-3cc1-4e70-8bc2-f48be644b8d9">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MigrationsReadMeExtension.cs" deviationsHash="A60D6D67280A3745BF41257F3D0207892BCDA0ADEA70044BA391954770E227D7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/ApplicationSettingsJson/ApplicationSettingsJsonTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ApplicationSettingsJson/ApplicationSettingsJsonTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DesignTimeDbContextFactory/DesignTimeDbContextFactoryTemplatePartial.cs" deviationsHash="606D2456394B7DEA1483A14703B2E47E7E903CC2BB2F4A8DB5F7E375E1F0664F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DesignTimeDbContextFactory/DesignTimeDbContextFactoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

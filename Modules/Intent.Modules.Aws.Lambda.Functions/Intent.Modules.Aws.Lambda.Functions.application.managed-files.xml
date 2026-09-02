@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d0ba3935-538e-43a2-807d-1f07ed23691d">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Aws.Lambda.Functions.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Aws.Lambda.Functions.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs" deviationsHash="A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs" deviationsHash="55A07FF340E3E21EE389EB76992D0DD38B7DDC25AC92556231152E6DE352D25A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/LambdaFunctionClass/LambdaFunctionClassTemplatePartial.cs" deviationsHash="F83293EA8A830D98DC82001CAAE3835FA1801AC25F6073C70796FC6A136B689D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/LambdaFunctionClass/LambdaFunctionClassTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/SamConfig/SamConfigTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/SamConfig/SamConfigTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/SamConfig/SamConfigTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Startup/StartupTemplatePartial.cs" deviationsHash="2DC20B33A93788DC6479D22AE95DF93F051735198EB92FA3BEE2E4E921B5E187" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Startup/StartupTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

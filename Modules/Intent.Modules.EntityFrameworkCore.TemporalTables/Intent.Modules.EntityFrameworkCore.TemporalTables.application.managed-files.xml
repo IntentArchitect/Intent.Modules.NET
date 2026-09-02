@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="4d6278e1-4897-4c4f-9fb5-1db5a30c3ead">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/EfConfigurationExtension.cs" deviationsHash="E4F0CFA7288F3637EA74756A1A2A97D27EBA3D49F4BF46EEAFE17CEF928CBA0E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/RepositoryFactoryExtension.cs" deviationsHash="6EBE59E87404DFB2CCADB67A3EEB34A860AA87831DE09C7A9473C963985664F1" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.TemporalTables.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.TemporalTables.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TemporalHistory/TemporalHistoryTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TemporalHistory/TemporalHistoryTemplateRegistration.cs" deviationsHash="DA54AEACADCADF010795F78A336927A9E47FEBECE34EB80E1B7188DBBEB4A811" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemporalInterface/TemporalInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TemporalInterface/TemporalInterfaceTemplateRegistration.cs" deviationsHash="FC38EEAA293F98D06EFEED09B9F42328E35060BA7A4DCF1CEA9351158BFFDDD6" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

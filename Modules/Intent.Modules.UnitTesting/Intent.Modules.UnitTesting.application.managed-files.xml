@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7c2d5f57-d8c5-4d02-b418-e053f2fa199f">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/NuGetInstallFactoryExtension.cs" deviationsHash="067CA9E378F5EAF96F87935761630493AE56A2EA9CFF8E83116CC2A478360997" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/UnitTestingAITasksFactoryExtension.cs" deviationsHash="40729170448AC02ACECB626218DB33B565B35B6A7CEC118B732F999857927625" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.UnitTesting.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.UnitTesting.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="91ECAE7B31815BF7E34FDC21AC2656BFB4E16DE3466A456B58A94B9FAF13C125" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/CommandHandlerTest/CommandHandlerTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandHandlerTest/CommandHandlerTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEventHandlerTest/DomainEventHandlerTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEventHandlerTest/DomainEventHandlerTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainServiceTest/DomainServiceTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainServiceTest/DomainServiceTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventHandlerTest/IntegrationEventHandlerTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventHandlerTest/IntegrationEventHandlerTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/QueryHandlerTest/QueryHandlerTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryHandlerTest/QueryHandlerTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ServiceOperationTest/ServiceOperationTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceOperationTest/ServiceOperationTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/UnitTestInstruction/UnitTestInstructionTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/UnitTestInstruction/UnitTestInstructionTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

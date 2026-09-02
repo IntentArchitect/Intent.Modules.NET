@@ -2,6 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#91aaecfb-b9d4-4135-82d5-c3bc479fb090</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.9526087Z</updatedAt>
+      <deviationsHash>AEEA64916303832002C26412B8D9234A0FA10F6817B5CC9D8F060C542CDF5BC7</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f54e5983-b116-48c5-89b6-3d23e4e457d6</correlationId>
+      <path>Templates/Permissions/PermissionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.9561684Z</updatedAt>
+      <deviationsHash>74F2F10F32154D73E9DF776AE69F3EF49EFEE8A5283D92CD974AD7616907AA93</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#afb748aa-7a1d-4544-a9c0-a6c53c20421b</correlationId>
+      <path>Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.9562014Z</updatedAt>
+      <deviationsHash>249BFB98063FC1EA75E2B0727A8A787F0CDACE4E1085C300B98C2C4FC37139AA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#afb748aa-7a1d-4544-a9c0-a6c53c20421b</correlationId>
+      <path>Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.9574366Z</updatedAt>
+      <deviationsHash>B19C06D19FDB7CAD8C5F9FA1331D496567B4F148987CD8CC4E23D1B4C57C5ECB</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4801c180-6756-4496-a4e0-d9b08a8f6674</correlationId>
       <path>Templates/Program/ProgramTemplatePartial.cs</path>
       <count>3</count>
@@ -10,6 +46,15 @@
       <updatedAt>2026-07-31T18:30:47.3460096Z</updatedAt>
       <deviationsHash>5F259B367B43C25CA4E5329D8472D22F6874ACEFEC7DCDF58B48AC29748FE179</deviationsHash>
       <fileHash>8CDC0BF4D09F721E5B5B3F04E184E549BA7145544CCF5C7A99A67226D099850D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4801c180-6756-4496-a4e0-d9b08a8f6674</correlationId>
+      <path>Templates/Program/ProgramTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.95746Z</updatedAt>
+      <deviationsHash>D96009DC4A42F58B86E4BA1F25E293748C7DF01563CAE46CC7DD3EC1D90F8986</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#82ebd9ba-bbf3-426c-bc62-35626bd2c3c1</correlationId>
@@ -45,4 +90,12 @@
       <fileHash>8EEE3EB7ADCE3268CD4B72201F821C8DDAE99C7919D7A164FD8D3ABD582A725E</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.8058356Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

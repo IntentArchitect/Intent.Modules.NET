@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b05c458b-71a3-47f2-b6eb-860f17d64775">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="4B870E924733B851F2E950B52C2E63E969B94C5347BEE6312917498D5AF67E2E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.AzureQueueStorage.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.AzureQueueStorage.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AzureQueueStorageConfiguration/AzureQueueStorageConfigurationTemplatePartial.cs" deviationsHash="ED50778E4F6FEBA9249F70ACC70100DDAA410119E9366DB5BAEDC6D777B750CB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageConfiguration/AzureQueueStorageConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageConsumer/AzureQueueStorageConsumerTemplatePartial.cs" deviationsHash="58DA94B326B65DFC537A3907F316F02297761FA4D18C2CC6A747850DE2232D6A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageConsumer/AzureQueueStorageConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageConsumerBackgroundService/AzureQueueStorageConsumerBackgroundServiceTemplatePartial.cs" deviationsHash="02346B6A973B0DFA3852DBC16AAA89AD69E00EE328C5CDA38536A37163AC26E9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageConsumerBackgroundService/AzureQueueStorageConsumerBackgroundServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageConsumerInterface/AzureQueueStorageConsumerInterfaceTemplatePartial.cs" deviationsHash="31F9BB3BE7F38F06EB6FB0420A3C639F2CCC2984ACFEB9A55B72D30DEA7EF2DC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageConsumerInterface/AzureQueueStorageConsumerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageEnvelope/AzureQueueStorageEnvelopeTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageEnvelope/AzureQueueStorageEnvelopeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageEventDispatcher/AzureQueueStorageEventDispatcherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageEventDispatcher/AzureQueueStorageEventDispatcherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageEventDispatcherInterface/AzureQueueStorageEventDispatcherInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageEventDispatcherInterface/AzureQueueStorageEventDispatcherInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageMessageBus/AzureQueueStorageMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageMessageBus/AzureQueueStorageMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageOptions/AzureQueueStorageOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageOptions/AzureQueueStorageOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureQueueStorageSubscriptionOptions/AzureQueueStorageSubscriptionOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureQueueStorageSubscriptionOptions/AzureQueueStorageSubscriptionOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureQueueStorageSubscriptionOptions/AzureQueueStorageSubscriptionOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

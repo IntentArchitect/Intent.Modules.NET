@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c7c3be66-3eb1-47d5-9aa1-e7c7cf067485</correlationId>
+      <path>FactoryExtensions/GraphQLStartupConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:27.8989631Z</updatedAt>
+      <deviationsHash>6AC83CFFA113ED9497313AA1899EC449EA299DCE5EBA4633049562E09310784E</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</correlationId>
       <path>Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</path>
       <count>1</count>
@@ -15,4 +24,12 @@
       <fileHash>0E641416E8B5498BE0B6D6FBB3EDB03E0922359DB9799EDD19CB71D2ED268E58</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.HotChocolate.GraphQL.AspNetCore/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.9006466Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="096f70cb-2bbb-43ca-b4e5-f10023eda191">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MongoRepoFactoryExtension.cs" deviationsHash="4F3F76EB9606F824B866813A4F730A576CE9781B6442591A6E1DF5C1FC0B98EA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/PagedListFactoryExtension.cs" deviationsHash="D19CE731FF38BD5D55BB752DA52FFCA6466B46DD124393CA7C0DE0317B1976FF" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.MongoDb.MongoFramework.Repositories.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.MongoDb.MongoFramework.Repositories.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Templates/MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs" deviationsHash="A9BB802F651D2AC1D03DDD9D9254B81B4C6CE6A2407A513DACC66D8DCBC8E369" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoRepositoryBase/MongoRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoRepositoryInterface/MongoRepositoryInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoRepositoryInterface/MongoRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/PagedList/PagedListTemplatePartial.cs" deviationsHash="07C8202A1E8031FD4E85F6AEF587D13CF9BD7F85271A80615D558995AAD02AA2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedList/PagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/Repository/RepositoryTemplatePartial.cs" deviationsHash="DDCF95CA9C19A852C7FC5DAE58C597EBADA6F912328541EA1D988AE4BA4DA4B5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

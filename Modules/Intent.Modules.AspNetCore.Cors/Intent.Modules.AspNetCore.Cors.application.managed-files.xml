@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="8467c2d6-6442-4d8b-9ebe-353556099f59">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AspNetCore.Cors.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Cors.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/CorsConfiguration/CorsConfigurationTemplatePartial.cs" deviationsHash="DB92F47783A93A5EFB290879F72D68906D8E859AA8117D137F1C524408044C0D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CorsConfiguration/CorsConfigurationTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

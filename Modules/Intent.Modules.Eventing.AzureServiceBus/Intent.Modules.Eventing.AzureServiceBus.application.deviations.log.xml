@@ -2,6 +2,60 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#6f1fafa3-3ce5-48e4-94a1-294d60267c8d</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6107995Z</updatedAt>
+      <deviationsHash>8E58D4BCBAE2B8F514145A1300C0E098100628EAA02730915AD584AD511932B6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#616fbd83-0d92-499a-bb08-dc72aaf0afaf</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6108293Z</updatedAt>
+      <deviationsHash>D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8e1e66fa-9235-442f-80e2-8f5646d05541</correlationId>
+      <path>Templates/AzureServiceBusConfiguration/AzureServiceBusConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6110522Z</updatedAt>
+      <deviationsHash>49B1193C1167D22B241C00DB556214619763540F785120ACE6FD1511299B3D64</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e423eece-40e1-4f53-8950-c0a66609488d</correlationId>
+      <path>Templates/AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6110803Z</updatedAt>
+      <deviationsHash>E06FDB4128E1DA80EAD0AD93B1FA56CB0580A1B30F6500B12FAE1BE40C81B478</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a5e88f9d-0280-4d8d-b32f-fa3900c350de</correlationId>
+      <path>Templates/AzureServiceBusMessageBus/AzureServiceBusMessageBusTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6111062Z</updatedAt>
+      <deviationsHash>D8002889DF833A2BFE3D6A433795588A3FF04A00D2628CE27EE795B1EE8AD546</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</correlationId>
+      <path>Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.6112097Z</updatedAt>
+      <deviationsHash>6284F39BED8D7A3F69BE2EFD738FD8973B7558B016FA43FA97D05095405F9A3C</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#a4513b61-ab69-473b-98ff-5b61821b1781</correlationId>
       <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
@@ -12,4 +66,12 @@
       <fileHash>FB4FFB89820A06A10150329864065DCAE90D4501A3FA8A7A6057B7A41D810C58</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.AzureServiceBus/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.1735272Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

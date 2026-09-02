@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b5fc2084-b1b4-49d0-bae3-af9b5256b54a">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/BugSnagQuartzJobListenerExtension.cs" deviationsHash="599ED5E7EE39ACDE076A4AFF2F5E162881A6F0B0519D681239779197C183F595" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ExceptionFilterExtension.cs" deviationsHash="D3F3206DA418DA2973B3E4BBCBD89E761642BB2F6A120ED4CA489A7E945A05C4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Bugsnag.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Bugsnag.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplatePartial.cs" deviationsHash="7E6F077E25F5771341AE3ECE73EC16166226B4866D2D491999231DB742E88AEF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/BugsnagConfiguration/BugsnagConfigurationTemplatePartial.cs" deviationsHash="360BA8D1670D5C08A3F33AE62C125FEA2C75295D350E0044142C13FBB60E19B0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BugsnagConfiguration/BugsnagConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

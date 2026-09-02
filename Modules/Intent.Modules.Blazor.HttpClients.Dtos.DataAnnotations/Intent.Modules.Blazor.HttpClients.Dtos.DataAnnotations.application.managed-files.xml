@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="0ae0571d-78df-4026-bf46-b8d35db2e8ff">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtensions/BlazorHttpClientDataAnnotations.cs" />
-  <file path="Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec" />
-  <file path="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/BlazorHttpClientDataAnnotations.cs" deviationsHash="A6A14269E524118EBEF548A058FBF4052C72B04902276B8E40568D7DFA99B9DD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

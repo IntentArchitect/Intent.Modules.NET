@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="237847a3-71e6-4ce0-8df3-cedfa16aeb5f">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/CrudUnitOfWorkSaveExtension.cs" deviationsHash="0BD0755A9A50CF4115966BC70CE6E13F02269BA17BE9187F0F4E88C291CC2FB3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MassTransitConfigurationExtension.cs" deviationsHash="87D7433A76DEC915B4AC492B9B7F2EB95F90CC8DB0658C5209C2EF49FF9AE641" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/TemplateSuppressorExtension.cs" deviationsHash="9BE83F7A12857625FC266933DE99F8D7657FB4C288DADBD528B539060E9DDBB6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.ModularMonolith.Module.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.ModularMonolith.Module.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="39F9181FA3721B02E23C16501E48E2E7CDCBBEE931996128FA0AC55655738CFD" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Templates/ModuleInstaller/ModuleInstallerTemplatePartial.cs" deviationsHash="57805BEF01ED7AAF98F8664260EFE7562D482447F2ABC0C3F6901C587BEFF085" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ModuleInstaller/ModuleInstallerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="DA791A80E81AA4769FFD1E68C3ED7A8044BF4F73678A0A144905B29DE8101664" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

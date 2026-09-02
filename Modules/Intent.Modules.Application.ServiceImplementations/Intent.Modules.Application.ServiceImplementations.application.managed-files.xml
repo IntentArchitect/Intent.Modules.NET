@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="b43e280b-5711-433f-87d1-ba8bba65465c">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/ServiceModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/AITaskFactoryExtension.cs" />
-  <file path="Intent.Application.ServiceImplementations.imodspec" />
-  <file path="Intent.Modules.Application.ServiceImplementations.csproj" />
-  <file path="Templates/ServiceImplementation/ServiceImplementationDecorator.cs" />
-  <file path="Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs" deviationsHash="B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896" />
-  <file path="Templates/ServiceImplementation/ServiceImplementationTemplateRegistration.cs" />
-  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplatePartial.cs" />
-  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/AITaskFactoryExtension.cs" deviationsHash="6BFDBA18E512415BF3A0227514ADD34DA93E7B892CADF6222F14D63E08DDA416" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.ServiceImplementations.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.ServiceImplementations.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationDecorator.cs" deviationsHash="BA685F7DB469CD5F7CA43343634435C89A455D04FF2DC0E73687443B57A69962" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs" deviationsHash="B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplatePartial.cs" deviationsHash="AB9C5BC6CCD6814FF5DE7AE6B001B8D4866095CA4B816C52EB04FC211B3C067F" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
 </managedFiles>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a36e2e3e-95ea-431b-890f-0225e14d0788">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/EndpointTestImplementationFactoryExtension.cs" deviationsHash="9D246AD02CB71D900A18A89F693CA7CBF8E10CD89A260F1DB13BE4C3FD24FE1E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.IntegrationTests.CRUD.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.IntegrationTests.CRUD.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/PopulateIdsSpecimenBuilder/PopulateIdsSpecimenBuilderTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PopulateIdsSpecimenBuilder/PopulateIdsSpecimenBuilderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TestDataFactory/TestDataFactoryTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TestDataFactory/TestDataFactoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

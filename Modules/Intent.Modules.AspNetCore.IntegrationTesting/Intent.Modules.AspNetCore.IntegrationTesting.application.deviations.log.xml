@@ -265,6 +265,12 @@
   </files>
   <customFiles>
     <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:08.1849242Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/Intent.Modules.AspNetCore.IntegrationTesting/CONTEXT.md</path>
       <fileHash>F7E464C6272AC2427B30F2CFBDA347FD6FD1ED26B23AFD80498AA1BEC59AB8B5</fileHash>
       <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>

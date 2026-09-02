@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="84a6ab17-88dd-407b-9c9b-a45464b66a12">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs" />
-  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" />
-  <file path="Intent.Modules.Security.MSAL.csproj" />
-  <file path="Intent.Security.MSAL.imodspec" />
-  <file path="NugetPackages.cs" />
-  <file path="release-notes.md" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs" deviationsHash="9D71288FBA6DBAA3C1F62180927C23D4F82B27FC0FECB50B36DAE4B4E8215759" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" deviationsHash="33F55718F2D8DFC5292DD38A8007CF7B4C8B9DE0AEB8B7D66CDA1B418829CD08" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.Security.MSAL.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Security.MSAL.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="f6e6f600-dec7-4d45-905b-659a4513cb0a">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/DomainPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="AA1F08E9B8D246587E391D7241F7F67B6065C27FECA2A9C9541AB5F517EBB557" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Dapr.AspNetCore.StateManagement.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Dapr.AspNetCore.StateManagement.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="2E1DD37896B65CC0DAE3EAD1270042EAF0E2F19C0A5A35025558871F29A4B47A" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplatePartial.cs" deviationsHash="07629DBD590CE49B6904CC9A7767191AF0C9E4D267A597569FFF1590BCE85A9B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplatePartial.cs" deviationsHash="DB4CAE426D93033036A59700508AFF5F6E631CBB122B02360B8157B3D482A50A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DaprStateStoreRepository/DaprStateStoreRepositoryTemplatePartial.cs" deviationsHash="593467A15A20388AC24CC6476A72270D652A479B5D5CBFBA7262F5A86D617B3A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreRepository/DaprStateStoreRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplatePartial.cs" deviationsHash="597DAFC40536369EA2E42EB9D3FE06E387ECF76EC2D70692BA727BC1A85488BA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplatePartial.cs" deviationsHash="0064005C3C0DEB0B6D329CCB612B6CBAD689BC5A8FF7D2C9B03D5AEC30A8F6B0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

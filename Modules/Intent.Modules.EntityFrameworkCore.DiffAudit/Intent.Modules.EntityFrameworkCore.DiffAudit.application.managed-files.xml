@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="077919ca-638f-40e2-84e6-e217ff37068c">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/DiffAuditExtension.cs" deviationsHash="0EB3BE0A98EB8F5AA9DF79463976928190393C9E1BCB15598E2BFC949CEEC07C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EfCoreExtension.cs" deviationsHash="F3F3B64CDCA9630192EB8D812BE30D400F9AB9B6AD122059B7FD595C3942BBA4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.DiffAudit.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.DiffAudit.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="C86B6ADE02045E9AAAEFC89D61AE338ECA14E831455FF012D42E98564B0AB1DE" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/DiffAuditInterface/DiffAuditInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DiffAuditInterface/DiffAuditInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Diff Audit Persistence Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

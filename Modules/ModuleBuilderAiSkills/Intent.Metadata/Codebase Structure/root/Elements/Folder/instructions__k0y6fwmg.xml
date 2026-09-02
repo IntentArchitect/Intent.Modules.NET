@@ -43,6 +43,32 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="6425787e-c81c-48e5-8a7e-aeb6914bbcda" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</name>
+      <display>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</display>
+      <externalReference>Intent.ModuleBuilder.AI.SDD</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>754c6af6-e97f-47f2-9dbf-c95af4fb09cf</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="0e013890-c01e-4993-9df7-eb2a21be7604" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.AI.Skills.RootPrinciples.ExceptionGuidelinesMd</name>
       <display>Intent.ModuleBuilder.AI.Skills.RootPrinciples.ExceptionGuidelinesMd</display>
@@ -142,20 +168,6 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="6425787e-c81c-48e5-8a7e-aeb6914bbcda" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</name>
-      <display>Intent.ModuleBuilder.AI.SDD.RootPrinciples.SddWaveEvidenceMd</display>
-      <externalReference>Intent.ModuleBuilder.AI.SDD</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>754c6af6-e97f-47f2-9dbf-c95af4fb09cf</parentFolderId>
-      <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

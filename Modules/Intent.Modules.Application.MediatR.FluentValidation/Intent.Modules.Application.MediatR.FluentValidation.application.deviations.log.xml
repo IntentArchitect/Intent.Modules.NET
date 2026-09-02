@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#278efa79-5a2d-43ee-96f2-c2b0e6edf3c7</correlationId>
+      <path>FactoryExtentions/AITasksFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:36.7337733Z</updatedAt>
+      <deviationsHash>19BA3DCA42A68FD019C40D8E65C72D1A87A38CEDBC8ED81F188FB1490FE84BF8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e259f7b4-2fe3-4a54-ab1d-419981c73524</correlationId>
+      <path>FactoryExtentions/CombineWithModelsTemplateFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:36.7338242Z</updatedAt>
+      <deviationsHash>D2A849882ABB1740972AA3255D33077C45C61AB6A5738CBA5D7D33F18DF098D1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#20d51a9e-95cd-4345-ae85-1d90fbdac190</correlationId>
+      <path>FactoryExtentions/UnhandledExceptionBahaviorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:36.7338585Z</updatedAt>
+      <deviationsHash>F7BB05354BF13F2EABF4411BABF0AF335D128D991D380B72A8CE25C35F9312DC</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#499883b5-ee38-4e92-8c12-436eef8b2c0d</correlationId>
       <path>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
       <count>4</count>
@@ -71,4 +98,12 @@
       <fileHash>AFE8F9FE066D343A3B761AE7BFFEF84C4F97AD59E915C8B1D1F918497A20E898</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.MediatR.FluentValidation/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:05.7816882Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

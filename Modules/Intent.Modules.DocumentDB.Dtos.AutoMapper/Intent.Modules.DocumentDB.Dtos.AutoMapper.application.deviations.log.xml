@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#937b7d19-b108-4b22-81d2-f21f711faafd</correlationId>
+      <path>FactoryExtensions/DtoAutoMapperFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:53.8960991Z</updatedAt>
+      <deviationsHash>FB026230FF6FAC7BD73C4F14F6BD7E52180C953795A990D38A97B4BF73AACD6E</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.DocumentDB.Dtos.AutoMapper/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.8489189Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

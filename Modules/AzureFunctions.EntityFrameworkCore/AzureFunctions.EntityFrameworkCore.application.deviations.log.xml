@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2ac9f629-04b0-4095-bdcd-7f13fef1d468</correlationId>
+      <path>FactoryExtensions/AzureFunctionExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:32.4806227Z</updatedAt>
+      <deviationsHash>B983340D0A299BB6694B87C1EB73D91D2069C0C0B39CE4D2F75E92D6E8094F16</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5a71ddc3-2d31-4dbb-95aa-479d69569824</correlationId>
+      <path>Templates/DbInitializationService/DbInitializationServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:32.4811997Z</updatedAt>
+      <deviationsHash>3F479D6E1723183563869665E75F25437F0908CC1009A89937FE3B4D89D5B3DF</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

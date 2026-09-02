@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="311ca1c2-2a54-474c-8ba3-ab9b14a180bd">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/RepositoryFactoryExtension.cs" deviationsHash="2FC36CD047FF2C01DD522D1282140B7D8639821C1363FC41CBEE8462493B0F74" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Ardalis.Repositories.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Ardalis.Repositories.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplatePartial.cs" deviationsHash="C43EE6F362D994C106BE86E8F07CC129F96E7ECE5F9BCC5313886A7FB17B07C7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Specification/SpecificationTemplatePartial.cs" deviationsHash="4043F21A28D122F0A4A78639AB221B0D5FA9ED64E4818CAC162BC2378E17F563" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Specification/SpecificationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

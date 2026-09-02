@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="e7f2c64a-c56c-4d8b-9d50-46e0d6fdb964">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/GrpcFactoryExtension.cs" deviationsHash="31AAE87CEB6C832FEC9F612953464127D4EF40B5D6F94330AC533EEDCF37A9D6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Grpc.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Grpc.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/CommonTypesPartial/CommonTypesPartialTemplatePartial.cs" deviationsHash="AB9557DA7532EA9929CAC5982B9413D22B7A28256078154F00E76787E0997C73" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommonTypesPartial/CommonTypesPartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplatePartial.cs" deviationsHash="304B56B63E59A7A555691BFCEE8BD23AC8B50A8CFCA6055E9CAD3C1B56455B57" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CqrsService/CqrsServiceTemplatePartial.cs" deviationsHash="D725C5DBC58F6902ECD210AD393D915C639A4F482AD5220BB55A693D3763B52D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CqrsService/CqrsServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/GrpcConfiguration/GrpcConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GrpcConfiguration/GrpcConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/GrpcExceptionInterceptor/GrpcExceptionInterceptorTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GrpcExceptionInterceptor/GrpcExceptionInterceptorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MessagePartial/MessagePartialTemplatePartial.cs" deviationsHash="74377279BE481368E41C0B038831B62C6CFACDEA0239F1ADD464557AACFDCD68" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessagePartial/MessagePartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MessageProtoFile/MessageProtoFileTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/MessageProtoFile/MessageProtoFileTemplatePartial.cs" deviationsHash="92B27BF849C2B9B15AF828023E740F4CA9C69AB1EBBB4F15540FC519A4FB4AA3" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/MessageProtoFile/MessageProtoFileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/PagedResultPartial/PagedResultPartialTemplatePartial.cs" deviationsHash="07274580C0CD5F563BA9DC13C18770185E802089D5C8AB16B6D77FDBCAD14AB7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedResultPartial/PagedResultPartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/PagedResultProtoFile/PagedResultProtoFileTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/PagedResultProtoFile/PagedResultProtoFileTemplatePartial.cs" deviationsHash="A21A443DE254A9EEAE299D3DC3127234C1F077B9BCA660E285A736F9AF277E5E" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/PagedResultProtoFile/PagedResultProtoFileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ServiceProtoFile/ServiceProtoFileTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceProtoFile/ServiceProtoFileTemplatePartial.cs" deviationsHash="067CC790C36F8281DD9872965285F0E5D898C97FC1A905E0CF10F4018F422D11" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceProtoFile/ServiceProtoFileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TraditionalService/TraditionalServiceTemplatePartial.cs" deviationsHash="0374DAFAF9B42FC6E18A7FF0BE5747F8C52C834CFF712B24E0C707215B425655" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TraditionalService/TraditionalServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="modelers/Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

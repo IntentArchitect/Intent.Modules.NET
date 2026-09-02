@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="a3d00c09-e5ff-442c-9378-14b304a2b2c7">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/ClassModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/IdentityUserFactoryExtension.cs" deviationsHash="B3846839049EF88982B2C39CECDD98EDB4B0A523722EEA918895A3B9EBBF6E38" />
-  <file path="Intent.AspNetCore.Identity.imodspec" />
-  <file path="Intent.Modules.AspNetCore.Identity.csproj" />
-  <file path="Migrations/Migration_04_02_00_Pre_00.cs" />
-  <file path="Migrations/OnInstallMigration.cs" />
-  <file path="NugetPackages.cs" />
-  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplatePartial.cs" />
-  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplateRegistration.cs" />
-  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.cs" />
-  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.tt" />
-  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplatePartial.cs" />
-  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" deviationsHash="487D4E56351BCAC28A15B3CFD3A75E157E9B509018933AC8AAB592C09404960B" />
-  <file path="modelers/Domain Extensions.designer.settings" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/IdentityUserFactoryExtension.cs" deviationsHash="B3846839049EF88982B2C39CECDD98EDB4B0A523722EEA918895A3B9EBBF6E38" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Identity.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Identity.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_04_02_00_Pre_00.cs" deviationsHash="7D2ADE6CACEF3F3A6B925EB562A39B9ECA6F1601178EA91D05552E2DF5B3FDD6" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="86D6B3DA60B99C91A4595321D50F23D3BC6FFEC22571D72E27F332D7B193C02D" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplatePartial.cs" deviationsHash="5A3E97597AEF35D0B8998ECD22D5E21D74E5DCF99BF441339FDDD91B2F6D43C6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="487D4E56351BCAC28A15B3CFD3A75E157E9B509018933AC8AAB592C09404960B" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Domain Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
 </managedFiles>

@@ -14,5 +14,22 @@
       <deviationsHash>F4ECD94CB767DC7BA28BF2AC612AF3A6296447100A37C895210407FB9CE55DAC</deviationsHash>
       <fileHash>1E82407D4FE96CC2B4D2C35A4AE0AB2E703742219881256F29909525BAFBA90A</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#221e2646-a3d5-4107-8b23-b6d476dd294a</correlationId>
+      <path>FactoryExtensions/OpenApiOperationAttributeExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:35.7121744Z</updatedAt>
+      <deviationsHash>EC9F499DA6DA144A9B84824E5B8E444E03E95873094309FDCEA497508BE08242</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AzureFunctions.OpenApi/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:12.2753521Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

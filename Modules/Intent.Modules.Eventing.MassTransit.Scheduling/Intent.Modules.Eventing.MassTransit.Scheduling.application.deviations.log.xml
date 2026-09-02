@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#68a235b8-0b3c-4829-ad6d-9e16d3b15230</correlationId>
+      <path>FactoryExtensions/MassTransitConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.5741409Z</updatedAt>
+      <deviationsHash>7AE505DD2EEE68D87D00C38C4547E32F22B503CB6E612A2BDDE7E9C5969453B7</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#0bfa3a7f-5f62-44ae-bb17-ae136fdb117d</correlationId>
+      <path>FactoryExtensions/MassTransitMessageBusExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.5747975Z</updatedAt>
+      <deviationsHash>A43F2C227855ECA063D030860B98544D9EAB99B1073F99E0B04F3F5AF5AA32F0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#db68c782-b2b2-4c77-a9c7-d8da2caf8d68</correlationId>
+      <path>FactoryExtensions/MessageBusInterfaceExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.5748393Z</updatedAt>
+      <deviationsHash>FB204BB027A81C6B1FD8584269E2333E6CA286406F67257859BC97BFA516090D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.MassTransit.Scheduling/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.3990839Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

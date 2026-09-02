@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#977eef3a-790b-4c09-a97a-65a32da539c0</correlationId>
+      <path>Templates/CronBindingComponent/CronBindingComponentTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:48.233035Z</updatedAt>
+      <deviationsHash>2963470AA26BF31447762B1D7829EF2968A1D52380FBDF2F85628BD732FBC400</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Dapr.AspNetCore.Bindings.Cron/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.0837257Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1f97a642-fdf6-4d2d-9f49-097611d39a60</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:17.7763941Z</updatedAt>
+      <deviationsHash>6FEDD9AC614F38A8098E9451B3B178D6BE4849428E328B3F15B223BBA794C98C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bf314447-ab20-40fe-8e52-f5455b05093a</correlationId>
+      <path>Templates/KafkaConfiguration/KafkaConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:17.7764772Z</updatedAt>
+      <deviationsHash>43ACDD742E64F2EAE53141EA8C094B33DB7F751CB4B81FBB3A80C4DD785C1F6A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f5f5a6ae-6961-43e6-90aa-59b9e0b8890e</correlationId>
+      <path>Templates/KafkaConsumer/KafkaConsumerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:17.7765018Z</updatedAt>
+      <deviationsHash>227DD1BB317EF998AC5FEE4FA965B74D5772A447220DD832E11DC2D84BD469A9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b218f77f-0479-42a8-9362-06b78abe4fd8</correlationId>
+      <path>Templates/KafkaProducer/KafkaProducerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:17.7766374Z</updatedAt>
+      <deviationsHash>DAC0D9A7AFE0AA5DBC7992720C32A6FD678740DD4F8B1EE82BB2D61B91097822</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.Kafka/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.2263744Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

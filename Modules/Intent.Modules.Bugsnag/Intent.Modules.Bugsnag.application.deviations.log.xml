@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e3a7b993-3652-40f7-afed-4eb9e6cdb85a</correlationId>
+      <path>FactoryExtensions/BugSnagQuartzJobListenerExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:44.5680103Z</updatedAt>
+      <deviationsHash>599ED5E7EE39ACDE076A4AFF2F5E162881A6F0B0519D681239779197C183F595</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#72fadaca-79ee-48d6-9ca8-bbc43d2a7da3</correlationId>
+      <path>FactoryExtensions/ExceptionFilterExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:44.5680436Z</updatedAt>
+      <deviationsHash>D3F3206DA418DA2973B3E4BBCBD89E761642BB2F6A120ED4CA489A7E945A05C4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3200ab5a-0cac-4fe3-b5f6-0e72865cce97</correlationId>
+      <path>Templates/BugsnagConfiguration/BugsnagConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:44.5680721Z</updatedAt>
+      <deviationsHash>360BA8D1670D5C08A3F33AE62C125FEA2C75295D350E0044142C13FBB60E19B0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#255e1f6b-56b3-455e-aa4e-ac8ece699116</correlationId>
+      <path>Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:44.5681023Z</updatedAt>
+      <deviationsHash>7E6F077E25F5771341AE3ECE73EC16166226B4866D2D491999231DB742E88AEF</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Bugsnag/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:13.5030956Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

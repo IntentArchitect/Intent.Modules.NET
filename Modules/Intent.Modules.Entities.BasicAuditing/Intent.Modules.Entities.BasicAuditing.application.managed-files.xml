@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7951a529-b874-48dc-bed9-7fa0bdd418f4">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/CosmosDbExtension.cs" deviationsHash="093E804EA4D2DB2515EF2CEC066F084F34B04E60EBCE688CD1EBED24705FE8A3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EfCoreExtension.cs" deviationsHash="A3E445722F9CAF673CA092D5EDF94A4D279752CB0AA619211879BEBC39EFDD8E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Entities.BasicAuditing.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Entities.BasicAuditing.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AuditableInterface/AuditableInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuditableInterface/AuditableInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Basic Audit Domain Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a7c14bfc-4fde-46bf-9744-b54c66c3b22d">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.ContinuousIntegration.AzurePipelines.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.ContinuousIntegration.AzurePipelines.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/AzurePipelines/AzurePipelinesTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/AzurePipelines/AzurePipelinesTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

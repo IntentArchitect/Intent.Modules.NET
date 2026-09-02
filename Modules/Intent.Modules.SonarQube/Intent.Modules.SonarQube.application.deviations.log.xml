@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d5e11d57-1a7e-45f1-bb66-9ee43ce60041</correlationId>
+      <path>FactoryExtensions/AddAnalyzerExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.0522934Z</updatedAt>
+      <deviationsHash>551DAED1232503E30B6E0B473DC1FCC6D592D27BBA28C007C2EB9B8491E25A09</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.SonarQube/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:18.8159088Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

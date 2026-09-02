@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#eb6e03b9-0721-486b-8261-52e5c763c35f</correlationId>
+      <path>Templates/HealthChecksConfiguration/HealthChecksConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:05.0444602Z</updatedAt>
+      <deviationsHash>0E96C8BE304648793421ED43847C0340738425F3638B103D8B016BE0B9D02BE4</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.HealthChecks/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:07.5394673Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#0153fa6b-0e26-4295-b51f-6285701486fb</correlationId>
+      <path>FactoryExtensions/FluentValidationBlazorInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:39.5622689Z</updatedAt>
+      <deviationsHash>024A73478E3B65DD262006133EC2AE7E6286253D904846E7243B4204C4900888</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#11e483da-f35e-40c2-b9a1-b1bd813cd1f1</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:39.5623047Z</updatedAt>
+      <deviationsHash>763ECB8D7F1F1FA9D3AB156C68E0195CCEEEEBC33DB96FCB7BB5E110E93C12CD</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#90eb0073-c577-4253-9e76-0039622affa9</correlationId>
       <path>Settings/ModuleSettingsExtensions.cs</path>
       <count>1</count>
@@ -23,6 +41,15 @@
       <approvedAt>2024-11-14T16:11:20.7832029Z</approvedAt>
       <deviationsHash>5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746</deviationsHash>
       <fileHash>FCBA61AA936B021209CC681A3C0E34D9A9BD50BBC149E827D83E3837D70E6AC6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d2c16b2-e20a-4fe0-9279-dfcd522d7ed5</correlationId>
+      <path>Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:39.5632466Z</updatedAt>
+      <deviationsHash>28101E384B8D1400BEDF63E027827F17E4764D52587BFF4B1F5C0FC94263606F</deviationsHash>
     </file>
   </files>
 </deviationsLog>

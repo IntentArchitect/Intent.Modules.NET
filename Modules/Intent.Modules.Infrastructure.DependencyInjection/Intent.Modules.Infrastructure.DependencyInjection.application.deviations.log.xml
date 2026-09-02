@@ -38,4 +38,12 @@
       <fileHash>08C3D7DC9921181B172BEC9CAAE2B130045670C44DBEDC1FD0603EFEFE1A2B36</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Infrastructure.DependencyInjection/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.3215438Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

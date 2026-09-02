@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="eacbb9cc-8b2b-473c-88a4-296943688d30" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>.agents</name>
-  <display>.agents</display>
+  <name>.claude</name>
+  <display>.claude</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
   <files />
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.SqlDatabaseProject.Metadata/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:18.9975106Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

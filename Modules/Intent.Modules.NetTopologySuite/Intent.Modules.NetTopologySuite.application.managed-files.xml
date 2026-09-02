@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtensions/GeometryExtension.cs" />
-  <file path="FactoryExtensions/SerilogStartupConfigurationExtension.cs" />
-  <file path="FactoryExtensions/StartupExtension.cs" />
-  <file path="FactoryExtensions/SwaggerConfigExtension.cs" />
-  <file path="Intent.Modules.NetTopologySuite.csproj" />
-  <file path="Intent.NetTopologySuite.imodspec" />
-  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs" />
-  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplateRegistration.cs" />
-  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs" />
-  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/GeometryExtension.cs" deviationsHash="DC11B4B6564052EF14E617C158FB54BA8ABFF3BA9B23C5DEEA9F1DEDAB6E4752" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SerilogStartupConfigurationExtension.cs" deviationsHash="8F319EAE079FB91FD9ACABF46719916A6CDD239443B91A863FD5EEECB94118DA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="B37A04AE5CA6C79BD1C38C9F5DEE412FA528CF7CAD8A1ACBC7B5B4D80C46CB25" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="28B2BC243BB743BAD4F6BE75BEA7FCE7A2A37EBAF1FC8612EFA70CCB56BD7031" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.NetTopologySuite.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.NetTopologySuite.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs" deviationsHash="9BEA3FEFDF510F860FC1E9CD269625700036581F586AFB30CFCE8ED11C60B620" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs" deviationsHash="9550DB88C96402964A78E8BEEB1C6B7C974ADCF0C1213E0525939CE16D4642B3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

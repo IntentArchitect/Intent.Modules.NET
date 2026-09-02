@@ -2,6 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e1ba2cf8-f258-42bb-b5e4-3302edac3747</correlationId>
+      <path>FactoryExtensions/CustomDbProviderFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2104569Z</updatedAt>
+      <deviationsHash>6E1D3A94D8AAE2D0ED7CC5891A5C133EC07B4FE8C3F69F2F6C90E9086A4E9B13</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b389736b-6eea-4201-85ff-44834c3769ab</correlationId>
+      <path>FactoryExtensions/CustomRepositoryMethodsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2104955Z</updatedAt>
+      <deviationsHash>85D4F462602291F52E530940D6D1C7A8A5E84AEF37F952A2769D9A4C5770DA5E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#298aa1a9-9f35-4264-9a24-316ad77c7fbd</correlationId>
+      <path>Templates/CursorPagedListInterface/CursorPagedListInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2105488Z</updatedAt>
+      <deviationsHash>AF377BED9F1ACA49F297E1B0B15C8BDA9067266ED302EF5C1F5D8FC1F3BA2E93</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bb324e03-e1ec-4b43-ae86-ac34754d07fe</correlationId>
+      <path>Templates/CustomRepository/CustomRepositoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2105765Z</updatedAt>
+      <deviationsHash>93E5DB04D639222223165735613F030B31BFDBE469D23847DC5BCB4D0422580B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</correlationId>
       <path>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
@@ -28,6 +64,15 @@
       <fileHash>956A7BE9289F186EE6DF4F7E350518F8889726848DA112F42AC4781383C55B58</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#97d051af-0bef-4bdd-ac68-ea8d27c6d5fb</correlationId>
+      <path>Templates/PagedListInterface/PagedListInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2131174Z</updatedAt>
+      <deviationsHash>F82057426A629114B2F1C937B35FF674DB4079AB4406CF2CED9169420F544B82</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0ca794e5-a8e2-43c8-a67b-3e4ab606719a</correlationId>
       <path>Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
@@ -39,6 +84,15 @@
       <approvedAt>2024-08-20T12:19:58.6011545Z</approvedAt>
       <deviationsHash>2019F1DEABDA63F88FB0010EBFFD2483DEE20E02D0F44ACCE4CDD1AEF4E90AFD</deviationsHash>
       <fileHash>97415C070F761688A40D2975580B13EC0E540F5A209C210B818BD79FC753B08D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0ca794e5-a8e2-43c8-a67b-3e4ab606719a</correlationId>
+      <path>Templates/RepositoryInterface/RepositoryInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.2131467Z</updatedAt>
+      <deviationsHash>FEC90076BB46E36B02024A699DB799AB1931A3924693708C876148AE2B929977</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f057504a-b111-4b02-a262-12bb472d0c03</correlationId>
@@ -64,4 +118,12 @@
       <fileHash>45464812DA4AC49A91BEDAE3D846B02D7E37F4F329BF0A20E7929CAA15057510</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Entities.Repositories.Api/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.2846624Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

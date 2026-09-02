@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="14a0fe52-c0de-479d-bd24-b9cb60a2f7fd">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MediatREndpointExtension.cs" deviationsHash="2A1533D25DEC649F23BF59922FB9B8D8B0242A3D8D7980770D7CEEF693220791" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Aws.Lambda.Functions.Dispatch.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

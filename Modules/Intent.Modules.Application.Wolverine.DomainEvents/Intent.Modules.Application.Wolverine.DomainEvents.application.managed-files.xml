@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="380ba38d-d140-4ba4-b03c-3f00c5d1ab4f">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Application.Wolverine.DomainEvents.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Wolverine.DomainEvents.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs" deviationsHash="0162C0B68E517D25DC3F2AE8485FB357A924FE6489A55D27A5FD62D94B025734" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs" deviationsHash="E22973819D479146BC248596005F85079EC86032A092016E77A43C05D9F67C5C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEventHandler/DomainEventHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DomainEventService/DomainEventServiceTemplatePartial.cs" deviationsHash="81279F3C50BAFF0346C4E3B525E0E4C59F98D13DE919530B77C2AE82415F1CD2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEventService/DomainEventServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

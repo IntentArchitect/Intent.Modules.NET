@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="1c788aee-6d6a-48e5-93c3-91b686ed2d5e">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/FluentValidationExtension.cs" deviationsHash="88233AD790E199DC0BDE3ABE907A83F0DC5DC144DB0964FA76092F16C6EB5B6A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.FluentValidation.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.FluentValidation.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+</managedFiles>

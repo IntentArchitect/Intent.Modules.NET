@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c6524b03-7bf4-4601-83e5-4c021ff882cc</correlationId>
+      <path>FactoryExtensions/MediatRControllerInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:00.7544432Z</updatedAt>
+      <deviationsHash>54083FD7CCA89621EBC17382E20BFE8A55E72D5AE6B4E5EE0801A1F17E92CC8C</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:06.6315263Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

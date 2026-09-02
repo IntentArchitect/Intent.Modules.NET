@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3f08d954-b821-4c2d-871f-ac109217513a">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/UserInterfacePackageModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/AuthPageDefaultContentFactoryExtension.cs" />
-  <file path="FactoryExtensions/ChangeRenderMode.cs" />
-  <file path="FactoryExtensions/ClientAddAuthentication.cs" />
-  <file path="FactoryExtensions/CurrentUserServiceImplementation.cs" />
-  <file path="FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="363FDC10E81102641FED5DED37EB73492160D73B0114101B279DCC468AC55AF8" />
-  <file path="FactoryExtensions/WireupAccountCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" />
-  <file path="FactoryExtensions/WireupMudBlazorAccountCss.cs" />
-  <file path="Intent.Blazor.Authentication.imodspec" />
-  <file path="Intent.Modules.Blazor.Authentication.csproj" />
-  <file path="NugetPackages.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplatePartial.cs" />
-  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplateRegistration.cs" />
-  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplatePartial.cs" />
-  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplateRegistration.cs" />
-  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplatePartial.cs" />
-  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplateRegistration.cs" />
-  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplatePartial.cs" />
-  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplateRegistration.cs" />
-  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplatePartial.cs" />
-  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplatePartial.cs" />
-  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplateRegistration.cs" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="170B3C3369C5CF281A48FB56BBB6DDC711A254575B894C425F2383BEE4BF7177" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="BAEEAE1E1B4BFF18540EA6BE8844D384E6A422FA2680E0464474E85BD5A04362" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs" deviationsHash="E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55" />
-  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs" deviationsHash="38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C" />
-  <file path="content/Components/Account/Pages/readme.txt" />
-  <file path="content/Components/Account/Shared/readme.txt" />
-  <file path="content/ComponentsMudBlazor/Account/Pages/readme.txt" />
-  <file path="content/ComponentsMudBlazor/Account/Shared/readme.txt" />
-  <file path="content/Theme/readme.txt" />
-  <file path="content/ThemeMudBlazor/readme.txt" />
-  <file path="modelers/Blazor Authentication UI Extensions.designer.settings" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/UserInterfacePackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/AuthPageDefaultContentFactoryExtension.cs" deviationsHash="F840ACF1E3266947CCCB9699A31E647FA45895ED9B8A09487F5F38BC4E046D12" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ChangeRenderMode.cs" deviationsHash="17C367317FA4726CA056F2FA0A0026F3690A7CF4F74D1FD48525443FB14FE00D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ClientAddAuthentication.cs" deviationsHash="CD2E1D1B559F589C7EEDD8B97AC7E7F57E60FE5B16227EDB01F9DBE5C971B146" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CurrentUserServiceImplementation.cs" deviationsHash="2DA625D395335E8621766EAFDC7661762C3E3CBD90159D950107171956FEBAF5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="991F97A0FF797CA8CB30240DAAC75424F1AD39DFA25C4977D121C23BF29F6441" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WireupAccountCssExtension.cs" deviationsHash="4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WireupMudBlazorAccountCss.cs" deviationsHash="EAA4B624643EE74AFF173CDABB91E1EF6AC3F92151106F205D27341A9197B6EC" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Blazor.Authentication.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Blazor.Authentication.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="39C69767CD32A020794258EDE12A1A634E74DFBA70F3A4C208302C42094EE81A" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplatePartial.cs" deviationsHash="7B1556C4DA071D5794B4C56BBD6084928BDAEF41E94F66EF5BC5FFD5F93C5B8E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplatePartial.cs" deviationsHash="5C80D2FFB273C784E721040D76FF70BAE18FC2B43F0BD0CEA179FE4BAFA57758" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial" />
+  <file path="Templates/Templates/Client/RedirectToLogin/RedirectToLoginTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplatePartial.cs" deviationsHash="FB15F0C8E0089A36F058987FEC7A25BB2B9E3829F516318819AC05FCD249E337" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Client/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Client/UserInfo/UserInfoTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs" deviationsHash="D53674233DB50FD1486DDC0B57D10AFD73CF91932F5375203A8E48EB7D365971" templateId="Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial" />
+  <file path="Templates/Templates/Server/AccountLayout/AccountLayoutTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs" deviationsHash="1C4C7261F09612AB0E27AFAC87DF27C9114A46F98FF8A9C2690365613C04ED4A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplatePartial.cs" deviationsHash="472DB0DC7C7286A469D07F9BB506D7DB2BC59E078658F08CECC34FE8495BF4E2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplatePartial.cs" deviationsHash="90C8EA54B1E8BACCFD3BD7FD27BBF9D445B1951E26C2668D737DD70CF08507DE" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/ApplicationUser/ApplicationUserTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplatePartial.cs" deviationsHash="874A74B5736735A5FEFABDD70CCF4BDEF97B9796E53723E02AE5161783FA67CC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplatePartial.cs" deviationsHash="BA65B40C916341429A70B8F9E32901C152BE1D3E2B3842DEB482947E5B4EC407" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplatePartial.cs" deviationsHash="E8B9AF75296D9DE6F15D93B186B3F6320E27169A1662DCD9FEF24A943E2B8539" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/IdentityRedirectManager/IdentityRedirectManagerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplatePartial.cs" deviationsHash="C0B8CB0BEFB54015ADED423483D2D5CA6269A201D3637E9D446876E5A6185686" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplatePartial.cs" deviationsHash="E94049FC4168DAEA6E1012F9C027282212A65A604CDBC97577C2708B1F38CA54" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplatePartial.cs" deviationsHash="EC82C2B6F939E07EA9EFBD8FF34ABF4EDA85E85426947E0F08E788DAA146936F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplatePartial.cs" deviationsHash="8994503CFFBECE67F53467744FFFDD54F540429AD3E2A58248F7A7040440E346" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplatePartial.cs" deviationsHash="DF5A7927E90C14B258A2D93A21E166C7C6436DD84ABF96676CA6D041FA73B392" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplatePartial.cs" deviationsHash="1A21B628885CBD1D563FE526991E445F26B1581B2C01C4A612E5E9798D7F697C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplatePartial.cs" deviationsHash="022D217AB402E9FE58E40D6005CD94EC90D9FD340AC6E8D428DEA42B9467F00B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplatePartial.cs" deviationsHash="421FF39E6535D7B55869BC36B6031670C5556EF2454C325C67EAC8E36C04763A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="299BD1ACE3B0A30A7520B6B19C4B5AC721940C1CE6059067506069FD840F5DCB" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="00E5C8ABDEA87B176B2789BC691A1F2F9F3FADA6C6467DABDDEA8069A1324D78" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs" deviationsHash="3C768B9C3F7E0E9CE66714010585C659FAF3B44A510B408415CB244E13FC48CA" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="CA555F8E4F56489FA583BB8B88D8D734553A766A7CDE4B9527FC5A0E468F09C6" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs" deviationsHash="1BDBCCB54167AA6908315FF675ED832320E175245504B591BCA8B143BD86FE2E" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs" deviationsHash="13B65FB3EEE153E2339D3A5BB62DFAFA569DB79CDF009AB655193F17FB4288D3" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="content/Components/Account/Pages/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/Components/Account/Shared/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/ComponentsMudBlazor/Account/Pages/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/ComponentsMudBlazor/Account/Shared/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/Theme/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/ThemeMudBlazor/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="modelers/Blazor Authentication UI Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

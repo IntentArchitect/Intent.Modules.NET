@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#a8b4e010-c671-4ec3-991a-1af06278768c</correlationId>
+      <path>FactoryExtensions/ServiceContractControllerInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.1417834Z</updatedAt>
+      <deviationsHash>48D5AE0677850CD32F1F4F9BCE5878D25F57E916B33D7D18D2E336D75A0D4B6A</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:06.7479351Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

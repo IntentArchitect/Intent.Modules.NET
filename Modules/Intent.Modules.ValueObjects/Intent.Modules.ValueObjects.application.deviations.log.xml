@@ -14,5 +14,31 @@
       <deviationsHash>DBD10C5BCBE8F1B496CE7E579B9EF41AA4C0037BDD0EA304000EC762B709AB96</deviationsHash>
       <fileHash>D117BDF1F53C5703A436C80E71CB1377201EBC4AD673C6B9CA5205FDFF94CF2A</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#c2d52433-731a-4ae3-b698-b2adfd0ea4df</correlationId>
+      <path>Templates/ValueObjectBase/ValueObjectBaseTemplate.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.9246223Z</updatedAt>
+      <deviationsHash>79AD2F5EB4D5051EA2A14627F929386E542532B62A380C9D497B12DB7FE9895A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c2d52433-731a-4ae3-b698-b2adfd0ea4df</correlationId>
+      <path>Templates/ValueObjectBase/ValueObjectBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.9250573Z</updatedAt>
+      <deviationsHash>4531671BD0BA7242FC4489D3F218A4618C1CE8D32258068357772C5299083587</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.ValueObjects/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:19.2173647Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a3a8db7f-a9d5-4f17-a5c4-c8a65ad56d80">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/FolderExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/HangfireJobModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/HangfireJobModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/HangfireQueueModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ScheduledCommandPublishModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
+  <file path="Api/ScheduledCommandPublishModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
+  <file path="Api/ServicePackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
+  <file path="ApiMetadataProviderExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions" />
+  <file path="Intent.Hangfire.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Hangfire.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/HangfireConfiguration/HangfireConfigurationTemplatePartial.cs" deviationsHash="D2DC7FBF723BEC16F8F99A0471162A9AA3BE348725D340629D72C7A3FFDCB9C4" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HangfireConfiguration/HangfireConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HangfireDashboardAuthFilter/HangfireDashboardAuthFilterTemplatePartial.cs" deviationsHash="4AAFE3BABDB0CD405971DB5C6C6BD805895298D4A12AFB74448F53C754E1C180" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HangfireDashboardAuthFilter/HangfireDashboardAuthFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HangfireJobs/HangfireJobsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HangfireJobs/HangfireJobsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Hangfire Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

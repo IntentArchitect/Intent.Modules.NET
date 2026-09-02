@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0d9dbe6b-a824-4c09-9112-1a505ade2bb8">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AspNetCore.IntegrationTesting.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.IntegrationTesting.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_02_00_20_Pre_00.cs" deviationsHash="6328C659F9D0C3383C2F9D94289EF554C9B9A5CEB646D5A3B83CDC32AF998C27" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="E36E9C172941E719E72881642D27028B052E6B29A15A57046E19DA4019EB87B6" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/BaseIntegrationTest/BaseIntegrationTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BaseIntegrationTest/BaseIntegrationTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplatePartial.cs" deviationsHash="074559E3E21F87824D5CC8A3AD8B500AE11EB51305FEBF5B965780EF4C8FF9FC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosContainerFixture/CosmosContainerFixtureTemplatePartial.cs" deviationsHash="8238D09147D66D70B9B00B407C290FEFAE61ACA0BB794A5A438B7FCDCD74081C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosContainerFixture/CosmosContainerFixtureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="F8E6CE5DD75029FF39CC9B5FB88D3A7085D951CFAB69617AF4B9C76CB3AB20B1" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DtoContract/DtoContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EFContainerFixture/EFContainerFixtureTemplatePartial.cs" deviationsHash="6BF56FF94D85BD96CA130F57257536DD03EF8F9FE88EB3E15B1AE691A430E6F3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EFContainerFixture/EFContainerFixtureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EnumContract/EnumContractTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/EnumContract/EnumContractTemplatePartial.cs" deviationsHash="44C4BCC396A779CCE8B726B09FA7499A614C6632151E95110A0B69AE16EFACEE" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EnumContract/EnumContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/HttpClient/HttpClientTemplatePartial.cs" deviationsHash="B7A8CC0A8A4A02D4E83C3FA63E04C51F5D26C43DB1546C0D9621BDEB4FA5BF36" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClient/HttpClientTemplateRegistration.cs" deviationsHash="D9C2FD2A71D6339DFEF2068474FA6474054089252394B87F289716943C351FE2" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs" deviationsHash="6A156A8DC22C32D9951D6B65C653B4229E246A27C0074D7D2666C04DE08D47BE" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplateRegistration.cs" deviationsHash="DF976318DBF892E8D3D388DEC24F1B7077C8B85E199C02A264580110C94C18CB" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IntegrationTestSkill/IntegrationTestSkillTemplatePartial.cs" deviationsHash="FD082DADEAF2702030B25E690294C2474C4F492BD83F0B37A5CA4E003D197F30" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/IntegrationTestSkill/IntegrationTestSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IntegrationTestWebAppFactory/IntegrationTestWebAppFactoryTemplatePartial.cs" deviationsHash="0C0F1487FF4C786DE273834EFEAD9930D2AC9E37FE0A5C8CE8FEF760DE30DB41" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationTestWebAppFactory/IntegrationTestWebAppFactoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" deviationsHash="FD0D81A6077C6BCCD81831AE9658EDF8740717ABB9617D51077625B8D13F635A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbContainerFixture/MongoDbContainerFixtureTemplatePartial.cs" deviationsHash="2940BBB29B62AE1ABC4C8A07437010A154E5BEFC7F5F45337B1ECABD6A49C96F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbContainerFixture/MongoDbContainerFixtureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbFrameworkContainerFixture/MongoDbFrameworkContainerFixtureTemplatePartial.cs" deviationsHash="2F4B3476BF35D20010192D35E9327C4A3C8482F65FE2C1724D6CF4BEE1DF7268" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbFrameworkContainerFixture/MongoDbFrameworkContainerFixtureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/PagedResult/PagedResultTemplatePartial.cs" deviationsHash="5337F165CFB8AD4E3D787682DDA01BCFD4D6DB57756370BA14826E1F9C3067E9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedResult/PagedResultTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs" deviationsHash="D02B09EB33961DD147EF80C222D735613E4B0DD8DC54C7A2B3E102F022AC253D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs" deviationsHash="1B63AA564766D8A9D69CBF4645E24EA23766312CE3846E69C7B2FE2984A1E22F" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProxyServiceContract/ProxyServiceContractTemplatePartial.cs" deviationsHash="3B5F41E5B87A09CC07C6A21D154452B1D1695372A561A28D9F19A758992E1E67" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProxyServiceContract/ProxyServiceContractTemplateRegistration.cs" deviationsHash="88853A6AEB487AA6BFDF7B2A9C84C1C6DB81722F9EB7E213863F4A057D4F0066" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ServiceEndpointTest/ServiceEndpointTestTemplatePartial.cs" deviationsHash="759645E2C00BBD30803FC611836F4BE40EB922D2B143945A7C1DBE3A21CE190F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceEndpointTest/ServiceEndpointTestTemplateRegistration.cs" deviationsHash="4DD25FBD39EB360FFA2EDA116CC86A413488469DE5953D87753DD57C0B12D464" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/SharedContainerFixture/SharedContainerFixtureTemplatePartial.cs" deviationsHash="4237ADCE6139372435DEEE1EC48383D785FB0FF12F10187069D6A01893CA14BA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SharedContainerFixture/SharedContainerFixtureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/StaticContentTemplateRegistrations/StaticFilesStaticContentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="content/static-content/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

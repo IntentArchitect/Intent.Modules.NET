@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c6d2af6d-4947-4fbc-af62-7b500f2d6b99</correlationId>
+      <path>FactoryExtensions/HideRouteParametersFromBodyOperationTransformerExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.6021067Z</updatedAt>
+      <deviationsHash>6B6652B820336EF0C4BFC46630776A69E78648BDA94B3269711BA2F669BFD1EA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d20b9b86-5710-4632-8fc7-a0a588572991</correlationId>
+      <path>FactoryExtensions/ScalarStartupConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.6023603Z</updatedAt>
+      <deviationsHash>092D23B0D8F32F9897B883A6B09FB1420358F46EA8D5DE13ABE8C2C1EA720FBE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#02f92e53-05ba-4173-90e2-61d0a95cf568</correlationId>
+      <path>Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.6025402Z</updatedAt>
+      <deviationsHash>2247C10A2C29349AABA6D12DC9E35115F462752442C5A96839B03B70B1235DA6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c35133d6-70d7-4561-8768-87b95f9c4b8c</correlationId>
+      <path>Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.6025676Z</updatedAt>
+      <deviationsHash>1902E8D249E7C4A6417DE13B972D7C23AE75BD08A6EB1D8AC86B493B7660DD05</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Scalar/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.2304013Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

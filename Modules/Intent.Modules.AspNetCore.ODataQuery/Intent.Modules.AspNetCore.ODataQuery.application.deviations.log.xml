@@ -1,4 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd400bf9-1717-4804-9a97-4c548f6865c3</correlationId>
+      <path>FactoryExtensions/CosmosRepositoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0338755Z</updatedAt>
+      <deviationsHash>D5387463E5EECC084F10A3EA7DE7A241D288F69563D980E7DDBD8BE89E998BFB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b5235e94-ce0d-4278-a5c5-0ee52c1c6bcf</correlationId>
+      <path>FactoryExtensions/EFRepositoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0339038Z</updatedAt>
+      <deviationsHash>20161FB6554F320FE07E8288B49188CAF57141E96838CFF72A319BF611C1792D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1ee783d5-7aca-40cb-a37b-65e018985876</correlationId>
+      <path>FactoryExtensions/QueryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0339312Z</updatedAt>
+      <deviationsHash>B6533A35A88589B2DA87A19498839470E1FD4C178E4E215CF2888A595EB1F4B4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#79f071dc-8f83-4823-983e-118dcedc3d7d</correlationId>
+      <path>FactoryExtensions/StartupExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0339659Z</updatedAt>
+      <deviationsHash>57569177E2375F18809E7FE1C5A14C9F8E186657270B026A6168360685D1865C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d03b3262-faad-40cc-9961-40b9b913596b</correlationId>
+      <path>FactoryExtensions/SwaggerConfigExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0339926Z</updatedAt>
+      <deviationsHash>B6C5B9516DA4028C69B456C613B83600D3064D6B61550DA68CDFB6E0B61612B9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#794c2498-93df-46ce-ae0d-f10794f995e8</correlationId>
+      <path>Templates/ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:17.0340635Z</updatedAt>
+      <deviationsHash>2B315FB22BB6D761103655B261C84B40FBF50002D1AF4C36853075EFF6547485</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.ODataQuery/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.0238604Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

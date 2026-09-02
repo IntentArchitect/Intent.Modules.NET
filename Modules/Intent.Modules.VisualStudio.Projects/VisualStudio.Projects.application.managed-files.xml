@@ -1,130 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="ad79943a-b771-42b0-9563-9e01f7ea2dbc">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="Api/ASPNETCoreWebApplicationModel.cs" deviationsHash="9B5D6A2C5216A953A5713E0C5D2A724E54160637884CF8091ABBAC823145B144" />
-  <file path="Api/ASPNETWebApplicationNETFrameworkModel.cs" deviationsHash="93D438C8FB805D95D7E8FC2D116D47631A5E102E79ED8FFD2EEDDDB7A5D6F174" />
-  <file path="Api/AzureFunctionsProjectModel.cs" deviationsHash="ED74533172CA98CD34215F41349D23B88069FFE5BCCFD602ED8EF7770F091011" />
-  <file path="Api/CSharpProjectNETModel.cs" deviationsHash="83994445C2AB8880E72AC86853179B9D16F6AB3EB0A8E3E436D935682BDBC3F1" />
-  <file path="Api/ClassLibraryNETCoreModel.cs" deviationsHash="78A3211123430D0D32C02BD5B42CDA9EC03CC0828480BCA64D533843437262B4" />
-  <file path="Api/ClassLibraryNETFrameworkModel.cs" deviationsHash="4F4F01E82134BD80D19898478138E7FAFA8864127821D6E5D171DF8DD20EAA22" />
-  <file path="Api/ConsoleAppNETCoreModel.cs" deviationsHash="AD7B185A0779A13ACBE12C25C6BE48156885F191A8D7BB66003D9361F2C7DCE0" />
-  <file path="Api/ConsoleAppNETFrameworkModel.cs" deviationsHash="BA4F9F67EAAC192FB0F9593D2880F61E87A018A81D79CED4CBC0F5A861C166AC" />
-  <file path="Api/CustomImplicitUsingsModel.cs" />
-  <file path="Api/DependenciesModel.cs" />
-  <file path="Api/Extensions/ASPNETCoreWebApplicationModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ASPNETWebApplicationNETFrameworkModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/AzureFunctionsProjectModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/CSharpProjectNETModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ClassLibraryNETCoreModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ClassLibraryNETFrameworkModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ConsoleAppNETCoreModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ConsoleAppNETFrameworkModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/JavaScriptProjectModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/NETFrameworkVersionModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ProjectReferenceModelAssociationExtensions.cs" />
-  <file path="Api/Extensions/SQLServerDatabaseProjectModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/ServiceFabricProjectModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/SolutionFolderModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/VisualStudioSolutionModelStereotypeExtensions.cs" />
-  <file path="Api/Extensions/WCFServiceApplicationModelStereotypeExtensions.cs" />
-  <file path="Api/FolderExtensionsModel.cs" />
-  <file path="Api/ImplicitUsingModel.cs" />
-  <file path="Api/JavaScriptProjectModel.cs" deviationsHash="58E804F4C1B441BFED2AE4BAD856FDFC9238BF2E1A739BFB16D95333FE40328D" />
-  <file path="Api/NETCoreVersionModel.cs" deviationsHash="64E0894249825AFF0CCBD05AF3305F89391049971B0DACB5DA3E9E2AD2BD114F" />
-  <file path="Api/NETFrameworkVersionModel.cs" deviationsHash="B704C1D974A12F49BD8BBFB14E8EA85D48A929BFA6B2968E3C439A6CEDD7C81C" />
-  <file path="Api/ProjectReferenceModel.cs" />
-  <file path="Api/RuntimeEnvironmentModel.cs" deviationsHash="5B5ECDD474110A0757E23FD0C8EFB15E938F196D819BB1AC5CAB12795E888A9F" />
-  <file path="Api/SQLCMDVariableModel.cs" />
-  <file path="Api/SQLServerDatabaseProjectModel.cs" deviationsHash="2A09238A88F75A640CA2731349A9E0149D9BE440F73D601008C8DB3C515FF63D" />
-  <file path="Api/ServiceFabricProjectModel.cs" deviationsHash="30ECA838C582EF8DEE14C5B649D6A50C8862A1FF8C9D10F2E507D65CFD970009" />
-  <file path="Api/ServicesModel.cs" />
-  <file path="Api/SolutionFolderModel.cs" deviationsHash="18218618EEE623143433EDB029270D27F0DCFB0B4A2720CE5E69DD413323AAF5" />
-  <file path="Api/VisualStudioSolutionModel.cs" deviationsHash="C75DBF4D92C8F2496508E5B0AB110E5BD68D66B60D27808D7F70B71343B3636C" />
-  <file path="Api/WCFServiceApplicationModel.cs" deviationsHash="FDB385E967263D1762F4E42B63B4B7A756F0EB43398B374E0318FBD3D8C463BC" />
-  <file path="ApiMetadataProviderExtensions.cs" deviationsHash="583C18A564727C998BE2270ECC820B31C3594CF458F19F0BEC31EA04730B6095" />
-  <file path="FactoryExtensions/VisualStudioSolutionSyncProcessor.cs" deviationsHash="CE218AB28201E621454814A7B5FADA888938AAD88E71E9B937C131158F1798B6" />
-  <file path="Intent.Modules.VisualStudio.Projects.csproj" />
-  <file path="Intent.VisualStudio.Projects.imodspec" />
-  <file path="Migrations/Migration_03_08_10_Pre_02.cs" />
-  <file path="Migrations/Migration_03_09_02_Pre_00.cs" />
-  <file path="Migrations/Migration_04_00_00_Pre_00.cs" />
-  <file path="Migrations/Migration_04_00_01_Pre_00.cs" />
-  <file path="Migrations/Migration_04_01_00_Pre_03.cs" />
-  <file path="Migrations/Migration_04_01_02_Pre_00.cs" />
-  <file path="Migrations/OnInstallMigration.cs" />
-  <file path="NugetPackages.cs" deviationsHash="B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104" />
-  <file path="PackageExtensionModel.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplate.cs" />
-  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplate.tt" />
-  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.cs" />
-  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.tt" />
-  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplateRegistration.cs" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs" deviationsHash="46442CFDC483F4850B4CEDE8C6B0FE81CF89D2B79B65738804CF046EE3FABC0D" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.cs" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.tt" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs" deviationsHash="9BDBC534F2A3DC18525E3F5AFAD33CB089A42FA81E38349288AACC9E9DC886C9" />
-  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs" deviationsHash="369952E693151AB674EBCFE1D33C9FA81B339B4DBEA546C9904C3854CF5AFE51" />
-  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs" deviationsHash="6D944B68C67E0F3D844AF312A2401B2370272FFAABABA14E5883C8E8698CB505" />
-  <file path="Templates/GitIgnore/GitIgnoreTemplate.cs" deviationsHash="CA7041B215C0A1A466D3B99559013C8D52FDB6E012438D88696A1BF85F33AEDB" />
-  <file path="Templates/GitIgnore/GitIgnoreTemplatePartial.cs" deviationsHash="6AD72C4C8537814BB092DE1D79DFFE0902BB84090819D31067ABCE42AB42DA1C" />
-  <file path="Templates/GitIgnore/GitIgnoreTemplateRegistration.cs" deviationsHash="F76FBAF3842459C7A8F44D5187DB9A8F4EED856B62C030FB176243020416511A" />
-  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplate.cs" />
-  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplatePartial.cs" deviationsHash="267C2B81929B8E2EF30FFA0D0EF25FE86E2DA11213C478AA1D162E2175ADACA3" />
-  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplate.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplate.cs" />
-  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplate.cs" />
-  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplate.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplate.cs" />
-  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplate.cs" />
-  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs" deviationsHash="A25B03A6669C9F4E97BBE7332EBCAB60610F9F00B5F1E42B7DB0E65E920DB93C" />
-  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplate.cs" />
-  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplate.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplate.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplatePartial.cs" />
-  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplateRegistration.cs" />
-  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplate.cs" />
-  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplatePartial.cs" deviationsHash="20DB0860E71C39B95420F2500B56CF110EFAF30162A832C1DF2786C8E8B4274F" />
-  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplateRegistration.cs" />
-  <file path="Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs" deviationsHash="9D865C1AD3502E297A4BB245F05119D34E47FD40E31B84FC3FC4A305441725C3" />
-  <file path="Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="modelers/Visual Studio Types.designer.settings" />
-  <file path="release-notes.md" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="Api/ASPNETCoreWebApplicationModel.cs" deviationsHash="9B5D6A2C5216A953A5713E0C5D2A724E54160637884CF8091ABBAC823145B144" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ASPNETWebApplicationNETFrameworkModel.cs" deviationsHash="93D438C8FB805D95D7E8FC2D116D47631A5E102E79ED8FFD2EEDDDB7A5D6F174" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/AzureFunctionsProjectModel.cs" deviationsHash="ED74533172CA98CD34215F41349D23B88069FFE5BCCFD602ED8EF7770F091011" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/CSharpProjectNETModel.cs" deviationsHash="64659667902135104BA4D9A72A10CFCD8C446E3D249B45DF13424729C24F340C" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ClassLibraryNETCoreModel.cs" deviationsHash="78A3211123430D0D32C02BD5B42CDA9EC03CC0828480BCA64D533843437262B4" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ClassLibraryNETFrameworkModel.cs" deviationsHash="4F4F01E82134BD80D19898478138E7FAFA8864127821D6E5D171DF8DD20EAA22" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ConsoleAppNETCoreModel.cs" deviationsHash="AD7B185A0779A13ACBE12C25C6BE48156885F191A8D7BB66003D9361F2C7DCE0" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ConsoleAppNETFrameworkModel.cs" deviationsHash="BA4F9F67EAAC192FB0F9593D2880F61E87A018A81D79CED4CBC0F5A861C166AC" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/CustomImplicitUsingsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/DependenciesModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/Extensions/ASPNETCoreWebApplicationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ASPNETWebApplicationNETFrameworkModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/AzureFunctionsProjectModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/CSharpProjectNETModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ClassLibraryNETCoreModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ClassLibraryNETFrameworkModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ConsoleAppNETCoreModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ConsoleAppNETFrameworkModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/JavaScriptProjectModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/NETFrameworkVersionModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ProjectReferenceModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
+  <file path="Api/Extensions/SQLServerDatabaseProjectModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/ServiceFabricProjectModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/SolutionFolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/VisualStudioSolutionModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/Extensions/WCFServiceApplicationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderExtensionsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/ImplicitUsingModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/JavaScriptProjectModel.cs" deviationsHash="58E804F4C1B441BFED2AE4BAD856FDFC9238BF2E1A739BFB16D95333FE40328D" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/NETCoreVersionModel.cs" deviationsHash="64E0894249825AFF0CCBD05AF3305F89391049971B0DACB5DA3E9E2AD2BD114F" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/NETFrameworkVersionModel.cs" deviationsHash="B704C1D974A12F49BD8BBFB14E8EA85D48A929BFA6B2968E3C439A6CEDD7C81C" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ProjectReferenceModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
+  <file path="Api/RuntimeEnvironmentModel.cs" deviationsHash="5B5ECDD474110A0757E23FD0C8EFB15E938F196D819BB1AC5CAB12795E888A9F" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/SQLCMDVariableModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/SQLServerDatabaseProjectModel.cs" deviationsHash="2A09238A88F75A640CA2731349A9E0149D9BE440F73D601008C8DB3C515FF63D" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ServiceFabricProjectModel.cs" deviationsHash="30ECA838C582EF8DEE14C5B649D6A50C8862A1FF8C9D10F2E507D65CFD970009" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ServicesModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/SolutionFolderModel.cs" deviationsHash="EFEA03F9B1747C6A252733981320CC762D89D0604BF19E1260EDE3722BE19B9A" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/VisualStudioSolutionModel.cs" deviationsHash="C75DBF4D92C8F2496508E5B0AB110E5BD68D66B60D27808D7F70B71343B3636C" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/WCFServiceApplicationModel.cs" deviationsHash="FDB385E967263D1762F4E42B63B4B7A756F0EB43398B374E0318FBD3D8C463BC" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="ApiMetadataProviderExtensions.cs" deviationsHash="583C18A564727C998BE2270ECC820B31C3594CF458F19F0BEC31EA04730B6095" templateId="Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions" />
+  <file path="FactoryExtensions/VisualStudioSolutionSyncProcessor.cs" deviationsHash="CE218AB28201E621454814A7B5FADA888938AAD88E71E9B937C131158F1798B6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.VisualStudio.Projects.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.VisualStudio.Projects.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Migrations/Migration_03_08_10_Pre_02.cs" deviationsHash="B1D8FB521DFD38F29A1EE5D22D41F8B08C254D20161AD47EF0D5EEB88392DE46" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_03_09_02_Pre_00.cs" deviationsHash="A70A537212292173E67D3E1A6D27DE833B6E90C7BDCD938E2903205D4ED5DD43" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_04_00_00_Pre_00.cs" deviationsHash="879DF62AAC639BBA8187CBBEDD3D0C39F9C0D37456DADD2B37FE38670392C793" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_04_00_01_Pre_00.cs" deviationsHash="D24E3CD23D8CE7615CFAC3C9F5CE217138ED91410EF2926D7EBA3228B4FA7D8A" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_04_01_00_Pre_03.cs" deviationsHash="F5DFB83D1970DF8A12727C002DF3160A3A2A9BC7B3F30E693654B8A8840431BD" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_04_01_02_Pre_00.cs" deviationsHash="A63B329876C88821DA24DC0D6DB0910ECE5C1528D645B9C0CC4CE12E1247B247" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="253D38F8D317A5EA20E64E4578D6500ADB6457C4E37537E6E78495B9D4A82973" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" deviationsHash="B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="PackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs" deviationsHash="46442CFDC483F4850B4CEDE8C6B0FE81CF89D2B79B65738804CF046EE3FABC0D" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs" deviationsHash="9BDBC534F2A3DC18525E3F5AFAD33CB089A42FA81E38349288AACC9E9DC886C9" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs" deviationsHash="369952E693151AB674EBCFE1D33C9FA81B339B4DBEA546C9904C3854CF5AFE51" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs" deviationsHash="6D944B68C67E0F3D844AF312A2401B2370272FFAABABA14E5883C8E8698CB505" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/GitIgnore/GitIgnoreTemplate.cs" deviationsHash="CA7041B215C0A1A466D3B99559013C8D52FDB6E012438D88696A1BF85F33AEDB" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/GitIgnore/GitIgnoreTemplatePartial.cs" deviationsHash="6AD72C4C8537814BB092DE1D79DFFE0902BB84090819D31067ABCE42AB42DA1C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/GitIgnore/GitIgnoreTemplateRegistration.cs" deviationsHash="F76FBAF3842459C7A8F44D5187DB9A8F4EED856B62C030FB176243020416511A" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplatePartial.cs" deviationsHash="267C2B81929B8E2EF30FFA0D0EF25FE86E2DA11213C478AA1D162E2175ADACA3" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplatePartial.cs" deviationsHash="E6D71329637D2CE74C5ECAD09AAFDE1A979E6D23FEBF6B1F4549D5A5C3432293" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ApplicationParametersCloud/ApplicationParametersCloudTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplatePartial.cs" deviationsHash="479CFEDA818FF98D9C1F1AABB39A782B09F86A43EF4D6EBA1D317C30ECC6669D" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal1Node/ApplicationParametersLocal1NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplatePartial.cs" deviationsHash="BE313CB6F7881F458DE56B24FA5CDE283769E574A244143BABDC3FF86423A1E0" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ApplicationParametersLocal5Node/ApplicationParametersLocal5NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplatePartial.cs" deviationsHash="64F1CF98DFF19CB01B6082ED24336540DA7885C27EC467A8DED7CF1CC45A2632" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/DeployFabricApplication/DeployFabricApplicationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplatePartial.cs" deviationsHash="75BB7CCDBD31BBF7EF255531033932125D8677F2F48A6810FFEDBD4548154982" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplatePartial.cs" deviationsHash="E5C0705A382C815B45795EF2DD328379398122FAB443CBEB0E6FBCFB8B3D30B7" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/PublishProfileCloud/PublishProfileCloudTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplatePartial.cs" deviationsHash="305A8BDC1BB49107FABFC2F5636FFD135D01D6581B69042B371143ED6146022C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal1Node/PublishProfileLocal1NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplatePartial.cs" deviationsHash="A326BA1D3ED8A4150025263318F7C8CB36B92338B8459D114557E46531FF983D" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/PublishProfileLocal5Node/PublishProfileLocal5NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplatePartial.cs" deviationsHash="3B285BD51F8B84E450AE106BDFEA19D5B327BE2C80EBEF869609D3BE715B9D28" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ServiceConfigSettings/ServiceConfigSettingsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs" deviationsHash="A25B03A6669C9F4E97BBE7332EBCAB60610F9F00B5F1E42B7DB0E65E920DB93C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplatePartial.cs" deviationsHash="05DFF21E5C8374D025FD251CB33ACEF562E3AF25D81B7F34F6C00E76BE3ADE6A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/ServiceManifest/ServiceManifestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplatePartial.cs" deviationsHash="CFC0C071E0C2526849B5EA6240C5A9219D35EE569AF93C06C4C3B752D2B2089F" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersCloud/StartupServiceParametersCloudTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplatePartial.cs" deviationsHash="83EF81954170FF72C36E07C13902792A61A587E3930B3BA669F03DB695C89489" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal1Node/StartupServiceParametersLocal1NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplatePartial.cs" deviationsHash="249AF8F3BF3A68E1C19B471364DB4C4A74C0FE92F416F66DDAEAE95FD18C845C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/StartupServiceParametersLocal5Node/StartupServiceParametersLocal5NodeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplatePartial.cs" deviationsHash="20DB0860E71C39B95420F2500B56CF110EFAF30162A832C1DF2786C8E8B4274F" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ServiceFabric/StartupServices/StartupServicesTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs" deviationsHash="9D865C1AD3502E297A4BB245F05119D34E47FD40E31B84FC3FC4A305441725C3" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="modelers/Visual Studio Types.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

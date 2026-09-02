@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0e9a49a4-507f-4e16-8f39-0c7496722ef5">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/DomainEventsDecoratorExtension.cs" deviationsHash="41370300BB5831DC652324B03F2A6ED8BE535667C8699094718F7798174D2727" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.DomainEvents.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.DomainEvents.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/DomainEvent/DomainEventTemplatePartial.cs" deviationsHash="CE50D29AA0A0B013AE4069CEF26F01CF88D450FD38EA562F2E4A4251C4104A01" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEvent/DomainEventTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs" deviationsHash="60E89C4FC51B16B2E86411529628141D560A8B3B3DF29FE2A431A30D7C178494" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEventBase/DomainEventBaseTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs" deviationsHash="D8CB1C0DAE263EA642DEA72325126784FCBCC2B15E00B455F60C88452F5F2E89" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs" deviationsHash="B3BEE437286CA67AFC87E647D6B2B47AAFFAFB022D080F631FAFD1142C5CC7AD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="AAC535C4F006117430074F2BC7642287EE490383B6E0980826283A32253653BC" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

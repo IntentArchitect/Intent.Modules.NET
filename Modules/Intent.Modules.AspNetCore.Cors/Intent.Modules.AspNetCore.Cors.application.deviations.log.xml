@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09bba66a-1579-42ad-9c66-6fc35faa6cee</correlationId>
+      <path>Templates/CorsConfiguration/CorsConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:01.0469078Z</updatedAt>
+      <deviationsHash>DB92F47783A93A5EFB290879F72D68906D8E859AA8117D137F1C524408044C0D</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#09bba66a-1579-42ad-9c66-6fc35faa6cee</correlationId>
       <path>Templates/CorsConfiguration/CorsConfigurationTemplateRegistration.cs</path>
       <count>1</count>
@@ -25,4 +34,12 @@
       <fileHash>7F3FCEA3E4548B9CB1EF798362234952492D816D278BDB75D6115C48FB4684B9</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Cors/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:07.1511311Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

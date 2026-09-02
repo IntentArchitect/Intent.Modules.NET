@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="5d935a54-a908-4812-9169-cf57c94719b3">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Infrastructure.DependencyInjection.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Infrastructure.DependencyInjection.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/DependencyInjection/DependencyInjectionDecorator.cs" deviationsHash="C27FFBE2CF3D7052E4BA0E0AB1C3C94DCA062A79E5056B02AD579D06A7A57604" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/DependencyInjection/DependencyInjectionTemplatePartial.cs" deviationsHash="D38CA202A2C6F1DE5C23D4A2F506E6758AC628A413FAC139DBF96F0CB869982C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DependencyInjection/DependencyInjectionTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

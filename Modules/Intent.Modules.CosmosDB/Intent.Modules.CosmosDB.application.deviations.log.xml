@@ -1,4 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c36f89e9-ec42-4f86-a871-8397ad4c8fec</correlationId>
+      <path>FactoryExtensions/EnsureParameterlessConstructorsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7507289Z</updatedAt>
+      <deviationsHash>F4DA805FA72749522D146FB208754870EE850E13B1D14907FF0451B701C1FD2D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5632e697-26b1-4a38-9e12-6ce3d768d878</correlationId>
+      <path>FactoryExtensions/EntityFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7507414Z</updatedAt>
+      <deviationsHash>4FE34E86CC1C01C07FEB9152D25BFD66EE1574F2B22B479F50983B40C0E31868</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cc56c90e-b5fe-4fb3-8cfc-cb5b02526727</correlationId>
+      <path>FactoryExtensions/MultiTenancyFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7507521Z</updatedAt>
+      <deviationsHash>BC1F884DD166BEB1F8C06BA5CEFC0B999B205BD35301A10C78CA762A56D96522</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#9e235b7c-35f9-4526-871b-6cb0c295acee</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7507661Z</updatedAt>
+      <deviationsHash>ABE65C5E88E411B4655FCB312D3FF8C49E1C48331144EC2984C4A445785AC8D3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd126f6f-0088-482a-a0ca-c6cb9faf4fef</correlationId>
+      <path>Templates/CosmosDBConfiguration/CosmosDBConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7507973Z</updatedAt>
+      <deviationsHash>DBF17AD805DC71D78FB9B6BE3A79F72E6EDAF51525DA6D747AFF588704E4FC09</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2e654e28-f7a3-466f-bf5c-d966de5ad7ea</correlationId>
+      <path>Templates/CosmosDBDocument/CosmosDBDocumentTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508108Z</updatedAt>
+      <deviationsHash>352BC2ADBA472CDCE657F80F379EAF1A8C686DBCDC7437E35C8C5905D6C8058C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#00c4fd7f-ea90-4f8d-89a9-7146a9a39a3c</correlationId>
+      <path>Templates/CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508238Z</updatedAt>
+      <deviationsHash>70887B3CA26782B16F52A16E5099D1604FE529D2BA85AA68D260E777DD414760</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f67fddba-c691-4020-8b01-d6f0d0d1ac43</correlationId>
+      <path>Templates/CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508586Z</updatedAt>
+      <deviationsHash>A211CB59A82846FB2BA6EF8C4A1C7ED46264F6528D2593B92AD01294E2EE45B9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f8fc6ca4-6b98-4d3d-b921-9552965c7e40</correlationId>
+      <path>Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508708Z</updatedAt>
+      <deviationsHash>F23D6FDAEBE9B6FFC085785F57CD3F9AB37C7875FBB7673A9406E57CDCA2524F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cc5f700a-f18c-4d26-ab50-2bd34e7dd8e5</correlationId>
+      <path>Templates/CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508824Z</updatedAt>
+      <deviationsHash>06D99DDFE7F3D5FFD06908BF67A5DA237DFC37241C34803E30616A01DDF8BC67</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9a0d9111-ec12-4d48-b382-711f9445f4c4</correlationId>
+      <path>Templates/CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7508944Z</updatedAt>
+      <deviationsHash>0163B14E01D6FB66E4331AAFE938A0BEBE57EBF3943B89341ACAE13C9759EEC7</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0cfd0b86-e375-4d79-933c-7914d88fa2d4</correlationId>
+      <path>Templates/CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509069Z</updatedAt>
+      <deviationsHash>22400B7D4798E3B42549EEC78BE167FC7A59391D6F6DE7485BEB8FDF0A186BC1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f48735b5-0f51-4e0e-be94-f58a230af749</correlationId>
+      <path>Templates/CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509181Z</updatedAt>
+      <deviationsHash>84D4EEF9892D1FB36D3B1D0EFD5B967F845399C8B05B9F5DEB5B04EE6854D800</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f6ce433e-4f92-4909-895e-3ea3fff71d00</correlationId>
+      <path>Templates/CosmosDBRepository/CosmosDBRepositoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509304Z</updatedAt>
+      <deviationsHash>75F3C38AA647A718CADAEC5DD7C5FEF7B3C6F51EDC7CD77B9ABA725A966F2059</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4f68c077-6b96-4d4e-83fe-cd0189386e3a</correlationId>
+      <path>Templates/CosmosDBRepositoryBase/CosmosDBRepositoryBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509419Z</updatedAt>
+      <deviationsHash>16F6CCD83422D4117F3B599B92BE8299956AA365D6213D25AC2EE55A7474DDBD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce6f70d9-83c1-4ee7-b5f7-f24b22f4044b</correlationId>
+      <path>Templates/CosmosDBRepositoryInterface/CosmosDBRepositoryInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509535Z</updatedAt>
+      <deviationsHash>8E6E56696BB8AC00E1DE5A71BC118004EC2E4D58A9DC0C83B4F530BE47777C15</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e7715df9-4417-4a5a-ad97-0cc2a09e5c9e</correlationId>
+      <path>Templates/CosmosDBRepositoryOptions/CosmosDBRepositoryOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509699Z</updatedAt>
+      <deviationsHash>A72531D4FC1FA9A7565443AD4A9533001BBF170AC430944AA7619DB997C0120B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#944e5245-a6f5-4915-a50d-ed3dc1f3b2a0</correlationId>
+      <path>Templates/CosmosDBUnitOfWork/CosmosDBUnitOfWorkTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7509818Z</updatedAt>
+      <deviationsHash>A38D48150B865500B510EF1FDE62DB11F5CC9A04DD97B483D4107C244F35E405</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#02a70d9d-02d1-44ae-8c40-6e1c9e152086</correlationId>
+      <path>Templates/EnumJsonConverter/EnumJsonConverterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7510519Z</updatedAt>
+      <deviationsHash>EDA0CBDAC954B3B1B85DF2607B652ADBD76B8F855C9DAC9970EA791DA943CC8C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e8f0d58b-b368-4ffb-982b-a5a085ab692c</correlationId>
+      <path>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:59.7510647Z</updatedAt>
+      <deviationsHash>DC9D6BF1209ED77D946DFD6D09FF0D6EFB139DFCDD55BE7A4D739EABC1CD7CC8</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.CosmosDB/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.0015011Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

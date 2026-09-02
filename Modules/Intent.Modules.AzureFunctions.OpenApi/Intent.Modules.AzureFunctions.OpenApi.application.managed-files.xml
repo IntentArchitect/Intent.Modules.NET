@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="3e17b334-0f38-4811-9c78-0e521468f7ce">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/AzureFunctionModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Decorators/OpenApiAttributeDecorator.cs" deviationsHash="F4ECD94CB767DC7BA28BF2AC612AF3A6296447100A37C895210407FB9CE55DAC" templateId="Intent.ModuleBuilder.Templates.TemplateDecorator" />
+  <file path="Decorators/OpenApiAttributeDecoratorRegistration.cs" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration" />
+  <file path="FactoryExtensions/OpenApiOperationAttributeExtension.cs" deviationsHash="EC9F499DA6DA144A9B84824E5B8E444E03E95873094309FDCEA497508BE08242" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.OpenApi.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.OpenApi.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

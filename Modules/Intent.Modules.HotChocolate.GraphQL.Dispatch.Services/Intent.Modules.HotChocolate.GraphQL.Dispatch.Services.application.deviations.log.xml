@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#20b16a18-ad06-4f1f-90af-54b8803f12da</correlationId>
+      <path>FactoryExtensions/GraphQLServiceDispatchExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:28.3566071Z</updatedAt>
+      <deviationsHash>B6B14BE6B17DCF3C2BD75592886B828A87D7D2CD693F250FDA803AD161B803D9</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.HotChocolate.GraphQL.Dispatch.Services/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.0594894Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

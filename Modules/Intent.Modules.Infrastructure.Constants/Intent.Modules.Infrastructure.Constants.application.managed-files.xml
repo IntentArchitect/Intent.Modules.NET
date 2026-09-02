@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7c7bd9b5-382c-47b3-9e8e-de03117144ee">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Infrastructure.Constants.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Infrastructure.Constants.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/Constants/ConstantsTemplatePartial.cs" deviationsHash="29A7A41B3927E8663090B67AEE502C94DE42AF925116036AB9226512BF3C3A06" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Constants/ConstantsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

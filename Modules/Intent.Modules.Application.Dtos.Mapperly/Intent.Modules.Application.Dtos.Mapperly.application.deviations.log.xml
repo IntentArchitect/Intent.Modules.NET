@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0a7a0b61-e9ba-4e80-9bcd-cc19c506b416</correlationId>
+      <path>Templates/DtoMappingProfile/DtoMappingProfileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:52.0080152Z</updatedAt>
+      <deviationsHash>56D03F7404B249C0C195FCE62DE942A57EF01513EA600314FEB251167D6AEE5D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Dtos.Mapperly/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.9171918Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

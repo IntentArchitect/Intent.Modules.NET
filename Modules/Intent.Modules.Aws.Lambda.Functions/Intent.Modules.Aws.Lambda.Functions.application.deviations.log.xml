@@ -12,6 +12,24 @@
       <fileHash>A4C3240935A0FA4C087935350D9257F2DFE27775B86D62E7F0562735C7F64FE7</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#95a1b55d-bee1-44c3-b790-dc408acce546</correlationId>
+      <path>Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.329954Z</updatedAt>
+      <deviationsHash>55A07FF340E3E21EE389EB76992D0DD38B7DDC25AC92556231152E6DE352D25A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6ecd7a9c-88ff-482c-a215-ed99f15fa9dc</correlationId>
+      <path>Templates/LambdaFunctionClass/LambdaFunctionClassTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.3300147Z</updatedAt>
+      <deviationsHash>F83293EA8A830D98DC82001CAAE3835FA1801AC25F6073C70796FC6A136B689D</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b42ececb-e2c8-4d4d-970c-9d51f1e98736</correlationId>
       <path>Templates/Startup/StartupTemplatePartial.cs</path>
       <count>1</count>
@@ -22,4 +40,12 @@
       <fileHash>D0B461551174A0EDF823CDD837A0E5A7E42C2B6315EC9A95C90E8B58F8F3346B</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.Lambda.Functions/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.5342919Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd865815-86ca-458d-ad7a-e14a4d16a1fa</correlationId>
+      <path>FactoryExtensions/MongoRepoFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.5748874Z</updatedAt>
+      <deviationsHash>4F3F76EB9606F824B866813A4F730A576CE9781B6442591A6E1DF5C1FC0B98EA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d2636e48-0aa6-4833-9877-8a22c06e64cd</correlationId>
+      <path>FactoryExtensions/PagedListFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.5754581Z</updatedAt>
+      <deviationsHash>D19CE731FF38BD5D55BB752DA52FFCA6466B46DD124393CA7C0DE0317B1976FF</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b87c40c2-09be-4e16-86e2-d3b5a5b20faf</correlationId>
       <path>Templates/MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs</path>
       <count>1</count>
@@ -11,5 +29,31 @@
       <deviationsHash>A9BB802F651D2AC1D03DDD9D9254B81B4C6CE6A2407A513DACC66D8DCBC8E369</deviationsHash>
       <fileHash>A0CDD15BD829DEB9C76483D71B26006C245FE5A0A8415A755C11E359EF6536B6</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#92371428-7d9d-4a2f-869e-306408ffc44a</correlationId>
+      <path>Templates/PagedList/PagedListTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.5767224Z</updatedAt>
+      <deviationsHash>07C8202A1E8031FD4E85F6AEF587D13CF9BD7F85271A80615D558995AAD02AA2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8b575ed4-6f2c-4b75-81c0-d19ea72b50cf</correlationId>
+      <path>Templates/Repository/RepositoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.5767604Z</updatedAt>
+      <deviationsHash>DDCF95CA9C19A852C7FC5DAE58C597EBADA6F912328541EA1D988AE4BA4DA4B5</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.MongoDb.MongoFramework.Repositories/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.7057193Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

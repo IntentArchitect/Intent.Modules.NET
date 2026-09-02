@@ -12,4 +12,12 @@
       <fileHash>88B09716068CCF58044C0573FC4E6F773E76741B3E8C083FAC67729A3D5F82A3</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Docker/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:07.31214Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

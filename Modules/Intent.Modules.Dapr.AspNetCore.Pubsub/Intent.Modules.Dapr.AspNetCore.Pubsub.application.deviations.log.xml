@@ -1,4 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b27245c4-1e73-423c-bca5-5897e32ae959</correlationId>
+      <path>FactoryExtensions/DaprEventingFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5053133Z</updatedAt>
+      <deviationsHash>D7DA686070C3B0F2F35FF200F3C1B40EE40CFF9CEEF7525335C7C99EA44045E2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#30d75da2-3762-4084-8240-ffd2a34a7636</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5053507Z</updatedAt>
+      <deviationsHash>AF4BF7897D0191D793961B442B1D6004040376D1A9179151399576A247194942</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#619ff373-0a3c-46da-807b-08c157fae20b</correlationId>
+      <path>Migrations/Migration_03_00_00_Pre_01.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5053874Z</updatedAt>
+      <deviationsHash>4D5DC89F8EF10446CE95EF39738CF9B0C35C2EE8853FA8C123DA27EB9675B324</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#c148bb6a-73e8-43e4-bf13-42018cbcd95c</correlationId>
+      <path>Migrations/Migration_03_01_00_Pre_01.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5054249Z</updatedAt>
+      <deviationsHash>021C4260BB029E63914D7812174313AB36990F524F6DD86B36F2F04FEF291D0C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bbfb82d0-360a-441b-b9e0-86840e148a1f</correlationId>
+      <path>Templates/DaprConfiguration/DaprConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5054694Z</updatedAt>
+      <deviationsHash>4B623747A842C0F52B8D6EF6F3239D316AB2E2EDE6A05945CE2B32592D339944</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c8d2cbf9-8cfd-447e-ab0e-934aae33cbd0</correlationId>
+      <path>Templates/DaprEventHandlerController/DaprEventHandlerControllerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5055005Z</updatedAt>
+      <deviationsHash>A26DFE906E7FAC5CDF86E695B3373537AB63E283AC9745D5B55772DE8AEE3F4B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#140811e5-8849-456a-a8d3-aa1b92ef9b01</correlationId>
+      <path>Templates/DaprMessageBus/DaprMessageBusTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.5055273Z</updatedAt>
+      <deviationsHash>A1A19B55EC8568DA26018335F9EA1DE2758D568DBDC23B6EF6F1D5E03F0F9C6B</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Dapr.AspNetCore.Pubsub/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.3237998Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

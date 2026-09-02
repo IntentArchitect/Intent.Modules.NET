@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#51668d76-10ce-4ae5-9725-650808a9dcd8</correlationId>
+      <path>FactoryExtensions/AspNetCoreIntegrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.5945789Z</updatedAt>
+      <deviationsHash>3C528B11F01CC63148CFCF9715570CF6FC30FD402D8C8031E9656438A5217D23</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a3891593-98b6-49e4-86ee-98d138f3527e</correlationId>
       <path>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</path>
       <count>3</count>
@@ -42,6 +51,15 @@
       <fileHash>40047C9CFA704D905FE9A82408B8F90D6FA868840361A568CCE4F6D82D4C5614</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0e91aa8d-143e-49d7-85d6-7855d7331248</correlationId>
+      <path>Templates/TenantConnectionsInterface/TenantConnectionsInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:18.5955951Z</updatedAt>
+      <deviationsHash>45AD197B77B11751F29F89BDF5000A443BC51C7560AB0196F3025DBFE78FA45A</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</correlationId>
       <path>Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</path>
       <count>1</count>
@@ -65,4 +83,12 @@
       <fileHash>D45B52A8B7D71595A0D0BD7747A77AC430BC2378DD6E6815EDB60C0D852E854B</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.MultiTenancy/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:08.6847441Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

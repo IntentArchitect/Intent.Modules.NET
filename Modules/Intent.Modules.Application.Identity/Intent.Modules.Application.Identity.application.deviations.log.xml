@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#648f7f9e-ef85-4545-bd42-7424295180f1</correlationId>
+      <path>Migrations/Migration_03_06_00_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:51.7596483Z</updatedAt>
+      <deviationsHash>290DE303E68449EF5E44E4F39A1BF91B0CCE9354C578FEAE97E8A0E4F14E22FD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#e23cad17-dfc1-4f58-8366-1e0599829027</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:51.7592965Z</updatedAt>
+      <deviationsHash>34F371F436D6F36840118CD07B323F0A083C0F9AE7059EAF6C113A062DA1145A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0e19d9c8-4aa1-4a62-b9bd-dc8d826b6d48</correlationId>
+      <path>Templates/ApplicationSecurityConfiguration/ApplicationSecurityConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:51.7597336Z</updatedAt>
+      <deviationsHash>5823573B7CC25CF67319B6805A402853CC6E2411B761EB1484E16ECCCE781033</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d5052dc-6360-46f0-a1e2-e4b81d90424e</correlationId>
       <path>Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs</path>
       <count>3</count>
@@ -104,4 +131,12 @@
       <fileHash>961BE9B921944519EB31066DA928F1F17076590D533959915A9547CF36AA9CAE</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Identity/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:05.305602Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

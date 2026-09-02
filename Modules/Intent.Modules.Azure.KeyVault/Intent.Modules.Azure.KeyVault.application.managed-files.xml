@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="9895fa0b-6af4-4afb-ac6b-6c42f8b2f1bc">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ProgramExtension.cs" deviationsHash="F96AEAB0FC8588900137EB45244B628E3008B5FF3B25695C6CF2F2D0BF09935D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Azure.KeyVault.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Azure.KeyVault.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AzureKeyVaultConfiguration/AzureKeyVaultConfigurationTemplatePartial.cs" deviationsHash="7F39F58A84D5064E6EFA654E9E117E9A3E8246506EF90B78E70816F12C337DEB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureKeyVaultConfiguration/AzureKeyVaultConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

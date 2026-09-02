@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="4a709c8e-37f0-40ba-94d3-fb0fb1e00b18">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/RepositoryExtensionsModel.cs" deviationsHash="8C65EFC9CDF4D6342A7140319D719A6D0668198C21D7A4D22F7D607BE2981D87" />
-  <file path="FactoryExtensions/EntityRepositoryOperationExtension.cs" deviationsHash="7C1BE3ED23B0A17F1C615B9BA20D45BA91B70ED2AF4CD7583D206ACC97B312B9" />
-  <file path="Intent.Dapper.imodspec" />
-  <file path="Intent.Modules.Dapper.csproj" />
-  <file path="NugetPackages.cs" />
-  <file path="Templates/CustomRepository/CustomRepositoryTemplatePartial.cs" />
-  <file path="Templates/CustomRepository/CustomRepositoryTemplateRegistration.cs" />
-  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs" deviationsHash="E2A3E6CCA258649080DC591F31D10CA55F6E3D7838EF7AB4527A56A54C1C9E30" />
-  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs" />
-  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs" />
-  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs" />
-  <file path="Templates/Repository/RepositoryTemplatePartial.cs" />
-  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" />
-  <file path="Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs" deviationsHash="A124AF0B934B925D3CD815349EFCB01CBF14E28B4C1C642FB74D4EF5E496128F" />
-  <file path="Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs" />
-  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs" />
-  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="modelers/Domain Extensions.designer.settings" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/RepositoryExtensionsModel.cs" deviationsHash="8C65EFC9CDF4D6342A7140319D719A6D0668198C21D7A4D22F7D607BE2981D87" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="FactoryExtensions/EntityRepositoryOperationExtension.cs" deviationsHash="7C1BE3ED23B0A17F1C615B9BA20D45BA91B70ED2AF4CD7583D206ACC97B312B9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Dapper.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Dapper.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/CustomRepository/CustomRepositoryTemplatePartial.cs" deviationsHash="93E5DB04D639222223165735613F030B31BFDBE469D23847DC5BCB4D0422580B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CustomRepository/CustomRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs" deviationsHash="E2A3E6CCA258649080DC591F31D10CA55F6E3D7838EF7AB4527A56A54C1C9E30" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs" deviationsHash="4E52F27EA868147CB1F63AAA18D3B659D53E885391887603E7228183CDE852E5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs" deviationsHash="042F4898314A49E6F0E1274EDB942657AEACC42839DB480F4F9E6F521A491C12" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Repository/RepositoryTemplatePartial.cs" deviationsHash="F277E7D9145DB0F79A10E2A31AD26B971EF2A63A5359F0319FBC4CD1247E4450" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Repository/RepositoryTemplateRegistration.cs" deviationsHash="0342913D9C4FB76DB9AEF629156B2875C44749D0551073875FE60B4D88744084" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs" deviationsHash="A124AF0B934B925D3CD815349EFCB01CBF14E28B4C1C642FB74D4EF5E496128F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Domain Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
 </managedFiles>

@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#dca8adfb-61f8-44d5-a157-b7dcbed4dea2</correlationId>
+      <path>Templates/Index/IndexTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.425192Z</updatedAt>
+      <deviationsHash>4DFEF40E0A79A2A6870F56C898FC86C5F75ABAB64933F1013CC6BEE4C589EC02</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9e28f9a9-d5f9-4119-84b9-c204c8b5112c</correlationId>
+      <path>Templates/StoredProcedure/StoredProcedureTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.4255043Z</updatedAt>
+      <deviationsHash>AAA9D25F5029066075E10D3CEB5ECA8BBA3B0B92C9CF2F6DEA39A77DC5232675</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#ce49cbf2-35e9-4242-ad6f-39520ebda23f</correlationId>
+      <path>Templates/Table/TableTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.4255235Z</updatedAt>
+      <deviationsHash>D209170138B617B108EE887C0DC4248795FA7BB74AD20ACA96BACEC31F1859C2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#5f53f8e0-10a4-4c85-8574-d79d350ca7b1</correlationId>
+      <path>Templates/View/ViewTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:49.4255457Z</updatedAt>
+      <deviationsHash>E17B00AB85E809B93CD91343D40B0864426D20AC611C607604B3F6AFCDE9F876</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.SqlDatabaseProject/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:19.0991336Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

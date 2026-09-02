@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="4f469de8-b6e4-469b-8740-3fe74d5d6d1c">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Intent.Dapr.AspNetCore.Bindings.Cron.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/CronBindingComponent/CronBindingComponentTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/CronBindingComponent/CronBindingComponentTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/CronBindingComponent/CronBindingComponentTemplatePartial.cs" deviationsHash="2963470AA26BF31447762B1D7829EF2968A1D52380FBDF2F85628BD732FBC400" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CronBindingComponent/CronBindingComponentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="modelers/Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

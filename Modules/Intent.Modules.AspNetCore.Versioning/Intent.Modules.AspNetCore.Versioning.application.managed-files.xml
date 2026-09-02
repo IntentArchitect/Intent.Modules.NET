@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c286b17c-d9cf-4acb-ab05-6256a99d5269">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ControllerInstaller.cs" deviationsHash="0D4FDBA9C637C42FAB4A3C8B435F63F980319130FFF7533CB275D05882439A17" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerInstaller.cs" deviationsHash="0AF5677B1868AC2B3220CE077FD848C883EE40EAAAABB0D252F63D657B304ACE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Versioning.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Versioning.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplatePartial.cs" deviationsHash="AD8407C2A7440080C7F2302DD94BF31BCD310374B4A5A8A33D45625A59E155BD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplatePartial.cs" deviationsHash="7385516E5EE2BAF969D4D36093F2FA522BC8E71577534112750CF14A18FA914C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

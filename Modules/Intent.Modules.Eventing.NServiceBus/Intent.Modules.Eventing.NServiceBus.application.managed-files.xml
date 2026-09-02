@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="52e77c5c-d9ed-416c-8e1c-7414f149924c">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" />
-  <file path="Api/MessageModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/NServiceBusMessageBusInteropExtension.cs" />
-  <file path="FactoryExtensions/NServiceBusRegistrationExtension.cs" />
-  <file path="Intent.Eventing.NServiceBus.imodspec" />
-  <file path="Intent.Modules.Eventing.NServiceBus.csproj" />
-  <file path="NugetPackages.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs" />
-  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplateRegistration.cs" />
-  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplatePartial.cs" />
-  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplateRegistration.cs" />
-  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs" deviationsHash="12AD4D237AF8FDBBDDA19951C10482A3AB22F34D1C57880CD8CFF7DFF2BD65E5" />
-  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="modelers/NServiceBus Settings.designer.settings" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/NServiceBusMessageBusInteropExtension.cs" deviationsHash="D061FEAC98DBABACF42D7471A5B88733E97B198663D8360470D79722CB27ACDD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/NServiceBusRegistrationExtension.cs" deviationsHash="E214E63DC3705EDE57D9446E30DA5198D781399174153EA496174C7C7B504498" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.NServiceBus.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.NServiceBus.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs" deviationsHash="5DC0D2B64D41783F602B1CD7D9E3545B5D0C40B6DCC1AEFD9B827FC9CDF47489" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs" deviationsHash="DA554655E00CA8BABF2F3F6F8E1C20E338A515A55BAEB9AFA746E60C08574BC8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/NServiceBus Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

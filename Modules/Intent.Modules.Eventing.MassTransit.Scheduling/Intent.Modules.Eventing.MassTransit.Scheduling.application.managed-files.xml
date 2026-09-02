@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="bf507eae-8dae-4ab3-932a-29a6a30f29b8">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MassTransitConfigurationExtension.cs" deviationsHash="7AE505DD2EEE68D87D00C38C4547E32F22B503CB6E612A2BDDE7E9C5969453B7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MassTransitMessageBusExtension.cs" deviationsHash="A43F2C227855ECA063D030860B98544D9EAB99B1073F99E0B04F3F5AF5AA32F0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusInterfaceExtension.cs" deviationsHash="FB204BB027A81C6B1FD8584269E2333E6CA286406F67257859BC97BFA516090D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.MassTransit.Scheduling.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.MassTransit.Scheduling.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

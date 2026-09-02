@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="69f06913-7f0d-4ad1-bf64-0b14901a49cd">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtentions/AITasksFactoryExtension.cs" deviationsHash="19BA3DCA42A68FD019C40D8E65C72D1A87A38CEDBC8ED81F188FB1490FE84BF8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtentions/CombineWithModelsTemplateFactoryExtension.cs" deviationsHash="D2A849882ABB1740972AA3255D33077C45C61AB6A5738CBA5D7D33F18DF098D1" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtentions/UnhandledExceptionBahaviorExtension.cs" deviationsHash="F7BB05354BF13F2EABF4411BABF0AF335D128D991D380B72A8CE25C35F9312DC" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.MediatR.FluentValidation.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.MediatR.FluentValidation.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/BypassPipelineValidationInterface/BypassPipelineValidationInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BypassPipelineValidationInterface/BypassPipelineValidationInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommandValidator/CommandValidatorTemplatePartial.cs" deviationsHash="7993E112B729BF2C5D7E2C66F30E3897D4E67BDB746C41BAF4E872EDB1A92EAC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandValidator/CommandValidatorTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/QueryValidator/QueryValidatorTemplatePartial.cs" deviationsHash="6F88B82959670C857FC6E4C86374C00D0D2AB8ED5C22FFDBAB1B88621B5A30F2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryValidator/QueryValidatorTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/ValidationBehaviour/ValidationBehaviourTemplatePartial.cs" deviationsHash="E4C400ECD55937E62526EE1083CAABFC3A9733509F0CBD292CBF1C2BC68352CA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidationBehaviour/ValidationBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

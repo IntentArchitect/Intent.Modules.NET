@@ -1,4 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b604e8a9-21a9-429c-9505-9d595d83e867</correlationId>
+      <path>FactoryExtensions/GeometryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3201273Z</updatedAt>
+      <deviationsHash>DC11B4B6564052EF14E617C158FB54BA8ABFF3BA9B23C5DEEA9F1DEDAB6E4752</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#14cad78b-692b-429d-8269-4e3943437ef4</correlationId>
+      <path>FactoryExtensions/SerilogStartupConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3206589Z</updatedAt>
+      <deviationsHash>8F319EAE079FB91FD9ACABF46719916A6CDD239443B91A863FD5EEECB94118DA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#40b2ee5e-8312-47af-a098-a65cb3d46c17</correlationId>
+      <path>FactoryExtensions/StartupExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3207095Z</updatedAt>
+      <deviationsHash>B37A04AE5CA6C79BD1C38C9F5DEE412FA528CF7CAD8A1ACBC7B5B4D80C46CB25</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#ff1d7080-7204-4e2b-bd09-9f4e173850d0</correlationId>
+      <path>FactoryExtensions/SwaggerConfigExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3207387Z</updatedAt>
+      <deviationsHash>28B2BC243BB743BAD4F6BE75BEA7FCE7A2A37EBAF1FC8612EFA70CCB56BD7031</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7a0accc-e650-4526-9a65-eb5f571c420e</correlationId>
+      <path>Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3207808Z</updatedAt>
+      <deviationsHash>9BEA3FEFDF510F860FC1E9CD269625700036581F586AFB30CFCE8ED11C60B620</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b380dffd-d9d8-4abe-84a2-5e0a7ceab541</correlationId>
+      <path>Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:43.3208105Z</updatedAt>
+      <deviationsHash>9550DB88C96402964A78E8BEEB1C6B7C974ADCF0C1213E0525939CE16D4642B3</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

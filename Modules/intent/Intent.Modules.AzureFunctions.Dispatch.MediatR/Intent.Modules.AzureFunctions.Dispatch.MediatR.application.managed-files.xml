@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a9b4b39d-2b2e-4212-89c9-e639f7219900">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AzureFunctionsMediatRDispatchInstaller.cs" deviationsHash="DB0B08C88E056D7A99B3327006D7960649DD6017E07F2254EA32CFBC60A6CA71" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.Dispatch.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+</managedFiles>

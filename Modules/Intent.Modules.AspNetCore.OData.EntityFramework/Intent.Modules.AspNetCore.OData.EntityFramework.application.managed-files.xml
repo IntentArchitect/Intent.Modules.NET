@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="9a6cab0d-4d62-4430-9b70-e3a7a9dbedfc">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="CBD0884615C880DC456129F7160D0346E41CE4125E56B7D14C1C1ED9315C7B32" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="E1C92EBA86413A175F600DEC570D4A727CA93E6F19F9A3ACC595127C3D02F0A7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.OData.EntityFramework.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.OData.EntityFramework.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ODataAggregateController/ODataAggregateControllerTemplatePartial.cs" deviationsHash="74EA4D7C78660B0DBA094A30C02AA038C96B51B6607DE8121DF6D63A04C6936E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Domain Designer Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

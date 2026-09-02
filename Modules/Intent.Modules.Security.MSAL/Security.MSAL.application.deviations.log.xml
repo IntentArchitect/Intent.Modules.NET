@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e4ebe5e3-cefd-439a-9b30-3388686d3c7b</correlationId>
+      <path>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:47.4182273Z</updatedAt>
+      <deviationsHash>9D71288FBA6DBAA3C1F62180927C23D4F82B27FC0FECB50B36DAE4B4E8215759</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1d143727-3490-4c5b-a355-df5b70789bb6</correlationId>
+      <path>FactoryExtensions/CurrentUserServiceFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:47.4182718Z</updatedAt>
+      <deviationsHash>33F55718F2D8DFC5292DD38A8007CF7B4C8B9DE0AEB8B7D66CDA1B418829CD08</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2290890c-a17b-4ab3-a978-dc65f1c862a8">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/FolderExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/ScheduledCommandPublishModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
+  <file path="Api/ScheduledCommandPublishModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
+  <file path="Api/ScheduledJobModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/ScheduledJobModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ServicePackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
+  <file path="ApiMetadataProviderExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions" />
+  <file path="Intent.Modules.QuartzScheduler.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.QuartzScheduler.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs" deviationsHash="0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ScheduledJob/ScheduledJobTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ScheduledJob/ScheduledJobTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Quartz Scheduler Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

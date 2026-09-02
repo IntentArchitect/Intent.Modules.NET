@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1e3080cd-d721-403c-9fd3-bb37698a8360</correlationId>
+      <path>FactoryExtensions/ProgramExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.051219Z</updatedAt>
+      <deviationsHash>F96AEAB0FC8588900137EB45244B628E3008B5FF3B25695C6CF2F2D0BF09935D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6c954713-1c75-4b4b-be6c-07184fa6de83</correlationId>
+      <path>Templates/AzureKeyVaultConfiguration/AzureKeyVaultConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.0512692Z</updatedAt>
+      <deviationsHash>7F39F58A84D5064E6EFA654E9E117E9A3E8246506EF90B78E70816F12C337DEB</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Azure.KeyVault/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:11.2727112Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

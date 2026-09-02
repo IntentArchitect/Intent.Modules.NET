@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d331955b-6e1f-47d1-b7d7-ad53f636f1f0">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/AttributeModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/DomainPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/DiConfigurationExtension.cs" deviationsHash="ADDC2C38DA5FFB8537167B6BEC5B8223E46FEA9C978D00C040BACD5BF168F794" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="5F27343642107EA633BF16B39DA5CCF1E83E3F67C6AF65654087DEDE5DBD39B9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="3C956A74983D1E565E02DC6030070DB1F280EECC137641E4C407D56ABBB18F60" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Aws.DynamoDB.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Aws.DynamoDB.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="EEB28B33293EA3B6D6A0B7709945FDCCB51AA3E868F314EA53234A2AE3A6D6B8" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/DynamoDBDocument/DynamoDBDocumentTemplatePartial.cs" deviationsHash="315760919B124CA83E36CA88B8B651CC2F731DE0A74225F460FD8D689F07B017" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBDocument/DynamoDBDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DynamoDBDocumentOfTInterface/DynamoDBDocumentOfTInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBDocumentOfTInterface/DynamoDBDocumentOfTInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DynamoDBRepository/DynamoDBRepositoryTemplatePartial.cs" deviationsHash="FB23B1C352E73D41CFBCAC9A37E1F23D9F0F38D8FA45AFCFBB337DC2073A8455" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBRepository/DynamoDBRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DynamoDBRepositoryBase/DynamoDBRepositoryBaseTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBRepositoryBase/DynamoDBRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/DynamoDBRepositoryInterface/DynamoDBRepositoryInterfaceTemplatePartial.cs" deviationsHash="B8AD9CB0A98B8BB073B88CFAFBA1BD2A43ECEAE2738BB42A1ABCDEBF0087C1D7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBRepositoryInterface/DynamoDBRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/DynamoDBTableInitializer/DynamoDBTableInitializerTemplatePartial.cs" deviationsHash="1D1CD09C88BF19234BDFDD4A89F3B1761608DD8FA6F94FC726B473124732E688" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBTableInitializer/DynamoDBTableInitializerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DynamoDBUnitOfWork/DynamoDBUnitOfWorkTemplatePartial.cs" deviationsHash="5E1154FFDC96EF302294C9AC060A47DEEBBA5404C648A74ECC77E852FFBB9C80" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBUnitOfWork/DynamoDBUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DynamoDBUnitOfWorkInterface/DynamoDBUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBUnitOfWorkInterface/DynamoDBUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DynamoDBValueObjectDocument/DynamoDBValueObjectDocumentTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DynamoDBValueObjectDocument/DynamoDBValueObjectDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EnumAsStringConverter/EnumAsStringConverterTemplatePartial.cs" deviationsHash="32EDBDC64563F3D055358DB6438FB13CBB5CD6182580B41FBDBC7C9821763126" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EnumAsStringConverter/EnumAsStringConverterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs" deviationsHash="DC9D6BF1209ED77D946DFD6D09FF0D6EFB139DFCDD55BE7A4D739EABC1CD7CC8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

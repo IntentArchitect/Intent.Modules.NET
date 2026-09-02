@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b2cd1fcc-1ce4-422a-81f0-6cd62ca01f13</correlationId>
+      <path>FactoryExtensions/EfConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:12.4544105Z</updatedAt>
+      <deviationsHash>E4F0CFA7288F3637EA74756A1A2A97D27EBA3D49F4BF46EEAFE17CEF928CBA0E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#70398b18-dff4-4016-a556-b39a0cf95d58</correlationId>
+      <path>FactoryExtensions/RepositoryFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:12.4544452Z</updatedAt>
+      <deviationsHash>6EBE59E87404DFB2CCADB67A3EEB34A860AA87831DE09C7A9473C963985664F1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#354e283d-f3a4-4d8d-9b7b-840b2c6cc517</correlationId>
+      <path>Templates/TemporalHistory/TemporalHistoryTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:12.4545436Z</updatedAt>
+      <deviationsHash>DA54AEACADCADF010795F78A336927A9E47FEBECE34EB80E1B7188DBBEB4A811</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#711d8079-1e21-4237-a327-56c1cd6ba308</correlationId>
+      <path>Templates/TemporalInterface/TemporalInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:12.4545706Z</updatedAt>
+      <deviationsHash>FC38EEAA293F98D06EFEED09B9F42328E35060BA7A4DCF1CEA9351158BFFDDD6</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.TemporalTables/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.9993484Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

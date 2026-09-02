@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="e3d5f673-e092-4556-bd5f-6a67ecc23233">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Application.Contracts.Clients.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Contracts.Clients.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="30324DE5908862C0608BC6DA6F362C50CE826A97A50BBD0B96B561D2299AFDBE" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DtoContract/DtoContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EnumContract/EnumContractTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/EnumContract/EnumContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EnumContract/EnumContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/PagedResult/PagedResultTemplatePartial.cs" deviationsHash="5337F165CFB8AD4E3D787682DDA01BCFD4D6DB57756370BA14826E1F9C3067E9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedResult/PagedResultTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ServiceContract/ServiceContractTemplatePartial.cs" deviationsHash="01F8778A38329A6956DCB0C14A4849FFE8A7C21F2A51BA8B4B3A1053D6CD22B8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceContract/ServiceContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

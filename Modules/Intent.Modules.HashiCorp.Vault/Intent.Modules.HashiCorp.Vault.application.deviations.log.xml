@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#84a58fa2-d4c5-47de-a6b9-6c773c43e22d</correlationId>
+      <path>FactoryExtensions/ProgramExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:26.3182299Z</updatedAt>
+      <deviationsHash>ACE22C2FC9988781748279718BAC93F197068AF92A2E5AF40295864F061283E3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#269f05b0-e512-4907-a656-c3f002354cb4</correlationId>
+      <path>Templates/HashiCorpVaultConfiguration/HashiCorpVaultConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:26.3183217Z</updatedAt>
+      <deviationsHash>9F95D6524C686C60555B97B7AB408D13F3AF2E45BAA6EB09CB89AB788FFB95C2</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e93cd1f8-0a41-4a63-95b8-7e80bb30909b</correlationId>
       <path>Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs</path>
       <count>1</count>
@@ -11,5 +29,22 @@
       <deviationsHash>BC665F621AD9C1E8DAFC8CA4B501466D698821C177621F8DA75D1FEBBD1BE37A</deviationsHash>
       <fileHash>CB1ECCD248658E711E4170C823FD177377D9B4BE7B619C7C12030060ADF34ED6</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#841981ab-80cc-4c98-afc2-de90676c4c49</correlationId>
+      <path>Templates/HashiCorpVaultOptions/HashiCorpVaultOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:26.3198044Z</updatedAt>
+      <deviationsHash>350BFFC31C2BDA9CBD311662765B8B0C47C74C045846DC13724C4B0BEACCA5BB</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.HashiCorp.Vault/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.8549439Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

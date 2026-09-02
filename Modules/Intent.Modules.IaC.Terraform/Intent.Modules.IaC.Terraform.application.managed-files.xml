@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="4e255eb0-077f-43e9-a3ff-0fcdfb027119">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="5EDBABDDD5D8641EEA3FE1EA177472A86D520B8D58421CBE32BBBE1284B3A856" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.IaC.Terraform.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.IaC.Terraform.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/Applications/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplatePartial.cs" deviationsHash="CBF8AFA17456917D20A18C26E501FFB51490D2582A72E98BC0ABFB1D7344982B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Applications/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Applications/AzureFunctionAppTf/AzureFunctionAppTfTemplatePartial.cs" deviationsHash="7BCEC2E43B2377B5072ACDAA3BABEB353E571967261645FD085CCB8E838229D5" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Applications/AzureFunctionAppTf/AzureFunctionAppTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/Applications/AzureMainTf/AzureMainTfTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Applications/AzureMainTf/AzureMainTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Applications/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplatePartial.cs" deviationsHash="C7B889A5BE9A416B90AF6C35A0EA1623FAB5B05912CA61E901C1BA0F0671C29E" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Applications/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Subscriptions/AzureEventGridTf/AzureEventGridTfTemplatePartial.cs" deviationsHash="A567AB167088C20A6FF2D6BC4FACF976B646EA8E8E00EE777F7313ED88127462" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Subscriptions/AzureEventGridTf/AzureEventGridTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/Subscriptions/AzureMainTf/AzureMainTfTemplatePartial.cs" deviationsHash="65C2004DB61A45AD73C001D3DBB5C5511054B98560EE192D5B84B2C6362855CB" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Subscriptions/AzureMainTf/AzureMainTfTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

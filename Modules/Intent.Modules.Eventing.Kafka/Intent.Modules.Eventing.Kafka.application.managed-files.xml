@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="82b660c8-1973-49da-9f1d-91a9bda3ff55">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/PropertyModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="6FEDD9AC614F38A8098E9451B3B178D6BE4849428E328B3F15B223BBA794C98C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.Kafka.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.Kafka.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/KafkaConfiguration/KafkaConfigurationTemplatePartial.cs" deviationsHash="43ACDD742E64F2EAE53141EA8C094B33DB7F751CB4B81FBB3A80C4DD785C1F6A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaConfiguration/KafkaConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaConsumer/KafkaConsumerTemplatePartial.cs" deviationsHash="227DD1BB317EF998AC5FEE4FA965B74D5772A447220DD832E11DC2D84BD469A9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaConsumer/KafkaConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaConsumerBackgroundService/KafkaConsumerBackgroundServiceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaConsumerBackgroundService/KafkaConsumerBackgroundServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaConsumerInterface/KafkaConsumerInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/KafkaConsumerInterface/KafkaConsumerInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/KafkaConsumerInterface/KafkaConsumerInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaConsumerInterface/KafkaConsumerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaEventDispatcher/KafkaEventDispatcherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaEventDispatcher/KafkaEventDispatcherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaEventDispatcherInterface/KafkaEventDispatcherInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/KafkaEventDispatcherInterface/KafkaEventDispatcherInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/KafkaEventDispatcherInterface/KafkaEventDispatcherInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaEventDispatcherInterface/KafkaEventDispatcherInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaMessageBus/KafkaMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaMessageBus/KafkaMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaProducer/KafkaProducerTemplatePartial.cs" deviationsHash="DAC0D9A7AFE0AA5DBC7992720C32A6FD678740DD4F8B1EE82BB2D61B91097822" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaProducer/KafkaProducerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

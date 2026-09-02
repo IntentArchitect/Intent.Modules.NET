@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d78fb3f4-7ed2-4562-aa18-f09b10de3afa">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AzureFunctions.AzureQueueStorage.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.AzureQueueStorage.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplatePartial.cs" deviationsHash="A2485C8CEF4236A150E7CC873D8FCA1670847E909F1DBE82385CD88EA9241096" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

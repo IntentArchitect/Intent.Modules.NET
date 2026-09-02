@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cbc84d05-8ff9-4d5e-9f8c-9ac3111a4149</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.5878365Z</updatedAt>
+      <deviationsHash>D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b0eef7dc-2d70-4d4b-bc2d-c0a354c5ee40</correlationId>
+      <path>Templates/LambdaFunctionConsumer/LambdaFunctionConsumerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.5886371Z</updatedAt>
+      <deviationsHash>A734851943627F04944635DA505BF110D9A1766684EB7BE2308B159B340507DF</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.Lambda.Functions.Sqs/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.3542633Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

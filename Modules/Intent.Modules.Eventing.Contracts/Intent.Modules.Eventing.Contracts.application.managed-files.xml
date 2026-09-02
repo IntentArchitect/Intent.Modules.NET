@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="244e1544-6d4b-490b-afe0-8865bd737121">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/EventingPackageModelStereotypeExtensions.cs" />
-  <file path="Api/FolderExtensionsModel.cs" />
-  <file path="Api/FolderModelStereotypeExtensions.cs" />
-  <file path="Api/MessageBusProviderModel.cs" />
-  <file path="Api/MessageBusProviderModelStereotypeExtensions.cs" />
-  <file path="Api/ModuleBuilderExtensionsModel.cs" />
-  <file path="ApiMetadataProviderExtensions.cs" />
-  <file path="FactoryExtensions/ApplicationServiceInteractionInstaller.cs" />
-  <file path="Intent.Eventing.Contracts.imodspec" />
-  <file path="Intent.Modules.Eventing.Contracts.csproj" />
-  <file path="Migrations/Migration_06_01_00_Pre_00.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs" deviationsHash="A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883" />
-  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs" />
-  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplatePartial.cs" />
-  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplateRegistration.cs" />
-  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplatePartial.cs" />
-  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplateRegistration.cs" />
-  <file path="Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs" />
-  <file path="Templates/EventBusInterface/EventBusInterfaceTemplateRegistration.cs" />
-  <file path="Templates/IntegrationCommand/IntegrationCommandTemplatePartial.cs" />
-  <file path="Templates/IntegrationCommand/IntegrationCommandTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplate.cs" />
-  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplateRegistration.cs" />
-  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplatePartial.cs" />
-  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplateRegistration.cs" />
-  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplatePartial.cs" />
-  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplateRegistration.cs" />
-  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplatePartial.cs" />
-  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="modelers/Message Bus Providers.designer.settings" />
-  <file path="modelers/Message Bus Services Settings.designer.settings" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/EventingPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderExtensionsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageBusProviderModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/MessageBusProviderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ModuleBuilderExtensionsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
+  <file path="ApiMetadataProviderExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions" />
+  <file path="FactoryExtensions/ApplicationServiceInteractionInstaller.cs" deviationsHash="CBA207A952B2371938C230ABD1A704A16E767EC5F65815D72BA46AD3ED52EB0E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_06_01_00_Pre_00.cs" deviationsHash="586C592974FD84794E48F27F89F0D204E75428C2F785E5D8CE1A017CC28A31EF" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs" deviationsHash="A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CompositeMessageBus/CompositeMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplatePartial.cs" deviationsHash="89ECF93DE360DEF30F9F4F91058D0E1F2C2F2C532E1D8EBB8F12F50835C6758D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CompositeMessageBusConfiguration/CompositeMessageBusConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EventBusInterface/EventBusInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/IntegrationCommand/IntegrationCommandTemplatePartial.cs" deviationsHash="48EDAD85E339F6DFE7444355575A8B28867DAB75F590FB10E3B73C14E10D2AD3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationCommand/IntegrationCommandTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventDto/IntegrationEventDtoTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventEnum/IntegrationEventEnumTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs" deviationsHash="FA2351E14326CB38516DB4EB3BCB53272D455A5A601747C90968824B3D2B302B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplatePartial.cs" deviationsHash="8B286EAC8C8A3BD7B2FC305E9C4187483FF96A397BE04D761A705D3BF1B0B386" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventMessage/IntegrationEventMessageTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplatePartial.cs" deviationsHash="79834CCCD833C576FD137436C8782320665E0391774B9A09D416E577D07CAFA7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessageBrokerRegistry/MessageBrokerRegistryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplatePartial.cs" deviationsHash="8394F87AC5539D4EB05EB01C1D24453EA04B80A253AE2662E7EA968C20AF5643" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessageBrokerResolver/MessageBrokerResolverTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessageBusInterface/MessageBusInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Message Bus Providers.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="modelers/Message Bus Services Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
 </managedFiles>

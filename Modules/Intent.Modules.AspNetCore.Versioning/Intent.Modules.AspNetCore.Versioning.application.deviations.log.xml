@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b3484c6c-8eb3-41a7-be50-4824afc2574e</correlationId>
+      <path>FactoryExtensions/ControllerInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:19.6630793Z</updatedAt>
+      <deviationsHash>0D4FDBA9C637C42FAB4A3C8B435F63F980319130FFF7533CB275D05882439A17</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d7ae1c13-a255-4561-9db6-8050b27836bb</correlationId>
+      <path>FactoryExtensions/SwaggerInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:19.6631009Z</updatedAt>
+      <deviationsHash>0AF5677B1868AC2B3220CE077FD848C883EE40EAAAABB0D252F63D657B304ACE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4a21bb76-0781-4be0-8dc1-4c71180a5535</correlationId>
+      <path>Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:19.6631209Z</updatedAt>
+      <deviationsHash>7385516E5EE2BAF969D4D36093F2FA522BC8E71577534112750CF14A18FA914C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1fe50eed-aeb7-4f0b-99a8-70fc0187cf8f</correlationId>
+      <path>Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:19.6631443Z</updatedAt>
+      <deviationsHash>AD8407C2A7440080C7F2302DD94BF31BCD310374B4A5A8A33D45625A59E155BD</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Versioning/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.6964712Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

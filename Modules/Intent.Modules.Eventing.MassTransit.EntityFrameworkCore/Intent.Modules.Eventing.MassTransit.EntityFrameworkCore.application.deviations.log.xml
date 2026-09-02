@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef7c0f8f-14aa-4c0f-b0ea-3c1e876f4f8b</correlationId>
+      <path>FactoryExtensions/EFOutboxPatternConfiguratorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.7276495Z</updatedAt>
+      <deviationsHash>A3234D8AD07BE90188AFAEE6ECB3CB4BB8C10A014943D5CA7E500697B081E0F6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#14b10fc4-f039-4a85-a6b6-d802f9e3e692</correlationId>
+      <path>FactoryExtensions/OutboxTableSpecificationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.7281918Z</updatedAt>
+      <deviationsHash>84AC491974EDAA36A9922478A2D59EB90E9E67B35D5FBB574037C100EC9762A7</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.MassTransit.EntityFrameworkCore/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.2756033Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

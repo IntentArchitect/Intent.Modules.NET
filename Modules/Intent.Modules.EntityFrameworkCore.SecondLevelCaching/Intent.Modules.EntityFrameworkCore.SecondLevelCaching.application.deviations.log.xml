@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17f4a55a-a075-47bd-8e86-5eda81314e5f</correlationId>
+      <path>Templates/DistributedCacheServiceProvider/DistributedCacheServiceProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:07.8565295Z</updatedAt>
+      <deviationsHash>93D3ADF17A18D13035F41464489A7CC08F07F8142B73CC888E765CF2F6D367C5</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.SecondLevelCaching/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.9252582Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

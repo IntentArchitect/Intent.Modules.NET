@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0e1f242f-2b97-41b3-b5e0-4f0b28f838e2">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AITasksFactoryExtension.cs" deviationsHash="24FA00FAAE3343CDC2922B96AE6820F1DD55865C20EC3D11C72D7678694103BA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.FluentValidation.Dtos.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.FluentValidation.Dtos.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/DTOValidator/DTOValidatorTemplatePartial.cs" deviationsHash="29A52FB9A426391AE9F695CE561D5C33419084AA5E6119C32ECF3B6B3167DD07" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DTOValidator/DTOValidatorTemplateRegistration.cs" deviationsHash="688748834A5F2DE0898AFCA21096F9E1CFEB5683A283111C476F0A47A42CB4DE" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/ValidationService/ValidationServiceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/ValidationService/ValidationServiceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/ValidationService/ValidationServiceTemplatePartial.cs" deviationsHash="018B9FB508AE606FBAAFF2DF5B517B13D907D053B4358DA58FAF583DB7D45122" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidationService/ValidationServiceTemplateRegistration.cs" deviationsHash="E45D1842E51C5CB65605691A3F1690E075137EAA2888FE546BAA34E990065BE2" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplateRegistration.cs" deviationsHash="F0B6D117F1B5FE3D129CA13727F861AA390A622992DB8891154E38C07A10C057" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs" deviationsHash="5A994A8373A5DE81D0946334D2B33D431517A1410643D0BD470CFADB44DD2B22" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

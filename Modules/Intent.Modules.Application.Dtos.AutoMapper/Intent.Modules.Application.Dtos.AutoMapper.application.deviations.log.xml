@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#26e93d7b-2b58-435d-8401-c67cfe06c30a</correlationId>
+      <path>FactoryExtensions/AutoMapperDtoFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:50.3664917Z</updatedAt>
+      <deviationsHash>5FC4CAA50C1A47DCDCD46476D109DEFBBD230E81A03E4FA62C17345859089C27</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4bcec9d0-d5d0-4203-9df5-9e8f37f2fb70</correlationId>
+      <path>Templates/DtoMappingProfile/DtoMappingProfileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:50.3669075Z</updatedAt>
+      <deviationsHash>EDC1E59958D5B71E1FA4649F500123870A0625A9752082C1C7AA1282618BE510</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ae21031c-9ce7-4769-922f-b595fe6fb665</correlationId>
       <path>Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs</path>
       <count>3</count>
@@ -35,4 +53,12 @@
       <fileHash>BCCC09B9DE0E36EDB5B5FB10B055B30BBD8CCA3EBCED425FCDF871C7E72F23E8</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Dtos.AutoMapper/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.8458501Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

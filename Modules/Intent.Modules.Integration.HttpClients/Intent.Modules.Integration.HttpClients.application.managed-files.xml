@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/HttpClientHeaderConfiguratorExtension.cs" deviationsHash="A9453246C25278C1AF82A58523FD8A725EEB9062E0EFE9EC21DAEC45918FE73E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/InteractionStrategyRegistration.cs" deviationsHash="2E3DB1EA3A46F2B79F5B53E8EF3D3AFB8E1F272372B4A50779B62CC4EBD00746" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Integration.HttpClients.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Integration.HttpClients.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplatePartial.cs" deviationsHash="96C18428388760C5114A83E222A9CD9D7D97094633457BBBB7ED00E7D28AB3E9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HttpClient/HttpClientTemplatePartial.cs" deviationsHash="6357C141ADCE345BD3F44BEF4119BB8C7C7896DD0BF9F93130A4A2083ABA1ED8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClient/HttpClientTemplateRegistration.cs" deviationsHash="3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplatePartial.cs" deviationsHash="75E95357815CAF508AE4438F7565B445E21B3FDBB86CDF8D2FCE8C8316FEA9C7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs" deviationsHash="EAED7E50080B09C3C4E81A77CDBB8A2842A2DE7DFA523E1631DF5F100E605E01" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClientConfiguration/HttpClientConfigurationTemplateRegistration.cs" deviationsHash="C0E4E2EA3C8AAB8F260F9FF72E54A75063749188273B5ECCBE2BF0982C865C68" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs" deviationsHash="51C92802417F613C2A3C5D3C3000D0429DA73A68AE9D269A73C6F2C6D82A08B9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs" deviationsHash="DC721C7BC7E9A082D4A9DA571ED04CD819C535B317387B4398093C7EEB56F2E8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpClientRequestException/HttpClientRequestExceptionTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" deviationsHash="EAFF80E2258A052393CD428187F76F0DCF6129012F04216A7F02E1E765D6DBCB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs" deviationsHash="1AC426D9F27BE05804E039194154F6ED42E76CEF7259EA9298B1CC8A55F1BBFB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2dbbb91b-54b6-4157-b30d-e42e1ab90a8b">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Application.Identity.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Identity.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_03_06_00_Pre_00.cs" deviationsHash="290DE303E68449EF5E44E4F39A1BF91B0CCE9354C578FEAE97E8A0E4F14E22FD" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="34F371F436D6F36840118CD07B323F0A083C0F9AE7059EAF6C113A062DA1145A" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/ApplicationSecurityConfiguration/ApplicationSecurityConfigurationTemplatePartial.cs" deviationsHash="5823573B7CC25CF67319B6805A402853CC6E2411B761EB1484E16ECCCE781033" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ApplicationSecurityConfiguration/ApplicationSecurityConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs" deviationsHash="9DD3F2B0FC7EB449C287CFDFECACCE4EF53E2BFFB58DCF8DA407E2D11B56CBFA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuthorizeAttribute/AuthorizeAttributeTemplateRegistration.cs" deviationsHash="81596DC6CC41911B977D68A707253C450F717F37A83B843B290D7AD9EB7BD901" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CurrentUserInterface/CurrentUserInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CurrentUserInterface/CurrentUserInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CurrentUserService/CurrentUserServiceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplatePartial.cs" deviationsHash="AFB2609C42E5E2E0489C2365505C0B296CFB6C0ED7BB94B8D9C8EBCC3045824A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplateRegistration.cs" deviationsHash="B3C293119DC77F6345A4C81307BB7C28A87F1158E17D81D3FC92A9FC0FAF2F18" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplatePartial.cs" deviationsHash="96C16F2022568CECBB071926C022FAC7D8CB44AE4613F1B08076CC5560DD4A3F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplateRegistration.cs" deviationsHash="F49DB65F0FAB7D62C8FA849831C489C484C28074EF8733465F8CDC81BBF8C90B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ResultModel/ResultModelTemplatePartial.cs" deviationsHash="948245D99D7F155563F22086B0C5E45F224DC2322A0446F7889DC5527ACDC601" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ResultModel/ResultModelTemplateRegistration.cs" deviationsHash="6921EFEE4AE9848DA5C4FA71FB2D9A8228E43F3DF19E4DBD115EEBA16362F29D" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

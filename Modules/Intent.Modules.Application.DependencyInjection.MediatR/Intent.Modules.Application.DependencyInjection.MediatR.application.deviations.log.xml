@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dc90cc72-2170-4cc5-b685-43317caacfd6</correlationId>
+      <path>FactoryExtentions/DependencyInjectionFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:54.1794665Z</updatedAt>
+      <deviationsHash>955FABCD30134D834E0C542B8E20A5C832EF29CB00089A12907AEF7BBFC8CA93</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#70bb932c-d9b9-4a00-833b-6d7b43e8f319</correlationId>
       <path>NugetPackages.cs</path>
       <count>3</count>
@@ -12,4 +21,12 @@
       <fileHash>D59EE9D12C254AC61068A3F2E574A7C5AAC999BC7AFF74177DD48C6EC8C1DDCD</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.DependencyInjection.MediatR/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.6961576Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

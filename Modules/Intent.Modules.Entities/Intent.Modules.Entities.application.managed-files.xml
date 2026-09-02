@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="ac11ad1e-604e-4dbc-81dc-9e56ed1abd30">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/EnumModelStereotypeExtensions.cs" />
-  <file path="Api/OperationModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/AITaskFactoryExtension.cs" />
-  <file path="Intent.Entities.imodspec" />
-  <file path="Intent.Modules.Entities.csproj" deviationsHash="DFB43227476701DF21C86764EC794D35A412EFF3BECD7A2A8063589C3596BBC2" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs" deviationsHash="5864FEEDB17856DBE98117E20EC14B59C855326E85F9744E294C69452714287A" />
-  <file path="Templates/CollectionExtensions/CollectionExtensionsTemplateRegistration.cs" />
-  <file path="Templates/CollectionWrapper/CollectionWrapperTemplatePartial.cs" />
-  <file path="Templates/CollectionWrapper/CollectionWrapperTemplateRegistration.cs" />
-  <file path="Templates/DataContract/DataContractTemplatePartial.cs" />
-  <file path="Templates/DataContract/DataContractTemplateRegistration.cs" />
-  <file path="Templates/DomainEntity/DomainEntityTemplatePartial.cs" deviationsHash="A15D0BF3F963C7BF67618A0B1B3B26F96B82A6720B0002A6826A57314534037F" />
-  <file path="Templates/DomainEntity/DomainEntityTemplateRegistration.cs" />
-  <file path="Templates/DomainEntityInterface/DomainEntityInterfaceTemplatePartial.cs" deviationsHash="40811D0907435134A459A2F0F63E003D1205A51BF1EB6F4616E854D3DBB72FCC" />
-  <file path="Templates/DomainEntityInterface/DomainEntityInterfaceTemplateRegistration.cs" />
-  <file path="Templates/DomainEntitySkill/DomainEntitySkillTemplatePartial.cs" />
-  <file path="Templates/DomainEntitySkill/DomainEntitySkillTemplateRegistration.cs" />
-  <file path="Templates/DomainEntityState/DomainEntityStateTemplatePartial.cs" deviationsHash="E4619CAD6D897C9BAD400075DD6FED7D00AB24DF80DC64F04A27B1980EAC83C4" />
-  <file path="Templates/DomainEntityState/DomainEntityStateTemplateRegistration.cs" />
-  <file path="Templates/DomainEnum/DomainEnumTemplate.cs" />
-  <file path="Templates/DomainEnum/DomainEnumTemplatePartial.cs" deviationsHash="770F244A9EBDD5367C9A034C4F736ED47203841C7B9318D0AD4BEB778A06DF58" />
-  <file path="Templates/DomainEnum/DomainEnumTemplateRegistration.cs" />
-  <file path="Templates/NotFoundException/NotFoundExceptionTemplatePartial.cs" />
-  <file path="Templates/NotFoundException/NotFoundExceptionTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" />
-  <file path="Templates/UpdateHelper/UpdateHelperTemplatePartial.cs" />
-  <file path="Templates/UpdateHelper/UpdateHelperTemplateRegistration.cs" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/EnumModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/AITaskFactoryExtension.cs" deviationsHash="39EDCBB5197CD50AAF77211C29D74341DB5DC12F2BB329758F68A28EF41A56E2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Entities.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Entities.csproj" deviationsHash="DFB43227476701DF21C86764EC794D35A412EFF3BECD7A2A8063589C3596BBC2" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs" deviationsHash="5864FEEDB17856DBE98117E20EC14B59C855326E85F9744E294C69452714287A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CollectionExtensions/CollectionExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CollectionWrapper/CollectionWrapperTemplatePartial.cs" deviationsHash="FABC5429266C25848D18C8D8D0B6DD4FE4128F3ED60215908AED00C21381A607" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CollectionWrapper/CollectionWrapperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DataContract/DataContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DataContract/DataContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEntity/DomainEntityTemplatePartial.cs" deviationsHash="A15D0BF3F963C7BF67618A0B1B3B26F96B82A6720B0002A6826A57314534037F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEntity/DomainEntityTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEntityInterface/DomainEntityInterfaceTemplatePartial.cs" deviationsHash="40811D0907435134A459A2F0F63E003D1205A51BF1EB6F4616E854D3DBB72FCC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEntityInterface/DomainEntityInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEntitySkill/DomainEntitySkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DomainEntitySkill/DomainEntitySkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DomainEntityState/DomainEntityStateTemplatePartial.cs" deviationsHash="376746662EE48131AABEE4D3279AA81F267A25ED46150E3A8FCEFC06489279D7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEntityState/DomainEntityStateTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DomainEnum/DomainEnumTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/DomainEnum/DomainEnumTemplatePartial.cs" deviationsHash="770F244A9EBDD5367C9A034C4F736ED47203841C7B9318D0AD4BEB778A06DF58" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DomainEnum/DomainEnumTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/NotFoundException/NotFoundExceptionTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/NotFoundException/NotFoundExceptionTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/UpdateHelper/UpdateHelperTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/UpdateHelper/UpdateHelperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
 </managedFiles>

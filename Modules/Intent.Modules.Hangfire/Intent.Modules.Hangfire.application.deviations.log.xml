@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#45ecdc92-439b-4a8a-8824-9b1d587bc984</correlationId>
+      <path>Templates/HangfireConfiguration/HangfireConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:23.9686793Z</updatedAt>
+      <deviationsHash>D2DC7FBF723BEC16F8F99A0471162A9AA3BE348725D340629D72C7A3FFDCB9C4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8afb7368-e6b3-47b7-a807-949d55c9ac20</correlationId>
+      <path>Templates/HangfireDashboardAuthFilter/HangfireDashboardAuthFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:23.9687126Z</updatedAt>
+      <deviationsHash>4AAFE3BABDB0CD405971DB5C6C6BD805895298D4A12AFB74448F53C754E1C180</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Hangfire/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.7853135Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="410ada20-8799-4d36-94ba-540b6061fca5">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/AssociationTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/AttributeModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="8D1BDE7079F10AEA248E8A11AB73A2AB29E7DF272F0B828B64A67C1237F8A5B5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="7AEA27CE5112F9D0B97FB2788745A58EA1D4E712CCD7D37B2CC7441D65EBCBCB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.Redis.Om.Repositories.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Redis.Om.Repositories.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="22D0414BD4DD1B5FDF6AE215093C323FFAB5AD1C8EDAC18FB5133290FA5502A3" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/Templates/IndexCreationService/IndexCreationServiceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/IndexCreationService/IndexCreationServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/Templates/RedisOmConfiguration/RedisOmConfigurationTemplatePartial.cs" deviationsHash="05844078DA7E8E1612B868C3F469F442A55B1CF6FD7A037FDAE520D6EC6A0D7E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmConfiguration/RedisOmConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs" deviationsHash="15B392FA167AC506898CAA2F830D853532338A01F3BB8C4F3745C50250644C95" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmDocument/RedisOmDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplatePartial.cs" deviationsHash="75F06A61CD721C9984C88B86A6F18DB402AF349FA85CCF67D988DEA8C1C0B9D8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmPagedList/RedisOmPagedListTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmPagedList/RedisOmPagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmRepository/RedisOmRepositoryTemplatePartial.cs" deviationsHash="20195F5ABC6CEDFB13B291054E4805B214366B9F2A2ADEF12682A672AB8B1F05" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmRepository/RedisOmRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplatePartial.cs" deviationsHash="3D6C99DF222DB7C8560A2E25D47B0FC6CA07E2653A7397DDE437D9F118BBC526" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplatePartial.cs" deviationsHash="3E7B093D9E96DD64173B03AB2583F0FB822D09C60B4081BA810BB53FC5910B01" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplatePartial.cs" deviationsHash="B6B7E31E6E7EFABAFA5CE72C58D7F2F3A9104793A23547498B122CCF575E5FE0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="modelers/Redis OM Key Automation.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

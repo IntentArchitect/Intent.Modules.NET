@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="0e64d2ec-20ae-488a-8d4c-0b34354032d5">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Azure.BlobStorage.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Azure.BlobStorage.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AzureBlobStorageImplementation/AzureBlobStorageImplementationTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AzureBlobStorageImplementation/AzureBlobStorageImplementationTemplate.tt" deviationsHash="5985BB8694689957C3AF6C68C2BA8EBD9F1052876ABF027EAEBFD6CF471C5CC9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/AzureBlobStorageImplementation/AzureBlobStorageImplementationTemplatePartial.cs" deviationsHash="DECF4A40E980DDD4DDEDA5CE1CB8BEE762AE165FB569406812DADBA9685872D5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureBlobStorageImplementation/AzureBlobStorageImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/BlobStorageExtensions/BlobStorageExtensionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/BlobStorageExtensions/BlobStorageExtensionsTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/BlobStorageExtensions/BlobStorageExtensionsTemplatePartial.cs" deviationsHash="23548BA4BB2ED7EA9A0304A04BBD6C6B51367597487A802A12B76F415E7C6F4D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BlobStorageExtensions/BlobStorageExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/BlobStorageInterface/BlobStorageInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/BlobStorageInterface/BlobStorageInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/BlobStorageInterface/BlobStorageInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BlobStorageInterface/BlobStorageInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

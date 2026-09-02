@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#f653fdec-357c-4143-bf9e-acf2229f4c60</correlationId>
+      <path>FactoryExtensions/DomainEventsDbContextExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:05.13325Z</updatedAt>
+      <deviationsHash>8D6A2CC5DA385129F9FF86128656A66CF0ED4A1489D7D15E65BA487BC117B30F</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.8012843Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

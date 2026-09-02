@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="659818a0-001b-4e3b-b373-02ff314cedd5">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/ApplicationSecurityConfigurationExtension.cs" deviationsHash="63E96B4072C4C95444E29A4607BCC603A42FC3F09CC6807B63C0DC44391ED222" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/IdentityServiceExtension.cs" deviationsHash="6F357FE664E3FD0E5F05EACF8C69C76ED31A40DFA1CFC67C0ED2B17A5874CF7E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.IdentityService.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.IdentityService.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_01_00_02_Pre_00.cs" deviationsHash="8A06001DAA3D587ABA8310A94FBFAEDBFD1EFF3134B5F7ACE80A6D4C34AE3C55" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="2283397D8D6E96631AF21EBC41E4A0435345C9A21309D40BC4E835EFD879A152" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/EmailSenderOptions/EmailSenderOptionsTemplatePartial.cs" deviationsHash="F4195EA29732F853BC781C0395C298D8F628D26D8518925FC058C9D4F273F6B0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EmailSenderOptions/EmailSenderOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityEmailSender/IdentityEmailSenderTemplatePartial.cs" deviationsHash="E4E8E06DDC839DBF174AD1A672C0DC09A3E49F123E443C65B4442AE24EB90FED" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityEmailSender/IdentityEmailSenderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityEmailSenderInterface/IdentityEmailSenderInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityEmailSenderInterface/IdentityEmailSenderInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityServiceEmailSenderCollectionExtensions/IdentityServiceEmailSenderCollectionExtensionsTemplatePartial.cs" deviationsHash="E10C744BF48347BC02ECE11F3587001B6B9CD2CB77778BC9278C9BE9C3139751" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityServiceEmailSenderCollectionExtensions/IdentityServiceEmailSenderCollectionExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityServiceManager/IdentityServiceManagerTemplatePartial.cs" deviationsHash="34BB387DC3EA0DA04119FF8FE5FBA9C6709C31FB63DB0E379092E01A8209DCFA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityServiceManager/IdentityServiceManagerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IdentityServiceManagerInterface/IdentityServiceManagerInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IdentityServiceManagerInterface/IdentityServiceManagerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TokenService/TokenServiceTemplatePartial.cs" deviationsHash="FC3C9B3BAB60FB0720BFC79CA5598BBD2ABF6013206B333157FD8675A2DFC2A3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TokenService/TokenServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

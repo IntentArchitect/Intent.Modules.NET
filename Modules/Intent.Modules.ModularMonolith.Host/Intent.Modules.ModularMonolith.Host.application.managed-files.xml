@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c72f8015-9445-4a19-8824-12c44d378386">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AITemplateDisableExtension.cs" deviationsHash="F542A83E3E29385D0BBA410DCC1ADED543D7689FBCEADF5AAAB45107B03FAAF8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ExceptionFilterExtension.cs" deviationsHash="B9FAFF7ADEF83C665FC59653EFCA463A05DF9EAFFDBE2CE97A802B3BA76E95E2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MassTransitRegistrationsExtension.cs" deviationsHash="85B4893F81F01B63E7F71E2FCA109721F26176E81B254CF02E90254EC74B43C8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ModuleRegistrationExtension.cs" deviationsHash="AE0A7A54104EAFA3DE0F906A0A44F9195396DC3846921C0AF47138D65DC0B1B0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="22180E001BAE790D523DEBCA206624000E7E4828C9E8856A695E7D6CA14B96D4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/TemplateSuppressorExtension.cs" deviationsHash="F04FB544E14B4C25667B9A8B116BC0F09C7DEA509B515966ED40F0884622EA05" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.ModularMonolith.Host.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.ModularMonolith.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" deviationsHash="B78F48AEC081E4A916FC9F17463C487197612F0E04040C7161D70A1A9F6C59D9" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ModuleInstallerInterface/ModuleInstallerInterfaceTemplatePartial.cs" deviationsHash="1AFCF57593B221BC572EDE1CAA03EEDA87DCD33C3066DB3075CB6BFC1564C9EB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ModuleInstallerInterface/ModuleInstallerInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

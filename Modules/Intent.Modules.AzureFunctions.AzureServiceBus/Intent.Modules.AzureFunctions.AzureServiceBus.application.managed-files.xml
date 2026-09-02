@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="10957a81-94fa-4cfe-a4e9-8df13d59a03b">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.AzureServiceBus.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.AzureServiceBus.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplatePartial.cs" deviationsHash="C2E78B1A5AEBA720EB9B064CB0FE373172E0E292380861140F14F6884ADC7F68" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#835e121a-d120-457c-b1c7-750bfccadc5b</correlationId>
+      <path>Templates/Constants/ConstantsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:31.727338Z</updatedAt>
+      <deviationsHash>29A7A41B3927E8663090B67AEE502C94DE42AF925116036AB9226512BF3C3A06</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#835e121a-d120-457c-b1c7-750bfccadc5b</correlationId>
       <path>Templates/Constants/ConstantsTemplateRegistration.cs</path>
       <count>1</count>
@@ -12,4 +21,12 @@
       <fileHash>EA7CC56A16B3DE65755B20E82538D985609EEEC0CA9B8D9E208E09BBD7A417D5</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Infrastructure.Constants/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.2565416Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

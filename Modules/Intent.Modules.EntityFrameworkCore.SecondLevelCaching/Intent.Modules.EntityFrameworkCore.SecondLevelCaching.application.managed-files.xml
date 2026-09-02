@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="004cfd62-cf66-4e52-8da3-881422ea54c4">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.EntityFrameworkCore.SecondLevelCaching.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/DistributedCacheServiceProvider/DistributedCacheServiceProviderTemplatePartial.cs" deviationsHash="93D3ADF17A18D13035F41464489A7CC08F07F8142B73CC888E765CF2F6D367C5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DistributedCacheServiceProvider/DistributedCacheServiceProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

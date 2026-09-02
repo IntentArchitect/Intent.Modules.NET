@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="8f7ee5f1-6a37-4f38-b129-6c5d6898c355">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/DomainPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="F4DA805FA72749522D146FB208754870EE850E13B1D14907FF0451B701C1FD2D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="4FE34E86CC1C01C07FEB9152D25BFD66EE1574F2B22B479F50983B40C0E31868" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MultiTenancyFactoryExtension.cs" deviationsHash="BC1F884DD166BEB1F8C06BA5CEFC0B999B205BD35301A10C78CA762A56D96522" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.CosmosDB.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.CosmosDB.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="ABE65C5E88E411B4655FCB312D3FF8C49E1C48331144EC2984C4A445785AC8D3" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/CosmosDBConfiguration/CosmosDBConfigurationTemplatePartial.cs" deviationsHash="DBF17AD805DC71D78FB9B6BE3A79F72E6EDAF51525DA6D747AFF588704E4FC09" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBConfiguration/CosmosDBConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBDocument/CosmosDBDocumentTemplatePartial.cs" deviationsHash="352BC2ADBA472CDCE657F80F379EAF1A8C686DBCDC7437E35C8C5905D6C8058C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBDocument/CosmosDBDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplatePartial.cs" deviationsHash="70887B3CA26782B16F52A16E5099D1604FE529D2BA85AA68D260E777DD414760" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CosmosDBDocumentOfTInterface/CosmosDBDocumentOfTInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBDocumentOfTInterface/CosmosDBDocumentOfTInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplatePartial.cs" deviationsHash="A211CB59A82846FB2BA6EF8C4A1C7ED46264F6528D2593B92AD01294E2EE45B9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplatePartial.cs" deviationsHash="F23D6FDAEBE9B6FFC085785F57CD3F9AB37C7875FBB7673A9406E57CDCA2524F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplatePartial.cs" deviationsHash="0163B14E01D6FB66E4331AAFE938A0BEBE57EBF3943B89341ACAE13C9759EEC7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplatePartial.cs" deviationsHash="22400B7D4798E3B42549EEC78BE167FC7A59391D6F6DE7485BEB8FDF0A186BC1" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplatePartial.cs" deviationsHash="84D4EEF9892D1FB36D3B1D0EFD5B967F845399C8B05B9F5DEB5B04EE6854D800" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplatePartial.cs" deviationsHash="06D99DDFE7F3D5FFD06908BF67A5DA237DFC37241C34803E30616A01DDF8BC67" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBRepository/CosmosDBRepositoryTemplatePartial.cs" deviationsHash="75F3C38AA647A718CADAEC5DD7C5FEF7B3C6F51EDC7CD77B9ABA725A966F2059" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBRepository/CosmosDBRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CosmosDBRepositoryBase/CosmosDBRepositoryBaseTemplatePartial.cs" deviationsHash="16F6CCD83422D4117F3B599B92BE8299956AA365D6213D25AC2EE55A7474DDBD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBRepositoryBase/CosmosDBRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/CosmosDBRepositoryInterface/CosmosDBRepositoryInterfaceTemplatePartial.cs" deviationsHash="8E6E56696BB8AC00E1DE5A71BC118004EC2E4D58A9DC0C83B4F530BE47777C15" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBRepositoryInterface/CosmosDBRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/CosmosDBRepositoryOptions/CosmosDBRepositoryOptionsTemplatePartial.cs" deviationsHash="A72531D4FC1FA9A7565443AD4A9533001BBF170AC430944AA7619DB997C0120B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBRepositoryOptions/CosmosDBRepositoryOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBUnitOfWork/CosmosDBUnitOfWorkTemplatePartial.cs" deviationsHash="A38D48150B865500B510EF1FDE62DB11F5CC9A04DD97B483D4107C244F35E405" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBUnitOfWork/CosmosDBUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBUnitOfWorkInterface/CosmosDBUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBUnitOfWorkInterface/CosmosDBUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CosmosDBValueObjectDocumentInterface/CosmosDBValueObjectDocumentInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosDBValueObjectDocumentInterface/CosmosDBValueObjectDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CosmosPagedList/CosmosPagedListTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CosmosPagedList/CosmosPagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EnumJsonConverter/EnumJsonConverterTemplatePartial.cs" deviationsHash="EDA0CBDAC954B3B1B85DF2607B652ADBD76B8F855C9DAC9970EA791DA943CC8C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EnumJsonConverter/EnumJsonConverterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs" deviationsHash="DC9D6BF1209ED77D946DFD6D09FF0D6EFB139DFCDD55BE7A4D739EABC1CD7CC8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Cosmos DB Designer Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

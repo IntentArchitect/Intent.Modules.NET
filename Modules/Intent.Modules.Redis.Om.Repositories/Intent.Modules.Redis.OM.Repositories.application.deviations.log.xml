@@ -1,4 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#3692bd87-42fd-4f8f-9fc0-2032683e0d2d</correlationId>
+      <path>FactoryExtensions/EnsureParameterlessConstructorsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4902784Z</updatedAt>
+      <deviationsHash>8D1BDE7079F10AEA248E8A11AB73A2AB29E7DF272F0B828B64A67C1237F8A5B5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5324b8d1-8c75-46c9-8759-4c88908c7aa9</correlationId>
+      <path>FactoryExtensions/EntityFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4902986Z</updatedAt>
+      <deviationsHash>7AEA27CE5112F9D0B97FB2788745A58EA1D4E712CCD7D37B2CC7441D65EBCBCB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#ec03b26b-aabf-4368-916f-eaa44a358b01</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4903191Z</updatedAt>
+      <deviationsHash>22D0414BD4DD1B5FDF6AE215093C323FFAB5AD1C8EDAC18FB5133290FA5502A3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#337cfb84-0134-48d3-9fc5-0efc10aca082</correlationId>
+      <path>Templates/Templates/RedisOmConfiguration/RedisOmConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4903648Z</updatedAt>
+      <deviationsHash>05844078DA7E8E1612B868C3F469F442A55B1CF6FD7A037FDAE520D6EC6A0D7E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c0321cb-387b-40ff-a031-714628f12931</correlationId>
+      <path>Templates/Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.490385Z</updatedAt>
+      <deviationsHash>15B392FA167AC506898CAA2F830D853532338A01F3BB8C4F3745C50250644C95</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4baa3365-e3e5-4b27-8205-ca1eb5c18a3e</correlationId>
+      <path>Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4904237Z</updatedAt>
+      <deviationsHash>75F06A61CD721C9984C88B86A6F18DB402AF349FA85CCF67D988DEA8C1C0B9D8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1cacd4ed-2666-4590-8f3d-527b8e18dfb6</correlationId>
+      <path>Templates/Templates/RedisOmRepository/RedisOmRepositoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4905053Z</updatedAt>
+      <deviationsHash>20195F5ABC6CEDFB13B291054E4805B214366B9F2A2ADEF12682A672AB8B1F05</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#00eb45f6-daa8-48dd-9528-e735628d51f7</correlationId>
+      <path>Templates/Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4905249Z</updatedAt>
+      <deviationsHash>3D6C99DF222DB7C8560A2E25D47B0FC6CA07E2653A7397DDE437D9F118BBC526</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#272a8935-2f1a-4b38-8b43-e0553bea2669</correlationId>
+      <path>Templates/Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4905445Z</updatedAt>
+      <deviationsHash>3E7B093D9E96DD64173B03AB2583F0FB822D09C60B4081BA810BB53FC5910B01</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cca8f06-be62-4b46-a438-3cef6fc5e1ce</correlationId>
+      <path>Templates/Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:48.4905644Z</updatedAt>
+      <deviationsHash>B6B7E31E6E7EFABAFA5CE72C58D7F2F3A9104793A23547498B122CCF575E5FE0</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Redis.Om.Repositories/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:18.2105905Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#4c40f16b-0b72-4521-b579-3d2e9c284a1d</correlationId>
+      <path>FactoryExtensions/GuardClausesFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:58.4410435Z</updatedAt>
+      <deviationsHash>F9453EE44BAD0FFED05AA3DAA68D9F8AA07CC8B1550E56A7F57C4DA0F6A50762</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Ardalis.GuardClauses/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:06.4057484Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

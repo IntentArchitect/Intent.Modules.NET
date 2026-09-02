@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b8b8db65-4a52-429f-ba42-13860c008f3c</correlationId>
+      <path>FactoryExtensions/MvcControllerDispatchExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:16.9140696Z</updatedAt>
+      <deviationsHash>479EE22ECC87102C91BCD5A5833EE25E6A89CF2025E75579BC927331617B17E6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#078fa82f-767b-4007-aa99-3db064ef1d18</correlationId>
+      <path>Templates/MvcController/MvcControllerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:16.9141147Z</updatedAt>
+      <deviationsHash>1995B93C99A115784E2C5F552BDBE9E684828D2FF3417A2A9BF0F1360550BED6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#92657d42-6fa7-447b-9a2d-43502b078a3a</correlationId>
+      <path>Templates/MvcViewStub/MvcViewStubTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:16.9141536Z</updatedAt>
+      <deviationsHash>54E527100CBF177B7C4F08D2913D1239246ADFA097C15D6A7F6EA0DDD04AC6F7</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Mvc/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:08.8116316Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

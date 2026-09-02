@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d88d24af-9206-471e-bed3-2804d88f7df1</correlationId>
+      <path>FactoryExtensions/CqrsHandlerCrudExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:50.5422444Z</updatedAt>
+      <deviationsHash>9D2856772B4179F9D5CB71DBCA156FAD9293A56BB3942801E5BF15971A02CCE8</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#0f7821ec-79b4-4bdc-b4c9-84ea7db0ed6d</correlationId>
       <path>Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.csproj</path>
       <count>1</count>
@@ -12,4 +21,12 @@
       <fileHash>E0B5ED88059D7870AB86DEF9C4F9B598EFCBC76261F10C402316F0E6D9CA1F05</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.CQRS.CRUD/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.6194181Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

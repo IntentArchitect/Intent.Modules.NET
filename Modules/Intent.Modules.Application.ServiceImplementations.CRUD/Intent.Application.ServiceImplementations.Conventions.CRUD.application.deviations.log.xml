@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2d628d87-8a8b-4804-aecf-5d63a480462b</correlationId>
+      <path>Intent.Modules.Application.ServiceImplementations.CRUD/FactoryExtensions/CrudServiceFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:59.7332301Z</updatedAt>
+      <deviationsHash>4C7EA953C2A66535B2B1C26C7AAF0400F3E1AB63EBB76B80AD0F914C2A18240E</deviationsHash>
+    </file>
+  </files>
   <customFiles>
     <customFile>
       <path>Modules/.agents/instructions/known-build-gotchas.instructions.md</path>
@@ -129,12 +139,6 @@
       <approvedAt>2026-08-18T12:39:18.3906058Z</approvedAt>
     </customFile>
     <customFile>
-      <path>Modules/.claude/agents/build-module-sdd.agent.md</path>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-08-20T17:48:53.2805743Z</approvedAt>
-    </customFile>
-    <customFile>
       <path>Modules/.agents/skills/module-versioning/SKILL.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
@@ -145,6 +149,12 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-28T11:04:25.2475181Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/agents/build-module-sdd.agent.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-08-20T17:48:53.2805743Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.claude/instructions/known-build-gotchas.instructions.md</path>
@@ -163,6 +173,30 @@
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-28T11:04:25.3116015Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/rules/exception-guidelines.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:24.8352361Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/rules/known-build-gotchas.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:24.8806661Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/rules/module-building-workflow.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:24.9048094Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.claude/rules/sdd-wave-evidence.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:24.9770898Z</approvedAt>
     </customFile>
     <customFile>
       <path>Modules/.claude/skills/add-association-type/SKILL.md</path>
@@ -285,10 +319,274 @@
       <approvedAt>2026-08-28T11:04:25.7437952Z</approvedAt>
     </customFile>
     <customFile>
+      <path>Modules/.opencode/instructions/exception-guidelines.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.0274924Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/instructions/known-build-gotchas.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.0566465Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/instructions/module-building-workflow.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.115787Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/instructions/sdd-wave-evidence.instructions.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.1738362Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-association-type/resources/association-type-workflow.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.2272948Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-association-type/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.2839878Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-designer-extension/resources/designer-extension-workflow.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.3055678Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-designer-extension/resources/designer-extensions-reference.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.358001Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-designer-extension/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.413147Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/add-module-migration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.479446Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/architecture-templates/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.5294829Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/api-cheatsheet.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.5614189Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/builder-patterns.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.6093877Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/patterns/advanced-types.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.651002Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/patterns/control-flow.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.70891Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/patterns/lifecycle-hooks.cs</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.7614237Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/resources/troubleshooting.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.7835326Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/file-builder-expert/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.8575831Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-domain-interactions-expert/resources/interactions-cheatsheet.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.9054259Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-domain-interactions-expert/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.9658739Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-mapping-architect/resources/mapping-cheatsheet.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:25.9870589Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-mapping-architect/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.0403187Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-metadata-consumer/resources/metadata-cheatsheet.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.0832124Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-metadata-consumer/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.1051583Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/resources/domain.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.1615397Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/resources/eventing.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.1864334Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/resources/integration-recipe.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.2530068Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/resources/services.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.2974906Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/resources/user-interface.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.3639562Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-modelers-integration/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.3858024Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-module-orchestrator/resources/orchestration-cheatsheet.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.4465433Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/intent-module-orchestrator/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.4736944Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-building-strategies/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.5566248Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-context-capture/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.5954381Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-debugging/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.6661826Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-dependency-audit/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.6900775Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-docs-chore/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.752565Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-docs/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.7958057Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-element-icons/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.8479971Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-svg-icon/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.8926109Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-version-increment/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.9344292Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/module-versioning/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:26.9878304Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/.opencode/skills/sdd-build-module/SKILL.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T13:52:27.0440752Z</approvedAt>
+    </customFile>
+    <customFile>
       <path>Modules/CLAUDE.md</path>
       <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2026-08-18T12:39:18.5137237Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.ServiceImplementations.CRUD/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:06.0398073Z</approvedAt>
     </customFile>
   </customFiles>
 </deviationsLog>

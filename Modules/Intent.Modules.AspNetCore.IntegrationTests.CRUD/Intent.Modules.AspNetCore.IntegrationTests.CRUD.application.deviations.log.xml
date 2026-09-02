@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2725d25e-c4ab-4e42-8b63-83358d53d7ad</correlationId>
+      <path>FactoryExtensions/EndpointTestImplementationFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:14.6270401Z</updatedAt>
+      <deviationsHash>9D246AD02CB71D900A18A89F693CA7CBF8E10CD89A260F1DB13BE4C3FD24FE1E</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.IntegrationTests.CRUD/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:08.3023438Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

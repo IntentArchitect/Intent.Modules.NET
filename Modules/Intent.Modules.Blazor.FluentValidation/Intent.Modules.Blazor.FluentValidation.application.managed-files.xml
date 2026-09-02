@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="2764f852-7924-40cb-8b2f-c58c211a632d">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/PropertyModelStereotypeExtensions.cs" />
-  <file path="FactoryExtensions/FluentValidationBlazorInstaller.cs" />
-  <file path="Intent.Blazor.FluentValidation.imodspec" />
-  <file path="Intent.Modules.Blazor.FluentValidation.csproj" />
-  <file path="Migrations/OnInstallMigration.cs" />
-  <file path="NugetPackages.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE" />
-  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs" deviationsHash="5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746" />
-  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs" />
-  <file path="Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs" />
-  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs" />
-  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/PropertyModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/FluentValidationBlazorInstaller.cs" deviationsHash="024A73478E3B65DD262006133EC2AE7E6286253D904846E7243B4204C4900888" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Blazor.FluentValidation.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Blazor.FluentValidation.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="763ECB8D7F1F1FA9D3AB156C68E0195CCEEEEBC33DB96FCB7BB5E110E93C12CD" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" deviationsHash="95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs" deviationsHash="5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs" deviationsHash="28101E384B8D1400BEDF63E027827F17E4764D52587BFF4B1F5C0FC94263606F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

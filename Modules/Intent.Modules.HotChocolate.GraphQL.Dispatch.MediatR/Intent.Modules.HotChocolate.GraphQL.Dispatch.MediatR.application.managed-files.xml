@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="29280c3e-8c72-48c9-8bd3-fd0d42342315">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/GraphQLMediatRDispatchExtension.cs" deviationsHash="C5E87FC869517AF59E96D468E1AE7B95B3A8F3A7C7F2F02BC4E5CDB3A40EFFE3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.HotChocolate.GraphQL.Dispatch.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+</managedFiles>

@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#571ead6c-e8ab-4f94-9cb0-05eca4884dad</correlationId>
+      <path>FactoryExtensions/ControllerExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:20.551136Z</updatedAt>
+      <deviationsHash>61986963DA6E545D82EBE05F8CFF9F213C7FBFAD79633079DE92BBE608A90381</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#7b002711-a837-4b95-bebb-ecf7584e5193</correlationId>
+      <path>Migrations/Migration_01_01_00_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:20.55117Z</updatedAt>
+      <deviationsHash>1AEF5E7D7CDCD341D2B7347377A897E4DB69CD3EC068A7C6912301DDE62676A0</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#227e229e-59ac-4c9c-a539-d4a52838157c</correlationId>
       <path>Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplatePartial.cs</path>
       <count>1</count>
@@ -28,4 +46,12 @@
       <fileHash>1C2BF437B9FC0E5C1E36DC3D35540CECF718CC4FD4D26D2D2D310B1E580AB635</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.OutputCaching.Redis/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.1353915Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

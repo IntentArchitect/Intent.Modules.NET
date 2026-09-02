@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="902ec392-3140-4eb3-b2f4-3127866b8423">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AmazonS3.ObjectStorage.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AmazonS3.ObjectStorage.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AmazonS3ObjectStorageConfiguration/AmazonS3ObjectStorageConfigurationTemplatePartial.cs" deviationsHash="D7CE4EEEC9BA66A92C65BC2B041CCA5F4392718BC911268C6ACFDA69506C5D18" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AmazonS3ObjectStorageConfiguration/AmazonS3ObjectStorageConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AmazonS3ObjectStorageImplementation/AmazonS3ObjectStorageImplementationTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/AmazonS3ObjectStorageImplementation/AmazonS3ObjectStorageImplementationTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/AmazonS3ObjectStorageImplementation/AmazonS3ObjectStorageImplementationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AmazonS3ObjectStorageImplementation/AmazonS3ObjectStorageImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ObjectStorageExtensions/ObjectStorageExtensionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/ObjectStorageExtensions/ObjectStorageExtensionsTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/ObjectStorageExtensions/ObjectStorageExtensionsTemplatePartial.cs" deviationsHash="0A9EC29E4BCF9109FC0FB12BA1FB8B25F04F1AD7D5D427764DAE24DF763F135D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ObjectStorageExtensions/ObjectStorageExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ObjectStorageInterface/ObjectStorageInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/ObjectStorageInterface/ObjectStorageInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/ObjectStorageInterface/ObjectStorageInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ObjectStorageInterface/ObjectStorageInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

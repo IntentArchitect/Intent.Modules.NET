@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="aa074ccb-388e-4fde-a585-3ac9e95c6ced">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Intent.Blazor.Wasm.imodspec" />
-  <file path="Intent.Modules.Blazor.Wasm.csproj" />
-  <file path="Migrations/OnInstallMigration.cs" />
-  <file path="Migrations/OnUninstallMigration.cs" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Blazor.Wasm.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Blazor.Wasm.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="D5728162C99004471FE793237F2AB3A9EA3EC50BC94BAF2857CD9B52DAAFC7CB" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Migrations/OnUninstallMigration.cs" templateId="Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

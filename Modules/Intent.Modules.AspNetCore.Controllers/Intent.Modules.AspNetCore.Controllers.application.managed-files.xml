@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2722a484-e1a2-4346-8da4-2937c7df3071">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/BinaryContentFilterExtension.cs" deviationsHash="06FD33C76AECEA63902F46476AA1D116299664A65AE18BE216251163C3ADAB80" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ExceptionFilterExtension.cs" deviationsHash="23960FB264A2E7AD39ACB8A53F1C2C56C252FC87BE023C1959CD972155AF01DC" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/JsonOptionsExtension.cs" deviationsHash="7FE467D7D42551EDB3855A848511B49262D11C5B8841CBED18C3FBADBD1E835E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Controllers.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Controllers.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/BinaryContentAttribute/BinaryContentAttributeTemplatePartial.cs" deviationsHash="27E449D1AA9D85B6817DDCD9959680A0AC71373D3DD7D6AEC914764E993BB30A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BinaryContentAttribute/BinaryContentAttributeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/BinaryContentFilter/BinaryContentFilterTemplatePartial.cs" deviationsHash="9578CA23AEFB1949D8E29AA81EED486CFE3BC6A12806F5C55E82DB96A0296A94" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BinaryContentFilter/BinaryContentFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Controller/ControllerTemplatePartial.cs" deviationsHash="6C658ABFC390E09EF879B163C9C5893181CE471E6FBD9DAED0D8FF7E861FF88A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Controller/ControllerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ExceptionFilter/ExceptionFilterTemplatePartial.cs" deviationsHash="B21B8A959A08189CB50B62D45D2E13280F5D785FCB1D47E5CDFF08CC21FF03C3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ExceptionFilter/ExceptionFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JsonResponse/JsonResponseTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" deviationsHash="C45C0CBC1C850F481DD4D0D764076E9602629B0C3461CA0258ED97B17B089AEF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="54B588179F3278AEFDCF0FCCDC6A525BAE68B24DAEA930CE5C82B0EA578EDB8B" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

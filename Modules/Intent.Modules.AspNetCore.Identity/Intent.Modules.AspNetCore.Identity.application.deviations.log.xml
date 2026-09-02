@@ -12,6 +12,33 @@
       <fileHash>94C65A4DF6ED04390B10C9E4CB542E6E908C46E318353AC326F21D6164FAB0D2</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#b179eb6a-8603-460a-bd78-34962159f7f3</correlationId>
+      <path>Migrations/Migration_04_02_00_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:05.6629875Z</updatedAt>
+      <deviationsHash>7D2ADE6CACEF3F3A6B925EB562A39B9ECA6F1601178EA91D05552E2DF5B3FDD6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#c6868214-ad49-4c49-9b1c-f2367d6e2b0c</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:05.6629552Z</updatedAt>
+      <deviationsHash>86D6B3DA60B99C91A4595321D50F23D3BC6FFEC22571D72E27F332D7B193C02D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9a79b9e1-0edb-4e8b-8d11-d4d9290b9aa1</correlationId>
+      <path>Templates/AspNetCoreIdentityConfiguration/AspNetCoreIdentityConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:05.66305Z</updatedAt>
+      <deviationsHash>5A3E97597AEF35D0B8998ECD22D5E21D74E5DCF99BF441339FDDD91B2F6D43C6</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#6d7a40ca-2724-4b82-a678-0a48998710bb</correlationId>
       <path>Templates/TemplateExtensions.cs</path>
       <count>2</count>

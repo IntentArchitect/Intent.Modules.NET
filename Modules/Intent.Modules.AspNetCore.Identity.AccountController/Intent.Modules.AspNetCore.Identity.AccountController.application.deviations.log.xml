@@ -2,6 +2,51 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#13865168-61e7-42fb-a40f-8996295a6a4b</correlationId>
+      <path>FactoryExtensions/DbContextApplicationIdentityUserFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9707785Z</updatedAt>
+      <deviationsHash>661F7F0424FC9F80C1823A177E0A9B7FCB17C39E98BAEE355A4D4E01EF8532C5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#320bd997-2f28-4eea-9309-84645719a33a</correlationId>
+      <path>FactoryExtensions/IdentityUserFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9708053Z</updatedAt>
+      <deviationsHash>8586CAD7253A630595D7B144AF7B83117848A759D1AE9401EC3FF5C09EE926D0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#acdf1bad-970c-4351-a0f6-64e982a6a431</correlationId>
+      <path>Migrations/Migration_04_01_04_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9708588Z</updatedAt>
+      <deviationsHash>FFF6D81A68957346C7018956E29931ECDE808E60639B7D591980E699D7774663</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#9fd74fd6-30ab-47f4-be86-9e944e3bacfa</correlationId>
+      <path>Migrations/Migration_04_01_06_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9708789Z</updatedAt>
+      <deviationsHash>EF7A001F6D3D42F01A5D65BCA17A79F268A6E9510282CC5405F4DBC83E8B2820</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#291c5a73-408c-40e2-ae94-2ea5551c8f63</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.970834Z</updatedAt>
+      <deviationsHash>B7AE8E272A805380FB1A2CC7BF1CACE336E927A8B6DB9B2B05406F23969D0947</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1408390e-ee98-4b4c-94ad-18ceddcc17d0</correlationId>
       <path>Templates/AccountController/AccountControllerTemplatePartial.cs</path>
       <count>1</count>
@@ -13,6 +58,24 @@
       <approvedAt>2024-08-20T11:53:30.4179978Z</approvedAt>
       <deviationsHash>77C94E2DD5E41C56AC9FC8179A5447A4F347F3C82EA113CF7992A9ACA2B3F74C</deviationsHash>
       <fileHash>0966087B49CAC732D2CC1066C9F16D6482ACD37A4149863A65FB840B3AF2C36A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1d371136-30eb-48ba-9aa3-f1ea56d71f1f</correlationId>
+      <path>Templates/AccountEmailSender/AccountEmailSenderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9716697Z</updatedAt>
+      <deviationsHash>6FFF61E2F2D1109F6FD56295397AC7044F165878FC1E786D36BE5A5C7F86E4D2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2e1a4fa0-a2da-437f-95e9-85c5bcecae81</correlationId>
+      <path>Templates/TokenServiceConcrete/TokenServiceConcreteTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:11.9717161Z</updatedAt>
+      <deviationsHash>F38C6C3E0A3D949872ECCF4F04BFC92599E6A24AAB894B83A4FF370E4E41EFF3</deviationsHash>
     </file>
   </files>
 </deviationsLog>

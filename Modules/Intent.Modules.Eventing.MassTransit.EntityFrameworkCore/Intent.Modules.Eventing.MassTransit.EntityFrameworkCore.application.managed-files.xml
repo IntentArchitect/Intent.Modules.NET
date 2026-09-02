@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b989913b-9bcd-478b-9134-e53553efd5f8">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/EFOutboxPatternConfiguratorExtension.cs" deviationsHash="A3234D8AD07BE90188AFAEE6ECB3CB4BB8C10A014943D5CA7E500697B081E0F6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/OutboxTableSpecificationExtension.cs" deviationsHash="84AC491974EDAA36A9922478A2D59EB90E9E67B35D5FBB574037C100EC9762A7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.MassTransit.EntityFrameworkCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

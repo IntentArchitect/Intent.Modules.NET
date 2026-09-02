@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#a66cc675-6d17-47a9-b8c2-98c74f5d045d</correlationId>
+      <path>FactoryExtensions/ServiceContractEndpointExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:20.8581429Z</updatedAt>
+      <deviationsHash>545402FE5F42EB49F478EDA50B2374CC85A19C906381DBFDEDFDB25D8C48FEE9</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.Lambda.Functions.Dispatch.Services/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.249505Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

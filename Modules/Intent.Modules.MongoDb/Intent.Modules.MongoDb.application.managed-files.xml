@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="55fab815-1172-48e8-b36a-c34d6468f928">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/DocumentStoreIndexModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="Api/DocumentStoreIndexModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/IndexFieldModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModel" />
+  <file path="FactoryExtensions/DependencyInjectionFactoryExtension.cs" deviationsHash="E668B7EFDC9981CF7CB9FDD2D230E7A91E1BB2C0BD214257D84958B5F9C3CDD0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EntityFactoryExtension.cs" deviationsHash="313927F7B69425578A671396D4147B4CC01E09BEE811D31891F248C55E467512" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.MongoDb.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.MongoDb.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Migrations/Migration_02_00_00_Alpha_02.cs" deviationsHash="19F540201E3A94B438B0BEE8E9B861053BD4750E90D627307A9088D7DEFB0CF9" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="65CD0988739E12A551C490776AF8E7CB5B87D37F40406546ADC844F9049FB7B6" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/MongoConfigurationExtensions/MongoConfigurationExtensionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoConfigurationExtensions/MongoConfigurationExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbMapping/MongoDbMappingTemplatePartial.cs" deviationsHash="A03BD698758D3D695434D06E5B9E92FCE23DA6C383420EE8432FD5FEB7B16E74" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbMapping/MongoDbMappingTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplatePartial.cs" deviationsHash="B7ED231F83D9C5F8F49C0D8D91DDE412FEA712455C389D4FCC1A8A4DED415041" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbPagedList/MongoDbPagedListTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbPagedList/MongoDbPagedListTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbRepository/MongoDbRepositoryTemplatePartial.cs" deviationsHash="A37885470C2317402D42CF0ED118DDF2C785272670AF798B630EE4519C16B9A2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbRepository/MongoDbRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MongoDbRepositoryBase/MongoDbRepositoryBaseTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbRepositoryBase/MongoDbRepositoryBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/MongoDbRepositoryInterface/MongoDbRepositoryInterfaceTemplatePartial.cs" deviationsHash="007D53AD4FA2C2F8293B6E1431CC6E3957B65705ACE088A69C4875E8195737F9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbRepositoryInterface/MongoDbRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/MongoDbUnitOfWork/MongoDbUnitOfWorkTemplatePartial.cs" deviationsHash="EDB2879C717DC6CA66E71253CA0EA7EC0BD82ED56ED78507EE8028861DFBA1C5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbUnitOfWork/MongoDbUnitOfWorkTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MongoDbValueObjectDocument/MongoDbValueObjectDocumentTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbValueObjectDocument/MongoDbValueObjectDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MongoDbValueObjectDocumentInterface/MongoDbValueObjectDocumentInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoDbValueObjectDocumentInterface/MongoDbValueObjectDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/MongoDb Types.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

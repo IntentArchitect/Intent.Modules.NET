@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e763a07f-47e8-4ca3-924d-7c4efb567c38</correlationId>
+      <path>FactoryExtensions/SwashbuckleStartupConfigurationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.0256342Z</updatedAt>
+      <deviationsHash>FE789C815E0A98524AD8A44F4702046CE681759E96954229AB9A71C66433C677</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#abdfb228-799e-426a-9c06-d2571abbfe64</correlationId>
+      <path>FactoryExtensions/TypeSchemaFilterExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.0256678Z</updatedAt>
+      <deviationsHash>E2E11A5AF7BCE3F62CE6E948B60C5B960B21D88E8306A7628495DC47F7A05673</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1a8edf50-6526-4f0b-9f57-6ad038aebc18</correlationId>
+      <path>Templates/HideRouteParametersFromBodyOperationFilter/HideRouteParametersFromBodyOperationFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.0257429Z</updatedAt>
+      <deviationsHash>122FBA3611A223F292715B55BC7B42C15E720789B5BDA331C35E5BC322E9BC33</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
       <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
       <count>4</count>
@@ -34,5 +61,22 @@
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>020CB4A4536E6B7C1E7157DB86953F79FBB6066C2CBF10372F02F0865E8266D0</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ffdf736a-39d9-4c16-998c-452da9cce2db</correlationId>
+      <path>Templates/TypeSchemaFilter/TypeSchemaFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:23.0266342Z</updatedAt>
+      <deviationsHash>EDE66DFE535B8251FE027A3F6403846B299DE440A72058BFB26906E8C34397CA</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Swashbuckle/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.5705456Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

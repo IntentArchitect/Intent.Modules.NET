@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6bef04ea-3c71-42f7-8988-7f94165a7fca">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/StartupConfigurationExtension.cs" deviationsHash="1F3606A33CDA946C0C1AEF71172595445507B2441CD7B20AC977549C4D41BDA7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwashbuckleExtension.cs" deviationsHash="DCA0BE6E8584FBA0494E26E6B09153C8335A2AB103789BC4E523D9C799C772BA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.FastEndpoints.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.FastEndpoints.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplatePartial.cs" deviationsHash="CD921F488391CC97B86CFB92424AAB14EB2C96368A042E7CD2E98592F88FF322" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplatePartial.cs" deviationsHash="4A52BF5C347BDF939B5C4DD3DCE1A2815A86AFDFCBE6A186ECB1152B150EED92" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Endpoint/EndpointTemplatePartial.cs" deviationsHash="B65596896DA69EBF60D0E6C83C0A18C3BCFA893AD3D0E1D40A1116F4A026C224" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Endpoint/EndpointTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ExceptionProcessor/ExceptionProcessorTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ExceptionProcessor/ExceptionProcessorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

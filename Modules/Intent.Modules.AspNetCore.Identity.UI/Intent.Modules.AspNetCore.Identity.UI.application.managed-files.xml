@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6d534c85-5115-43f3-83ae-39a819807a2d">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AspNetCoreIdentityUiFactoryExtension.cs" deviationsHash="8C53E12A2ACF25B5DC440DB9FF845F7B0E7C70741044DE046049A6250C805B54" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Identity.UI.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Identity.UI.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/StaticContentTemplateRegistrations/IdentityUiFilesStaticContentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="content/IdentityUiFiles/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+</managedFiles>

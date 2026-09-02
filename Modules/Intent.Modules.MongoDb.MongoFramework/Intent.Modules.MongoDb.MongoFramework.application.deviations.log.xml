@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#f43d22ff-7b87-4ec8-80a3-6016ddb34abc</correlationId>
+      <path>FactoryExtensions/DependencyInjectionFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.817191Z</updatedAt>
+      <deviationsHash>BE357FA90256B25B73C9958AEB9BB1005217FA1D78EAC08AC5A3424132E03F6F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1c5994f0-a71e-40b9-9dfa-aefca2e8db49</correlationId>
+      <path>FactoryExtensions/DomainEventsFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.8172134Z</updatedAt>
+      <deviationsHash>A8B301D1655EE9F85639FF162578086B813F4C7F71B6346767D09FE086C84F32</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7cf04eba-0746-44e6-8c81-15ae6f5e87da</correlationId>
+      <path>FactoryExtensions/EntityFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.8172422Z</updatedAt>
+      <deviationsHash>313927F7B69425578A671396D4147B4CC01E09BEE811D31891F248C55E467512</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#63e01c93-3b4d-4be3-ae05-acb0dea50b33</correlationId>
       <path>Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
       <count>1</count>
@@ -14,5 +41,22 @@
       <deviationsHash>6A3E7F9C99DDB0667D12512796412A16BFC40393DEF803C199F6A7A19CCD4659</deviationsHash>
       <fileHash>CE589ED3B68B126803C3C39D2EE059C6CAEBE30BCEF2565B24C669858F0629E0</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bf747a72-b2c4-490b-8cf0-ff87cf4ae273</correlationId>
+      <path>Templates/MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.8182305Z</updatedAt>
+      <deviationsHash>B7ED231F83D9C5F8F49C0D8D91DDE412FEA712455C389D4FCC1A8A4DED415041</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.MongoDb.MongoFramework/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.7886492Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

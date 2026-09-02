@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d4a70680-56a5-4b59-9aab-7637713b6c00</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:32.2804587Z</updatedAt>
+      <deviationsHash>D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5f7f8c21-cb32-4be5-bec6-88b83fb97705</correlationId>
+      <path>Templates/AzureFunctionConsumer/AzureFunctionConsumerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:32.280492Z</updatedAt>
+      <deviationsHash>C2E78B1A5AEBA720EB9B064CB0FE373172E0E292380861140F14F6884ADC7F68</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AzureFunctions.AzureServiceBus/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:11.9002281Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

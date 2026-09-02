@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="27e8a783-da35-4755-af82-e7f54eff0eb2">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AspNetCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="AEEA64916303832002C26412B8D9234A0FA10F6817B5CC9D8F060C542CDF5BC7" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/Permissions/PermissionsTemplatePartial.cs" deviationsHash="74F2F10F32154D73E9DF776AE69F3EF49EFEE8A5283D92CD974AD7616907AA93" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Permissions/PermissionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplatePartial.cs" deviationsHash="249BFB98063FC1EA75E2B0727A8A787F0CDACE4E1085C300B98C2C4FC37139AA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplateRegistration.cs" deviationsHash="B19C06D19FDB7CAD8C5F9FA1331D496567B4F148987CD8CC4E23D1B4C57C5ECB" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Program/ProgramTemplatePartial.cs" deviationsHash="5F259B367B43C25CA4E5329D8472D22F6874ACEFEC7DCDF58B48AC29748FE179" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Program/ProgramTemplateRegistration.cs" deviationsHash="D96009DC4A42F58B86E4BA1F25E293748C7DF01563CAE46CC7DD3EC1D90F8986" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ProgramPartial/ProgramPartialTemplatePartial.cs" deviationsHash="0EA69FFD96066CB3115BB7E60BC286AA7ACEABA5FC4B9864DB68B3C35D3499D5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ProgramPartial/ProgramPartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Startup/StartupTemplatePartial.cs" deviationsHash="BC26DF9A599065993DECA7319BB1813593A64E362027EE3DEB2877CAE1EF31C3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Startup/StartupTemplateRegistration.cs" deviationsHash="83894B6E9B919465C1FE82730F74B4CE57530E2D84208C2F4EAAEE3C75007C0A" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#57b0b593-686c-4c0a-9be8-127267e843a9</correlationId>
+      <path>FactoryExtensions/WolverineEndpointExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:18.3443467Z</updatedAt>
+      <deviationsHash>53D63DA8488C180DCE918E51F79CE80C66A3CCEF392441782509E496FCE99722</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.FastEndpoints.Dispatch.Wolverine/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.6378256Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

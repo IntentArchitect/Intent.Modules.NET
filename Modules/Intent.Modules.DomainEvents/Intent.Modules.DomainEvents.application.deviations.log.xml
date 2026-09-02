@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1a2243e2-e591-40e0-a4b5-be7f1fec9de8</correlationId>
+      <path>FactoryExtensions/DomainEventsDecoratorExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:57.7069228Z</updatedAt>
+      <deviationsHash>41370300BB5831DC652324B03F2A6ED8BE535667C8699094718F7798174D2727</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#94b7bbc1-1590-4480-8545-955310b729a5</correlationId>
       <path>Templates/DomainEvent/DomainEventTemplatePartial.cs</path>
       <count>3</count>
@@ -116,4 +125,12 @@
       <fileHash>E46F6A3605B84E0FFB7759529D40FDC4C92355825C614EFA2959D1305BF292FD</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.DomainEvents/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.9497201Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

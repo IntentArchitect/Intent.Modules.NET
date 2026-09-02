@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="b40bf9f0-3286-4fe7-8a7d-39df74c0e322">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/PagedResultTypeSourceInstaller.cs" deviationsHash="8739F309A8A872E9796C3B55F6A115BB36896205322609FDBBBABE2372B4B633" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/PagingDefaultsExtension.cs" deviationsHash="A17B92F8DED8B239ABD6F0ADEC06218BA77DCDDCE5BD678BCCFE88904DC4D4F4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.Dtos.Pagination.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Dtos.Pagination.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_04_01_04_Pre_00.cs" deviationsHash="211A5DD9DC0F5A5215F623635911B96B235EFC027F98902FFE507DC3FE63728D" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/CursorPagedResult/CursorPagedResultTemplatePartial.cs" deviationsHash="B50B7F8F447948D3BF342D109FC1BBEA53582B8F2CFF80AB788EE7D97A11BDAD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CursorPagedResult/CursorPagedResultTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplatePartial.cs" deviationsHash="0B42B94C3115617669E027808988F44462A09F7525788E50483ECB750F8C0357" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/PagedResult/PagedResultTemplatePartial.cs" deviationsHash="CE00C3CD19B657EBE2E96ADB5FAACC4E912751808810BA5995E2A48DC319F067" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedResult/PagedResultTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplatePartial.cs" deviationsHash="629715EF67780BE23CC20B01B7431FB5EE4D370648C17F23D17CC1A5AABC83FD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Pagination Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e92ac334-4b1a-448e-92a2-32e42f97a1c6</correlationId>
+      <path>FactoryExtensions/DbContextExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:46.0072826Z</updatedAt>
+      <deviationsHash>9703FEF63AD6DEDE2E171BE1A67B65FC7CCFA4800560BCC671848C3B8CB656CF</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e06a7c28-6951-4fea-8793-0e9c9b16543a</correlationId>
+      <path>FactoryExtensions/DisableDefaultEventHandlersExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:46.0079908Z</updatedAt>
+      <deviationsHash>7AA9700170053B7A278DB501F15025681B24327D72896D1905738A55A1C014F5</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.SharedKernel/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:18.7041872Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

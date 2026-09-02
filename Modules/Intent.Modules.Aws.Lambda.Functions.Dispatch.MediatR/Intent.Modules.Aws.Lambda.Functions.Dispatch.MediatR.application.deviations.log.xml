@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c5b4b485-21c9-4330-af00-bfeb98ec6e2d</correlationId>
+      <path>FactoryExtensions/MediatREndpointExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:20.5637773Z</updatedAt>
+      <deviationsHash>2A1533D25DEC649F23BF59922FB9B8D8B0242A3D8D7980770D7CEEF693220791</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.1386737Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

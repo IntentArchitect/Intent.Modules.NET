@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7abf3721-796c-49ff-97a6-4a08605a1c9a</correlationId>
+      <path>FactoryExtensions/SecurityConfigurationFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:19.6847645Z</updatedAt>
+      <deviationsHash>219795BACD857F530C58B32FCB9D1306EA97C0F2E26D6D8B356B6972B873C5A8</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Swashbuckle.Security/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:09.4473206Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

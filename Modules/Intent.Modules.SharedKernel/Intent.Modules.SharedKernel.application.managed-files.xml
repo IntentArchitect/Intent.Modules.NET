@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d4ae9915-9432-4e8f-a9cc-c8fe21e0e68d">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/DbContextExtension.cs" deviationsHash="9703FEF63AD6DEDE2E171BE1A67B65FC7CCFA4800560BCC671848C3B8CB656CF" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DisableDefaultEventHandlersExtension.cs" deviationsHash="7AA9700170053B7A278DB501F15025681B24327D72896D1905738A55A1C014F5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.SharedKernel.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.SharedKernel.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

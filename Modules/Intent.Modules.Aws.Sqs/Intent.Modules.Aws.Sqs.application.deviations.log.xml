@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#35cf2945-a4bd-4a0d-a5ef-0c45cc1efe08</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.9365348Z</updatedAt>
+      <deviationsHash>E345636E2946579FF8E8DF3B43C064164C6C391FD112C0524025C4CCC2958205</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#15b9270b-647d-433e-87ac-ec2ce833010b</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.9365688Z</updatedAt>
+      <deviationsHash>D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ee5c1c94-51bf-40fe-a3a6-fcb8d3942285</correlationId>
+      <path>Templates/SqsConfiguration/SqsConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.9366477Z</updatedAt>
+      <deviationsHash>93A2C12E6150B86A3C56AF07EF92EC72AB01ED1FF4BFF9BCA19F518D71F99138</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dcf5eb00-00b5-43fd-a708-933057e63d34</correlationId>
+      <path>Templates/SqsSubscriptionOptions/SqsSubscriptionOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:27.9367585Z</updatedAt>
+      <deviationsHash>6227EE1A482EB51091ECAF26E2E22DC913E48E1631C85202CB043648EC9869E2</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Aws.Sqs/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:10.854768Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

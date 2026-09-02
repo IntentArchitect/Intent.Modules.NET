@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#78640b45-6c18-4dd4-83e6-717366ef49f8</correlationId>
+      <path>FactoryExtensions/AITasksFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:37.5549594Z</updatedAt>
+      <deviationsHash>7604A8B41A68A1B5AC44CC374322F57923E041865738B7CC91D92BD512B7E3A2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#9b8e478a-56c8-459c-82a8-120154fc144e</correlationId>
+      <path>FactoryExtensions/DomainServiceEventHandlerExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:37.5553896Z</updatedAt>
+      <deviationsHash>96A82EDE7CB713370FE479D4219EF403991E5EA9D7FA825194FC220C3F83B16B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ff98665d-e846-4b08-a5c8-cf0f4afd9093</correlationId>
+      <path>Templates/AggregateManager/AggregateManagerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:37.5554992Z</updatedAt>
+      <deviationsHash>96A9686AADDAA2EED0431D158416306A2AC5B6A6B2EF2CA66BFA40D45284689F</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
       <path>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
       <count>3</count>
@@ -65,4 +92,12 @@
       <fileHash>0B0E3EE3D1BA2ECFD705F6C2C3EA8E0FC3445D8F2F4994302FEB6C166389B9DF</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.MediatR.DomainEvents/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:17.5106095Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3cbc980e-da30-405c-a8bd-f0043279721f">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtentions/AITasksFactoryExtension.cs" />
-  <file path="Intent.Application.MediatR.imodspec" />
-  <file path="Intent.Modules.Application.MediatR.csproj" deviationsHash="AFB9832F31E1863CF433A02A84A87896154C90D36F81A5A471A3868865BE140C" />
-  <file path="Migrations/Migration_04_03_00_Pre_00.cs" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/CommandHandler/CommandHandlerDecorator.cs" deviationsHash="294041696F45EE480AE787B5A9D5DF85CE1E61EF04BB9C43DBC99127FB263923" />
-  <file path="Templates/CommandHandler/CommandHandlerTemplatePartial.cs" deviationsHash="475E8CF30CBCE149CA80F4B3378B0A25CC691340D852C44B544F0ADAC1FBC4B2" />
-  <file path="Templates/CommandHandler/CommandHandlerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplatePartial.cs" />
-  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplateRegistration.cs" />
-  <file path="Templates/CommandInterface/CommandInterfaceTemplatePartial.cs" deviationsHash="A9A7C74087F1967F9C30337D33B16ED0AB1D01849853B9B64CF28FED821E00D0" />
-  <file path="Templates/CommandInterface/CommandInterfaceTemplateRegistration.cs" />
-  <file path="Templates/CommandModels/CommandModelsTemplatePartial.cs" deviationsHash="9BD9B42FE5116AA9094838762BB9B19B9BFE4486CAF469413E3F9CDD922CA23E" />
-  <file path="Templates/CommandModels/CommandModelsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/QueryHandler/QueryHandlerDecorator.cs" deviationsHash="AE755A8214AB2CB238093A8E9897BCFD1D6DECBC6FD5C98C6D6D05A49918B318" />
-  <file path="Templates/QueryHandler/QueryHandlerTemplatePartial.cs" deviationsHash="5A454EE4714DC1A245A1F7A3C114ACA873564FCD73EF7A29BAC76B273984A09E" />
-  <file path="Templates/QueryHandler/QueryHandlerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplatePartial.cs" />
-  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplateRegistration.cs" />
-  <file path="Templates/QueryInterface/QueryInterfaceTemplatePartial.cs" deviationsHash="2D8B6608B52C1C2B4ADDAED90809180B3E9D142F05715D998CC805AF9BC38ECC" />
-  <file path="Templates/QueryInterface/QueryInterfaceTemplateRegistration.cs" />
-  <file path="Templates/QueryModels/QueryModelsTemplatePartial.cs" deviationsHash="A03CD553B9ADED13FD999C71AF3BA9E60CF02C83C406047F25334CFDFAA9C8ED" />
-  <file path="Templates/QueryModels/QueryModelsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" />
-  <file path="Templates/TemplateExtensions.cs" deviationsHash="1CBB0964D6E9CE11FA1994F6DE7622CE13035EDA4C1CC3398CF5AACF20C849E9" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtentions/AITasksFactoryExtension.cs" deviationsHash="24C842E33D6DD654BA32BBE4E84C01525A1AC73E738F8991C352115860E4F60B" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.MediatR.csproj" deviationsHash="AFB9832F31E1863CF433A02A84A87896154C90D36F81A5A471A3868865BE140C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_04_03_00_Pre_00.cs" deviationsHash="E1DD3C75EF5F4500997A5EFF8F35EA819F81488D8C5A5A9B2282428EA968DB35" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/CommandHandler/CommandHandlerDecorator.cs" deviationsHash="294041696F45EE480AE787B5A9D5DF85CE1E61EF04BB9C43DBC99127FB263923" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplatePartial.cs" deviationsHash="475E8CF30CBCE149CA80F4B3378B0A25CC691340D852C44B544F0ADAC1FBC4B2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplatePartial.cs" deviationsHash="8CE50CD3BBCBF8D2E83EC8FCCD087B8785BA85BA825FF6D79E931B3569079A5E" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommandInterface/CommandInterfaceTemplatePartial.cs" deviationsHash="A9A7C74087F1967F9C30337D33B16ED0AB1D01849853B9B64CF28FED821E00D0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandInterface/CommandInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommandModels/CommandModelsTemplatePartial.cs" deviationsHash="9BD9B42FE5116AA9094838762BB9B19B9BFE4486CAF469413E3F9CDD922CA23E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandModels/CommandModelsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/QueryHandler/QueryHandlerDecorator.cs" deviationsHash="AE755A8214AB2CB238093A8E9897BCFD1D6DECBC6FD5C98C6D6D05A49918B318" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplatePartial.cs" deviationsHash="5A454EE4714DC1A245A1F7A3C114ACA873564FCD73EF7A29BAC76B273984A09E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplatePartial.cs" deviationsHash="A22B0C936251D2BB86FFB93822846F7AC5EF856BB98C46168D6265A261D38A06" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/QueryInterface/QueryInterfaceTemplatePartial.cs" deviationsHash="2D8B6608B52C1C2B4ADDAED90809180B3E9D142F05715D998CC805AF9BC38ECC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryInterface/QueryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/QueryModels/QueryModelsTemplatePartial.cs" deviationsHash="A03CD553B9ADED13FD999C71AF3BA9E60CF02C83C406047F25334CFDFAA9C8ED" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryModels/QueryModelsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="1CBB0964D6E9CE11FA1994F6DE7622CE13035EDA4C1CC3398CF5AACF20C849E9" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

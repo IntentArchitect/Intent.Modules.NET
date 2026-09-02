@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7ddc95d-b9ce-4050-9e62-37d4c134ab65</correlationId>
+      <path>Templates/OcelotConfiguration/OcelotConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:52.6401737Z</updatedAt>
+      <deviationsHash>7882BD20F5F418FB2337445EBED1C18A8DE12B3392C43BB5EC93876AB8597E0E</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.ApiGateway.Ocelot/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.2585138Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

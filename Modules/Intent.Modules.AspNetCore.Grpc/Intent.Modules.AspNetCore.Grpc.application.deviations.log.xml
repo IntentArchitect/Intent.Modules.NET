@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#93b4503c-4c66-4c0b-9fc6-1c31c43d6148</correlationId>
+      <path>FactoryExtensions/GrpcFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:08.4285489Z</updatedAt>
+      <deviationsHash>31AAE87CEB6C832FEC9F612953464127D4EF40B5D6F94330AC533EEDCF37A9D6</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#314451f8-0d38-4b61-815b-f739e814697c</correlationId>
       <path>Templates/CommonTypesPartial/CommonTypesPartialTemplatePartial.cs</path>
       <count>1</count>
@@ -20,6 +29,15 @@
       <updatedAt>2025-02-26T20:13:02.9146872Z</updatedAt>
       <deviationsHash>304B56B63E59A7A555691BFCEE8BD23AC8B50A8CFCA6055E9CAD3C1B56455B57</deviationsHash>
       <fileHash>C23B5F017BC6531551955DA8BC0F5AFC09258B18995B25D39ED39860C4AA213C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1f1d11e0-0802-4876-9ccc-63fff3928dbc</correlationId>
+      <path>Templates/CqrsService/CqrsServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:08.429622Z</updatedAt>
+      <deviationsHash>D725C5DBC58F6902ECD210AD393D915C639A4F482AD5220BB55A693D3763B52D</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27fca00f-e731-44ad-a845-e4b35b5b253a</correlationId>
@@ -71,5 +89,22 @@
       <deviationsHash>067CC790C36F8281DD9872965285F0E5D898C97FC1A905E0CF10F4018F422D11</deviationsHash>
       <fileHash>FFF65D5DEDC06768A549415B58556ABD4D9E2D30100E2BB79735F823398028A2</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6f5bde6f-fe53-4d0b-8736-cfb5694bc448</correlationId>
+      <path>Templates/TraditionalService/TraditionalServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:08.4300086Z</updatedAt>
+      <deviationsHash>0374DAFAF9B42FC6E18A7FF0BE5747F8C52C834CFF712B24E0C707215B425655</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.AspNetCore.Grpc/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:07.4613605Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

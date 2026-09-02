@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c2eef640-10a5-4fac-9e50-3011647f2e8e">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AppSecurityExtension.cs" deviationsHash="1702B591ED438B94FD38F6A3C43750FAD6A06455787915945013722AFD2DF595" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CurrentUserServiceExtension.cs" deviationsHash="33A4455829F8D7DB392105F06393221F8E3A915CC9DF0D4D9BAD3E23C3273C2F" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.Jwt.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.Jwt.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/CurrentUser/CurrentUserTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CurrentUser/CurrentUserTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JwtClaimsMiddleware/JwtClaimsMiddlewareTemplatePartial.cs" deviationsHash="04852A748B5CCB5D2A2E07CB4515C4AB0962D88E6E7AECA0B7409F0D010D85D4" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JwtClaimsMiddleware/JwtClaimsMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="8c05ab5b-e166-4c12-8c8c-5c230905057a">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" />
-  <file path="Api/MessageModelStereotypeExtensions.cs" />
-  <file path="Api/SendIntegrationCommandTargetEndModelStereotypeExtensions.cs" />
-  <file path="Api/SubscribeIntegrationCommandTargetEndModelStereotypeExtensions.cs" />
-  <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" deviationsHash="918C58D82E037F27DA08C9480ED8D0CC66BE561AA43A3B7C8F256086D208D843" />
-  <file path="FactoryExtensions/FinbuckleConfiguratorExtension.cs" />
-  <file path="FactoryExtensions/MessageBusInterfaceExtension.cs" />
-  <file path="FactoryExtensions/MessageBusInteropExtension.cs" />
-  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" />
-  <file path="FactoryExtensions/TelemetryConfiguratorExtension.cs" />
-  <file path="Intent.Eventing.MassTransit.imodspec" />
-  <file path="Intent.Modules.Eventing.MassTransit.csproj" />
-  <file path="NugetPackages.cs" deviationsHash="359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC" />
-  <file path="Settings/ModuleSettingsExtensions.cs" />
-  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs" />
-  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplateRegistration.cs" />
-  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplatePartial.cs" />
-  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplateRegistration.cs" />
-  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplatePartial.cs" />
-  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplateRegistration.cs" />
-  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplatePartial.cs" />
-  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplateRegistration.cs" />
-  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplatePartial.cs" />
-  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplateRegistration.cs" />
-  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs" />
-  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplatePartial.cs" />
-  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplateRegistration.cs" />
-  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplatePartial.cs" />
-  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="release-notes.md" />
-  <file path="resources/documentation.json" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/SendIntegrationCommandTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/SubscribeIntegrationCommandTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" deviationsHash="918C58D82E037F27DA08C9480ED8D0CC66BE561AA43A3B7C8F256086D208D843" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/FinbuckleConfiguratorExtension.cs" deviationsHash="7C0102941DC42D21291736BD403BAE68E271341FA6AEEF5E85CDE9CCC47AA337" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusInterfaceExtension.cs" deviationsHash="59CDEFFD375BA75BE06D6E27F42344B15EAEDA5172C10AB1EE93753D1BF3AA9B" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusInteropExtension.cs" deviationsHash="C5604A8CF8C310F0F4326910995A8301A0314D66614D472D9F940B455E0FC085" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="2F96802B9A10214E71E1C78F146E2E6170BAB979DBF333DE11D5D4A4D29D9555" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/TelemetryConfiguratorExtension.cs" deviationsHash="2F3F6265D0494943AC4418735F8E1A6FFD059AB22AECDB0B61D2244B7177C563" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.MassTransit.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.MassTransit.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" deviationsHash="359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs" deviationsHash="85454B441C41F8FCC121A136747F42FDDBC348B7BA5854506B2FC715F86C68D0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplatePartial.cs" deviationsHash="8588D46DAEE3F73F10252CEA9515C560A8CF889963A8FAA34F4CEFB8B087F71D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplatePartial.cs" deviationsHash="1C6843AE0AC2A025034A8D80C5F92C6D92390D3651364531F83D7ACD60B1C658" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplatePartial.cs" deviationsHash="0B1A1BBD47C774F0CE929CA287CAA2CD1E26618ECAF719C2688EAA254D166639" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs" deviationsHash="5F14227665AE9341067B122552EE41D893624E971CC32BA532C09D2C2D056FC0" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplatePartial.cs" deviationsHash="651E877BB7B17BE7A65EE6E7E58380DBFB840304713B51981C27F5CE6627DAD6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MassTransitConfiguration/MassTransitConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MassTransitMessageBus/MassTransitMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8025d14f-5449-435a-bef8-649e1901c20c</correlationId>
+      <path>FactoryExtensions/DataMaskConverterExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:04.4947176Z</updatedAt>
+      <deviationsHash>1F3A11E68B10349DC536B62C549CE983FFAB5F906A5650452A4067304DE64530</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d7653979-e94d-4412-86f0-1137753e3f59</correlationId>
+      <path>FactoryExtensions/DataMaskDbContextExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:04.4947619Z</updatedAt>
+      <deviationsHash>7989114A7BAC2DD2254DEB7AF43A5D4ACE7F7983212C28EC15CA82AE2A9AFF1A</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.DataMasking/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.6258461Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

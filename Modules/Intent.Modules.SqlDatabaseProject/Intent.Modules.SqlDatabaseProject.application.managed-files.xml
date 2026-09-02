@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="ef0bb9b8-4ed6-4f65-8e3b-b628b1c61729">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Modules.SqlDatabaseProject.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.SqlDatabaseProject.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Templates/Index/IndexTemplatePartial.cs" deviationsHash="4DFEF40E0A79A2A6870F56C898FC86C5F75ABAB64933F1013CC6BEE4C589EC02" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Index/IndexTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Schema/SchemaTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Schema/SchemaTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/StoredProcedure/StoredProcedureTemplatePartial.cs" deviationsHash="AAA9D25F5029066075E10D3CEB5ECA8BBA3B0B92C9CF2F6DEA39A77DC5232675" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/StoredProcedure/StoredProcedureTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Table/TableTemplatePartial.cs" deviationsHash="D209170138B617B108EE887C0DC4248795FA7BB74AD20ACA96BACEC31F1859C2" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Table/TableTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/View/ViewTemplatePartial.cs" deviationsHash="E17B00AB85E809B93CD91343D40B0864426D20AC611C607604B3F6AFCDE9F876" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/View/ViewTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

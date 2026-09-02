@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="086913ce-408d-4025-acc5-58b5d97678de">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/DbContextExtension.cs" deviationsHash="93ED69AD99A07D3CF93E564C08C1DB9B30FA9F6E5145209D9F6EA08DB92FCF07" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DependencyInjectionExtension.cs" deviationsHash="86FA1B6911C3FC5BBD9BBE5DB07413E8399884793AD2A353F2FFFCB8267C62E9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DomainServiceExtension.cs" deviationsHash="C7D4A3078EAF72E04BE12537F9DE3742424E44715BD3203F6C1945CAB42C520D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SolutionPatcherExtension.cs" deviationsHash="8335978DF3CB72FD24F09679988A95C1E508A7108EE8DECCDC566F77286481D2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Modules.SharedKernel.Consumer.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.SharedKernel.Consumer.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+</managedFiles>

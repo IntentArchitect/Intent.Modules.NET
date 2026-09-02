@@ -2,6 +2,51 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#50814641-2526-49db-8aa8-d032bf4531d8</correlationId>
+      <path>FactoryExtensions/PagedResultTypeSourceInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:53.3078665Z</updatedAt>
+      <deviationsHash>8739F309A8A872E9796C3B55F6A115BB36896205322609FDBBBABE2372B4B633</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#bf4950bc-aca6-4598-9d04-f0d5ca13d2e9</correlationId>
+      <path>FactoryExtensions/PagingDefaultsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:53.3082167Z</updatedAt>
+      <deviationsHash>A17B92F8DED8B239ABD6F0ADEC06218BA77DCDDCE5BD678BCCFE88904DC4D4F4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#58195f0a-e242-4886-a238-fadb50e7aa0b</correlationId>
+      <path>Migrations/Migration_04_01_04_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:53.3082586Z</updatedAt>
+      <deviationsHash>211A5DD9DC0F5A5215F623635911B96B235EFC027F98902FFE507DC3FE63728D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3a25260a-172a-4161-addb-20eef02114f5</correlationId>
+      <path>Templates/CursorPagedResult/CursorPagedResultTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:53.3083355Z</updatedAt>
+      <deviationsHash>B50B7F8F447948D3BF342D109FC1BBEA53582B8F2CFF80AB788EE7D97A11BDAD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d33eff0-ddb7-40b9-b29f-5e597ef1ca52</correlationId>
+      <path>Templates/CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:53.3083623Z</updatedAt>
+      <deviationsHash>0B42B94C3115617669E027808988F44462A09F7525788E50483ECB750F8C0357</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</correlationId>
       <path>Templates/PagedResult/PagedResultTemplatePartial.cs</path>
       <count>1</count>
@@ -28,4 +73,12 @@
       <fileHash>5D9DB69895DCF373824541A611FB5E5791B61635021418DC987159CD0359862F</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Application.Dtos.Pagination/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:04.993176Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

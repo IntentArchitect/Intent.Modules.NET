@@ -2,6 +2,60 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7da6bb36-866c-474c-8035-9f5293ffb1ef</correlationId>
+      <path>FactoryExtensions/MessageBusInterfaceExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.4734Z</updatedAt>
+      <deviationsHash>AD829815FE68777577299F1FE82E31907C030F8B7761DC84A052D48EC2FE2928</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#81134eff-48f4-44b0-9fb7-80d4646a433b</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.4734253Z</updatedAt>
+      <deviationsHash>1E0186B370986F7060C1F7C84E636A12B4972173B3AB5779F00694E05A9DF90D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cc0b7146-e0a5-4a33-ba08-3c88c62a21fe</correlationId>
+      <path>FactoryExtensions/MetadataLoaderExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.473449Z</updatedAt>
+      <deviationsHash>D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#86085c3b-492f-468b-b853-170a7faf2c38</correlationId>
+      <path>Templates/AzureEventGridBehavior/AzureEventGridBehaviorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.4735618Z</updatedAt>
+      <deviationsHash>34EF0A0A9D999448C590BDFF9A6F7253FA3E0A82FF038368E22476A7B7CA346A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#260bfe0c-80fa-4805-bac7-097480a12ce7</correlationId>
+      <path>Templates/AzureEventGridConfiguration/AzureEventGridConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.4735874Z</updatedAt>
+      <deviationsHash>12BA5FF5A3AFDE15620BD02378F514E375089B504DA4526CBDE5BB24BE0F54EC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d47b3afb-dca2-4a76-95be-f4fd03acb889</correlationId>
+      <path>Templates/AzureEventGridPipeline/AzureEventGridPipelineTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:13.4736864Z</updatedAt>
+      <deviationsHash>5C96C12167F3B3DDC413D2525A00E5B45B365413BB2DF00FF65BE2E679FB3395</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#166448cc-a95b-4606-b78c-fac154d48d41</correlationId>
       <path>Templates/TemplateExtensions.cs</path>
       <count>4</count>
@@ -12,4 +66,12 @@
       <fileHash>961F6845F403E1951DB65E1F0D303A3CF8B94C2F6947AF0DC7B0EFB20ADFEC62</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.AzureEventGrid/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.0246415Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

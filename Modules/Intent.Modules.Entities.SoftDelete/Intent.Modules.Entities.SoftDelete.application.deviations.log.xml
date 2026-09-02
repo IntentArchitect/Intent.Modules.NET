@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#62295e99-8640-4d09-ba60-cc93bfbfafe4</correlationId>
+      <path>FactoryExtensions/CosmosDbExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:00.0805847Z</updatedAt>
+      <deviationsHash>67B6F223526C09C052E044721667764C4D8D8D2728E6B37888CBA8505105170A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c04bdfac-6396-493f-b326-ad025fcd47e0</correlationId>
+      <path>FactoryExtensions/EfCoreExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:00.0806188Z</updatedAt>
+      <deviationsHash>C577069197D763CA4494A0FBE8CFE73F8475A0074A7A3F9ADD5C762DECBC162A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6fcaf286-8a1b-4907-b5ab-c7ac94d7fe02</correlationId>
+      <path>Templates/SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:00.0806788Z</updatedAt>
+      <deviationsHash>C5ACC42A5EB76853EF76543B1E3345E53825541907B7AAEFFD8F0D8FA38A7BDF</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#7932fcfa-a553-4161-9120-914274c9cc64</correlationId>
       <path>Templates/TemplateExtensions.cs</path>
       <count>1</count>
@@ -12,4 +39,12 @@
       <fileHash>79A38EDD3060FA9C73C95CAA5BC61E9F016DDDA86481ED6557EC9E94EDC38150</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Entities.SoftDelete/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.3079371Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

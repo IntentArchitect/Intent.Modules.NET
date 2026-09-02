@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="6a0d6a5d-e77c-4d6c-afbe-9796731b00f2">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Aws.Lambda.Functions.Sqs.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Aws.Lambda.Functions.Sqs.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/LambdaFunctionConsumer/LambdaFunctionConsumerTemplatePartial.cs" deviationsHash="A734851943627F04944635DA505BF110D9A1766684EB7BE2308B159B340507DF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/LambdaFunctionConsumer/LambdaFunctionConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

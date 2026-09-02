@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b1cedb3a-e6f8-4395-98f3-f6c85526e7e1</correlationId>
+      <path>FactoryExtensions/FluentValidationDependencyInjectionExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:55:51.4453169Z</updatedAt>
+      <deviationsHash>5EDF1CCFB49A00B38BC3CE5B475F449E6415AB5237D49B0023291A6E137B67EE</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#3942985b-5e6f-4104-8211-6c0e83c6f983</correlationId>
       <path>Intent.Modules.Application.FluentValidation.csproj</path>
       <count>1</count>

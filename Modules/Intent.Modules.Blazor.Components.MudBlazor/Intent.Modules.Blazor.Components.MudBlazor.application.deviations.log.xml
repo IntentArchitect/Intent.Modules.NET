@@ -5,19 +5,46 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cc70cbf5-cdba-41f3-a082-24dc1d260eeb</correlationId>
       <path>FactoryExtensions/HomePageDefaultHtmlExtension.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3697349Z</updatedAt>
-      <deviationsHash>DB09F007C3CCB8483DCBC697C8DE29700F42A53971CAA71693B84E7952CEC74A</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4512732Z</updatedAt>
+      <deviationsHash>E6EAE9A794B1B37A0A69710B9CE0C5FF298DDE2575DFFE403D72EAE6E9AB191B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#ea521efb-a5fa-4076-adac-154b24c0c10a</correlationId>
+      <path>FactoryExtensions/MudBlazorComponentInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4513303Z</updatedAt>
+      <deviationsHash>9389FFBAFB68A0ACB45BFF30A34484118FE5A9A581C886107186B77F0B9A9CA5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd277b16-0158-4a95-ac69-c6ffaa4c9612</correlationId>
+      <path>FactoryExtensions/MudBlazorInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4513563Z</updatedAt>
+      <deviationsHash>3B1BADF1FD3CDEB854409F21F99150E54E1769AE02FFECC2FC6E83B04563CB2F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b2ba5f61-72f5-4ef2-972e-cfb5566b8054</correlationId>
+      <path>FactoryExtensions/SnackbarInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4513812Z</updatedAt>
+      <deviationsHash>6FABD176DDE702E55AAC3C0A55BB2DDAD782D2DEFAC4B140508D05EA2F6DC671</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#cdfa2128-cc5d-4fba-a736-f60d7c446179</correlationId>
       <path>FactoryExtensions/WireupCssExtension.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-06-04T09:03:07.7917731Z</updatedAt>
-      <deviationsHash>4596B96D581FC2F86C777DE6343BE84838DC2C3536AFF329EE4ADF68663F6401</deviationsHash>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.451491Z</updatedAt>
+      <deviationsHash>B21B2E0E32FC3CB17F85345EEDA16F9D86B70AE24B2C7069D16BDD1D9DA5892A</deviationsHash>
       <fileHash>F7052CAA8FD0E35223D1A8B7C5BA4D46E3D9B067C5BD1A7631E23FFBE4FCCB2A</fileHash>
     </file>
     <file>
@@ -30,58 +57,85 @@
       <deviationsHash>E1A75EA2FBB775F717F9A16D38883559E33716ECF8E61B9E8E64666672622832</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#4a4193aa-4d38-4aaa-86e9-fe2a9a5cec7e</correlationId>
+      <path>Migrations/Migration_01_00_00_Beta_22.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4515259Z</updatedAt>
+      <deviationsHash>5B37448FBEE0A974EE016ECE49DCF2C33022C3631F7626DFACC8B63D184C0FAC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#d8454619-677f-4e14-bcce-b02d8c14397e</correlationId>
+      <path>Migrations/Migration_02_00_00_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4515843Z</updatedAt>
+      <deviationsHash>A7475C6E4E9E9E9702F8499F4D7EE588C1BF3FAD77324D37D97A679A9862B379</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a051e5c4-0715-4917-8cca-aa4f65cb93ed</correlationId>
+      <path>Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4516401Z</updatedAt>
+      <deviationsHash>71AC56C9E1ED5196D61CDEF03856741476EA449620E0960B9E40D6C00257745A</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7a947321-0d2f-4d37-9981-5bb24a55be20</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3699718Z</updatedAt>
-      <deviationsHash>D72B0CAE48D71D8BE47FE62C567D256E8BB8C31253589A7D5998F93B4FA86735</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4522119Z</updatedAt>
+      <deviationsHash>8A03BE5F160BAC69E3F6277237C1FC246FA7995C7105C884FA1C2A57C364ED72</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#55dbead9-4f2b-4a76-a7ca-0e794f6fa9f3</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3699949Z</updatedAt>
-      <deviationsHash>C4B7602EB2D35A85B7C4969FDEC16D210C6A7DFBF97E1961E7801B2957C3B8CA</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4522849Z</updatedAt>
+      <deviationsHash>9FF10FAFEFBC72600398877173C8A2E9925DA06026A6D714851B353AF16A27F6</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1979a0ed-c94a-431e-98f1-14586cdec6a3</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3700173Z</updatedAt>
-      <deviationsHash>1B091825E19B016D69EB653E8AEBDB1E8205F62528FDD26501CE28C12AADE3C9</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4523531Z</updatedAt>
+      <deviationsHash>9C6041661FFB8FCADA53061A3FB74BD64120B05E8D83D7551A63F7903FF1F7D6</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#18bb51e4-9228-40d5-a6e8-379be7fec0f7</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3700392Z</updatedAt>
-      <deviationsHash>83811062CB066DFF7D19E09EFA8098359178C741DB59DE994FB641BA75195B9B</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4524204Z</updatedAt>
+      <deviationsHash>9D2F09FB93B84B7760FCE44A8418F3D36D017E24A9C0AFD872C787426A716D07</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#84433a77-934b-40d3-bf69-7f6b8c80451b</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3700604Z</updatedAt>
-      <deviationsHash>2501EAEBA90B89CAC2D7F4329ABD8E112250EA99310CEC0DE14313F0D115693B</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.4525453Z</updatedAt>
+      <deviationsHash>A5F999360BA2727FCB6E63C349C9D0052E004C65DFB93282981F6383F39CFC77</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#ce3590cf-5615-4866-8ab8-5330df3a75f7</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-19T15:19:06.3700836Z</updatedAt>
-      <deviationsHash>5081ECB0F2946083364CA10D0F99B51FD15B4EBE9123969FF4D7710EB2A4BE6E</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:43.452621Z</updatedAt>
+      <deviationsHash>76295EFFAE6AD4D48163FC1DF9089AEFBD0E6BC8AAE2893A3E8113686931CBAA</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#2815c770-6653-4a02-920c-5373c3175ea8</correlationId>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7e643458-afc1-4a0b-ad59-87d9d682cbc0">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/CustomDbProviderFactoryExtension.cs" deviationsHash="6E1D3A94D8AAE2D0ED7CC5891A5C133EC07B4FE8C3F69F2F6C90E9086A4E9B13" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" deviationsHash="85D4F462602291F52E530940D6D1C7A8A5E84AEF37F952A2769D9A4C5770DA5E" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Entities.Repositories.Api.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Entities.Repositories.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/CursorPagedListInterface/CursorPagedListInterfaceTemplatePartial.cs" deviationsHash="AF377BED9F1ACA49F297E1B0B15C8BDA9067266ED302EF5C1F5D8FC1F3BA2E93" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CursorPagedListInterface/CursorPagedListInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CustomRepository/CustomRepositoryTemplatePartial.cs" deviationsHash="93E5DB04D639222223165735613F030B31BFDBE469D23847DC5BCB4D0422580B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CustomRepository/CustomRepositoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs" deviationsHash="C51A290DAF10D9FDE6B0C9D30EF359A340D8A878D12FF591E0B94A1DFABD4C22" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs" deviationsHash="A3A3C99E7ADB5DC5C746A7C38C77E3D7152C1346BEF2C1BE473C65B1F383CB41" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/PagedListInterface/PagedListInterfaceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/PagedListInterface/PagedListInterfaceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/PagedListInterface/PagedListInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PagedListInterface/PagedListInterfaceTemplateRegistration.cs" deviationsHash="F82057426A629114B2F1C937B35FF674DB4079AB4406CF2CED9169420F544B82" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplatePartial.cs" deviationsHash="2019F1DEABDA63F88FB0010EBFFD2483DEE20E02D0F44ACCE4CDD1AEF4E90AFD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RepositoryInterface/RepositoryInterfaceTemplateRegistration.cs" deviationsHash="FEC90076BB46E36B02024A699DB799AB1931A3924693708C876148AE2B929977" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="7E9FF95F835D3C72DA426D2F87D97E7B48CCE16553E75DE19EA39FAFC7A210FD" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplatePartial.cs" deviationsHash="2664C11B7DA7CEBB7DA3843AAAC4463471A7BC69D5F916F9ECE81361FD601C01" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+</managedFiles>

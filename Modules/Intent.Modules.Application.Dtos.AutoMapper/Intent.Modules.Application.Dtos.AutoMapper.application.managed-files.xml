@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="1e7ac3a3-3019-4017-a525-bac8f838b1ed">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AutoMapperDtoFactoryExtension.cs" deviationsHash="5FC4CAA50C1A47DCDCD46476D109DEFBBD230E81A03E4FA62C17345859089C27" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.Dtos.AutoMapper.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Dtos.AutoMapper.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DtoMappingProfile/DtoMappingProfileTemplatePartial.cs" deviationsHash="EDC1E59958D5B71E1FA4649F500123870A0625A9752082C1C7AA1282618BE510" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DtoMappingProfile/DtoMappingProfileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs" deviationsHash="AEC941676933EF1C8309F805F96AF376BCFC085988E26BF5681C7A66BBE0AB38" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="790F3F6B8C0F1B49AB311237BE49E6BAE03C8B7C7B73D843EDC92E0D32EC3ED7" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

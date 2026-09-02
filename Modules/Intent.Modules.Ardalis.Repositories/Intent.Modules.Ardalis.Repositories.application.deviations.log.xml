@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7670d5f1-f428-4e4e-8331-2349a16f0969</correlationId>
+      <path>FactoryExtensions/RepositoryFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:03.4224638Z</updatedAt>
+      <deviationsHash>2FC36CD047FF2C01DD522D1282140B7D8639821C1363FC41CBEE8462493B0F74</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#72e4c495-1224-491e-b1fe-35dfe364c52e</correlationId>
       <path>Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplatePartial.cs</path>
       <count>1</count>
@@ -14,5 +23,22 @@
       <deviationsHash>C43EE6F362D994C106BE86E8F07CC129F96E7ECE5F9BCC5313886A7FB17B07C7</deviationsHash>
       <fileHash>CC72CC77D475578599F00AB11D8612BF669D316B07E599A529F6F82CD0A0F46A</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#010f82f0-575c-4d76-8347-cca0fa8d739d</correlationId>
+      <path>Templates/Specification/SpecificationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:03.424051Z</updatedAt>
+      <deviationsHash>4043F21A28D122F0A4A78639AB221B0D5FA9ED64E4818CAC162BC2378E17F563</deviationsHash>
+    </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Ardalis.Repositories/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:06.5210571Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

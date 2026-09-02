@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d7160580-fd34-48ed-89c5-a7ddb1224f69">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/EventingPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MessageBusInterfaceExtension.cs" deviationsHash="AD829815FE68777577299F1FE82E31907C030F8B7761DC84A052D48EC2FE2928" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="1E0186B370986F7060C1F7C84E636A12B4972173B3AB5779F00694E05A9DF90D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.AzureEventGrid.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.AzureEventGrid.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/AzureEventGridBehavior/AzureEventGridBehaviorTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureEventGridBehavior/AzureEventGridBehaviorTemplatePartial.cs" deviationsHash="34EF0A0A9D999448C590BDFF9A6F7253FA3E0A82FF038368E22476A7B7CA346A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridBehavior/AzureEventGridBehaviorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridConfiguration/AzureEventGridConfigurationTemplatePartial.cs" deviationsHash="12BA5FF5A3AFDE15620BD02378F514E375089B504DA4526CBDE5BB24BE0F54EC" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridConfiguration/AzureEventGridConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridMessageBus/AzureEventGridMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridMessageBus/AzureEventGridMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridMessageDispatcher/AzureEventGridMessageDispatcherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridMessageDispatcher/AzureEventGridMessageDispatcherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridMessageDispatcherInterface/AzureEventGridMessageDispatcherInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridMessageDispatcherInterface/AzureEventGridMessageDispatcherInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridPipeline/AzureEventGridPipelineTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureEventGridPipeline/AzureEventGridPipelineTemplatePartial.cs" deviationsHash="5C96C12167F3B3DDC413D2525A00E5B45B365413BB2DF00FF65BE2E679FB3395" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridPipeline/AzureEventGridPipelineTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridPublisherOptions/AzureEventGridPublisherOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridPublisherOptions/AzureEventGridPublisherOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureEventGridSubscriptionOptions/AzureEventGridSubscriptionOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureEventGridSubscriptionOptions/AzureEventGridSubscriptionOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureEventGridSubscriptionOptions/AzureEventGridSubscriptionOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EventContext/EventContextTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EventContext/EventContextTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/EventContextInterface/EventContextInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/EventContextInterface/EventContextInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/InboundCloudEventBehavior/InboundCloudEventBehaviorTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/InboundCloudEventBehavior/InboundCloudEventBehaviorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="088D8F6E751CE5C05A74AFE54BE08B8104932939A81228EB24246AD9F3E667C7" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

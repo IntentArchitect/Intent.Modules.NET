@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="0848134b-a122-45f5-b75f-b37fb6b6b2af">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="FactoryExtensions/DomainInteractionRegistration.cs" />
-  <file path="Intent.Application.DomainInteractions.imodspec" />
-  <file path="Intent.Modules.Application.DomainInteractions.csproj" deviationsHash="BE3926FD850E7078654016F1F957D90636447908B9E107D4DD37FB206B2C955C" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/DomainInteractionRegistration.cs" deviationsHash="BCF3EB4BC976883FB9AD80A1B1E26E507B499B118DD0789E0B442FB5031C0A64" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.DomainInteractions.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.DomainInteractions.csproj" deviationsHash="BE3926FD850E7078654016F1F957D90636447908B9E107D4DD37FB206B2C955C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

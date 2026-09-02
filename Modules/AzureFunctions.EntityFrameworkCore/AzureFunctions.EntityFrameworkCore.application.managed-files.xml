@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="64c2d3e6-16f0-4df3-978c-fd75c0a0dd3e">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/AzureFunctionExtension.cs" deviationsHash="B983340D0A299BB6694B87C1EB73D91D2069C0C0B39CE4D2F75E92D6E8094F16" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AzureFunctions.EntityFrameworkCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AzureFunctions.EntityFrameworkCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DbInitializationService/DbInitializationServiceTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
+  <file path="Templates/DbInitializationService/DbInitializationServiceTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />
+  <file path="Templates/DbInitializationService/DbInitializationServiceTemplatePartial.cs" deviationsHash="3F479D6E1723183563869665E75F25437F0908CC1009A89937FE3B4D89D5B3DF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DbInitializationService/DbInitializationServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

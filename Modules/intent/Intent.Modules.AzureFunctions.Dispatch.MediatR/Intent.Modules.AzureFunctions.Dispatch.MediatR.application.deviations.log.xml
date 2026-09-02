@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#481d4ab4-8b86-45fb-b1d3-b9cf9f2d5459</correlationId>
+      <path>FactoryExtensions/AzureFunctionsMediatRDispatchInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:32.1376171Z</updatedAt>
+      <deviationsHash>DB0B08C88E056D7A99B3327006D7960649DD6017E07F2254EA32CFBC60A6CA71</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

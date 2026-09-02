@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="ad22f3ab-10e5-488a-b026-81346dc61c64">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Modules.ValueObjects.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.ValueObjects.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/ValueObject/ValueObjectTemplatePartial.cs" deviationsHash="DBD10C5BCBE8F1B496CE7E579B9EF41AA4C0037BDD0EA304000EC762B709AB96" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValueObject/ValueObjectTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ValueObjectBase/ValueObjectBaseTemplate.cs" deviationsHash="79AD2F5EB4D5051EA2A14627F929386E542532B62A380C9D497B12DB7FE9895A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/ValueObjectBase/ValueObjectBaseTemplatePartial.cs" deviationsHash="4531671BD0BA7242FC4489D3F218A4618C1CE8D32258068357772C5299083587" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValueObjectBase/ValueObjectBaseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

@@ -2,6 +2,24 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#a1f4f7b9-47c9-4262-9c5f-a90d571f2ff6</correlationId>
+      <path>FactoryExtensions/DaprFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:50.0065593Z</updatedAt>
+      <deviationsHash>1EFDC946568EDE6FFFA29ED41847752BE528363566840B56ABE332CB56071FE6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d92b4e71-2a2f-4c68-9c62-dfec4210c457</correlationId>
+      <path>Templates/DaprConfiguration/DaprConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:56:50.0066037Z</updatedAt>
+      <deviationsHash>ED88E8FF68327F1720B6CF8A6BA7556ABE63ABEE1276D5ADE0AEFD7956164746</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#2b7880a4-d400-404b-b02b-04ed6a199767</correlationId>
       <path>Templates/StaticContentTemplateRegistrations/DaprComponentFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
@@ -22,4 +40,12 @@
       <fileHash>607A47E68B94215D57022A2BD0A79AABCAA2F0F1CC4733EDF25A00746FE58F21</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Dapr.AspNetCore/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:14.7355082Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd64f158-be0a-48a3-944c-9f61dfdc2983</correlationId>
+      <path>Templates/GoogleCloudStorageConfiguration/GoogleCloudStorageConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:21.6204724Z</updatedAt>
+      <deviationsHash>31657378B0AF191F5A7C819D66B6C008D121C5BF41E3BA4560EBD57C9F1B271D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7bbc6e9c-c0bc-4cb5-9d23-10b7b1bf974c</correlationId>
+      <path>Templates/GoogleCloudStorageImplementation/GoogleCloudStorageImplementationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:21.6205074Z</updatedAt>
+      <deviationsHash>906994578265C569D5DC40562A8A7DC683F8964749B517693F6BC575659FE1D0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f63f5d9d-f2b2-4db2-a6a7-eba77caf8dab</correlationId>
+      <path>Templates/GoogleCloudStorageMultiTenantConnectionFactory/GoogleCloudStorageMultiTenantConnectionFactoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:21.6205436Z</updatedAt>
+      <deviationsHash>C928C6D9083E30F9B63170D91002DBD751BB0BB54E21853C600612A372B1708D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Google.CloudStorage/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.7321279Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

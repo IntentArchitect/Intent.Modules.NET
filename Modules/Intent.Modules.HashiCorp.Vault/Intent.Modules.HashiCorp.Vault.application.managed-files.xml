@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="758dcf4d-aac0-4c2c-8a7d-a50e4116e360">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ProgramExtension.cs" deviationsHash="ACE22C2FC9988781748279718BAC93F197068AF92A2E5AF40295864F061283E3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.HashiCorp.Vault.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.HashiCorp.Vault.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Templates/HashiCorpVaultConfiguration/HashiCorpVaultConfigurationTemplatePartial.cs" deviationsHash="9F95D6524C686C60555B97B7AB408D13F3AF2E45BAA6EB09CB89AB788FFB95C2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HashiCorpVaultConfiguration/HashiCorpVaultConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs" deviationsHash="BC665F621AD9C1E8DAFC8CA4B501466D698821C177621F8DA75D1FEBBD1BE37A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HashiCorpVaultOptions/HashiCorpVaultOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/HashiCorpVaultOptions/HashiCorpVaultOptionsTemplatePartial.cs" deviationsHash="350BFFC31C2BDA9CBD311662765B8B0C47C74C045846DC13724C4B0BEACCA5BB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HashiCorpVaultOptions/HashiCorpVaultOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

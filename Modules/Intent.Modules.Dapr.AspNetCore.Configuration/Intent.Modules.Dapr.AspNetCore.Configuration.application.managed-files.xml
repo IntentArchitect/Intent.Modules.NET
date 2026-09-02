@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="75510471-3b29-4bac-8253-6eae740fdc30">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/RegistrationsFactoryExtension.cs" deviationsHash="CD0459D0B02360CEDBAAA8B9C48134BB21A6AB188CB28E4951175141C9E7FED9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Dapr.AspNetCore.Configuration.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Dapr.AspNetCore.Configuration.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DaprConfigurationConfiguration/DaprConfigurationConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DaprConfigurationConfiguration/DaprConfigurationConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/DefaultLocalConfigurationStore/DefaultLocalConfigurationStoreTemplate.cs" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
+  <file path="Templates/DefaultLocalConfigurationStore/DefaultLocalConfigurationStoreTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DefaultLocalConfigurationStore/DefaultLocalConfigurationStoreTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

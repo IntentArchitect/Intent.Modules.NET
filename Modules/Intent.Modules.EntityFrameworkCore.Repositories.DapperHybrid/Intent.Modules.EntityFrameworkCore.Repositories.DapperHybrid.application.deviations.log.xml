@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#dbefc0f3-69a7-4bbd-81cb-bbc4e788b6ee</correlationId>
+      <path>FactoryExtensions/RepositoryAdapterFactoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:06.2343184Z</updatedAt>
+      <deviationsHash>8FEB6AB2ED5736C6E0DC1B4DC11D648421C0AC88BAEB3E3939D241059863D81D</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.8249387Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

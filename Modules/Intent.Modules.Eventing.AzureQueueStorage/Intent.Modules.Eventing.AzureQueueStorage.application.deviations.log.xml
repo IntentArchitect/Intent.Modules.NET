@@ -1,4 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#9d5f9a1a-45c0-47e8-99aa-8c1a9a62bcb2</correlationId>
+      <path>FactoryExtensions/MessageBusRegistrationExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.4598018Z</updatedAt>
+      <deviationsHash>4B870E924733B851F2E950B52C2E63E969B94C5347BEE6312917498D5AF67E2E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0d380ac5-2a50-430f-9e21-78dc2ddff0c7</correlationId>
+      <path>Templates/AzureQueueStorageConfiguration/AzureQueueStorageConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.4598867Z</updatedAt>
+      <deviationsHash>ED50778E4F6FEBA9249F70ACC70100DDAA410119E9366DB5BAEDC6D777B750CB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3f2d1688-d15b-4c2c-8d37-d4611c283e71</correlationId>
+      <path>Templates/AzureQueueStorageConsumer/AzureQueueStorageConsumerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.4599163Z</updatedAt>
+      <deviationsHash>58DA94B326B65DFC537A3907F316F02297761FA4D18C2CC6A747850DE2232D6A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d6de0950-e693-4e5d-a17e-8e5d96792154</correlationId>
+      <path>Templates/AzureQueueStorageConsumerBackgroundService/AzureQueueStorageConsumerBackgroundServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.4599468Z</updatedAt>
+      <deviationsHash>02346B6A973B0DFA3852DBC16AAA89AD69E00EE328C5CDA38536A37163AC26E9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#15e4634c-be40-4f11-9de3-e20c2fed2994</correlationId>
+      <path>Templates/AzureQueueStorageConsumerInterface/AzureQueueStorageConsumerInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:15.4599722Z</updatedAt>
+      <deviationsHash>31F9BB3BE7F38F06EB6FB0420A3C639F2CCC2984ACFEB9A55B72D30DEA7EF2DC</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Eventing.AzureQueueStorage/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:16.1101881Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

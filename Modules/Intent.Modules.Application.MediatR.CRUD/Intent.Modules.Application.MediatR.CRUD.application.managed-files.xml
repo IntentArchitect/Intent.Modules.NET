@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="e3a56af9-4953-4fde-a283-50674146b91e">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/CqrsHandlerCrudExtension.cs" deviationsHash="9C44C9A2E8892CF453A84C29ECED50A88B3268DBC4D7E287694BDED39BA55108" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MongoDbRepositoryUpdateExtension.cs" deviationsHash="F65B493E500B7D4E3AAEF9E68C6E4281CF97303232F20DD776E1DBF0438ABFD2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.MediatR.CRUD.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.MediatR.CRUD.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="modelers/MediatR CRUD Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+</managedFiles>

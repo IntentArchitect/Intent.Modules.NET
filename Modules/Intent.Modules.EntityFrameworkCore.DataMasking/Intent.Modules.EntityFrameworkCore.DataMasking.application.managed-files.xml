@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7bda4e57-297a-4068-898e-85e199c5f5ea">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/AttributeModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/DataMaskConverterExtension.cs" deviationsHash="1F3A11E68B10349DC536B62C549CE983FFAB5F906A5650452A4067304DE64530" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DataMaskDbContextExtension.cs" deviationsHash="7989114A7BAC2DD2254DEB7AF43A5D4ACE7F7983212C28EC15CA82AE2A9AFF1A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.EntityFrameworkCore.DataMasking.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.EntityFrameworkCore.DataMasking.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DataMaskConverter/DataMaskConverterTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/DataMaskConverter/DataMaskConverterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+</managedFiles>

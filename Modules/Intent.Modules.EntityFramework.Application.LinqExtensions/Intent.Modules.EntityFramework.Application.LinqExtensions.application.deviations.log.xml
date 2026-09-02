@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#239f489e-d038-4016-b380-2dd48f3d8f5a</correlationId>
+      <path>FactoryExtensions/BaseRepositoryExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:00.7382098Z</updatedAt>
+      <deviationsHash>2AE48677957E47DC2CFD8A59FF71F6F13145417C16934281C6A2954C16C3D347</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5a3d99d1-fa2c-4040-98e5-6bbcde516b0f</correlationId>
+      <path>Templates/QueryableMarkerExtensions/QueryableMarkerExtensionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:00.7387252Z</updatedAt>
+      <deviationsHash>07F0B3B2BF41A5CFACCA7B895DCAE8D7ED628802F7658625F0F8F7A9DDEBCAEE</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.EntityFramework.Application.LinqExtensions/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.381804Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

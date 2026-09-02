@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="49c326c7-719d-409f-8e61-4cbea4443bce">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/CosmosRepositoryExtension.cs" deviationsHash="D5387463E5EECC084F10A3EA7DE7A241D288F69563D980E7DDBD8BE89E998BFB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EFRepositoryExtension.cs" deviationsHash="20161FB6554F320FE07E8288B49188CAF57141E96838CFF72A319BF611C1792D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/QueryExtension.cs" deviationsHash="B6533A35A88589B2DA87A19498839470E1FD4C178E4E215CF2888A595EB1F4B4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="57569177E2375F18809E7FE1C5A14C9F8E186657270B026A6168360685D1865C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="B6C5B9516DA4028C69B456C613B83600D3064D6B61550DA68CDFB6E0B61612B9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.ODataQuery.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.ODataQuery.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplatePartial.cs" deviationsHash="2B315FB22BB6D761103655B261C84B40FBF50002D1AF4C36853075EFF6547485" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

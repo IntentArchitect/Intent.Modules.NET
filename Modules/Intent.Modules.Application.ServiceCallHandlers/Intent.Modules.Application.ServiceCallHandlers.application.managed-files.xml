@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d04c1f37-e8a9-49ec-84d7-89e70c2904c9">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/ServiceImplementationExtension.cs" deviationsHash="4C1213BC1A8077F051A002705AF5102B0EC253264D0F206C957FAC4F63146FCD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Application.ServiceCallHandlers.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.ServiceCallHandlers.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/ServiceCallHandlerImplementation/ServiceCallHandlerImplementationTemplatePartial.cs" deviationsHash="810A4C06647D8ED599F96C58844F12892641CFF5FE8E3E8F0419312DD3FA8FC0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceCallHandlerImplementation/ServiceCallHandlerImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

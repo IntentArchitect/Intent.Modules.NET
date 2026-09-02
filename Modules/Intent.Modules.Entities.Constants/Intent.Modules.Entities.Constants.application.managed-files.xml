@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="e0883b5f-a179-42b4-b3fc-e34086dad042">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/TextConstraintFactoryExtension.cs" deviationsHash="62B858FD091021260B389210AC4250A3A6C234B96208A2F15A03D61E85B3ADE2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Entities.Constants.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Entities.Constants.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+</managedFiles>

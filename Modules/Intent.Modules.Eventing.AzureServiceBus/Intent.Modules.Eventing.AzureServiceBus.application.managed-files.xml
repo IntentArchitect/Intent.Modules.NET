@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d8c0b55c-b3ec-495b-968b-2d3876ee79e9">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/MessageBusRegistrationExtension.cs" deviationsHash="8E58D4BCBAE2B8F514145A1300C0E098100628EAA02730915AD584AD511932B6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/MetadataLoaderExtension.cs" deviationsHash="D59B99FFF6DE788339E8C6C9D560B9225B39AEF162D9ACCAD24F9EA084475213" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Eventing.AzureServiceBus.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.AzureServiceBus.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AzureServiceBusConfiguration/AzureServiceBusConfigurationTemplatePartial.cs" deviationsHash="49B1193C1167D22B241C00DB556214619763540F785120ACE6FD1511299B3D64" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusConfiguration/AzureServiceBusConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplatePartial.cs" deviationsHash="E06FDB4128E1DA80EAD0AD93B1FA56CB0580A1B30F6500B12FAE1BE40C81B478" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusMessageBus/AzureServiceBusMessageBusTemplatePartial.cs" deviationsHash="D8002889DF833A2BFE3D6A433795588A3FF04A00D2628CE27EE795B1EE8AD546" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusMessageBus/AzureServiceBusMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusMessageDispatcher/AzureServiceBusMessageDispatcherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusMessageDispatcher/AzureServiceBusMessageDispatcherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusMessageDispatcherInterface/AzureServiceBusMessageDispatcherInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusMessageDispatcherInterface/AzureServiceBusMessageDispatcherInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplatePartial.cs" deviationsHash="6284F39BED8D7A3F69BE2EFD738FD8973B7558B016FA43FA97D05095405F9A3C" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="BCEEF60FCA4E5C04AF82D0DF102E62111DA338C70D7B6590BE040F971C582130" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

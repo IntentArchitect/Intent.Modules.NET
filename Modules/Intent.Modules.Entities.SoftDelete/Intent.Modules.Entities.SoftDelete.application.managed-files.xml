@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="87eedb0d-b34c-492e-8645-7a9e56dd4b94">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="FactoryExtensions/CosmosDbExtension.cs" deviationsHash="67B6F223526C09C052E044721667764C4D8D8D2728E6B37888CBA8505105170A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/EfCoreExtension.cs" deviationsHash="C577069197D763CA4494A0FBE8CFE73F8475A0074A7A3F9ADD5C762DECBC162A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.Entities.SoftDelete.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Entities.SoftDelete.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplatePartial.cs" deviationsHash="C5ACC42A5EB76853EF76543B1E3345E53825541907B7AAEFFD8F0D8FA38A7BDF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SoftDeleteInterface/SoftDeleteInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SoftDeleteInterface/SoftDeleteInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="D972B41EFD3C3BD9DECC6D6B156F4D030A547A26977B6F091CFF0D795F44E022" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/Soft Delete Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

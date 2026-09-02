@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="a4ef8894-c485-4353-bfcd-df19c3d450a9">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/WolverineEndpointExtension.cs" deviationsHash="53D63DA8488C180DCE918E51F79CE80C66A3CCEF392441782509E496FCE99722" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.FastEndpoints.Dispatch.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.FastEndpoints.Dispatch.Wolverine.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

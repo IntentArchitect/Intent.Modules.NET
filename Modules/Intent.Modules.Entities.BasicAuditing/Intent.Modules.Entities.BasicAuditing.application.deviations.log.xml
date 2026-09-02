@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#04dbb899-54b8-4e9d-9d54-36dda861bf3c</correlationId>
+      <path>FactoryExtensions/CosmosDbExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.115552Z</updatedAt>
+      <deviationsHash>093E804EA4D2DB2515EF2CEC066F084F34B04E60EBCE688CD1EBED24705FE8A3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5c2b2464-aaf2-40bb-8c23-f3608e8ed4aa</correlationId>
+      <path>FactoryExtensions/EfCoreExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:01.1155941Z</updatedAt>
+      <deviationsHash>A3E445722F9CAF673CA092D5EDF94A4D279752CB0AA619211879BEBC39EFDD8E</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.Entities.BasicAuditing/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:15.1132937Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#59acfaab-ddbb-43bf-b06b-57477478d89d</correlationId>
+      <path>Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-02T13:57:45.7140627Z</updatedAt>
+      <deviationsHash>0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.QuartzScheduler/.gitattributes</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-02T14:02:18.0558473Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

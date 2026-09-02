@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2241a76c-3847-48b0-932b-385092a325d2">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Api/CommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Decorators/FactoriesForMassTransitConfiguration.cs" deviationsHash="C894FB40A2CE7F4BFAB98893915E2A3959E37B049B32DA967B6954286BEF76B1" templateId="Intent.ModuleBuilder.Templates.TemplateDecorator" />
+  <file path="Decorators/FactoriesForMassTransitConfigurationRegistration.cs" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration" />
+  <file path="Intent.Eventing.MassTransit.RequestResponse.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Eventing.MassTransit.RequestResponse.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/ClientContracts/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="6098E80131097BFC2196961422F7C64BD9B912F5822A75EF54461203A0242FE2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ClientContracts/DtoContract/DtoContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ClientContracts/EnumContract/EnumContractTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
+  <file path="Templates/ClientContracts/EnumContract/EnumContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ClientContracts/EnumContract/EnumContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ClientContracts/PagedResult/PagedResultTemplatePartial.cs" deviationsHash="CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ClientContracts/PagedResult/PagedResultTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs" deviationsHash="8ED792B7FD90E75A9DCCD68AEEA2045D7B2C62D45ABEB4216B7ECDB0DED62D67" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ClientContracts/ServiceContract/ServiceContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ClientImplementations/ServiceRequestClient/ServiceRequestClientTemplatePartial.cs" deviationsHash="39B7FFA705C2EC39237C4BCF09CC7B3B8B13390B89F7E913969B29D8129B14A7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ClientImplementations/ServiceRequestClient/ServiceRequestClientTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/Consumers/MediatRConsumer/MediatRConsumerTemplatePartial.cs" deviationsHash="287B9BA91427434E7660C7AB81EC12BE2E4DAD82AEE54C2C82DCEE4613821CCA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Consumers/MediatRConsumer/MediatRConsumerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplatePartial.cs" deviationsHash="619F5A02C2D0AC1C41DC52EED5DA1A4BA864AD5025CA6F8EF3285F97F6303654" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplatePartial.cs" deviationsHash="081A8B48F5C68E5DE9B4E4C9B398712D2C7BD92011A675338DF36F168A05DDDD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/RequestResponse/MapperResponseMessage/MapperResponseMessageTemplatePartial.cs" deviationsHash="682549E809B9213F381A53C7706653A2987CCD78B249738F8757B599081BE8DD" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RequestResponse/MapperResponseMessage/MapperResponseMessageTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplatePartial.cs" deviationsHash="1FE71C357FCC1999B9B5E6863EE1D220A73ED6667CDA6A9A57AAF0EBC3543FC1" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplatePartial.cs" deviationsHash="1BDA422B1FCBC14EDE513ABB2E7CD38859C65804DC770765985876AD61E11F07" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="8316C74AF43371ECF405BB338C0AE9806355BBA299358CBB64E634F698FA1C40" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/MassTransit Service Proxy Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="modelers/MassTransit Service Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

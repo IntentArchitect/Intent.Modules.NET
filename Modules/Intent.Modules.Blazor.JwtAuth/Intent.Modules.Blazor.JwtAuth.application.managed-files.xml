@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="7e0c3699-1d96-4208-badc-b087aef1f67d">
-  <file path="../.agents/instructions/csharp-guidelines.md" />
-  <file path="../Intent.Modules.NET.sln" />
-  <file path="Intent.Blazor.JwtAuth.imodspec" />
-  <file path="Intent.Modules.Blazor.JwtAuth.csproj" />
-  <file path="Templates/AccessTokenProvider/AccessTokenProviderTemplatePartial.cs" />
-  <file path="Templates/AccessTokenProvider/AccessTokenProviderTemplateRegistration.cs" />
-  <file path="Templates/AuthServiceImplementation/AuthServiceImplementationTemplatePartial.cs" />
-  <file path="Templates/AuthServiceImplementation/AuthServiceImplementationTemplateRegistration.cs" />
-  <file path="Templates/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" />
-  <file path="Templates/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" />
-  <file path="Templates/JwtAuthenticationStateProvider/JwtAuthenticationStateProviderTemplatePartial.cs" />
-  <file path="Templates/JwtAuthenticationStateProvider/JwtAuthenticationStateProviderTemplateRegistration.cs" />
-  <file path="Templates/TemplateExtensions.cs" />
-  <file path="release-notes.md" />
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Blazor.JwtAuth.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Blazor.JwtAuth.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/AccessTokenProvider/AccessTokenProviderTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AccessTokenProvider/AccessTokenProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AuthServiceImplementation/AuthServiceImplementationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuthServiceImplementation/AuthServiceImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/AuthServiceInterface/AuthServiceInterfaceTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuthServiceInterface/AuthServiceInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/JwtAuthenticationStateProvider/JwtAuthenticationStateProviderTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/JwtAuthenticationStateProvider/JwtAuthenticationStateProviderTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

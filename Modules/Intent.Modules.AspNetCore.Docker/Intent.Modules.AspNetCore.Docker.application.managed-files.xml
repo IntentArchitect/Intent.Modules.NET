@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="2c301c3f-5c69-40bb-82ce-0d81c3cae946">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.AspNetCore.Docker.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Docker.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/DockerIgnore/DockerIgnoreTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/DockerIgnore/DockerIgnoreTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/DockerIgnore/DockerIgnoreTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DockerIgnore/DockerIgnoreTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Dockerfile/DockerfileTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
+  <file path="Templates/Dockerfile/DockerfileTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
+  <file path="Templates/Dockerfile/DockerfileTemplatePartial.cs" deviationsHash="1F819848CEBC4D905017B3B2395B98ED81F7D5F92434A2D2BE6C9540BA5E3C9C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Dockerfile/DockerfileTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>

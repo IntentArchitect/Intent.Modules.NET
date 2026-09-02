@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="24057b1c-2a88-4c71-b21a-74baaa302412">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/SwashbuckleStartupConfigurationExtension.cs" deviationsHash="FE789C815E0A98524AD8A44F4702046CE681759E96954229AB9A71C66433C677" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/TypeSchemaFilterExtension.cs" deviationsHash="E2E11A5AF7BCE3F62CE6E948B60C5B960B21D88E8306A7628495DC47F7A05673" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="Intent.AspNetCore.Swashbuckle.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.AspNetCore.Swashbuckle.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/HideRouteParametersFromBodyOperationFilter/HideRouteParametersFromBodyOperationFilterTemplatePartial.cs" deviationsHash="122FBA3611A223F292715B55BC7B42C15E720789B5BDA331C35E5BC322E9BC33" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HideRouteParametersFromBodyOperationFilter/HideRouteParametersFromBodyOperationFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs" deviationsHash="F69A7BDA85E1C6F392A3083E5FB34C9102840E144A1BFC96C19B1FD97F39BE66" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TypeSchemaFilter/TypeSchemaFilterTemplatePartial.cs" deviationsHash="EDE66DFE535B8251FE027A3F6403846B299DE440A72058BFB26906E8C34397CA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/TypeSchemaFilter/TypeSchemaFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+  <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
+</managedFiles>
