@@ -512,12 +512,6 @@ so they commit atomically with the entity changes. No broker call happens there 
 dispatches later, out of band), so there is nothing to protect against; suppressing would only risk
 decoupling the envelope write from the commit.
 
-> **Still outstanding — outbox rollback atomicity has never been tested.** Force an exception after a
-> publish but before the commit and assert that **neither** an entity row **nor** a
-> `wolverine_outgoing_envelopes` row survives. This was on the original plan's checklist and is still
-> unticked. It is the test that would prove the Durable reasoning above rather than merely arguing it,
-> and note its failure mode is *silent* — orphaned envelopes, not an exception.
-
 **Why this module is nonetheless safe:** in BOTH dispatch stacks the flush seam is the OUTER
 wrapper around the unit of work, so the broker call always happens after `tx.Complete()` /
 `tx.Dispose()` — there is no ambient transaction in scope by the time anything reaches the broker.
