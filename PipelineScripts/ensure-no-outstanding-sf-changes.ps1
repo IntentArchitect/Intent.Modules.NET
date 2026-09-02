@@ -32,7 +32,6 @@ if ($ClearCachedModules) {
 
 $params = @(
     "ensure-no-outstanding-changes"
-    "--check-deviations"
     "--continue-on-error"
     "--", # Prevents any subsequent parameters starting with '@' from being interpreted as a response file, see https://intentarchitect.com/redirect/xwTSFCW9
     $intent_architect_user
