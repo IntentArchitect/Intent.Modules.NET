@@ -81,6 +81,6 @@ This module depends on `Intent.Application.FluentValidation`, which generates an
 
 ## Related Modules
 
-- [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md) — core Wolverine CQRS module; required by this module.
-- [Intent.Application.Wolverine.DomainEvents](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.DomainEvents/README.md) — dispatches domain events through Wolverine's `IMessageBus`.
-- [Intent.Application.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md) — provides the shared `CustomValidationSkill` AI agent skill file inherited by this module.
+- [Intent.Application.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html) — core Wolverine CQRS module; required by this module.
+- [Intent.Application.Wolverine.DomainEvents](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine-domainevents/intent-application-wolverine-domainevents.html) — dispatches domain events through Wolverine's `IMessageBus`.
+- [Intent.Application.FluentValidation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-fluentvalidation/intent-application-fluentvalidation.html) — provides the shared `CustomValidationSkill` AI agent skill file inherited by this module.

@@ -202,7 +202,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>wolverine cqrs application handlers middleware dotnet</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html</projectUrl>
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>

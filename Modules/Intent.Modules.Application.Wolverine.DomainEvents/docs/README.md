@@ -87,5 +87,5 @@ This module reads domain event types from the **Modelers.Domain.Events** designe
 
 ## Related Modules
 
-- [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md) — core Wolverine CQRS module; required by this module.
-- [Intent.Application.Wolverine.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.FluentValidation/README.md) — adds FluentValidation validators for commands and queries.
+- [Intent.Application.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html) — core Wolverine CQRS module; required by this module.
+- [Intent.Application.Wolverine.FluentValidation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine-fluentvalidation/intent-application-wolverine-fluentvalidation.html) — adds FluentValidation validators for commands and queries.

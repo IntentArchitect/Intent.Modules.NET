@@ -10,11 +10,13 @@ This module is layered on top of `Intent.Wolverine.Common`, which owns the singl
 
 For more information, see the [Wolverine documentation](https://wolverine.netlify.app/).
 
-### 
+### Licensing
+
+Every package this module declares or generates code against is MIT-licensed — no licence-gated JasperFx Software product (Critter Stack Pro, the AI Skills packages) is referenced anywhere. That's the whole reason a MassTransit team escaping a commercial tier would look at Wolverine at all; see [Migrating from MassTransit](#migrating-from-masstransit) below.
 
 ## Modeling Integration Events and Commands
 
-Integration Events and Integration Commands are modeled in the Services designer via `Intent.Modelers.Eventing`, the same designer module every broker in this repository builds on — see its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) for how to model the message contracts themselves.
+Integration Events and Integration Commands are modeled in the Services designer via `Intent.Modelers.Eventing`, the same designer module every broker in this repository builds on — see its [documentation](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html) for how to model the message contracts themselves.
 
 Two stereotypes on top of that designer control how Wolverine specifically routes a message:
 
@@ -208,18 +210,18 @@ Uninstalling and rerunning the Software Factory removes everything this module g
 
 ## Related Modules
 
-### [Intent.Wolverine.Common](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Wolverine.Common/docs/README.md)
+### [Intent.Wolverine.Common](https://docs.intentarchitect.com/articles/modules-dotnet/intent-wolverine-common/intent-wolverine-common.html)
 
 Owns the single shared `builder.Host.UseWolverine(opts => ...)` registration this module contributes into, and arbitrates contribution order between it and every other Wolverine-based module.
 
-### [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/docs/README.md)
+### [Intent.Application.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html)
 
 Wires Wolverine as the application's CQRS command/query dispatcher. Not required to use this module standalone, but the two share the same host registration and, when both are installed, `Intent.Application.Wolverine`'s middleware is what actually calls `FlushAllAsync` on the bus this module registers.
 
-### [Intent.Eventing.Contracts](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Eventing.Contracts/docs/README.md)
+### [Intent.Eventing.Contracts](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html)
 
-Owns the transport-agnostic `IMessageBus` interface this module implements against, plus the Composite Message Bus that routes between providers when more than one broker module is installed. See its [documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html) for the full architecture.
+Owns the transport-agnostic `IMessageBus` interface this module implements against, plus the Composite Message Bus that routes between providers when more than one broker module is installed.
 
-### [Intent.EntityFrameworkCore](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/docs/README.md)
+### [Intent.EntityFrameworkCore](https://docs.intentarchitect.com/articles/modules-dotnet/intent-entityframeworkcore/intent-entityframeworkcore.html)
 
 Required when **Transactional Outbox** is set to `Durable` — the outbox persists outgoing/incoming messages through this module's `DbContext` and database provider.

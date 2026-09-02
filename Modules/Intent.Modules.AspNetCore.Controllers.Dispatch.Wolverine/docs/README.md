@@ -91,6 +91,6 @@ new GetProductByIdQuery { Id = id }
 
 ## Related Modules
 
-- `Intent.Application.Wolverine` — registers Wolverine in the DI container and provides the `IMessageBus` service that this module dispatches through.
-- `Intent.AspNetCore.Controllers` — owns the `ControllerTemplate` that this module extends. Must be installed for this module to function.
+- [Intent.Application.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html) — registers Wolverine in the DI container and provides the `IMessageBus` service that this module dispatches through.
+- [Intent.AspNetCore.Controllers](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-controllers/intent-aspnetcore-controllers.html) — owns the `ControllerTemplate` that this module extends. Must be installed for this module to function.
 - `Intent.Modelers.Services.CQRS` — provides the command and query designer elements that drive controller grouping and action generation.

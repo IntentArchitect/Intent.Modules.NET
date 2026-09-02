@@ -135,7 +135,7 @@ Aside from the custom behaviour logic noted above, the migration is a safe drop-
 
 ## Related Modules
 
-- [Intent.Application.Wolverine.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.FluentValidation/README.md) — adds FluentValidation validators for commands and queries.
-- [Intent.Application.Wolverine.DomainEvents](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.DomainEvents/README.md) — dispatches domain events through Wolverine's `IMessageBus`.
-- [Intent.AspNetCore.Controllers.Dispatch.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/README.md) — dispatches commands and queries from ASP.NET Core controllers via Wolverine.
-- [Intent.FastEndpoints.Dispatch.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.FastEndpoints.Dispatch.Wolverine/README.md) — dispatches commands and queries from FastEndpoints via Wolverine.
+- [Intent.Application.Wolverine.FluentValidation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine-fluentvalidation/intent-application-wolverine-fluentvalidation.html) — adds FluentValidation validators for commands and queries.
+- [Intent.Application.Wolverine.DomainEvents](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine-domainevents/intent-application-wolverine-domainevents.html) — dispatches domain events through Wolverine's `IMessageBus`.
+- [Intent.AspNetCore.Controllers.Dispatch.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-controllers-dispatch-wolverine/intent-aspnetcore-controllers-dispatch-wolverine.html) — dispatches commands and queries from ASP.NET Core controllers via Wolverine.
+- [Intent.FastEndpoints.Dispatch.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-fastendpoints-dispatch-wolverine/intent-fastendpoints-dispatch-wolverine.html) — dispatches commands and queries from FastEndpoints via Wolverine.

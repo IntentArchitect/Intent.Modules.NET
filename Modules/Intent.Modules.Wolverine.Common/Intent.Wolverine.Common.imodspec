@@ -41,6 +41,7 @@
   </files>
   <tags>wolverine host-registration dotnet infrastructure</tags>
   <releaseNotes>release-notes.md</releaseNotes>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-wolverine-common/intent-wolverine-common.html</projectUrl>
   <moduleSettingsExtensions />
   <metadata />
   <migrations />

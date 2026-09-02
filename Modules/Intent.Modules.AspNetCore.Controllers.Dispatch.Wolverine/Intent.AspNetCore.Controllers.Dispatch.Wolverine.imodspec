@@ -27,7 +27,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-controllers-dispatch-wolverine/intent-aspnetcore-controllers-dispatch-wolverine.html</projectUrl>
   <tags>wolverine aspnetcore controllers dispatch cqrs</tags>
   <moduleSettingsExtensions />
   <metadata />

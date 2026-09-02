@@ -54,6 +54,6 @@ This module requires the following modules to be installed:
 
 ## Related Modules
 
-- [Intent.FastEndpoints](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.FastEndpoints/README.md) — generates the FastEndpoints endpoint classes that this module extends.
-- [Intent.Application.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine/README.md) — registers Wolverine and generates handler classes that receive the dispatched messages.
-- [Intent.AspNetCore.Controllers.Dispatch.Wolverine](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.Controllers.Dispatch.Wolverine/README.md) — equivalent dispatch wiring for ASP.NET Core controllers.
+- [Intent.FastEndpoints](https://docs.intentarchitect.com/articles/modules-dotnet/intent-fastendpoints/intent-fastendpoints.html) — generates the FastEndpoints endpoint classes that this module extends.
+- [Intent.Application.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine/intent-application-wolverine.html) — registers Wolverine and generates handler classes that receive the dispatched messages.
+- [Intent.AspNetCore.Controllers.Dispatch.Wolverine](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-controllers-dispatch-wolverine/intent-aspnetcore-controllers-dispatch-wolverine.html) — equivalent dispatch wiring for ASP.NET Core controllers.

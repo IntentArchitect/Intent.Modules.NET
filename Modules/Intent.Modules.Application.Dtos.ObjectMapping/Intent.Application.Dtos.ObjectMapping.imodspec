@@ -53,7 +53,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>mapping dto csharp dotnet application objectmapping</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Dtos.ObjectMapping/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos-objectmapping/intent-application-dtos-objectmapping.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata />

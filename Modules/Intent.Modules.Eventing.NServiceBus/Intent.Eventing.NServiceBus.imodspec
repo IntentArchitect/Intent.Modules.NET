@@ -118,5 +118,6 @@
     <install target="Services" src="modelers/NServiceBus Settings.designer.settings" externalReference="b0319bd7-d378-42db-b58a-beb886c99560" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-nservicebus/intent-eventing-nservicebus.html</projectUrl>
   <migrations />
 </package>

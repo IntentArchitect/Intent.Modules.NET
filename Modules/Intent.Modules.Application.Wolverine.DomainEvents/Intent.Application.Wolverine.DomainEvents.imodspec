@@ -7,7 +7,7 @@
   <description>Generates a DomainEventService that dispatches domain events through Wolverine's IMessageBus, with optional handler stubs per domain event type.</description>
   <authors>Intent Architect</authors>
   <tags>wolverine domainevents cqrs messaging dotnet</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Wolverine.DomainEvents/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-wolverine-domainevents/intent-application-wolverine-domainevents.html</projectUrl>
   <templates>
     <template id="Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler" externalReference="32fcb82c-64fc-458e-83dc-0aeff8ec5a24">
       <config>

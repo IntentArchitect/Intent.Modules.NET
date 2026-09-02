@@ -145,14 +145,14 @@ This module no longer stands down when `Intent.Application.Dtos.AutoMapper` is i
 
 ## Related Modules
 
-### [Intent.Application.Dtos](https://github.com/IntentArchitect/Intent.Modules.NET)
+### [Intent.Application.Dtos](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos/intent-application-dtos.html)
 
 Provides the `DTOModel` designer elements and the `DtoModelTemplate` that this module reads to discover which DTOs have domain mappings and to resolve DTO type names.
 
-### [Intent.Application.Dtos.AutoMapper](https://github.com/IntentArchitect/Intent.Modules.NET)
+### [Intent.Application.Dtos.AutoMapper](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos-automapper/intent-application-dtos-automapper.html)
 
 The AutoMapper-based mapping provider this module replaces. The two modules are mutually exclusive — only one can be active in a given application.
 
-### [Intent.Application.Dtos.Mapperly](https://github.com/IntentArchitect/Intent.Modules.NET)
+### [Intent.Application.Dtos.Mapperly](https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos-mapperly/intent-application-dtos-mapperly.html)
 
 An alternative mapping provider based on Mapperly source generation. Also mutually exclusive with this module.

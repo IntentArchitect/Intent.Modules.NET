@@ -25,7 +25,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>wolverine fastendpoints dispatch cqrs dotnet</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.FastEndpoints.Dispatch.Wolverine/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-fastendpoints-dispatch-wolverine/intent-fastendpoints-dispatch-wolverine.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata />

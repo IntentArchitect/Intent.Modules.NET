@@ -109,6 +109,7 @@
   </files>
   <tags>wolverine eventing messaging rabbitmq azure-service-bus amazon-sqs dotnet</tags>
   <releaseNotes>release-notes.md</releaseNotes>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-wolverine/intent-eventing-wolverine.html</projectUrl>
   <moduleSettingsExtensions />
   <metadata>
     <install target="*" src="Intent.Metadata/Module Builder/Intent.Eventing.Wolverine/Intent.Eventing.Wolverine.pkg.config" externalReference="7882d907-6087-482f-bfae-3292c31c2c96" />

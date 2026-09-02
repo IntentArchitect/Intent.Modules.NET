@@ -10,7 +10,7 @@ For more information, see the [NServiceBus documentation](https://docs.particula
 
 ## Modeling Integration Events and Commands
 
-Integration Events and Integration Commands are modeled in the Services designer, using the same `Intent.Modelers.Eventing` module every other broker in this repository builds on — see its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) for how to model the message contracts themselves. `Intent.Eventing.NServiceBus` installs it automatically.
+Integration Events and Integration Commands are modeled in the Services designer, using the same `Intent.Modelers.Eventing` module every other broker in this repository builds on — see its [documentation](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html) for how to model the message contracts themselves. `Intent.Eventing.NServiceBus` installs it automatically.
 
 - **Integration Events** are broadcast: any application can publish one, any application can subscribe, and NServiceBus's pub/sub mechanism (SNS for SQS, Topics for Azure Service Bus, exchanges for RabbitMQ) takes care of fan-out. They carry no endpoint name.
 - **Integration Commands** are point-to-point: exactly one endpoint owns and handles a given command type, and every sender needs to know where to send it.
@@ -172,10 +172,10 @@ $env:AWS_REGION = "eu-west-1"
 
 ## Related Modules
 
-### [Intent.Eventing.Contracts](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Eventing.Contracts/docs/README.md)
+### [Intent.Eventing.Contracts](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html)
 
 Owns the transport-agnostic `IMessageBus` interface and `IIntegrationEventHandler<T>` this module implements against, plus the Composite Message Bus that routes between providers when more than one is installed.
 
-### [Intent.EntityFrameworkCore](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/docs/README.md)
+### [Intent.EntityFrameworkCore](https://docs.intentarchitect.com/articles/modules-dotnet/intent-entityframeworkcore/intent-entityframeworkcore.html)
 
 Required when **Persistence** is set to `SQL Persistence` and **Enable Outbox** is on — the outbox shares this module's `DbContext` connection and transaction to get exactly-once dispatch.
