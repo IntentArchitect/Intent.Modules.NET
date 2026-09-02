@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="d2358d26-abb4-4969-a778-b3fdfd0defc7">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/wolverine-command-handler/SKILL.md" />
-  <file path=".agents/skills/wolverine-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/wolverine-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/OpenApiConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/ExceptionProcessor.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/ChangeProductProductCommandEndpoint.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/CreateProductCommandEndpoint.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/GetProductByIdQueryEndpoint.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/GetProductsQueryEndpoint.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/UpdateProductPriceCommandEndpoint.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Program.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Properties/launchSettings.json" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Services/CurrentUserService.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Wolverine.AspNetCore.FastEndpoints.Api.csproj" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Api/appsettings.json" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IBypassValidation.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Models/Result.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedList.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/DependencyInjection.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/EventHandlers/GlobalDomainEventHandler.cs" deviationsHash="0741077AA1D9EAD77A4D211927CC0BC946E2E3C264D5135CE13702262E22B5CB" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/EventHandlers/ProductChangedDomainEventHandler.cs" deviationsHash="9AE9993FC687346397965334CEB801043E02B61E629DA3FFD60715538999B1F5" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Mappings/Products/ProductDtoProfile.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommand.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommandHandler.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommandValidator.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommand.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQuery.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQuery.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ProductDto.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommand.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandHandler.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandValidator.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Wolverine.AspNetCore.FastEndpoints.Application.csproj" deviationsHash="F5EAEA3AAA66BD3D30964C8ED475AC2938B9E37D005ED48EABA2E19D11F0A6E9" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/CollectionExtensions.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/DomainEvent.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/UpdateHelper.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Entities/Product.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Events/GlobalDomainEvent.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Events/ProductChangedDomainEvent.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IEFRepository.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IPagedList.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IProductRepository.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IRepository.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/ValueObject.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Wolverine.AspNetCore.FastEndpoints.Domain.csproj" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Configuration/WolverineConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/DependencyInjection.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/ApplicationHandlerPolicy.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/AuthorizationMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/LoggingMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/PerformanceMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Migrations/README.md" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Wolverine.AspNetCore.FastEndpoints.Infrastructure.csproj" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/wolverine-command-handler/SKILL.md" templateId="Intent.Application.Wolverine.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/wolverine-domain-event-handler/SKILL.md" templateId="Intent.Application.Wolverine.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/wolverine-query-handler/SKILL.md" templateId="Intent.Application.Wolverine.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.FastEndpoints.ApiVersioningConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/OpenApiConfiguration.cs" templateId="Intent.AspNetCore.Scalar.OpenApiConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/ExceptionProcessor.cs" templateId="Intent.FastEndpoints.ExceptionProcessorTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/ChangeProductProductCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/CreateProductCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/GetProductByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/GetProductsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/Products/UpdateProductPriceCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" templateId="Intent.FastEndpoints.JsonResponseTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/Wolverine.AspNetCore.FastEndpoints.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IBypassValidation.cs" templateId="Intent.Application.Wolverine.FluentValidation.BypassValidationInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.Wolverine.CommandInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.Wolverine.QueryInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/EventHandlers/GlobalDomainEventHandler.cs" deviationsHash="0741077AA1D9EAD77A4D211927CC0BC946E2E3C264D5135CE13702262E22B5CB" templateId="Intent.Application.Wolverine.DomainEvents.DefaultDomainEventHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/EventHandlers/ProductChangedDomainEventHandler.cs" deviationsHash="9AE9993FC687346397965334CEB801043E02B61E629DA3FFD60715538999B1F5" templateId="Intent.Application.Wolverine.DomainEvents.DomainEventHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Mappings/Products/ProductDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ChangeProductProduct/ChangeProductProductCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.Wolverine.QueryModels" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.Wolverine.QueryHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.QueryValidator" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.Wolverine.QueryModels" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.Wolverine.QueryHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.QueryValidator" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Wolverine.AspNetCore.FastEndpoints.Application.csproj" deviationsHash="F5EAEA3AAA66BD3D30964C8ED475AC2938B9E37D005ED48EABA2E19D11F0A6E9" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Events/GlobalDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Events/ProductChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Wolverine.AspNetCore.FastEndpoints.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/ApplicationHandlerPolicy.cs" templateId="Intent.Application.Wolverine.ApplicationHandlerPolicy" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/AuthorizationMiddleware.cs" templateId="Intent.Application.Wolverine.AuthorizationMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/LoggingMiddleware.cs" templateId="Intent.Application.Wolverine.LoggingMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/PerformanceMiddleware.cs" templateId="Intent.Application.Wolverine.PerformanceMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" templateId="Intent.Application.Wolverine.UnhandledExceptionMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" templateId="Intent.Application.Wolverine.UnitOfWorkMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" templateId="Intent.Application.Wolverine.ValidationMiddleware" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Services/DomainEventService.cs" templateId="Intent.Application.Wolverine.DomainEvents.DomainEventService" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Infrastructure/Wolverine.AspNetCore.FastEndpoints.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

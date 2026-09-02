@@ -28,6 +28,16 @@ namespace Wolverine.AspNetCore.Controllers.Api
             {
                 var builder = WebApplication.CreateBuilder(args);
 
+                builder.Host.UseWolverine(opts =>
+                {
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
+                });
+
+                builder.Host.UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+
                 builder.Services.AddControllers(
                     opt =>
                     {
@@ -40,16 +50,6 @@ namespace Wolverine.AspNetCore.Controllers.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
-
-                builder.Host.UseWolverine(opts =>
-                {
-                    WolverineConfiguration.Configure(opts);
-                });
-
-                builder.Host.UseSerilog((context, services, configuration) => configuration
-                    .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 var app = builder.Build();
 

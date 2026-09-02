@@ -48,7 +48,7 @@ namespace Wolverine.AspNetCore.FastEndpoints.Api
 
                 builder.Host.UseWolverine(opts =>
                 {
-                    WolverineConfiguration.Configure(opts);
+                    WolverineConfiguration.Configure(opts, builder.Configuration);
                 });
 
                 builder.Host.UseSerilog((context, services, configuration) => configuration

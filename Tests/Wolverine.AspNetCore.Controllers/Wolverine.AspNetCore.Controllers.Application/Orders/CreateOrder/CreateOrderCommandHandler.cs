@@ -15,7 +15,7 @@ namespace Wolverine.AspNetCore.Controllers.Application.CreateOrder
     public class CreateOrderCommandHandler
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IMessageBus _sender;
+        private readonly Wolverine.IMessageBus _sender;
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]

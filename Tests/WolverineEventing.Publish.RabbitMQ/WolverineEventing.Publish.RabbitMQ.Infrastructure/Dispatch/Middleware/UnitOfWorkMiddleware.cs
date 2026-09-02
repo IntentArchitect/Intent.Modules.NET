@@ -11,6 +11,11 @@ namespace WolverineEventing.Publish.RabbitMQ.Infrastructure.Dispatch.Middleware
     {
         public static TransactionScope? Before(IUnitOfWork dataSource)
         {
+            if (dataSource.HasDbTransaction())
+            {
+                // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
+                return null;
+            }
             return new TransactionScope(
             TransactionScopeOption.Required,
             new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted },
