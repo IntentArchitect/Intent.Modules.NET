@@ -51,16 +51,88 @@ The method must be present in **three places** for a project to compile:
    (Wolverine) — whichever dispatch template(s) the application has, each gets its own
    injected guard. See below.
 
-### Guard: Non-EF Unit-of-Work Backends
+### Guard: Injection Requires the EF Unit-of-Work Field to Exist
 
 `ModifyUnitOfWorkBehaviour`/`ModifyUnitOfWorkMiddleware` must **not** inject the
 `HasDbTransaction` guard into projects that don't use EF at all (e.g. Dapr, in-memory).
 Those projects have no data source to call `HasDbTransaction()` on and the injected code
 won't compile.
 
-Guard condition: skip injection if **no** template fulfills either
-`TemplateRoles.Infrastructure.Data.DbContext` or
+**Superseded guard (shipped 5.0.46 - 5.1.1):** skip injection if **no** template fulfills
+either `TemplateRoles.Infrastructure.Data.DbContext` or
 `TemplateRoles.Infrastructure.Data.ConnectionStringDbContext`.
+
+**Why the role check was insufficient.** It answers "does an EF DbContext exist?", which is a
+*proxy* for the question that actually decides whether the field exists — "did the EF
+unit-of-work chain emit a field into *this* class?". The two diverge, because the component
+that creates the field and the component that emitted the guard gate on different predicates:
+
+| Component | Gate |
+|---|---|
+| Creates `_dataSource` — `PersistenceUnitOfWork.AddEntityFrameworkToChain` (in `Intent.Common.UnitOfWork`) | `TemplateRoles.Infrastructure.Data.DbContext` — **primary DbContext only** |
+| Emitted `_dataSource.HasDbTransaction()` — `ModifyUnitOfWorkBehaviour` | `DbContext` **OR** `ConnectionStringDbContext` |
+
+`DbContextTemplate` fulfils `ConnectionStringDbContext` unconditionally but `DbContext` only
+when `Model.IsApplicationDbContext` — which requires
+`ConnectionStringName == DefaultConnectionStringName`. So in an application where **every**
+domain package sets a custom Connection String Name, no DbContext is primary: no field is
+created, but the old guard still injected the code.
+
+The timeline makes this a genuine supersession rather than an oversight. The `HasDbTransaction`
+work shipped in **5.0.46**, when "no primary DbContext" was a far more obscure corner.
+`Default Connection String Name` shipped later in **5.1.0** and made custom connection-string
+names a first-class scenario.
+
+**Current guard (5.1.2 onward)** — inspect the built artifact, not a proxy:
+
+```csharp
+var unitOfWorkField = @class.Fields.FirstOrDefault(x => x.Name == "_dataSource");
+if (unitOfWorkField == null) return;   // EF unit-of-work chain did not run for this class
+```
+
+... and emit `unitOfWorkField.Name` rather than the literal, so the guard and the emitted code
+cannot disagree. Precedent for this exact shape in the same module family:
+`EntityFrameworkCore.Repositories/FactoryExtensions/CustomRepositoryMethodsExtension.cs`
+(`@class.Fields.Any(x => x.Name == "_dbContext")`).
+
+The same check also closes the `UnitOfWorkResolutionStrategy.ServiceProvider` hole, which emits
+a *local* variable and no field.
+
+**Materialising the field instead is NOT an alternative.**
+`EntityFrameworkCore.Repositories/FactoryExtensions/DbContextInterfaceExtension.cs` publishes
+the `IUnitOfWork` -> DbContext container registration **only when `IsApplicationDbContext`**
+(verified: `Tests/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext` has the registration
+in `Infrastructure/DependencyInjection.cs`; `...NoDefaultDbContext` has none). Injecting the
+field would trade a compile error for a startup `InvalidOperationException`. Skipping is
+correct.
+
+**Exposing the field name from `Intent.Common.UnitOfWork` is also rejected.**
+`Intent.Modules.EntityFrameworkCore.csproj` has no reference to
+`Intent.Modules.Common.UnitOfWork` and the `.imodspec` `<dependencies>` does not list it. That
+would create a brand-new hard module dependency, plus the local-compile /
+`MissingMethodException` trap described under "Dependency Floors" below — to obtain a *less*
+reliable signal than reading the field.
+
+### Callback Ordering — OnBuild Completes Globally Before Any AfterBuild
+
+The field-existence check depends on the field already being there when this extension's
+`AfterBuild` runs. That ordering is **guaranteed, not assumed**:
+`ApplyUnitOfWorkImplementations` runs inside the `AddClass(...)` configure lambda, which
+`CSharpFile` defers to the **OnBuild** phase at priority 0 — not at template construction.
+`FileBuilderFactoryExtension` (`Order = int.MaxValue`) drains the entire OnBuild phase for
+*all* templates before *any* `AfterBuild` callback runs. So a field created during OnBuild is
+visible in `AfterBuild` at any priority. The `AfterBuild(..., 500)` priority is therefore not
+load-bearing — this extension is the only cross-module mutator of that template.
+
+### Accepted Coupling — the `_dataSource` Field Name
+
+The check hardcodes the field name `_dataSource`. That name comes from
+`fieldSuffix: "dataSource"` at
+`Intent.Modules.Application.MediatR.Behaviours/Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs`
+— the only non-default `fieldSuffix` among the 16 `ApplyUnitOfWorkImplementations` call sites,
+and it lives in a different module. The coupling is accepted because the check **fails
+closed**: if the name ever changes, injection is skipped and the build stays green (the
+co-existence optimisation is silently lost) rather than emitting code that will not compile.
 
 ### Guard: MediatR `next()` vs `next(cancellationToken)`
 
@@ -78,6 +150,38 @@ In projects with more than one DbContext, only the primary one fulfills
 `TemplateRoles.Infrastructure.Data.ConnectionStringDbContext`. Both roles must be targeted
 when adding `HasDbTransaction()` to the implementation — use `FindTemplateInstances` (plural)
 over both roles, not `FindTemplateInstance` (singular) over the primary role only.
+
+### Known Hazards — Found While Fixing the Guard in 5.1.2, Deliberately NOT Fixed There
+
+These are real, verified, and **still ship**. Each was left out of 5.1.2 because it belongs in
+a different module or needs its own fixture. Do not rediscover them; do not assume they are
+fixed.
+
+1. **The injected early-return bypasses other unit-of-work providers in the chain.** Verified
+   in `Tests/AdvancedMappingCrud.Repositories.Tests/.../UnitOfWorkBehaviour.cs`: the guard
+   returns before `using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())`, so that
+   provider's `SaveChangesAsync` never runs when an external EF transaction is active — a
+   silent loss of distributed-cache unit-of-work writes. Fixing it properly belongs in
+   `Intent.Common.UnitOfWork`: make only the `TransactionScope` conditional at runtime, rather
+   than early-returning past the whole composed chain.
+
+2. **The injected block ignores `Automatically Persist Unit Of Work`.** It always emits
+   `await _dataSource.SaveChangesAsync(cancellationToken);`, while all ten provider chains in
+   `PersistenceUnitOfWork.cs` guard on `config.AutomaticallyPersistUnitOfWork` (setting
+   `d6338b7c-b0f9-46bd-8dbb-3c745d5f8623`). Apps with automatic persistence off get an
+   unwanted `SaveChangesAsync` on that path.
+
+3. **`IUnitOfWork.HasDbTransaction()` + `Intent.MongoDb.MongoFramework` -> `CS0535`.**
+   `AddHasDbTransactionToInterface` has no guard, and `AddHasDbTransactionToDbContext`
+   implements the method only on the two EF DbContext roles. MongoFramework's
+   `IMongoDbUnitOfWork` extends `IUnitOfWork` and its `ApplicationMongoDbContext` implements
+   that interface — so the class would inherit an unimplemented member. **Zero current
+   exposure:** no test app installs `Intent.MongoDb.MongoFramework`, and the non-framework
+   `Intent.MongoDb` has its `ExtendsInterface` call commented out (verified against
+   `Tests/CleanArchitecture.SingleFiles`, which runs EF + Mongo and compiles). Every cheap fix
+   costs more than the bug: a C# 8 default interface member changes `IUnitOfWork` for all
+   consumers and breaks netstandard2.0 domain projects, and hardcoding MongoFramework's role
+   into this module inverts the dependency. Close it separately, with its own fixture.
 
 ---
 

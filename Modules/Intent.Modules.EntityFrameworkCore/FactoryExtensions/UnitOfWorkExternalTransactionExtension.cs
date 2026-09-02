@@ -31,6 +31,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
     ///    (Wolverine) to skip wrapping in <c>TransactionScope</c> when <c>HasDbTransaction()</c> is
     ///    true — prevents MSDTC escalation when an external party already owns the connection. Both
     ///    are held to the same behavioural bar: run the handler, save, return, with no scope.
+    ///    This is only injected when the EF unit-of-work field (<c>_dataSource</c>)
+    ///    is actually present on the generated behaviour class, since that field is what the guard
+    ///    dereferences.
     ///
     /// This is an EF concern, not a transport/messaging/dispatch concern. Any module that externally
     /// enlists an EF connection benefits automatically once this extension fires.
@@ -116,20 +119,24 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static void ModifyUnitOfWorkBehaviour(IApplication application)
         {
-            // Only inject when an EF DbContext is present — other unit-of-work backends (e.g. Dapr)
-            // don't have a _dataSource field and cannot call HasDbTransaction().
-            var hasDbContext = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext).Any()
-                || application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext).Any();
-            if (!hasDbContext) return;
-
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");
             if (template == null) return;
 
             template.CSharpFile.AfterBuild(file =>
             {
-                var handleMethod = file.Classes.First().FindMethod("Handle");
+                var @class = file.Classes.FirstOrDefault();
+                if (@class == null) return;
+
+                var handleMethod = @class.FindMethod("Handle");
                 if (handleMethod == null) return;
+
+                // Only inject when the EF unit-of-work chain actually created a field on THIS class.
+                // Deriving this from template roles is not reliable: the field is only created for the
+                // primary DbContext, while the roles also match secondary (connection string) DbContexts,
+                // and the ServiceProvider resolution strategy emits a local variable and no field at all.
+                var unitOfWorkField = @class.Fields.FirstOrDefault(x => x.Name == "_dataSource");
+                if (unitOfWorkField == null) return;
 
                 // Idempotency guard — skip if already modified
                 if (handleMethod.Statements.Any(s => s.ToString().Contains("HasDbTransaction"))) return;
@@ -140,11 +147,11 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     : "next()";
 
                 handleMethod.InsertStatement(0,
-                    "if (_dataSource.HasDbTransaction())\r\n" +
+                    $"if ({unitOfWorkField.Name}.HasDbTransaction())\r\n" +
                     "{\r\n" +
                     "    // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.\r\n" +
                     $"    var result = await {nextInvocation};\r\n" +
-                    "    await _dataSource.SaveChangesAsync(cancellationToken);\r\n" +
+                    $"    await {unitOfWorkField.Name}.SaveChangesAsync(cancellationToken);\r\n" +
                     "    return result;\r\n" +
                     "}",
                     s => s.SeparatedFromNext());
