@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Settings;
@@ -24,6 +26,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PersistingServerAuthenticationStateProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // The refresh_token / RefreshUrl half of the persisted UserInfo exists only to feed the
+            // browser-side refresh in PersistentAuthenticationStateProvider, which is emitted for the
+            // JWT mode only. For OIDC nothing reads it, and persisting it would ship a long-lived
+            // refresh token unencrypted in the prerendered HTML for no benefit.
+            var isJwt = this.GetAuthenticationType().IsBearerTokenJWT();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.Identity")
                 .AddUsing("Microsoft.AspNetCore.Components")
@@ -37,12 +45,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                 .AddUsing("System.Threading")
                 .AddUsing("System.Security.Claims")
                 .AddUsing("System")
-                .AddUsing("System.Diagnostics")
-                .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Authentication")
                 .AddClass($"PersistingServerAuthenticationStateProvider", @class =>
                 {
+                    // Deliberately NOT an IAccessTokenProvider. That is a WebAssembly abstraction, and
+                    // satisfying it here meant RequestAccessToken() calling GetAuthenticationStateAsync()
+                    // outside a component scope - which throws - and reporting every token as never
+                    // expiring. The server forwards its token through ServerAuthorizationMessageHandler,
+                    // which reads the claim per request instead.
                     @class.WithBaseType("ServerAuthenticationStateProvider");
-                    @class.ImplementsInterface("IAccessTokenProvider");
                     @class.ImplementsInterface("IDisposable");
                     @class.AddField("IdentityOptions", "options", f => f.PrivateReadOnly());
                     @class.AddField("PersistingComponentStateSubscription", "subscription", f => f.PrivateReadOnly());
@@ -54,7 +64,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                             param.IntroduceReadonlyField();
                         });
                         ctor.AddParameter("IOptions<IdentityOptions>", "optionsAccessor");
-                        ctor.AddParameter(this.UseType("Microsoft.Extensions.Configuration.IConfiguration"), "config", p => p.IntroduceReadonlyField());
+
+                        if (isJwt)
+                        {
+                            ctor.AddParameter(this.UseType("Microsoft.Extensions.Configuration.IConfiguration"), "config", p => p.IntroduceReadonlyField());
+                        }
 
                         ctor.AddStatement("options = optionsAccessor.Value;");
                         ctor.AddStatement("AuthenticationStateChanged += OnAuthenticationStateChanged;");
@@ -72,9 +86,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                     {
                         method.Async().Private();
 
+                        // A provider constructed outside a render (e.g. by a handler chain built in its own
+                        // DI scope) never receives an authentication state, and must not fault the persist
+                        // callback when it is asked to persist one.
                         method.AddIfStatement("authenticationStateTask is null", @if =>
                         {
-                            @if.AddStatement("throw new UnreachableException($\"Authentication state not set in {nameof(OnPersistingAsync)}().\");");
+                            @if.AddStatement("return;");
                         });
 
                         method.AddStatement("var authenticationState = await authenticationStateTask;");
@@ -85,9 +102,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                             @if.AddStatement("var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;");
                             @if.AddStatement("var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;");
                             @if.AddStatement("var accessToken = principal.FindFirst(\"access_token\")?.Value;");
-                            @if.AddStatement("var refreshToken = principal.FindFirst(\"refresh_token\")?.Value;");
                             @if.AddStatement("var expiresAtClaim = principal.FindFirst(\"expires_at\")?.Value;");
-                            @if.AddStatement("var refreshUrl = _config.GetValue<string?>(\"TokenEndpoint:Uri\");");
+
+                            if (isJwt)
+                            {
+                                @if.AddStatement("var refreshToken = principal.FindFirst(\"refresh_token\")?.Value;");
+                                @if.AddStatement("var refreshUrl = _config.GetValue<string?>(\"TokenEndpoint:Uri\");");
+                            }
 
                             @if.AddIfStatement($"!DateTime.TryParse(expiresAtClaim, null, {UseType("System.Globalization.DateTimeStyles")}.RoundtripKind, out var expiresAt)", iif =>
                             {
@@ -95,16 +116,20 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                             });
 
                             @if.AddIfStatement("userId != null && email != null", @iif =>
-                                                        {
-                                                            @iif.AddStatement(@"var userInfo = new UserInfo {
-                        UserId = userId, 
-                        Email = email, 
-                        AccessToken = accessToken, 
-                        RefreshToken = refreshToken, 
-                        AccessTokenExpiresAt = expiresAt, 
-                        RefreshUrl = refreshUrl};");
-                                                            @iif.AddStatement($"_persistentComponentState.PersistAsJson(nameof({GetTypeName(UserInfoTemplate.TemplateId)}), userInfo);");
-                                                        });
+                            {
+                                var refreshInitializers = isJwt
+                                    ? @"
+                        RefreshToken = refreshToken,
+                        RefreshUrl = refreshUrl,"
+                                    : string.Empty;
+
+                                @iif.AddStatement($@"var userInfo = new UserInfo {{
+                        UserId = userId,
+                        Email = email,
+                        AccessToken = accessToken,{refreshInitializers}
+                        AccessTokenExpiresAt = expiresAt}};");
+                                @iif.AddStatement($"_persistentComponentState.PersistAsJson(nameof({GetTypeName(UserInfoTemplate.TemplateId)}), userInfo);");
+                            });
                         });
                     });
 
@@ -114,29 +139,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         method.AddStatement("AuthenticationStateChanged -= OnAuthenticationStateChanged;");
                     });
 
-                    @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
-                    {
-                        method.Async().WithReturnType("ValueTask<AccessTokenResult>");
-                        method.AddAssignmentStatement("var state", new CSharpStatement("await this.GetAuthenticationStateAsync();"));
-                        method.AddAssignmentStatement("var token", new CSharpStatement("state.User.FindFirst(\"access_token\");"));
-
-                        method.AddIfStatement($"token == null", @if => @if.AddReturn("new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, \"auth/login\", null)"));
-
-                        method.AddAssignmentStatement("var accessToken", new CSharpStatement("new AccessToken { Expires = DateTimeOffset.MaxValue, Value = token.Value };"));
-
-                        method.AddAssignmentStatement("var result", new CSharpStatement("new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);"));
-
-                        method.AddReturn("result");
-                    });
-
-                    @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
-                    {
-                        method.Async().WithReturnType("ValueTask<AccessTokenResult>");
-
-                        method.AddParameter("AccessTokenRequestOptions", "options");
-
-                        method.AddReturn("await RequestAccessToken()");
-                    });
                 });
         }
 

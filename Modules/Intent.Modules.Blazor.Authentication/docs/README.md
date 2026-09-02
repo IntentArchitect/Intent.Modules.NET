@@ -42,3 +42,52 @@ Authentication for secure third-party APIs can be achieved using either **JWT** 
 
 In these modes, the access token (`auth_token`) retrieved from the configured token provider is automatically attached to any outgoing HTTP requests targeting `Secured` API endpoints.  
 This ensures that all protected resources are accessed with the appropriate authorization headers without requiring manual token handling.
+
+## Configuration
+
+### OIDC Password Flow
+
+An OIDC application generates placeholders for the keys it reads into the server project's
+`appsettings.json`. Both must be filled in before the application can log in:
+
+```json
+{
+  "TokenEndpoint": {
+    "Uri": "https://localhost:44391/identity/"
+  },
+  "Authentication": {
+    "OIDC": {
+      "ClientId": "",
+      "ClientSecret": "",
+      "DefaultScopes": "openid profile api"
+    }
+  }
+}
+```
+
+| Key | Consumed by |
+|---|---|
+| `TokenEndpoint:Uri` | Base address of the `"oidcClient"` `HttpClient` registered in `Program.cs` |
+| `Authentication:OIDC:*` | Bound to `OidcAuthenticationOptions`; `OidcAuthService.Login` throws if any of the three is blank |
+
+- **`TokenEndpoint:Uri` requires a trailing slash.** It is a base address resolved against the
+  relative path `connect/token`, so a value without the trailing slash loses its sub-path — for
+  example `https://host/identity` resolves to `https://host/connect/token`.
+- **`ClientSecret` belongs in user-secrets or environment variables**, not in the committed file.
+- **A refresh token is only issued when `offline_access` is in `DefaultScopes` *and* the identity
+  provider's client has offline access enabled** (`AllowOfflineAccess = true` on IdentityServer).
+  Its absence is a supported configuration — the generated code tolerates a token response with no
+  `refresh_token`.
+- **No environment-specific override file is generated.** These keys need production values
+  supplied through your own `appsettings.Production.json`, environment variables, or secret store.
+
+### Token refresh
+
+Browser-side token refresh is generated for the **JWT** mode only, where `refresh` is a genuine
+ASP.NET Core Identity endpoint.
+
+OIDC ships without it: an OIDC provider expects a form-encoded `grant_type=refresh_token` at
+`connect/token`, which would require a `client_id` in the browser, a public client registration and
+browser-origin CORS — giving away the property that makes the server-side OIDC design preferable.
+An OIDC application therefore routes the user back to the login page when the access token expires,
+and no refresh token is sent to the browser.

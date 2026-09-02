@@ -18,10 +18,10 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
     // Ships ux-account.css (the MudBlazor account/manage presentation layer) to wwwroot for the
-    // MudBlazor ASP.NET Core Identity account pages — the counterpart to AccountTheme (which ships
-    // the non-MudBlazor ux-account.css). Loads after ux-mudblazor.css so it can override the shared
-    // page-header utility for account pages. Signature = Mode.Merge so the Software Factory preserves
-    // the hand-set base class (AuthStaticContentTemplateRegistration) and the gated Register.
+    // MudBlazor account pages - the counterpart to AccountTheme (which ships the non-MudBlazor
+    // ux-account.css). Loads after ux-mudblazor.css so it can override the shared page-header
+    // utility for account pages. Signature = Mode.Merge so the Software Factory preserves the
+    // hand-set base class (AuthStaticContentTemplateRegistration) and the gated Register.
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public class MudBlazorAccountThemeStaticContentTemplateRegistration : AuthStaticContentTemplateRegistration
     {
@@ -48,11 +48,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             var auth = application.MetadataManager.GetAuthenticationType(application.Id);
             var mudBlazorInstalled = application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor");
 
-            // The account skin (ux-account.css + nav-drawer.js) is mode-independent — it tames the
+            // The account skin (ux-account.css + nav-drawer.js) is mode-independent - it tames the
             // shared page-header banner for account pages and drives centering. Ship it for any
-            // MudBlazor app with a local account UI (Identity or JWT). OIDC redirects to an external
-            // IdP (no local account UI) — the same !IsOidc() gate the account pages use.
-            if (mudBlazorInstalled && !auth.IsSingleSignOnOpenIDConnect())
+            // MudBlazor app with a local account UI, which is every mode except "None": OIDC here is
+            // the resource-owner password flow with its own generated oidc-login page, not a redirect
+            // to an external IdP, so it needs the skin exactly as Identity and JWT do.
+            if (mudBlazorInstalled && !auth.IsNone())
             {
                 RegisterAuthStaticContent(registry, application);
             }

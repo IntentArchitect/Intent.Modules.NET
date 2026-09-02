@@ -1,6 +1,8 @@
 using System;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -39,7 +41,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Redire
                         {
                             onInitialized.Protected().Override();
 
-                            onInitialized.AddStatement("NavigationManager.NavigateTo($\"Account/Login?returnUrl={Uri.EscapeDataString(NavigationManager.Uri)}\", forceLoad: true);");
+                            // Route resolved from the modelled login page rather than hardcoded, so
+                            // that every generated redirect shares one source.
+                            onInitialized.AddStatement($"NavigationManager.NavigateTo(\"{this.GetLoginRoute()}?returnUrl=\" + Uri.EscapeDataString(NavigationManager.Uri), forceLoad: true);");
                         });
                     });
                 });

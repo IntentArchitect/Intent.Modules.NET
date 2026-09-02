@@ -11,7 +11,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler
+namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ServerAuthorizationMessageHandler
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class ServerAuthorizationMessageHandlerTemplateRegistration : SingleFileTemplateRegistration

@@ -9,7 +9,6 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
-using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationDbContext;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNetCoreIdentityAuthServiceConcrete;
@@ -21,6 +20,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthen
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingServerAuthenticationStateProvider;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
@@ -57,6 +57,24 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 return;
             }
 
+            // HttpClientConfiguration is generated into the shared .Client project, and BOTH hosts call
+            // AddHttpClients - the server reaches it via AddClientServices. The AuthorizationMessageHandler
+            // it attaches by default is a WebAssembly component: it caches the token and the built
+            // Authorization header in unsynchronised instance fields, and on the server that one handler
+            // instance is shared across every request and every user for the handler chain's lifetime.
+            // So the default is stripped out of the server's pipeline and replaced with a per-request
+            // handler, in EVERY render mode - the server prerenders in all of them.
+            var httpClients = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Blazor.HttpClients.HttpClientConfiguration");
+
+            // Nothing to do for an application with authentication but no service proxies, nor for one
+            // where no proxy requires authorization. This metadata is set eagerly by HttpClientConfiguration's
+            // constructor precisely so it can be tested here, before any build callback has run: the
+            // generated AddApiAuthorizationHandler method is not visible until build time. An older
+            // Intent.Blazor.HttpClients sets no metadata, so this leaves such an application exactly as it
+            // was rather than emitting a call to a method it does not generate.
+            var wireServerAuthorizationHandler = httpClients is not null &&
+                                                 httpClients.CSharpFile.HasMetadata("api-authorization-handler");
+
             startup.CSharpFile.AfterBuild(file =>
             {
                 startup.StartupFile.ConfigureServices((statements, context) =>
@@ -80,10 +98,12 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     }
                     statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
 
-                    if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
-                    {
-                        statements.AddStatement($"{context.Services}.AddApiAuthorization();");
-                    }
+                    // AddApiAuthorization() is deliberately NOT registered server-side. It is a WebAssembly
+                    // API: it registers the browser-only AuthorizationMessageHandler, and registers
+                    // IAccessTokenProvider as a cast of the resolved AuthenticationStateProvider. That cast
+                    // throws InvalidCastException in Interactive Auto, where the server provider is
+                    // PersistingRevalidatingAuthenticationStateProvider. The server gets
+                    // ServerAuthorizationMessageHandler instead - see the AddApiAuthorizationHandler wiring below.
 
                     if (securityType.IsBuiltInLoginASPNETIdentity())
                     {
@@ -147,10 +167,8 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     {
                         file.AddUsing("Microsoft.AspNetCore.Authentication.Cookies");
                         AddPersistanceProvider(startup, statements, context);
-                        if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
-                        {
-                            statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(ServerAuthorizationMessageHandlerTemplate.TemplateId)}>();");
-                        }
+                        // No AddScoped<ServerAuthorizationMessageHandler>() - AddApiAuthorizationHandler
+                        // constructs it directly, because it needs the per-client authorized URL list.
                         if (securityType.IsBearerTokenJWT())
                         {
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(JwtAuthServiceConcreteTemplate.TemplateId)}>();");
@@ -164,6 +182,20 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                             {{
                             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                             }}).AddCookie();".ConvertToStatements());
+                    }
+
+                    // The server's replacement for the WebAssembly handler stripped from AddHttpClients
+                    // below. Constructed directly rather than resolved, because it needs the per-client
+                    // authorized URL list that AddApiAuthorizationHandler passes in. Registered in every
+                    // render mode. This has to happen inside the AfterBuild callback - StartupFile's
+                    // ConfigureServices resolves the method off the built file and throws if called before.
+                    if (wireServerAuthorizationHandler)
+                    {
+                        startup.AddUsing("Microsoft.AspNetCore.Http");
+                        startup.AddUsing(httpClients.CSharpFile.Namespace);
+
+                        statements.AddStatement(
+                            $"{context.Services}.AddApiAuthorizationHandler({context.Configuration}, (sp, urls) => new {startup.GetTypeName(ServerAuthorizationMessageHandlerTemplate.TemplateId)}(sp.GetRequiredService<IHttpContextAccessor>(), urls));");
                     }
                 });
 
@@ -197,43 +229,36 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 });
             });
 
-            if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() &&
-                !securityType.IsBuiltInLoginASPNETIdentity())
+            if (!wireServerAuthorizationHandler)
             {
+                return;
+            }
 
-                var httpClients = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Blazor.HttpClients.HttpClientConfiguration");
+            httpClients.CSharpFile.OnBuild(file =>
+            {
+                var addHttpClients = file.Classes.FirstOrDefault()?.Methods.FirstOrDefault(m => m.Name == "AddHttpClients");
 
-                if (httpClients is null)
+                if (addHttpClients is null)
                 {
                     return;
                 }
 
-                httpClients.CSharpFile.OnBuild(file =>
+                foreach (var statement in addHttpClients.Statements)
                 {
-                    var @class = file.Classes.First();
-
-                    var addHttpClients = @class.Methods.FirstOrDefault(m => m.Name == "AddHttpClients");
-
-                    if (addHttpClients is null)
+                    if (statement is not CSharpMethodChainStatement mcs)
                     {
-                        return;
+                        continue;
                     }
 
-                    foreach (var statement in addHttpClients.Statements)
+                    // Structural, not textual. HttpClientConfiguration tags the statements it owns with
+                    // this key; matching on the emitted "AddHttpMessageHandler" text broke as soon as
+                    // anything else added a handler to the same chain.
+                    foreach (var tagged in mcs.Statements.Where(s => s.HasMetadata("authorization-handler")).ToArray())
                     {
-                        if (statement is CSharpMethodChainStatement mcs)
-                        {
-                            var addHttpMessageHandlerStatement = mcs.Statements.FirstOrDefault(s => s.Text.Contains("AddHttpMessageHandler"));
-
-                            if (addHttpMessageHandlerStatement != null)
-                            {
-                                mcs.Statements.Remove(addHttpMessageHandlerStatement);
-                                mcs.Statements.Add(new CSharpInvocationStatement($"AddHttpMessageHandler<{httpClients.GetTypeName(ServerAuthorizationMessageHandlerTemplate.TemplateId)}>").WithoutSemicolon());
-                            }
-                        }
+                        mcs.Statements.Remove(tagged);
                     }
-                });
-            }
+                }
+            });
         }
 
         private void AddPersistanceProvider(IAppStartupTemplate startupTemplate, IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)

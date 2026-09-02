@@ -28,17 +28,36 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Access
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AccessTokenResponseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // This template is shared by the JWT and OIDC modes (see CanRunTemplate), whose token
+            // endpoints use different property-name casing, and the wrong choice silently deserializes
+            // every property as null:
+            //
+            //  - OIDC (RFC 6749 §5.1) is snake_case — "access_token", "expires_in". ReadFromJsonAsync
+            //    uses JsonSerializerDefaults.Web (camelCase, case-insensitive), which does not match
+            //    snake_case, so explicit [JsonPropertyName] attributes are required.
+            //  - JWT's ASP.NET Core Identity backend returns camelCase — "accessToken", "expiresIn" —
+            //    which JsonSerializerDefaults.Web already matches. Adding the snake_case attributes
+            //    here would override the naming policy and break it.
+            var isOidc = this.GetAuthenticationType().IsSingleSignOnOpenIDConnect();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Text.Json.Serialization")
                 .AddClass($"AccessTokenResponse", @class =>
                 {
-                    @class.AddProperty("string", "AccessToken");
-                    @class.AddProperty("string", "RefreshToken");
-                    @class.AddProperty("string?", "TokenType");
+                    @class.AddProperty("string", "AccessToken", p => ApplyJsonPropertyName(p, isOidc, "access_token"));
+                    @class.AddProperty("string", "RefreshToken", p => ApplyJsonPropertyName(p, isOidc, "refresh_token"));
+                    @class.AddProperty("string?", "TokenType", p => ApplyJsonPropertyName(p, isOidc, "token_type"));
                     @class.AddProperty("DateTime?", "ExpiresIn", p =>
                     {
+                        ApplyJsonPropertyName(p, isOidc, "expires_in");
                         p.AddAttribute("[JsonConverter(typeof(NullableExpiresInConverter))]");
                     });
+
+                    if (isOidc)
+                    {
+                        @class.AddProperty("string?", "Scope", p => ApplyJsonPropertyName(p, isOidc, "scope"));
+                    }
 
                     @class.AddNestedClass("NullableExpiresInConverter", nested =>
                     {
@@ -114,6 +133,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Access
                     });
 
                 });
+        }
+
+        private static void ApplyJsonPropertyName(CSharpProperty property, bool isOidc, string snakeCaseName)
+        {
+            if (isOidc)
+            {
+                property.AddAttribute($"[JsonPropertyName(\"{snakeCaseName}\")]");
+            }
         }
 
         public override bool CanRunTemplate()

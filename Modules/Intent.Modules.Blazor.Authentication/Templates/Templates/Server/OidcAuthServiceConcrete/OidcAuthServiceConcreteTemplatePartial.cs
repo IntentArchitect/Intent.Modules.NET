@@ -38,6 +38,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Security.Claims")
                 .AddUsing("Microsoft.Extensions.Options")
+                .AddUsing("Microsoft.AspNetCore.Authentication.Cookies")
                 .AddClass($"OidcAuthService", @class =>
                 {
                     @class.Internal();
@@ -79,7 +80,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
             }", s => s.SeparatedFromNext());
 
                         method.AddStatement("var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException(\"No active HttpContext found.\");");
-                        method.AddStatement("await httpContext.SignOutAsync();", s => s.SeparatedFromNext());
+                        method.AddStatement("await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);", s => s.SeparatedFromNext());
 
 
                         method.AddStatements(@"var tokenRequest = new Dictionary<string, string>
@@ -92,24 +93,42 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                             { ""scope"", _oidcAuthOptions.DefaultScopes }
                         };".ConvertToStatements());
 
-                        method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsJsonAsync(\"/connect/token\", new FormUrlEncodedContent(tokenRequest));"));
+                        method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsync(\"connect/token\", new FormUrlEncodedContent(tokenRequest));"));
 
                         method.AddIfStatement("tokenResponse.IsSuccessStatusCode", @if =>
                         {
-                            @if.AddAssignmentStatement("var loginResponse", new CSharpStatement($"await tokenResponse.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();"));
+                            // RFC 6749 §5.1 token responses are JSON, so ReadFromJsonAsync is correct here — it is
+                            // only the request direction that must be form-encoded. Guard the result: a provider
+                            // returning 200 with an empty or access-token-less body would otherwise surface as an
+                            // ArgumentNullException from the Claim constructor below.
+                            @if.AddAssignmentStatement("var loginResponse", new CSharpStatement($"await tokenResponse.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>()\n                                ?? throw new InvalidOperationException(\"The token endpoint returned an empty response.\");"));
+
+                            @if.AddIfStatement("string.IsNullOrWhiteSpace(loginResponse.AccessToken)", guard =>
+                            {
+                                guard.AddStatement("throw new InvalidOperationException(\"The token endpoint response did not contain an access token.\");");
+                            });
+
                             @if.AddStatements(@"var claims = new List<Claim>
                             {
                                 new Claim(ClaimTypes.NameIdentifier, username),
                                 new Claim(ClaimTypes.Email, username),
                                 new Claim(""access_token"", loginResponse.AccessToken),
-                                new Claim(""refresh_token"", loginResponse.RefreshToken),
                                 new Claim(""token_type"", loginResponse.TokenType ?? ""Bearer""),
                                 new Claim(""expires_at"", (loginResponse.ExpiresIn ?? DateTime.UtcNow.AddHours(1)).ToString(""o""))
 
                             };".ConvertToStatements());
-                            @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims);"));
+
+                            @if.AddIfStatement("!string.IsNullOrWhiteSpace(loginResponse.RefreshToken)", subIf =>
+                            {
+                                subIf.AddStatement("claims.Add(new Claim(\"refresh_token\", loginResponse.RefreshToken));");
+                            });
+
+                            // ClaimsIdentity.IsAuthenticated is !string.IsNullOrEmpty(AuthenticationType), so without
+                            // an authentication type the principal reports IsAuthenticated == false and
+                            // PersistingServerAuthenticationStateProvider never persists UserInfo to the WASM client.
+                            @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);"));
                             @if.AddAssignmentStatement("var claimsPrincipal", new CSharpStatement("new ClaimsPrincipal(claimsIdentity);"));
-                            @if.AddStatement("await _httpContextAccessor.HttpContext.SignInAsync(claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });");
+                            @if.AddStatement("await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });");
                             @if.AddStatement("_redirectManager.RedirectTo(returnUrl);");
                         }).AddElseStatement(@else =>
                         {
@@ -117,6 +136,31 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                         });
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!CanRunTemplate()) return;
+
+            // Both keys are read by generated code but were previously documented nowhere, so a freshly
+            // generated OIDC application failed at runtime with no indication of which keys exist.
+            //
+            // TokenEndpoint:Uri is the base address of the "oidcClient" HttpClient registered by
+            // ServerAddAuthentication, resolved against a relative "connect/token" — hence the trailing
+            // slash, without which a sub-path (e.g. /identity/) is discarded.
+            this.ApplyAppSetting("TokenEndpoint:Uri", "https://localhost:{sts_port}/");
+
+            // Bound to OidcAuthenticationOptions via Configure<>(Configuration.GetSection("Authentication:OIDC")).
+            // Login throws if ClientId, ClientSecret or DefaultScopes is blank. ClientSecret is left empty
+            // deliberately — it belongs in user-secrets or environment variables, not the committed file.
+            // Adding offline_access to DefaultScopes (plus AllowOfflineAccess on the IdP client) is what
+            // produces a refresh token; without it there is none, which is a supported configuration.
+            this.ApplyAppSetting("Authentication:OIDC", new
+            {
+                ClientId = "",
+                ClientSecret = "",
+                DefaultScopes = "openid profile api"
+            });
         }
 
         [IntentManaged(Mode.Fully)]

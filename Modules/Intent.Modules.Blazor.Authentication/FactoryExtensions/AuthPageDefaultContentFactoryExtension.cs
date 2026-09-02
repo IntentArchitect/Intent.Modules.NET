@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
@@ -17,6 +18,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -167,10 +169,19 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     x => x.Model.InternalElement.Id == pageTemplate.Model.InternalElement.Id);
 
                 var styleContent = content.BuildStyleContent(pageTemplate);
-                if (styleTemplate is not null && !string.IsNullOrEmpty(styleContent))
+                if (styleTemplate is null || string.IsNullOrEmpty(styleContent))
                 {
-                    styleTemplate.StyleContentOverride = styleContent;
+                    continue;
                 }
+
+                // RazorComponentStyleTemplate pins no OverwriteBehaviour, so seeding an existing file
+                // would overwrite whatever the developer has since written into it.
+                if (File.Exists(styleTemplate.GetMetadata().GetFilePath()))
+                {
+                    continue;
+                }
+
+                styleTemplate.StyleContentOverride = styleContent;
             }
         }
     }

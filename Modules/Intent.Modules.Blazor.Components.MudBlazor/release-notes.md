@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Fixed: A customized `Home.razor` could be silently replaced by this module's default home page on a later Software Factory run, and a Home page designed in the User Interface designer could never generate at all. The default is now seeded once, only when `Home.razor` does not exist — delete the file to get it back.
+
 ### Version 2.0.3
 
 - Improvement: Entire menu/layout mechanism is now more dynamic and flexible between AI and modeling.

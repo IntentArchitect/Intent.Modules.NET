@@ -34,6 +34,7 @@
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Blazor.InteractiveServer.AspNetCoreIdentity.csproj" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Common/AspNetCoreIdentityAuthServiceConcrete.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Common/IAuthService.cs" />
+  <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Common/ServerAuthorizationMessageHandler.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/IdentityComponentsEndpointRouteBuilderExtensions.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/IdentityNoOpEmailSender.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/IdentityRedirectManager.cs" />
@@ -104,7 +105,6 @@
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ExternalLoginPicker.razor" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ExternalLoginPicker.razor.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/RedirectToLogin.razor" />
-  <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ServerAuthorizationMessageHandler.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ShowRecoveryCodes.razor" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ShowRecoveryCodes.razor.cs" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/StatusMessage.razor" />

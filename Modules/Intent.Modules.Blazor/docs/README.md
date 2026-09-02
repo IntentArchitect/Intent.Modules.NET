@@ -22,6 +22,23 @@ The first time a modelled `Layout`'s `MainLayout.razor` is generated, this modul
 
 > 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library composes `MainLayout.razor` with its own components instead.
 
+## Prerendering
+
+The **Prerendering** module setting controls whether the server renders each page's initial HTML before the interactive runtime takes over. It applies to **all three render modes** — Interactive Server, Interactive WebAssembly and Interactive Auto — and is **off by default**.
+
+When it is off, `App.razor` emits the page's render mode with `prerender: false`:
+
+```csharp
+protected IComponentRenderMode? GetRenderModeForPage()
+{
+    return new InteractiveWebAssemblyRenderMode(prerender: false);
+}
+```
+
+When it is on, the render mode is emitted with prerendering left at its framework default.
+
+> ⚠️ Prerendering runs your pages **on the server**. Any data a page loads during prerender is therefore fetched by the server rather than by the browser, using whatever credentials the server has for that user — so a page that calls an authenticated API is making that call server-side. If you turn prerendering on for an application that uses [Intent.Modules.Blazor.Authentication](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-authentication/intent-blazor-authentication.html), make sure that module is up to date: it supplies the per-request server-side authorization handler that makes those calls safe.
+
 ## AI Skill Samples
 
 Each bundled AI skill (e.g. `blazor-dialog-adding-entity`) ships a `SKILL.md` and one or more sample files (e.g. `add-entity-dialog-sample.razor`) into your application's `.agents/skills/<skill-name>/` folder. The sample files are regenerated on every Software Factory run **until the skill's own `SKILL.md` has been hand-edited** — once you customize a skill's instructions, its sample files are left untouched too, on the assumption you have taken over maintenance of the whole skill.

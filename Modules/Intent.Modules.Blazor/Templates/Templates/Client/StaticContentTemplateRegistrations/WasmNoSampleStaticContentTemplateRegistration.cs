@@ -44,6 +44,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
+            // This condition is mirrored by TemplateHelper.ShipsAppCss, which AppRazorTemplate uses
+            // to decide whether to emit the app.css <link>. Change one and change the other, or the
+            // link and the file drift apart again.
             if (TemplateHelper.ComponentLibraryInstalled(application))
                 return;
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly())

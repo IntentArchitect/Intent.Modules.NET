@@ -21,15 +21,12 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
         private readonly IdentityOptions options;
         private readonly PersistingComponentStateSubscription subscription;
         private readonly PersistentComponentState _persistentComponentState;
-        private readonly IConfiguration _config;
         private Task<AuthenticationState>? authenticationStateTask;
 
         public PersistingServerAuthenticationStateProvider(PersistentComponentState persistentComponentState,
-            IOptions<IdentityOptions> optionsAccessor,
-            IConfiguration config)
+            IOptions<IdentityOptions> optionsAccessor)
         {
             _persistentComponentState = persistentComponentState;
-            _config = config;
             options = optionsAccessor.Value;
             AuthenticationStateChanged += OnAuthenticationStateChanged;
             subscription = _persistentComponentState.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
@@ -48,7 +45,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
 
             if (token == null)
             {
-                return new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, "auth/login", null);
+                return new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, "/Account/Login", null);
             }
             var accessToken = new AccessToken { Expires = DateTimeOffset.MaxValue, Value = token.Value };
             var result = new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);
@@ -79,9 +76,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
                 var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;
                 var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;
                 var accessToken = principal.FindFirst("access_token")?.Value;
-                var refreshToken = principal.FindFirst("refresh_token")?.Value;
                 var expiresAtClaim = principal.FindFirst("expires_at")?.Value;
-                var refreshUrl = _config.GetValue<string?>("TokenEndpoint:Uri");
 
                 if (!DateTime.TryParse(expiresAtClaim, null, DateTimeStyles.RoundtripKind, out var expiresAt))
                 {
@@ -90,7 +85,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
 
                 if (userId != null && email != null)
                 {
-                    var userInfo = new UserInfo { UserId = userId, Email = email, AccessToken = accessToken, RefreshToken = refreshToken, AccessTokenExpiresAt = expiresAt, RefreshUrl = refreshUrl };
+                    var userInfo = new UserInfo { UserId = userId, Email = email, AccessToken = accessToken, AccessTokenExpiresAt = expiresAt };
                     _persistentComponentState.PersistAsJson(nameof(UserInfo), userInfo);
                 }
             }

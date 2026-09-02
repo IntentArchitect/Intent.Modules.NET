@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Improvement: `HttpClientConfiguration` now also generates an `AddApiAuthorizationHandler` method when a proxy requires authorization, letting each host attach its own authorization handler instead of sharing the WebAssembly-only one that `AddHttpClients` attaches by default. Output is unchanged unless a module (such as Intent.Blazor.Authentication) opts into it.
+
 ### Version 4.1.3
 
 - Fixed: Software Factory no longer crashes when generating service proxies in an application with no appsettings.json.

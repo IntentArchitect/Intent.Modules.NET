@@ -10,11 +10,17 @@ namespace Blazor.InteractiveServer.Oidc.Components.Account
 {
     public class AccessTokenResponse
     {
+        [JsonPropertyName("access_token")]
         public string AccessToken { get; set; }
+        [JsonPropertyName("refresh_token")]
         public string RefreshToken { get; set; }
+        [JsonPropertyName("token_type")]
         public string? TokenType { get; set; }
+        [JsonPropertyName("expires_in")]
         [JsonConverter(typeof(NullableExpiresInConverter))]
         public DateTime? ExpiresIn { get; set; }
+        [JsonPropertyName("scope")]
+        public string? Scope { get; set; }
         public class NullableExpiresInConverter : JsonConverter<DateTime?>
         {
             public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -65,8 +71,8 @@ namespace Blazor.InteractiveServer.Oidc.Components.Account
                 }
 
                 var utc = value.Value.Kind == DateTimeKind.Utc
-                    ? value.Value
-                    : value.Value.ToUniversalTime();
+                                    ? value.Value
+                                    : value.Value.ToUniversalTime();
 
                 long seconds = (long)Math.Max(
                     0,

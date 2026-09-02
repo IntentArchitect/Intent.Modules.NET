@@ -65,9 +65,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", "ux-components.css"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "stylesheet")
-                                .AddAttribute("href", "app.css"));
+                            // app.css only exists when a content group actually shipped it - see
+                            // TemplateHelper.ShipsAppCss. Emitting the link unconditionally 404'd on
+                            // every page load of every application the content groups do not cover.
+                            if (TemplateHelper.ShipsAppCss(ExecutionContext))
+                            {
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "stylesheet")
+                                    .AddAttribute("href", "app.css"));
+                            }
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
@@ -106,8 +112,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 
                         code.AddMethod("IComponentRenderMode?", "GetRenderModeForPage", method =>
                         {
-                            // Server with out pre-render
-                            if (!ExecutionContext.Settings.GetBlazor().RenderMode().IsInteractiveWebAssembly() && !ExecutionContext.Settings.GetBlazor().ServerPrerendering())
+                            // Honoured in every render mode. A prerendered page runs on the server, so
+                            // anything it calls is issued server-side rather than from the browser.
+                            if (!ExecutionContext.Settings.GetBlazor().ServerPrerendering())
                             {
                                 method.AddStatement($"return new {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())}RenderMode(prerender: false);");
                             }
@@ -149,6 +156,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                 <!DOCTYPE html>
                 {RazorFile.ToString().Trim()}
                 """;
+
         }
 
         private static string GetRenderModeConfiguration(RenderModeOptionsEnum? renderMode) => renderMode switch

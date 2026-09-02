@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Intent.Blazor.Authentication.Api;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.Api;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -23,6 +25,25 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PersistentAuthenticationStateProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // Browser-side token refresh is emitted for the JWT mode ONLY.
+            //
+            // JWT: "refresh" is a genuine ASP.NET Core Identity endpoint and the refresh token is
+            // already in the browser, so refreshing there costs nothing extra.
+            //
+            // OIDC: an OIDC provider has no "refresh" path — it expects a form-encoded
+            // grant_type=refresh_token at connect/token, which needs a client_id in the browser and
+            // therefore a public client registration plus browser-origin CORS. That forfeits exactly
+            // the property that makes the server-side OIDC design better than a browser-side one. So
+            // OIDC ships no refresh: RequestAccessToken falls straight through to the login redirect
+            // on a missing or expired token. If refresh is wanted for OIDC later, the right shape is a
+            // server-side endpoint that reads refresh_token from the auth cookie, calls the IdP with
+            // client_id + client_secret, and re-issues the cookie.
+            var isJwt = this.GetAuthenticationType().IsBearerTokenJWT();
+
+            // Resolved from the modelled login page's Page.Route rather than hardcoded, so a user who
+            // moves the page in the designer has this redirect follow them.
+            var loginRoute = this.GetLoginRoute();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.Components")
                 .AddUsing("Microsoft.AspNetCore.Components.Authorization")
@@ -30,7 +51,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Authentication")
                 .AddUsing("System")
-                .AddUsing("System.Net.Http.Json")
                 .AddClass($"PersistentAuthenticationStateProvider", @class =>
                 {
                     @class.WithBaseType("AuthenticationStateProvider");
@@ -42,15 +62,34 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                     });
                     @class.AddField("Task<AuthenticationState>", "_authenticationStateTask", f =>
                     {
-                        f.PrivateReadOnly();
+                        // JWT reassigns this after a successful refresh so that
+                        // NotifyAuthenticationStateChanged hands out the new access token. Nothing
+                        // reassigns it in the other modes, so it stays readonly there.
+                        if (isJwt)
+                        {
+                            f.Private();
+                        }
+                        else
+                        {
+                            f.PrivateReadOnly();
+                        }
+
                         f.WithAssignment(new CSharpStatement("_defaultUnauthenticatedTask"));
                     });
-                    @class.AddField("Uri?", "_identityUrl", p => p.PrivateReadOnly());
-
-                    @class.AddField(UseType("System.Net.Http.HttpClient"), "_refreshClient", p => p.PrivateReadOnly().WithAssignment("new HttpClient()"));
                     @class.AddField("string?", "_accessToken", p => p.Private());
-                    @class.AddField("string?", "_refreshToken", p => p.Private());
-                    @class.AddField("DateTimeOffset", "_accessTokenExpiresAt", p => p.Private().WithAssignment("DateTimeOffset.MinValue"));
+                    @class.AddField("DateTimeOffset", "_accessTokenExpiresAt", p => p.Private().WithAssignment(new CSharpStatement("DateTimeOffset.MinValue")));
+
+                    if (isJwt)
+                    {
+                        CSharpFile.AddUsing("System.Net.Http.Json");
+
+                        // Retained so a refreshed access token can be republished on the same identity.
+                        @class.AddField("string?", "_userId", p => p.Private());
+                        @class.AddField("string?", "_email", p => p.Private());
+                        @class.AddField("Uri?", "_identityUrl", p => p.Private());
+                        @class.AddField(UseType("System.Net.Http.HttpClient"), "_refreshClient", p => p.PrivateReadOnly().WithAssignment(new CSharpStatement("new HttpClient()")));
+                        @class.AddField("string?", "_refreshToken", p => p.Private());
+                    }
 
                     @class.AddConstructor(ctor =>
                     {
@@ -58,6 +97,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         ctor.AddParameter("NavigationManager", "nav", p => p.IntroduceReadonlyField());
 
                         ctor.AddIfStatement($"!state.TryTakeFromJson<{GetTypeName(UserInfoTemplate.TemplateId)}>(nameof(UserInfo), out var userInfo) || userInfo is null", @if => @if.AddReturn(""));
+
+                        if (isJwt)
+                        {
+                            ctor.AddStatement("_userId = userInfo.UserId;");
+                            ctor.AddStatement("_email = userInfo.Email;");
+                        }
 
                         ctor.AddStatements(@"Claim[] claims = [
                             new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
@@ -71,9 +116,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         ctor.AddIfStatement("!string.IsNullOrWhiteSpace(userInfo.AccessToken)", ifs =>
                         {
                             ifs.AddStatement("_accessToken = userInfo.AccessToken;");
-                            ifs.AddStatement("_refreshToken = userInfo.RefreshToken;");
                             ifs.AddIfStatement("userInfo.AccessTokenExpiresAt.HasValue", i => i.AddStatement("_accessTokenExpiresAt = userInfo.AccessTokenExpiresAt.Value;"));
-                            ifs.AddIfStatement("!string.IsNullOrEmpty(userInfo.RefreshUrl)", i => i.AddStatement("_identityUrl = new Uri(userInfo.RefreshUrl, UriKind.Absolute);"));
+
+                            if (isJwt)
+                            {
+                                ifs.AddStatement("_refreshToken = userInfo.RefreshToken;");
+                                ifs.AddIfStatement("!string.IsNullOrEmpty(userInfo.RefreshUrl)", i => i.AddStatement("_identityUrl = new Uri(userInfo.RefreshUrl, UriKind.Absolute);"));
+                            }
                         });
                     });
 
@@ -87,44 +136,50 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
 
                     @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
                     {
-                        method.Async().WithReturnType("ValueTask<AccessTokenResult>");
+                        // Only the JWT variant awaits anything (the refresh call). Marking the OIDC
+                        // variant async would emit a CS1998 warning into every generated application,
+                        // so its returns are wrapped in ValueTask.FromResult instead.
+                        if (isJwt)
+                        {
+                            method.Async();
+                        }
+
+                        method.WithReturnType("ValueTask<AccessTokenResult>");
                         method.AddParameter("AccessTokenRequestOptions", "options");
 
                         method.AddStatements(@"var missingToken = string.IsNullOrWhiteSpace(_accessToken);
-            var expired = _accessTokenExpiresAt > DateTimeOffset.MinValue && _accessTokenExpiresAt <= DateTimeOffset.UtcNow;
+            var expired = _accessTokenExpiresAt > DateTimeOffset.MinValue && _accessTokenExpiresAt <= DateTimeOffset.UtcNow;".ConvertToStatements());
 
-            if (missingToken || expired)
-            {
-                // Try to refresh if we have a refresh token
-                if (!string.IsNullOrWhiteSpace(_refreshToken))
-                {
-                    var refreshed = await TryRefreshAccessTokenAsync();
-                    if (refreshed)
-                    {
-                        // we now have a new _accessToken / _accessTokenExpiresAt
-                        var at = new AccessToken
+                        method.AddIfStatement("missingToken || expired", @if =>
                         {
-                            Value = _accessToken!,
-                            Expires = _accessTokenExpiresAt
-                        };
+                            if (isJwt)
+                            {
+                                @if.AddIfStatement("!string.IsNullOrWhiteSpace(_refreshToken)", refreshIf =>
+                                {
+                                    refreshIf.AddStatement("var refreshed = await TryRefreshAccessTokenAsync();");
+                                    refreshIf.AddIfStatement("refreshed", ok =>
+                                    {
+                                        ok.AddStatements(@"var refreshedToken = new AccessToken
+                    {
+                        Value = _accessToken!,
+                        Expires = _accessTokenExpiresAt
+                    };".ConvertToStatements());
+                                        ok.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.Success, refreshedToken, null, null)"));
+                                    });
+                                });
+                            }
 
-                        return new AccessTokenResult(AccessTokenResultStatus.Success, at, null, null);
-                    }
-                }
-
-                // No refresh token OR refresh failed → send user to login
-                var current = _nav.ToBaseRelativePath(_nav.Uri);
+                            // The IAccessTokenProvider contract is to RETURN the status and URL and let
+                            // the caller navigate (AuthorizationMessageHandler →
+                            // AccessTokenNotAvailableException → .Redirect()). Navigating inline here
+                            // would tear the page out from under in-flight requests.
+                            @if.AddStatements($@"var current = _nav.ToBaseRelativePath(_nav.Uri);
                 var returnUrl = ""/"" + current;
-                var loginUrl = $""/account/login?returnUrl={Uri.EscapeDataString(returnUrl)}"";
+                var loginUrl = ""{loginRoute}?returnUrl="" + Uri.EscapeDataString(returnUrl);".ConvertToStatements());
+                            @if.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null)"));
+                        });
 
-                _nav.NavigateTo(loginUrl, forceLoad: true);
-
-                return new AccessTokenResult(
-                    AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null);
-            }
-
-            // Token present and we consider it valid
-            var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
+                        method.AddStatements(@"var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
                 ? _accessTokenExpiresAt
                 : DateTimeOffset.UtcNow.AddMinutes(5);
 
@@ -133,14 +188,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                 Value = _accessToken!,
                 Expires = expires
             };".ConvertToStatements());
-                        method.AddStatement("return new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);");
-
-
+                        method.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null)"));
                     });
-                    @class.AddMethod("Task<bool>", "TryRefreshAccessTokenAsync", method =>
+
+                    if (isJwt)
                     {
-                        method.Private().Async();
-                        method.AddStatements($@"if (string.IsNullOrWhiteSpace(_refreshToken) || _identityUrl == null)
+                        @class.AddMethod("Task<bool>", "TryRefreshAccessTokenAsync", method =>
+                        {
+                            method.Private().Async();
+                            method.AddStatements($@"if (string.IsNullOrWhiteSpace(_refreshToken) || _identityUrl == null)
                 return false;
 
             try
@@ -164,16 +220,45 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                     ? _refreshToken // keep old if not rotated
                     : dto.RefreshToken;
 
-                // compute expiry
-                _accessTokenExpiresAt = new DateTimeOffset(dto.ExpiresIn!.Value, TimeSpan.Zero);
+                // expires_in is optional in a token response. Dereferencing it unconditionally would
+                // throw into the catch below and report a successful refresh as a failure.
+                _accessTokenExpiresAt = dto.ExpiresIn.HasValue
+                    ? new DateTimeOffset(DateTime.SpecifyKind(dto.ExpiresIn.Value, DateTimeKind.Utc), TimeSpan.Zero)
+                    : DateTimeOffset.UtcNow.AddMinutes(5);
+
+                // Publish the refreshed token. Without this, anything reading ""access_token"" off
+                // AuthenticationState keeps seeing the stale value for the rest of the session, and
+                // NotifyAuthenticationStateChanged is never raised at all.
+                Claim[] refreshedClaims = [
+                    new Claim(ClaimTypes.NameIdentifier, _userId ?? string.Empty),
+                    new Claim(ClaimTypes.Email, _email ?? string.Empty),
+                    new Claim(""access_token"", _accessToken) ];
+
+                _authenticationStateTask = Task.FromResult(
+                    new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(refreshedClaims,
+                        authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+
+                NotifyAuthenticationStateChanged(_authenticationStateTask);
+
                 return true;
             }}
             catch
             {{
                 return false;
             }}".ConvertToStatements());
-                    });
+                        });
+                    }
                 });
+        }
+
+        /// <summary>
+        /// The JWT variant of the generated <c>RequestAccessToken</c> is <c>async</c>, so it returns
+        /// its value directly; the OIDC variant is not, so its returns must be wrapped in a
+        /// <c>ValueTask</c>.
+        /// </summary>
+        private static string WrapReturn(bool isJwt, string expression)
+        {
+            return isJwt ? expression : $"ValueTask.FromResult({expression})";
         }
 
         [IntentManaged(Mode.Fully)]

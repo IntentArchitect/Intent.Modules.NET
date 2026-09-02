@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.AccessTokenResponse;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.PersistentAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.RedirectToLogin;
-using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayout;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AccountLayoutCodeBehind;
@@ -20,6 +19,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthen
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingServerAuthenticationStateProvider;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.SetUserContextInterface;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;

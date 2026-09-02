@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Authentication</id>
-  <version>2.0.2</version>
+  <version>2.0.3-pre.0</version>
   <supportedClientVersions>[5.0.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Automates Authentication components for a Blazor application</summary>
   <description>Automates Authentication components for a Blazor application</description>
@@ -27,14 +27,6 @@
       <location>Common</location>
     </template>
     <template id="Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate" externalReference="70b935ea-010d-4827-9156-14efdc2aafc4">
-      <role>Blazor.Client</role>
-      <location>Components/Account/Shared</location>
-    </template>
-    <template id="Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate" externalReference="15e7db1d-a0ec-49ce-b5f3-5f6d000f10de">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
       <role>Blazor.Client</role>
       <location>Components/Account/Shared</location>
     </template>
@@ -170,6 +162,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account</location>
     </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ServerAuthorizationMessageHandlerTemplate" externalReference="15e7db1d-a0ec-49ce-b5f3-5f6d000f10de">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
     <template id="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" externalReference="71383371-74d6-4655-9df0-484b7354d4c0">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -211,7 +211,6 @@
     <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
     <factoryExtension id="Intent.Blazor.Authentication.WireupAccountCssExtension" externalReference="5d143f25-19e7-4729-9874-4ed876783a01" />
-    <factoryExtension id="Intent.Blazor.Authentication.WireupMudBlazorAccountCss" externalReference="959992f9-0512-4074-b944-32484aeb5d1d" />
   </factoryExtensions>
   <moduleSettings />
   <dependencies>

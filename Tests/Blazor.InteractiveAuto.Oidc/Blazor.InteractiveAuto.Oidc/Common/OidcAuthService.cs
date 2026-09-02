@@ -3,6 +3,7 @@ using Blazor.InteractiveAuto.Oidc.Client.Components.Account;
 using Blazor.InteractiveAuto.Oidc.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -39,7 +40,7 @@ namespace Blazor.InteractiveAuto.Oidc.Common
             }
 
             var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException("No active HttpContext found.");
-            await httpContext.SignOutAsync();
+            await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             var tokenRequest = new Dictionary<string, string>
                                     {
@@ -50,24 +51,34 @@ namespace Blazor.InteractiveAuto.Oidc.Common
                                         { "password", password },
                                         { "scope", _oidcAuthOptions.DefaultScopes }
                                     };
-            var tokenResponse = await _httpClient.PostAsJsonAsync("/connect/token", new FormUrlEncodedContent(tokenRequest));
+            var tokenResponse = await _httpClient.PostAsync("connect/token", new FormUrlEncodedContent(tokenRequest));
 
             if (tokenResponse.IsSuccessStatusCode)
             {
-                var loginResponse = await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>();
+                var loginResponse = await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>()
+                                ?? throw new InvalidOperationException("The token endpoint returned an empty response.");
+
+                if (string.IsNullOrWhiteSpace(loginResponse.AccessToken))
+                {
+                    throw new InvalidOperationException("The token endpoint response did not contain an access token.");
+                }
                 var claims = new List<Claim>
                                             {
                                                 new Claim(ClaimTypes.NameIdentifier, username),
                                                 new Claim(ClaimTypes.Email, username),
                                                 new Claim("access_token", loginResponse.AccessToken),
-                                                new Claim("refresh_token", loginResponse.RefreshToken),
                                                 new Claim("token_type", loginResponse.TokenType ?? "Bearer"),
                                                 new Claim("expires_at", (loginResponse.ExpiresIn ?? DateTime.UtcNow.AddHours(1)).ToString("o"))
 
                                             };
-                var claimsIdentity = new ClaimsIdentity(claims);
+
+                if (!string.IsNullOrWhiteSpace(loginResponse.RefreshToken))
+                {
+                    claims.Add(new Claim("refresh_token", loginResponse.RefreshToken));
+                }
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                await _httpContextAccessor.HttpContext.SignInAsync(claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });
+                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });
                 _redirectManager.RedirectTo(returnUrl);
             }
             else

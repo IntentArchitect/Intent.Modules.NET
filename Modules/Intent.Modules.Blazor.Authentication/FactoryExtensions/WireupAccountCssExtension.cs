@@ -31,37 +31,94 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         {
             var securityType = application.MetadataManager.GetAuthenticationType(application.Id);
 
-            // ux-account.css ships for the non-MudBlazor account pages with a local login — ASP.NET
-            // Core Identity OR JWT (the !IsOidc() account-UI gate); OIDC redirects to an external IdP.
-            if (securityType.IsSingleSignOnOpenIDConnect())
+            // ux-account.css ships for every Authentication mode that has a LOCAL account UI - which is
+            // all three of them. OIDC here is the resource-owner password flow (OidcAuthService posts
+            // grant_type=password to connect/token) against a generated oidc-login page carrying the
+            // same hand-rolled login-input-* form as Identity and JWT; it is NOT a redirect to an
+            // external IdP. Gating this on !IsOidc() left OIDC applications with the markup and no
+            // stylesheet.
+            //
+            // Only "None" has no account pages at all. It ships no ux-account.css, so linking one would
+            // 404 on every page load.
+            if (securityType.IsNone())
             {
                 return;
             }
 
-            if (application.InstalledModules.Any(im => im.ModuleId == "Intent.Blazor.Components.MudBlazor"))
-            {
-                return;
-            }
+            // Deliberately MudBlazor-agnostic: AccountTheme and MudBlazorAccountTheme ship two different
+            // ux-account.css variants under the same href, so whichever one was materialised is the one
+            // that loads and a single link serves both.
 
-            var app = application.FindTemplateInstance<IRazorFileTemplate>("Intent.Blazor.Templates.Server.AppRazorTemplate")?.RazorFile;
+            // AppRazorTemplate is host-scoped, and a multi-host application can have Blazor components
+            // in more than one host - loop every instance instead of the singular, application-wide
+            // lookup, which throws once a second Blazor host exists.
+            var appRazorTemplates = application
+                .FindTemplateInstances<IRazorFileTemplate>("Intent.Blazor.Templates.Server.AppRazorTemplate")
+                .ToArray();
 
-            if (app == null)
+            if (appRazorTemplates.Length == 0)
             {
                 Logging.Log.Warning("Unable to install ux-account.css. App.razor could not be found.");
                 return;
             }
 
-            app.AfterBuild(file =>
+            foreach (var appRazorTemplate in appRazorTemplates)
             {
-                var appCssLink = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
-                if (appCssLink != null)
+                var app = appRazorTemplate.RazorFile;
+
+                app.AfterBuild(file =>
                 {
-                    appCssLink.AddBelow(
-                        new HtmlElement("link", app)
-                            .AddAttribute("rel", "stylesheet")
-                            .AddAttribute("href", "ux-account.css"));
-                }
-            }, 100);
+                    var links = file.SelectHtmlElements("/html/head/link").ToList();
+
+                    var accountCssLink = new HtmlElement("link", app)
+                        .AddAttribute("rel", "stylesheet")
+                        .AddAttribute("href", "ux-account.css");
+
+                    // Anchor on the scoped-CSS bundle ({Project}.styles.css). AppRazorTemplate emits it
+                    // unconditionally and last, which makes it the one link always present and never
+                    // repositioned by another module, and inserting ABOVE it satisfies both orderings
+                    // that matter:
+                    //
+                    //  - AFTER ux-mudblazor.css, because ux-account.css overrides the shared MudBlazor
+                    //    page-header utility (.ux-gradient-primary) by cascade order rather than
+                    //    !important. Linking it earlier silently reintroduces the full-bleed
+                    //    frosted-banner bug on the account pages.
+                    //  - BEFORE the bundle, so a page's own scoped .razor.css still wins over the
+                    //    global sheet.
+                    //
+                    // Do NOT anchor on app.css: that link is emitted only when app.css is actually
+                    // shipped (Intent.Blazor's TemplateHelper.ShipsAppCss), so it is absent from most
+                    // applications.
+                    var stylesBundle = links.FirstOrDefault(x =>
+                        x.GetAttribute("href")?.Value?.EndsWith(".styles.css", StringComparison.OrdinalIgnoreCase) == true);
+
+                    if (stylesBundle != null)
+                    {
+                        stylesBundle.AddAbove(accountCssLink);
+                        return;
+                    }
+
+                    // Fallbacks for an App.razor head that has been restructured by hand, in descending
+                    // order of how well each preserves the ordering above.
+                    var fallbackAnchor = FindLink(links, "app.css")
+                                         ?? FindLink(links, "ux-mudblazor.css")
+                                         ?? FindLink(links, "ux-components.css");
+
+                    if (fallbackAnchor != null)
+                    {
+                        fallbackAnchor.AddBelow(accountCssLink);
+                        return;
+                    }
+
+                    Logging.Log.Warning("Unable to install ux-account.css. No stylesheet link was found in App.razor's head to anchor it to.");
+                }, 100);
+            }
+        }
+
+        [IntentIgnore]
+        private static IHtmlElement FindLink(IEnumerable<IHtmlElement> links, string href)
+        {
+            return links.FirstOrDefault(x => x.HasAttribute("href", href));
         }
     }
 

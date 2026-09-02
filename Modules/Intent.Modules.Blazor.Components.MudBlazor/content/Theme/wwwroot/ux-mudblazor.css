@@ -708,6 +708,27 @@ border/text tint; hover fills the background and adds a glow.
     line-height: 1.4 !important;
 }
 
+.mud-input-control > .mud-input-control-input-container > .mud-input-label-inputcontrol {
+    left: var(--space-3) !important;
+    max-width: calc(100% - (var(--space-3) * 2)) !important;
+    transform: translate(0, 34px) scale(1);
+}
+
+.mud-input-control > .mud-input-control-input-container > .mud-input-label-inputcontrol.mud-input-label-margindense {
+    transform: translate(0, 34px) scale(1);
+}
+
+.mud-input-control > .mud-input-control-input-container > .mud-input-adorned-start ~ .mud-input-label-inputcontrol {
+    left: calc(var(--space-3) + 2rem) !important;
+    max-width: calc(100% - (var(--space-3) * 2) - 2rem) !important;
+}
+
+.mud-input-control > .mud-input-control-input-container > .mud-input-adorned-start.mud-shrink ~ .mud-input-label-inputcontrol,
+.mud-input-control > .mud-input-control-input-container > .mud-input-adorned-start:focus-within ~ .mud-input-label-inputcontrol {
+    left: var(--space-3) !important;
+    max-width: calc(100% - (var(--space-3) * 2)) !important;
+}
+
 /* Chromium / Edge autofill safety for MudBlazor text inputs */
 .mud-input > input:-webkit-autofill,
 .mud-input > input:-webkit-autofill:hover,
@@ -942,6 +963,7 @@ border/text tint; hover fills the background and adds a glow.
     color: var(--text-muted) !important;
     border-radius: calc(var(--radius-sm) - 2px) !important;
     margin: 1px var(--space-1) !important;
+    width: auto !important;
     transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out) !important;
 }
 

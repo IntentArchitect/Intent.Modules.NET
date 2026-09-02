@@ -8,9 +8,13 @@
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
   <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone" version="1.2.16" />
   <applications>
-    <application id="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040" name="Blazor" relativePath="Modules/Intent.Modules.Blazor/Intent.Modules.Blazor.application.config" />
-    <application id="3f08d954-b821-4c2d-871f-ac109217513a" name="Blazor.Authentication" relativePath="Modules/Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.application.config" />
-    <application id="9a7240ce-a75e-4913-8630-d06afa4e7cae" name="Blazor.Components.MudBlazor" relativePath="Modules/Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.application.config" />
-    <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Blazor.Components.MudBlazor.Metadata" relativePath="Modules/Intent.Modules.Blazor.Components.MudBlazor.Metadata/Intent.Modules.Blazor.Components.MudBlazor.Metadata.application.config" />
+    <application id="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040" name="Blazor" relativePath="Intent.Modules.Blazor/Intent.Modules.Blazor.application.config" />
+    <application id="3f08d954-b821-4c2d-871f-ac109217513a" name="Blazor.Authentication" relativePath="Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.application.config" />
+    <application id="9a7240ce-a75e-4913-8630-d06afa4e7cae" name="Blazor.Components.MudBlazor" relativePath="Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.application.config" />
+    <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Blazor.Components.MudBlazor.Metadata" relativePath="Intent.Modules.Blazor.Components.MudBlazor.Metadata/Intent.Modules.Blazor.Components.MudBlazor.Metadata.application.config" />
+    <application id="f51fb36a-8aba-46a5-8c18-b9f9c8c496da" name="Blazor.HttpClients" relativePath="Intent.Modules.Blazor.HttpClients/Intent.Modules.Blazor.HttpClients.application.config" />
   </applications>
+  <folders>
+    <folder path="../Tests" />
+  </folders>
 </solution>

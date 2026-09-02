@@ -42,11 +42,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            // OIDC redirects to an external IdP — no local account UI. The account skin ships for
-            // the modes with a local login (ASP.NET Core Identity + JWT), mirroring the !IsOidc()
-            // gate the account pages use.
+            // The account skin ships for every mode that has a local account UI - all three of them.
+            // OIDC here is the resource-owner password flow with its own generated oidc-login page,
+            // not a redirect to an external IdP, so it needs the skin exactly as Identity and JWT do.
+            // Only "None" has no account pages, so only it must be skipped.
             var auth = application.MetadataManager.GetAuthenticationType(application.Id);
-            if (auth.IsSingleSignOnOpenIDConnect())
+            if (auth.IsNone())
             {
                 return;
             }

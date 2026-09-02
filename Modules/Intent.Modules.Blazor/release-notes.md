@@ -1,10 +1,15 @@
+### Version 2.0.4
+
+- Fixed: `App.razor` linked `app.css` unconditionally although that file is only generated for a subset of configurations, so most applications returned a 404 for it on every page load; the link is now emitted only when the file is actually shipped.
+- Improvement: The `Prerendering` setting is now offered for Interactive WebAssembly and Interactive Auto, not just Interactive Server, and is honoured in every render mode. Note that Interactive WebAssembly applications previously always prerendered and will stop doing so on regeneration unless you switch the setting on.
+
 ### Version 2.0.3
 
 - Improvement: Removed modelled `OnInitializedAsync` on every page
 - Improvement: Entire menu/layout mechanism is now more dynamic and flexible between AI and modeling.
 - Improvement: Removed hard dependency on MudBlazor.
 - Improvement: Each bundled AI skill's sample files are no longer overwritten once that skill's own `SKILL.md` has been hand-edited, on the assumption you have taken over maintenance of the whole skill.
-- Improvement: Lots of minor bug fixes, improvements and styling tweaks. 
+- Improvement: Lots of minor bug fixes, improvements and styling tweaks.
 
 ### Version 2.0.2
 

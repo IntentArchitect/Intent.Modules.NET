@@ -1,10 +1,18 @@
 /* ============================================================================
 ux-account.css — MudBlazor account/manage presentation layer
 ----------------------------------------------------------------------------
-Shipped only for MudBlazor + ASP.NET Core Identity apps and linked AFTER
-ux-mudblazor.css, so it can override the shared MudBlazor page-header utility
-for the account area without touching the main-app pages. Counterpart to the
-non-MudBlazor ux-account.css.
+Shipped for every MudBlazor application with a local account UI — ASP.NET Core
+Identity, JWT and OIDC alike (OIDC here is the resource-owner password flow
+with its own generated login page, not a redirect to an external IdP). Only
+Authentication = None gets neither this sheet nor its <link>.
+
+Linked AFTER ux-mudblazor.css, so it can override the shared MudBlazor
+page-header utility for the account area without touching the main-app pages.
+Sections 2–4 rely on that cascade order rather than !important, so linking it
+earlier silently reintroduces the full-bleed frosted-banner bug.
+
+Counterpart to the non-MudBlazor ux-account.css. The <link> for both variants
+is emitted by WireupAccountCssExtension.
 ============================================================================ */
 
 /* ----------------------------------------------------------------------------

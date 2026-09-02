@@ -18,6 +18,18 @@ In this [webinar](https://intentarchitect.com/#/redirect/?category=resources&sub
 
 We also have a technology sample available, which you can download and try out from our GitHub repository [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor.git).
 
+## The Home Page
+
+This module seeds the modelled `Home` page with a MudBlazor-styled landing page — a hero section and a three-tile bento grid — together with its scoped `Home.razor.css`.
+
+This is a **once-off seed, not managed output**. Both files are written only when they do not already exist, so from the first generation onwards the Home page is yours:
+
+- Your edits to `Home.razor` are preserved on every later run. Only the `@page` route and `<PageTitle>` refresh from the page's `Page` stereotype in the User Interface designer.
+- Markup you design for the Home page in the User Interface designer generates normally.
+- To get the default back, delete `Home.razor` (or `Home.razor.css`) and re-run the Software Factory.
+
+Applications with no component library installed get the plain-HTML equivalent from `Intent.Blazor` instead; this module's version takes over whenever it is installed.
+
 ## AI Skill Samples
 
 Each bundled AI skill (e.g. `mudblazor-dialog-adding-entity`) ships a `SKILL.md` and one or more sample files into your application's `.agents/skills/<skill-name>/` folder. The sample files are regenerated on every Software Factory run **until the skill's own `SKILL.md` has been hand-edited** — once you customize a skill's instructions, its sample files are left untouched too, on the assumption you have taken over maintenance of the whole skill.
