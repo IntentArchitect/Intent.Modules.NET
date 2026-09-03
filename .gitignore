@@ -310,6 +310,7 @@ Modules/Intent.Modules/
 .claude/skills/sdd-verify/
 .claude/skills/using-code-tools/
 .claude/skills/working-with-modules/
+.claude/skills/managing-tasks/
 
 .github/skills/authoring-rich-documents/
 .github/skills/changing-the-model/
@@ -330,6 +331,7 @@ Modules/Intent.Modules/
 .github/skills/sdd-verify/
 .github/skills/using-code-tools/
 .github/skills/working-with-modules/
+.github/skills/managing-tasks/
 
 .opencode/skills/authoring-rich-documents/
 .opencode/skills/changing-the-model/
@@ -350,6 +352,8 @@ Modules/Intent.Modules/
 .opencode/skills/sdd-verify/
 .opencode/skills/using-code-tools/
 .opencode/skills/working-with-modules/
+.opencode/skills/managing-tasks/
+
 .kiro/skills/authoring-rich-documents/
 .kiro/skills/changing-the-model/
 .kiro/skills/creating-applications/
@@ -369,3 +373,4 @@ Modules/Intent.Modules/
 .kiro/skills/sdd-verify/
 .kiro/skills/using-code-tools/
 .kiro/skills/working-with-modules/
+.kiro/skills/managing-tasks/
