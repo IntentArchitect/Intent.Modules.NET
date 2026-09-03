@@ -44,7 +44,7 @@
         {
             return null;
         }
-        return InteractiveWebAssembly;
+        return new InteractiveWebAssemblyRenderMode(prerender: false);
     }
 
     private string _theme => HttpContext.Request.Cookies.TryGetValue("theme", out var t) && t == "light" ? "light" : "dark";

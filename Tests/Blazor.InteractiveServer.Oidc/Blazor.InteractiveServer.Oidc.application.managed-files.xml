@@ -1,84 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="1222ee57-ab7c-471d-9c4b-53a07bede8c5">
-  <file path=".agents/design.md" />
-  <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" />
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/blazor-app-menu/SKILL.md" />
-  <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-sider-auth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-sider-noauth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-user-menu-auth-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-adding-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-editing-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-search-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-view-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.cs" />
-  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.razor" />
-  <file path=".agents/skills/mudblazor-ux-theme-sync/SKILL.md" />
-  <file path=".agents/skills/updating-styling/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Blazor.InteractiveServer.Oidc.sln" />
-  <file path="Blazor.InteractiveServer.Oidc/Blazor.InteractiveServer.Oidc.csproj" />
-  <file path="Blazor.InteractiveServer.Oidc/Common/IAuthService.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Common/OidcAuthService.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/AccessTokenResponse.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/IdentityRedirectManager.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/IdentityRevalidatingAuthenticationStateProvider.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Pages/LoginOidc.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Pages/LoginOidc.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/AccountLayout.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/AccountLayout.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/RedirectToLogin.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/ServerAuthorizationMessageHandler.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/UserInfo.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/App.razor" deviationsHash="E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/AppBrand.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/AppBrand.razor.css" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayout.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayout.razor.cs" deviationsHash="25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutHeader.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutHeader.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutProfile.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutSider.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutSider.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/ThemeToggle.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/ThemeToggle.razor.css" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor.css" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor.css" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Routes.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/Services/ThemeService.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Components/_Imports.razor" />
-  <file path="Blazor.InteractiveServer.Oidc/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/OidcAuthenticationOptions.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Program.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Properties/launchSettings.json" />
-  <file path="Blazor.InteractiveServer.Oidc/Services/IScopedExecutor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Services/ISetUserContext.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Services/ScopedExecutor.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/Startup.cs" />
-  <file path="Blazor.InteractiveServer.Oidc/appsettings.json" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/nav-drawer.js" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/theme-storage.js" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/user-menu.js" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-base.css" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-components.css" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-mudblazor.css" />
-  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-tokens.css" />
+  <file path=".agents/design.md" templateId="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" />
+  <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" templateId="Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorAppMenuSkillTemplate" />
+  <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-noauth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-user-menu-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorDialogAddingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorDialogEditingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-adding-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageAddingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-editing-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageEditingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-search-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageSearchEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-view-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageViewEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/mudblazor-ux-theme-sync/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorUxThemeSyncSkillTemplate" />
+  <file path=".agents/skills/updating-styling/SKILL.md" templateId="Intent.Blazor.Templates.AI.BlazorUpdatingStylingSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Blazor.InteractiveServer.Oidc.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Blazor.InteractiveServer.Oidc/Blazor.InteractiveServer.Oidc.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.InteractiveServer.Oidc/Common/IAuthService.cs" templateId="Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Common/OidcAuthService.cs" templateId="Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Common/ServerAuthorizationMessageHandler.cs" templateId="Intent.Blazor.Authentication.Templates.Server.ServerAuthorizationMessageHandlerTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/AccessTokenResponse.cs" templateId="Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/IdentityRedirectManager.cs" templateId="Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/IdentityRevalidatingAuthenticationStateProvider.cs" templateId="Intent.Blazor.Authentication.Templates.Server.IdentityRevalidatingAuthenticationStateProviderTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Pages/LoginOidc.razor" templateId="Intent.Blazor.Templates.Server.RazorServerPageTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Pages/LoginOidc.razor.cs" templateId="Intent.Blazor.Templates.Server.RazorServerPageCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/AccountLayout.razor" templateId="Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/AccountLayout.razor.cs" templateId="Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/RedirectToLogin.razor" templateId="Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Account/Shared/UserInfo.cs" templateId="Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/App.razor" deviationsHash="E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/AppBrand.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/AppBrand.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayout.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayout.razor.cs" deviationsHash="25A7980DA429B76A2A0172F78AB0F860DACCCE8F8D945F3E5B136A73B3E3DBCB" templateId="Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutHeader.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutHeaderTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutHeader.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorLayoutHeaderCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutProfile.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutProfileTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutSider.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutSiderTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/MainLayoutSider.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorLayoutSiderCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Pages/Home.razor.css" templateId="Intent.Blazor.Templates.Client.RazorComponentStyleTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Routes.razor" templateId="Intent.Blazor.Templates.Client.RoutesRazorTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/Services/ThemeService.cs" templateId="Intent.Blazor.Templates.Common.ThemeServiceTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Blazor.InteractiveServer.Oidc/OidcAuthenticationOptions.cs" templateId="Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.InteractiveServer.Oidc/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Blazor.InteractiveServer.Oidc/Services/IScopedExecutor.cs" templateId="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Services/ISetUserContext.cs" templateId="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" />
+  <file path="Blazor.InteractiveServer.Oidc/Services/ScopedExecutor.cs" templateId="Intent.Blazor.Templates.Server.ScopedExecutorTemplate" />
+  <file path="Blazor.InteractiveServer.Oidc/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Blazor.InteractiveServer.Oidc/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/nav-drawer.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-account.css" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveServer.Oidc/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
 </managedFiles>

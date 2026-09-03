@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="51d44bee-1a4b-4c0a-897e-41261c2bfb9c">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="MinimalHostingModel.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/CorsConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/MultiTenancyConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="MinimalHostingModel.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="MinimalHostingModel.Api/Filters/ExceptionFilter.cs" />
-  <file path="MinimalHostingModel.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="MinimalHostingModel.Api/Filters/ODataQueryFilter.cs" />
-  <file path="MinimalHostingModel.Api/Filters/TenantHeaderOperationFilter.cs" />
-  <file path="MinimalHostingModel.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="MinimalHostingModel.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="MinimalHostingModel.Api/MinimalHostingModel.Api.csproj" />
-  <file path="MinimalHostingModel.Api/Program.cs" />
-  <file path="MinimalHostingModel.Api/Properties/launchSettings.json" />
-  <file path="MinimalHostingModel.Api/Services/CurrentUserService.cs" />
-  <file path="MinimalHostingModel.Api/appsettings.json" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="MinimalHostingModel.Application/Common/Eventing/IEventBus.cs" />
-  <file path="MinimalHostingModel.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="MinimalHostingModel.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="MinimalHostingModel.Application/Common/Exceptions/HttpClientRequestException.cs" />
-  <file path="MinimalHostingModel.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/ICommand.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/IQuery.cs" />
-  <file path="MinimalHostingModel.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="MinimalHostingModel.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="MinimalHostingModel.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="MinimalHostingModel.Application/Common/Models/Result.cs" />
-  <file path="MinimalHostingModel.Application/Common/Pagination/PagedList.cs" />
-  <file path="MinimalHostingModel.Application/Common/Pagination/PagedResult.cs" />
-  <file path="MinimalHostingModel.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="MinimalHostingModel.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="MinimalHostingModel.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="MinimalHostingModel.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="MinimalHostingModel.Application/DependencyInjection.cs" />
-  <file path="MinimalHostingModel.Application/MinimalHostingModel.Application.csproj" />
-  <file path="MinimalHostingModel.BlazorClient/App.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Client/Common/Validation/IValidatorProvider.cs" />
-  <file path="MinimalHostingModel.BlazorClient/Client/Common/Validation/ValidatorProvider.cs" />
-  <file path="MinimalHostingModel.BlazorClient/Client/Program.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Common/HttpClientRequestException.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDto.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDtoValidator.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/HttpClientConfiguration.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/IAccountService.cs" />
-  <file path="MinimalHostingModel.BlazorClient/HttpClients/Implementations/AccountServiceHttpClient.cs" />
-  <file path="MinimalHostingModel.BlazorClient/MinimalHostingModel.BlazorClient.csproj" />
-  <file path="MinimalHostingModel.BlazorClient/Pages/Counter.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Pages/FetchData.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Pages/Index.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Properties/launchSettings.json" />
-  <file path="MinimalHostingModel.BlazorClient/Shared/MainLayout.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Shared/MainLayout.razor.css" />
-  <file path="MinimalHostingModel.BlazorClient/Shared/NavMenu.razor" />
-  <file path="MinimalHostingModel.BlazorClient/Shared/NavMenu.razor.css" />
-  <file path="MinimalHostingModel.BlazorClient/Shared/SurveyPrompt.razor" />
-  <file path="MinimalHostingModel.BlazorClient/_Imports.razor" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/appsettings.json" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/app.css" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css.map" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/FONT-LICENSE" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/ICON-LICENSE" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/README.md" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/favicon.png" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/icon-192.png" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/index.html" />
-  <file path="MinimalHostingModel.BlazorClient/wwwroot/sample-data/weather.json" />
-  <file path="MinimalHostingModel.Domain/Common/CollectionExtensions.cs" />
-  <file path="MinimalHostingModel.Domain/Common/DomainEvent.cs" />
-  <file path="MinimalHostingModel.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="MinimalHostingModel.Domain/Common/IHasDomainEvent.cs" />
-  <file path="MinimalHostingModel.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="MinimalHostingModel.Domain/Common/UpdateHelper.cs" />
-  <file path="MinimalHostingModel.Domain/MinimalHostingModel.Domain.csproj" />
-  <file path="MinimalHostingModel.Domain/Repositories/IEFRepository.cs" />
-  <file path="MinimalHostingModel.Domain/Repositories/IPagedList.cs" />
-  <file path="MinimalHostingModel.Domain/Repositories/IRepository.cs" />
-  <file path="MinimalHostingModel.Domain/ValueObject.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleSendingFilter.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="MinimalHostingModel.Infrastructure/MinimalHostingModel.Infrastructure.csproj" />
-  <file path="MinimalHostingModel.Infrastructure/MultiTenant/TenantExtendedInfo.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="MinimalHostingModel.Infrastructure/Services/DomainEventService.cs" />
-  <file path="MinimalHostingModel.Infrastructure/appsettings.json" />
-  <file path="MinimalHostingModel.Tests/MinimalHostingModel.Tests.csproj" />
-  <file path="MinimalHostingModel.slnx" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="MinimalHostingModel.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="MinimalHostingModel.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/CorsConfiguration.cs" templateId="Intent.AspNetCore.Cors.CorsConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/MultiTenancyConfiguration.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="MinimalHostingModel.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="MinimalHostingModel.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="MinimalHostingModel.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="MinimalHostingModel.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="MinimalHostingModel.Api/Filters/ODataQueryFilter.cs" templateId="Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter" />
+  <file path="MinimalHostingModel.Api/Filters/TenantHeaderOperationFilter.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter" />
+  <file path="MinimalHostingModel.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="MinimalHostingModel.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="MinimalHostingModel.Api/MinimalHostingModel.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MinimalHostingModel.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="MinimalHostingModel.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="MinimalHostingModel.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="MinimalHostingModel.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="MinimalHostingModel.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="MinimalHostingModel.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="MinimalHostingModel.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="MinimalHostingModel.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/DistributedCacheExtensions.cs" templateId="Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="MinimalHostingModel.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="MinimalHostingModel.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="MinimalHostingModel.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="MinimalHostingModel.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="MinimalHostingModel.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="MinimalHostingModel.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="MinimalHostingModel.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="MinimalHostingModel.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="MinimalHostingModel.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="MinimalHostingModel.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="MinimalHostingModel.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="MinimalHostingModel.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="MinimalHostingModel.Application/MinimalHostingModel.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.BlazorClient/App.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Client/Common/Validation/IValidatorProvider.cs" templateId="Intent.Blazor.FluentValidation.ValidatorProviderInterface" />
+  <file path="MinimalHostingModel.BlazorClient/Client/Common/Validation/ValidatorProvider.cs" templateId="Intent.Blazor.FluentValidation.ValidatorProvider" />
+  <file path="MinimalHostingModel.BlazorClient/Client/Program.cs" templateId="Intent.Blazor.WebAssembly.ProgramTemplate" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Common/HttpClientRequestException.cs" templateId="Intent.Blazor.HttpClients.HttpClientRequestException" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs" templateId="Intent.Blazor.HttpClients.ProblemDetailsWithErrors" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/HttpClientConfiguration.cs" templateId="Intent.Blazor.HttpClients.HttpClientConfiguration" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/IAccountService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MinimalHostingModel.BlazorClient/HttpClients/Implementations/AccountServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MinimalHostingModel.BlazorClient/MinimalHostingModel.BlazorClient.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.BlazorClient/Pages/Counter.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Pages/FetchData.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Pages/Index.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="MinimalHostingModel.BlazorClient/Shared/MainLayout.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Shared/MainLayout.razor.css" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Shared/NavMenu.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Shared/NavMenu.razor.css" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/Shared/SurveyPrompt.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/_Imports.razor" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/app.css" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css.map" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/FONT-LICENSE" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/ICON-LICENSE" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/README.md" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/favicon.png" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/icon-192.png" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/index.html" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.BlazorClient/wwwroot/sample-data/weather.json" templateId="Intent.Modules.Blazor.WebAssembly.Templates.StaticContentTemplateRegistrations.StaticStaticContentTemplateRegistration" />
+  <file path="MinimalHostingModel.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="MinimalHostingModel.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="MinimalHostingModel.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="MinimalHostingModel.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="MinimalHostingModel.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="MinimalHostingModel.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="MinimalHostingModel.Domain/MinimalHostingModel.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="MinimalHostingModel.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="MinimalHostingModel.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="MinimalHostingModel.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="MinimalHostingModel.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" />
+  <file path="MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="MinimalHostingModel.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs" templateId="Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbucklePublishingFilter" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleSendingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbuckleSendingFilter" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="MinimalHostingModel.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="MinimalHostingModel.Infrastructure/MinimalHostingModel.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.Infrastructure/MultiTenant/TenantExtendedInfo.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" />
+  <file path="MinimalHostingModel.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="MinimalHostingModel.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="MinimalHostingModel.Infrastructure/appsettings.json" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson" />
+  <file path="MinimalHostingModel.Tests/MinimalHostingModel.Tests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MinimalHostingModel.slnx" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

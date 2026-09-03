@@ -1,345 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="00727c17-aeb5-470b-991f-68c0b481117e">
-  <file path=".agents/design.md" />
-  <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" />
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/blazor-app-menu/SKILL.md" />
-  <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-sider-auth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-sider-noauth-sample.razor" />
-  <file path=".agents/skills/blazor-app-menu/app-user-menu-auth-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor" />
-  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-adding-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-editing-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-search-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor" />
-  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor.cs" />
-  <file path=".agents/skills/blazor-page-view-entity/SKILL.md" />
-  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.cs" />
-  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.razor" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".agents/skills/mudblazor-ux-theme-sync/SKILL.md" />
-  <file path=".agents/skills/updating-styling/SKILL.md" />
-  <file path="MudBlazor.ExampleApp.Api/Components/App.razor" deviationsHash="C6831CA92631EB71C8A413C47CB0B25B33D71D4EF7DA54E950E7E36FF54083FB" />
-  <file path="MudBlazor.ExampleApp.Api/Components/_Imports.razor" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/CollectionsController.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/CustomersController.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/DummyController.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/InvoicesController.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/ProductsController.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Filters/ExceptionFilter.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="MudBlazor.ExampleApp.Api/MudBlazor.ExampleApp.Api.csproj" />
-  <file path="MudBlazor.ExampleApp.Api/Program.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Properties/launchSettings.json" />
-  <file path="MudBlazor.ExampleApp.Api/Services/CurrentUserService.cs" />
-  <file path="MudBlazor.ExampleApp.Api/Startup.cs" />
-  <file path="MudBlazor.ExampleApp.Api/appsettings.json" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Collections/ResponseDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Models/Result.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedList.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedResult.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Validation/IValidationService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Validation/ValidationService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomerAddressDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomerAddressDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerDtoMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerLookupDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerLookupDtoMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomerAddressDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomerAddressDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/DependencyInjection.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Implementation/DummyService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Interfaces/IDummyService.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceCommandOrderLinesDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvolutedCommandOrderLinesDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceInvoiceLineDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceInvoiceLineDtoMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoiceCommandOrderLinesDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/MudBlazor.ExampleApp.Application.csproj" />
-  <file path="MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTO.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTOValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQueryHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQueryValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/ProductDto.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/ProductDtoMappingExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" />
-  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Common/Validation/IValidatorProvider.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Common/Validation/ValidatorProvider.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Common/Validation/ValidatorProviderExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/AppBrand.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/AppBrand.razor.css" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutHeader.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutHeader.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutSider.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutSider.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor.css" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.css" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Register.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Register.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/BindingPagesTest/BindingPageHost.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/BindingPagesTest/BindingPageHost.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/BugCrash.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/BugCrash.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/ImplicitLayout.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/ImplicitLayout.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NoGenerateBug.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NoGenerateBug.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NonGridLayout.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NonGridLayout.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/ConfirmationDialog.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/ConfirmationDialog.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerAddDialog.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerAddDialog.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerEditDialog.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerEditDialog.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/CustomerList.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/CustomerList.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor.css" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceAdd.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceAdd.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceEdit.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceEdit.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceList.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceList.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/PagedInvoiceTable.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/PagedInvoiceTable.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/MyProduct.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/MyProduct.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/ProductList.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/ProductList.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Services/ThemeService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/DependencyInjection.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/HttpClientRequestException.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/JsonResponse.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/PagedResult.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/ProblemDetailsWithErrors.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Collections/ResponseDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerAddressDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerAddressDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerLookupDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomersQuery.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerAddressDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerAddressDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandOrderLinesDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandOrderLinesDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceInvoiceLineDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceInvoiceLineDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandOrderLinesDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandOrderLinesDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTO.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTOValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateProductCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateProductCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/ProductDto.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/ProductDtoValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/UpdateProductCommand.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/UpdateProductCommandValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/HttpClientConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/ICollectionsService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/ICustomersService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/IDummyService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/IInvoiceService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/IProductsService.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/CollectionsServiceHttpClient.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/Customers/CustomersServiceHttpClient.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/DummyServiceHttpClient.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/InvoiceServiceHttpClient.cs" />
-  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/ProductsServiceHttpClient.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Layout/MainLayout.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Layout/MainLayout.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor" />
-  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelInComponentValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponent.cs" />
-  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponentValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/MudBlazor.ExampleApp.Client.csproj" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/LoginModel.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/LoginModelValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModel.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModelValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModel.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModelValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs" deviationsHash="CF7104BBCDE03F31B2E624FD6E50198AFA15863729013E396FBCD91EBE200756" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceLineModel.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceLineModelValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceModel.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceModelValidator.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductAddDialog.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductAddDialog.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductEditDialog.razor" />
-  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductEditDialog.razor.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Program.cs" />
-  <file path="MudBlazor.ExampleApp.Client/Routes.razor" />
-  <file path="MudBlazor.ExampleApp.Client/_Imports.razor" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/appsettings.json" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/nav-drawer.js" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/theme-storage.js" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/user-menu.js" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-base.css" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-components.css" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-mudblazor.css" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-tokens.css" />
-  <file path="MudBlazor.ExampleApp.Domain/Address.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/CollectionExtensions.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/DomainEvent.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/IHasDomainEvent.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Common/UpdateHelper.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Entities/Customer.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Entities/Invoice.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Entities/InvoiceLine.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Entities/Product.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/MudBlazor.ExampleApp.Domain.csproj" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/IEFRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/IPagedList.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/IProductRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/Repositories/IRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Domain/ValueObject.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/DependencyInjection.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Migrations/README.md" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/MudBlazor.ExampleApp.Infrastructure.csproj" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="MudBlazor.ExampleApp.Infrastructure/Services/DomainEventService.cs" />
-  <file path="MudBlazor.ExampleApp.sln" />
+  <file path=".agents/design.md" templateId="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" />
+  <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" templateId="Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/blazor-app-menu/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorAppMenuSkillTemplate" />
+  <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-sider-noauth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-app-menu/app-user-menu-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorDialogAddingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorDialogEditingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-adding-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageAddingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-adding-entity/add-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageAddingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-editing-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageEditingEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-editing-entity/edit-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageEditingEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-search-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageSearchEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-search-entity/search-entity-sample.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-view-entity/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorPageViewEntitySkillTemplate" />
+  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/blazor-page-view-entity/view-entity-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".agents/skills/mudblazor-ux-theme-sync/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorUxThemeSyncSkillTemplate" />
+  <file path=".agents/skills/updating-styling/SKILL.md" templateId="Intent.Blazor.Templates.AI.BlazorUpdatingStylingSkillTemplate" />
+  <file path="MudBlazor.ExampleApp.Api/Components/App.razor" deviationsHash="C6831CA92631EB71C8A413C47CB0B25B33D71D4EF7DA54E950E7E36FF54083FB" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
+  <file path="MudBlazor.ExampleApp.Api/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="MudBlazor.ExampleApp.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/CollectionsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/DummyController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/ProductsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="MudBlazor.ExampleApp.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="MudBlazor.ExampleApp.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="MudBlazor.ExampleApp.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="MudBlazor.ExampleApp.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="MudBlazor.ExampleApp.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="MudBlazor.ExampleApp.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="MudBlazor.ExampleApp.Api/MudBlazor.ExampleApp.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MudBlazor.ExampleApp.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MudBlazor.ExampleApp.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="MudBlazor.ExampleApp.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="MudBlazor.ExampleApp.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="MudBlazor.ExampleApp.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Collections/ResponseDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="MudBlazor.ExampleApp.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomerAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CreateCustomerAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerLookupDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/CustomerLookupDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/GetCustomersLookup/GetCustomersLookupQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomerAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Customers/UpdateCustomerAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="MudBlazor.ExampleApp.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="MudBlazor.ExampleApp.Application/Implementation/DummyService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="MudBlazor.ExampleApp.Application/Interfaces/IDummyService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceCommandOrderLinesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvolutedCommandOrderLinesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceInvoiceLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/InvoiceInvoiceLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Invoices/UpdateInvoiceCommandOrderLinesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/MudBlazor.ExampleApp.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTO.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTOValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/GetProductsLookup/GetProductsLookupQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="MudBlazor.ExampleApp.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="MudBlazor.ExampleApp.Application/Products/ProductDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="MudBlazor.ExampleApp.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Common/Validation/IValidatorProvider.cs" templateId="Intent.Blazor.FluentValidation.ValidatorProviderInterface" />
+  <file path="MudBlazor.ExampleApp.Client/Common/Validation/ValidatorProvider.cs" templateId="Intent.Blazor.FluentValidation.ValidatorProvider" />
+  <file path="MudBlazor.ExampleApp.Client/Common/Validation/ValidatorProviderExtensions.cs" templateId="Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/AppBrand.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/AppBrand.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutHeader.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutHeaderTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutHeader.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorLayoutHeaderCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutSider.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutSiderTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/MainLayoutSider.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorLayoutSiderCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Register.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Register.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/BindingPagesTest/BindingPageHost.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/BindingPagesTest/BindingPageHost.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/BugCrash.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/BugCrash.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/ImplicitLayout.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/ImplicitLayout.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NoGenerateBug.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NoGenerateBug.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NonGridLayout.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/ContainerTests/NonGridLayout.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/ConfirmationDialog.razor" templateId="Intent.Blazor.Templates.Client.DialogTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/ConfirmationDialog.razor.cs" templateId="Intent.Blazor.Templates.Client.DialogCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerAddDialog.razor" templateId="Intent.Blazor.Templates.Client.DialogTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerAddDialog.razor.cs" templateId="Intent.Blazor.Templates.Client.DialogCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerEditDialog.razor" templateId="Intent.Blazor.Templates.Client.DialogTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/Components/CustomerEditDialog.razor.cs" templateId="Intent.Blazor.Templates.Client.DialogCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/CustomerList.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Customers/CustomerList.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Home.razor.css" templateId="Intent.Blazor.Templates.Client.RazorComponentStyleTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceAdd.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceAdd.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceEdit.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceEdit.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceList.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/InvoiceList.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/PagedInvoiceTable.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Invoices/PagedInvoiceTable.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/MyProduct.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/MyProduct.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/ProductList.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Pages/Products/ProductList.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Services/ThemeService.cs" templateId="Intent.Blazor.Templates.Common.ThemeServiceTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/DependencyInjection.cs" templateId="Intent.Blazor.Templates.Client.DependencyInjection" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/HttpClientRequestException.cs" templateId="Intent.Blazor.HttpClients.HttpClientRequestException" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/JsonResponse.cs" templateId="Intent.Blazor.HttpClients.JsonResponse" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/PagedResult.cs" templateId="Intent.Blazor.HttpClients.PagedResult" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Common/ProblemDetailsWithErrors.cs" templateId="Intent.Blazor.HttpClients.ProblemDetailsWithErrors" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Collections/ResponseDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerAddressDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerAddressDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CustomerLookupDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomersQuery.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerAddressDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerAddressDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandOrderLinesDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandOrderLinesDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceInvoiceLineDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceInvoiceLineDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandOrderLinesDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandOrderLinesDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTO.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTOValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateProductCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateProductCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/ProductDto.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/ProductDtoValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/UpdateProductCommand.cs" templateId="Intent.Blazor.HttpClients.DtoContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/UpdateProductCommandValidator.cs" templateId="Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/HttpClientConfiguration.cs" templateId="Intent.Blazor.HttpClients.HttpClientConfiguration" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/ICollectionsService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/ICustomersService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/IDummyService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/IInvoiceService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/IProductsService.cs" templateId="Intent.Blazor.HttpClients.ServiceContract" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/CollectionsServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/Customers/CustomersServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/DummyServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/InvoiceServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MudBlazor.ExampleApp.Client/HttpClients/Implementations/ProductsServiceHttpClient.cs" templateId="Intent.Blazor.HttpClients.HttpClient" />
+  <file path="MudBlazor.ExampleApp.Client/Layout/MainLayout.razor" templateId="Intent.Blazor.Templates.Client.RazorLayoutTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Layout/MainLayout.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor" templateId="Intent.Blazor.Templates.Client.RazorComponentTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelInComponentValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponent.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponentValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/MudBlazor.ExampleApp.Client.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/LoginModel.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/LoginModelValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModel.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModelValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor" templateId="Intent.Blazor.Templates.Client.RazorComponentTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModel.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModelValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor" templateId="Intent.Blazor.Templates.Client.RazorComponentTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs" deviationsHash="CF7104BBCDE03F31B2E624FD6E50198AFA15863729013E396FBCD91EBE200756" templateId="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceLineModel.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceLineModelValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceModel.cs" templateId="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceModelValidator.cs" templateId="Intent.Blazor.FluentValidation.ModelDefinitionValidator" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductAddDialog.razor" templateId="Intent.Blazor.Templates.Client.RazorComponentTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductAddDialog.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductEditDialog.razor" templateId="Intent.Blazor.Templates.Client.RazorComponentTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductEditDialog.razor.cs" templateId="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Program.cs" templateId="Intent.Blazor.Templates.Client.ProgramTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/Routes.razor" templateId="Intent.Blazor.Templates.Client.RoutesRazorTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/_Imports.razor" templateId="Intent.Blazor.Templates.Client.ClientImportsRazorTemplate" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/nav-drawer.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="MudBlazor.ExampleApp.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="MudBlazor.ExampleApp.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="MudBlazor.ExampleApp.Domain/Entities/InvoiceLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="MudBlazor.ExampleApp.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="MudBlazor.ExampleApp.Domain/MudBlazor.ExampleApp.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="MudBlazor.ExampleApp.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/MudBlazor.ExampleApp.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="MudBlazor.ExampleApp.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="MudBlazor.ExampleApp.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

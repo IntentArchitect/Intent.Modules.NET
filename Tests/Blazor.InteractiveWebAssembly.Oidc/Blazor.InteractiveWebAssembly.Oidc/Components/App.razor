@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="ux-base.css" />
         <link rel="stylesheet" href="ux-components.css" />
         <link rel="stylesheet" href="ux-mudblazor.css" />
+        <link rel="stylesheet" href="ux-account.css" />
 
         <link rel="stylesheet" href="app.css" />
         <link rel="stylesheet" href="Blazor.InteractiveWebAssembly.Oidc.styles.css" />
@@ -43,7 +44,7 @@
         {
             return null;
         }
-        return InteractiveWebAssembly;
+        return new InteractiveWebAssemblyRenderMode(prerender: false);
     }
 
     private string _theme => HttpContext.Request.Cookies.TryGetValue("theme", out var t) && t == "light" ? "light" : "dark";

@@ -35,7 +35,6 @@ namespace Blazor.InteractiveAuto.Oidc
             services.AddHttpClient("oidcClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
             services.Configure<OidcAuthenticationOptions>(Configuration.GetSection("Authentication:OIDC"));
             services.AddScoped<IdentityRedirectManager>();
-            services.AddApiAuthorization();
             services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
             services.AddScoped<IAuthService, OidcAuthService>();
             services.AddAuthorization();

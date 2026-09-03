@@ -46,7 +46,6 @@ namespace Blazor.InteractiveServer.Jwt
             services.AddHttpClient("jwtClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
-            services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, JwtAuthService>();
             services.AddAuthorization();
             services.AddAuthentication(options =>

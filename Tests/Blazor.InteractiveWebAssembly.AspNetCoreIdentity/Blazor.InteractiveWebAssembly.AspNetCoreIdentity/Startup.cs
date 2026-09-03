@@ -34,7 +34,6 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddScoped<IdentityRedirectManager>();
-            services.AddApiAuthorization();
             services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
             services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
             services.AddAuthorization();
@@ -47,7 +46,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
                                     }).AddIdentityCookies();
             var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             services.AddDbContext<ApplicationDbContext>(options =>
-                                        options.UseSqlServer(connectionString));
+                                            options.UseSqlServer(connectionString));
             services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                                     .AddEntityFrameworkStores<ApplicationDbContext>()
                                     .AddSignInManager()

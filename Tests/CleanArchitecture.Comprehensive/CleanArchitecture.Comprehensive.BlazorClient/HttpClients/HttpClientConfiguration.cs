@@ -62,6 +62,24 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients
                 });
         }
 
+        public static void AddApiAuthorizationHandler(
+            this IServiceCollection services,
+            IConfiguration configuration,
+            Func<IServiceProvider, string[], DelegatingHandler> handlerFactory)
+        {
+            services.AddHttpClient<IAccountService, AccountServiceHttpClient>()
+                .AddHttpMessageHandler(sp =>
+                {
+                    return handlerFactory(sp, new[] { GetUrl(configuration, "AspNetCoreIdentityAccountController").AbsoluteUri });
+                });
+
+            services.AddHttpClient<ISecuredService, SecuredServiceHttpClient>()
+                .AddHttpMessageHandler(sp =>
+                {
+                    return handlerFactory(sp, new[] { GetUrl(configuration, "CleanArchitectureComprehensive").AbsoluteUri });
+                });
+        }
+
         private static Uri GetUrl(IConfiguration configuration, string applicationName)
         {
             var url = configuration.GetValue<Uri?>($"Urls:{applicationName}");

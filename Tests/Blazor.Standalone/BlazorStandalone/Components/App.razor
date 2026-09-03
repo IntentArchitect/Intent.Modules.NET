@@ -40,6 +40,6 @@
 
     public IComponentRenderMode? GetRenderModeForPage()
     {
-        return InteractiveWebAssembly;
+        return new InteractiveWebAssemblyRenderMode(prerender: false);
     }
 }

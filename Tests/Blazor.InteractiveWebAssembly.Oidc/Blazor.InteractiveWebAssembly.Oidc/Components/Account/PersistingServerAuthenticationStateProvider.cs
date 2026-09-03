@@ -16,7 +16,7 @@ using Microsoft.Extensions.Options;
 
 namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
 {
-    public class PersistingServerAuthenticationStateProvider : ServerAuthenticationStateProvider, IAccessTokenProvider, IDisposable
+    public class PersistingServerAuthenticationStateProvider : ServerAuthenticationStateProvider, IDisposable
     {
         private readonly IdentityOptions options;
         private readonly PersistingComponentStateSubscription subscription;
@@ -38,25 +38,6 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
             AuthenticationStateChanged -= OnAuthenticationStateChanged;
         }
 
-        public async ValueTask<AccessTokenResult> RequestAccessToken()
-        {
-            var state = await this.GetAuthenticationStateAsync();
-            var token = state.User.FindFirst("access_token");
-
-            if (token == null)
-            {
-                return new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, "/Account/Login", null);
-            }
-            var accessToken = new AccessToken { Expires = DateTimeOffset.MaxValue, Value = token.Value };
-            var result = new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);
-            return result;
-        }
-
-        public async ValueTask<AccessTokenResult> RequestAccessToken(AccessTokenRequestOptions options)
-        {
-            return await RequestAccessToken();
-        }
-
         private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
         {
             authenticationStateTask = task;
@@ -66,7 +47,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Components.Account
         {
             if (authenticationStateTask is null)
             {
-                throw new UnreachableException($"Authentication state not set in {nameof(OnPersistingAsync)}().");
+                return;
             }
             var authenticationState = await authenticationStateTask;
             var principal = authenticationState.User;

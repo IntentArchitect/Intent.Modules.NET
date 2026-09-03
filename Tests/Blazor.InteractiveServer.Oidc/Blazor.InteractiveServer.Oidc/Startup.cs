@@ -47,7 +47,6 @@ namespace Blazor.InteractiveServer.Oidc
             services.Configure<OidcAuthenticationOptions>(Configuration.GetSection("Authentication:OIDC"));
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
-            services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, OidcAuthService>();
             services.AddAuthorization();
             services.AddAuthentication(options =>

@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="16f05361-898d-4ed2-ad51-0e12259508c7">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Blazor.ProductService.Api/Blazor.ProductService.Api.csproj" />
-  <file path="Blazor.ProductService.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/CorsConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Blazor.ProductService.Api/Controllers/DefaultController.cs" />
-  <file path="Blazor.ProductService.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Blazor.ProductService.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="Blazor.ProductService.Api/Filters/ExceptionFilter.cs" />
-  <file path="Blazor.ProductService.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Blazor.ProductService.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Blazor.ProductService.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Blazor.ProductService.Api/Program.cs" />
-  <file path="Blazor.ProductService.Api/Properties/launchSettings.json" />
-  <file path="Blazor.ProductService.Api/Services/CurrentUserService.cs" />
-  <file path="Blazor.ProductService.Api/appsettings.json" />
-  <file path="Blazor.ProductService.Application/Blazor.ProductService.Application.csproj" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Blazor.ProductService.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Blazor.ProductService.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Blazor.ProductService.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Blazor.ProductService.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Blazor.ProductService.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Blazor.ProductService.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Blazor.ProductService.Application/Common/Models/Result.cs" />
-  <file path="Blazor.ProductService.Application/Common/Pagination/PagedList.cs" />
-  <file path="Blazor.ProductService.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Blazor.ProductService.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Blazor.ProductService.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Blazor.ProductService.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Blazor.ProductService.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommand.cs" />
-  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommand.cs" />
-  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommandHandler.cs" />
-  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommandValidator.cs" />
-  <file path="Blazor.ProductService.Application/DependencyInjection.cs" />
-  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQuery.cs" />
-  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQuery.cs" />
-  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="Blazor.ProductService.Application/Mappings/ProductDtoProfile.cs" />
-  <file path="Blazor.ProductService.Application/ProductDto.cs" />
-  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommand.cs" />
-  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommandHandler.cs" />
-  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommandValidator.cs" />
-  <file path="Blazor.ProductService.Domain/Blazor.ProductService.Domain.csproj" />
-  <file path="Blazor.ProductService.Domain/Common/CollectionExtensions.cs" />
-  <file path="Blazor.ProductService.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Blazor.ProductService.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Blazor.ProductService.Domain/Common/UpdateHelper.cs" />
-  <file path="Blazor.ProductService.Domain/Entities/Product.cs" />
-  <file path="Blazor.ProductService.Domain/Repositories/IEFRepository.cs" />
-  <file path="Blazor.ProductService.Domain/Repositories/IPagedList.cs" />
-  <file path="Blazor.ProductService.Domain/Repositories/IProductRepository.cs" />
-  <file path="Blazor.ProductService.Domain/Repositories/IRepository.cs" />
-  <file path="Blazor.ProductService.Infrastructure/Blazor.ProductService.Infrastructure.csproj" deviationsHash="2EFFB1CE333C2FF9CDD4255A8922A1F65B90B7E0628089EA4F712BE2222AB7F1" />
-  <file path="Blazor.ProductService.Infrastructure/DependencyInjection.cs" />
-  <file path="Blazor.ProductService.Infrastructure/Migrations/README.md" />
-  <file path="Blazor.ProductService.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Blazor.ProductService.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="Blazor.ProductService.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="Blazor.ProductService.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Blazor.ProductService.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Blazor.ProductService.Api/Blazor.ProductService.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.ProductService.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="Blazor.ProductService.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Blazor.ProductService.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Blazor.ProductService.Api/Configuration/CorsConfiguration.cs" templateId="Intent.AspNetCore.Cors.CorsConfiguration" />
+  <file path="Blazor.ProductService.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="Blazor.ProductService.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Blazor.ProductService.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Blazor.ProductService.Api/Controllers/DefaultController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Blazor.ProductService.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Blazor.ProductService.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="Blazor.ProductService.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Blazor.ProductService.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Blazor.ProductService.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Blazor.ProductService.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Blazor.ProductService.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.ProductService.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Blazor.ProductService.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Blazor.ProductService.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Blazor.ProductService.Application/Blazor.ProductService.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Blazor.ProductService.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Blazor.ProductService.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Blazor.ProductService.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Blazor.ProductService.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Blazor.ProductService.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Blazor.ProductService.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Blazor.ProductService.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Blazor.ProductService.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Blazor.ProductService.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Blazor.ProductService.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Blazor.ProductService.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Blazor.ProductService.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Blazor.ProductService.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Blazor.ProductService.Application/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Blazor.ProductService.Application/DeleteProduct/DeleteProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Blazor.ProductService.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Blazor.ProductService.Application/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Blazor.ProductService.Application/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Blazor.ProductService.Application/Mappings/ProductDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Blazor.ProductService.Application/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Blazor.ProductService.Application/UpdateProduct/UpdateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Blazor.ProductService.Domain/Blazor.ProductService.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.ProductService.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Blazor.ProductService.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Blazor.ProductService.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Blazor.ProductService.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Blazor.ProductService.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Blazor.ProductService.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Blazor.ProductService.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Blazor.ProductService.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Blazor.ProductService.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Blazor.ProductService.Infrastructure/Blazor.ProductService.Infrastructure.csproj" deviationsHash="2EFFB1CE333C2FF9CDD4255A8922A1F65B90B7E0628089EA4F712BE2222AB7F1" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.ProductService.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Blazor.ProductService.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Blazor.ProductService.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Blazor.ProductService.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Blazor.ProductService.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Blazor.ProductService.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Blazor.ProductService.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>
