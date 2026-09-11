@@ -1,6 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using WolverineEventing.Subscribe.RabbitMQ.Domain.Common.Interfaces;
+using WolverineEventing.Subscribe.RabbitMQ.Domain.Entities;
+using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -13,6 +15,8 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Persistence
         {
         }
 
+        public DbSet<ShippedOrderRecord> ShippedOrderRecords { get; set; }
+
         public bool HasDbTransaction() => Database.CurrentTransaction != null;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,6 +24,7 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ShippedOrderRecordConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

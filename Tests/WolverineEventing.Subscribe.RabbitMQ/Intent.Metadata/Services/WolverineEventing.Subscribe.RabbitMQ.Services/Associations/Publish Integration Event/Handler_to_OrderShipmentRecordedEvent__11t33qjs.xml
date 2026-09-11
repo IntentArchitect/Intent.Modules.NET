@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3756500f-9e0c-4d56-97e2-a48413993be8">
+  <sourceEnd id="4afad218-4b1b-46a8-bdb0-c3238f2b119a" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderShippedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="cabebf82-6e95-4502-865e-392452a61540">
+      <typeId>4f91944a-d3dc-4cf6-a674-6046052eb9a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Services</typePackageName>
+      <typePackageId>65082173-ae53-47fb-a822-80cb802ca51f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3756500f-9e0c-4d56-97e2-a48413993be8" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderShipmentRecordedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="baca40ad-d328-46cc-b6e0-26ba2f4d63fb">
+      <typeId>9b6fc2a9-65f0-4e68-955a-552039f680e9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>bf26d195-9d84-4389-a567-169851e5cfc5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="e74b3878-7b44-403c-a208-ec678c431940" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4f91944a-d3dc-4cf6-a674-6046052eb9a4" location="[WolverineEventing.Subscribe.RabbitMQ].[Services].[Handler]" />
+        <target applicationId="e74b3878-7b44-403c-a208-ec678c431940" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9b6fc2a9-65f0-4e68-955a-552039f680e9" location="[WolverineEventing.Subscribe.RabbitMQ].[Services].[OrderShipmentRecordedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="9b6fc2a9-65f0-4e68-955a-552039f680e9" name="OrderShipmentRecordedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="297da4f2-20c7-4eb6-95e2-3df0b284fd62" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="4f91944a-d3dc-4cf6-a674-6046052eb9a4" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="c859c513-2179-4826-9393-5b2390c19b76" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

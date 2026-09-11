@@ -4,9 +4,14 @@ using Wolverine;
 using Wolverine.ErrorHandling;
 using Wolverine.RabbitMQ;
 using Wolverine.RabbitMQ.Internal;
+using Wolverine.Runtime.Handlers;
+using WolverineEventing.Publish.RabbitMQ.Eventing.Messages;
 using WolverineEventing.Subscribe.RabbitMQ.Application.Common.Interfaces;
+using WolverineEventing.Subscribe.RabbitMQ.Application.GetShippedOrderRecords;
 using WolverineEventing.Subscribe.RabbitMQ.Application.IntegrationEvents.EventHandlers;
+using WolverineEventing.Subscribe.RabbitMQ.Eventing.Messages;
 using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Dispatch.Middleware;
+using WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Wolverine.Common.WolverineConfiguration", Version = "1.0")]
@@ -25,6 +30,7 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
         private static void ConfigureCqrs(WolverineOptions opts)
         {
             opts.Discovery.IncludeAssembly(typeof(ICommand).Assembly);
+            opts.Discovery.IncludeType<GetShippedOrderRecordsQueryHandler>();
             ApplicationHandlerPolicy.Apply(opts);
         }
 
@@ -32,9 +38,13 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
         {
             var transport = ConfigureRabbitMqTransport(opts, configuration);
 
+            ConfigurePublishing(opts);
+
             ConfigureListeners(opts, transport);
 
             ApplyErrorHandlingPolicy(opts, configuration);
+
+            ApplyIntegrationEventPolicy(opts);
         }
 
         private static RabbitMqTransportExpression ConfigureRabbitMqTransport(
@@ -60,6 +70,11 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
             transport.AutoProvision();
 
             return transport;
+        }
+
+        private static void ConfigurePublishing(WolverineOptions opts)
+        {
+            opts.PublishMessage<OrderShipmentRecordedEvent>().ToRabbitExchange("order-shipment-recorded-event");
         }
 
         private static void ConfigureListeners(WolverineOptions opts, RabbitMqTransportExpression transport)
@@ -98,6 +113,18 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
         private static System.TimeSpan[] ParseDelays(string value)
         {
             return value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(TimeSpan.Parse).ToArray();
+        }
+
+        private static void ApplyIntegrationEventPolicy(WolverineOptions opts)
+        {
+            opts.Policies.AddMiddleware<WolverineIntegrationEventMiddleware>(IsIntegrationMessage);
+        }
+
+        private static bool IsIntegrationMessage(HandlerChain chain)
+        {
+            return chain.MessageType == typeof(OrderShippedEvent) ||
+    chain.MessageType == typeof(FailingOrderEvent) ||
+    chain.MessageType == typeof(ProcessOrderCommand);
         }
     }
 }

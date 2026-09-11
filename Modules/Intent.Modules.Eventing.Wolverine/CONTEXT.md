@@ -404,6 +404,66 @@ move with it.
 **Found only by running the app** — the generated code compiled cleanly, and the bad constructor
 parameter looks perfectly reasonable in a diff. Same lesson as the AWS section above.
 
+## `WolverineIntegrationEventMiddleware` injected the concrete `WolverineMessageBus`, not `IMessageBus` — violates the invariant above
+
+`WolverineIntegrationEventMiddlewareTemplatePartial.cs` (the `Outbox = None` consume-path safety net,
+see the "Integration event handlers already have a unit-of-work seam..." section) resolved its bus
+constructor parameter via `this.GetWolverineMessageBusName()` — the concrete `WolverineMessageBus`
+class name. `RegisterWolverineMessageBus` / `DependencyInjection.cs` only ever registers
+`services.AddScoped<IMessageBus, WolverineMessageBus>()` — the concrete type is never registered on
+its own. This is exactly the disagreement the invariant two sections up warns about, just with the
+concrete class instead of the interface as the wrong side.
+
+**Symptom, and why the earlier fix's own runtime test didn't catch it:** compiles cleanly;
+`WolverineMessageBusIsRegistered()` correctly says "yes, inject a bus" whenever the app publishes
+anything. But requesting the concrete type from the container throws at the first real message:
+
+```
+System.InvalidOperationException: No service for type '...Infrastructure.Eventing.WolverineMessageBus' has been registered.
+```
+
+The first live-broker verification of this middleware (`WolverineEventing.Subscribe.RabbitMQ`) never
+exercised this path because that app was subscribe-only at the time — `hasBus` was `false`, so no bus
+parameter was ever injected. The gap only surfaced once that same app was extended with a genuine
+cascading publish (`Outbox = None` **and** persistence **and** an outbound publish, all in one
+handler — the richest and most realistic shape, and the one no other test app combines).
+
+**Fix:** resolve the interface the same way `MessageBusPublishBehaviourTemplatePartial.cs`
+(`Intent.Application.MediatR.Behaviours`) already does — `TryGetTypeName` against
+`TemplateRoles.Application.Eventing.MessageBusInterface`, falling back to the obsolete
+`EventBusInterface` role for legacy templates — never a template's own `Get{X}Name()` helper for a
+concrete class when the constructor parameter is meant to be a service-located interface.
+
+**Invariant, restated:** every site that injects the bus into generated code — DbContext splice,
+handler, or middleware — must resolve `IMessageBus` (or its legacy `IEventBus` alias) via its
+template role, never a concrete class name, regardless of which gate decided a bus belongs there.
+
+## `ActiveContext` measurement (plan step 4) — not needed, correlation already propagates without it
+
+Measured empirically against `WolverineEventing.Subscribe.RabbitMQ` over a real RabbitMQ broker:
+`OrderShippedEventHandler` (constructor-injected `IMessageBus`, no special wiring) handles an
+inbound `OrderShippedEvent` and publishes a cascading `OrderShipmentRecordedEvent`. A temporary
+diagnostic log on the inbound envelope, plus a peek at the outbound AMQP message's properties via
+the RabbitMQ management API (`POST /api/queues/.../get`), gave:
+
+| | Inbound `OrderShippedEvent` | Outbound `OrderShipmentRecordedEvent` |
+|---|---|---|
+| CorrelationId | `af90c6887dc5212dba5327bce57b90b8` | `af90c6887dc5212dba5327bce57b90b8` (matches) |
+| ConversationId | `08df0ff9-b68d-8af6-2800-afb97ab50000` | `08df0ff9-b68d-8af6-2800-afb97ab50000` (matches) |
+
+Both matched with **zero** extra wiring - no `ActiveContext`, no manual context threading. This is
+consistent with Wolverine's own XML docs describing an `AsyncLocal`-based `MessageContext.Current`
+handoff that keeps a *service-located* `IMessageContext`/`IMessageBus` pointed at the same envelope
+as the handler invocation, specifically so a container-resolved bus doesn't diverge from "the
+current `MessageContext`" the way the sibling MassTransit/NServiceBus consumers must guard against
+manually. Wolverine solves the same problem the siblings solve with `ConsumeContext`/`ActiveContext`,
+just at the DI-scope level instead of requiring each consumer to thread it through by hand.
+
+**Decision: do not add `ActiveContext` to `WolverineMessageBus`.** It would be inert - copying a
+MassTransit/NServiceBus pattern Wolverine already doesn't need, i.e. exactly the cargo-cult step 4
+warned against. If a future Wolverine version changes this behaviour, this measurement (and the
+reproduction steps above) is where to start.
+
 ## Round trip verified — Azure Service Bus + Durable outbox + SQL Server
 
 The `WolverineEventing.Outbox.SqlServer.Publish` → `.Subscribe` pair, run end to end against a real

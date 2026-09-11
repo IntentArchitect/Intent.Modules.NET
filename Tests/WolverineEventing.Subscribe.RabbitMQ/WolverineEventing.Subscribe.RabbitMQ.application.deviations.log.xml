@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.Wolverine.QueryHandler#32ed925f-b855-46f7-86ef-ce97326911ff</correlationId>
+      <path>WolverineEventing.Subscribe.RabbitMQ.Application/GetShippedOrderRecords/GetShippedOrderRecordsQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-11T10:54:46.1513152Z</updatedAt>
+      <deviationsHash>913DB7A61E33360EE8833525129F417F5FD83832D804468E5C6285391568B7B7</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#19d4e99d-f8df-486d-9d81-b701e6ae28a4</correlationId>
       <path>WolverineEventing.Subscribe.RabbitMQ.Application/IntegrationEvents/EventHandlers/FailingOrderEventHandler.cs</path>
       <count>3</count>
@@ -16,8 +25,8 @@
       <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-24T12:22:40.1003476Z</updatedAt>
-      <deviationsHash>7E09762C587CFA9B5649D987DB1B4015CFEF94CE6413F7532792663375EB74EB</deviationsHash>
+      <updatedAt>2026-09-11T13:20:58.3193336Z</updatedAt>
+      <deviationsHash>9F9E10D9DD90AFBC4D1313929CE6B77289009BD50EFDD05FC6DD3BAB88FA56CE</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#f87921fb-8edb-4482-b6de-6c6c8ae12a97</correlationId>

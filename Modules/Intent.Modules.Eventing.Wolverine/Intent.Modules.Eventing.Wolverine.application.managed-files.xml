@@ -5,9 +5,9 @@
   <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="885CCB0436536B6339F366D60F8FA4CAD67FD580C864D97DFD2489BFEFCCA684" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="0A19EBB62FDE8552BE6DB858DE4B1E3BE9D0EED734D29CB421BC545AF81170C8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineFinbuckleConfiguratorExtension.cs" deviationsHash="E35709048EBDAC68A1CE8C666B101E10D0144749CF99E4F8A91EBF27361263E0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="585292EB6790FFBDB77C2F36203A9B91DFC4B63362E0CF78F6295F86B67FCF99" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="8CF382050E24168515072B086F4A580C72CFB2040059C0804C0C5D9490D5F631" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineTelemetryConfiguratorExtension.cs" deviationsHash="FB4B09BCD871527D5E9BEC7BA248F09153D9B6B2208379B38A52EC2553FB75AB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Eventing.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Eventing.Wolverine.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
@@ -16,7 +16,9 @@
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="Templates/WolverineCompositeConfiguration/WolverineCompositeConfigurationTemplatePartial.cs" deviationsHash="D883CE3FA2C958C1459B47C63539568AF179BA37185A85073CFFF8004C9A96F7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/WolverineCompositeConfiguration/WolverineCompositeConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplatePartial.cs" deviationsHash="BAE218DB54E0071C9111383F09A7BC9B9BCFDF7C765BF24378B0903B6B84ECF8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/WolverineIntegrationEventMiddleware/WolverineIntegrationEventMiddlewareTemplatePartial.cs" deviationsHash="29FD55C71F60DD8B70AB9E93787FF4644ABCA992668A3E6C92E63D576EB9C33A" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/WolverineIntegrationEventMiddleware/WolverineIntegrationEventMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplatePartial.cs" deviationsHash="76F30FE3BC99E63A96C422B1B25C83DEDD0ABD5069830ADE1DE020134BA41C9D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/WolverineMessageBus/WolverineMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplatePartial.cs" deviationsHash="B38D4FBB5BF4879DC34766B5932BADFFBB8F71196DFE91F2BDB45E90D50964F2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/WolverineTenantMiddleware/WolverineTenantMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cdbd843f-c829-4975-9560-b45a04e4200b</parentFolderId>
+  <packageId>cdbd843f-c829-4975-9560-b45a04e4200b</packageId>
+  <packageName>WolverineEventing.Subscribe.RabbitMQ.Domain</packageName>
   <diagram>
     <targetPackageId>cdbd843f-c829-4975-9560-b45a04e4200b</targetPackageId>
   </diagram>
