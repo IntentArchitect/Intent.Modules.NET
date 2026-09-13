@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Added: An `ApplyUnitOfWorkImplementations` overload for consumers with no existing invocation statement to wrap, so a middleware-style consumer can generate just the persistence-save logic.
+
 ### Version 1.0.4
 
 - Fixed: `GetUnitOfWorkSettings()` threw a `NullReferenceException` instead of returning `null` when called by another module while `Intent.Common.UnitOfWork` is not installed.
