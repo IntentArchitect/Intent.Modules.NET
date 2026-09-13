@@ -111,7 +111,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
 
                         ctor.AddStatements(@"_authenticationStateTask = Task.FromResult(
                             new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
-                                authenticationType: nameof(PersistentAuthenticationStateProvider)))));".ConvertToStatements());
+                            authenticationType: nameof(PersistentAuthenticationStateProvider)))));".ConvertToStatements());
 
                         ctor.AddIfStatement("!string.IsNullOrWhiteSpace(userInfo.AccessToken)", ifs =>
                         {
@@ -148,7 +148,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         method.AddParameter("AccessTokenRequestOptions", "options");
 
                         method.AddStatements(@"var missingToken = string.IsNullOrWhiteSpace(_accessToken);
-            var expired = _accessTokenExpiresAt > DateTimeOffset.MinValue && _accessTokenExpiresAt <= DateTimeOffset.UtcNow;".ConvertToStatements());
+                            var expired = _accessTokenExpiresAt > DateTimeOffset.MinValue && _accessTokenExpiresAt <= DateTimeOffset.UtcNow;".ConvertToStatements());
 
                         method.AddIfStatement("missingToken || expired", @if =>
                         {
@@ -160,34 +160,45 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                                     refreshIf.AddIfStatement("refreshed", ok =>
                                     {
                                         ok.AddStatements(@"var refreshedToken = new AccessToken
-                    {
-                        Value = _accessToken!,
-                        Expires = _accessTokenExpiresAt
-                    };".ConvertToStatements());
+                                            {
+                                            Value = _accessToken!,
+                                            Expires = _accessTokenExpiresAt
+                                            };".ConvertToStatements());
                                         ok.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.Success, refreshedToken, null, null)"));
                                     });
                                 });
                             }
 
                             // The IAccessTokenProvider contract is to RETURN the status and URL and let
-                            // the caller navigate (AuthorizationMessageHandler →
+                            // the caller navigate (AuthorizationMessageHandler → 
                             // AccessTokenNotAvailableException → .Redirect()). Navigating inline here
                             // would tear the page out from under in-flight requests.
+                            //
+                            // AccessTokenNotAvailableException.Redirect() only follows InteractiveRequestUrl
+                            // when InteractionOptions is ALSO non-null - passing null for the 4th
+                            // constructor argument makes it fall back to reading the never-set, obsolete
+                            // RedirectUrl property instead, and silently navigate nowhere. Confirmed by
+                            // reflection against the real SDK assembly, not just by reading its source.
                             @if.AddStatements($@"var current = _nav.ToBaseRelativePath(_nav.Uri);
-                var returnUrl = ""/"" + current;
-                var loginUrl = ""{loginRoute}?returnUrl="" + Uri.EscapeDataString(returnUrl);".ConvertToStatements());
-                            @if.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null)"));
+                                var returnUrl = ""/"" + current;
+                                var loginUrl = ""{loginRoute}?returnUrl="" + Uri.EscapeDataString(returnUrl);
+                                var interactiveRequest = new InteractiveRequestOptions
+                                {{
+                                Interaction = InteractionType.GetToken,
+                                ReturnUrl = returnUrl
+                                }};".ConvertToStatements());
+                            @if.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, loginUrl, interactiveRequest)"));
                         });
 
                         method.AddStatements(@"var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
-                ? _accessTokenExpiresAt
-                : DateTimeOffset.UtcNow.AddMinutes(5);
+                            ? _accessTokenExpiresAt
+                            : DateTimeOffset.UtcNow.AddMinutes(5);
 
-            var accessToken = new AccessToken
-            {
-                Value = _accessToken!,
-                Expires = expires
-            };".ConvertToStatements());
+                            var accessToken = new AccessToken
+                            {
+                            Value = _accessToken!,
+                            Expires = expires
+                            };".ConvertToStatements());
                         method.AddReturn(WrapReturn(isJwt, "new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null)"));
                     });
 
@@ -197,55 +208,55 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         {
                             method.Private().Async();
                             method.AddStatements($@"if (string.IsNullOrWhiteSpace(_refreshToken) || _identityUrl == null)
-                return false;
+                                return false;
 
-            try
-            {{
-                var refreshUri = new Uri(_identityUrl, ""refresh""); // e.g. https://ids.example.com/refresh
+                                try
+                                {{
+                                var refreshUri = new Uri(_identityUrl, ""refresh""); // e.g. https://ids.example.com/refresh
 
-                var response = await _refreshClient.PostAsJsonAsync(refreshUri, new
-                {{
-                    refreshToken = _refreshToken
-                }});
+                                var response = await _refreshClient.PostAsJsonAsync(refreshUri, new
+                                {{
+                                refreshToken = _refreshToken
+                                }});
 
-                if (!response.IsSuccessStatusCode)
-                    return false;
+                                if (!response.IsSuccessStatusCode)
+                                return false;
 
-                var dto = await response.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();
-                if (dto is null || string.IsNullOrWhiteSpace(dto.AccessToken))
-                    return false;
+                                var dto = await response.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();
+                                if (dto is null || string.IsNullOrWhiteSpace(dto.AccessToken))
+                                return false;
 
-                _accessToken = dto.AccessToken;
-                _refreshToken = string.IsNullOrWhiteSpace(dto.RefreshToken)
-                    ? _refreshToken // keep old if not rotated
-                    : dto.RefreshToken;
+                                _accessToken = dto.AccessToken;
+                                _refreshToken = string.IsNullOrWhiteSpace(dto.RefreshToken)
+                                ? _refreshToken // keep old if not rotated
+                                : dto.RefreshToken;
 
-                // expires_in is optional in a token response. Dereferencing it unconditionally would
-                // throw into the catch below and report a successful refresh as a failure.
-                _accessTokenExpiresAt = dto.ExpiresIn.HasValue
-                    ? new DateTimeOffset(DateTime.SpecifyKind(dto.ExpiresIn.Value, DateTimeKind.Utc), TimeSpan.Zero)
-                    : DateTimeOffset.UtcNow.AddMinutes(5);
+                                // expires_in is optional in a token response. Dereferencing it unconditionally would
+                                // throw into the catch below and report a successful refresh as a failure.
+                                _accessTokenExpiresAt = dto.ExpiresIn.HasValue
+                                ? new DateTimeOffset(DateTime.SpecifyKind(dto.ExpiresIn.Value, DateTimeKind.Utc), TimeSpan.Zero)
+                                : DateTimeOffset.UtcNow.AddMinutes(5);
 
-                // Publish the refreshed token. Without this, anything reading ""access_token"" off
-                // AuthenticationState keeps seeing the stale value for the rest of the session, and
-                // NotifyAuthenticationStateChanged is never raised at all.
-                Claim[] refreshedClaims = [
-                    new Claim(ClaimTypes.NameIdentifier, _userId ?? string.Empty),
-                    new Claim(ClaimTypes.Email, _email ?? string.Empty),
-                    new Claim(""access_token"", _accessToken) ];
+                                // Publish the refreshed token. Without this, anything reading ""access_token"" off
+                                // AuthenticationState keeps seeing the stale value for the rest of the session, and
+                                // NotifyAuthenticationStateChanged is never raised at all.
+                                Claim[] refreshedClaims = [
+                                new Claim(ClaimTypes.NameIdentifier, _userId ?? string.Empty),
+                                new Claim(ClaimTypes.Email, _email ?? string.Empty),
+                                new Claim(""access_token"", _accessToken) ];
 
-                _authenticationStateTask = Task.FromResult(
-                    new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(refreshedClaims,
-                        authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+                                _authenticationStateTask = Task.FromResult(
+                                new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(refreshedClaims,
+                                authenticationType: nameof(PersistentAuthenticationStateProvider)))));
 
-                NotifyAuthenticationStateChanged(_authenticationStateTask);
+                                NotifyAuthenticationStateChanged(_authenticationStateTask);
 
-                return true;
-            }}
-            catch
-            {{
-                return false;
-            }}".ConvertToStatements());
+                                return true;
+                                }}
+                                catch
+                                {{
+                                return false;
+                                }}".ConvertToStatements());
                         });
                     }
                 });

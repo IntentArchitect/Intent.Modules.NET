@@ -2,23 +2,59 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#de4442b6-372c-43eb-a5c0-b4b3679b9c6a</correlationId>
-      <path>FactoryExtensions/ServerAddAuthentication.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c69f1186-4145-43e5-87dd-77fca4819870</correlationId>
+      <path>FactoryExtensions/AuthPageDefaultContentFactoryExtension.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-30T05:30:34.6370037Z</updatedAt>
-      <deviationsHash>363FDC10E81102641FED5DED37EB73492160D73B0114101B279DCC468AC55AF8</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.0623543Z</updatedAt>
+      <deviationsHash>D4771BE776FAE07990E211F74190E563FF499B33CDA8141BE4481E4704F95323</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#22649449-21b2-4068-8ec0-a8ab4e3fd8dd</correlationId>
+      <path>FactoryExtensions/ChangeRenderMode.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0623653Z</updatedAt>
+      <deviationsHash>17C367317FA4726CA056F2FA0A0026F3690A7CF4F74D1FD48525443FB14FE00D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#472bc746-3023-4cf6-97d7-5f25394e6c38</correlationId>
+      <path>FactoryExtensions/ClientAddAuthentication.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0623771Z</updatedAt>
+      <deviationsHash>59FEC1FE625010F6E47B71F47B105CD4A66044E76FE465CE813F4F9C9F4AFA69</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c38e0867-e297-48c6-bdd8-8d3d2cbb41e5</correlationId>
+      <path>FactoryExtensions/CurrentUserServiceImplementation.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0623877Z</updatedAt>
+      <deviationsHash>2DA625D395335E8621766EAFDC7661762C3E3CBD90159D950107171956FEBAF5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#de4442b6-372c-43eb-a5c0-b4b3679b9c6a</correlationId>
+      <path>FactoryExtensions/ServerAddAuthentication.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0629926Z</updatedAt>
+      <deviationsHash>5ADC73B36BB3BCD4CC3888B9F88DD4ED0591932D7918FB48CCDAF2323B818D11</deviationsHash>
       <fileHash>001E774BC07E574D17BC7E0AD30ABB9697D05F98FBE70FA0BF63AD4D20BF011F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d143f25-19e7-4729-9874-4ed876783a01</correlationId>
       <path>FactoryExtensions/WireupAccountCssExtension.cs</path>
-      <count>2</count>
+      <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-31T13:55:15.635181Z</updatedAt>
-      <deviationsHash>998915054B11F1F33EB40983AFAAF065C81B478564E7C1AFCA27EBE2162772B5</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.0630774Z</updatedAt>
+      <deviationsHash>3E8C145E8B72D6A92D9EE4C0A48DB88AD96F51C61D4A6D0BE2602B1F09C82BEA</deviationsHash>
       <fileHash>5B27764335BC26532EEB7530B5645111AD1D9327DFE17B9068285507D19E8794</fileHash>
     </file>
     <file>
@@ -32,13 +68,175 @@
       <fileHash>309CD7A0BFE9FA88C2363915D25A8AE5E3B0266F7E3F9B6022B25B39E18FB25E</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6943f8f0-6821-46cd-8cb0-528d986cd04a</correlationId>
+      <path>Templates/Templates/Client/AccessTokenResponse/AccessTokenResponseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0631275Z</updatedAt>
+      <deviationsHash>060559A1C57F0CE03FAD1FDEB71DF38861490CF581FE498FB89AEC7E72ED07EB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9bef92a3-6542-4902-b83d-a79109013108</correlationId>
+      <path>Templates/Templates/Client/PersistentAuthenticationStateProvider/PersistentAuthenticationStateProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:59:07.5881615Z</updatedAt>
+      <deviationsHash>DCFDCC782324B20ECF9AF9446FB4188A8C4CEA6FFE10B2584B975A32929AA79F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#ccfc67f6-b1ed-4011-90dc-3294f67e2a53</correlationId>
+      <path>Templates/Templates/Server/AccountLayout/AccountLayoutTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0633587Z</updatedAt>
+      <deviationsHash>D53674233DB50FD1486DDC0B57D10AFD73CF91932F5375203A8E48EB7D365971</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#26f3e5d1-cbb7-4a24-a9da-b1fee0c05e07</correlationId>
+      <path>Templates/Templates/Server/AccountLayoutCodeBehind/AccountLayoutCodeBehindTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0631388Z</updatedAt>
+      <deviationsHash>1C4C7261F09612AB0E27AFAC87DF27C9114A46F98FF8A9C2690365613C04ED4A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#efae6982-1671-4329-bc0f-405e20afe380</correlationId>
+      <path>Templates/Templates/Server/ApplicationDbContext/ApplicationDbContextTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0631508Z</updatedAt>
+      <deviationsHash>472DB0DC7C7286A469D07F9BB506D7DB2BC59E078658F08CECC34FE8495BF4E2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6e72feea-1e43-48b9-a34a-3628a8c8feb9</correlationId>
+      <path>Templates/Templates/Server/ApplicationUser/ApplicationUserTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0631641Z</updatedAt>
+      <deviationsHash>90C8EA54B1E8BACCFD3BD7FD27BBF9D445B1951E26C2668D737DD70CF08507DE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8839263e-bd06-4bbd-8e72-0b599222e22c</correlationId>
+      <path>Templates/Templates/Server/AspNetCoreIdentityAuthServiceConcrete/AspNetCoreIdentityAuthServiceConcreteTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0631769Z</updatedAt>
+      <deviationsHash>874A74B5736735A5FEFABDD70CCF4BDEF97B9796E53723E02AE5161783FA67CC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0a57e8a9-374b-4028-8d86-e4c84d8120ae</correlationId>
+      <path>Templates/Templates/Server/IdentityComponentsEndpointRouteBuilderExtensions/IdentityComponentsEndpointRouteBuilderExtensionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632006Z</updatedAt>
+      <deviationsHash>BA65B40C916341429A70B8F9E32901C152BE1D3E2B3842DEB482947E5B4EC407</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#59e4a953-f9a6-4a8f-bae0-dabd0975831f</correlationId>
+      <path>Templates/Templates/Server/IdentityNoOpEmailSender/IdentityNoOpEmailSenderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632128Z</updatedAt>
+      <deviationsHash>E8B9AF75296D9DE6F15D93B186B3F6320E27169A1662DCD9FEF24A943E2B8539</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ed2ce2d4-f3dd-4ee7-94c6-0edbb258db3b</correlationId>
+      <path>Templates/Templates/Server/IdentityRevalidatingAuthenticationStateProvider/IdentityRevalidatingAuthenticationStateProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632358Z</updatedAt>
+      <deviationsHash>C0B8CB0BEFB54015ADED423483D2D5CA6269A201D3637E9D446876E5A6185686</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3e9cb448-cb4e-47d2-b4e0-d1973b83ab91</correlationId>
+      <path>Templates/Templates/Server/IdentityUserAccessor/IdentityUserAccessorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632471Z</updatedAt>
+      <deviationsHash>E94049FC4168DAEA6E1012F9C027282212A65A604CDBC97577C2708B1F38CA54</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5d7bee39-8fba-4450-9d55-1ab14041340b</correlationId>
+      <path>Templates/Templates/Server/JwtAuthServiceConcrete/JwtAuthServiceConcreteTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.063257Z</updatedAt>
+      <deviationsHash>EC82C2B6F939E07EA9EFBD8FF34ABF4EDA85E85426947E0F08E788DAA146936F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#614d58ce-5ba0-47d2-af7a-74fbb37a5857</correlationId>
+      <path>Templates/Templates/Server/OidcAuthenticationOptions/OidcAuthenticationOptionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632681Z</updatedAt>
+      <deviationsHash>DF5A7927E90C14B258A2D93A21E166C7C6436DD84ABF96676CA6D041FA73B392</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7be3c1f1-74cf-4775-bd5d-bc737260fac0</correlationId>
+      <path>Templates/Templates/Server/OidcAuthServiceConcrete/OidcAuthServiceConcreteTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0632787Z</updatedAt>
+      <deviationsHash>05A61273C0E4E2B61783D06FAA099691E25111463BFFEF355FA0F4FDEF2DD6E8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b1347657-8b7c-482c-8b55-8f3895209b18</correlationId>
+      <path>Templates/Templates/Server/PersistingRevalidatingAuthenticationStateProvider/PersistingRevalidatingAuthenticationStateProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0633039Z</updatedAt>
+      <deviationsHash>1A21B628885CBD1D563FE526991E445F26B1581B2C01C4A612E5E9798D7F697C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f441f791-15a7-49fe-a2de-a1697efc9f86</correlationId>
+      <path>Templates/Templates/Server/PersistingServerAuthenticationStateProvider/PersistingServerAuthenticationStateProviderTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0633153Z</updatedAt>
+      <deviationsHash>022D217AB402E9FE58E40D6005CD94EC90D9FD340AC6E8D428DEA42B9467F00B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#15e7db1d-a0ec-49ce-b5f3-5f6d000f10de</correlationId>
+      <path>Templates/Templates/Server/ServerAuthorizationMessageHandler/ServerAuthorizationMessageHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0633272Z</updatedAt>
+      <deviationsHash>B2FC5DE6193BE8CD2AFB3A220FEFD70B04A59C5E5EE6A068ACDB4FCF62884684</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71383371-74d6-4655-9df0-484b7354d4c0</correlationId>
+      <path>Templates/Templates/Server/SetUserContextInterface/SetUserContextInterfaceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.063338Z</updatedAt>
+      <deviationsHash>421FF39E6535D7B55869BC36B6031670C5556EF2454C325C67EAC8E36C04763A</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b1dde391-adec-41d2-a5c8-e4d2bb58db7c</correlationId>
       <path>Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs</path>
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-14T13:08:32.9183602Z</updatedAt>
-      <deviationsHash>170B3C3369C5CF281A48FB56BBB6DDC711A254575B894C425F2383BEE4BF7177</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.0636412Z</updatedAt>
+      <deviationsHash>299BD1ACE3B0A30A7520B6B19C4B5AC721940C1CE6059067506069FD840F5DCB</deviationsHash>
       <fileHash>DB0C7DF4D6C5FF0C258674AEB54A21EC2927632281514A272AC4F88249EF592E</fileHash>
     </file>
     <file>
@@ -47,18 +245,18 @@
       <count>4</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-14T13:08:32.9184037Z</updatedAt>
-      <deviationsHash>BAEEAE1E1B4BFF18540EA6BE8844D384E6A422FA2680E0464474E85BD5A04362</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.0636925Z</updatedAt>
+      <deviationsHash>00E5C8ABDEA87B176B2789BC691A1F2F9F3FADA6C6467DABDDEA8069A1324D78</deviationsHash>
       <fileHash>ABE20EE7076C8BAE443CD293C25083480E40885BDFB81F9B171B57F78CF8C90E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e732c8dd-113e-435c-bdae-f0558c601d5b</correlationId>
       <path>Templates/Templates/Server/StaticContentTemplateRegistrations/AccountThemeStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
-      <updatedAt>2026-06-22T04:41:04.2493788Z</updatedAt>
-      <deviationsHash>E28DA4E48B95F44EAF9EB797BC7153BCD5856EA88B1A5BF668CDE4FEF1767B47</deviationsHash>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0637267Z</updatedAt>
+      <deviationsHash>61722F9038710B1CB7B5A34C47546B8ABCFFDC3904B86C7A8D39AE6219A9AD59</deviationsHash>
       <fileHash>5AA7FF1D994D87E9590B361D264822AE065AE8F1466E9E2DCABE78D16D0F60B4</fileHash>
     </file>
     <file>
@@ -67,8 +265,8 @@
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-14T13:08:32.9184858Z</updatedAt>
-      <deviationsHash>B782996D6EFF129C02C2E774D70D3608ECF85DC8E84E43EAD51BC72B9E9B3A69</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.063771Z</updatedAt>
+      <deviationsHash>CA555F8E4F56489FA583BB8B88D8D734553A766A7CDE4B9527FC5A0E468F09C6</deviationsHash>
       <fileHash>379BD77840BF04B080E0B57B3DF338F576FABD2AC81FDE568E809719012D50F7</fileHash>
     </file>
     <file>
@@ -77,18 +275,18 @@
       <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-08-14T13:08:32.9185332Z</updatedAt>
-      <deviationsHash>818CA0BFDD41DFE5C687E6A5BE70D6FC5899150655654F9A3831FF717F8F5D55</deviationsHash>
+      <updatedAt>2026-09-11T16:41:21.063815Z</updatedAt>
+      <deviationsHash>1BDBCCB54167AA6908315FF675ED832320E175245504B591BCA8B143BD86FE2E</deviationsHash>
       <fileHash>E4AD7C177E2CD13BAB3AC0371281C45F5469C1A05F5A4B5142869DD6F26FCBCE</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#4a148b5d-ad6d-44ac-a4aa-0d1e94058dcc</correlationId>
       <path>Templates/Templates/Server/StaticContentTemplateRegistrations/MudBlazorAccountThemeStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
-      <updatedAt>2026-06-22T04:41:04.2494228Z</updatedAt>
-      <deviationsHash>38877FD3D206713A1260597DC367CC95032FDBD701B9067D962EA4CAEDEB1F1C</deviationsHash>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-11T16:41:21.0638478Z</updatedAt>
+      <deviationsHash>A5768A5B841FE360D8F8F7F6F3DCFAB04BA401F99691078DF95A69DFA5FF7F1F</deviationsHash>
       <fileHash>49B32D652B5379E77DE73D1000881F0A8E4C3DAFB2DE112A9ED40BBB10B4F8D9</fileHash>
     </file>
   </files>
