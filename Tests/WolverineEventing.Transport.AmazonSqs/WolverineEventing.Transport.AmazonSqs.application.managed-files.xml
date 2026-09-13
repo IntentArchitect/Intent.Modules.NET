@@ -69,6 +69,7 @@
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" templateId="Intent.Application.Wolverine.UnhandledExceptionMiddleware" />
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" templateId="Intent.Application.Wolverine.UnitOfWorkMiddleware" />
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" templateId="Intent.Application.Wolverine.ValidationMiddleware" />
+  <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Eventing/WolverineIntegrationEventMiddleware.cs" templateId="Intent.Eventing.Wolverine.WolverineIntegrationEventMiddleware" />
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="WolverineEventing.Transport.AmazonSqs.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

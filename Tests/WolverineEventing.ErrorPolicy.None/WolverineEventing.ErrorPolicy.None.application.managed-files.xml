@@ -68,6 +68,7 @@
   <file path="WolverineEventing.ErrorPolicy.None.Domain/WolverineEventing.ErrorPolicy.None.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/Eventing/WolverineIntegrationEventMiddleware.cs" templateId="Intent.Eventing.Wolverine.WolverineIntegrationEventMiddleware" />
   <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="WolverineEventing.ErrorPolicy.None.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

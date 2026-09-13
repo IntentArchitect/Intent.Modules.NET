@@ -78,6 +78,7 @@
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/UnhandledExceptionMiddleware.cs" templateId="Intent.Application.Wolverine.UnhandledExceptionMiddleware" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/UnitOfWorkMiddleware.cs" templateId="Intent.Application.Wolverine.UnitOfWorkMiddleware" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Dispatch/Middleware/ValidationMiddleware.cs" templateId="Intent.Application.Wolverine.ValidationMiddleware" />
+  <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Eventing/WolverineIntegrationEventMiddleware.cs" templateId="Intent.Eventing.Wolverine.WolverineIntegrationEventMiddleware" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="WolverineEventing.Publish.RabbitMQ.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

@@ -168,6 +168,7 @@
   <file path="CompositeMessageBus.Infrastructure/Eventing/SqsMessageBus.cs" templateId="Intent.Aws.Sqs.SqsMessageBus" />
   <file path="CompositeMessageBus.Infrastructure/Eventing/SqsMessageDispatcher.cs" templateId="Intent.Aws.Sqs.SqsMessageDispatcher" />
   <file path="CompositeMessageBus.Infrastructure/Eventing/WolverineCompositeConfiguration.cs" templateId="Intent.Eventing.Wolverine.WolverineCompositeConfiguration" />
+  <file path="CompositeMessageBus.Infrastructure/Eventing/WolverineIntegrationEventMiddleware.cs" templateId="Intent.Eventing.Wolverine.WolverineIntegrationEventMiddleware" />
   <file path="CompositeMessageBus.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="CompositeMessageBus.Infrastructure/HttpClients/HttpClientDaprExtensions.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate" />
   <file path="CompositeMessageBus.Infrastructure/HttpClients/HttpClientHeaderHandler.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate" />

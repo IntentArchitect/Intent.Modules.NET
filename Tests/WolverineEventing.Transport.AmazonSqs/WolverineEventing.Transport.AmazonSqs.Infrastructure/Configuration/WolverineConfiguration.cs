@@ -6,11 +6,13 @@ using Wolverine;
 using Wolverine.AmazonSns;
 using Wolverine.AmazonSqs;
 using Wolverine.ErrorHandling;
+using Wolverine.Runtime.Handlers;
 using WolverineEventing.Transport.AmazonSqs.Application.Common.Interfaces;
 using WolverineEventing.Transport.AmazonSqs.Application.IntegrationEvents.EventHandlers.Orders;
 using WolverineEventing.Transport.AmazonSqs.Application.Orders.CreateOrder;
 using WolverineEventing.Transport.AmazonSqs.Eventing.Messages;
 using WolverineEventing.Transport.AmazonSqs.Infrastructure.Dispatch.Middleware;
+using WolverineEventing.Transport.AmazonSqs.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Wolverine.Common.WolverineConfiguration", Version = "1.0")]
@@ -19,6 +21,10 @@ namespace WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration
 {
     public static class WolverineConfiguration
     {
+        private static readonly HashSet<Type> IntegrationMessageTypes = new()
+        {
+            typeof(OrderCreatedEvent)
+        };
         public static void Configure(WolverineOptions opts, IConfiguration configuration)
         {
             ConfigureCqrs(opts);
@@ -42,6 +48,8 @@ namespace WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration
             ConfigureListeners(opts);
 
             ApplyErrorHandlingPolicy(opts, configuration);
+
+            ApplyIntegrationEventPolicy(opts);
         }
 
         private static void ConfigureAmazonSqsTransport(WolverineOptions opts, IConfiguration configuration)
@@ -106,6 +114,16 @@ namespace WolverineEventing.Transport.AmazonSqs.Infrastructure.Configuration
         private static System.TimeSpan[] ParseDelays(string value)
         {
             return value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(TimeSpan.Parse).ToArray();
+        }
+
+        private static void ApplyIntegrationEventPolicy(WolverineOptions opts)
+        {
+            opts.Policies.AddMiddleware<WolverineIntegrationEventMiddleware>(IsIntegrationMessage);
+        }
+
+        private static bool IsIntegrationMessage(HandlerChain chain)
+        {
+            return IntegrationMessageTypes.Contains(chain.MessageType);
         }
     }
 }

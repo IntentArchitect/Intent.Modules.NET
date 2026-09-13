@@ -20,6 +20,12 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
 {
     public static class WolverineConfiguration
     {
+        private static readonly HashSet<Type> IntegrationMessageTypes = new()
+        {
+            typeof(OrderShippedEvent),
+            typeof(FailingOrderEvent),
+            typeof(ProcessOrderCommand)
+        };
         public static void Configure(WolverineOptions opts, IConfiguration configuration)
         {
             ConfigureCqrs(opts);
@@ -122,9 +128,7 @@ namespace WolverineEventing.Subscribe.RabbitMQ.Infrastructure.Configuration
 
         private static bool IsIntegrationMessage(HandlerChain chain)
         {
-            return chain.MessageType == typeof(OrderShippedEvent) ||
-    chain.MessageType == typeof(FailingOrderEvent) ||
-    chain.MessageType == typeof(ProcessOrderCommand);
+            return IntegrationMessageTypes.Contains(chain.MessageType);
         }
     }
 }

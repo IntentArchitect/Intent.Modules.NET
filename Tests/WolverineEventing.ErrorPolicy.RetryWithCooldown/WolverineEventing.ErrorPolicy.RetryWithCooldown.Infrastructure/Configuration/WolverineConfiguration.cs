@@ -2,8 +2,10 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Wolverine;
 using Wolverine.ErrorHandling;
+using Wolverine.Runtime.Handlers;
 using WolverineEventing.ErrorPolicy.RetryWithCooldown.Application.IntegrationEvents.EventHandlers;
 using WolverineEventing.ErrorPolicy.RetryWithCooldown.Eventing.Messages;
+using WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Wolverine.Common.WolverineConfiguration", Version = "1.0")]
@@ -12,6 +14,10 @@ namespace WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Configu
 {
     public static class WolverineConfiguration
     {
+        private static readonly HashSet<Type> IntegrationMessageTypes = new()
+        {
+            typeof(OrderCreatedEvent)
+        };
         public static void Configure(WolverineOptions opts, IConfiguration configuration)
         {
             ConfigureEventing(opts, configuration);
@@ -24,6 +30,8 @@ namespace WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Configu
             ConfigureListeners(opts);
 
             ApplyErrorHandlingPolicy(opts, configuration);
+
+            ApplyIntegrationEventPolicy(opts);
         }
 
         private static void ConfigurePublishing(WolverineOptions opts)
@@ -53,6 +61,16 @@ namespace WolverineEventing.ErrorPolicy.RetryWithCooldown.Infrastructure.Configu
         private static System.TimeSpan[] ParseDelays(string value)
         {
             return value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(TimeSpan.Parse).ToArray();
+        }
+
+        private static void ApplyIntegrationEventPolicy(WolverineOptions opts)
+        {
+            opts.Policies.AddMiddleware<WolverineIntegrationEventMiddleware>(IsIntegrationMessage);
+        }
+
+        private static bool IsIntegrationMessage(HandlerChain chain)
+        {
+            return IntegrationMessageTypes.Contains(chain.MessageType);
         }
     }
 }

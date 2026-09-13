@@ -1,8 +1,8 @@
 ---
 name: module-building-strategies
-description: "The accumulated strategic playbook of judgment calls for designing an Intent Architect module — decomposition (root/bridging/common), template vs factory-extension choice, file cardinality, managed modes, setting-vs-stereotype, convention-vs-explicit, and two-phase verification. USE ONLY WHEN facing a design decision point while building or extending a module. DO NOT USE FOR the mechanical how-to of a specific construct (see add-module-skill-template, add-designer-extension, add-association-type) — this is the judgment layer above those."
+description: "The accumulated strategic playbook of judgment calls for designing an Intent Architect module — decomposition (root/bridging/common), template vs factory-extension choice, file cardinality, managed modes, setting-vs-stereotype, convention-vs-explicit, and two-phase verification. USE ONLY WHEN facing a design decision point while building or extending a module. DO NOT USE FOR the mechanical how-to of a specific construct (see local-add-module-skill-template, add-designer-extension, add-association-type) — this is the judgment layer above those."
 template-id: Intent.ModuleBuilder.AI.Skills.Skills.ModuleBuildingStrategies_SkillMd_Agents
-contentHash: 960129F037EFC6E83054B056786977D4C58620CE1C01B3325AA29C0C781E0403
+contentHash: 03D95A5BDAEC12BF3CA5695345FF3B5B21998FE3487B5FFDB491144DE160CE1C
 ---
 # Module Building Strategies
 
