@@ -33,7 +33,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Client.Common
                                         new Claim("access_token", userInfo.AccessToken == null ? "" : userInfo.AccessToken) ];
             _authenticationStateTask = Task.FromResult(
                                         new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
-                                            authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+                                        authenticationType: nameof(PersistentAuthenticationStateProvider)))));
 
             if (!string.IsNullOrWhiteSpace(userInfo.AccessToken))
             {
@@ -64,14 +64,19 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Client.Common
                 var current = _nav.ToBaseRelativePath(_nav.Uri);
                 var returnUrl = "/" + current;
                 var loginUrl = "/Account/Login?returnUrl=" + Uri.EscapeDataString(returnUrl);
+                var interactiveRequest = new InteractiveRequestOptions
+                {
+                    Interaction = InteractionType.GetToken,
+                    ReturnUrl = returnUrl
+                };
 
                 return ValueTask.FromResult(
-                    new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null));
+                    new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, loginUrl, interactiveRequest));
             }
 
             var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
-                            ? _accessTokenExpiresAt
-                            : DateTimeOffset.UtcNow.AddMinutes(5);
+                                        ? _accessTokenExpiresAt
+                                        : DateTimeOffset.UtcNow.AddMinutes(5);
 
             var accessToken = new AccessToken
             {

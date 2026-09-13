@@ -40,7 +40,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt.Client.Common
                                         new Claim("access_token", userInfo.AccessToken == null ? "" : userInfo.AccessToken) ];
             _authenticationStateTask = Task.FromResult(
                                         new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
-                                            authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+                                        authenticationType: nameof(PersistentAuthenticationStateProvider)))));
 
             if (!string.IsNullOrWhiteSpace(userInfo.AccessToken))
             {
@@ -91,14 +91,19 @@ namespace Blazor.InteractiveWebAssembly.Jwt.Client.Common
                 var current = _nav.ToBaseRelativePath(_nav.Uri);
                 var returnUrl = "/" + current;
                 var loginUrl = "/Account/Login?returnUrl=" + Uri.EscapeDataString(returnUrl);
+                var interactiveRequest = new InteractiveRequestOptions
+                {
+                    Interaction = InteractionType.GetToken,
+                    ReturnUrl = returnUrl
+                };
 
                 return new AccessTokenResult(
-                    AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null);
+                    AccessTokenResultStatus.RequiresRedirect, null, loginUrl, interactiveRequest);
             }
 
             var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
-                            ? _accessTokenExpiresAt
-                            : DateTimeOffset.UtcNow.AddMinutes(5);
+                                        ? _accessTokenExpiresAt
+                                        : DateTimeOffset.UtcNow.AddMinutes(5);
 
             var accessToken = new AccessToken
             {
@@ -131,22 +136,22 @@ namespace Blazor.InteractiveWebAssembly.Jwt.Client.Common
 
                 _accessToken = dto.AccessToken;
                 _refreshToken = string.IsNullOrWhiteSpace(dto.RefreshToken)
-                                ? _refreshToken // keep old if not rotated
-                                : dto.RefreshToken;
+                                            ? _refreshToken // keep old if not rotated
+                                            : dto.RefreshToken;
 
                 // expires_in is optional in a token response. Dereferencing it unconditionally would
                 // throw into the catch below and report a successful refresh as a failure.
                 _accessTokenExpiresAt = dto.ExpiresIn.HasValue
-                                ? new DateTimeOffset(DateTime.SpecifyKind(dto.ExpiresIn.Value, DateTimeKind.Utc), TimeSpan.Zero)
-                                : DateTimeOffset.UtcNow.AddMinutes(5);
+                                            ? new DateTimeOffset(DateTime.SpecifyKind(dto.ExpiresIn.Value, DateTimeKind.Utc), TimeSpan.Zero)
+                                            : DateTimeOffset.UtcNow.AddMinutes(5);
 
                 // Publish the refreshed token. Without this, anything reading "access_token" off
                 // AuthenticationState keeps seeing the stale value for the rest of the session, and
                 // NotifyAuthenticationStateChanged is never raised at all.
                 Claim[] refreshedClaims = [
-                    new Claim(ClaimTypes.NameIdentifier, _userId ?? string.Empty),
-                                new Claim(ClaimTypes.Email, _email ?? string.Empty),
-                                new Claim("access_token", _accessToken) ];
+                                            new Claim(ClaimTypes.NameIdentifier, _userId ?? string.Empty),
+                                            new Claim(ClaimTypes.Email, _email ?? string.Empty),
+                                            new Claim("access_token", _accessToken) ];
 
                 _authenticationStateTask = Task.FromResult(
                     new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(refreshedClaims,
