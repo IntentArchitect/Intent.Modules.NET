@@ -76,8 +76,6 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
 
                     if (wrapInTransaction)
                     {
-                        CSharpFile.AddUsing("System.Transactions");
-
                         // Concerns 2/6: Before() opens the ambient transaction; FinallyAsync is the
                         // only hook Wolverine guarantees on a throwing handler, so disposal (and
                         // therefore rollback) lives there, not in an AfterAsync try/finally. See
@@ -91,16 +89,18 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
 
                         @class.AddMethod("Scope", "Before", method =>
                         {
-                            method.AddStatement(
-                                """
-                                return new Scope
-                                {
-                                Transaction = new TransactionScope(
-                                TransactionScopeOption.Required,
-                                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted },
-                                TransactionScopeAsyncFlowOption.Enabled)
-                                };
-                                """);
+                            var transactionScopeType = UseType("System.Transactions.TransactionScope");
+                            var transactionScopeOptionType = UseType("System.Transactions.TransactionScopeOption");
+                            var transactionOptionsType = UseType("System.Transactions.TransactionOptions");
+                            var isolationLevelType = UseType("System.Transactions.IsolationLevel");
+                            var transactionScopeAsyncFlowOptionType = UseType("System.Transactions.TransactionScopeAsyncFlowOption");
+
+                            method.AddObjectInitializerBlock("return new Scope", scope =>
+                            {
+                                scope.AddInitStatement("Transaction",
+                                    $"new {transactionScopeType}({transactionScopeOptionType}.Required, new {transactionOptionsType} {{ IsolationLevel = {isolationLevelType}.ReadCommitted }}, {transactionScopeAsyncFlowOptionType}.Enabled)");
+                                scope.WithSemicolon();
+                            });
                         });
                     }
 
