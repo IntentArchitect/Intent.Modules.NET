@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineCompositeConfiguration;
+using Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventMiddleware;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantMiddleware;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineTenantStrategy;
@@ -15,6 +18,11 @@ public static class TemplateExtensions
     public static string GetWolverineCompositeConfigurationName(this IIntentTemplate template)
     {
         return template.GetTypeName(WolverineCompositeConfigurationTemplate.TemplateId);
+    }
+
+    public static string GetWolverineIntegrationEventMiddlewareName(this IIntentTemplate template)
+    {
+        return template.GetTypeName(WolverineIntegrationEventMiddlewareTemplate.TemplateId);
     }
 
     public static string GetWolverineMessageBusName(this IIntentTemplate template)

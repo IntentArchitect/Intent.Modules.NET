@@ -25,6 +25,7 @@
          alongside the one the module itself ships, and the loader binds to whichever loads first. -->
     <ItemGroup>
         <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
     </ItemGroup>
 
     <Import Project="..\Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems" Label="Shared" />

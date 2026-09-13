@@ -273,6 +273,15 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     AddApplyTransactionalOutboxMethod(@class, ctx);
                     method.AddStatement("ApplyTransactionalOutbox(opts, configuration);", s => s.SeparatedFromPrevious());
                 }
+                else if (ctx.SubscribedMessages.Count > 0 || ctx.ReceivedCommands.Count > 0)
+                {
+                    // Outbox = None: a subscriber's handler otherwise has no unit-of-work safety net
+                    // at all - see WolverineIntegrationEventMiddleware and CONTEXT.md. Durable already
+                    // covers this via AutoApplyTransactions() plus the ApplicationDbContext splice, so
+                    // this branch and AddApplyTransactionalOutboxMethod above are mutually exclusive.
+                    AddApplyIntegrationEventPolicyMethod(@class, ctx);
+                    method.AddStatement("ApplyIntegrationEventPolicy(opts);", s => s.SeparatedFromPrevious());
+                }
             });
 
             configureMethod.AddStatement("ConfigureEventing(opts, configuration);", s => s.SeparatedFromPrevious());
@@ -745,6 +754,53 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 method.AddStatement("opts.Policies.AutoApplyTransactions();");
                 method.AddStatement("opts.Policies.UseDurableOutboxOnAllSendingEndpoints();");
                 method.AddStatement("opts.Policies.UseDurableInboxOnAllListeners();");
+            });
+        }
+
+        /// <summary>
+        /// Outbox = None only: registers WolverineIntegrationEventMiddleware against every
+        /// Integration Event / Integration Command message type this application publishes or sends
+        /// - disjoint from Intent.Application.Wolverine's ICommand/IQuery dispatch by construction, so
+        /// no coexistence guard is needed. See CONTEXT.md.
+        /// </summary>
+        private static void AddApplyIntegrationEventPolicyMethod(CSharpClass @class, EventingContext ctx)
+        {
+            @class.AddMethod("void", "ApplyIntegrationEventPolicy", method =>
+            {
+                method.Private().Static();
+                method.AddParameter("WolverineOptions", "opts");
+
+                method.AddStatement($"opts.Policies.AddMiddleware<{ctx.Template.GetWolverineIntegrationEventMiddlewareName()}>(IsIntegrationMessage);");
+            });
+
+            @class.AddMethod("bool", "IsIntegrationMessage", method =>
+            {
+                method.Private().Static();
+                method.AddParameter(ctx.Template.UseType("Wolverine.Runtime.Handlers.HandlerChain"), "chain");
+
+                var emitted = new HashSet<string>();
+                var messageTypeNames = new List<string>();
+
+                foreach (var message in ctx.SubscribedMessages)
+                {
+                    var typeName = ctx.Template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, message);
+                    if (emitted.Add(typeName))
+                    {
+                        messageTypeNames.Add(typeName);
+                    }
+                }
+
+                foreach (var command in ctx.ReceivedCommands)
+                {
+                    var typeName = ctx.Template.GetTypeName(IntegrationCommandTemplate.TemplateId, command);
+                    if (emitted.Add(typeName))
+                    {
+                        messageTypeNames.Add(typeName);
+                    }
+                }
+
+                var condition = string.Join(" ||\n    ", messageTypeNames.Select(t => $"chain.MessageType == typeof({t})"));
+                method.AddStatement($"return {condition};");
             });
         }
 

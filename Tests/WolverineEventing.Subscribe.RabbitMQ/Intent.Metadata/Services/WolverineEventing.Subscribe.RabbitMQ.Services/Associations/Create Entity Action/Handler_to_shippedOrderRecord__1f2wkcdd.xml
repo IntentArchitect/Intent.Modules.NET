@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c4919414-e638-4ac5-881c-a27d04f94020">
+  <sourceEnd id="4d896010-675a-451a-b1a1-b8b3b5a3732d" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : OrderShippedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="8767b337-7473-4a2b-aa59-5dae53f462a4">
+      <typeId>4f91944a-d3dc-4cf6-a674-6046052eb9a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Services</typePackageName>
+      <typePackageId>65082173-ae53-47fb-a822-80cb802ca51f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c4919414-e638-4ac5-881c-a27d04f94020" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>shippedOrderRecord</name>
+    <display>[create] shippedOrderRecord: ShippedOrderRecord</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1fbb508a-4c8a-494c-84cb-056574e76880">
+      <typeId>f5072d32-befb-43eb-8d00-d89848cb3e76</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Domain</typePackageName>
+      <typePackageId>cdbd843f-c829-4975-9560-b45a04e4200b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="e74b3878-7b44-403c-a208-ec678c431940" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4f91944a-d3dc-4cf6-a674-6046052eb9a4" location="[WolverineEventing.Subscribe.RabbitMQ].[Services].[Handler]" />
+        <target applicationId="e74b3878-7b44-403c-a208-ec678c431940" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f5072d32-befb-43eb-8d00-d89848cb3e76" location="[WolverineEventing.Subscribe.RabbitMQ].[Services].[ShippedOrderRecord]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="f5072d32-befb-43eb-8d00-d89848cb3e76" name="ShippedOrderRecord" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5cf39b15-0dab-4586-a894-8d07e99a7521" name="OrderId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4f91944a-d3dc-4cf6-a674-6046052eb9a4" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="c859c513-2179-4826-9393-5b2390c19b76" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ShippedAt}</expression>
+            <path>
+              <target id="f5072d32-befb-43eb-8d00-d89848cb3e76" name="ShippedOrderRecord" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6d92bc4b-1bc5-4900-beed-89a70045fcb2" name="ShippedAt" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ShippedAt" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4f91944a-d3dc-4cf6-a674-6046052eb9a4" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="e7b078de-0257-4c4e-b8c2-f33057b3ef48" name="ShippedAt" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

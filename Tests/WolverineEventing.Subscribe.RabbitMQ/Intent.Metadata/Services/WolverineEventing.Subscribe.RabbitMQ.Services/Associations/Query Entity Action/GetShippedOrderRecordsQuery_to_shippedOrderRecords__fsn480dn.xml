@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="969f9ac7-7a85-49ff-bce2-bfc213f4565b">
+  <sourceEnd id="f1ed68d9-e6eb-4bf8-ba78-01a3192d5a9c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetShippedOrderRecordsQuery</display>
+    <order>0</order>
+    <typeReference id="76d58bec-a10b-4e31-9eb7-069141404e1d">
+      <typeId>32ed925f-b855-46f7-86ef-ce97326911ff</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Services</typePackageName>
+      <typePackageId>65082173-ae53-47fb-a822-80cb802ca51f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="969f9ac7-7a85-49ff-bce2-bfc213f4565b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>shippedOrderRecords</name>
+    <display>[query] shippedOrderRecords: ShippedOrderRecord[*]?</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9f99e36d-62ab-46a5-b1d7-ec8f4dbe73c3">
+      <typeId>f5072d32-befb-43eb-8d00-d89848cb3e76</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WolverineEventing.Subscribe.RabbitMQ.Domain</typePackageName>
+      <typePackageId>cdbd843f-c829-4975-9560-b45a04e4200b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
