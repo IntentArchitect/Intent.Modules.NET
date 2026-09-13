@@ -773,34 +773,48 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 method.AddStatement($"opts.Policies.AddMiddleware<{ctx.Template.GetWolverineIntegrationEventMiddlewareName()}>(IsIntegrationMessage);");
             });
 
+            var emitted = new HashSet<string>();
+            var messageTypeNames = new List<string>();
+
+            foreach (var message in ctx.SubscribedMessages)
+            {
+                var typeName = ctx.Template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, message);
+                if (emitted.Add(typeName))
+                {
+                    messageTypeNames.Add(typeName);
+                }
+            }
+
+            foreach (var command in ctx.ReceivedCommands)
+            {
+                var typeName = ctx.Template.GetTypeName(IntegrationCommandTemplate.TemplateId, command);
+                if (emitted.Add(typeName))
+                {
+                    messageTypeNames.Add(typeName);
+                }
+            }
+
+            // A HashSet<Type> lookup, not a chain.MessageType == typeof(X) || ... string - stays
+            // one clean statement no matter how many message/command types this application has.
+            @class.AddField("HashSet<Type>", "IntegrationMessageTypes", field =>
+            {
+                field.PrivateReadOnly().Static();
+
+                var init = new CSharpObjectInitializerBlock("new()");
+                foreach (var typeName in messageTypeNames)
+                {
+                    init.AddStatement($"typeof({typeName})");
+                }
+
+                field.WithAssignment(init);
+            });
+
             @class.AddMethod("bool", "IsIntegrationMessage", method =>
             {
                 method.Private().Static();
                 method.AddParameter(ctx.Template.UseType("Wolverine.Runtime.Handlers.HandlerChain"), "chain");
 
-                var emitted = new HashSet<string>();
-                var messageTypeNames = new List<string>();
-
-                foreach (var message in ctx.SubscribedMessages)
-                {
-                    var typeName = ctx.Template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, message);
-                    if (emitted.Add(typeName))
-                    {
-                        messageTypeNames.Add(typeName);
-                    }
-                }
-
-                foreach (var command in ctx.ReceivedCommands)
-                {
-                    var typeName = ctx.Template.GetTypeName(IntegrationCommandTemplate.TemplateId, command);
-                    if (emitted.Add(typeName))
-                    {
-                        messageTypeNames.Add(typeName);
-                    }
-                }
-
-                var condition = string.Join(" ||\n    ", messageTypeNames.Select(t => $"chain.MessageType == typeof({t})"));
-                method.AddStatement($"return {condition};");
+                method.AddStatement("return IntegrationMessageTypes.Contains(chain.MessageType);");
             });
         }
 
