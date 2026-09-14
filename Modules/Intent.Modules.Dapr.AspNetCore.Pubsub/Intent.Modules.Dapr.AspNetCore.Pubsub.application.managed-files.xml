@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="858ff064-47cf-4765-be7f-75a121e9c8d6">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="FactoryExtensions/DaprEventingFactoryExtension.cs" deviationsHash="D7DA686070C3B0F2F35FF200F3C1B40EE40CFF9CEEF7525335C7C99EA44045E2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

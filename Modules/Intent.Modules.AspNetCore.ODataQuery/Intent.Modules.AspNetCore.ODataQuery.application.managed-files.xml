@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="49c326c7-719d-409f-8e61-4cbea4443bce">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="FactoryExtensions/CosmosRepositoryExtension.cs" deviationsHash="D5387463E5EECC084F10A3EA7DE7A241D288F69563D980E7DDBD8BE89E998BFB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

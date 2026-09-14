@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="e9a258c4-0bf0-4ffc-b31c-0897e5076e02">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/DaprFactoryExtension.cs" deviationsHash="1EFDC946568EDE6FFFA29ED41847752BE528363566840B56ABE332CB56071FE6" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Dapr.AspNetCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
