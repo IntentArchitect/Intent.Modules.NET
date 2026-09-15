@@ -46,8 +46,8 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                                 .AddStatement(@"concreteSchema.Description = ""GeoJSON geometry — shape of 'coordinates' depends on the geometry type."";")
                                 .AddIfStatement("context.Type == typeof(Point)", pointStmt => pointStmt
                                     .AddStatement(new CSharpAssignmentStatement("concreteSchema.Example", new CSharpObjectInitializerBlock("new JsonObject")
-                                            .AddKeyAndValue(@"""type""", @"""Point""")
-                                            .AddKeyAndValue(@"""coordinates""", "new JsonArray { 1.0, 2.0 }"))
+                                        .AddKeyAndValue(@"""type""", @"""Point""")
+                                        .AddKeyAndValue(@"""coordinates""", "new JsonArray { 1.0, 2.0 }"))
                                         .WithSemicolon())
                                 )
                             );
@@ -66,8 +66,8 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                                 .AddStatement(@"schema.Description = ""GeoJSON geometry — shape of 'coordinates' depends on the geometry type."";")
                                 .AddIfStatement("context.Type == typeof(Point)", pointStmt => pointStmt
                                     .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
-                                            .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
-                                            .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
+                                        .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
+                                        .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
                                         .WithSemicolon())
                                 )
                             );
@@ -89,7 +89,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
 
         public override bool CanRunTemplate()
         {
-            return ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
+            return OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration") != null;
         }
 
         [IntentManaged(Mode.Fully)]

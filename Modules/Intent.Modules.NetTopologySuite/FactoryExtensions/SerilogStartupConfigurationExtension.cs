@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
 using Intent.Modules.NetTopologySuite.Templates;
+using Intent.Modules.NetTopologySuite.Templates.GeoDestructureSerilogPolicy;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -32,21 +33,23 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program);
-            if (programTemplate is null)
+            foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program))
             {
-                return;
-            }
+                programTemplate.CSharpFile.OnBuild(file =>
+                {
+                    programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],
+                        (lambdaBlock, parameters) =>
+                        {
+                            if (programTemplate.OutputTarget.FindTemplateInstance(GeoDestructureSerilogPolicyTemplate.TemplateId) is null)
+                            {
+                                return;
+                            }
 
-            programTemplate.CSharpFile.OnBuild(file =>
-            {
-                programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],
-                    (lambdaBlock, parameters) =>
-                    {
-                        var chain = (CSharpMethodChainStatement)lambdaBlock.Statements.First();
-                        chain.AddChainStatement($"Destructure.With(new {programTemplate.GetGeoDestructureSerilogPolicyName()}())");
-                    });
-            }, 15);
+                            var chain = (CSharpMethodChainStatement)lambdaBlock.Statements.First();
+                            chain.AddChainStatement($"Destructure.With(new {programTemplate.GetGeoDestructureSerilogPolicyName()}())");
+                        });
+                }, 15);
+            }
         }
     }
 }

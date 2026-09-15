@@ -5,9 +5,11 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -33,49 +35,56 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            if (startupTemplate is null)
+            foreach (var startupTemplate in application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName))
             {
-                return;
-            }
-
-            startupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);
-            startupTemplate.CSharpFile.OnBuild(file =>
-            {
-                startupTemplate.StartupFile.ConfigureServices((statements, context) =>
+                if (!startupTemplate.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
                 {
-                    // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
-                    // a CSharpInvocationStatement that supports method chaining, this will have to do.
-                    // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
-                    // only make the CSharpInvocationStatement change later difficult. 
-                    file.AfterBuild(nestedFile =>
+                    continue;
+                }
+
+                startupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);
+                startupTemplate.CSharpFile.OnBuild(file =>
+                {
+                    startupTemplate.StartupFile.ConfigureServices((statements, context) =>
                     {
-                        var statementsToCheck = new List<CSharpStatement>();
-                        ExtractPossibleStatements(statements, statementsToCheck);
-
-                        var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
-                        var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
-                            as CSharpInvocationStatement;
-                        if (addJsonOptionsStatement is null)
+                        if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement)
                         {
-                            addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
-                            addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
-                            lastConfigStatement.InsertBelow(addJsonOptionsStatement);
+                            return;
                         }
 
-                        lastConfigStatement.WithoutSemicolon();
-
-                        var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                        if (lambda is null)
+                        // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
+                        // a CSharpInvocationStatement that supports method chaining, this will have to do.
+                        // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
+                        // only make the CSharpInvocationStatement change later difficult. 
+                        file.AfterBuild(nestedFile =>
                         {
-                            lambda = new CSharpLambdaBlock("options");
-                            addJsonOptionsStatement.AddArgument(lambda);
-                        }
+                            var statementsToCheck = new List<CSharpStatement>();
+                            ExtractPossibleStatements(statements, statementsToCheck);
 
-                        lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {startupTemplate.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());");
+                            var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                            var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
+                                as CSharpInvocationStatement;
+                            if (addJsonOptionsStatement is null)
+                            {
+                                addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
+                                addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
+                                lastConfigStatement.InsertBelow(addJsonOptionsStatement);
+                            }
+
+                            lastConfigStatement.WithoutSemicolon();
+
+                            var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
+                            if (lambda is null)
+                            {
+                                lambda = new CSharpLambdaBlock("options");
+                                addJsonOptionsStatement.AddArgument(lambda);
+                            }
+
+                            lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {startupTemplate.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());");
+                        });
                     });
-                });
-            }, 15);
+                }, 15);
+            }
         }
 
         private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
