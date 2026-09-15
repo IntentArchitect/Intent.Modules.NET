@@ -323,11 +323,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         private static void ConfigureNetTopologySuite(ICSharpFileBuilderTemplate dependencyInjection, DbContextInstance dbContextInstance, List<CSharpStatement> builderStatements,
             NugetPackageInfo nuget)
         {
-            // Determining which DbContext is using the Geometry types and targeting that one only requires that you determine which
-            // Domain package contains Models that are referencing those types. A simple way to achieve that is to have the TypeResolver
-            // publish an Event (which needs to be introduced to both EF and NetTopologySuite modules) and upon detection figure out
-            // the package in question. Not doing that for now and only assuming main DB context is using this.
-            if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)
+            if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) &&
+                NetTopologySuiteHelper.MapsGeometryTypes(dependencyInjection.ExecutionContext, dbContextInstance))
             {
                 dependencyInjection.AddNugetDependency(nuget);
                 builderStatements.Add("b.UseNetTopologySuite();");

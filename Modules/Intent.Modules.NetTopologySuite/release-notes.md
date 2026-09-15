@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Fixed: Installing this module into an application with more than one ASP.NET Core host project (e.g. a Web API alongside a Mobile API) caused the Software Factory to throw `More than one instance of template X was found` instead of generating. All host-scoped template lookups (startup configuration, Swagger configuration, Serilog destructuring policy registration, and the GeoJSON Swagger schema filter) are now resolved per host instead of assuming a single one exists.
+
 ### Version 1.0.4
 
 - New Feature: Added `MultiPolygon` geometry type, usable on Domain and Service attributes the same way as `Point`.

@@ -72,5 +72,7 @@
     <application id="5159fdd6-5f13-4cb5-ac2e-3ccabd837119" name="Scalar.NET10.AuthCode" solutionFolder="Tests" relativePath="../Tests/Scalar.NET10.AuthCode/Scalar.NET10.AuthCode.application.config" />
     <application id="4e2e78cb-a7d2-4b5c-9653-399737bb308f" name="JsonPatchRfc7396.Swashbuckle" solutionFolder="Tests" relativePath="../Tests/JsonPatchRfc7396.Swashbuckle/JsonPatchRfc7396.Swashbuckle.application.config" />
     <application id="935d7481-7030-4594-9d73-d00f99484a4e" name="JsonPatchRfc7396.Scalar" solutionFolder="Tests" relativePath="../Tests/JsonPatchRfc7396.Scalar/JsonPatchRfc7396.Scalar.application.config" />
+    <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="EntityFrameworkCore" solutionFolder="Modules/Persistence" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
+    <application id="ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c" name="NetTopologySuite" solutionFolder="Modules/Persistence" relativePath="Intent.Modules.NetTopologySuite/Intent.Modules.NetTopologySuite.application.config" />
   </applications>
 </solution>
