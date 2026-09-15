@@ -22,7 +22,14 @@ public static class NetTopologySuiteHelper
 
     public static bool MapsGeometryTypes(ISoftwareFactoryExecutionContext executionContext, DbContextInstance dbContextInstance)
     {
-        return dbContextInstance.DomainPackageModel.Classes
+        // DomainPackageModel.Classes only looks at elements directly under the package root and
+        // does not descend into Folders, so entities organised into folders (e.g. Entities/Geometry/)
+        // would be invisible to it. GetClassModels() is designer-wide and folder-recursive.
+        var packageId = dbContextInstance.DomainPackageModel.UnderlyingPackage.Id;
+
+        return executionContext.MetadataManager.Domain(executionContext.GetApplicationConfig().Id)
+            .GetClassModels()
+            .Where(c => c.InternalElement.Package.Id == packageId)
             .SelectMany(c => c.Attributes)
             .Any(a => GeometryTypeNames.Contains(a.TypeReference.Element.Name));
     }
