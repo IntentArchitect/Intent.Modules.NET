@@ -1,10 +1,13 @@
+### Version 5.2.1
+
+- Fixed: `.UseNetTopologySuite()` was only ever configured on the DbContext named `ApplicationDbContext`, even when a different (secondary) DbContext was the one whose Domain package actually mapped a geometry-typed attribute (`Point`/`MultiPolygon`). The provider's NetTopologySuite support is now enabled per-DbContext, based on whether that DbContext's own Domain package maps a geometry type, rather than on which DbContext is primary.
+
 ### Version 5.2.0
 
 - New Feature: `UnitOfWorkMiddleware.Before` (Wolverine dispatch) now detects an externally-managed EF transaction via `HasDbTransaction()` and skips its own `TransactionScope`, bringing Wolverine to parity with the existing MediatR `UnitOfWorkBehaviour` guard (added in 5.0.46) and preventing MSDTC escalation.
 - Fixed: In applications where every domain package specifies a custom Connection String Name (so no DbContext is named `ApplicationDbContext`), the MediatR `UnitOfWorkBehaviour` could be generated with a `_dataSource.HasDbTransaction()` guard referencing a field that was never created, causing a compile error. The guard is now only injected when the Entity Framework unit-of-work field is actually present on the generated behaviour.
 - Fixed: The one-to-one `HasForeignKey<T>(...)` generic type argument in generated entity type configurations used the raw domain class name instead of resolving the type through the template's type resolution. Where the entity's generated type needed qualifying (e.g. a nested folder namespace such as `Domain.Entities.Customer.Customer`, or a name that clashes with another type in scope), the configuration would not compile. The type argument is now resolved the same way as every other entity type reference in the configuration.
 - Improvement: Added default Template Classification and Priorities.
-- Fixed: `.UseNetTopologySuite()` was only ever configured on the DbContext named `ApplicationDbContext`, even when a different (secondary) DbContext was the one whose Domain package actually mapped a geometry-typed attribute (`Point`/`MultiPolygon`). The provider's NetTopologySuite support is now enabled per-DbContext, based on whether that DbContext's own Domain package maps a geometry type, rather than on which DbContext is primary.
 
 ### Version 5.1.1
 
