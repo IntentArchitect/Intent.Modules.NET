@@ -1,7 +1,3 @@
-### Version 5.2.1
-
-- Fixed: `.UseNetTopologySuite()` was only ever configured on the DbContext named `ApplicationDbContext`, even when a different (secondary) DbContext was the one whose Domain package actually mapped a geometry-typed attribute (`Point`/`MultiPolygon`). The provider's NetTopologySuite support is now enabled per-DbContext, based on whether that DbContext's own Domain package maps a geometry type, rather than on which DbContext is primary.
-
 ### Version 5.2.0
 
 - New Feature: `UnitOfWorkMiddleware.Before` (Wolverine dispatch) now detects an externally-managed EF transaction via `HasDbTransaction()` and skips its own `TransactionScope`, bringing Wolverine to parity with the existing MediatR `UnitOfWorkBehaviour` guard (added in 5.0.46) and preventing MSDTC escalation.

@@ -323,8 +323,12 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         private static void ConfigureNetTopologySuite(ICSharpFileBuilderTemplate dependencyInjection, DbContextInstance dbContextInstance, List<CSharpStatement> builderStatements,
             NugetPackageInfo nuget)
         {
-            if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) &&
-                NetTopologySuiteHelper.MapsGeometryTypes(dependencyInjection.ExecutionContext, dbContextInstance))
+            // Deliberately scoped to the primary DbContext only. A per-DbContext geometry-mapping
+            // check was tried and reverted (see EntityFrameworkCore/CONTEXT.md) — narrowing this to
+            // a name-matched allowlist of Type-Definitions risked silently dropping NetTopologySuite
+            // support for apps using other geometry types this module doesn't model. Revisit only
+            // once there's a concrete case needing support on a non-primary DbContext.
+            if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)
             {
                 dependencyInjection.AddNugetDependency(nuget);
                 builderStatements.Add("b.UseNetTopologySuite();");
