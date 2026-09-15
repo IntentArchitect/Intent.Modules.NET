@@ -9,7 +9,7 @@
   <file path="Api/Extensions/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="FactoryExtensions/AISkillGuidanceForServiceImplementations.cs" deviationsHash="8813D666D66F253F8E12F13424E1FC8D23EE4F5DEA61D84505793E85E0F35458" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/ConfigureConventionsExtension.cs" deviationsHash="D6EC8D162DE9D2B3AB7574EEE73ACAC81B4FF427CFD2848CF06D16213606B841" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/DependencyInjectionExtension.cs" deviationsHash="9A1FCE1CC4287EA5382F0E2EB38AE0122482A46B3228292D69E34637038B8B33" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/DependencyInjectionExtension.cs" deviationsHash="613CA16C9E2B11E8629A70FC4DCF40938F637A52F0143A20A664410A0281E333" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="F3131A22B9D77AB676A4E06C0B3CAE435001FE5802F5C7B3BF44A5655253F695" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/LazyLoadingProxyFactoryExtension.cs" deviationsHash="43DEA69B9C24155332935A36B388923D337A08312C8B20A8F0B3B1A9A9E4E2E4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/PostgresUtcConverterExtension.cs" deviationsHash="A0AE98E8092BC9BD6413BFA81DDB4A802FE5492AEFFBB04361EC4DB8F49630F3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
