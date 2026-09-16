@@ -38,20 +38,7 @@ template never writes a value for, so hand-editing is the *only* way to set them
    (or the designer UI). Use the version exactly as supplied.
 
 2. Run the Software Factory to regenerate `.imodspec`'s `<version>`.
-3. Confirm via `get_file_diffs` that only the version line changed. If the diff touches more than
-   that (e.g. the `<dependencies>` block shifts), the file was very likely hand-edited out of sync
-   with the model at some point — trust the regenerated result over whatever was previously on
-   disk, don't try to preserve the old shape.
-
-### The Downgrade Guard
-
-The Software Factory silently refuses to regenerate `.imodspec` if the version you set compares as
-*lower*, by semver precedence, than the `<version>` already on disk — `run_software_factory`
-reports zero changes, no error or warning. A `-pre.#` suffix sorts *below* the same `X.Y.Z` with no
-suffix. If a version-set script + regeneration reports nothing staged when you expected a diff,
-suspect this before anything else. Workaround: temporarily hand-edit *only* the `<version>` line
-down to a safe value (confirm via `git diff`/`git status` first that the file is uncommitted), then
-reapply your intended version through the designer and regenerate forward.
+3. Confirm via `get_file_diffs` that only the version line changed.
 
 > **`<version>` is written only when the designer's value sorts strictly higher than the one on disk.**
 > A lower value is skipped in silence — nothing staged, no error, no warning. That asymmetry is the

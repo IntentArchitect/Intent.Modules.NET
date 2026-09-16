@@ -41,7 +41,9 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoDestructureSerilogPolicy
                     {
                         method.AddParameter("object", "value")
                             .AddParameter("ILogEventPropertyValueFactory", "propertyValueFactory")
-                            .AddParameter($"LogEventPropertyValue{Nullable}", "result", param => param.WithOutParameterModifier());
+                            .AddParameter($"LogEventPropertyValue{Nullable}", "result", param => param
+                                .WithOutParameterModifier()
+                                .AddAttribute(UseType("System.Diagnostics.CodeAnalysis.NotNullWhenAttribute").RemoveSuffix("Attribute"), attr => attr.AddArgument("true")));
                         method.AddStatements(
                             """
                             result = value switch
