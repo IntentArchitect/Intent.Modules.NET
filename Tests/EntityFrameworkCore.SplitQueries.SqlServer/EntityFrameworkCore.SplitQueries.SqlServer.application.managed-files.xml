@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="35e30096-1762-47c3-b25f-008a4d9895b3">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/EntityFrameworkCore.SplitQueries.SqlServer.Api.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Filters/ExceptionFilter.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Program.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Properties/launchSettings.json" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Startup.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/appsettings.json" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/Common/Pagination/PagedList.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/EntityFrameworkCore.SplitQueries.SqlServer.Application.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/CollectionExtensions.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/UpdateHelper.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Entities/Order.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/EntityFrameworkCore.SplitQueries.SqlServer.Domain.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IEFRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IOrderRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IPagedList.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj" deviationsHash="A0A368121A93B540DA8FE3C6ED3462C12D3DD64863FB93A85401A3D56218FD44" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Migrations/README.md" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/OrderRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/EntityFrameworkCore.SplitQueries.SqlServer.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Application/EntityFrameworkCore.SplitQueries.SqlServer.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/EntityFrameworkCore.SplitQueries.SqlServer.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj" deviationsHash="A0A368121A93B540DA8FE3C6ED3462C12D3DD64863FB93A85401A3D56218FD44" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

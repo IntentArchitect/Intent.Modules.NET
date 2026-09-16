@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="40f7b22d-fc98-4c06-8957-ef909a03365a">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/EntityFrameworkCore.SplitQueries.MySql.Api.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Filters/ExceptionFilter.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Program.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Properties/launchSettings.json" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Startup.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/appsettings.json" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/Common/Pagination/PagedList.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/EntityFrameworkCore.SplitQueries.MySql.Application.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/CollectionExtensions.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/UpdateHelper.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/EntityFrameworkCore.SplitQueries.MySql.Domain.csproj" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IEFRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IPagedList.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IRepository.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/EntityFrameworkCore.SplitQueries.MySql.Infrastructure.csproj" deviationsHash="1B2102459FEB2CB8B862F5C872A021AA460295E8FDC095517A8430DE2A46DC27" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Migrations/README.md" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EntityFrameworkCore.SplitQueries.MySql.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/EntityFrameworkCore.SplitQueries.MySql.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Application/EntityFrameworkCore.SplitQueries.MySql.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/EntityFrameworkCore.SplitQueries.MySql.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/EntityFrameworkCore.SplitQueries.MySql.Infrastructure.csproj" deviationsHash="1B2102459FEB2CB8B862F5C872A021AA460295E8FDC095517A8430DE2A46DC27" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EntityFrameworkCore.SplitQueries.MySql.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>
