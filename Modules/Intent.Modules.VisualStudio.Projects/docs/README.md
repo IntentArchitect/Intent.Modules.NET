@@ -1,6 +1,7 @@
 ---
 uid: modules-dotnet.intent.modules.visual-studio.projects
 ---
+
 # Intent.VisualStudio.Projects
 
 This module adds Visual Studio capabilities to the [](xref:application-development.modelling.codebase-structure-designer) to allow applications to generate related files such as `.sln` and `.csproj` types.
@@ -33,8 +34,8 @@ We can also see `Template Output`s, such as `Intent.Entities.Entity`, which indi
 
 1. Right-click on the `Visual Studio Solution` element or a `Folder` under it and select `C# Project (.NET)`.
 2. Enter the name of your C# project.
-3. *(Optional)* Configure any project options in the Property Pane, such as `Target Framework`.
-4. *(Optional)* Customize your project by configuring `Output Anchor`s, `Folder`s, `Template Output`s, etc.
+3. _(Optional)_ Configure any project options in the Property Pane, such as `Target Framework`.
+4. _(Optional)_ Customize your project by configuring `Output Anchor`s, `Folder`s, `Template Output`s, etc.
 
 ![Add a Custom Project](images/add-project.png)
 
@@ -71,7 +72,7 @@ To consolidate the `Domain` project into the `Application` project:
 
 ![Consolidated Project](images/consolidated-project.png)
 
-*Visual Studio solution with Domain project consolidated into Application project.*
+_Visual Studio solution with Domain project consolidated into Application project._
 
 Now, your Visual Studio solution will have three projects instead of four.
 
@@ -83,21 +84,21 @@ The existing structure of the solution. In this example, we want to move the `In
 
 ![Existing Project Structure](images/add-project-blazor-before.png)
 
-*Original Blazor project structure with the ServiceContract template in the main Client project.*
+_Original Blazor project structure with the ServiceContract template in the main Client project._
 
 To split out templates into a separate project:
 
 1. Create a new project, as per the steps described in the [Add a New Project](#adding-a-new-project) section.
 2. Move the `Intent.Blazor.HttpClients.ServiceContract` template from the existing project to the new project, placing it where you want the code to go.
 
-  > [!WARNING]
-  > Templates that `Intent.Blazor.HttpClients.ServiceContract` depends on also need to be moved to avoid circular dependencies. The Software Factory will throw errors if projects have circular references.
+> [!WARNING]
+> Templates that `Intent.Blazor.HttpClients.ServiceContract` depends on also need to be moved to avoid circular dependencies. The Software Factory will throw errors if projects have circular references.
 
 3. Move dependent templates to the new project. In this example, the entire `Contracts` folder also needs to be moved to the new project to prevent the Client project from depending on the New project while the New project depends on the Client project.
 
 ![Split Project Structure](images/add-project-blazor-after.png)
 
-*Refactored structure with HttpClients in a separate project.*
+_Refactored structure with HttpClients in a separate project._
 
 ## Folder Options
 
@@ -116,11 +117,11 @@ This option is available on folders in **all designers**. Configure it in the de
 
 ## Stereotype details
 
-### The *.NET Settings* stereotype
+### The _.NET Settings_ stereotype
 
 #### The `Suppress Warnings` property
 
-Adds  a [`<NoWarn />`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file with the specified value of semi-colon separated codes of warnings to suppress.
+Adds a [`<NoWarn />`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file with the specified value of semi-colon separated codes of warnings to suppress.
 
 By default, this is populated with the value `$(NoWarn)` which will apply the [default suppressed warnings](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16). While this value is set to `$(NoWarn)`, no `<NoWarn />` element will be added to the `.csproj` file.
 
@@ -146,7 +147,7 @@ Sets the `<OutputType />` element in the `.csproj` file (`Class Library`, `Conso
 
 This property is settable regardless of the selected `SDK`, including `Aspire.AppHost.Sdk`. An Aspire AppHost project must build as an executable to run as the orchestrator, so leave it unset (the Aspire SDK defaults it to `Exe`) or set it to `Console Application` explicitly — `Class Library` and `Windows Application` will produce a non-runnable AppHost.
 
-### The *Visual Studio Solution Options* stereotype
+### The _Visual Studio Solution Options_ stereotype
 
 This stereotype is applied to **Visual Studio Solution** elements.
 
@@ -165,20 +166,20 @@ By Default, your **Visual Studio Solution** will be placed in Application's `Rel
 Controls which solution file format is generated for this **Visual Studio Solution**. Two options are available:
 
 - **Classic (.sln)** (default): Generates the traditional `.sln` format that all Visual Studio versions support.
-- **XML Solution (.slnx)**: Generates the modern XML-based `.slnx` format introduced in Visual Studio 2022 and .NET 10. It is simpler to read and diff — no GUIDs, no configuration-platform boilerplate.
+- **XML Solution (.slnx)**: Generates the modern XML-based `.slnx` format introduced in Visual Studio 2022 and .NET 10. It is simpler to read and diff — no GUIDs. Intent itself does not generate solution configurations/platforms or per-project build type mappings into this file, but if you or Visual Studio add them directly to the `.slnx` — along with any other manual customisation such as `BuildDependency`, `Properties`, or comments — the Software Factory preserves them on every subsequent run; they are only ever changed when the project or folder they belong to is itself renamed, moved, or removed.
 
 To switch formats, apply the `Visual Studio Solution Options` stereotype to the solution element and change the `Solution File Format` property. When you run the Software Factory after switching, it will generate the new format and present the removal of the old file in the staged changes view.
 
 > [!NOTE]
 > The `.slnx` format requires Visual Studio 2022 17.10 or later, or the .NET 10 SDK.
 
-### The *Root Folder Options* stereotype
+### The _Root Folder Options_ stereotype
 
 This stereotype is applied to the **Root Folder** element (shown as `root` at the top of the Codebase Structure Designer) and is owned by the `Intent.Modelers.CodebaseStructure` module. Its `Relative Location` property lets you shift the application's absolute output root (`OutputRootDirectory`) so that the `.sln`/`.slnx` file, `.gitignore`, and a centrally-managed `Directory.Packages.props` can be generated one or more levels up from the application's own output location, in a folder shared with sibling applications.
 
-See the [*Root Folder Options* stereotype](https://docs.intentarchitect.com/articles/modules-dotnet/intent-modelers-codebasestructure/intent-modelers-codebasestructure.html) section of the `Intent.Modelers.CodebaseStructure` module's documentation for the full property details, an example, and known caveats (including an `Intent.Modules.SharedKernel.Consumer` interaction).
+See the [_Root Folder Options_ stereotype](https://docs.intentarchitect.com/articles/modules-dotnet/intent-modelers-codebasestructure/intent-modelers-codebasestructure.html) section of the `Intent.Modelers.CodebaseStructure` module's documentation for the full property details, an example, and known caveats (including an `Intent.Modules.SharedKernel.Consumer` interaction).
 
-### The *Folder Options* stereotype
+### The _Folder Options_ stereotype
 
 This stereotype is applied to **Solution Folder** elements.
 
@@ -190,34 +191,34 @@ When checked, this option will materialize your logical **Visual Studio Solution
 
 In .NET, [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) allows management of NuGet package versions for multiple `.csproj` from a central `Directory.Packages.props` file and an MSBuild property.
 
-To have Intent Architect automatically create and manage a `Directory.Packages.props` file for a solution, on the *Visual Studio Solution Options* stereotype, check the *Manage Package Versions Centrally* property.
+To have Intent Architect automatically create and manage a `Directory.Packages.props` file for a solution, on the _Visual Studio Solution Options_ stereotype, check the _Manage Package Versions Centrally_ property.
 
 ![Visual Studio Solution Options Stereotype](images/cpm-solution-stereotype.png)
 
 Once enabled, `PackageReference` items `.csproj` files will by default no longer add a `Version` attributes added to them and any existing ones will be removed.
 
-Once `Manage Package Versions Centrally` is enabled, several options become available to control *where* the `Directory.Packages.props` file is output.
+Once `Manage Package Versions Centrally` is enabled, several options become available to control _where_ the `Directory.Packages.props` file is output.
 
 ![Visual Studio Solution Options Stereotype](images/cpm-solution-enabled.png)
 
 #### Available Output Location Options
 
-- **Same as .sln file** (default):  
+- **Same as .sln file** (default):\
   The `Directory.Packages.props` file will be placed in the same directory as the solution (`.sln`) file.
 
-- **Relative Path**:  
-  The `Directory.Packages.props` file will be placed at the specified *relative path* field value, which is resolved against the solution (.sln) file location.
-  - **Relative Path** field:  
-    This field is only available when the **Output Location** is set to *Relative Path*. For example, setting the value to `../` will result in the output folder being one folder higher than the solution file location.
+- **Relative Path**:\
+  The `Directory.Packages.props` file will be placed at the specified _relative path_ field value, which is resolved against the solution (.sln) file location.
+  - **Relative Path** field:\
+    This field is only available when the **Output Location** is set to _Relative Path_. For example, setting the value to `../` will result in the output folder being one folder higher than the solution file location.
 
-- **Check Parent Folders**:  
+- **Check Parent Folders**:\
   The system will check parent directories (starting from the solution file's location) for an existing `Directory.Packages.props` file. If found, that file will be used; otherwise, a new one will be created in the solution (.sln) file's directory.
-  - **Only Check Current Git Repository** (checkbox):  
+  - **Only Check Current Git Repository** (checkbox):\
     This option is available when **Check Parent Folders** is selected. If enabled, the search will stop at the root of the current Git repository (i.e., the first directory containing a `.git` folder).
 
 #### Managing Project Package Versions
 
-It is also possible to control the behaviour of a single project by setting the *Manage Package Versions* property on its stereotype:
+It is also possible to control the behaviour of a single project by setting the _Manage Package Versions_ property on its stereotype:
 
 ![Project .NET Settings stereotype](images/cpm-project-stereotype.png)
 
@@ -232,4 +233,4 @@ The following options are available:
 - **true** - Intent will ensure the `ManagePackageVersionsCentrally` property is present with a value of `true` and regardless of the the Solution's CPM setting, `Version` attributes will be removed from `PackageReference` items.
 
 > [!NOTE]
-> Regardless of the project level's *Manage Package Versions* setting, unless the solution has *Manage Package Versions Centrally* set, Intent will not update or manage `PackageVersion` items for a `Directory.Packages.props` file.
+> Regardless of the project level's _Manage Package Versions_ setting, unless the solution has _Manage Package Versions Centrally_ set, Intent will not update or manage `PackageVersion` items for a `Directory.Packages.props` file.

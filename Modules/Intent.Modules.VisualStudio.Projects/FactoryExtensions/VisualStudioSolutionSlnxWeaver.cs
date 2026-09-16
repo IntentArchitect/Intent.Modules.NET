@@ -52,8 +52,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             var existing = isFormatSwitch ? null : output.GetPreviousFilePathContent();
             var previousOutput = isFormatSwitch ? null : output.GetPreviousTemplateOutput();
 
-            // The merge only ever rearranges/preserves entries already present in Existing or
-            // Generated - it never discards user content - so its output is never destructive.
+            // Non-destructive by construction, not by assumption: SlnxMerger.Merge serializes the
+            // reconciled Existing model directly, so it only ever rearranges/preserves entries
+            // already present in Existing or Generated. SlnxMergerTests' preservation-of-existing-
+            // constructs tests pin every construct the .slnx schema allows surviving untouched, and
+            // its rename/move/removal tests pin exactly when and how content is allowed to change.
             output.SetHasDestructiveChanges(HasDestructiveChanges.False);
             output.ChangeContent(SlnxMerger.Merge(generated, existing, previousOutput));
         }

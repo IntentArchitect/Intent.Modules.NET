@@ -143,5 +143,5 @@
   <file path="MinimalHostingModel.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
   <file path="MinimalHostingModel.Infrastructure/appsettings.json" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson" />
   <file path="MinimalHostingModel.Tests/MinimalHostingModel.Tests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="MinimalHostingModel.slnx" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="MinimalHostingModel.slnx" deviationsHash="9F591651658B7A76F547CBDD7467C549303427C1E7D612B724EC5DA36865D534" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>
