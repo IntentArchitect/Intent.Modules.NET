@@ -115,6 +115,48 @@ For example, if `Orders` is marked as a namespace provider and `Internal` is not
 
 This option is available on folders in **all designers**. Configure it in the designer where the folder is modeled to control which parts of the folder hierarchy participate in namespaces.
 
+## NuGet Package Management
+
+This module is what installs NuGet packages into `.csproj` files. Other modules do not write package references themselves, instead their templates declare the packages the generated code depends on along with the minimum version required for it to compile and behave correctly. On each Software Factory execution, this module collects those declarations for each project and applies them.
+
+### How the installed version is determined
+
+For each package a module has requested for a project:
+
+- **Not referenced in the project** - the package is added at the requested version.
+- **Referenced at an older version** - the version is upgraded to the requested version.
+- **Referenced at the requested version or a newer one** - the reference is left as it is, packages are never downgraded.
+
+Where several modules request the same package for a project, the highest of the requested versions is the one which gets installed.
+
+Package references which no module requests are left alone, so packages which you added to the `.csproj` yourself are not modified. A package is only removed when a module explicitly requests its removal.
+
+> [!NOTE]
+> When a requested package is already a transitive dependency of another requested package at an equal or higher version, it is not added as an explicit `PackageReference`, unless the project already references it.
+
+### Preventing a package from being changed
+
+Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause this module to skip that package for that project, so its version will not be upgraded and the reference will not be removed:
+
+```xml
+<ItemGroup>
+    <PackageReference IntentIgnore="true" Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
+</ItemGroup>
+```
+
+> [!WARNING]
+> Because the minimum version is no longer applied to an ignored reference, pinning a version lower than an installed module requires may result in generated code which does not compile.
+
+### Module settings
+
+| Setting                                   | Default | Description                                                                                                                                                     |
+|-------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Consolidate Package Versions              | `false` | When enabled, versions of a NuGet package are consolidated across the solution to be the same as the highest currently installed version.                         |
+| Warn On Multiple Versions of Same Package  | `true`  | When enabled, warnings are shown if multiple versions of the same NuGet package are installed within the solution. Only applicable when *Consolidate Package Versions* is disabled. |
+
+> [!NOTE]
+> In applications which have the `Intent.ModuleBuilder` module installed, its *Dependency version overwrite behavior* setting also applies to NuGet packages, allowing the default upgrade behaviour described above (*If newer*) to be changed to *Always* or *Never*.
+
 ## Stereotype details
 
 ### The _.NET Settings_ stereotype
