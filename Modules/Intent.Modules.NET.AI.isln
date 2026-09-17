@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="667dc6d9-590a-47b6-8693-c531d11c95f0">
+  <name>Intent.Modules.NET.AI</name>
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <applications />
+  <workspaceRoot>.</workspaceRoot>
+</solution>
