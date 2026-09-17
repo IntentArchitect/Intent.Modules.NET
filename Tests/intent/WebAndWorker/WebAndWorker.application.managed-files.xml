@@ -52,7 +52,7 @@
   <file path="BlazorWebApp/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorWebApp/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="BlazorWebApp/Components/Layout/UserMenu.razor.cs" templateId="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" />
   <file path="BlazorWebApp/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/Components/Pages/Home.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
   <file path="BlazorWebApp/Components/Pages/Home.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
@@ -81,10 +81,10 @@
   <file path="BlazorWebApp/wwwroot/nav-drawer.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorWebApp/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorWebApp/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorWebApp/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorWebApp/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="BlazorWebApp/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorWebApp/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorWebApp/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorWebApp/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="WebAndWorker.AdditionalWorker/Program.cs" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
   <file path="WebAndWorker.AdditionalWorker/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.AdditionalWorker/WebAndWorker.AdditionalWorker.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

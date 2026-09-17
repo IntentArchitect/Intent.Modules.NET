@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a56c5e12-6842-46a9-a531-5f49e2d5266a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Layout</name>
+  <display>Layout</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>94368678-1442-452b-9442-a8e2dd7d9888</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="24e0f3bd-02a2-4616-9f6e-568a01c3bb45" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate</name>
+      <display>Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a56c5e12-6842-46a9-a531-5f49e2d5266a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
