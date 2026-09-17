@@ -33,7 +33,6 @@ public class SwaggerInstaller : FactoryExtensionBase
         {
             configTemplate.CSharpFile.OnBuild(file =>
             {
-                file.AddUsing("Asp.Versioning");
                 file.AddUsing("Asp.Versioning.ApiExplorer");
                 file.AddUsing("Microsoft.Extensions.Options");
                 file.AddUsing("Swashbuckle.AspNetCore.SwaggerGen");

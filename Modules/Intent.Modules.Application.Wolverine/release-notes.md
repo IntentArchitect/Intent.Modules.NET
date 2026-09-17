@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: `ValidationMiddleware.cs` no longer emits an unused `using System.Reflection;` — the reflection calls in the generated file (`GetMethod`/`Invoke`/`MakeGenericMethod`) are reached through `var`-typed values, so the type name was never actually spelled out and the using was dead weight in every consuming application.
+
 ### Version 1.1.0
 
 - Breaking Change: this module's own `WolverineConfiguration` class is removed. It now contributes a private `ConfigureCqrs` method (and one call statement) directly into `Intent.Wolverine.Common`'s shared `WolverineConfiguration.Configure(WolverineOptions, IConfiguration)`, alongside `Intent.Eventing.Wolverine`'s `ConfigureEventing` when that module is also installed - one generated configuration class per application instead of one per Wolverine module.

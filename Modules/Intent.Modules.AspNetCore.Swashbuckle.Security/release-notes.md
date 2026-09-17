@@ -1,3 +1,9 @@
+### Version 5.0.3
+
+- Fixed: `AuthorizeCheckOperationFilter.cs` no longer emits an unused `using System.Collections;` — only `System.Collections.Generic.List<>` was ever used in the generated file.
+- Fixed: the Swashbuckle configuration's Bearer security scheme no longer emits an unused `using Microsoft.AspNetCore.Authentication.JwtBearer;` on net8+ apps — `JwtBearerDefaults` is only referenced by the pre-net8 legacy scheme branch, so the using is now introduced there only.
+- Improvement: the OpenApi type names referenced in `AuthorizeCheckOperationFilter.cs` (`OpenApiSecurityRequirement`, `OpenApiSecuritySchemeReference`, `OpenApiSecurityScheme`, `OpenApiReference`, `ReferenceType`) are now resolved through `UseType(...)` against the version-dependent `openApiNamespace` (`Microsoft.OpenApi` vs `Microsoft.OpenApi.Models`) instead of being hardcoded alongside a manually-maintained `.AddUsing(openApiNamespace)`. Generated code is unchanged; the namespace is now introduced only when a given branch's code is actually emitted.
+
 ### Version 5.0.2
 
 - Improvement: Added default Template Classification and Priorities.

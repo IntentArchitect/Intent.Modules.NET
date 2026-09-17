@@ -24,7 +24,6 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Linq")
-                .AddUsing("System.Reflection")
                 .AddClass("ValidationMiddleware", @class =>
                 {
                     var validatorProvider = GetTypeName("Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface");

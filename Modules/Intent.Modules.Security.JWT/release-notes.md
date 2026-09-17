@@ -1,3 +1,7 @@
+### Version 4.3.12
+
+- Fixed: `ApplicationSecurityConfiguration.cs` no longer emits an unused `using Microsoft.IdentityModel.Tokens;` when the `JWT Bearer Authentication Type` setting is `Oidc` (the default) — `TokenValidationParameters`/`SymmetricSecurityKey` from that namespace are only referenced in the `Manual` branch, so the using is now introduced there only.
+
 ### Version 4.3.11
 
 - Fixed: Software Factory could generate duplicate members in the current user service implementation when another module (e.g. `Intent.Security.MSAL`) also wired up current user support. The shared registration logic now checks for existing members before adding them.

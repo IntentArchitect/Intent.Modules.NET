@@ -28,7 +28,6 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("Asp.Versioning")
-            .AddUsing("Asp.Versioning.ApiExplorer")
             .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddClass($"ApiVersioningConfiguration", @class =>
             {
