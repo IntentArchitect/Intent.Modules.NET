@@ -129,7 +129,7 @@
   <file path="BlazorServerTests.Api/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Api/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Api/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorServerTests.Api/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="BlazorServerTests.Api/Components/Layout/UserMenu.razor.cs" templateId="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" />
   <file path="BlazorServerTests.Api/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Api/Components/Pages/CustomerAdd.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
   <file path="BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs" deviationsHash="E78D6D849DD0A7E4B036ED93FC76A0D91175BF6C010FBB6665E0E010BC785020" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
@@ -155,10 +155,10 @@
   <file path="BlazorServerTests.Api/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Api/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Api/wwwroot/ux-account.css" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration" />
-  <file path="BlazorServerTests.Api/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorServerTests.Api/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorServerTests.Api/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="BlazorServerTests.Api/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="BlazorServerTests.Api/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorServerTests.Api/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorServerTests.Api/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="BlazorServerTests.Api/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="BlazorServerTests.Application/BlazorServerTests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="BlazorServerTests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="BlazorServerTests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />

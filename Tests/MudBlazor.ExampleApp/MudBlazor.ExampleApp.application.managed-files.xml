@@ -182,7 +182,7 @@
   <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Client/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" />
   <file path="MudBlazor.ExampleApp.Client/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
   <file path="MudBlazor.ExampleApp.Client/Components/Pages/Auth/Login.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
@@ -306,10 +306,10 @@
   <file path="MudBlazor.ExampleApp.Client/wwwroot/nav-drawer.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Client/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Client/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="MudBlazor.ExampleApp.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="MudBlazor.ExampleApp.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="MudBlazor.ExampleApp.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="MudBlazor.ExampleApp.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />

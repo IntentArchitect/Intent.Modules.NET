@@ -46,7 +46,7 @@
   <file path="FluentValidationTest.Blazor.Client/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.Client/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.Client/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="FluentValidationTest.Blazor.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="FluentValidationTest.Blazor.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" />
   <file path="FluentValidationTest.Blazor.Client/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.Client/Components/Pages/ExamplePage.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
   <file path="FluentValidationTest.Blazor.Client/Components/Pages/ExamplePage.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
@@ -70,10 +70,10 @@
   <file path="FluentValidationTest.Blazor.Client/wwwroot/nav-drawer.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.Client/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.Client/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="FluentValidationTest.Blazor.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="FluentValidationTest.Blazor.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FluentValidationTest.Blazor/Components/App.razor" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
   <file path="FluentValidationTest.Blazor/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
