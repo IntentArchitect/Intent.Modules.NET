@@ -3,7 +3,6 @@ using EfCoreSoftDelete.Api.Filters;
 using EfCoreSoftDelete.Application;
 using EfCoreSoftDelete.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;

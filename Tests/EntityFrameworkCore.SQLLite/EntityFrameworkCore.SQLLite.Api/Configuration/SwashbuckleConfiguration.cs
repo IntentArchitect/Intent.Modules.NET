@@ -1,11 +1,9 @@
 using System.Reflection;
-using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using EntityFrameworkCore.SQLLite.Api.Filters;
 using EntityFrameworkCore.SQLLite.Application;
 using EntityFrameworkCore.SQLLite.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;

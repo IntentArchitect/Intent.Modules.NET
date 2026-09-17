@@ -2,7 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
 using WolverineEventing.Outbox.SqlServer.Publish.Api.Services;
 using WolverineEventing.Outbox.SqlServer.Publish.Application.Common.Interfaces;
 

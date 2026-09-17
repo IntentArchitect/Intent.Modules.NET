@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="71818a31-10de-47a0-b6c8-30c34717ee01">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/EntityFrameworkCore.MaintainColumnOrder.Tests.Api.csproj" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/ExceptionFilter.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Program.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Properties/launchSettings.json" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Services/CurrentUserService.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Startup.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/appsettings.json" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICommand.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IQuery.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Models/Result.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedList.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedResult.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/EntityFrameworkCore.MaintainColumnOrder.Tests.Application.csproj" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/CollectionExtensions.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/DomainEvent.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/IHasDomainEvent.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/UpdateHelper.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/BaseWithLast.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Basic.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Customer.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/InLineVo.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/NewClass.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Person.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/VOAssociation.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/WithKeyConfig.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.csproj" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/InLineColumns.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IBaseWithLastRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IBasicRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IEFRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IInLineVoRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/INewClassRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IPagedList.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IPersonRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IVOAssociationRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IWithKeyConfigRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/ValueObject.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.csproj" deviationsHash="A126D38418ACD0F287493549E3A4D0C64749BFA85BBF438020D01A3A6F8738D1" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Migrations/README.md" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/BaseWithLastConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/BasicConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/InLineVoConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/NewClassConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/PersonConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/VOAssociationConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/WithKeyConfigConfiguration.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/BaseWithLastRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/BasicRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/InLineVoRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/NewClassRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/PersonRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/VOAssociationRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/WithKeyConfigRepository.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Services/DomainEventService.cs" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/EntityFrameworkCore.MaintainColumnOrder.Tests.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Application/EntityFrameworkCore.MaintainColumnOrder.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/BaseWithLast.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Basic.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/InLineVo.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/NewClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/Person.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/VOAssociation.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Entities/WithKeyConfig.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/InLineColumns.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IBaseWithLastRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IBasicRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IInLineVoRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/INewClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IPersonRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IVOAssociationRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IWithKeyConfigRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.csproj" deviationsHash="A126D38418ACD0F287493549E3A4D0C64749BFA85BBF438020D01A3A6F8738D1" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/BaseWithLastConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/BasicConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/InLineVoConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/NewClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/PersonConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/VOAssociationConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/WithKeyConfigConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/BaseWithLastRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/BasicRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/InLineVoRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/NewClassRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/PersonRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/VOAssociationRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Repositories/WithKeyConfigRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

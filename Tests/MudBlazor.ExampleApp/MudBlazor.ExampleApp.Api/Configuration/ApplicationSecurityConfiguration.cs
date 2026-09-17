@@ -2,7 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
 using MudBlazor.ExampleApp.Api.Services;
 using MudBlazor.ExampleApp.Application.Common.Interfaces;
 

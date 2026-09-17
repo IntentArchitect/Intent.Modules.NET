@@ -1,5 +1,4 @@
 using System.Reflection;
-using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using AzureIdentityManagement.Api.Filters;
 using AzureIdentityManagement.Application;

@@ -1,6 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate", Version = "1.0")]
 
 namespace BlazorWebApp.Components.Layout

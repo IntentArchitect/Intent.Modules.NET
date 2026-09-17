@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="e7456ee2-9246-463c-8bb7-92b3baad3dc7">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/EntityFrameworkCore.MultiDbContext.DbContextInterface.Api.csproj" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/ExceptionFilter.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Program.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Properties/launchSettings.json" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Services/CurrentUserService.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Startup.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/appsettings.json" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IApplicationDbContext.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICommand.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IConnStrDbContext.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IQuery.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Models/Result.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedList.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedResult.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.csproj" deviationsHash="8E43B219839C5425A262C131ECD8ECD2C45ECD116787B7D721066CF5216424CC" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/CollectionExtensions.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/DomainEvent.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/IHasDomainEvent.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IAuditable.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IDiffAudit.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/ISoftDelete.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/UpdateHelper.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/AppDbDomainPackageAuditLog.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/AppDbEntity.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/ConnstrDomainPackageAuditLog.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/ConnstrEntity.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/DefaultDomainPackageAuditLog.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/DefaultEntity.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.csproj" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IAppDbDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IAppDbEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IConnstrDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IConnstrEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomAppDefaultRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomConnStrRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomDefaultRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IDefaultDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IDefaultEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IEFRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IPagedList.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/DependencyInjection.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.csproj" deviationsHash="140C091655FBB62EAC50EB5F65970B66C0992EBEA8498C2734331F8CE2F9696D" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCoreMultiDbContextDbContextInterfaceConstants.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Migrations/README.md" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/AppDbDomainPackageAuditLogConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/AppDbEntityConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/ConnstrDomainPackageAuditLogConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/ConnstrEntityConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/DefaultDomainPackageAuditLogConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/DefaultEntityConfiguration.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/ConnStrDbContext.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/AppDbDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/AppDbEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/ConnstrDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/ConnstrEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomAppDefaultRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomConnStrRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomDefaultRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/DefaultDomainPackageAuditLogRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/DefaultEntityRepository.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Services/DomainEventService.cs" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/EntityFrameworkCore.MultiDbContext.DbContextInterface.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContextInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IConnStrDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContextInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.csproj" deviationsHash="8E43B219839C5425A262C131ECD8ECD2C45ECD116787B7D721066CF5216424CC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IAuditable.cs" templateId="Intent.Entities.BasicAuditing.AuditableInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IDiffAudit.cs" templateId="Intent.EntityFrameworkCore.DiffAudit.DiffAuditInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/ISoftDelete.cs" templateId="Intent.Entities.SoftDelete.SoftDeleteInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/AppDbDomainPackageAuditLog.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/AppDbEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/ConnstrDomainPackageAuditLog.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/ConnstrEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/DefaultDomainPackageAuditLog.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Entities/DefaultEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IAppDbDomainPackageAuditLogRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IAppDbEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IConnstrDomainPackageAuditLogRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IConnstrEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomAppDefaultRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomConnStrRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/ICustomDefaultRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IDefaultDomainPackageAuditLogRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IDefaultEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.csproj" deviationsHash="140C091655FBB62EAC50EB5F65970B66C0992EBEA8498C2734331F8CE2F9696D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCoreMultiDbContextDbContextInterfaceConstants.cs" templateId="Intent.Infrastructure.Constants.ConstantsTemplate" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/AppDbDomainPackageAuditLogConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/AppDbEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/ConnstrDomainPackageAuditLogConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/ConnstrEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/DefaultDomainPackageAuditLogConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Configurations/DefaultEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/ConnStrDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs" templateId="Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/AppDbDomainPackageAuditLogRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/AppDbEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/ConnstrDomainPackageAuditLogRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/ConnstrEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomAppDefaultRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomConnStrRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/CustomDefaultRepository.cs" templateId="Intent.Entities.Repositories.Api.CustomRepository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/DefaultDomainPackageAuditLogRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/DefaultEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

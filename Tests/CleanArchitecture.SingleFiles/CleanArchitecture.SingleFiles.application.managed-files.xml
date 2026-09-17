@@ -1,225 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5370419a-032b-47fb-a618-e03898c0eee4">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="CleanArchitecture.SingleFiles.Api/CleanArchitecture.SingleFiles.Api.csproj" deviationsHash="AAB90981C6DA7C19ADAEAC2324AF0637F24F1F5953C0F03102149E38910101F3" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingCosmosInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingDaprInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingEfInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingMongoInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/CosmosInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/DaprInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/EfInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/MongoInvoicesController.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Filters/ExceptionFilter.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Program.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Properties/launchSettings.json" />
-  <file path="CleanArchitecture.SingleFiles.Api/Services/CurrentUserService.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/Startup.cs" />
-  <file path="CleanArchitecture.SingleFiles.Api/appsettings.json" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceCosmosLineDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceCosmosLineDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/DeleteCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/GetCosmosInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/GetCosmosInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/UpdateCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/CreateDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DaprInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DaprInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DeleteDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/GetDaprInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/GetDaprInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/UpdateDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/CreateEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/DeleteEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/EfInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/EfInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/GetEfInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/GetEfInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/UpdateEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/CreateMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/DeleteMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/GetMongoInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/GetMongoInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/MongoInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/MongoInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/UpdateMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/AssemblyAttributes.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj" deviationsHash="EA02151E52E41FB1D2320692D4DA9028D758953542730FAD1D45C4613D600EBC" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Eventing/IEventBus.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Models/Result.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedList.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceCosmosLineDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceCosmosLineDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CreateCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CreateCosmosInvoiceCosmosLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/DeleteCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/DeleteCosmosInvoiceCosmosLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceCosmosLineByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceCosmosLinesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/UpdateCosmosInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/UpdateCosmosInvoiceCosmosLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/CreateDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/CreateDaprInvoiceDaprLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDaprLineDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDaprLineDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DeleteDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DeleteDaprInvoiceDaprLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceDaprLineByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceDaprLinesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/UpdateDaprInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/UpdateDaprInvoiceDaprLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/DependencyInjection.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/CreateEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/CreateEfInvoiceEfLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/DeleteEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/DeleteEfInvoiceEfLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceEfLineDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceEfLineDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceEfLineByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceEfLinesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/UpdateEfInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/UpdateEfInvoiceEfLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceCreatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceUpdatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceCreatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceUpdatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceCreatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceUpdatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceCreatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceUpdatedEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/CreateMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/CreateMongoInvoiceMongoLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/DeleteMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/DeleteMongoInvoiceMongoLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceMongoLineByIdQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceMongoLinesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoicesQuery.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceMongoLineDto.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceMongoLineDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/UpdateMongoInvoiceCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/UpdateMongoInvoiceMongoLineCommand.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/CleanArchitecture.SingleFiles.Domain.csproj" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/CollectionExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/DomainEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/IHasDomainEvent.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Common/UpdateHelper.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/CosmosInvoice.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/CosmosLine.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/DaprInvoice.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/DaprLine.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/EfInvoice.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/EfLine.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/MongoInvoice.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Entities/MongoLine.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/Documents/ICosmosInvoiceDocument.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/Documents/ICosmosLineDocument.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/ICosmosDBRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/ICosmosInvoiceRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprInvoiceRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreGenericRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IEFRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IEfInvoiceRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IMongoInvoiceRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IMongoRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IPagedList.cs" />
-  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/CleanArchitecture.SingleFiles.Infrastructure.csproj" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Configuration/MongoConfigurationExtensions.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/DependencyInjection.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Migrations/README.md" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Configurations/EfInvoiceConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/CosmosInvoiceDocument.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/CosmosLineDocument.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/MongoInvoiceMapping.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/MongoDbUnitOfWork.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosInvoiceCosmosDBRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosPagedList.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprInvoiceDaprStateStoreRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/EfInvoiceRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoInvoiceMongoRepository.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoPagedList.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoRepositoryBase.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="CleanArchitecture.SingleFiles.Infrastructure/Services/DomainEventService.cs" />
-  <file path="CleanArchitecture.SingleFiles.sln" />
-  <file path="dapr/components/pubsub.yaml" />
-  <file path="dapr/components/statestore.yaml" />
-  <file path="dapr/config.yaml" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="CleanArchitecture.SingleFiles.Api/CleanArchitecture.SingleFiles.Api.csproj" deviationsHash="AAB90981C6DA7C19ADAEAC2324AF0637F24F1F5953C0F03102149E38910101F3" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingCosmosInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingDaprInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingEfInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/AdvancedMappingMongoInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/CosmosInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/DaprInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/EfInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/MongoInvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.SingleFiles.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="CleanArchitecture.SingleFiles.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CleanArchitecture.SingleFiles.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CleanArchitecture.SingleFiles.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CleanArchitecture.SingleFiles.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CleanArchitecture.SingleFiles.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CleanArchitecture.SingleFiles.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.SingleFiles.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CleanArchitecture.SingleFiles.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CleanArchitecture.SingleFiles.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="CleanArchitecture.SingleFiles.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceCosmosLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceCosmosLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CosmosInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/DeleteCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/GetCosmosInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/GetCosmosInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingCosmosInvoices/UpdateCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/CreateDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DaprInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DaprInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/DeleteDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/GetDaprInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/GetDaprInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingDaprInvoices/UpdateDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/CreateEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/DeleteEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/EfInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/EfInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/GetEfInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/GetEfInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingEfInvoices/UpdateEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/CreateMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/DeleteMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/GetMongoInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/GetMongoInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/MongoInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/MongoInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/UpdateMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj" deviationsHash="EA02151E52E41FB1D2320692D4DA9028D758953542730FAD1D45C4613D600EBC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CleanArchitecture.SingleFiles.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceCosmosLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceCosmosLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CosmosInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CreateCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/CreateCosmosInvoiceCosmosLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/DeleteCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/DeleteCosmosInvoiceCosmosLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceCosmosLineByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoiceCosmosLinesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/GetCosmosInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/UpdateCosmosInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/CosmosInvoices/UpdateCosmosInvoiceCosmosLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/CreateDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/CreateDaprInvoiceDaprLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDaprLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDaprLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DaprInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DeleteDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/DeleteDaprInvoiceDaprLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceDaprLineByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoiceDaprLinesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/GetDaprInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/UpdateDaprInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DaprInvoices/UpdateDaprInvoiceDaprLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/CreateEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/CreateEfInvoiceEfLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/DeleteEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/DeleteEfInvoiceEfLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceEfLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/EfInvoiceEfLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceEfLineByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoiceEfLinesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/GetEfInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/UpdateEfInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/EfInvoices/UpdateEfInvoiceEfLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/CreateMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/CreateMongoInvoiceMongoLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/DeleteMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/DeleteMongoInvoiceMongoLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceMongoLineByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoiceMongoLinesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/GetMongoInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceMongoLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/MongoInvoiceMongoLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/UpdateMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Application/MongoInvoices/UpdateMongoInvoiceMongoLineCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.SingleFiles.Domain/CleanArchitecture.SingleFiles.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWorkInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWorkInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/CosmosInvoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/CosmosLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/DaprInvoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/DaprLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/EfInvoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/EfLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/MongoInvoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Entities/MongoLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/Documents/ICosmosInvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/Documents/ICosmosLineDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/ICosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/ICosmosInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreGenericRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IEfInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IMongoInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CleanArchitecture.SingleFiles.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/CleanArchitecture.SingleFiles.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Configuration/MongoConfigurationExtensions.cs" templateId="Intent.MongoDb.MongoConfigurationExtensions" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Configurations/EfInvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWork" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/CosmosInvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/CosmosLineDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentOfTInterface" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" templateId="Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" templateId="Intent.MongoDb.MongoMappingConfigurationInterface" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/MongoInvoiceMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Persistence/MongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWork" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryBase" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosInvoiceCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosPagedList.cs" templateId="Intent.CosmosDB.CosmosPagedList" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprInvoiceDaprStateStoreRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/EfInvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoInvoiceMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoPagedList.cs" templateId="Intent.MongoDb.MongoDbPagedList" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoRepositoryBase.cs" templateId="Intent.MongoDb.MongoDbRepositoryBase" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="CleanArchitecture.SingleFiles.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="CleanArchitecture.SingleFiles.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="dapr/components/pubsub.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />
+  <file path="dapr/components/statestore.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />
+  <file path="dapr/config.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration" />
 </managedFiles>

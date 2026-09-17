@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Identity.Web;
-using Microsoft.IdentityModel.Tokens;
 using WebAndWorker.Application.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

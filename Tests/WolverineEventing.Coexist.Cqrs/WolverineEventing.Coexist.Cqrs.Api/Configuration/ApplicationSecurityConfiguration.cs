@@ -2,7 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
 using WolverineEventing.Coexist.Cqrs.Api.Services;
 using WolverineEventing.Coexist.Cqrs.Application.Common.Interfaces;
 
