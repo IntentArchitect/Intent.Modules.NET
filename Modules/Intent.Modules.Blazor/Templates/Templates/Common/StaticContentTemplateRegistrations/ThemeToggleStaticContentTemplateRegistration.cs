@@ -30,8 +30,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplate
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
         {
-        // UserMenu.razor.cs ships here and declares `namespace <#= Namespace #>Components.Layout`.
-        { "Namespace", $"{outputTarget.GetNamespace()}." }
         };
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)

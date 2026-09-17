@@ -21,6 +21,7 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSider;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutSiderCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Common.ThemeService;
+using Intent.Modules.Blazor.Templates.Templates.Common.UserMenuCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponent;
 using Intent.Modules.Blazor.Templates.Templates.Server.RazorServerComponentCodeBehind;
@@ -222,6 +223,11 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetThemeServiceTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ThemeServiceTemplate.TemplateId);
+        }
+
+        public static string GetUserMenuCodeBehindTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(UserMenuCodeBehindTemplate.TemplateId);
         }
 
         public static string GetRazorServerComponentCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel

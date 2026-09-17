@@ -22,6 +22,14 @@ The first time a modelled `Layout`'s `MainLayout.razor` is generated, this modul
 
 > 💡 When a component-library module such as [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed, this module stands down and the component library composes `MainLayout.razor` with its own components instead.
 
+## Use Custom Stylesheets
+
+By default, this module ships `ux-tokens.css`, `ux-base.css` and `ux-components.css` - a token/utility-class theme system - and links them into `App.razor`, along with MudBlazor's `ux-mudblazor.css` when [Intent.Modules.Blazor.Components.MudBlazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html) is installed.
+
+The **Use Custom Stylesheets** module setting (off by default) is for applications whose styling doesn't build on this system. When enabled, none of those stylesheets are generated and their `<link>` tags are removed from `App.razor`. Everything else — page structure, the theme toggle, MudBlazor's layout components — is unaffected, since none of those are CSS; the application simply renders unstyled by the default theme until your own stylesheets take over.
+
+> 💡 AI skills bundled with this module (and with `Intent.Modules.Blazor.Components.MudBlazor`) still assume the default `ux-*` classes exist and instruct the AI to style pages using them. If you enable **Use Custom Stylesheets** and also use those skills, you will need to adjust their guidance yourself.
+
 ## Prerendering
 
 The **Prerendering** module setting controls whether the server renders each page's initial HTML before the interactive runtime takes over. It applies to **all three render modes** — Interactive Server, Interactive WebAssembly and Interactive Auto — and is **off by default**.

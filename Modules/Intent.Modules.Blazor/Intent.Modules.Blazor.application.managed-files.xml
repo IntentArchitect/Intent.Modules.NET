@@ -89,9 +89,12 @@
   <file path="Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs" deviationsHash="62B6CBAF4143252BA36219FFCB64BF991534B66D5E253365AACAFED4F60556D7" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeStorageStaticContentTemplateRegistration.cs" deviationsHash="D41A8C9B10300111D688F9C3FA363697EA86FA0D7DDA5465DADA1C1932948455" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
-  <file path="Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="6099918C4E85829BF70B400A80E48F5CBD4431A8C09C3422823886F43D5AD711" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeStylesheetsStaticContentTemplateRegistration.cs" deviationsHash="C9754E126E14449D006426275FC1D53844B2CC6D23489CEE3014A242CA6D8DEF" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/Templates/Common/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="5CA84C700F9E0AED103A4E5D48D62ACBBD1DF5BA8978C3B9FA79A3A3BC929B20" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/Templates/Common/ThemeService/ThemeServiceTemplatePartial.cs" deviationsHash="4FAF802FBC25772C007FB6BDC62741E9A79EBB48C936E90912A0318A2F8B5FAA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Templates/Common/ThemeService/ThemeServiceTemplateRegistration.cs" deviationsHash="20AB76068A5350ACCC8A76A215CDB05EB1A47C882A566CFEAB91EC9D59DA8D9F" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Templates/Common/UserMenuCodeBehind/UserMenuCodeBehindTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/Common/UserMenuCodeBehind/UserMenuCodeBehindTemplateRegistration.cs" deviationsHash="04DE91FDA8E249E1C8827CD51D8179FF4A115F1D919E21D48CD32392404778ED" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs" deviationsHash="9C4D990ABFB6F4370C5617FF3E7E45183AD341DE07CEDACC9CCAFDD0D17FD518" templateId="Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial" />
   <file path="Templates/Templates/Server/AppRazor/AppRazorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/Templates/Server/RazorServerComponent/RazorServerComponentTemplatePartial.cs" deviationsHash="886226C525B250FEE3ADB71F4ACC3CEA4F7F697A452A736C8A9E911EA2C0F9B8" templateId="Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial" />
@@ -127,6 +130,7 @@
   <file path="content/NoSamplePages/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/Theme/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/ThemeStorage/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/ThemeStylesheets/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/ThemeToggle/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/WasmNoSamplePages/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="modelers/Blazor UI Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />

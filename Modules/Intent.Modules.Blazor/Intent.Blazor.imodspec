@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.4</version>
+  <version>2.0.5-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -203,6 +203,14 @@
       <role>Blazor.Services.Component</role>
       <location>Components/Services</location>
     </template>
+    <template id="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" externalReference="764246f8-8af5-456c-9556-070548af601e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.UserMenu.CodeBehind</role>
+      <location>Components/Layout</location>
+    </template>
     <template id="Intent.Blazor.Templates.Server.AppRazorTemplate" externalReference="b7665695-e7e7-4a21-883a-da6fa2d84710">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -299,6 +307,10 @@
       <role>Blazor.ThemeStorage</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" externalReference="83235afd-1237-4bc8-b8ed-88667957d904">
+      <role>Blazor.ThemeStylesheets</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="c7e3e3af-11e5-4fc0-b380-50442e0e0587">
       <role>Blazor.ThemeToggle</role>
       <location></location>
@@ -366,6 +378,10 @@
         <setting id="fa401099-f333-4702-a261-4d66239dde29" title="Enable Theme Toggle" type="switch">
           <hint>Show a dark/light mode toggle in the navigation bar</hint>
           <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="c3cd497c-f632-423a-aee0-4ddee7fb523f" title="Use Custom Stylesheets" type="switch">
+          <hint>Skips creating and registering the default stylesheets. Use only for apps that supply their own instead of building on the default theme system.</hint>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>

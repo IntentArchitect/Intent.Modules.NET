@@ -56,15 +56,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("name", "viewport")
                                 .AddAttribute("content", "width=device-width, initial-scale=1.0"));
                             head.AddHtmlElement("base", t => t.AddAttribute("href", "/"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "stylesheet")
-                                .AddAttribute("href", "ux-tokens.css"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "stylesheet")
-                                .AddAttribute("href", "ux-base.css"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "stylesheet")
-                                .AddAttribute("href", "ux-components.css"));
+                            if (!ExecutionContext.Settings.GetBlazor().UseCustomStylesheets())
+                            {
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "stylesheet")
+                                    .AddAttribute("href", "ux-tokens.css"));
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "stylesheet")
+                                    .AddAttribute("href", "ux-base.css"));
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "stylesheet")
+                                    .AddAttribute("href", "ux-components.css"));
+                            }
                             // app.css only exists when a content group actually shipped it - see
                             // TemplateHelper.ShipsAppCss. Emitting the link unconditionally 404'd on
                             // every page load of every application the content groups do not cover.
