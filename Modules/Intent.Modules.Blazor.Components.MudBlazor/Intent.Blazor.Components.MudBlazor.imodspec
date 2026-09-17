@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>2.0.4</version>
+  <version>2.0.5-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
@@ -87,6 +87,10 @@
       <role>Blazor.ThemeJavascript</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" externalReference="b8e5c5c5-0627-43ea-8792-0bcfa365edeb">
+      <role>Blazor.ThemeStylesheets</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" externalReference="59c0ac52-09f9-4d41-8257-e0951e92b0c7">
       <role>Blazor.ThemeToggle</role>
       <location></location>
@@ -106,7 +110,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor" version="2.0.3" />
+    <dependency id="Intent.Blazor" version="2.0.5-pre.0" />
     <dependency id="Intent.Common" version="3.11.6" />
     <dependency id="Intent.Common.CSharp" version="3.10.9" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

@@ -1,3 +1,8 @@
+### Version 2.0.5
+
+- Fixed: `UserMenu.razor.cs` ignoring the application's C# style settings — `Namespace Declaration Style` in particular.
+- Improvement: Added a `Use Custom Stylesheets` setting. When enabled, the default `ux-tokens.css`, `ux-base.css` and `ux-components.css` stylesheets (and MudBlazor's `ux-mudblazor.css`, if installed) are no longer generated.
+
 ### Version 2.0.4
 
 - Fixed: `App.razor` linked `app.css` unconditionally although that file is only generated for a subset of configurations, so most applications returned a 404 for it on every page load; the link is now emitted only when the file is actually shipped.
