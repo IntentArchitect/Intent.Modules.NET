@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ModuleBuilder.AI.DotNet</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
   <summary>Ships intent-dotnet-module-integration, an AI skill that documents how to integrate a module with another runtime .NET module's generated output — dependency identity, template inventory, generated shape, metadata contract, and extension points — starting with ASP.NET Core Controllers.</summary>
   <description>Ships intent-dotnet-module-integration, an AI skill that documents how to integrate a module with another runtime .NET module's generated output — dependency identity, template inventory, generated shape, metadata contract, and extension points — starting with ASP.NET Core Controllers.</description>
