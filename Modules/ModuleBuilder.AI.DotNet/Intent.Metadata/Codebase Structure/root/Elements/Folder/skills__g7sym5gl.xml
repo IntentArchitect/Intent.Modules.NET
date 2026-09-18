@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="393d59e0-1b06-4ab0-9016-512fd9f90a82" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>.opencode</name>
-  <display>.opencode</display>
-  <externalReference>a6719dff-5ed1-4675-a0e7-98b57997b25d</externalReference>
+<class id="9d0336ce-4317-4295-9a71-a33cec9d43ea" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>skills</name>
+  <display>skills</display>
+  <externalReference>1e76f780-f257-4525-9c4c-fbe5a6b9ca0c</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</parentFolderId>
+  <parentFolderId>dce25e04-92d2-4017-bbbd-30fca9ab2d7d</parentFolderId>
   <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
   <packageName>root</packageName>
   <stereotypes>
@@ -22,14 +22,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="232a18cf-f827-434d-b314-9fce8bdac8e4" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>AI.Context</name>
-      <display>AI.Context</display>
-      <externalReference>f7485f2f-0b63-419f-a664-420afa63e8d4</externalReference>
+    <childElement id="e3aa4731-b651-4ecf-a769-98d63ecbbe0e" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>AI.Context.Skills</name>
+      <display>AI.Context.Skills</display>
+      <externalReference>eb7f5c54-4305-400b-ac54-40a879ebbb61</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>393d59e0-1b06-4ab0-9016-512fd9f90a82</parentFolderId>
+      <parentFolderId>9d0336ce-4317-4295-9a71-a33cec9d43ea</parentFolderId>
       <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
       <packageName>root</packageName>
       <stereotypes>

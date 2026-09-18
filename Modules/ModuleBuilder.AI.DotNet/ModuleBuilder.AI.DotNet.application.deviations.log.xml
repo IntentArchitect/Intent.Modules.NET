@@ -21,7 +21,7 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#aa5ab822-c8d0-4537-862a-350dc5e6ff27</correlationId>
-      <path>ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs</path>
+      <path>Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>

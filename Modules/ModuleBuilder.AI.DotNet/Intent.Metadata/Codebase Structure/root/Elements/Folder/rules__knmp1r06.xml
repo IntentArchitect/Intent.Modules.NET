@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="cda89db1-db79-4c85-9db9-5d126379bcba" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>instructions</name>
-  <display>instructions</display>
+<class id="3a509bff-e75c-4a2c-995e-8a44fc246b4a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>rules</name>
+  <display>rules</display>
   <externalReference>7ab324ae-1258-48c8-9fda-4d615d5f69c8</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>393d59e0-1b06-4ab0-9016-512fd9f90a82</parentFolderId>
+  <parentFolderId>dce25e04-92d2-4017-bbbd-30fca9ab2d7d</parentFolderId>
   <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
   <packageName>root</packageName>
   <stereotypes>
@@ -22,14 +22,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5d592709-9f2c-42e1-9c73-285d36fc65d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ce32411c-ca2d-44da-950b-bf67131b27ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
       <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
       <externalReference>Intent.Common.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>cda89db1-db79-4c85-9db9-5d126379bcba</parentFolderId>
+      <parentFolderId>3a509bff-e75c-4a2c-995e-8a44fc246b4a</parentFolderId>
       <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
       <packageName>root</packageName>
       <stereotypes>
@@ -48,14 +48,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="37606130-96c2-4cd8-a997-a79ea62d4686" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="6eced870-645e-432f-ae78-d1dfc57decda" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>AI.Context.Instructions</name>
       <display>AI.Context.Instructions</display>
       <externalReference>44ae9105-bd37-40fc-a754-89e83cb02066</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>cda89db1-db79-4c85-9db9-5d126379bcba</parentFolderId>
+      <parentFolderId>3a509bff-e75c-4a2c-995e-8a44fc246b4a</parentFolderId>
       <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
       <packageName>root</packageName>
       <stereotypes>
