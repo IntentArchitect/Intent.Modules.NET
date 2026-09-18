@@ -6,6 +6,11 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
-  <applications />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.2.13" />
+  <applications>
+    <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" relativePath="ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
+    <application id="7c9147f5-3acd-4dc0-82d9-5a5f776d1d7c" name="ModuleBuilder.AI.DotNet" relativePath="ModuleBuilder.AI.DotNet/ModuleBuilder.AI.DotNet.application.config" />
+    <application id="fb6f2f4d-8445-4de7-9938-add53e780320" name="ModuleBuilderAITests" relativePath="../Tests/ModuleBuilderAITests/ModuleBuilderAITests.application.config" />
+  </applications>
   <workspaceRoot>.</workspaceRoot>
 </solution>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.IModSpecFile#de34d55d-002f-492c-8228-2d6766628b3a</correlationId>
+      <path>ModuleBuilder.AI.DotNet/Intent.ModuleBuilder.AI.DotNet.imodspec</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-17T20:56:27.5491601Z</updatedAt>
+      <deviationsHash>173FEBC35B128D3469C2BA0D37490F5031031C57DE81EE31DF8874789F5F1549</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#90855a41-bbd5-4cae-85b7-e4f81886ee9b</correlationId>
+      <path>ModuleBuilder.AI.DotNet/ModuleBuilder.AI.DotNet.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-17T20:49:25.4837288Z</updatedAt>
+      <deviationsHash>2848AE9D737E0605B14D87D1155549A53E94E3B4D16DD19C5D43935B4043E469</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#aa5ab822-c8d0-4537-862a-350dc5e6ff27</correlationId>
+      <path>ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-17T20:56:06.6495793Z</updatedAt>
+      <deviationsHash>49DD08A865F2EF6C725E8C9908DADB484AEEAC6DEFF4A8543B8E2731A2F4B4F4</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="fb6f2f4d-8445-4de7-9938-add53e780320">
+  <file path=".claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".claude/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
+  <file path=".opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
+</managedFiles>

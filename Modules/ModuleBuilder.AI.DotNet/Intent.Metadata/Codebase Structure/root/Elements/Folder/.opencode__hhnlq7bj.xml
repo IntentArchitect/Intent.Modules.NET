@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="393d59e0-1b06-4ab0-9016-512fd9f90a82" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>.opencode</name>
+  <display>.opencode</display>
+  <externalReference>a6719dff-5ed1-4675-a0e7-98b57997b25d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

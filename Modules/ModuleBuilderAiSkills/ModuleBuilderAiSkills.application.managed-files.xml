@@ -21,6 +21,8 @@
   <file path=".claude/skills/file-builder-expert/resources/troubleshooting.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesTroubleshootingMd_Agents" />
   <file path=".claude/skills/intent-domain-interactions-expert/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_SkillMd_Agents" />
   <file path=".claude/skills/intent-domain-interactions-expert/resources/interactions-cheatsheet.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_ResourcesInteractionsCheatsheetMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
   <file path=".claude/skills/intent-mapping-architect/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_SkillMd_Agents" />
   <file path=".claude/skills/intent-mapping-architect/resources/mapping-cheatsheet.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_ResourcesMappingCheatsheetMd_Agents" />
   <file path=".claude/skills/intent-metadata-consumer/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_SkillMd_Agents" />
@@ -65,6 +67,8 @@
   <file path=".opencode/skills/file-builder-expert/resources/troubleshooting.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.FileBuilderExpert_ResourcesTroubleshootingMd_Agents" />
   <file path=".opencode/skills/intent-domain-interactions-expert/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_SkillMd_Agents" />
   <file path=".opencode/skills/intent-domain-interactions-expert/resources/interactions-cheatsheet.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentDomainInteractionsExpert_ResourcesInteractionsCheatsheetMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
   <file path=".opencode/skills/intent-mapping-architect/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_SkillMd_Agents" />
   <file path=".opencode/skills/intent-mapping-architect/resources/mapping-cheatsheet.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMappingArchitect_ResourcesMappingCheatsheetMd_Agents" />
   <file path=".opencode/skills/intent-metadata-consumer/SKILL.md" templateId="Intent.ModuleBuilder.AI.Skills.Skills.IntentMetadataConsumer_SkillMd_Agents" />

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7c9147f5-3acd-4dc0-82d9-5a5f776d1d7c">
+  <file path=".claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="Intent.Modules.NET.AI.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="ModuleBuilder.AI.DotNet/Intent.ModuleBuilder.AI.DotNet.imodspec" deviationsHash="173FEBC35B128D3469C2BA0D37490F5031031C57DE81EE31DF8874789F5F1549" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="ModuleBuilder.AI.DotNet/ModuleBuilder.AI.DotNet.csproj" deviationsHash="2848AE9D737E0605B14D87D1155549A53E94E3B4D16DD19C5D43935B4043E469" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_AgentsTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_AgentsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs" deviationsHash="49DD08A865F2EF6C725E8C9908DADB484AEEAC6DEFF4A8543B8E2731A2F4B4F4" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="ModuleBuilder.AI.DotNet/Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+</managedFiles>
