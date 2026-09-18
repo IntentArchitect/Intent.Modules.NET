@@ -31,5 +31,6 @@
   <tags>intent module-builder ai dotnet aspnetcore skills</tags>
   <moduleSettingsExtensions />
   <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

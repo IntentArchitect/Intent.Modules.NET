@@ -2,15 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.IModSpecFile#de34d55d-002f-492c-8228-2d6766628b3a</correlationId>
-      <path>ModuleBuilder.AI.DotNet/Intent.ModuleBuilder.AI.DotNet.imodspec</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-17T20:56:27.5491601Z</updatedAt>
-      <deviationsHash>173FEBC35B128D3469C2BA0D37490F5031031C57DE81EE31DF8874789F5F1549</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#90855a41-bbd5-4cae-85b7-e4f81886ee9b</correlationId>
       <path>ModuleBuilder.AI.DotNet/ModuleBuilder.AI.DotNet.csproj</path>
       <count>1</count>
