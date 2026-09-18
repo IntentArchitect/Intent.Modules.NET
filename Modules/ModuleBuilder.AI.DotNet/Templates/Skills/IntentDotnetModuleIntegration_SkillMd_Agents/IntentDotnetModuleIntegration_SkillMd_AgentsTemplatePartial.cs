@@ -46,11 +46,13 @@ template-id: {{TemplateId}}
 2. **Take the dependency on the typed route**: reference the target module's own NuGet package (never a bare role-string integration) so you get its typed model interfaces (e.g. `IControllerModel`), not an untyped `ICSharpFileBuilderTemplate` plus a raw `modelId` string.
 3. **Correlate generated members by metadata, never by name.** Every reference file states the exact `TryGetMetadata` keys a target module's generated class/method/parameter carry — names are transformed, de-duplicated, and overloaded, so a name match silently breaks the moment either side changes.
 4. **Read the resource file's "Traps" section before writing code** — it records failure modes already hit by a module built against that target (multi-host duplication, folder off-by-ones, obsolete constants) that are not visible from the target module's public API alone.
+5. **Check a resource file's "Version compatibility" section against the target module's actually-installed version before trusting a fact flagged there as version-gated.** A resource file records what held at the version it was verified against; some facts (an extension point added, changed, or removed) only hold within that stated range.
 
 ## Must Nots
 1. Never infer a target module's generated shape, role strings, or metadata keys from reading its templates cold — read its resource file here first; if none exists yet for the module you need, say so rather than guessing.
 2. Never correlate a generated class/method to a designer model by name — see Must #3.
 3. Never assume one target module's identity split (NuGet package id vs Intent module id vs namespace) generalizes to another — each is verified independently in its own resource file.
+4. Never assume a resource file's facts hold for an installed version outside the range its "Version compatibility" section states — re-verify the specific fact against the target module's own source instead.
 
 """""");
         }

@@ -28,6 +28,15 @@ namespace ModuleBuilder.AI.DotNet.Templates.Skills.IntentDotnetModuleIntegration
                 .FromMarkdown("""
 # ASP.NET Core Controllers (`Intent.AspNetCore.Controllers`)
 
+## 0. Version compatibility
+
+Verified against `Intent.AspNetCore.Controllers` **7.1.15**. Two facts stated below are version-gated, not always true — check the installed version (its `.imodspec`'s `<version>`) before trusting them:
+
+- **`<decorators>` being empty (§8) only holds from v7.0.0 onward.** Versions before 7.0.0 shipped a real `ControllerDecorator` extension point; v7.0.0 removed it in favour of `ICSharpFileBuilderTemplate`. Against an older install, look for `ControllerDecorator` instead of assuming §6's six extension points are the whole story.
+- **The multi-host trap in §8 (`FindTemplateInstances` over `FindTemplateInstance`) only applies from v7.1.6 onward**, when Controllers gained support for multiple ASP.NET Core projects per application. Below that version there is exactly one controller instance per model, and `FindTemplateInstance` is safe.
+
+Everything else in this file is expected to hold for any 7.x release. If the installed version falls outside a range stated here — including anything below 7.0.0 — re-verify the specific fact against Controllers' own source rather than trust this file blindly.
+
 ## 1. What it generates, and what it deliberately leaves empty
 
 `Intent.Modules.AspNetCore.Controllers`'s `ControllerTemplate` emits a full ASP.NET Core controller class per service/CQRS grouping: the class declaration, `[ApiController]`, `[Route]` and `[Authorize]` attributes, XML doc comments, the method signatures for every operation, and every method's parameters (route, query, body, form). **Action-method bodies are emitted empty by design** — the Controllers module's job stops at the contract; nothing about *how* a request is handled is its concern. That single fact is the reason a dispatch module (`Dispatch.MediatR`, `Dispatch.ServiceContract`, `Dispatch.Wolverine`) exists at all: without one installed, a generated controller compiles and returns 200s that do nothing, and that is expected behaviour, not a defect to work around.
