@@ -1,3 +1,7 @@
+### Version 4.2.10
+
+- Improvement: Updated output path of some templates to be more consistant with other templates.
+
 ### Version 4.2.9
 
 - Improvement: Added default Template Classification and Priorities.
