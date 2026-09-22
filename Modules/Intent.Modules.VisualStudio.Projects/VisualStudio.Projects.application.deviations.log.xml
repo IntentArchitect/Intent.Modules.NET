@@ -364,11 +364,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
       <path>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
-      <count>4</count>
+      <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-04-20T12:09:10.0088998Z</updatedAt>
-      <deviationsHash>369952E693151AB674EBCFE1D33C9FA81B339B4DBEA546C9904C3854CF5AFE51</deviationsHash>
+      <updatedAt>2026-09-21T21:33:03.9399751Z</updatedAt>
+      <deviationsHash>B67AF53269C35EB52FCD63F0EFD642928FDF4D4DB319098E440F68F2970E7347</deviationsHash>
       <fileHash>AF3D675FA3A363DFE3A14D7110733C69BACD60A38E38A9D024D286C0DBCF5813</fileHash>
     </file>
     <file>

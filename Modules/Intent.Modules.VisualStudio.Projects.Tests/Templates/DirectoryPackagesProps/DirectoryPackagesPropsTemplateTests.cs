@@ -254,6 +254,112 @@ public class DirectoryPackagesPropsTemplateTests
         result.ShouldContain("1.0.0");
     }
 
+    [Fact]
+    public void WhenFloatingVersionsEnabledOnFreshFile_ShouldAddPropertyToSameGroupAsCpm()
+    {
+        // Arrange
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+
+        var template = CreateTemplate(mainPath, centralPackageManagement: true, floatingVersionsEnabled: true);
+
+        // Act
+        var result = template.RunTemplate();
+
+        // Assert
+        result.ShouldContain("<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>");
+        result.ShouldContain("<CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>");
+    }
+
+    [Fact]
+    public void WhenFloatingVersionsEnabledAndExistingPropertyIsFalse_ShouldRaiseToTrue()
+    {
+        // Arrange
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        _fileSystem[mainPath] = @"
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>false</CentralPackageFloatingVersionsEnabled>
+  </PropertyGroup>
+</Project>";
+
+        var template = CreateTemplate(mainPath, centralPackageManagement: true, floatingVersionsEnabled: true);
+
+        // Act
+        var result = template.RunTemplate();
+
+        // Assert
+        result.ShouldContain("<CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>");
+        result.ShouldNotContain("<CentralPackageFloatingVersionsEnabled>false</CentralPackageFloatingVersionsEnabled>");
+    }
+
+    [Fact]
+    public void WhenFloatingVersionsUncheckedAndExistingPropertyIsTrue_ShouldLeaveItInPlace()
+    {
+        // Arrange
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        _fileSystem[mainPath] = @"
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
+  </PropertyGroup>
+</Project>";
+
+        var template = CreateTemplate(mainPath, centralPackageManagement: true, floatingVersionsEnabled: false);
+
+        // Act
+        var result = template.RunTemplate();
+
+        // Assert
+        result.ShouldContain("<CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>");
+    }
+
+    [Fact]
+    public void WhenFloatingVersionsEnabledOnFreshFile_RunningTwiceShouldNotDuplicateProperty()
+    {
+        // Arrange
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+
+        var first = CreateTemplate(mainPath, centralPackageManagement: true, floatingVersionsEnabled: true);
+        _fileSystem[mainPath] = first.RunTemplate();
+
+        var second = CreateTemplate(mainPath, centralPackageManagement: true, floatingVersionsEnabled: true);
+
+        // Act
+        var result = second.RunTemplate();
+
+        // Assert
+        CountOccurrences(result, "CentralPackageFloatingVersionsEnabled").ShouldBe(2); // one opening + one closing tag
+    }
+
+    [Fact]
+    public void WhenCentralPackageManagementDisabled_FloatingVersionsPropertyShouldNotBeAdded()
+    {
+        // Arrange
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+
+        var template = CreateTemplate(mainPath, centralPackageManagement: false, floatingVersionsEnabled: true);
+
+        // Act
+        var result = template.RunTemplate();
+
+        // Assert
+        result.ShouldNotContain("CentralPackageFloatingVersionsEnabled");
+    }
+
+    private static int CountOccurrences(string source, string value)
+    {
+        var count = 0;
+        var index = 0;
+        while ((index = source.IndexOf(value, index, StringComparison.Ordinal)) != -1)
+        {
+            count++;
+            index += value.Length;
+        }
+        return count;
+    }
+
     private string FixPathForCurrentOs(string path)
     {
         if (!OperatingSystem.IsWindows())
@@ -266,7 +372,8 @@ public class DirectoryPackagesPropsTemplateTests
 
     private DirectoryPackagesPropsTemplate CreateTemplate(
         string filePath,
-        bool centralPackageManagement = true)
+        bool centralPackageManagement = true,
+        bool floatingVersionsEnabled = false)
     {
         _application.OutputRootDirectory.Returns(Path.GetDirectoryName(filePath));
 
@@ -274,7 +381,8 @@ public class DirectoryPackagesPropsTemplateTests
             _application,
             _model,
             centralPackageManagement,
-            new TestableFileOperations(_fileSystem));
+            new TestableFileOperations(_fileSystem),
+            floatingVersionsEnabled);
     }
 }
 

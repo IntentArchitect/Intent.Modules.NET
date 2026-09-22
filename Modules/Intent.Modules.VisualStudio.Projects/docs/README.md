@@ -149,13 +149,13 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 
 ### Module settings
 
-| Setting                                   | Default | Description                                                                                                                                                     |
-|-------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Consolidate Package Versions              | `false` | When enabled, versions of a NuGet package are consolidated across the solution to be the same as the highest currently installed version.                         |
-| Warn On Multiple Versions of Same Package  | `true`  | When enabled, warnings are shown if multiple versions of the same NuGet package are installed within the solution. Only applicable when *Consolidate Package Versions* is disabled. |
+| Setting                                   | Default | Description                                                                                                                                                                         |
+| ----------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Consolidate Package Versions              | `false` | When enabled, versions of a NuGet package are consolidated across the solution to be the same as the highest currently installed version.                                           |
+| Warn On Multiple Versions of Same Package | `true`  | When enabled, warnings are shown if multiple versions of the same NuGet package are installed within the solution. Only applicable when _Consolidate Package Versions_ is disabled. |
 
 > [!NOTE]
-> In applications which have the `Intent.ModuleBuilder` module installed, its *Dependency version overwrite behavior* setting also applies to NuGet packages, allowing the default upgrade behaviour described above (*If newer*) to be changed to *Always* or *Never*.
+> In applications which have the `Intent.ModuleBuilder` module installed, its _Dependency version overwrite behavior_ setting also applies to NuGet packages, allowing the default upgrade behaviour described above (_If newer_) to be changed to _Always_ or _Never_.
 
 ## Stereotype details
 
@@ -276,3 +276,25 @@ The following options are available:
 
 > [!NOTE]
 > Regardless of the project level's _Manage Package Versions_ setting, unless the solution has _Manage Package Versions Centrally_ set, Intent will not update or manage `PackageVersion` items for a `Directory.Packages.props` file.
+
+#### Floating Package Versions
+
+By default, NuGet's Central Package Management rejects a floating version (e.g. `Version="8.0.*"`) on a `PackageVersion` entry - `dotnet restore` fails with `NU1011: Centrally defined floating package versions are not allowed`.
+
+To allow floating versions, on the _Visual Studio Solution Options_ stereotype, check the _Central Package Floating Versions Enabled_ property (available once _Manage Package Versions Centrally_ is checked). On the next Software Factory run, `Directory.Packages.props` gains a `CentralPackageFloatingVersionsEnabled` property set to `true` in the same `PropertyGroup` as `ManagePackageVersionsCentrally`:
+
+```xml
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
+  </PropertyGroup>
+
+</Project>
+```
+
+Unchecking the property does not remove it once written - this avoids reverting a value you may have since changed by hand.
+
+> [!WARNING]
+> This property only makes a floating version legal to NuGet - it does not change how this module itself writes versions. A `PackageVersion` entry that no installed module requests (one you added by hand) keeps its float untouched. A `PackageVersion` entry that an installed module _does_ request will still have its float rewritten to that module's pinned version, since the float's minimum version is what gets compared against the requested version. Setting the project's _Dependency Version Overwrite Behavior_ module setting to `Never` (see [Module settings](#module-settings) above, requires `Intent.ModuleBuilder`) avoids this for module-requested packages too, since it only writes a version when the entry is absent.

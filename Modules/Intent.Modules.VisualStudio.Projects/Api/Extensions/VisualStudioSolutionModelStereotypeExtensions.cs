@@ -83,6 +83,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new SolutionFileFormatOptions(_stereotype.GetProperty<string>("Solution File Format"));
             }
 
+            public bool CentralPackageFloatingVersionsEnabled()
+            {
+                return _stereotype.GetProperty<bool>("Central Package Floating Versions Enabled");
+            }
+
             public class OutputLocationOptions
             {
                 public readonly string Value;

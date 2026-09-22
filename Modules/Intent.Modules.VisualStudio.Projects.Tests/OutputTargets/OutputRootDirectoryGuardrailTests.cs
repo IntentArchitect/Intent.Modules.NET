@@ -21,7 +21,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.OutputTargets
         // (file, line) -> why it's allowed to reference OutputRootDirectory directly.
         private static readonly Dictionary<(string File, int Line), string> AllowedUsages = new()
         {
-            [("Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs", 64)] =
+            [("Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs", 66)] =
                 "constructor null-fallback: builds an unshifted OutputLocationOptions when the registration didn't supply one",
             [("Templates/GitIgnore/GitIgnoreTemplatePartial.cs", 40)] =
                 "constructor null-fallback: builds an unshifted OutputLocationOptions when the registration didn't supply one",

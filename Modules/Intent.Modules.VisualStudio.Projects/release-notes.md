@@ -1,6 +1,7 @@
 ### Version 4.1.10
 
 - Fixed: Regenerating an `.slnx` file discarded any `Configurations` (custom solution configurations/platforms, e.g. `Release-Linux`), per-project `BuildType` rules, a `Project`'s `Type`/`DisplayName` attributes, `BuildDependency`, `Properties`, and comments that Visual Studio or a user had added directly to the file - even when nothing about the affected project or folder actually changed. `Configurations` and each `Project` element are now preserved exactly as written, and this content survives untouched unless a structural change (a rename, move, or removal) genuinely requires touching it. Note: an `Id` attribute already present in an existing `.slnx` file is now preserved rather than stripped, since it is real content the merge never assigned - this is an intentional behaviour change.
+- New Feature: Added a `Central Package Floating Versions Enabled` property to the `Visual Studio Solution Options` stereotype. When enabled, `Directory.Packages.props` gains `CentralPackageFloatingVersionsEnabled` set to `true`, which is NuGet's opt-in for floating `PackageVersion` entries (e.g. `8.0.*`) under Central Package Management - without it, NuGet fails restore with `NU1011`.
 
 ### Version 4.1.9
 
