@@ -39,8 +39,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
             string Absolute(string suffix) =>
                 "~/" + ApiRouteSettingExtensions.CombineRoute(routePrefix, "[controller]", suffix);
 
-            WarnIfProxyMetadataWillDiverge(routePrefix);
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -517,28 +515,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                 AuthTokenExpiryTimeSpan = "02:00:00",
                 RefreshTokenExpiryTimeSpan = "3.00:00:00"
             });
-        }
-
-        /// <summary>
-        /// Intent.AspNetCore.Identity.AccountController.Metadata ships a Services package whose Account
-        /// service routes are static XML. It is referenced read-only out of the module rather than copied
-        /// into the application, so nothing can rewrite it per-application and it cannot track this
-        /// setting. Any typed client generated from it (Service Proxies, Web Client) keeps calling
-        /// "api/...". Rather than let that diverge silently, say so at generation time.
-        /// </summary>
-        private static void WarnIfProxyMetadataWillDiverge(string routePrefix)
-        {
-            if (routePrefix == ApiRouteSettingExtensions.FallbackPrefix)
-            {
-                return;
-            }
-
-            var resolved = string.IsNullOrEmpty(routePrefix) ? "(no prefix)" : routePrefix;
-            Logging.Log.Warning(
-                $"AccountController endpoints are being generated under '{resolved}' because the Default API Route Prefix " +
-                "setting is not 'api'. The Account service metadata shipped by Intent.AspNetCore.Identity.AccountController.Metadata " +
-                "is static and still describes 'api', so any Service Proxy or Web Client generated from it will call the old URLs. " +
-                "Either leave the prefix at 'api', or adjust those generated clients by hand.");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
