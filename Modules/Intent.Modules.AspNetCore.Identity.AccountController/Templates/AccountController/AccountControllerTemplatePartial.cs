@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Identity.AccountController.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -9,6 +10,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -25,6 +27,19 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         {
             AddNugetDependency(NugetPackages.DuendeIdentityModel(OutputTarget));
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(OutputTarget));
+
+            // Ordinary controllers pick the prefix up at designer time, when "Expose as HTTP Endpoint"
+            // writes it into the Http Service Settings Route. This controller is generated from no
+            // model, so it never passes through that path and has to resolve the setting itself.
+            var routePrefix = OutputTarget.ExecutionContext.Settings.GetApiRoutePrefix();
+            var classRoute = ApiRouteSettingExtensions.CombineRoute(routePrefix, "[controller]", "[action]");
+
+            // The four routes below are "~/" prefixed, which in ASP.NET Core means "ignore the
+            // controller route, this is absolute" — so each needs its own copy of the prefix.
+            string Absolute(string suffix) =>
+                "~/" + ApiRouteSettingExtensions.CombineRoute(routePrefix, "[controller]", suffix);
+
+            WarnIfProxyMetadataWillDiverge(routePrefix);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -45,7 +60,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                 .AddUsing("Microsoft.IdentityModel.JsonWebTokens")
                 .AddClass("AccountController", @class =>
                 {
-                    @class.AddAttribute("[Route(\"api/[controller]/[action]\")]");
+                    @class.AddAttribute($"[Route(\"{classRoute}\")]");
                     @class.AddAttribute("[ApiController]");
                     @class.WithBaseType("ControllerBase");
 
@@ -73,17 +88,17 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                         method.AddStatements($@"
                             if (string.IsNullOrWhiteSpace(input.Email))
                             {{
-                                ModelState.AddModelError<RegisterDto>(x => x.Email, ""Mandatory"");
+                            ModelState.AddModelError<RegisterDto>(x => x.Email, ""Mandatory"");
                             }}
 
                             if (string.IsNullOrWhiteSpace(input.Password))
                             {{
-                                ModelState.AddModelError<RegisterDto>(x => x.Password, ""Mandatory"");
+                            ModelState.AddModelError<RegisterDto>(x => x.Password, ""Mandatory"");
                             }}
 
                             if (!ModelState.IsValid)
                             {{
-                                return BadRequest(ModelState);
+                            return BadRequest(ModelState);
                             }}
 
                             var user = new {this.GetIdentityUserClass()} {{ Id = Guid.NewGuid().ToString() }};
@@ -95,19 +110,19 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             if (!result.Succeeded)
                             {{
-                                foreach (var error in result.Errors)
-                                {{
-                                    ModelState.AddModelError(string.Empty, error.Description);
-                                }}
+                            foreach (var error in result.Errors)
+                            {{
+                            ModelState.AddModelError(string.Empty, error.Description);
+                            }}
 
-                                return BadRequest(ModelState);
+                            return BadRequest(ModelState);
                             }}
 
                             _logger.LogInformation(""User created a new account with password."");
 
                             if (_userManager.Options.SignIn.RequireConfirmedAccount)
                             {{
-                                await SendConfirmationEmail(user);
+                            await SendConfirmationEmail(user);
                             }}
 
                             return Ok();".ConvertToStatements());
@@ -122,17 +137,17 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                         method.AddStatements($@"
                             if (string.IsNullOrWhiteSpace(input.Email))
                             {{
-                                ModelState.AddModelError<LoginDto>(x => x.Email, ""Mandatory"");
+                            ModelState.AddModelError<LoginDto>(x => x.Email, ""Mandatory"");
                             }}
 
                             if (string.IsNullOrWhiteSpace(input.Password))
                             {{
-                                ModelState.AddModelError<LoginDto>(x => x.Password, ""Mandatory"");
+                            ModelState.AddModelError<LoginDto>(x => x.Password, ""Mandatory"");
                             }}
 
                             if (!ModelState.IsValid)
                             {{
-                                return BadRequest(ModelState);
+                            return BadRequest(ModelState);
                             }}
 
                             var email = input.Email!;
@@ -140,16 +155,16 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             var user = await _userManager.FindByEmailAsync(email);
                             if (user == null ||
-                                !await _userManager.CheckPasswordAsync(user, password))
+                            !await _userManager.CheckPasswordAsync(user, password))
                             {{
-                                _logger.LogWarning(""Invalid login attempt."");
-                                return Forbid();
+                            _logger.LogWarning(""Invalid login attempt."");
+                            return Forbid();
                             }}
 
                             if (await _userManager.IsLockedOutAsync(user))
                             {{
-                                _logger.LogWarning(""User account locked out."");
-                                return Forbid();
+                            _logger.LogWarning(""User account locked out."");
+                            return Forbid();
                             }}
 
                             var claims = await GetClaims(user);
@@ -165,9 +180,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             return Ok(new TokenResultDto
                             {{
-                                AuthenticationToken = token,
-                                ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
-                                RefreshToken = refreshToken
+                            AuthenticationToken = token,
+                            ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
+                            RefreshToken = refreshToken
                             }});".ConvertToStatements());
                     });
 
@@ -181,13 +196,13 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                             var username = _tokenService.GetUsernameFromRefreshToken(dto.RefreshToken);
                             if (username == null)
                             {{
-                                return BadRequest();
+                            return BadRequest();
                             }}
 
                             var user = await _userManager.FindByNameAsync(username);
                             if (user == null || user.RefreshToken != dto.RefreshToken)
                             {{
-                                return BadRequest();
+                            return BadRequest();
                             }}
 
                             var claims = await GetClaims(user);
@@ -201,9 +216,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             return Ok(new TokenResultDto
                             {{
-                                AuthenticationToken = token,
-                                ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
-                                RefreshToken = refreshToken
+                            AuthenticationToken = token,
+                            ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
+                            RefreshToken = refreshToken
                             }});".ConvertToStatements());
                     });
 
@@ -216,17 +231,17 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                         method.AddStatements($@"
                             if (string.IsNullOrWhiteSpace(input.UserId))
                             {{
-                                ModelState.AddModelError<ConfirmEmailDto>(x => x.UserId, ""Mandatory"");
+                            ModelState.AddModelError<ConfirmEmailDto>(x => x.UserId, ""Mandatory"");
                             }}
 
                             if (string.IsNullOrWhiteSpace(input.Code))
                             {{
-                                ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, ""Mandatory"");
+                            ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, ""Mandatory"");
                             }}
 
                             if (!ModelState.IsValid)
                             {{
-                                return BadRequest(ModelState);
+                            return BadRequest(ModelState);
                             }}
 
                             var userId = input.UserId!;
@@ -234,7 +249,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                             var user = await _userManager.FindByIdAsync(input.UserId!);
                             if (user == null)
                             {{
-                                return NotFound($""Unable to load user with ID '{{userId}}'."");
+                            return NotFound($""Unable to load user with ID '{{userId}}'."");
                             }}
 
                             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
@@ -242,8 +257,8 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                             var result = await _userManager.ConfirmEmailAsync(user, code);
                             if (!result.Succeeded)
                             {{
-                                ModelState.AddModelError<ConfirmEmailDto>(x => x, ""Error confirming your email."");
-                                return BadRequest(ModelState);
+                            ModelState.AddModelError<ConfirmEmailDto>(x => x, ""Error confirming your email."");
+                            return BadRequest(ModelState);
                             }}
 
                             return Ok();".ConvertToStatements());
@@ -251,7 +266,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                     @class.AddMethod("IActionResult", "ForgotPassword", method =>
                     {
-                        method.AddAttribute("[HttpPost(\"~/api/[controller]/forgotPassword\")]");
+                        method.AddAttribute($"[HttpPost(\"{Absolute("forgotPassword")}\")]");
                         method.AddAttribute("AllowAnonymous");
                         method.Async();
                         method.AddParameter("ForgotPasswordDto", "resetRequest");
@@ -260,11 +275,11 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             if (user is not null && await _userManager.IsEmailConfirmedAsync(user))
                             {{
-                                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-                                await _accountEmailSender.SendPasswordResetCode(resetRequest.Email!, user.Id,
-                                    HtmlEncoder.Default.Encode(code));
+                            await _accountEmailSender.SendPasswordResetCode(resetRequest.Email!, user.Id,
+                            HtmlEncoder.Default.Encode(code));
                             }}
 
                             // Don't reveal that the user does not exist or is not confirmed, so don't return a 200 if we would have
@@ -274,7 +289,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                     @class.AddMethod("IActionResult", "ResetPassword", method =>
                     {
-                        method.AddAttribute("[HttpPost(\"~/api/[controller]/resetPassword\")]");
+                        method.AddAttribute($"[HttpPost(\"{Absolute("resetPassword")}\")]");
                         method.AddAttribute("AllowAnonymous");
                         method.Async();
                         method.AddParameter("ResetPasswordDto", "resetRequest");
@@ -285,31 +300,31 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
                             {{
-                                // Don't reveal that the user does not exist or is not confirmed, so don't return a 200 if we would have
-                                // returned a 400 for an invalid code given a valid user email.
-                                modelState.AddModelError<ResetPasswordDto>(x => x.ResetCode, ""Invalid token"");
-                                return ValidationProblem();
+                            // Don't reveal that the user does not exist or is not confirmed, so don't return a 200 if we would have
+                            // returned a 400 for an invalid code given a valid user email.
+                            modelState.AddModelError<ResetPasswordDto>(x => x.ResetCode, ""Invalid token"");
+                            return ValidationProblem();
                             }}
 
                             IdentityResult result;
                             try
                             {{
-                                var code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(resetRequest.ResetCode!));
-                                result = await _userManager.ResetPasswordAsync(user, code, resetRequest.NewPassword!);
+                            var code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(resetRequest.ResetCode!));
+                            result = await _userManager.ResetPasswordAsync(user, code, resetRequest.NewPassword!);
                             }}
                             catch (FormatException)
                             {{
-                                result = IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken());
+                            result = IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken());
                             }}
 
                             if (!result.Succeeded)
                             {{
-                                foreach (var error in result.Errors)
-                                {{
-                                    modelState.AddModelError(string.Empty, error.Description);
-                                }}
+                            foreach (var error in result.Errors)
+                            {{
+                            modelState.AddModelError(string.Empty, error.Description);
+                            }}
 
-                                return ValidationProblem(modelState);
+                            return ValidationProblem(modelState);
                             }}
 
                             return Ok();".ConvertToStatements());
@@ -317,7 +332,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                     @class.AddMethod("ActionResult<InfoResponseDto>", "GetInfo", method =>
                     {
-                        method.AddAttribute("[HttpGet(\"~/api/[controller]/manage/info\")]");
+                        method.AddAttribute($"[HttpGet(\"{Absolute("manage/info")}\")]");
                         method.AddAttribute("Authorize");
                         method.Async();
                         method.AddStatements($@"
@@ -325,67 +340,67 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             return new InfoResponseDto
                             {{
-                                Email = user?.Email
+                            Email = user?.Email
                             }};".ConvertToStatements());
                     });
 
                     @class.AddMethod("ActionResult<InfoResponseDto>", "PostInfo", method =>
                     {
-                        method.AddAttribute("[HttpPost(\"~/api/[controller]/manage/info\")]");
+                        method.AddAttribute($"[HttpPost(\"{Absolute("manage/info")}\")]");
                         method.AddAttribute("Authorize");
                         method.Async();
                         method.AddParameter("UpdateInfoDto", "infoRequest");
                         method.AddStatements($@"
                             if (await _userManager.GetUserAsync(User) is not {{ }} user)
                             {{
-                                return NotFound();
+                            return NotFound();
                             }}
 
                             var modelState = new ModelStateDictionary();
 
                             if (!string.IsNullOrEmpty(infoRequest.NewEmail) && !EmailAddressAttribute.IsValid(infoRequest.NewEmail))
                             {{
-                                modelState.AddModelError<UpdateInfoDto>(x => x.NewEmail, ""Invalid email address."");
-                                return ValidationProblem(modelState);
+                            modelState.AddModelError<UpdateInfoDto>(x => x.NewEmail, ""Invalid email address."");
+                            return ValidationProblem(modelState);
                             }}
 
                             if (!string.IsNullOrEmpty(infoRequest.NewPassword))
                             {{
-                                if (string.IsNullOrEmpty(infoRequest.OldPassword))
-                                {{
-                                    modelState.AddModelError<UpdateInfoDto>(x => x.OldPassword, ""The old password is required to set a new password. If the old password is forgotten, use /resetPassword."");
-                                    return ValidationProblem(modelState);
-                                }}
+                            if (string.IsNullOrEmpty(infoRequest.OldPassword))
+                            {{
+                            modelState.AddModelError<UpdateInfoDto>(x => x.OldPassword, ""The old password is required to set a new password. If the old password is forgotten, use /resetPassword."");
+                            return ValidationProblem(modelState);
+                            }}
 
-                                var changePasswordResult = await _userManager.ChangePasswordAsync(user, infoRequest.OldPassword, infoRequest.NewPassword);
-                                if (!changePasswordResult.Succeeded)
-                                {{
-                                    foreach (var error in changePasswordResult.Errors)
-                                    {{
-                                        modelState.AddModelError<UpdateInfoDto>(x => x.NewPassword, error.Description);
-                                    }}
+                            var changePasswordResult = await _userManager.ChangePasswordAsync(user, infoRequest.OldPassword, infoRequest.NewPassword);
+                            if (!changePasswordResult.Succeeded)
+                            {{
+                            foreach (var error in changePasswordResult.Errors)
+                            {{
+                            modelState.AddModelError<UpdateInfoDto>(x => x.NewPassword, error.Description);
+                            }}
 
-                                    return ValidationProblem(modelState);
-                                }}
+                            return ValidationProblem(modelState);
+                            }}
                             }}
 
                             if (!string.IsNullOrEmpty(infoRequest.NewEmail))
                             {{
-                                var email = await _userManager.GetEmailAsync(user);
-                                if (email != infoRequest.NewEmail)
-                                {{
-                                    await _userStore.SetUserNameAsync(user, infoRequest.NewEmail, CancellationToken.None);
-                                    await _userManager.SetEmailAsync(user, infoRequest.NewEmail);
-                                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                                    {{
-                                        await SendConfirmationEmail(user);
-                                    }}
-                                }}
+                            var email = await _userManager.GetEmailAsync(user);
+                            if (email != infoRequest.NewEmail)
+                            {{
+                            await _userStore.SetUserNameAsync(user, infoRequest.NewEmail, CancellationToken.None);
+                            await _userManager.SetEmailAsync(user, infoRequest.NewEmail);
+                            if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                            {{
+                            await SendConfirmationEmail(user);
+                            }}
+                            }}
                             }}
 
                             return new InfoResponseDto
                             {{
-                                Email = user.Email
+                            Email = user.Email
                             }};".ConvertToStatements());
                     });
 
@@ -416,9 +431,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                             var userId = await _userManager.GetUserIdAsync(user);
 
                             await _accountEmailSender.SendEmailConfirmationRequest(
-                                email: user.Email!,
-                                userId: userId,
-                                code: code);".ConvertToStatements());
+                            email: user.Email!,
+                            userId: userId,
+                            code: code);".ConvertToStatements());
                     });
 
                     @class.AddMethod("IList<Claim>", "GetClaims", method =>
@@ -432,7 +447,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                             var roles = await _userManager.GetRolesAsync(user);
                             foreach (var role in roles)
                             {
-                                claims.Add(new Claim(""role"", role));
+                            claims.Add(new Claim(""role"", role));
                             }
 
                             return claims;".ConvertToStatements());
@@ -502,6 +517,28 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                 AuthTokenExpiryTimeSpan = "02:00:00",
                 RefreshTokenExpiryTimeSpan = "3.00:00:00"
             });
+        }
+
+        /// <summary>
+        /// Intent.AspNetCore.Identity.AccountController.Metadata ships a Services package whose Account
+        /// service routes are static XML. It is referenced read-only out of the module rather than copied
+        /// into the application, so nothing can rewrite it per-application and it cannot track this
+        /// setting. Any typed client generated from it (Service Proxies, Web Client) keeps calling
+        /// "api/...". Rather than let that diverge silently, say so at generation time.
+        /// </summary>
+        private static void WarnIfProxyMetadataWillDiverge(string routePrefix)
+        {
+            if (routePrefix == ApiRouteSettingExtensions.FallbackPrefix)
+            {
+                return;
+            }
+
+            var resolved = string.IsNullOrEmpty(routePrefix) ? "(no prefix)" : routePrefix;
+            Logging.Log.Warning(
+                $"AccountController endpoints are being generated under '{resolved}' because the Default API Route Prefix " +
+                "setting is not 'api'. The Account service metadata shipped by Intent.AspNetCore.Identity.AccountController.Metadata " +
+                "is static and still describes 'api', so any Service Proxy or Web Client generated from it will call the old URLs. " +
+                "Either leave the prefix at 'api', or adjust those generated clients by hand.");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

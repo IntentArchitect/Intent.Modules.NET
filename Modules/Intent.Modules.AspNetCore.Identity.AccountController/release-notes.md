@@ -1,3 +1,7 @@
+### Version 4.1.19
+
+- Improvement: The `AccountController` now honours the **Default API Route Prefix** application setting instead of hardcoding `api`. 
+
 ### Version 4.1.18
 
 - Improvement: Updated NuGet package versions.
@@ -14,7 +18,7 @@
 ### Version 4.1.15
 
 - Improvement: Bumped persistence dependency version.
-- 
+
 ### Version 4.1.14
 
 - Improvement: Updated NuGet package versions.
@@ -75,7 +79,7 @@
 ### Version 4.1.0
 
 > ⚠️ **NOTE**
-> 
+>
 > Claims related changes has been introduced to improve the experience using the `CurrentUserService`.
 
 - Fixed: `GetClaims` no longer provides a claim named `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` but instead returns the `sub` claim that represents the User's ID.
