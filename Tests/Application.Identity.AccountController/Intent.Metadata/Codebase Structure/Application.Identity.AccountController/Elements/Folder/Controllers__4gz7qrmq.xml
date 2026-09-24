@@ -57,7 +57,17 @@
       <parentFolderId>8fd1dd40-de9a-4475-b762-3fab367828c5</parentFolderId>
       <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
       <packageName>Application.Identity.AccountController</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;56482ac0-a444-4721-b39d-68c886a420cd&quot;,&quot;35637811-3160-4fe0-aa9b-91376cc1e95e&quot;]" isActive="true" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
