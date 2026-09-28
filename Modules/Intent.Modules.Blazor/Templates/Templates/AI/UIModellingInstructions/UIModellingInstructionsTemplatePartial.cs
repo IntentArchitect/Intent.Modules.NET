@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Settings;
@@ -6,9 +9,6 @@ using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -45,8 +45,9 @@ description: General guidance for AI on how to model UIs for Blazor.
             {
             }
             if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
-            {   
-                MarkdownFile.WithSection("WASM Specific Guidance", section => {
+            {
+                MarkdownFile.WithSection("WASM Specific Guidance", section =>
+                {
                     section.WithListItem("In the service design Do not model services using explicit proxies, rather model against the actual commands and queries.");
                     section.WithListItem("Don't look or expect to find anything in the WASM Projects services designer.");
                     section.WithListItem("If you want to connect to services in other applications you must add a Service Reference in the WASM Applications UI Designer to the Service Application's Service package.");

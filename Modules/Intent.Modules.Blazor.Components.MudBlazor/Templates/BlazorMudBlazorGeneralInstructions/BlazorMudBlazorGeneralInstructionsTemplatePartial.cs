@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Settings;
@@ -6,33 +11,28 @@ using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using static Intent.Modules.Constants.TemplateRoles;
-using static Intent.Modules.Constants.TemplateRoles.Blazor;
 using static System.Net.WebRequestMethods;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static Intent.Modules.Constants.TemplateRoles;
+using static Intent.Modules.Constants.TemplateRoles.Blazor;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGeneralInstructions
 {
-  [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-  public class BlazorMudBlazorGeneralInstructionsTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
-  {
-    [IntentManaged(Mode.Fully)]
-    public const string TemplateId = "Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate";
-
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public BlazorMudBlazorGeneralInstructionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class BlazorMudBlazorGeneralInstructionsTemplate : MarkdownBaseTemplate<object>, IMarkdownFileBuilderTemplate
     {
-      WithContentHashing = true;
-      MarkdownFile = new MarkdownFile($"blazor-mudblazor-general.instructions")
-        .FromMarkdown("""
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate";
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public BlazorMudBlazorGeneralInstructionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        {
+            WithContentHashing = true;
+            MarkdownFile = new MarkdownFile($"blazor-mudblazor-general.instructions")
+              .FromMarkdown("""
           ---
           description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
           appliesTo:
@@ -237,31 +237,32 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
             if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
             {
-                MarkdownFile.ConfigureSection("Service Injection", section => 
-                { 
+                MarkdownFile.ConfigureSection("Service Injection", section =>
+                {
                     section.WithListItem("When `IScopedMediator`, `IScopedExecutor`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for service call in the same app.");
                     section.WithListItem("If MediatR command or query classes(e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually");
                 });
             }
             if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
-            {   
+            {
                 MarkdownFile.ConfigureSection("Service Injection", section =>
                 {
                     section.WithListItem("Use service proxies to communicate with other applications.");
                     section.WithListItem("If possible, validate the proxy and the other application have the same serialization settings.");
                 });
 
-                MarkdownFile.AfterSection("Service Injection", "WASM Specific Guidance", section => {
+                MarkdownFile.AfterSection("Service Injection", "WASM Specific Guidance", section =>
+                {
                     section.WithListItem("Ensure that any back end services the UI connects to are correctly configured for CORS.");
                 });
             }
         }
 
         [IntentManaged(Mode.Fully)]
-    public override IMarkdownFile MarkdownFile { get; }
+        public override IMarkdownFile MarkdownFile { get; }
 
-    [IntentManaged(Mode.Fully)]
-    public override ITemplateFileConfig GetTemplateFileConfig() => MarkdownFile.GetConfig();
+        [IntentManaged(Mode.Fully)]
+        public override ITemplateFileConfig GetTemplateFileConfig() => MarkdownFile.GetConfig();
 
-  }
+    }
 }
