@@ -3,6 +3,7 @@
   <file path=".agents/design.md" templateId="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" />
   <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" templateId="Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate" />
   <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/instructions/ui-modeling-blazor.instructions.md" templateId="Intent.Blazor.Templates.AI.UIModellingInstructionsTemplate" />
   <file path=".agents/instructions/unit-test-guidelines.md" templateId="Intent.UnitTesting.UnitTestInstructionTemplate" />
   <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
   <file path=".agents/skills/blazor-app-menu/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorAppMenuSkillTemplate" />

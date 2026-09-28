@@ -234,7 +234,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           """);
 
-            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+
+            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
             {
                 MarkdownFile.ConfigureSection("Service Injection", section => 
                 { 
@@ -242,8 +243,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
                     section.WithListItem("If MediatR command or query classes(e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually");
                 });
             }
-            else
-            {   //Wasm
+            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+            {   
                 MarkdownFile.ConfigureSection("Service Injection", section =>
                 {
                     section.WithListItem("Use service proxies to communicate with other applications.");

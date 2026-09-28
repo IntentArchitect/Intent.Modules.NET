@@ -41,12 +41,11 @@ description: General guidance for AI on how to model UIs for Blazor.
 
 """);
 
-            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
             {
             }
-            else
-            {   //Wasm
-
+            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+            {   
                 MarkdownFile.WithSection("WASM Specific Guidance", section => {
                     section.WithListItem("In the service design Do not model services using explicit proxies, rather model against the actual commands and queries.");
                     section.WithListItem("Don't look or expect to find anything in the WASM Projects services designer.");
