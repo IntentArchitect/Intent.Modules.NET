@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>2.0.5-pre.0</version>
+  <version>2.0.5-pre.1</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -53,6 +53,10 @@
     </template>
     <template id="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" externalReference="71dd8fd0-e402-452c-b33e-718d4c3b9991">
       <role>AI.Context</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.AI.UIModellingInstructionsTemplate" externalReference="0e2eddf5-8296-42b8-9291-0b6beabb393f">
+      <role>AI.Context.Instructions</role>
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.Client.ClientImportsRazorTemplate" externalReference="4a938a9b-e670-43dd-8e6d-f03f0c48d812">
@@ -417,7 +421,7 @@
     </detect>
     <detect id="Intent.Blazor.Components.MudBlazor">
       <install>
-        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.3" />
+        <package id="Intent.Blazor.Components.MudBlazor" version="2.0.5-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Blazor.Authentication">

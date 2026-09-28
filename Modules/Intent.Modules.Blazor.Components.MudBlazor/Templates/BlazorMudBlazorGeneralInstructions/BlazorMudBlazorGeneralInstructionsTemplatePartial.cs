@@ -1,13 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.Intrinsics.X86;
+using static Intent.Modules.Constants.TemplateRoles;
+using static Intent.Modules.Constants.TemplateRoles.Blazor;
+using static System.Net.WebRequestMethods;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -39,13 +46,6 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
           ## Core Rules
 
-
-
-          ### Mandatory coding handoff
-
-          - Any implementation work for this component must be delegated to a coding subagent.
-          - You are not permitted to implement the code directly.
-
           #### Required instructions for the coding subagent
           Include these instructions in the coding subagent task:
 
@@ -70,10 +70,6 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           - Use existing services when available.
 
           ### Service Injection
-          - When `IScopedMediator`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for all service calls.
-          - Use `HttpClient` only when the Blazor application is a standalone client project that calls a **separate** API over HTTP (i.e., the project contains no application-layer handlers or commands).
-          - If MediatR command or query classes (e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually.
-          - Never mix the two patterns in the same component.
 
           ### Blazor Code-Behind
           - Treat the `.razor.cs` file as the backing class and source of truth for component state, UI actions, service calls, and navigation.
@@ -237,9 +233,30 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
           - [ ] If a `Navigation Target End` was added to MainLayout, the app-menu context was gathered and handed to a `coding` sub-agent (after all pages were implemented) to reconcile the menu
 
           """);
-    }
 
-    [IntentManaged(Mode.Fully)]
+            if (ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+            {
+                MarkdownFile.ConfigureSection("Service Injection", section => 
+                { 
+                    section.WithListItem("When `IScopedMediator`, `IScopedExecutor`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for service call in the same app.");
+                    section.WithListItem("If MediatR command or query classes(e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually");
+                });
+            }
+            else
+            {   //Wasm
+                MarkdownFile.ConfigureSection("Service Injection", section =>
+                {
+                    section.WithListItem("Use service proxies to communicate with other applications.");
+                    section.WithListItem("If possible, validate the proxy and the other application have the same serialization settings.");
+                });
+
+                MarkdownFile.AfterSection("Service Injection", "WASM Specific Guidance", section => {
+                    section.WithListItem("Ensure that any back end services the UI connects to are correctly configured for CORS.");
+                });
+            }
+        }
+
+        [IntentManaged(Mode.Fully)]
     public override IMarkdownFile MarkdownFile { get; }
 
     [IntentManaged(Mode.Fully)]
