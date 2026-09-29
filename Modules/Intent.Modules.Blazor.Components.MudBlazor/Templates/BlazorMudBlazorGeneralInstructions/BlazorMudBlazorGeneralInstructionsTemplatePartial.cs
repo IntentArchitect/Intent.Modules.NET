@@ -253,7 +253,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.BlazorMudBlazorGe
 
                 MarkdownFile.AfterSection("Service Injection", "WASM Specific Guidance", section =>
                 {
-                    section.WithListItem("Ensure that any back end services the UI connects to are correctly configured for CORS.");
+                    section.WithListItem("If you introduce any REST service proxies to the Razor Component, You MUST feedback to the orchestrating agent that it should validate the CORS setup app hosting the services.");
                 });
             }
         }
