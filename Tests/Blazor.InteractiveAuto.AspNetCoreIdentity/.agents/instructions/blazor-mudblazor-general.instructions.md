@@ -1,7 +1,7 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-contentHash: 89060B11C28D1ADC783FEAE8C9FB69A7AE05A89D11ABFB4AC74029F227CFD83E
+contentHash: F1624479A8BFCA6222CCE047B1ACAD11059C5D9287EAA82C2320BAACF8C78F8D
 ---
 ## Role and Context
 
@@ -44,7 +44,7 @@ Include these instructions in the coding subagent task:
 
 ### WASM Specific Guidance
 
-- Ensure that any back end services the UI connects to are correctly configured for CORS.
+- If you introduce any REST service proxies to the Razor Component, You MUST feedback to the orchestrating agent that it should validate the CORS setup app hosting the services.
 
 ### Blazor Code-Behind
 
