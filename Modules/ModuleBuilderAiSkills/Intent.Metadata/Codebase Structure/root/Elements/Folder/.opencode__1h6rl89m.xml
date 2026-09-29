@@ -46,5 +46,103 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="97f790bd-1dcb-4501-a450-b2af464ff59d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.ClaudeSettings</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.ClaudeSettings</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="131883f4-3f14-4e73-acf6-c2359e45e018" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.CopilotHooks</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.CopilotHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3de1131e-9db5-4999-8853-f67ac3cef1e5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.CursorHooks</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.CursorHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1b12fa1d-a5b7-44b9-a9f0-c5d426582a0c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.GateScripts</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.GateScripts</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3f3a4f23-c953-4c3b-9685-1f7173f7db9f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.HooksJson</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.HooksJson</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="aa0f5ea1-6948-40da-8fb3-7805283e3d65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.KiroHooks</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.KiroHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4faf48e5-99ac-4d18-aea4-d36f464e407a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.OpenCodePlugin</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.OpenCodePlugin</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
