@@ -2,7 +2,7 @@
 name: intent-dotnet-module-integration
 description: "Look up how to integrate with a specific runtime .NET module in this repo — its dependency identity, template inventory, generated shape, metadata contract, and extension points — before writing a module that hooks into its generated output. USE ONLY WHEN a module needs to reference, enrich, or dispatch into another .NET module's generated code (e.g. ASP.NET Core Controllers). DO NOT USE FOR generic cross-module wiring mechanics (see intent-module-orchestrator) or designer/model integration (see intent-modelers-integration). REQUIRES knowing which target .NET module(s) the change touches."
 template-id: Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents
-contentHash: BCDFBB607F81B8E4D1F00214A8ABF58FCE89147EC57B03EF63815221D5BF19A1
+contentHash: 3CA489E717FE51FC000F789AA875E7E7B4E61E8DD6E0B8EB4B1B868F23284449
 ---
 # Intent Dotnet Module Integration
 
@@ -25,3 +25,4 @@ contentHash: BCDFBB607F81B8E4D1F00214A8ABF58FCE89147EC57B03EF63815221D5BF19A1
 2. Never correlate a generated class/method to a designer model by name — see Must #3.
 3. Never assume one target module's identity split (NuGet package id vs Intent module id vs namespace) generalizes to another — each is verified independently in its own resource file.
 4. Never assume a resource file's facts hold for an installed version outside the range its "Version compatibility" section states — re-verify the specific fact against the target module's own source instead.
+5. Avoid reflecting over or decompiling a target module's installed assembly to discover what its models or templates expose when its resource file already documents them — where a resource file lists a module's model types (for Controllers, §6), read that first; it is quicker, and it records behaviour a member list alone won't show. Fall back to the module's own source, or decompilation as a last resort, only when no resource file covers the module or the member you need genuinely isn't listed.

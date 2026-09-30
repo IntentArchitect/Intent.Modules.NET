@@ -20,4 +20,18 @@
       <deviationsHash>49DD08A865F2EF6C725E8C9908DADB484AEEAC6DEFF4A8543B8E2731A2F4B4F4</deviationsHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/ModuleBuilder.AI.DotNet/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-30T05:00:35.3233684Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/ModuleBuilder.AI.DotNet/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-30T05:00:35.3540741Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

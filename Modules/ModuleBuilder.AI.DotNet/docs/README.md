@@ -17,8 +17,10 @@ extension points — so an AI agent can wire a new module against, say,
   resource files below.
 - **One resource file per target .NET module** — a deep reference for that specific module, covering
   what to reference and how (NuGet package vs project reference), its template inventory and generated
-  shape, the metadata keys used to correlate generated members back to the designer model, its
-  extension points, and traps already hit by modules built against it. The first (and so far only)
+  shape, the metadata keys used to correlate generated members back to the designer model, the
+  complete public member surface of the model types those keys hand back (so an agent never has to
+  reflect over or decompile the target assembly), its extension points, and traps already hit by
+  modules built against it. The first (and so far only)
   resource file covers ASP.NET Core Controllers (`Intent.AspNetCore.Controllers`).
 
 ## Module Settings
