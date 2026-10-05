@@ -121,5 +121,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="5d2d79ba-8e3a-47be-9e0b-276a2993f92b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.AI.UIModellingInstructionsTemplate</name>
+      <display>Intent.Blazor.Templates.AI.UIModellingInstructionsTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4ac60802-e47b-44ab-b3b0-64f87c0bc541</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

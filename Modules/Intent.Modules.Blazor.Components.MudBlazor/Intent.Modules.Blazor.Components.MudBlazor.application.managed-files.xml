@@ -52,7 +52,8 @@
   <file path="Templates/StaticContentTemplateRegistrations/MudBlazorPageSearchEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="A5F999360BA2727FCB6E63C349C9D0052E004C65DFB93282981F6383F39CFC77" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/StaticContentTemplateRegistrations/MudBlazorPageViewEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="76295EFFAE6AD4D48163FC1DF9089AEFBD0E6BC8AAE2893A3E8113686931CBAA" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/StaticContentTemplateRegistrations/MudBlazorSkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="8CF1B03DB5709268AC189AA80D80716516EC3DC992E576A17B813C636749C9BE" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
-  <file path="Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/StaticContentTemplateRegistrations/ThemeArtifactsStaticContentTemplateRegistration.cs" deviationsHash="B6DB9FCADB9171DC25306F0D0F7A15031E18A631CCFA9FB1911D6C5B0E0928D2" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
+  <file path="Templates/StaticContentTemplateRegistrations/ThemeStylesheetsStaticContentTemplateRegistration.cs" deviationsHash="C9754E126E14449D006426275FC1D53844B2CC6D23489CEE3014A242CA6D8DEF" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/StaticContentTemplateRegistrations/ThemeToggleStaticContentTemplateRegistration.cs" deviationsHash="EE96CA27619CF6039718006027152C225225E3AACC174479A426B06788FFEAD1" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="content/ComponentSkillSamples/blazor-dialog-adding-entity/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
@@ -63,6 +64,7 @@
   <file path="content/ComponentSkillSamples/blazor-page-view-entity/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/GeneralSkillSamples/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/Theme/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
+  <file path="content/ThemeStylesheets/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="content/ThemeToggle/readme.txt" templateId="Intent.ModuleBuilder.Templates.StaticContentOutputReadme" />
   <file path="modelers/MudBlazor Core Components.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="modelers/MudBlazor Data Grid Component.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />

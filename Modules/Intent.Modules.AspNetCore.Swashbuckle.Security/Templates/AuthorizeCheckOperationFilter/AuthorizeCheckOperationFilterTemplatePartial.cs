@@ -29,11 +29,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
-                .AddUsing("System.Collections")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
                 .AddUsing("Microsoft.AspNetCore.Authorization")
-                .AddUsing(openApiNamespace)
                 .AddClass($"AuthorizeCheckOperationFilter", @class =>
                 {
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
@@ -52,41 +50,49 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                                 block.AddStatement("return;");
                             });
 
+                            var securityRequirementType = UseType($"{openApiNamespace}.OpenApiSecurityRequirement");
+                            var securitySchemeReferenceType = UseType($"{openApiNamespace}.OpenApiSecuritySchemeReference");
+
                             method.AddIfStatement("operation.Security == null", block =>
                             {
-                                block.AddStatement("operation.Security = new List<OpenApiSecurityRequirement>();");
+                                block.AddStatement($"operation.Security = new List<{securityRequirementType}>();");
                             });
 
-                            method.AddStatement($@"var securityRequirement = new OpenApiSecurityRequirement
+                            method.AddStatement($@"var securityRequirement = new {securityRequirementType}
             {{
-                {{ new OpenApiSecuritySchemeReference(""{authValue}"", context.Document), new List<string>() }}
+                {{ new {securitySchemeReferenceType}(""{authValue}"", context.Document), new List<string>() }}
             }};");
                             method.AddStatement("operation.Security.Add(securityRequirement);");
                         }
                         else
                         {
+                            var securityRequirementType = UseType($"{openApiNamespace}.OpenApiSecurityRequirement");
+                            var securitySchemeType = UseType($"{openApiNamespace}.OpenApiSecurityScheme");
+                            var referenceType = UseType($"{openApiNamespace}.OpenApiReference");
+                            var referenceTypeEnum = UseType($"{openApiNamespace}.ReferenceType");
+
                             method.AddIfStatement("!HasAuthorize(context)", block =>
                             {
-                                block.AddObjectInitStatement("var securityScheme", "new OpenApiSecurityScheme();");
-                                block.AddObjectInitStatement("operation.Security", @"new List<OpenApiSecurityRequirement>
-                {
-                    new OpenApiSecurityRequirement
-                    {
-                        { securityScheme, Array.Empty<string>() }
-                    }
-                };");
+                                block.AddObjectInitStatement("var securityScheme", $"new {securitySchemeType}();");
+                                block.AddObjectInitStatement("operation.Security", $@"new List<{securityRequirementType}>
+                {{
+                    new {securityRequirementType}
+                    {{
+                        {{ securityScheme, Array.Empty<string>() }}
+                    }}
+                }};");
 
                                 block.AddStatement("return;");
                                 block.SeparatedFromNext();
                             });
 
-                            method.AddStatement(@$"operation.Security.Add(new OpenApiSecurityRequirement
+                            method.AddStatement(@$"operation.Security.Add(new {securityRequirementType}
             {{
-                [new OpenApiSecurityScheme
+                [new {securitySchemeType}
                 {{
-                    Reference = new OpenApiReference
+                    Reference = new {referenceType}
                     {{
-                        Type = ReferenceType.SecurityScheme,
+                        Type = {referenceTypeEnum}.SecurityScheme,
                         Id = ""{ExecutionContext.Settings.GetSwaggerSettings().Authentication().Value}""
                     }}
                 }}] = Array.Empty<string>()

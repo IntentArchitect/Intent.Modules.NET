@@ -1,4 +1,3 @@
-using System.Collections;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi;

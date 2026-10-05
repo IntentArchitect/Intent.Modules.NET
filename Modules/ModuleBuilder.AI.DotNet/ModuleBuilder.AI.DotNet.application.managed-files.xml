@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="7c9147f5-3acd-4dc0-82d9-5a5f776d1d7c">
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.ModuleBuilder.AI.DotNet.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="ModuleBuilder.AI.DotNet.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/Skills/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_AgentsTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Skills/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents/IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_AgentsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs" deviationsHash="49DD08A865F2EF6C725E8C9908DADB484AEEAC6DEFF4A8543B8E2731A2F4B4F4" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

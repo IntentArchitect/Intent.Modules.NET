@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Updated output path of some templates to not be nested in an `Events` folder.
+
 ### Version 5.1.1
 
 - Improvement: Module dependencies updated.

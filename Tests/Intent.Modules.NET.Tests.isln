@@ -235,5 +235,6 @@
     <application id="02a65ae8-0792-4857-b5ee-1eb2f053eb54" name="WolverineEventing.MultiTenancy" solutionFolder="Eventing/Wolverine" relativePath="WolverineEventing.MultiTenancy/WolverineEventing.MultiTenancy.application.config" />
     <application id="21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a" name="WolverineEventing.Publish.RabbitMQ" solutionFolder="Eventing/Wolverine" relativePath="WolverineEventing.Publish.RabbitMQ/WolverineEventing.Publish.RabbitMQ.application.config" />
     <application id="e74b3878-7b44-403c-a208-ec678c431940" name="WolverineEventing.Subscribe.RabbitMQ" solutionFolder="Eventing/Wolverine" relativePath="WolverineEventing.Subscribe.RabbitMQ/WolverineEventing.Subscribe.RabbitMQ.application.config" />
+    <application id="fb6f2f4d-8445-4de7-9938-add53e780320" name="ModuleBuilderAITests" solutionFolder="AI" relativePath="ModuleBuilderAITests/ModuleBuilderAITests.application.config" />
   </applications>
 </solution>

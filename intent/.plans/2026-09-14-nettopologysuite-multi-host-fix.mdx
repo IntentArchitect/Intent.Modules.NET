@@ -1,0 +1,147 @@
+
+# Fix Intent.NetTopologySuite for multi-host applications
+
+<Callout id="correction" tone="warning" title="This plan was materially wrong before — read this first">
+
+An earlier draft claimed the module "silently wires into whichever host it enumerates first, leaving the others quietly misconfigured". That is **not** the failure. `FindTemplateInstance(...)` resolves via `SingleOrDefault()`, so a second host makes it **throw** `More than one instance of template X was found` and the Software Factory run fails outright. The earlier draft also said the template registrations were "correct as-is" — one of them carries the same defect, and is now site 4 below. Both claims are corrected here.
+
+</Callout>
+
+## Context
+
+This is not a newly discovered bug. <FileRef path="Modules/Intent.Modules.AspNetCore/CONTEXT.md" /> documents an in-flight migration to multi-host-safe template lookups, records a verified overload matrix, and closes with a list of modules **not yet converted, which will still break multi-host if installed**:
+
+- `AspNetCore.ODataQuery`
+- `AspNetCore.OData.EntityFramework`
+- `AspNetCore.MultiTenancy`
+- **`NetTopologySuite`** — this plan
+
+So this is finishing a documented conversion against an established pattern, not inventing one. Swashbuckle, Serilog, `Controllers/BinaryContentFilterExtension` and `Security.JWT/CurrentUserHelper` are already converted and serve as the reference implementation.
+
+`Tests/WebAndWorker` is the shape that triggers it: `WebAndWorker.Api`, `WebAndWorker.Mobile.Api` and `BlazorWebApp` are three ASP.NET Core hosts, each with its own `Program.cs` and `Configuration/SwashbuckleConfiguration.cs`, alongside `WebAndWorker.QuartzWorker`, which is not a web project at all. Install NetTopologySuite into that application today and the Software Factory throws rather than generating.
+
+## What actually breaks
+
+Four sites, one root cause — a host-scoped template resolved with a singular lookup.
+
+<Table
+  id="defect-sites"
+  caption="Every singular lookup in the module, and its canonical replacement"
+  columns={["Site", "Current form", "Replacement"]}
+  rows={[
+    ["`StartupExtension`", "`FindTemplateInstance` on the app-startup role", "`FindTemplateInstances` + `foreach`, with the `HasMicrosoftNetSdkWeb()` host filter"],
+    ["`SwaggerConfigExtension`", "`FindTemplateInstance` via `TemplateDependency.OnTemplate(...)`", "`FindTemplateInstances` + `foreach`, string overload"],
+    ["`SerilogStartupConfigurationExtension`", "`FindTemplateInstance` on the `App.Program` role", "`FindTemplateInstances` + `foreach`, plus a per-host check that the policy class exists"],
+    ["`GeoJsonSchemaSwaggerFilterTemplate.CanRunTemplate`", "`ExecutionContext.FindTemplateInstance(...) != null`", "`OutputTarget.FindTemplateInstance(...) != null`, string overload"],
+  ]}
+/>
+
+<Callout id="dependency-trap" tone="warning" title="Never reach for the TemplateDependency overloads to fix this">
+
+`CONTEXT.md` records a trap verified 2026-07-30: passing `TemplateDependency.OnTemplate("idOrRole")` to an output-target lookup **looks** host-scoped but is silently unscoped and still throws. That form produces a `TemplateIdTemplateDependency`, which does not override `TryGetWithAccessibleTo`, so `accessibleTo` is dropped and the lookup degrades to `SingleOrDefault()` across every host. Only the **string** overloads actually scope. Two of the four sites above use the `TemplateDependency` form today, which is exactly why they break.
+
+</Callout>
+
+## The established pattern
+
+The converted modules use the same three moves — iterate, filter by host capability, then resolve companion templates scoped to that host's output target:
+
+<Code
+  id="canonical"
+  filename="Modules/Intent.Modules.AspNetCore.Swashbuckle/FactoryExtensions/SwashbuckleStartupConfigurationExtension.cs"
+  language="csharp"
+  caption="The reference implementation this plan copies"
+  code={`var templates = application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName);\n\nforeach (var template in templates)\n{\n    if (!template.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())\n    {\n        continue;\n    }\n\n    var configurationTemplate = template.OutputTarget.FindTemplateInstance<IClassProvider>(SwashbuckleConfigurationTemplate.TemplateId);\n    // ...\n}`}
+/>
+
+`HasMicrosoftNetSdkWeb()` is the canonical host filter — it is what excludes `WebAndWorker.QuartzWorker`, and any AWS Lambda host, both of which implement `IAppStartupTemplate` and would otherwise be visited. An earlier draft of this plan invented a `LastOrDefault` guard for that job; the project-SDK filter is the established idiom and replaces it.
+
+<Callout id="type-names" tone="info" title="Type-name resolution is already host-correct">
+
+`CONTEXT.md` is explicit that `GetTypeName` and `UseType` route through `GetTemplate`, which tries `accessibleTo: OutputTarget` first. So `template.GetGeoJsonSchemaSwaggerFilterName()` already resolves to that host's own generated class. **Do not add manual `accessibleTo` plumbing at those call sites.** Resolving off the loop variable is sufficient and correct.
+
+</Callout>
+
+## The change, in code
+
+### 1. `StartupExtension.cs`
+
+<Diff
+  id="diff-startup"
+  filename="Modules/Intent.Modules.NetTopologySuite/FactoryExtensions/StartupExtension.cs"
+  before={`var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);\nif (startupTemplate is null)\n{\n    return;\n}\n\nstartupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);\nstartupTemplate.CSharpFile.OnBuild(file =>\n{\n    startupTemplate.StartupFile.ConfigureServices((statements, context) =>\n    {\n        file.AfterBuild(nestedFile =>\n        {\n            var statementsToCheck = new List<CSharpStatement>();\n            ExtractPossibleStatements(statements, statementsToCheck);\n\n            var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck\n                .Last(p => p.HasMetadata("configure-services-controllers"));\n\n            // ... unchanged: finds or creates .AddJsonOptions and adds GeoJsonConverterFactory\n        });\n    });\n}, 15);`}
+  after={`foreach (var startupTemplate in application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName))\n{\n    if (!startupTemplate.OutputTarget.GetProject().HasMicrosoftNetSdkWeb())\n    {\n        continue;\n    }\n\n    startupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);\n    startupTemplate.CSharpFile.OnBuild(file =>\n    {\n        startupTemplate.StartupFile.ConfigureServices((statements, context) =>\n        {\n            if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement)\n            {\n                return;\n            }\n\n            file.AfterBuild(nestedFile =>\n            {\n                var statementsToCheck = new List<CSharpStatement>();\n                ExtractPossibleStatements(statements, statementsToCheck);\n\n                var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck\n                    .Last(p => p.HasMetadata("configure-services-controllers"));\n\n                // ... unchanged: finds or creates .AddJsonOptions and adds GeoJsonConverterFactory\n            });\n        });\n    }, 15);\n}`}
+  annotations={[{ side: "after", lines: "3-6", label: "Canonical host filter", note: "Excludes the Quartz worker and AWS Lambda hosts, both of which implement IAppStartupTemplate and have no controllers." }, { side: "after", lines: "13-16", label: "Controllers guard", note: "Taken from JsonOptionsExtension in Intent.Modules.AspNetCore.Controllers — the module that owns this metadata key. A web host can still have no controllers configured." }]}
+/>
+
+### 2. `SwaggerConfigExtension.cs`
+
+<Diff
+  id="diff-swagger"
+  filename="Modules/Intent.Modules.NetTopologySuite/FactoryExtensions/SwaggerConfigExtension.cs"
+  before={`var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));\nif (template == null)\n{\n    return;\n}\n\ntemplate.CSharpFile.OnBuild(file =>\n{\n    var @class = file.Classes.First();\n\n    var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);\n    if (configureSwaggerOptionsBlock is null)\n    {\n        return;\n    }\n\n    configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();");\n});`}
+  after={`foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration"))\n{\n    template.CSharpFile.OnBuild(file =>\n    {\n        var @class = file.Classes.First();\n\n        var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);\n        if (configureSwaggerOptionsBlock is null)\n        {\n            return;\n        }\n\n        configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();");\n    });\n}`}
+  annotations={[{ side: "after", lines: "1", label: "Plural, string overload", note: "No host filter is needed here — only web hosts have a SwashbuckleConfiguration instance at all, so iterating them is already correctly scoped." }]}
+/>
+
+### 3. `SerilogStartupConfigurationExtension.cs`
+
+<Diff
+  id="diff-serilog"
+  filename="Modules/Intent.Modules.NetTopologySuite/FactoryExtensions/SerilogStartupConfigurationExtension.cs"
+  before={`var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program);\nif (programTemplate is null)\n{\n    return;\n}\n\nprogramTemplate.CSharpFile.OnBuild(file =>\n{\n    programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],\n        (lambdaBlock, parameters) =>\n        {\n            var chain = (CSharpMethodChainStatement)lambdaBlock.Statements.First();\n            chain.AddChainStatement($"Destructure.With(new {programTemplate.GetGeoDestructureSerilogPolicyName()}())");\n        });\n}, 15);`}
+  after={`foreach (var programTemplate in application.FindTemplateInstances<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program))\n{\n    programTemplate.CSharpFile.OnBuild(file =>\n    {\n        programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],\n            (lambdaBlock, parameters) =>\n            {\n                if (programTemplate.OutputTarget.FindTemplateInstance(GeoDestructureSerilogPolicyTemplate.TemplateId) is null)\n                {\n                    return;\n                }\n\n                var chain = (CSharpMethodChainStatement)lambdaBlock.Statements.First();\n                chain.AddChainStatement($"Destructure.With(new {programTemplate.GetGeoDestructureSerilogPolicyName()}())");\n            });\n    }, 15);\n}`}
+  annotations={[{ side: "after", lines: "8-11", label: "Per-host presence check", note: "The Serilog module guards its own BoundedLoggingDestructuringPolicy exactly this way. Without it, a host whose project never received the policy class gets generated code referencing a type that does not exist there — a compile error, not a generation error." }]}
+/>
+
+### 4. `GeoJsonSchemaSwaggerFilterTemplate.CanRunTemplate()`
+
+The site the earlier draft wrongly cleared. It is the exact triple anti-pattern `CONTEXT.md` warns about: singular lookup, `TemplateDependency`, and `!= null` as an existence check.
+
+<Diff
+  id="diff-canrun"
+  filename="Modules/Intent.Modules.NetTopologySuite/Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs"
+  before={`public override bool CanRunTemplate()\n{\n    return ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;\n}`}
+  after={`public override bool CanRunTemplate()\n{\n    return OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration") != null;\n}`}
+  annotations={[{ side: "after", lines: "3", label: "Host-scoped existence check", note: "Identical to the BinaryContentFilterTemplatePartial conversion CONTEXT.md cites as verified against a two-host application. Also fixes a second-order bug — the filter is now generated only into projects that actually configure Swashbuckle." }]}
+/>
+
+### 5. `ConfigureNetTopologySuite` — per-DbContext geometry detection
+
+Independent of the multi-host lookups, and unchanged from the previous draft: gate `.UseNetTopologySuite()` on whether that `DbContextInstance`'s own Domain package maps a geometry-typed attribute, rather than on `IsApplicationDbContext`. `DbContextInstance.DomainPackageModel` already exposes the package, which is what the standing TODO in that method claimed was hard to reach.
+
+<Diff
+  id="diff-efcore"
+  filename="Modules/Intent.Modules.EntityFrameworkCore/FactoryExtensions/DependencyInjectionExtension.cs"
+  before={`if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)\n{\n    dependencyInjection.AddNugetDependency(nuget);\n    builderStatements.Add("b.UseNetTopologySuite();");\n}`}
+  after={`if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) &&\n    NetTopologySuiteHelper.MapsGeometryTypes(dependencyInjection.ExecutionContext, dbContextInstance))\n{\n    dependencyInjection.AddNugetDependency(nuget);\n    builderStatements.Add("b.UseNetTopologySuite();");\n}`}
+/>
+
+The new helper goes beside `IsInstalled` in <FileRef path="Modules/Intent.Modules.EntityFrameworkCore/Helpers/NetTopologySuiteHelper.cs" />, matching attribute type names against the geometry Type-Definitions the module ships (`Point` and `MultiPolygon` today), scoped to `dbContextInstance.DomainPackageModel.UnderlyingPackage.Id`. Matching by name keeps EntityFrameworkCore free of an assembly reference on NetTopologySuite — the same loose coupling the existing `ModuleId` string check relies on — at the cost of needing an update when a geometry type is added.
+
+## Steps
+
+1. **Run the version gate first.** Per the module-building workflow, increment `Intent.NetTopologySuite` and `Intent.EntityFrameworkCore` before implementing rather than at close-out, so the change is installable as soon as it exists and is not silently tested against the published copy.
+2. **Read `CONTEXT.md` for both modules in scope.** <FileRef path="Modules/Intent.Modules.EntityFrameworkCore/CONTEXT.md" /> exists; NetTopologySuite has none, and needs one created at close-out.
+3. **Fix `StartupExtension.cs`** — iterate, add the `HasMicrosoftNetSdkWeb()` filter and the `configure-services-controllers-generic` guard.
+4. **Fix `SwaggerConfigExtension.cs`** — iterate on the string overload.
+5. **Fix `SerilogStartupConfigurationExtension.cs`** — iterate, and add the per-host policy presence check.
+6. **Fix `GeoJsonSchemaSwaggerFilterTemplate.CanRunTemplate()`** — host-scoped string overload.
+7. **Generalize `ConfigureNetTopologySuite`** — add `MapsGeometryTypes` and switch the gate.
+8. **Reproduce in WebAndWorker** — open that solution, model a Geometry-typed property on a Domain entity mapped into `ApplicationDbContext`, install NetTopologySuite, and run the Software Factory.
+9. **Update <FileRef path="Modules/Intent.Modules.AspNetCore/CONTEXT.md" />** to drop NetTopologySuite from the unconverted list, and record this conversion in a new `CONTEXT.md` for the NetTopologySuite module.
+10. **Documentation and dependency audit** — release notes for both modules, then the `.imodspec` dependency check.
+
+## Verification
+
+- The decisive test is that the Software Factory **completes at all** against WebAndWorker with NetTopologySuite installed. Before the fix it should throw `More than one instance of template X was found`; that exception disappearing is the primary evidence, and it is worth capturing the failure first so the fix is provable.
+- `WebAndWorker.Api`, `WebAndWorker.Mobile.Api` and `BlazorWebApp` each gain their own `GeoJsonSchemaFilter.cs`, a `SchemaFilter` registration in their own `SwashbuckleConfiguration.cs`, a `GeoJsonConverterFactory` in their `AddJsonOptions` block, and a `Destructure.With(...)` line in their own `Program.cs`.
+- `WebAndWorker.QuartzWorker` gains none of it and its `Program.cs` is unchanged.
+- `dotnet build` succeeds for all four host projects — this is what catches a `Destructure.With(...)` referencing a policy class never generated into that project.
+- Re-run the Software Factory on an existing single-host NTS test app (`Tests/EntityFrameworkCore.Postgres`) and confirm the output is unchanged, proving the loop is a strict superset of the old behaviour.
+
+<Callout id="scope" tone="decision" title="Scope — and the three modules deliberately left out">
+
+`AspNetCore.ODataQuery`, `AspNetCore.OData.EntityFramework` and `AspNetCore.MultiTenancy` carry the same defect and are named alongside NetTopologySuite in `CONTEXT.md` as unconverted. They are **out of scope here** — each is its own module, version bump and test surface. This plan finishes NetTopologySuite only. An earlier draft claimed no other module had this pattern; that was wrong, and the accurate statement is that three others are known-broken and already tracked.
+
+</Callout>

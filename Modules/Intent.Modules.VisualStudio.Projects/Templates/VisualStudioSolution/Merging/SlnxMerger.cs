@@ -12,14 +12,9 @@ using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Merging
 {
     /// <summary>
-    /// Reconciles the template's freshly-generated ("Ours") .slnx content with the real file on
-    /// disk ("Existing"), using the template's own previous raw output ("Base") to tell renames
-    /// and moves Intent wants to make apart from manual edits the user made directly to the file.
-    /// Base and Ours carry an Id (the Intent element's own persistent Id) that lets the same
-    /// project/folder be recognised across a rename - but that Id is purely private bookkeeping
-    /// between merge runs: it is never read from or written to Existing, so the file a user opens
-    /// never contains it. The merge only ever rearranges/preserves entries already present in
-    /// Existing or Generated - it never discards user content - so its output is never destructive.
+    /// Merges the template's generated .slnx ("Ours") with the file on disk ("Existing"), using the
+    /// template's previous raw output ("Base") to correlate renames/moves against manual edits.
+    /// Preservation is the default; content is removed only when a rename/move/removal requires it.
     /// </summary>
     internal static class SlnxMerger
     {
@@ -35,13 +30,162 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             var existingModel = ParseExisting(existing);
             var previousOutputModel = previousOutput == null ? null : TryParse(previousOutput);
 
+            var projectsByOriginalPath = existingModel.SolutionProjects
+                .Select(p => (Project: p, OriginalPath: p.FilePath))
+                .ToList();
+
             Reconcile(generatedModel, existingModel, previousOutputModel);
 
-            // Rebuild fresh rather than serializing existingModel directly: this guarantees no Id
-            // attribute ever reaches the file a user opens, regardless of whether one was already
-            // present in Existing from some other source (e.g. a stray leftover from a different
-            // module version) that this reconciliation pass never had reason to touch.
-            return Serialize(Rebuild(existingModel));
+            // SolutionPersistence's own DOM patching preserves everything outside a Project element
+            // (Configurations, comments, whitespace). A Project element gets no such guarantee: its
+            // attributes are regenerated from the typed model on every save regardless of whether it
+            // was touched, dropping Type/DisplayName and eliding an identity BuildType rule as
+            // redundant. Splicing the original raw XML back in below closes both gaps.
+            var merged = Serialize(existingModel);
+            merged = RestoreOriginalConfigurations(existing, merged);
+
+            var projectPaths = projectsByOriginalPath
+                .Select(x => (x.OriginalPath, FinalPath: x.Project.FilePath))
+                .ToList();
+
+            return RestoreOriginalProjectElements(existing, merged, projectPaths);
+        }
+
+        private static string RestoreOriginalConfigurations(string existingRaw, string merged)
+        {
+            var originalSpan = FindConfigurationsSpan(existingRaw);
+            if (originalSpan == null)
+                return merged;
+
+            var originalText = existingRaw[originalSpan.Value.Start..originalSpan.Value.End];
+            var mergedSpan = FindConfigurationsSpan(merged);
+            if (mergedSpan != null)
+                return merged[..mergedSpan.Value.Start] + originalText + merged[mergedSpan.Value.End..];
+
+            var solutionTagEnd = FindTagEnd(merged, merged.IndexOf("<Solution", StringComparison.Ordinal));
+            return merged[..(solutionTagEnd + 1)] + "\n  " + originalText + merged[(solutionTagEnd + 1)..];
+        }
+
+        private static (int Start, int End)? FindConfigurationsSpan(string xml)
+        {
+            var tagStart = xml.IndexOf("<Configurations", StringComparison.Ordinal);
+            if (tagStart < 0)
+                return null;
+
+            var tagEnd = FindTagEnd(xml, tagStart);
+            var openTag = xml[tagStart..(tagEnd + 1)];
+            if (openTag.TrimEnd().EndsWith("/>", StringComparison.Ordinal))
+                return (tagStart, tagEnd + 1);
+
+            const string closeTag = "</Configurations>";
+            var closeIndex = xml.IndexOf(closeTag, tagEnd + 1, StringComparison.Ordinal);
+            return closeIndex < 0 ? null : (tagStart, closeIndex + closeTag.Length);
+        }
+
+        private static string RestoreOriginalProjectElements(string existingRaw, string merged, IReadOnlyList<(string OriginalPath, string FinalPath)> projectPaths)
+        {
+            foreach (var (originalPath, finalPath) in projectPaths)
+            {
+                var originalSpan = FindProjectElementSpan(existingRaw, originalPath);
+                if (originalSpan == null)
+                    continue;
+
+                var originalElementText = existingRaw[originalSpan.Value.Start..originalSpan.Value.End];
+                if (!PathsEqual(originalPath, finalPath))
+                    originalElementText = WithReplacedPathAttribute(originalElementText, finalPath);
+
+                var mergedSpan = FindProjectElementSpan(merged, finalPath);
+                if (mergedSpan == null)
+                    continue;
+
+                merged = merged[..mergedSpan.Value.Start] + originalElementText + merged[mergedSpan.Value.End..];
+            }
+
+            return merged;
+        }
+
+        private static string WithReplacedPathAttribute(string projectElementText, string newPath)
+        {
+            var openTagEnd = FindTagEnd(projectElementText, 0);
+            var openTag = projectElementText[..(openTagEnd + 1)];
+            var rest = projectElementText[(openTagEnd + 1)..];
+
+            var pathAttributeStart = openTag.IndexOf("Path=\"", StringComparison.Ordinal);
+            if (pathAttributeStart < 0)
+                return projectElementText;
+
+            var valueStart = pathAttributeStart + "Path=\"".Length;
+            var valueEnd = openTag.IndexOf('"', valueStart);
+            var newOpenTag = openTag[..valueStart] + newPath + openTag[valueEnd..];
+
+            return newOpenTag + rest;
+        }
+
+        private static (int Start, int End)? FindProjectElementSpan(string xml, string path)
+        {
+            var searchStart = 0;
+            while (true)
+            {
+                var tagStart = xml.IndexOf("<Project", searchStart, StringComparison.Ordinal);
+                if (tagStart < 0)
+                    return null;
+
+                var tagEnd = FindTagEnd(xml, tagStart);
+                if (tagEnd < 0)
+                    return null;
+
+                var openTag = xml[tagStart..(tagEnd + 1)];
+                if (!PathsEqual(ExtractAttribute(openTag, "Path"), path))
+                {
+                    searchStart = tagEnd + 1;
+                    continue;
+                }
+
+                if (openTag.TrimEnd().EndsWith("/>", StringComparison.Ordinal))
+                    return (tagStart, tagEnd + 1);
+
+                const string closeTag = "</Project>";
+                var closeIndex = xml.IndexOf(closeTag, tagEnd + 1, StringComparison.Ordinal);
+                return closeIndex < 0 ? null : (tagStart, closeIndex + closeTag.Length);
+            }
+        }
+
+        private static int FindTagEnd(string xml, int tagStart)
+        {
+            var inQuotes = false;
+            var quoteChar = '"';
+            for (var i = tagStart; i < xml.Length; i++)
+            {
+                var c = xml[i];
+                if (inQuotes)
+                {
+                    if (c == quoteChar)
+                        inQuotes = false;
+                }
+                else if (c is '"' or '\'')
+                {
+                    inQuotes = true;
+                    quoteChar = c;
+                }
+                else if (c == '>')
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private static string? ExtractAttribute(string openTag, string attributeName)
+        {
+            var marker = $"{attributeName}=\"";
+            var start = openTag.IndexOf(marker, StringComparison.Ordinal);
+            if (start < 0)
+                return null;
+
+            start += marker.Length;
+            var end = openTag.IndexOf('"', start);
+            return end < 0 ? null : openTag[start..end];
         }
 
         private static void Reconcile(SolutionModel generatedModel, SolutionModel existingModel, SolutionModel? previousOutputModel)
@@ -54,32 +198,24 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
                 var claimed = new HashSet<SolutionFolderModel>();
                 var resolutions = new List<(SolutionFolderModel Generated, SolutionFolderModel? Target, SolutionFolderModel? ResolvedParent)>();
 
-                // Resolve identity for every folder at this depth against a frozen snapshot of
-                // Existing before any of this depth's mutations happen - this stops two folders
-                // whose old/new paths happen to collide in the same run (e.g. a literal swap) from
-                // cross-contaminating each other's resolution.
                 foreach (var generatedFolder in depthGroup)
                 {
                     var resolvedParent = generatedFolder.Parent is { } gp ? folderMapping[gp.Id] : null;
                     var target = ResolveTarget(
                         candidate: baseFoldersById.TryGetValue(generatedFolder.Id, out var baseFolder)
-                            ? FindFolderByPath(existingModel, baseFolder.Path)
-                            : null,
+                        ? FindFolderByPath(existingModel, baseFolder.Path)
+                        : null,
                         fallback: () => FindFolderByPath(existingModel, ChildPath(resolvedParent, generatedFolder.Name)),
                         claimed: claimed);
 
                     resolutions.Add((generatedFolder, target, resolvedParent));
                 }
 
-                // SolutionPersistence validates path uniqueness eagerly on assignment (not only at
-                // save time), so applying two renames that form a cycle (e.g. a literal swap of two
-                // folders' names) in sequence would throw on the first assignment, even though the
-                // final state is perfectly valid. Quarantine every folder being mutated to a
-                // guaranteed-unique placeholder name first, so no intermediate assignment can ever
-                // collide with another folder still awaiting its own rename.
-                foreach (var (_, target, _) in resolutions)
+                // Quarantine only folders actually being renamed, to a unique placeholder name first,
+                // so a cyclic rename (e.g. two folders swapping names) can't hit a transient collision.
+                foreach (var (generatedFolder, target, _) in resolutions)
                 {
-                    if (target != null)
+                    if (target != null && target.Name != generatedFolder.Name)
                         target.Name = QuarantineName();
                 }
 
@@ -101,20 +237,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             {
                 var target = ResolveTarget(
                     candidate: baseProjectsById.TryGetValue(generatedProject.Id, out var baseProject)
-                        ? FindProjectByPath(existingModel, baseProject.FilePath)
-                        : null,
+                    ? FindProjectByPath(existingModel, baseProject.FilePath)
+                    : null,
                     fallback: () => FindProjectByPath(existingModel, generatedProject.FilePath),
                     claimed: projectClaimed);
 
                 projectResolutions.Add((generatedProject, target));
             }
 
-            // Same eager-uniqueness-validation concern as folders above - quarantine every project
-            // being mutated to a unique placeholder path before applying final paths, so a cycle
-            // (e.g. two projects swapping paths in the same run) can never hit a transient collision.
-            foreach (var (_, target) in projectResolutions)
+            // Same rename-cycle concern as folders above, and same reason to skip an unchanged path.
+            foreach (var (generatedProject, target) in projectResolutions)
             {
-                if (target != null)
+                if (target != null && !PathsEqual(target.FilePath, generatedProject.FilePath))
                     target.FilePath = QuarantinePath();
             }
 
@@ -137,12 +271,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
 
         private static string QuarantinePath() => $"__slnx_merge_quarantine_{Guid.NewGuid():N}/__slnx_merge_quarantine_{Guid.NewGuid():N}.tmp";
 
-        /// <summary>
-        /// Prefers a candidate resolved via the Base Id correlation (a rename/move Intent wants to
-        /// make); falls back to a plain path match against Existing (legacy files with no Base Id,
-        /// or manually-added entries). A candidate already claimed by an earlier resolution in this
-        /// same pass is skipped so two generated entries never collide onto the same Existing entry.
-        /// </summary>
         private static TNode? ResolveTarget<TNode>(TNode? candidate, Func<TNode?> fallback, HashSet<TNode> claimed)
             where TNode : class
         {
@@ -173,12 +301,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
                 project.MoveToFolder(parent);
         }
 
-        /// <summary>
-        /// Builds a brand new, Id-free <see cref="SolutionModel"/> from <paramref name="source"/> -
-        /// used only for the first-ever generation of a file, where there is no Existing content to
-        /// reconcile against and <paramref name="source"/> (the template's raw output) still carries
-        /// its private Ids.
-        /// </summary>
+        // Used only for first-ever generation, where there is no Existing to reconcile against and
+        // the template's raw output still carries its private Ids.
         private static SolutionModel Rebuild(SolutionModel source)
         {
             var result = new SolutionModel();
@@ -247,9 +371,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
             catch (XmlException ex)
             {
-                // The file isn't well-formed XML at all (e.g. a mismatched/unclosed tag) - this is
-                // thrown by the underlying XML reader before Microsoft.VisualStudio.SolutionPersistence
-                // ever gets to validate it as a solution, so it never carries a SolutionErrorType.
                 throw new Exception(WithFileContent(
                     $"Could not read the existing Visual Studio Solution file: it is not valid XML ({ex.Message}) " +
                     "Fix the XML directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
@@ -257,11 +378,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
             catch (SolutionException ex) when (IsDuplicateEntryError(ex))
             {
-                // Most commonly a manually-introduced duplicate <Project>/<Folder> entry (the same
-                // path listed under two folders), which Microsoft.VisualStudio.SolutionPersistence
-                // refuses to parse. There is no way to recover the file's manual customisations
-                // automatically here - fix the duplicate by hand, or delete the file to let the
-                // Software Factory regenerate it from scratch (this discards any manual additions).
                 throw new Exception(WithFileContent(
                     $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
                     "This is usually caused by a manually-edited entry that duplicates a Project or Folder path. " +
@@ -270,9 +386,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
             catch (SolutionException ex)
             {
-                // Some other structural problem with the file (unsupported version, invalid folder
-                // path, etc.) that isn't specific enough to give targeted advice for - surface the
-                // library's own message rather than a generic one.
                 throw new Exception(WithFileContent(
                     $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
                     "Fix the underlying issue directly, or delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
@@ -280,8 +393,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
             catch (Exception ex)
             {
-                // Anything unforeseen - still present it as a friendly, actionable error rather than
-                // letting an opaque native exception surface to the user.
                 throw new Exception(WithFileContent(
                     $"Could not read the existing Visual Studio Solution file: {ex.Message} " +
                     "Delete the file to have it regenerated from the Intent model (this will discard any manual customisations to the file).",
@@ -289,37 +400,22 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
         }
 
-        /// <summary>
-        /// Duplicate Project/Folder paths are the one case worth calling out by name, since the fix
-        /// is always the same (remove the duplicate entry). Microsoft.VisualStudio.SolutionPersistence
-        /// doesn't consistently set <see cref="SolutionException.ErrorType"/> for this case (it can
-        /// come back Undefined even for a duplicate Project path), so the message text is checked as
-        /// well as the handful of ErrorType values that do get set for duplicate Folder/name clashes.
-        /// </summary>
+        // SolutionPersistence doesn't consistently set ErrorType for a duplicate Project/Folder path
+        // (can come back Undefined), so the message text is checked too.
         private static bool IsDuplicateEntryError(SolutionException ex) =>
             ex.ErrorType is SolutionErrorType.DuplicateItemRef
-                or SolutionErrorType.DuplicateName
-                or SolutionErrorType.DuplicateProjectName
-                or SolutionErrorType.DuplicateProjectPath
-                or SolutionErrorType.DuplicateExtension
-                or SolutionErrorType.DuplicateDefaultProjectType
-                or SolutionErrorType.DuplicateProjectTypeId
+            or SolutionErrorType.DuplicateName
+            or SolutionErrorType.DuplicateProjectName
+            or SolutionErrorType.DuplicateProjectPath
+            or SolutionErrorType.DuplicateExtension
+            or SolutionErrorType.DuplicateDefaultProjectType
+            or SolutionErrorType.DuplicateProjectTypeId
             || ex.Message.Contains("Duplicate item", StringComparison.OrdinalIgnoreCase);
 
         private static string WithFileContent(string message, string content)
         {
-            // A plain Exception rather than FriendlyException specifically: the panel that renders
-            // FriendlyException flows the message as a single Markdown paragraph, collapsing the
-            // file dump's newlines into one run-on line. The plain-exception panel preserves line
-            // breaks as-is, so no special handling of the content is needed here.
             var normalized = content.Replace("\r\n", "\n");
-            return $"""
-                {message}
-
-                Existing file content:
-
-                {normalized}
-                """;
+            return $"{message}\n\nExisting file content:\n\n{normalized}";
         }
 
         private static SolutionModel? TryParse(string content)
@@ -330,14 +426,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             }
             catch (Exception ex) when (ex is XmlException or SolutionException)
             {
-                // The cached previous template output is corrupt/unparsable - treat as if there is
-                // no usable history to correlate against rather than failing the whole run over
-                // stale internal state that is only ever an optimisation, never load-bearing. This
-                // includes the format-switch case: VisualStudioSolutionTemplate (.sln) and
-                // VisualStudioSolutionSlnxTemplate (.slnx) share the same output Id by design, so
-                // switching the model from .sln to .slnx hands back the OLD classic .sln text here -
-                // not XML at all, which fails at the XmlException stage before it ever reaches
-                // SolutionPersistence's own SolutionException validation.
+                // Corrupt/unparsable cached previous output (including a .sln-to-.slnx format switch,
+                // which hands back the old classic .sln text here) - treat as no usable history.
                 return null;
             }
         }

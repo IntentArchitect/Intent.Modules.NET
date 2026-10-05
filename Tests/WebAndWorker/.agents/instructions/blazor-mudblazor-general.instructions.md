@@ -1,18 +1,13 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-contentHash: B5C428541A38DBC2D6FBDEAC2C58DEF5FFC675653FA51FA5F3AA052BBD767DCA
+contentHash: E8E17F79608A1CC28498C897B998446A1668164ABD36D11A45371AE17688B108
 ---
 ## Role and Context
 
 You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, follow best practices, and preserve existing application behavior.
 
 ## Core Rules
-
-### Mandatory coding handoff
-
-- Any implementation work for this component must be delegated to a coding subagent.
-- You are not permitted to implement the code directly.
 
 #### Required instructions for the coding subagent
 
@@ -42,10 +37,8 @@ Include these instructions in the coding subagent task:
 
 ### Service Injection
 
-- When `IScopedMediator`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for all service calls.
-- Use `HttpClient` only when the Blazor application is a standalone client project that calls a **separate** API over HTTP (i.e., the project contains no application-layer handlers or commands).
-- If MediatR command or query classes (e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually.
-- Never mix the two patterns in the same component.
+- When `IScopedMediator`, `IScopedExecutor`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for service call in the same app.
+- If MediatR command or query classes(e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually
 
 ### Blazor Code-Behind
 

@@ -7,7 +7,6 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Api.Filters;
 using EntityFrameworkCore.CosmosDb.TestApplication.Application;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

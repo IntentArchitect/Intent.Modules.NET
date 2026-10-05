@@ -143,9 +143,18 @@
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-23T13:16:48.3778923Z</updatedAt>
-      <deviationsHash>5FCD5C10896DFD64E61F3BA8A98CB60D02441976DA468A0E87296D09C0A19ED1</deviationsHash>
+      <updatedAt>2026-09-16T19:10:54.420112Z</updatedAt>
+      <deviationsHash>B6DB9FCADB9171DC25306F0D0F7A15031E18A631CCFA9FB1911D6C5B0E0928D2</deviationsHash>
       <fileHash>CC9D84D48E0DDE71BB5EBAB12A7F2616524E332AF1BE8C7AD17651ACB317FFE5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b8e5c5c5-0627-43ea-8792-0bcfa365edeb</correlationId>
+      <path>Templates/StaticContentTemplateRegistrations/ThemeStylesheetsStaticContentTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-09-15T18:44:57.9038854Z</updatedAt>
+      <deviationsHash>C9754E126E14449D006426275FC1D53844B2CC6D23489CEE3014A242CA6D8DEF</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#59c0ac52-09f9-4d41-8257-e0951e92b0c7</correlationId>

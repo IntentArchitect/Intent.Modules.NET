@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cab5cb9c-88b3-4b54-b8d1-ab33d42872a7" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>AI</name>
+  <display>AI</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>173d8a98-b18a-4d4e-98e4-2d62bfc20b4f</parentFolderId>
+  <packageId>ffe93c9a-506b-4d57-bb2e-ddc0d1d0b017</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

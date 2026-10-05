@@ -1,3 +1,10 @@
+### Version 1.1.16
+
+- Fixed: three generated files no longer emit an unused `using` from the `Asp.Versioning`/`Asp.Versioning.ApiExplorer` pair — each file only ever spells out a type from one of the two, but both were being added unconditionally:
+  - `SwashbuckleConfiguration.cs`: `Asp.Versioning` was unused (only `Asp.Versioning.ApiExplorer`'s `IApiVersionDescriptionProvider` is referenced).
+  - `ApiVersioningConfiguration.cs`: `Asp.Versioning.ApiExplorer` was unused (`AddApiExplorer()` resolves via the already-imported `Microsoft.Extensions.DependencyInjection`; only `Asp.Versioning`'s `ApiVersionReader`/`UrlSegmentApiVersionReader` are referenced).
+  - `ApiVersionSwaggerGenOptions.cs`: `Asp.Versioning` was unused (only `Asp.Versioning.ApiExplorer`'s `IApiVersionDescriptionProvider`/`ApiVersionDescription` are referenced).
+
 ### Version 1.1.15
 
 - Improvement: Added default Template Classification and Priorities.

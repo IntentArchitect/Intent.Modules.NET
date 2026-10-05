@@ -73,6 +73,15 @@
       <optionsSource>n/a</optionsSource>
       <isActiveFunction>return OutputLocation === `Relative Path` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
     </property>
+    <property id="cfe8e69f-169f-4c38-a419-3060f69061a9">
+      <hint>Allows floating versions (e.g. `8.0.\*`) in `Directory.Packages.props`. Without this, NuGet fails restore with NU1011.</hint>
+      <name>Central Package Floating Versions Enabled</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+      <isActiveFunction>return ManagePackageVersionsCentrally;</isActiveFunction>
+    </property>
     <property id="741b4a91-d121-486f-bbca-08bdfd830b1f">
       <hint>Choose between the classic .sln format and the newer XML-based .slnx format. Switching format will remove the old file via the Software Factory's staged changes.</hint>
       <name>Solution File Format</name>

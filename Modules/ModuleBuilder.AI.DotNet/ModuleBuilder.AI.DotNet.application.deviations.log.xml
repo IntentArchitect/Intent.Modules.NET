@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.CSharpProject#90855a41-bbd5-4cae-85b7-e4f81886ee9b</correlationId>
+      <path>ModuleBuilder.AI.DotNet/ModuleBuilder.AI.DotNet.csproj</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-17T20:49:25.4837288Z</updatedAt>
+      <deviationsHash>2848AE9D737E0605B14D87D1155549A53E94E3B4D16DD19C5D43935B4043E469</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#aa5ab822-c8d0-4537-862a-350dc5e6ff27</correlationId>
+      <path>Templates/Skills/IntentDotnetModuleIntegration_SkillMd_Agents/IntentDotnetModuleIntegration_SkillMd_AgentsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-17T20:56:06.6495793Z</updatedAt>
+      <deviationsHash>49DD08A865F2EF6C725E8C9908DADB484AEEAC6DEFF4A8543B8E2731A2F4B4F4</deviationsHash>
+    </file>
+  </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/ModuleBuilder.AI.DotNet/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-30T05:00:35.3233684Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/ModuleBuilder.AI.DotNet/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-09-30T05:00:35.3540741Z</approvedAt>
+    </customFile>
+  </customFiles>
+</deviationsLog>

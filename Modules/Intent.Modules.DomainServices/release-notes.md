@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Improvement: Updated output path of some templates to not be nested in an `Services` folder.
+
 ### Version 1.2.1
 
 - Improvement: Updated Skill Template to new extensible version.

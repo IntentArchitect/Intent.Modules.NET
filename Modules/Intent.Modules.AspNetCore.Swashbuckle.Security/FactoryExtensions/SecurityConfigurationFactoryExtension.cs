@@ -97,8 +97,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
         private static void AddBearerSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock)
         {
-            template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
-            
             var isMicrosoftOpenApi_2_4_1 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
             if (isMicrosoftOpenApi_2_4_1)
             {
@@ -124,6 +122,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             else
             {
                 //Bearer legacy
+                var jwtBearerDefaultsType = template.UseType("Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults");
                 configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
                     .AddInitStatement("Name", @"""Authorization""")
                     .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
@@ -132,7 +131,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                     .AddInitStatement("Scheme", @"""bearer""")
                     .AddInitStatement("BearerFormat", @"""JWT""")
                     .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
-                        .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
+                        .AddInitStatement("Id", $"{jwtBearerDefaultsType}.AuthenticationScheme")
                         .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
                     .WithSemicolon());
                 configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")

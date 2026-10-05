@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Api.Filters;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Application;

@@ -38,7 +38,6 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
             }
             
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Asp.Versioning")
                 .AddUsing("Asp.Versioning.ApiExplorer")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")

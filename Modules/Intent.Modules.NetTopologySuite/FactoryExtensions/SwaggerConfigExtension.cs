@@ -24,24 +24,21 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
-            if (template == null)
+            foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration"))
             {
-                return;
-            }
-
-            template.CSharpFile.OnBuild(file =>
-            {
-                var @class = file.Classes.First();
-
-                var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
-                if (configureSwaggerOptionsBlock is null)
+                template.CSharpFile.OnBuild(file =>
                 {
-                    return;
-                }
+                    var @class = file.Classes.First();
 
-                configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();");
-            });
+                    var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
+                    if (configureSwaggerOptionsBlock is null)
+                    {
+                        return;
+                    }
+
+                    configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();");
+                });
+            }
         }
 
         private static CSharpLambdaBlock? GetConfigureSwaggerOptionsBlock(CSharpClass @class)

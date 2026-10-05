@@ -7,7 +7,6 @@ using EntityFrameworkCore.Repositories.TestApplication.Api.Filters;
 using EntityFrameworkCore.Repositories.TestApplication.Application;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

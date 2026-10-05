@@ -1,5 +1,4 @@
 using Asp.Versioning;
-using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 

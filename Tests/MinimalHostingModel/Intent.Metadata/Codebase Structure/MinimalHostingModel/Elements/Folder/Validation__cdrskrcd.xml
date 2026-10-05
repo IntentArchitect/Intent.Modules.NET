@@ -46,8 +46,8 @@
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;29734a22-fd39-46d7-b44d-552cda038253&quot;]" isActive="true" />
             <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" isActive="true" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;29734a22-fd39-46d7-b44d-552cda038253&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -81,8 +81,8 @@
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;29734a22-fd39-46d7-b44d-552cda038253&quot;]" isActive="true" />
             <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" isActive="true" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;29734a22-fd39-46d7-b44d-552cda038253&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

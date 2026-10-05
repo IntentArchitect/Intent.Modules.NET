@@ -34,6 +34,12 @@ Applications with no component library installed get the plain-HTML equivalent f
 
 Each bundled AI skill (e.g. `mudblazor-dialog-adding-entity`) ships a `SKILL.md` and one or more sample files into your application's `.agents/skills/<skill-name>/` folder. The sample files are regenerated on every Software Factory run **until the skill's own `SKILL.md` has been hand-edited** — once you customize a skill's instructions, its sample files are left untouched too, on the assumption you have taken over maintenance of the whole skill.
 
+## Use Custom Stylesheets
+
+This module ships an additional `ux-mudblazor.css` stylesheet on top of the token/utility-class theme from [Intent.Blazor](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor/intent-blazor.html), linked into `App.razor` right after `ux-components.css`.
+
+`Intent.Blazor`'s **Use Custom Stylesheets** module setting (off by default) also covers this module: when enabled, `ux-mudblazor.css` is no longer generated and its `<link>` tag is removed, for applications that supply their own stylesheets instead of building on the default theme system.
+
 ## Tips for Styling Your MudBlazor Application
 
 ### Customize Your Site Colors and Fonts

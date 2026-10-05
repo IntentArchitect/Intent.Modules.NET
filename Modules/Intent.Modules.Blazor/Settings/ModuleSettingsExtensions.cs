@@ -89,5 +89,7 @@ namespace Intent.Modules.Blazor.Settings
 
         public bool EnableThemeToggle() => bool.TryParse(_groupSettings.GetSetting("fa401099-f333-4702-a261-4d66239dde29")?.Value.ToPascalCase(), out var result) && result;
 
+        public bool UseCustomStylesheets() => bool.TryParse(_groupSettings.GetSetting("c3cd497c-f632-423a-aee0-4ddee7fb523f")?.Value.ToPascalCase(), out var result) && result;
+
     }
 }

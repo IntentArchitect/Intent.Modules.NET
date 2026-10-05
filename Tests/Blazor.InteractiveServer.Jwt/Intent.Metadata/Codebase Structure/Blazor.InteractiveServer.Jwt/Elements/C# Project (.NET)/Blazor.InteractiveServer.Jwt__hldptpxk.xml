@@ -576,5 +576,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="035d8b0e-80f9-4138-a5ce-f477bf27bf7c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8840a1e1-f6c0-4df8-9444-d1e629932d69</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="83430548-6185-4d7e-8bbd-6c4a647931a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8840a1e1-f6c0-4df8-9444-d1e629932d69</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

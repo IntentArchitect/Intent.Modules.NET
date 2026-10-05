@@ -47,6 +47,20 @@ whole defect.
 Note `content/WasmSamplePages` and its `app.css` have **no registration at all** and are dead content.
 Left in place as out of scope, but do not treat their presence as evidence that combination is covered.
 
+## Invariant: `Settings/ModuleSettingsExtensions.cs` is deliberately ignored — add new accessors by hand (2026-09-15)
+
+`Settings/ModuleSettingsExtensions.cs` (the `GetBlazor()` / `Blazor` typed accessor for the `Blazor Settings` module settings group) is listed in `Intent.Modules.Blazor.application.output.config.xml` with `state="ignored"` (no `once-off-generated` suffix — this one is permanently protected, not a once-off seed). **This is deliberate, not an oversight.**
+
+Un-ignoring it and re-running the Software Factory (tried while adding the `UseCustomStylesheets` setting) regenerates the file from the *currently installed* `Intent.ModuleBuilder` templates, which use a **different naming convention** than what is on disk: `GetBlazor()` → `GetBlazorSettings()`, class `Blazor` → `BlazorSettings`, `ServerPrerendering()` → `Prerendering()`. Applying that regeneration would rename every one of those members and break every template in this module (and `Intent.Blazor.Components.MudBlazor`) that calls `.GetBlazor()` / `.ServerPrerendering()` — a sweeping, unrelated rename bundled into what should be an additive accessor addition. That drift between the on-disk names and the installed template's current convention is exactly why this file was ignored in the first place.
+
+**When adding a new Module Settings Field Configuration to this group, do NOT unignore this file.** Hand-add the new accessor method directly, copying the exact pattern of an existing one (e.g. `EnableThemeToggle()`) with the new field's own setting id:
+
+```csharp
+public bool UseCustomStylesheets() => bool.TryParse(_groupSettings.GetSetting("<field-guid>")?.Value.ToPascalCase(), out var result) && result;
+```
+
+If the file ever needs full regeneration (e.g. deliberately adopting the new `BlazorSettings` naming), that is a separate, explicit rename migration across this module and every dependent — not something to fall into while adding an unrelated setting.
+
 ## Superseded: the `Prerendering` setting hint lived in a hand-edited `.imodspec` (2026-08-31)
 
 The longer two-sentence hint for `Prerendering` had been hand-edited into `Intent.Blazor.imodspec`,
@@ -54,3 +68,51 @@ which is generated from the model and therefore reverted on the next Software Fa
 lost the first time anything else regenerated the file. The text now lives on the model
 (`Prerendering` → `Field Configuration` → `Hint`) where it survives. **Never hand-edit `.imodspec`**;
 see the `module-versioning` skill for the same trap on `<version>`.
+
+## Invariant: no hand-written C# file may ship as static content — it bypasses the weaver (2026-09-16)
+
+`StaticContentTemplate` emits its content **verbatim**; all it does is substitute `<#= Token #>`
+placeholders. A `.cs` file shipped that way therefore never reaches the Roslyn Weaver, so **none of the
+weaver's C# style settings apply to it** — `Namespace Declaration Style`, usings placement/sorting,
+`.editorconfig` formatting. It is also the one `.cs` file in the output with no
+`[assembly: IntentTemplate(...)]` header, which is how you spot one.
+
+`Components/Layout/UserMenu.razor.cs` was the last such file, shipped byte-for-byte identically from
+**two** places — this module's `content/ThemeToggle/` and MudBlazor's `content/Theme/`. It stayed
+block-scoped in applications that had set `prefer-file-scoped`, failing their own StyleCop rule on a file
+nobody wrote. It is now `UserMenuCodeBehindTemplate` (`Templates/Templates/Common/UserMenuCodeBehind/`) —
+a Single File C# Template built with `CSharpFile` + `.WithFileExtension("razor.cs")` +
+`.IntentManagedMerge()`, mirroring `RazorComponentCodeBehindTemplate`.
+
+**When adding a `.razor` to a content folder, its code-behind goes in a template, not next to it.**
+
+Decisions taken, and what was rejected:
+
+- **A replacement token for the namespace declaration** — rejected. The block-scoped form needs a closing
+  brace and an extra indent level on the body, which flat token substitution cannot express. Worse, there
+  is no supported API in `Intent.Modules.Common.CSharp` for reading this setting at all — it belongs to
+  `Intent.OutputManager.RoslynWeaver` (setting id `75da3fda-a64d-4161-a8a2-38614053fb1d`) — so the module
+  would be doing a raw string lookup into another module's settings. Generating through `CSharpFile` gets
+  this setting and every future weaver style setting for free and permanently.
+- **`OverwriteBehaviour.OverwriteDisabled` (write-once)** — rejected. The two content copies disagreed:
+  MudBlazor's `ThemeArtifacts` forced `OverwriteDisabled`, the base module's `ThemeToggle` inherited
+  always-overwrite. `.IntentManagedMerge()` is strictly better than either — the three `[Parameter]`
+  members stay correct on regeneration *and* anything the developer adds survives. The cost is a one-time
+  diff on existing applications as the weaver takes ownership; that is what makes the setting apply
+  retroactively rather than only to newly created applications.
+- **One template in this module serving both cases**, rather than one per module. `Intent.Blazor.Components.MudBlazor`
+  depends on `Intent.Blazor`, and the two content copies were identical — keeping them in sync by hand was
+  a standing duplication hazard.
+
+**Cross-module floor:** `UserMenuCodeBehindTemplate` registers when MudBlazor is installed **or** Theme
+Toggle is enabled, exactly reproducing which applications received the file before. Because MudBlazor
+2.0.5 stopped shipping its copy and relies on this template, `Intent.Blazor.Components.MudBlazor` pins
+`Intent.Blazor` at `2.0.5-pre.0` in its `.imodspec`. **Do not lower that floor** — MudBlazor 2.0.5 paired
+with Intent.Blazor 2.0.4 produces no `UserMenu.razor.cs` at all (2.0.4's `ThemeToggle` registration
+returns early whenever MudBlazor is installed), and the consumer's build fails on `UserMenu.razor`'s
+`Title` / `Trigger` / `ChildContent` bindings.
+
+**Out of scope, deliberately:** `content/ComponentSkillSamples/**` in both modules still ships `.cs` /
+`.razor.cs` files as static content with the same verbatim-emission property. They are reference samples
+written into `.agents/skills/` for AI consumption — not compiled application code, not part of the build.
+Left alone.

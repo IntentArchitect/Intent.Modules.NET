@@ -1,18 +1,13 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-contentHash: B5C428541A38DBC2D6FBDEAC2C58DEF5FFC675653FA51FA5F3AA052BBD767DCA
+contentHash: 9589BDB932304368122F576D56D106FF827DBDA9370B69FAC9248AE0C1B4EF61
 ---
 ## Role and Context
 
 You are a senior C# Blazor engineer. Build modern MudBlazor UIs that compile, follow best practices, and preserve existing application behavior.
 
 ## Core Rules
-
-### Mandatory coding handoff
-
-- Any implementation work for this component must be delegated to a coding subagent.
-- You are not permitted to implement the code directly.
 
 #### Required instructions for the coding subagent
 
@@ -42,10 +37,12 @@ Include these instructions in the coding subagent task:
 
 ### Service Injection
 
-- When `IScopedMediator`, `ISender`, or `IMediator` is available in the project, prefer it over `HttpClient` for all service calls.
-- Use `HttpClient` only when the Blazor application is a standalone client project that calls a **separate** API over HTTP (i.e., the project contains no application-layer handlers or commands).
-- If MediatR command or query classes (e.g. `GetCustomersQuery`, `DeleteCustomerCommand`) exist anywhere in the solution, inject `IScopedMediator` and call `await Mediator.Send(new XxxQuery(...))` — do not construct HTTP request URIs manually.
-- Never mix the two patterns in the same component.
+- Use service proxies to communicate with other applications.
+- If possible, validate the proxy and the other application have the same serialization settings.
+
+### WASM Specific Guidance
+
+- If you introduce any REST service proxies to the Razor Component, You MUST feedback to the orchestrating agent that it should validate the CORS setup app hosting the services.
 
 ### Blazor Code-Behind
 

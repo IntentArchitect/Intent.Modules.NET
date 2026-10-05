@@ -1,3 +1,7 @@
+### Version 5.3.5
+
+- Improvement: Updated output path of some templates to not be nested in an `Entities` folder.
+
 ### Version 5.3.4
 
 - Improvement: Added default Template Classification and Priorities.

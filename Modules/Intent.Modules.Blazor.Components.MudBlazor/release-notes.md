@@ -1,3 +1,8 @@
+### Version 2.0.5
+
+- Fixed: `UserMenu.razor.cs` ignoring the application's C# style settings — `Namespace Declaration Style` in particular.
+- Improvement: Added a `Use Custom Stylesheets` setting. When enabled, the default `ux-tokens.css`, `ux-base.css` and `ux-components.css` stylesheets (and MudBlazor's `ux-mudblazor.css`, if installed) are no longer generated.
+
 ### Version 2.0.4
 
 - Fixed: A customized `Home.razor` could be silently replaced by this module's default home page on a later Software Factory run, and a Home page designed in the User Interface designer could never generate at all. The default is now seeded once, only when `Home.razor` does not exist — delete the file to get it back.

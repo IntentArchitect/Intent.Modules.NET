@@ -1,0 +1,196 @@
+# Dead `using` directives across modules — consolidated status
+
+Consolidates `2026-09-16-fix-dead-using-directives-modules.mdx` (the original plan) and
+`2026-09-17-dead-using-directives-handover.md` (the follow-up handover) into a single record of
+what was found, what was fixed, what was verified, and what is still open. Both source documents
+are removed in favor of this one.
+
+## Context
+
+Screenshots from a consuming application (SpectorTI) showed SF-regeneration diffs the user didn't
+expect: extra `using` lines appearing in `ValidationMiddleware.cs` and
+`AuthorizeCheckOperationFilter.cs`, a `using SpectorTI.Domain.Repositories;` appearing in
+`UserRepository.cs`, and an `out var value` turning into `out object? value` in
+`PopulateIdsSpecimenBuilder.cs`. All of the `using`-related symptoms are produced by templates that
+live in this repo, so the fix belongs here, not in the consuming application.
+
+The first two were investigated via `git blame`/`git log` on the template source, cross-checked
+against the file-builder-expert skill's documented rule for when a `using` is auto-managed vs. must
+be added by hand, and fixed. Verifying that fix (building a scratch application and running a full
+`IDE0005` sweep) surfaced five more instances of the identical anti-pattern across two more modules,
+which were traced and fixed the same way.
+
+## The mechanism — why only *some* namespaces show up as unwanted
+
+The builder already avoids emitting `.AddUsing("System")` / `.AddUsing("System.Linq")` etc. when the
+target project has them as .NET implicit usings. The file-builder-expert skill's own cheatsheet
+states the underlying rule:
+
+> Use `AddUsing(...)` when the namespace is needed independently of a specific type reference, or is
+> discovered dynamically. Prefer `UseType("Namespace.Type")` when the namespace should only be
+> introduced if that exact concrete type is required — raw strings are opaque, including
+> return/parameter type strings.
+
+A spurious using surfaces when a template calls `.AddUsing()` for a namespace unconditionally, and
+the code that "needed" it lives inside a conditional branch — so on the branch not taken, nothing
+from that namespace is ever spelled out, and the `using` sits dead. Every fix below is the same
+correction: stop calling `.AddUsing(...)` for the namespace up front, and instead resolve the type
+via `UseType(...)` (or `template.UseType(...)` / `file.Template.UseType(...)` from a factory
+extension) at the exact point of use, so the `using` is only introduced when that branch actually
+emits.
+
+## Findings — final status
+
+| # | Module | File (generated) | Dead using | Status |
+|---|---|---|---|---|
+| 1 | `Intent.Application.Wolverine` | `ValidationMiddleware.cs` | `System.Reflection` | **Fixed & verified end-to-end** |
+| 2 | `Intent.AspNetCore.Swashbuckle.Security` | `AuthorizeCheckOperationFilter.cs` | `System.Collections` | **Fixed & verified end-to-end** |
+| 3 | `Intent.AspNetCore.Swashbuckle.Security` | `SwashbuckleConfiguration.cs` | `Microsoft.AspNetCore.Authentication.JwtBearer` | **Fixed — compiled, not yet verified end-to-end** |
+| 4 | `Intent.Security.JWT` | `ApplicationSecurityConfiguration.cs` | `Microsoft.IdentityModel.Tokens` | **Fixed — compiled, not yet verified end-to-end** |
+| 5 | `Intent.AspNetCore.Versioning` | `SwashbuckleConfiguration.cs` | `Asp.Versioning` (bare) | **Fixed — compiled, not yet verified end-to-end** |
+| 6 | `Intent.AspNetCore.Versioning` | `ApiVersioningConfiguration.cs` | `Asp.Versioning.ApiExplorer` | **Fixed — compiled, not yet verified end-to-end** |
+| 7 | `Intent.AspNetCore.Versioning` | `ApiVersionSwaggerGenOptions.cs` | `Asp.Versioning` (bare) | **Fixed — compiled, not yet verified end-to-end** |
+| — | `Intent.EntityFrameworkCore.Repositories` | `UserRepository.cs` | `SpectorTI.Domain.Repositories` | **Inconclusive — still open, see below** |
+| — | `Intent.AspNetCore.IntegrationTests.CRUD` | `PopulateIdsSpecimenBuilder.cs` | (`out object?` vs `out var`, not a using) | **Out of scope**, per explicit steer |
+
+### #1 — `ValidationMiddleware.cs` / `System.Reflection`
+
+Template hardcoded `.AddUsing("System.Reflection")`, but `GetMethod`/`Invoke`/`MakeGenericMethod`
+are all reached through a `var`-typed value — no `MethodInfo` type name is ever spelled out, so the
+using was never needed. Fixed by deleting the line.
+
+### #2 — `AuthorizeCheckOperationFilter.cs` / `System.Collections`
+
+Template hardcoded `.AddUsing("System.Collections")` (added 2023-07-31). Only
+`System.Collections.Generic.List<>` is ever used; nothing from the non-generic `System.Collections`
+namespace appears anywhere in the file. Fixed by deleting the line. In the same pass, the OpenApi
+type names spelled as raw strings inside the method body's `AddStatement($@"...")` blocks
+(`OpenApiSecurityRequirement`, `OpenApiSecuritySchemeReference`, `OpenApiSecurityScheme`,
+`OpenApiReference`, `ReferenceType`) were converted to `UseType($"{openApiNamespace}.X")`, so the
+version-dependent `openApiNamespace` (`Microsoft.OpenApi` vs `Microsoft.OpenApi.Models`) using is now
+introduced only when a given branch's code is actually emitted, replacing the old unconditional
+`.AddUsing(openApiNamespace)`.
+
+### #3 — `SwashbuckleConfiguration.cs` / `Microsoft.AspNetCore.Authentication.JwtBearer`
+
+**Source:** `Modules/Intent.Modules.AspNetCore.Swashbuckle.Security/FactoryExtensions/SecurityConfigurationFactoryExtension.cs`,
+method `AddBearerSecurityScheme`, called `.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer")`
+unconditionally. Only the **legacy** branch (pre-net8) references `JwtBearerDefaults.AuthenticationScheme`
+(as a raw string); the **modern** branch (net8+, what every current consumer app takes) never
+references the namespace at all. Fixed by removing the unconditional `AddUsing` and resolving
+`JwtBearerDefaults` via `template.UseType("Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults")`
+inside the legacy branch only, at the point `{jwtBearerDefaultsType}.AuthenticationScheme` is built.
+
+### #4 — `ApplicationSecurityConfiguration.cs` / `Microsoft.IdentityModel.Tokens`
+
+**Source:** `Modules/Intent.Modules.Security.JWT/FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs`,
+an `AfterBuild` block added `.AddUsing("Microsoft.IdentityModel.Tokens")` unconditionally.
+`TokenValidationParameters`/`SymmetricSecurityKey` (the only types from this namespace) are only
+referenced in the `JWTBearerAuthenticationTypeOptionsEnum.Manual` branch; the default `Oidc` setting
+takes a different branch entirely. Fixed by removing the unconditional `AddUsing` and resolving both
+types via `file.Template.UseType(...)` inside the `Manual` case only.
+
+### #5–7 — `Asp.Versioning` / `Asp.Versioning.ApiExplorer`
+
+All three call sites are unconditional — `SwaggerInstaller.OnAfterTemplateRegistrations` decorates
+the Swashbuckle configuration whenever `Intent.AspNetCore.Versioning` is installed alongside
+Swashbuckle, regardless of whether any `Api Version` element is modeled — so no scratch-app
+modelling was needed to confirm dead vs. legitimate; reading each file's actual generated content
+was enough:
+
+- **`SwaggerInstaller.cs`** → `SwashbuckleConfiguration.cs`: bare `Asp.Versioning` was dead (the
+  only type it adds, `IApiVersionDescriptionProvider`, is from `.ApiExplorer`). Removed the bare
+  using, kept `.ApiExplorer`.
+- **`ApiVersioningConfigurationTemplatePartial.cs`**: `Asp.Versioning.ApiExplorer` was dead —
+  `ApiVersionReader`/`UrlSegmentApiVersionReader` are from the bare `Asp.Versioning` namespace, and
+  the `.AddApiExplorer()` extension method resolves through the already-imported
+  `Microsoft.Extensions.DependencyInjection` (the convention this NuGet package's builder-extension
+  methods use), not `.ApiExplorer`. Removed `.ApiExplorer`, kept the bare using.
+- **`ApiVersionSwaggerGenOptionsTemplatePartial.cs`**: bare `Asp.Versioning` was dead — only
+  `.ApiExplorer`'s `IApiVersionDescriptionProvider`/`ApiVersionDescription` are ever spelled out.
+  Removed the bare using, kept `.ApiExplorer`.
+
+## Repositories — still open
+
+`SpectorTI.Domain.Repositories` in `UserRepository.cs` remains **inconclusive**. Audited every
+`GetTypeName`/`TryGetTypeName`/`UseType` call in both `RepositoryTemplatePartial.cs`
+(`Intent.EntityFrameworkCore.Repositories`) and the factory extension that also touches this file
+(`CustomRepositoryMethodsExtension.cs`) — no hardcoded `.AddUsing()` for a `Repositories` namespace
+exists in either, so there is no dead-using candidate to delete. Two live candidates remain,
+genuinely undetermined without the consuming application's own model:
+
+1. **`WithBaseType($"{GetTypeName(RepositoryBaseTemplate.TemplateId)}<...>")`** — the base-type
+   reference to `RepositoryBase`. This used to be an untracked raw string, fixed at module version
+   4.8.0-pre.0 (commit `b5d6e060984`, Gareth Baars). `RepositoryBase.cs` is normally an
+   **Infrastructure**-layer class (confirmed in this repo's own `Tests/**` fixtures), but the
+   observed using was `SpectorTI.**Domain**.Repositories` — a mismatch, unless the consuming
+   application places `RepositoryBase` under Domain, which would be unusual.
+2. **A modeled custom repository operation**, resolved through
+   `CustomRepositoryMethodsExtension.cs` → `EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods(...)`,
+   which runs unconditionally on every class-based repository and enriches it from a
+   `RepositoryModel` (a Repository element modeled directly in the Domain designer,
+   `Intent.Modelers.Domain.Repositories.Api`), typically living in a Domain package folder literally
+   called `Repositories`. If the consuming application's `User` repository has a custom/stored-procedure
+   operation modeled there, that reference — not `RepositoryBase` — is what pulls in the using, and
+   would be exactly as legitimate as candidate 1.
+
+**To resolve:** model an entity + repository in a scratch application, with and without a custom
+repository operation, and check whether `RepositoryBase`'s namespace is genuinely needed in each
+case. This has not been done yet.
+
+## Out of scope
+
+`out var value` → `out object? value` in `PopulateIdsSpecimenBuilder.cs` — confirmed present since
+the template was created (2024-02-06), never changed since. Not a `using` issue. Closed per explicit
+steer; not touched by any of this work.
+
+## Modules changed
+
+| Module | Before | After | Published before bump? |
+|---|---|---|---|
+| `Intent.Application.Wolverine` | `1.1.0` | `1.1.1-pre.0` | Yes (`https://intentarchitect.com/`) |
+| `Intent.AspNetCore.Swashbuckle.Security` | `5.0.2` | `5.0.3-pre.0` | Yes |
+| `Intent.Security.JWT` | `4.3.11` | `4.3.12-pre.0` | Yes |
+| `Intent.AspNetCore.Versioning` | `1.1.15` | `1.1.16-pre.0` | Yes |
+
+Each bump was gated on `search_available_modules` (prereleases included) showing the prior version
+already published — all four were, so all four moved as patch-level fixes. Every module rebuilt
+clean (`dotnet build`, 0 errors) after its edit. `release-notes.md` updated for all four.
+`Intent.AspNetCore.Swashbuckle.Security`'s `CONTEXT.md` was created and extended to cover both of
+its fixes (#2's `UseType`-over-hardcoded-`AddUsing` decision, and #3's extension of that same rule to
+`SecurityConfigurationFactoryExtension.cs`). No `CONTEXT.md` created for the other three — this is
+the same generic anti-pattern each time, and per explicit instruction that belongs in the
+file-builder-expert skill's own documentation, not repeated across every module's `CONTEXT.md`.
+Dependency audit run for all four: none needed an `.imodspec` dependency change — every namespace
+involved is either part of the ASP.NET Core shared framework or already reachable through an
+existing `AddNugetDependency` call, unchanged by these fixes.
+
+## Verification status — what's actually proven
+
+**#1 and #2 are verified end-to-end**, not just compiled: a scratch application
+(`NamespaceIssuesRepro`, ASP.NET Core Clean Architecture starter, Wolverine dispatch swapped in for
+MediatR) was built, the two modules' currently-published (bugged) versions were installed first to
+reproduce the symptom, an `IDE0005` sweep (`dotnet build -p:EnforceCodeStyleInBuild=true
+-p:GenerateDocumentationFile=true --no-incremental`) confirmed the dead usings were flagged, the
+fixed versions were then installed and regenerated, and the same sweep came back clean.
+
+**#3–7 are fixed and compiling clean, but not yet re-verified the same way.** The `IDE0005` sweep
+that surfaced #3–7 was run *before* those five fixes existed (it's what found them); nobody has
+since installed the newly-bumped `5.0.3-pre.0` / `4.3.12-pre.0` / `1.1.16-pre.0` builds into a
+running application and confirmed the sweep now comes back clean for these five specifically. The
+root-cause tracing for all five was done by direct source inspection (confirmed independently by
+reading each file's actual generated content, not just trusting the original claim), which is why
+they were implemented — but that is not the same evidence as a real regeneration.
+
+## Remaining open work
+
+1. **Verify #3–7 end-to-end**, the same way #1–2 were verified: install the fixed module versions
+   into a scratch application (or reuse `NamespaceIssuesRepro` if it still exists), regenerate, and
+   re-run the `IDE0005` sweep to confirm it comes back clean for all five — plus a full `dotnet
+   build` of the consuming application to confirm the `UseType` refactors compile for real.
+2. **Resolve the Repositories question** — model an entity + repository (with and without a custom
+   operation) to determine which of the two live candidates is actually responsible for
+   `SpectorTI.Domain.Repositories`, per the "To resolve" note above.
+
+Nothing described here has been committed to git — all changes remain in the working tree pending
+explicit instruction to commit.

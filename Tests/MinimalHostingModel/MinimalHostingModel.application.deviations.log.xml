@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.VisualStudioSolution#f87d387a-00e9-4745-b9d1-0409e8b9ec20</correlationId>
+      <path>MinimalHostingModel.slnx</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-09-15T16:58:41.8568044Z</updatedAt>
+      <deviationsHash>9F591651658B7A76F547CBDD7467C549303427C1E7D612B724EC5DA36865D534</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

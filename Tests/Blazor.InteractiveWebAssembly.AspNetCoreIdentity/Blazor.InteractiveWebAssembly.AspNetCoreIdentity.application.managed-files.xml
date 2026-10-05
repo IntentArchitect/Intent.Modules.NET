@@ -3,6 +3,7 @@
   <file path=".agents/design.md" templateId="Intent.Blazor.Templates.AI.DefaultDesignMdTemplate" />
   <file path=".agents/instructions/blazor-mudblazor-general.instructions.md" templateId="Intent.Blazor.Components.MudBlazor.BlazorMudBlazorGeneralInstructionsTemplate" />
   <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/instructions/ui-modeling-blazor.instructions.md" templateId="Intent.Blazor.Templates.AI.UIModellingInstructionsTemplate" />
   <file path=".agents/skills/blazor-app-menu/SKILL.md" templateId="Intent.Blazor.Components.MudBlazor.MudBlazorAppMenuSkillTemplate" />
   <file path=".agents/skills/blazor-app-menu/app-header-auth-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
   <file path=".agents/skills/blazor-app-menu/app-main-layout-sample.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.MudBlazorSkillSampleFilesStaticContentTemplateRegistration" />
@@ -50,7 +51,7 @@
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/ThemeToggle.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/ThemeToggle.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeToggleStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/UserMenu.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/UserMenu.razor.cs" templateId="Intent.Blazor.Templates.Common.UserMenuCodeBehindTemplate" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Layout/UserMenu.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Pages/Home.razor" templateId="Intent.Blazor.Templates.Client.PageTemplate" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Pages/Home.razor.cs" templateId="Intent.Blazor.Templates.Client.PageCodeBehindTemplate" />
@@ -70,10 +71,10 @@
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/theme-storage.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStorageStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/user-menu.js" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-account.css" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountThemeStaticContentTemplateRegistration" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-base.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Blazor.InteractiveWebAssembly.AspNetCoreIdentity.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Common/AspNetCoreIdentityAuthServiceConcrete.cs" templateId="Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate" />

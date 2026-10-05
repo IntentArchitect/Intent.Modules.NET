@@ -37,7 +37,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             application: application,
             model: model,
             canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true,
-            fileOperations: new StandardFileOperations())
+            fileOperations: new StandardFileOperations(),
+            floatingVersionsEnabled: model.GetVisualStudioSolutionOptions()?.CentralPackageFloatingVersionsEnabled() == true)
         {
         }
 
@@ -47,19 +48,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 model: model,
                 canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true,
                 fileOperations: new StandardFileOperations(),
-                outputLocationOptions: outputLocationOptions)
+                outputLocationOptions: outputLocationOptions,
+                floatingVersionsEnabled: model.GetVisualStudioSolutionOptions()?.CentralPackageFloatingVersionsEnabled() == true)
         {
         }
 
         // Allow for testability
         internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate,
-            IFileOperations fileOperations)
-            : this(application, model, canRunTemplate, fileOperations, outputLocationOptions: null)
+            IFileOperations fileOperations, bool floatingVersionsEnabled = false)
+            : this(application, model, canRunTemplate, fileOperations, outputLocationOptions: null, floatingVersionsEnabled: floatingVersionsEnabled)
         {
         }
 
         internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate,
-            IFileOperations fileOperations, OutputLocationOptions outputLocationOptions)
+            IFileOperations fileOperations, OutputLocationOptions outputLocationOptions, bool floatingVersionsEnabled = false)
         {
             var rootDirectory = (outputLocationOptions ?? new OutputLocationOptions(application.OutputRootDirectory, relativeLocation: "")).RootDirectory;
             var outputLocation = GetOutputLocation(model, rootDirectory);
@@ -72,7 +74,33 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 : GetInitialContent());
             _canRunTemplate = canRunTemplate;
 
+            if (_canRunTemplate && floatingVersionsEnabled)
+            {
+                ApplyFloatingVersionsProperty();
+            }
+
             Model = model;
+        }
+
+        private const string FloatingVersionsPropertyName = "CentralPackageFloatingVersionsEnabled";
+
+        private void ApplyFloatingVersionsProperty()
+        {
+            var existing = _projectRootElement.Properties
+                .FirstOrDefault(x => string.Equals(x.Name, FloatingVersionsPropertyName, StringComparison.OrdinalIgnoreCase));
+
+            if (existing != null)
+            {
+                existing.Value = "true";
+                return;
+            }
+
+            var propertyGroup = _projectRootElement.PropertyGroups
+                .FirstOrDefault(x => x.Properties.Any(p => string.Equals(p.Name, "ManagePackageVersionsCentrally", StringComparison.OrdinalIgnoreCase)))
+                ?? _projectRootElement.PropertyGroups.FirstOrDefault()
+                ?? _projectRootElement.AddPropertyGroup();
+
+            propertyGroup.AddProperty(FloatingVersionsPropertyName, "true");
         }
 
         public VisualStudioSolutionModel Model { get; }
@@ -99,14 +127,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             switch (item)
             {
                 case null when TryGetVersion(packageId, out var importedPackageVersion):
+                {
+                    if (importedPackageVersion != packageVersion)
                     {
-                        if (importedPackageVersion != packageVersion)
-                        {
-                            Utils.Logging.Log.Warning(
-                                $"Nuget Package {packageId} with version {packageVersion} differs from one imported in the Directory.Packages.props file. Imported package version: {importedPackageVersion}.");
-                        }
-                        return;
+                        Utils.Logging.Log.Warning(
+                            $"Nuget Package {packageId} with version {packageVersion} differs from one imported in the Directory.Packages.props file. Imported package version: {importedPackageVersion}.");
                     }
+                    return;
+                }
                 case null:
                     item = _projectRootElement.AddItem("PackageVersion", packageId);
                     break;
@@ -241,7 +269,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         private string GetOutputLocation(VisualStudioSolutionModel model, string rootDirectory)
         {
             if (!model.HasVisualStudioSolutionOptions() ||
-                    string.IsNullOrWhiteSpace(model.GetVisualStudioSolutionOptions().OutputLocation()?.Value))
+                string.IsNullOrWhiteSpace(model.GetVisualStudioSolutionOptions().OutputLocation()?.Value))
             {
                 return rootDirectory;
             }
@@ -259,7 +287,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                         Path.Combine(rootDirectory, model.GetVisualStudioSolutionOptions().RelativePath());
                     break;
                 case OutputLocationOptionsEnum.SameAsSlnFile:
-                default:
+                    default:
                     outputLocation = rootDirectory;
                     break;
             }
@@ -318,7 +346,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             public static string FullFileName => "Directory.Packages.props";
         }
 
-        #endregion
+    #endregion
     }
 
     // Allow for testability

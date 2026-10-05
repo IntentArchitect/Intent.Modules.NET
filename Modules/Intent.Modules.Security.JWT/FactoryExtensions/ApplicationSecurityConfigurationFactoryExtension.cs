@@ -61,8 +61,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
                 .AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer")
                 .AddUsing("Microsoft.AspNetCore.Authorization")
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("Microsoft.IdentityModel.Tokens");
+                .AddUsing("Microsoft.Extensions.DependencyInjection");
             var priClass = file.Classes.First();
 
             var configMethod = priClass.FindMethod("ConfigureApplicationSecurity");
@@ -73,16 +72,18 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
             switch (application.GetSettings().GetJWTSecuritySettings().JWTBearerAuthenticationType().AsEnum())
             {
                 case JWTSecuritySettings.JWTBearerAuthenticationTypeOptionsEnum.Manual:
+                        var tokenValidationParametersType = file.Template.UseType("Microsoft.IdentityModel.Tokens.TokenValidationParameters");
+                        var symmetricSecurityKeyType = file.Template.UseType("Microsoft.IdentityModel.Tokens.SymmetricSecurityKey");
                         jwtBearer
                             .AddArgument("JwtBearerDefaults.AuthenticationScheme")
                             .AddArgument(new CSharpLambdaBlock("options")
-                                .AddStatement(new CSharpObjectInitializerBlock("options.TokenValidationParameters = new TokenValidationParameters")
+                                .AddStatement(new CSharpObjectInitializerBlock($"options.TokenValidationParameters = new {tokenValidationParametersType}")
                                     .AddInitStatement("ValidateIssuer", "true")
                                     .AddInitStatement("ValidIssuer", @"configuration.GetSection(""JwtToken:Issuer"").Get<string>()")
                                     .AddInitStatement("ValidateAudience", "true")
                                     .AddInitStatement("ValidAudience", @"configuration.GetSection(""JwtToken:Audience"").Get<string>()")
                                     .AddInitStatement("ValidateIssuerSigningKey", "true")
-                                    .AddInitStatement("IssuerSigningKey", @"new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
+                                    .AddInitStatement("IssuerSigningKey", $@"new {symmetricSecurityKeyType}(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
                                     .AddInitStatement("NameClaimType", @"""sub""")
                                     .WithSemicolon())
                                 .AddStatement(@"options.TokenValidationParameters.RoleClaimType = ""role"";")

@@ -1,11 +1,9 @@
 using System.Reflection;
-using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using EntityFramework.Application.LinqExtensions.Tests.Api.Filters;
 using EntityFramework.Application.LinqExtensions.Tests.Application;
 using EntityFramework.Application.LinqExtensions.Tests.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;

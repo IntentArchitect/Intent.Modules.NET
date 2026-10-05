@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Intent.RoslynWeaver.Attributes;
 using NetTopologySuite.Geometries;
 using Serilog.Core;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.EF10.Api.Logging
         public bool TryDestructure(
             object value,
             ILogEventPropertyValueFactory propertyValueFactory,
-            out LogEventPropertyValue? result)
+            [NotNullWhen(true)] out LogEventPropertyValue? result)
         {
             result = value switch
             {
