@@ -2,13 +2,13 @@
 name: mudblazor-ux-theme-sync
 description: Updates ux-tokens.css and ux-mudblazor.css to match a new or replaced design.md. Use when a design specification (any format or structure) has changed and the MudBlazor theme needs to reflect the new colours, typography, spacing, radii, or component styles.
 paths:
-contentHash: B20DC2D9451DD782E0951C87C5EE7FDE6B47B3DB80906B985684F50ED39A0FCE
+contentHash: 80BF5288C0059406A468739D2E76AA094CD3EACC82F46D6E9A078CCA4448DA91
 ---
 ## Purpose
 
 Translate a design specification (design.md) into a working MudBlazor CSS theme across four files: `ux-tokens.css` (design tokens), `ux-mudblazor.css` (MudBlazor palette bridge and component overrides), `ux-base.css` (global base styles and animations), and `ux-components.css` (component primitives and utilities). The design.md may use any structure or naming convention — your job is to understand its design intent and express it faithfully in the CSS token and component override system, without breaking the parts of the theme the new spec does not address.
 
-- --
+---
 
 ## MANDATORY: Read All Five Files Before Changing Anything
 
@@ -22,7 +22,7 @@ STOP — you MUST read all five files in full before writing a single line:
 
 If any of the five files is missing or unreadable: stop, report which file is missing, and do not proceed.
 
-- --
+---
 
 ## Step 1 — Extract Design Intent from design.md
 
@@ -30,7 +30,8 @@ The design.md may be structured as a reference table, a narrative description, a
 
 Extract the following where present:
 
-- *Colours**
+**Colours**
+
 - Primary / brand colour(s) and their hover/pressed variants
 - Secondary or accent colour(s)
 - Background and surface layer colours (page bg, card, elevated card, input bg)
@@ -38,22 +39,32 @@ Extract the following where present:
 - Border colours
 - Status colours: success, warning, error/danger, info
 - Any gradient definitions
-- *Typography**
+
+**Typography**
+
 - Font family (body, monospace)
 - Type scale: display, h1–h6 / body-lg / body-md / body-sm / label sizes
 - Font weights and line-heights
-- *Spacing**
+
+**Spacing**
+
 - Spacing scale tokens if defined
-- *Shape**
+
+**Shape**
+
 - Border-radius values at each tier (small, medium, large, xl, full/pill)
-- *Motion**
+
+**Motion**
+
 - Duration and easing values if defined
-- *Component-level rules**
+
+**Component-level rules**
+
 - Any explicit guidance for buttons, cards, dialogs, tables, inputs, navigation, chips, badges, snackbars, tooltips, or other components
 
 If the design.md omits a category entirely, treat the existing values in both CSS files as correct and leave them unchanged.
 
-- --
+---
 
 ## Step 2 — Map Design Intent to CSS Tokens
 
@@ -84,7 +95,7 @@ If a file does not use numbered sections, map by token name and component select
 
 > **Note on ux-components.css:** This file uses only `var()` token references — most design changes (colours, typography, spacing, radii) flow through token updates in `ux-tokens.css` without requiring edits here. Edit `ux-components.css` only when the design explicitly introduces a new component variant or structural rule that cannot be expressed via tokens alone.
 
-- --
+---
 
 ## Step 3 — Determine Change Scope
 
@@ -97,7 +108,7 @@ Before editing, classify every extracted design value as one of:
 
 Do not restructure sections, reorder rules, or clean up unrelated code as part of this task.
 
-- --
+---
 
 ## Step 4 — Detect Theme Polarity and Handle Dual-Theme
 
@@ -105,10 +116,13 @@ Do not restructure sections, reorder rules, or clean up unrelated code as part o
 
 Before updating any tokens, determine the **default theme polarity** of both the existing CSS and the incoming design.
 
-- *Existing CSS polarity** — inspect the `:root` block in `ux-tokens.css`:
+**Existing CSS polarity** — inspect the `:root` block in `ux-tokens.css`:
+
 - If `:root` has dark surface values (bg near-black or deep navy), the existing default is **dark**. Its override selector is `[data-theme="light"]`.
 - If `:root` has light surface values (bg near-white or pale), the existing default is **light**. Its override selector is `[data-theme="dark"]`.
-- *Incoming design polarity** — read the design.md:
+
+**Incoming design polarity** — read the design.md:
+
 - If the design states a light default (e.g. "light is the default experience"), the new default is **light**.
 - If the design states a dark default, the new default is **dark**.
 - If the design is silent, preserve the existing polarity.
@@ -123,7 +137,8 @@ If the polarities differ (e.g. existing is dark-default, incoming is light-defau
   - Flipping light→dark: rename every `[data-theme="dark"]` selector to `[data-theme="light"]`
 3. Update the renamed override block's token values to the opposite-polarity equivalents of the new design (dark surfaces for a dark override, light surfaces for a light override). If the design does not specify the opposite-polarity palette, derive it: invert surface lightness, flip text from dark-to-light or light-to-dark, adjust shadow strength accordingly.
 4. Check every rule in **all four CSS files** that uses `[data-theme="..."]` as a selector prefix — including `:root[data-theme="..."]` forms in `ux-base.css` — rename those too.
-- *The rename must be global across both files.** A partial rename produces broken behaviour: the CSS default shows correctly but the toggled state never triggers its overrides.
+
+**The rename must be global across both files.** A partial rename produces broken behaviour: the CSS default shows correctly but the toggled state never triggers its overrides.
 
 ### 4c — No Polarity Flip
 
@@ -131,7 +146,7 @@ If the polarities match, update only the token values in each block. Do not rena
 
 If the design specifies both dark and light variants, update both blocks independently. Colours appropriate for dark surfaces must not be applied to light surfaces and vice versa.
 
-- --
+---
 
 ## Step 5 — Preserve the MudBlazor Bridge
 
@@ -142,13 +157,13 @@ The MudBlazor palette bridge (`--mud-palette-*` properties) lives in `ux-mudblaz
 
 Do not change bridge entries to hardcoded hex values — always keep them pointing to semantic tokens.
 
-- --
+---
 
 ## Step 6 — Preserve Backward-Compatible Aliases
 
 The `--ux-*` alias block lives in `ux-tokens.css` Section 6 and maps legacy names to current semantic tokens via `var(...)`. After updating semantic tokens, verify aliases still resolve. Only edit alias entries if a referenced token has been renamed or removed. Do not remove aliases.
 
-- --
+---
 
 ## Step 7 — Apply Changes
 
@@ -162,16 +177,22 @@ Forbidden:
 - Reformatting or re-commenting unrelated sections
 - Introducing `!important` on properties that did not previously have it
 - Removing `!important` from MudBlazor component overrides (MudBlazor requires it)
-- --
+
+---
 
 ## Handling Ambiguity
 
-- *Incomplete design spec** — if the design.md defines colours but no typography, update colours only.
-- *Conflicting values** — if the design.md contains contradictory values (e.g. two different values for primary), use the most prominent or last-defined one and note the conflict in a comment adjacent to the token.
-- *Unknown design format** — if the design.md structure is unrecognised (e.g. raw Figma JSON, a screenshot description, a prose brief), extract colour values, font names, and size values by reading carefully before proceeding. Do not assume token names match.
-- *Missing files** — if the target project has no `ux-tokens.css` or `ux-mudblazor.css`, stop and report which file is missing rather than creating one from scratch. Theme creation is out of scope.
-- *Browser-compatibility hacks** — rules that exist purely to work around browser behaviour (e.g. `:-webkit-autofill` overrides, vendor-prefixed fixes) may have no corresponding concept in `design.md`. Do not treat their absence from `design.md` as license to remove, restructure, or simplify them — re-point any token references if the underlying token is renamed, otherwise leave the rule as-is.
-- --
+**Incomplete design spec** — if the design.md defines colours but no typography, update colours only.
+
+**Conflicting values** — if the design.md contains contradictory values (e.g. two different values for primary), use the most prominent or last-defined one and note the conflict in a comment adjacent to the token.
+
+**Unknown design format** — if the design.md structure is unrecognised (e.g. raw Figma JSON, a screenshot description, a prose brief), extract colour values, font names, and size values by reading carefully before proceeding. Do not assume token names match.
+
+**Missing files** — if the target project has no `ux-tokens.css` or `ux-mudblazor.css`, stop and report which file is missing rather than creating one from scratch. Theme creation is out of scope.
+
+**Browser-compatibility hacks** — rules that exist purely to work around browser behaviour (e.g. `:-webkit-autofill` overrides, vendor-prefixed fixes) may have no corresponding concept in `design.md`. Do not treat their absence from `design.md` as license to remove, restructure, or simplify them — re-point any token references if the underlying token is renamed, otherwise leave the rule as-is.
+
+---
 
 ## Definition of Done
 

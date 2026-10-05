@@ -2,26 +2,31 @@
 name: blazor-page-adding-entity
 description: Implements Blazor add or create entity pages using MudBlazor forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 9A9B3D857551C2B1F57C9C8453FEB2547F6BBC73136FB4CB5EFA75FDE3D5F1FB
+contentHash: 0F6D298A8A651DD30F64698CCC18E407D6AB0005385F30170D8E63A7B282DF07
 ---
 ## MANDATORY: Read Samples Before Implementation
 
 STOP — you MUST read ALL of the following before writing ANY code:
 
-- *Samples** (in the SAME folder as this SKILL.md):
+**Samples** (in the SAME folder as this SKILL.md):
+
 1. `add-entity-sample.razor`
 2. `add-entity-sample.razor.cs`
-- *Target component and project files:**
-1. The target `.razor` and `.razor.cs`
-2. Related project files: models, enums, lookups, services
-- *Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-1. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-2. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+**Target component and project files:**
+
+3. The target `.razor` and `.razor.cs`
+4. Related project files: models, enums, lookups, services
+
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
 
 If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
 If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
-- --
+---
 
 ## MANDATORY: Match Sample Layout (Visual Structure)
 
@@ -36,7 +41,8 @@ Forbidden:
 
 - Replacing the hero header with a different structure unless explicitly requested
 - Dropping the sample's utility classes when they exist in the target project
-- --
+
+---
 
 ## Assess The .razor.cs Before Writing
 
@@ -45,21 +51,27 @@ Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor project
 
 Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
 
-- *If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+
 - Add a model field or property (initialized to a new instance) matching the sample pattern
 - Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing create service method, and navigates on success
 - Add supporting lookup loading in `OnInitializedAsync()` if lookups are required and the service exists in the project
 - Add add/remove collection item methods only when they exist in the sample and matching service methods exist
-- *If implemented** — preserve all existing logic exactly:
+
+**If implemented** — preserve all existing logic exactly:
+
 - Do NOT modify existing methods, service calls, or payload construction
 - Do NOT add, rename, or remove model properties
 - Do NOT rewrite existing C# functionality
-- *Always forbidden** (skeleton or implemented):
+
+**Always forbidden** (skeleton or implemented):
+
 - Inventing service classes or interfaces that don't exist in the project
 - Inventing fake option data or hardcoded list values
 - Calling services directly from the `.razor` file
 - Putting C# logic in `.razor` using `@code`
-- --
+
+---
 
 ## 1. Form: Build From The Model
 
@@ -71,7 +83,8 @@ Nullable objects:
 - Toggle OFF should set the object to null
 - Toggle ON should initialize it if null
 - Do not render nested fields as always visible or required unless the existing backing model already requires that behavior
-- --
+
+---
 
 ## 2. Map Properties to MudBlazor Controls
 
@@ -96,7 +109,8 @@ MudBlazor rules:
 
 - For MudBlazor generic controls such as `MudSelect`, declare `T` explicitly when required
 - Every `MudDatePicker` must include `Placeholder="Select date"`
-- --
+
+---
 
 ## 3. Form Validation
 
@@ -112,7 +126,8 @@ Save button state:
 
 - Disable Save when the form is invalid
 - Disable Save when a save operation is already in progress, for example `isLoading`
-- --
+
+---
 
 ## 4. Save Flow
 
@@ -129,7 +144,8 @@ Forbidden:
 - Calling service methods directly from the Razor template
 - Modifying existing service-calling methods
 - Changing payload construction
-- --
+
+---
 
 ## 5. Child Collections
 
@@ -146,7 +162,8 @@ For `for` loops:
 - Declare `var index = i;` inside each iteration
 - Use `index` for bindings, `@key`, and callbacks
 - Never bind or pass `i` directly inside the loop body
-- --
+
+---
 
 ## 6. Styling
 
@@ -155,11 +172,12 @@ For `for` loops:
 - You may add new shared utility styles only when a reusable pattern is missing
 - Never modify existing shared styles, variables, or theme values
 - Match the sample layout closely without introducing unnecessary wrappers
-- *Design and styling context**
+
+**Design and styling context**
 
 Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
-- --
+---
 
 ## Definition of Done
 

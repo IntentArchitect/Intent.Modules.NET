@@ -1,236 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="FluentValidationTest.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="FluentValidationTest.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="FluentValidationTest.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="FluentValidationTest.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="FluentValidationTest.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="FluentValidationTest.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/StressSuite/InvoiceController.cs" />
-  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/ValidationScenariosMixedScenariosController.cs" />
-  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/ValidationScenariosRecursiveDtosController.cs" />
-  <file path="FluentValidationTest.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="FluentValidationTest.Api/Filters/ExceptionFilter.cs" />
-  <file path="FluentValidationTest.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="FluentValidationTest.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="FluentValidationTest.Api/FluentValidationTest.Api.csproj" />
-  <file path="FluentValidationTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="FluentValidationTest.Api/Program.cs" />
-  <file path="FluentValidationTest.Api/Properties/launchSettings.json" />
-  <file path="FluentValidationTest.Api/Services/CurrentUserService.cs" />
-  <file path="FluentValidationTest.Api/appsettings.json" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="FluentValidationTest.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="FluentValidationTest.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="FluentValidationTest.Application/Common/Interfaces/ICommand.cs" />
-  <file path="FluentValidationTest.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="FluentValidationTest.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="FluentValidationTest.Application/Common/Interfaces/IQuery.cs" />
-  <file path="FluentValidationTest.Application/Common/Models/Result.cs" />
-  <file path="FluentValidationTest.Application/Common/Pagination/PagedList.cs" />
-  <file path="FluentValidationTest.Application/Common/Pagination/PagedResult.cs" />
-  <file path="FluentValidationTest.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="FluentValidationTest.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="FluentValidationTest.Application/Common/Validation/IValidationService.cs" />
-  <file path="FluentValidationTest.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="FluentValidationTest.Application/Common/Validation/ValidationService.cs" />
-  <file path="FluentValidationTest.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="FluentValidationTest.Application/DependencyInjection.cs" />
-  <file path="FluentValidationTest.Application/FluentValidationTest.Application.csproj" />
-  <file path="FluentValidationTest.Application/Implementation/ValidationScenarios/EnumToStringMapping/EnumToStringMappingService.cs" />
-  <file path="FluentValidationTest.Application/Implementation/ValidationScenarios/StressSuite/InvoiceService.cs" />
-  <file path="FluentValidationTest.Application/Interfaces/ValidationScenarios/EnumToStringMapping/IEnumToStringMappingService.cs" />
-  <file path="FluentValidationTest.Application/Interfaces/ValidationScenarios/StressSuite/IInvoiceService.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/OrderStatus.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/Process.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/ProcessOrderDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/ProcessOrderDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/CustomerRegistrationDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/CustomerRegistrationDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalSuppliedDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalSuppliedDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SimplePayloadDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SimplePayloadDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQuery.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQueryHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQueryValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/RecursiveNodeDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/RecursiveNodeDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/InvoiceDto.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/InvoiceDtoValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommandValidator.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommand.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommandHandler.cs" />
-  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommandValidator.cs" />
-  <file path="FluentValidationTest.Domain/Common/CollectionExtensions.cs" />
-  <file path="FluentValidationTest.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="FluentValidationTest.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="FluentValidationTest.Domain/Common/UpdateHelper.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/EnumMapping/EnumToStringMapping.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/IdentityConstraints/UniqueAccountEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/IdentityConstraints/UniquePersonEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/Nullability/NullabilityConstrainedEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/NumericConstraints/NumericConstrainedEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/PatternConstraints/PatternConstrainedEntity.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/Invoice.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/PersistencePrecedence.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/Product.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/UserAccount.cs" />
-  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/TextConstraints/TextConstrainedEntity.cs" />
-  <file path="FluentValidationTest.Domain/FluentValidationTest.Domain.csproj" />
-  <file path="FluentValidationTest.Domain/Repositories/IEFRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/IPagedList.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/IRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/ConstructorOperationConstraints/IConstructedConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/EnumMapping/IEnumToStringMappingRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/IdentityConstraints/IUniqueAccountEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/IdentityConstraints/IUniquePersonEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/Nullability/INullabilityConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/NumericConstraints/INumericConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/PatternConstraints/IPatternConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IInvoiceRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IPersistencePrecedenceRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IProductRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IUserAccountRepository.cs" />
-  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/TextConstraints/ITextConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Domain/ValueObject.cs" />
-  <file path="FluentValidationTest.Infrastructure/DependencyInjection.cs" />
-  <file path="FluentValidationTest.Infrastructure/FluentValidationTest.Infrastructure.csproj" />
-  <file path="FluentValidationTest.Infrastructure/Migrations/README.md" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/EnumMapping/EnumToStringMappingConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/IdentityConstraints/UniqueAccountEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/IdentityConstraints/UniquePersonEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/Nullability/NullabilityConstrainedEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/NumericConstraints/NumericConstrainedEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/PatternConstraints/PatternConstrainedEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/InvoiceConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/PersistencePrecedenceConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/ProductConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/UserAccountConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/TextConstraints/TextConstrainedEntityConfiguration.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/EnumMapping/EnumToStringMappingRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/IdentityConstraints/UniqueAccountEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/IdentityConstraints/UniquePersonEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/Nullability/NullabilityConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/NumericConstraints/NumericConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/PatternConstraints/PatternConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/InvoiceRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/PersistencePrecedenceRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/ProductRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/UserAccountRepository.cs" />
-  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/TextConstraints/TextConstrainedEntityRepository.cs" />
-  <file path="FluentValidationTest.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="FluentValidationTest.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="FluentValidationTest.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="FluentValidationTest.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="FluentValidationTest.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="FluentValidationTest.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="FluentValidationTest.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/StressSuite/InvoiceController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/ValidationScenariosMixedScenariosController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="FluentValidationTest.Api/Controllers/ValidationScenarios/ValidationScenariosRecursiveDtosController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="FluentValidationTest.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="FluentValidationTest.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="FluentValidationTest.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="FluentValidationTest.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="FluentValidationTest.Api/FluentValidationTest.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FluentValidationTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="FluentValidationTest.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="FluentValidationTest.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="FluentValidationTest.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="FluentValidationTest.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="FluentValidationTest.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="FluentValidationTest.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="FluentValidationTest.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="FluentValidationTest.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="FluentValidationTest.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="FluentValidationTest.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="FluentValidationTest.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="FluentValidationTest.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="FluentValidationTest.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="FluentValidationTest.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="FluentValidationTest.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="FluentValidationTest.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="FluentValidationTest.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="FluentValidationTest.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="FluentValidationTest.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="FluentValidationTest.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="FluentValidationTest.Application/FluentValidationTest.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FluentValidationTest.Application/Implementation/ValidationScenarios/EnumToStringMapping/EnumToStringMappingService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FluentValidationTest.Application/Implementation/ValidationScenarios/StressSuite/InvoiceService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FluentValidationTest.Application/Interfaces/ValidationScenarios/EnumToStringMapping/IEnumToStringMappingService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FluentValidationTest.Application/Interfaces/ValidationScenarios/StressSuite/IInvoiceService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateConstructedConstrainedEntity/CreateConstructedConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNullabilityConstrainedEntity/CreateNullabilityConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateNumericConstrainedEntity/CreateNumericConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreatePatternConstrainedEntity/CreatePatternConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateTextConstrainedEntity/CreateTextConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniqueAccountEntity/CreateUniqueAccountEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/CreateUniquePersonEntity/CreateUniquePersonEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNullabilityConstrainedEntity/GetNullabilityConstrainedEntityQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetNumericConstrainedEntity/GetNumericConstrainedEntityQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetPatternConstrainedEntity/GetPatternConstrainedEntityQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/GetTextConstrainedEntity/GetTextConstrainedEntityQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/RenameConstructedConstrainedEntity/RenameConstructedConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNullabilityConstrainedEntity/UpdateNullabilityConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateNumericConstrainedEntity/UpdateNumericConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdatePatternConstrainedEntity/UpdatePatternConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateTextConstrainedEntity/UpdateTextConstrainedEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniqueAccountEntity/UpdateUniqueAccountEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/DomainMapped/UpdateUniquePersonEntity/UpdateUniquePersonEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/EnumToStringMapping/EnumToStringMappingCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/OrderStatus.cs" templateId="Intent.Application.Dtos.ContractEnumModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/Process.cs" templateId="Intent.Application.Dtos.ContractEnumModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/ProcessOrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/EnumToStringMapping/ProcessOrderDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateCrossFieldRules/ValidateCrossFieldRulesCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitNumericRules/ValidateExplicitNumericRulesCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/ExplicitRules/ValidateExplicitStringRules/ValidateExplicitStringRulesCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/CustomerRegistrationDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/CustomerRegistrationDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalNestedValidator/OptionalNestedValidatorCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalSuppliedDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/OptionalSuppliedDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/RegisterCustomer/RegisterCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/SearchCustomers/SearchCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/MixedScenarios/UpdateCustomerProfile/UpdateCustomerProfileCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SearchNullabilityCases/SearchNullabilityCasesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SimplePayloadDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/SimplePayloadDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Nullability/ValidateNullability/ValidateNullabilityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/Queries/ValidateExplicitQueryRules/ValidateExplicitQueryRulesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/RecursiveNodeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/RecursiveNodeDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/RecursiveDtos/ValidateRecursiveNode/ValidateRecursiveNodeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/CreateUser/CreateUserCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/InvoiceDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateProjectTags/UpdateProjectTagsCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FluentValidationTest.Application/ValidationScenarios/StressSuite/UpdateUser/UpdateUserCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FluentValidationTest.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="FluentValidationTest.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="FluentValidationTest.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="FluentValidationTest.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/EnumMapping/EnumToStringMapping.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/IdentityConstraints/UniqueAccountEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/IdentityConstraints/UniquePersonEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/Nullability/NullabilityConstrainedEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/NumericConstraints/NumericConstrainedEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/PatternConstraints/PatternConstrainedEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/PersistencePrecedence.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/StressSuite/UserAccount.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/Entities/ValidationScenarios/TextConstraints/TextConstrainedEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FluentValidationTest.Domain/FluentValidationTest.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FluentValidationTest.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/ConstructorOperationConstraints/IConstructedConstrainedEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/EnumMapping/IEnumToStringMappingRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/IdentityConstraints/IUniqueAccountEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/IdentityConstraints/IUniquePersonEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/Nullability/INullabilityConstrainedEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/NumericConstraints/INumericConstrainedEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/PatternConstraints/IPatternConstrainedEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IPersistencePrecedenceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/StressSuite/IUserAccountRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/Repositories/ValidationScenarios/TextConstraints/ITextConstrainedEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FluentValidationTest.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="FluentValidationTest.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="FluentValidationTest.Infrastructure/FluentValidationTest.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FluentValidationTest.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/EnumMapping/EnumToStringMappingConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/IdentityConstraints/UniqueAccountEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/IdentityConstraints/UniquePersonEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/Nullability/NullabilityConstrainedEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/NumericConstraints/NumericConstrainedEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/PatternConstraints/PatternConstrainedEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/PersistencePrecedenceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/StressSuite/UserAccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Persistence/Configurations/ValidationScenarios/TextConstraints/TextConstrainedEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/ConstructorOperationConstraints/ConstructedConstrainedEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/EnumMapping/EnumToStringMappingRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/IdentityConstraints/UniqueAccountEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/IdentityConstraints/UniquePersonEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/Nullability/NullabilityConstrainedEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/NumericConstraints/NumericConstrainedEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/PatternConstraints/PatternConstrainedEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/PersistencePrecedenceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/StressSuite/UserAccountRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.Infrastructure/Repositories/ValidationScenarios/TextConstraints/TextConstrainedEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FluentValidationTest.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

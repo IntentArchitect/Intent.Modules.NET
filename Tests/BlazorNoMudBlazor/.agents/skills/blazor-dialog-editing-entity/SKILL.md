@@ -2,26 +2,31 @@
 name: blazor-dialog-editing-entity
 description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: FED779538DD94B339EE2250C44AA501AC8D0D0DB62A2B66CD0AAE0F259D25CD4
+contentHash: BAB31C5C6A760DED31041D794D7DC502C9211FD734707C5B2A7885A733854D61
 ---
 ## MANDATORY: Read Samples Before Implementation
 
 STOP — you MUST read ALL of the following before writing ANY code:
 
-- *Samples** (in the SAME folder as this SKILL.md):
+**Samples** (in the SAME folder as this SKILL.md):
+
 1. `edit-entity-dialog-sample.razor`
 2. `edit-entity-dialog-sample.razor.cs`
-- *Target component and project files:**
-1. The target `.razor` and `.razor.cs`
-2. Related project files: models, enums, lookups, services
-- *Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-1. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-2. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+**Target component and project files:**
+
+3. The target `.razor` and `.razor.cs`
+4. Related project files: models, enums, lookups, services
+
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
 
 If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
 If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
-- --
+---
 
 ## Assess The .razor.cs Before Writing
 
@@ -31,23 +36,29 @@ This is a dialog: close or cancel through MudBlazor dialog APIs rather than navi
 
 Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
 
-- *If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+
 - Add `[Parameter]` properties needed for the dialog (e.g. entity ID)
 - Add a model field or property matching the sample pattern
 - Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
 - Add `Save()` / `SaveAsync()` that validates the form, calls the existing update service method, and closes the dialog with `MudDialog.Close(DialogResult.Ok(true))` on success
 - Add `Cancel()` that only calls `MudDialog.Cancel()`
 - Add supporting methods only when they exist in the sample and the relevant service methods exist in the project
-- *If implemented** — preserve all existing logic exactly:
+
+**If implemented** — preserve all existing logic exactly:
+
 - Do NOT modify existing methods, service calls, or payload construction
 - Do NOT add, rename, or remove model properties
 - Do NOT rewrite existing C# functionality
-- *Always forbidden** (skeleton or implemented):
+
+**Always forbidden** (skeleton or implemented):
+
 - Inventing service classes or interfaces that don't exist in the project
 - Calling services directly from the `.razor` file
 - Adding navigation logic to the dialog flow
 - Putting C# logic in `.razor` using `@code`
-- --
+
+---
 
 ## 1. Dialog Structure And Data Loading
 
@@ -66,7 +77,8 @@ Data loading:
 - Receive dialog input through `[Parameter]` properties — add them if absent in a skeleton
 - If an ID is passed, load the entity via the appropriate service method (implement `OnInitializedAsync()` if it is an empty stub)
 - If a model is passed, prepopulate from that input structure
-- --
+
+---
 
 ## 2. Save And Cancel Methods
 
@@ -88,7 +100,8 @@ Template bindings:
 - Bind Save button to `Save()` or `SaveAsync()`
 - Bind Cancel button to `Cancel()`
 - Do not call backend methods directly from the Razor template
-- --
+
+---
 
 ## 3. Form Validation
 
@@ -104,7 +117,8 @@ Save button state:
 
 - Disable Save when the form is invalid
 - Disable Save while saving
-- --
+
+---
 
 ## 4. Control Mapping
 
@@ -124,14 +138,16 @@ MudBlazor rules:
 - Every `MudDatePicker` must include `Placeholder="Select date"`
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Never assume enum members from sample code
-- --
+
+---
 
 ## 5. Child Collections
 
 - Add collection buttons only when matching backing methods exist
 - Remove collection buttons only when matching backing methods exist
 - In `for` loops, use `var index = i;` and never bind directly to `i`
-- --
+
+---
 
 ## 6. Styling
 
@@ -141,11 +157,12 @@ MudBlazor rules:
 - Match the sample dialog layout closely
 - Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
 - Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
-- *Design and styling context**
+
+**Design and styling context**
 
 Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
-- --
+---
 
 ## Definition of Done
 

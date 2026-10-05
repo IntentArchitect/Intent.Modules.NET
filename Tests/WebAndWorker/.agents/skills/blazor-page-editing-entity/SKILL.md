@@ -2,26 +2,31 @@
 name: blazor-page-editing-entity
 description: Implements Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing edit, update, or modify entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 12DC75F5303E38469F6F25D7C0966E96A3B45488B367EAD2BB0E98EA4189B7AE
+contentHash: E057509023A3805F55DC538907FC2C897BCC461BC0DC8A39E2FE34D9889B1A6D
 ---
 ## MANDATORY: Read Samples Before Implementation
 
 STOP — you MUST read ALL of the following before writing ANY code:
 
-- *Samples** (in the SAME folder as this SKILL.md):
+**Samples** (in the SAME folder as this SKILL.md):
+
 1. `edit-entity-sample.razor`
 2. `edit-entity-sample.razor.cs`
-- *Target component and project files:**
-1. The target `.razor` and `.razor.cs`
-2. Related project files: models, enums, lookups, services
-- *Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-1. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-2. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+**Target component and project files:**
+
+3. The target `.razor` and `.razor.cs`
+4. Related project files: models, enums, lookups, services
+
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
 
 If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
 If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
-- --
+---
 
 ## MANDATORY: Match Sample Layout (Visual Structure)
 
@@ -36,7 +41,8 @@ Forbidden:
 
 - Replacing the hero header with a different structure unless explicitly requested
 - Dropping the sample's utility classes when they exist in the target project
-- --
+
+---
 
 ## Assess The .razor.cs Before Writing
 
@@ -45,21 +51,27 @@ Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects
 
 Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
 
-- *If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
+
 - Add `[Parameter]` properties needed for the page (e.g. entity ID)
 - Add a model field or property matching the sample pattern
 - Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
 - Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing update service method, and navigates on success using an existing or added navigation method
 - Add supporting methods (cancel, add/remove collection items) only when they exist in the sample and the relevant service methods exist in the project
-- *If implemented** — preserve all existing logic exactly:
+
+**If implemented** — preserve all existing logic exactly:
+
 - Do NOT modify existing methods, service calls, or payload construction
 - Do NOT add, rename, or remove model properties
 - Do NOT rewrite existing C# functionality
-- *Always forbidden** (skeleton or implemented):
+
+**Always forbidden** (skeleton or implemented):
+
 - Inventing service classes or interfaces that don't exist in the project
 - Calling services directly from the `.razor` file
 - Putting C# logic in `.razor` using `@code`
-- --
+
+---
 
 ## 1. Data Loading And Form
 
@@ -73,7 +85,8 @@ Nullable objects:
 - Toggle OFF should set the object to null when that pattern already exists
 - Toggle ON should initialize it if null
 - Keep the exact conditional logic from `.razor.cs`
-- --
+
+---
 
 ## 2. Map Properties To MudBlazor Controls
 
@@ -99,7 +112,8 @@ Enum rules:
 - Locate and read the real enum definition before using it
 - Use only verified enum members and values
 - Never copy enum members from sample code without verification
-- --
+
+---
 
 ## 3. Validation
 
@@ -115,7 +129,7 @@ If using MudBlazor validation delegates, ensure signatures and nullability are c
 
 If multiple forms are used, they must not be nested.
 
-- --
+---
 
 ## 4. Save Flow
 
@@ -132,7 +146,8 @@ Forbidden:
 - Calling services directly from the Razor template
 - Modifying existing update service methods
 - Changing request payloads
-- --
+
+---
 
 ## 5. Child Collections
 
@@ -147,7 +162,8 @@ Indexed bindings:
 
 - Use `for` loops with `var index = i;`
 - Never reference `i` directly in bindings, `@key`, or callbacks
-- --
+
+---
 
 ## 6. Styling
 
@@ -155,11 +171,12 @@ Indexed bindings:
 - Keep component-specific styles minimal
 - Never modify existing shared styles, variables, or theme values
 - Match the sample layout closely
-- *Design and styling context**
+
+**Design and styling context**
 
 Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
-- --
+---
 
 ## Definition of Done
 

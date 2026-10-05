@@ -2,26 +2,31 @@
 name: blazor-page-search-entity
 description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 380441AF888B41E7A96E7F280D5F599B140A7125785542A5A230313CD53F359F
+contentHash: E43F7B80822887009DB16A3ED6C9F0E203C43908898BAA4D180DC1A25FE410A4
 ---
 ## MANDATORY: Read Samples Before Implementation
 
 STOP — you MUST read ALL of the following before writing ANY code:
 
-- *Samples** (in the SAME folder as this SKILL.md):
+**Samples** (in the SAME folder as this SKILL.md):
+
 1. `search-entity-sample.razor`
 2. `search-entity-sample.razor.cs`
-- *Target component and project files:**
-1. The target `.razor` and `.razor.cs`
-2. Related project files: request models, DTOs, enums, lookups, services
-- *Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-1. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-2. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+
+**Target component and project files:**
+
+3. The target `.razor` and `.razor.cs`
+4. Related project files: request models, DTOs, enums, lookups, services
+
+**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+
+5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
+6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
 
 If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
 If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
 
-- --
+---
 
 ## MANDATORY: Match Sample Layout (Visual Structure)
 
@@ -41,7 +46,8 @@ Forbidden:
 
 - Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
 - Dropping the sample’s utility classes when they exist in the target project
-- --
+
+---
 
 ## Preserve Existing Implementation
 
@@ -62,7 +68,8 @@ Source of truth: Existing `.razor.cs` file defines search criteria, paging, sort
 - Invent filters that do not exist in the backing search model
 - Expose paging or sorting parameters as normal filter inputs
 - Add CRUD or navigation methods that do not already exist in `.razor.cs`
-- --
+
+---
 
 ## 1. Filters: Backend Contract Only
 
@@ -79,7 +86,8 @@ Forbidden:
 - Inventing filters
 - Modifying service signatures to support UI filters
 - Rendering paging or sorting fields like `pageNo`, `pageSize`, or `orderBy` as normal filter inputs
-- --
+
+---
 
 ## 2. Choose The Correct Pattern
 
@@ -99,7 +107,7 @@ Use the simple grid pattern when the component:
 
 Do not mix the two patterns in one page.
 
-- --
+---
 
 ## 3. Map Criteria And Fields To MudBlazor Controls
 
@@ -120,7 +128,8 @@ MudBlazor rules:
 - If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
 - Bind enum values numerically, not as string literals
 - Enum component properties such as `Justify`, `AlignItems`, `Direction`, `Variant`, and `Color` must use explicit enum values
-- --
+
+---
 
 ## 4. Search And Refresh Behavior
 
@@ -141,7 +150,8 @@ Refresh behavior:
 
 - If a load or refresh method exists, surface a Refresh action
 - In simple grid pages, Refresh should call the direct load method
-- --
+
+---
 
 ## 5. Table Output And Row Actions
 
@@ -167,7 +177,8 @@ Row actions:
 - Render View, Edit, Delete, Open, or similar row actions only when matching methods actually exist
 - If the row DTO exposes an ID field and a matching edit method exists, the Edit action is required
 - Never invent row action methods or placeholder buttons
-- --
+
+---
 
 ## 6. Styling
 
@@ -176,11 +187,12 @@ Row actions:
 - Never modify existing shared styles or theme values
 - Match the sample layout without introducing unnecessary wrappers
 - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (usually under `wwwroot`) and reuse them
-- *Design and styling context**
+
+**Design and styling context**
 
 Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
 
-- --
+---
 
 ## Definition of Done
 
