@@ -103,9 +103,11 @@
   <file path="WebAndWorker.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="WebAndWorker.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
   <file path="WebAndWorker.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
@@ -186,9 +188,11 @@
   <file path="WebAndWorker.Mobile.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Mobile.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Mobile.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="WebAndWorker.Mobile.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
   <file path="WebAndWorker.Mobile.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Mobile.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Mobile.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />

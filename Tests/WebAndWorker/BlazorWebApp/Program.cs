@@ -5,6 +5,7 @@ using BlazorWebApp.Filters;
 using BlazorWebApp.Logging;
 using Intent.RoslynWeaver.Attributes;
 using MudBlazor.Services;
+using NetTopologySuite.IO.Converters;
 using Serilog;
 using Serilog.Events;
 using WebAndWorker.Application;
@@ -44,7 +45,11 @@ namespace BlazorWebApp
                     opt =>
                     {
                         opt.Filters.Add<ExceptionFilter>();
-                    });
+                    })
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
+                });
                 builder.Services.AddApplication(builder.Configuration);
                 builder.Services.ConfigureApplicationSecurity(builder.Configuration);
                 builder.Services.ConfigureHealthChecks(builder.Configuration);

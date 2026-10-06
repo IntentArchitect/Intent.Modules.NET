@@ -45,8 +45,8 @@
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;378d1455-28ec-440f-acbd-bdcea0c90e74&quot;,&quot;290da682-3702-4116-88c1-29952c6a19e2&quot;]" isActive="true" />
             <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" isActive="true" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;378d1455-28ec-440f-acbd-bdcea0c90e74&quot;,&quot;290da682-3702-4116-88c1-29952c6a19e2&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
