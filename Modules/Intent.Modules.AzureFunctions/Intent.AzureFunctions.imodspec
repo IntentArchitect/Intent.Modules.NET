@@ -104,7 +104,7 @@
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="20b1fcbd-0a02-4bc6-993d-4127e1e3c893" title="Trigger Names From App Settings" type="switch">
-          <hint>Emit trigger queue, topic, subscription, event hub, database, container and schedule values as %AppSetting% references, seeded into local.settings.json with the modelled values. Deployed Function Apps must define these settings.</hint>
+          <hint>Emit trigger names as %AppSetting% references instead of literal values.</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>
