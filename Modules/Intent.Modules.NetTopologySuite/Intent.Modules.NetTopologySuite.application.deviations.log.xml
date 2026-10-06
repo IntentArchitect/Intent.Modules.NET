@@ -16,8 +16,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-15T10:47:34.9662966Z</updatedAt>
-      <deviationsHash>5B7A853ADED6ACBC61FA9F11E714B66606BC6E05790728BA0295718B296C1325</deviationsHash>
+      <updatedAt>2026-10-06T19:01:20.3654187Z</updatedAt>
+      <deviationsHash>5075A7FA8EF16CFF9C7415ECBEC9B0ABAC421979DF5BD77E53E0974916C7FA14</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#40b2ee5e-8312-47af-a098-a65cb3d46c17</correlationId>
@@ -34,8 +34,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-15T10:47:34.9665819Z</updatedAt>
-      <deviationsHash>081AAA426A1F1420324966880ED274452CBB6015807EE381F3618397D6846F92</deviationsHash>
+      <updatedAt>2026-10-06T19:01:20.3655883Z</updatedAt>
+      <deviationsHash>2673ECDB320DE52E6AFE883F910AC8D8EC4FABF372B705408B9B20C19DBFEFFA</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7a0accc-e650-4526-9a65-eb5f571c420e</correlationId>
@@ -56,4 +56,18 @@
       <deviationsHash>2F0DF28D0891552EF9218C4210B5FEEFEEA4E6FA7874D61BE098DF981D7A0142</deviationsHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.NetTopologySuite/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.1841471Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.NetTopologySuite/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.2051835Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>
