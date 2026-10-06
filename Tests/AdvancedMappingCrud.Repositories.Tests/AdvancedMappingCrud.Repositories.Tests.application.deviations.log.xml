@@ -171,6 +171,15 @@
       <fileHash>9267ECE6E3BEF8D7BB497C04B1FA240FC06ACE52CED3F8B82E250A9500C86692</fileHash>
     </file>
     <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#30eada7e-f68d-4954-b409-8457cc7ee25b</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:05:14.015906Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#121d0ce3-7e80-475f-adaf-6e03568ea5a7</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicsNullableTests.cs</path>
       <count>1</count>

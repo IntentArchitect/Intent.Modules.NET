@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="90057001-3f88-4be0-8a65-cc23cafbf6a6">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="AspNetControllers.SecuredByDefault.Api/AspNetControllers.SecuredByDefault.Api.csproj" />
-  <file path="AspNetControllers.SecuredByDefault.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Api/Controllers/TestController.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Api/Filters/ExceptionFilter.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Api/Program.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Api/Properties/launchSettings.json" />
-  <file path="AspNetControllers.SecuredByDefault.Api/appsettings.json" />
-  <file path="AspNetControllers.SecuredByDefault.Application/AspNetControllers.SecuredByDefault.Application.csproj" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/HttpClientRequestException.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/DependencyInjection.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/IntegrationServices/ITestService.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Interfaces/ITestService.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Domain/AspNetControllers.SecuredByDefault.Domain.csproj" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/AspNetControllers.SecuredByDefault.Infrastructure.csproj" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/Configuration/HttpClientConfiguration.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/HttpClients/TestServiceHttpClient.cs" />
-  <file path="AspNetControllers.SecuredByDefault.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AspNetControllers.SecuredByDefault.Api/AspNetControllers.SecuredByDefault.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Controllers/TestController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="AspNetControllers.SecuredByDefault.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="AspNetControllers.SecuredByDefault.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="AspNetControllers.SecuredByDefault.Application/AspNetControllers.SecuredByDefault.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="AspNetControllers.SecuredByDefault.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="AspNetControllers.SecuredByDefault.Application/IntegrationServices/ITestService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Interfaces/ITestService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="AspNetControllers.SecuredByDefault.Domain/AspNetControllers.SecuredByDefault.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/AspNetControllers.SecuredByDefault.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/HttpClients/TestServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="AspNetControllers.SecuredByDefault.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

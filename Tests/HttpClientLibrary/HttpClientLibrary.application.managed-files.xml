@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3eb83206-a40a-4eff-b7b6-facd5e6f88c4">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="HttpClientLibrary.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="HttpClientLibrary.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="HttpClientLibrary.Api/HttpClientLibrary.Api.csproj" />
-  <file path="HttpClientLibrary.Api/Program.cs" />
-  <file path="HttpClientLibrary.Api/Properties/launchSettings.json" />
-  <file path="HttpClientLibrary.Api/Services/CurrentUserService.cs" />
-  <file path="HttpClientLibrary.Api/appsettings.json" />
-  <file path="HttpClientLibrary.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="HttpClientLibrary.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="HttpClientLibrary.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="HttpClientLibrary.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="HttpClientLibrary.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="HttpClientLibrary.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/ICommand.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="HttpClientLibrary.Application/Common/Interfaces/IQuery.cs" />
-  <file path="HttpClientLibrary.Application/Common/Models/Result.cs" />
-  <file path="HttpClientLibrary.Application/Common/Pagination/PagedResult.cs" />
-  <file path="HttpClientLibrary.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="HttpClientLibrary.Application/DependencyInjection.cs" />
-  <file path="HttpClientLibrary.Application/HttpClientLibrary.Application.csproj" />
-  <file path="HttpClientLibrary.Domain/HttpClientLibrary.Domain.csproj" />
-  <file path="HttpClientLibrary.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="HttpClientLibrary.Infrastructure/DependencyInjection.cs" />
-  <file path="HttpClientLibrary.Infrastructure/HttpClientLibrary.Infrastructure.csproj" />
-  <file path="HttpClientLibrary.Shared/Configuration/HttpClientConfiguration.cs" />
-  <file path="HttpClientLibrary.Shared/Contracts/CleanArchitecture/SingleFiles/Services/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" />
-  <file path="HttpClientLibrary.Shared/Contracts/Test Clients/IAdvancedMappingCosmosInvoicesService.cs" />
-  <file path="HttpClientLibrary.Shared/Exceptions/HttpClientRequestException.cs" />
-  <file path="HttpClientLibrary.Shared/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="HttpClientLibrary.Shared/HttpClientLibrary.Shared.csproj" />
-  <file path="HttpClientLibrary.Shared/HttpClients/JsonResponse.cs" />
-  <file path="HttpClientLibrary.Shared/HttpClients/Test Clients/AdvancedMappingCosmosInvoicesServiceHttpClient.cs" />
-  <file path="HttpClientLibrary.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="HttpClientLibrary.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="HttpClientLibrary.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="HttpClientLibrary.Api/HttpClientLibrary.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpClientLibrary.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="HttpClientLibrary.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="HttpClientLibrary.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="HttpClientLibrary.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="HttpClientLibrary.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="HttpClientLibrary.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="HttpClientLibrary.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="HttpClientLibrary.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="HttpClientLibrary.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="HttpClientLibrary.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="HttpClientLibrary.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="HttpClientLibrary.Application/HttpClientLibrary.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpClientLibrary.Domain/HttpClientLibrary.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpClientLibrary.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="HttpClientLibrary.Infrastructure/HttpClientLibrary.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpClientLibrary.Shared/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="HttpClientLibrary.Shared/Contracts/CleanArchitecture/SingleFiles/Services/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="HttpClientLibrary.Shared/Contracts/Test Clients/IAdvancedMappingCosmosInvoicesService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="HttpClientLibrary.Shared/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="HttpClientLibrary.Shared/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="HttpClientLibrary.Shared/HttpClientLibrary.Shared.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpClientLibrary.Shared/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
+  <file path="HttpClientLibrary.Shared/HttpClients/Test Clients/AdvancedMappingCosmosInvoicesServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="HttpClientLibrary.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.TestApplication.Application;
-using Standard.AspNetCore.TestApplication.Application.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Invoices;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
@@ -25,17 +24,14 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     {
         private readonly IInvoicesService _appService;
         private readonly IValidationService _validationService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
         public InvoicesController(IInvoicesService appService,
-            IValidationService validationService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
-            IUnitOfWork unitOfWork)
+IValidationService validationService,
+IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -54,17 +50,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = Guid.Empty;
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = await _appService.CreateInvoice(dto, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = await _appService.CreateInvoice(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return CreatedAtAction(nameof(FindInvoiceById), new { id = result }, result);
         }
@@ -118,17 +109,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.UpdateInvoice(id, dto, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.UpdateInvoice(id, dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return NoContent();
         }
@@ -145,17 +131,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.DeleteInvoice(id, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.DeleteInvoice(id, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Ok();
         }

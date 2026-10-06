@@ -1,134 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/AccountsController.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/ClientsServicesController.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/DeleteAccountsController.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/DeleteClientsServicesController.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/FileController.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/FileTransfer/BinaryContentAttribute.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/BinaryContentFilter.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/ExceptionFilter.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Program.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Properties/launchSettings.json" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/ProxyServiceTests.Proxy.PTH.Api.csproj" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Services/CurrentUserService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Startup.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/appsettings.json" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountMoneyDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountMoneyDtoValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountMoneyDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountMoneyDtoValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQuery.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQueryHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQueryValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQuery.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQueryHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQueryValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommandHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/HttpClientRequestException.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IQuery.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Models/Result.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedList.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedResult.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/IValidationService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/ValidationService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/DependencyInjection.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandValidator.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Implementation/AccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Implementation/DeleteAccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Domain/Currency.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/AccountAccountMoneyDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/AccountDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/CreateAccountCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/CreateAccountMoneyDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/UpdateAccountCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/UpdateAccountMoneyDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientCreateDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientUpdateDto.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/File/FileUploadCommand.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IAccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IClientsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IDeleteAccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IDeleteClientsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IFileService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Interfaces/IAccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/Interfaces/IDeleteAccountsService.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Application/ProxyServiceTests.Proxy.PTH.Application.csproj" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/CollectionExtensions.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/UpdateHelper.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/ProxyServiceTests.Proxy.PTH.Domain.csproj" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IEFRepository.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IPagedList.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IRepository.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Domain/ValueObject.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Configuration/HttpClientConfiguration.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/DependencyInjection.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/AccountsServiceHttpClient.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/ClientsServiceHttpClient.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteAccountsServiceHttpClient.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteClientsServiceHttpClient.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/FileServiceHttpClient.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/HttpClientHeaderHandler.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/JsonResponse.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Migrations/README.md" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/ProxyServiceTests.Proxy.PTH.Infrastructure.csproj" deviationsHash="AA6AE751E0D0DC926A62440C1C38D033FA8F623E95886D407E2517BAD5804CFB" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="ProxyServiceTests.Proxy.PTH.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/AccountsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/ClientsServicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/DeleteAccountsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/DeleteClientsServicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/FileController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/FileTransfer/BinaryContentAttribute.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentAttribute" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/ProxyServiceTests.Proxy.PTH.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountCommand.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountCommandValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/CreateAccountMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountCommand.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountCommandValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/AccountsServices/UpdateAccountMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClientById/FindClientByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/FindClients/FindClientsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ClientsServices/UpdateClient/UpdateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Implementation/AccountsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Implementation/DeleteAccountsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Domain/Currency.cs" templateId="Intent.Application.Contracts.Clients.EnumContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/AccountAccountMoneyDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/AccountDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/CreateAccountCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/CreateAccountMoneyDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/UpdateAccountCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Accounts/UpdateAccountMoneyDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientCreateDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/Clients/ClientUpdateDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/File/FileUploadCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IAccountsService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IClientsService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IDeleteAccountsService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IDeleteClientsService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IFileService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Interfaces/IAccountsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/Interfaces/IDeleteAccountsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="ProxyServiceTests.Proxy.PTH.Application/ProxyServiceTests.Proxy.PTH.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/ProxyServiceTests.Proxy.PTH.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="ProxyServiceTests.Proxy.PTH.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/AccountsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/ClientsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteAccountsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteClientsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/FileServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/HttpClientHeaderHandler.cs" templateId="Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/ProxyServiceTests.Proxy.PTH.Infrastructure.csproj" deviationsHash="AA6AE751E0D0DC926A62440C1C38D033FA8F623E95886D407E2517BAD5804CFB" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="ProxyServiceTests.Proxy.PTH.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

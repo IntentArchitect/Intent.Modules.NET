@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1c33236f-16da-4a77-8965-e48bace53372</correlationId>
+      <path>AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:12:01.3344361Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Transactions;
 using CleanArchitecture.Comprehensive.Application;
 using CleanArchitecture.Comprehensive.Application.Common.Eventing;
-using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -24,17 +23,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
     public class ServiceDispatchWithoutImplementationController : ControllerBase
     {
         private readonly IServiceDispatchWithoutImplementationService _appService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
         public ServiceDispatchWithoutImplementationController(IServiceDispatchWithoutImplementationService appService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
             IUnitOfWork unitOfWork,
             IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
@@ -49,17 +45,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationNoImpl1(string param, CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    _appService.MutationNoImpl1(param);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                _appService.MutationNoImpl1(param);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -73,17 +64,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationNoImpl2Async(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.MutationNoImpl2Async(cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.MutationNoImpl2Async(cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -99,17 +85,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationNoImpl3Async(string param, CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.MutationNoImpl3Async(param, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.MutationNoImpl3Async(param, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -187,17 +168,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationNoImpl8(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    _appService.MutationNoImpl8();
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                _appService.MutationNoImpl8();
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#f79690ba-c375-45ca-bc9d-a2bfb911b633</correlationId>
+      <path>SecurityConfig.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:12:26.3972657Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#d6405a58-7eb0-4cfb-8a9e-b63a07c77ef8</correlationId>
       <path>SecurityConfig.Tests.Infrastructure/SecurityConfig.Tests.Infrastructure.csproj</path>
       <count>1</count>

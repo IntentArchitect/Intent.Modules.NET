@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProxyServiceTests.Proxy.TMS.Application.AccountsServices;
-using ProxyServiceTests.Proxy.TMS.Application.Common.Interfaces;
 using ProxyServiceTests.Proxy.TMS.Application.Common.Validation;
 using ProxyServiceTests.Proxy.TMS.Application.IntegrationServices.Contracts.OriginalServices.Services.Accounts;
 using ProxyServiceTests.Proxy.TMS.Application.Interfaces;
@@ -26,17 +25,14 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
     {
         private readonly IAccountsService _appService;
         private readonly IValidationService _validationService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
         public AccountsController(IAccountsService appService,
-            IValidationService validationService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
-            IUnitOfWork unitOfWork)
+IValidationService validationService,
+IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -55,17 +51,12 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
             await _validationService.Handle(command, cancellationToken);
             var result = Guid.Empty;
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = await _appService.CreateAccountCommand(command, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = await _appService.CreateAccountCommand(command, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return CreatedAtAction(nameof(GetAccountByIdQuery), new { id = result }, result);
         }
@@ -87,17 +78,12 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
         {
             await _validationService.Handle(command, cancellationToken);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.UpdateAccountCommand(id, command, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.UpdateAccountCommand(id, command, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return NoContent();
         }

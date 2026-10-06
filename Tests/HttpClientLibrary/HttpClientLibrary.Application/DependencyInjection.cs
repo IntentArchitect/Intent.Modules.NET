@@ -22,7 +22,6 @@ namespace HttpClientLibrary.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             return services;
         }

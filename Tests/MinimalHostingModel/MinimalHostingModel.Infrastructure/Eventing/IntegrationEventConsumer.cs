@@ -16,13 +16,10 @@ namespace MinimalHostingModel.Infrastructure.Eventing
         where THandler : IIntegrationEventHandler<TMessage>
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
 
-        public IntegrationEventConsumer(IServiceProvider serviceProvider,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork)
+        public IntegrationEventConsumer(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)
@@ -30,12 +27,7 @@ namespace MinimalHostingModel.Infrastructure.Eventing
             var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
             messageBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
-
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
-            {
-                await handler.HandleAsync(context.Message, context.CancellationToken);
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(context.CancellationToken);
-            }
+            await handler.HandleAsync(context.Message, context.CancellationToken);
             await messageBus.FlushAllAsync(context.CancellationToken);
         }
     }

@@ -257,12 +257,10 @@
   <file path="CleanArchitecture.Comprehensive.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
-  <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/DistributedCacheExtensions.cs" templateId="Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
-  <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
   <file path="CleanArchitecture.Comprehensive.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
@@ -1246,11 +1244,10 @@
   <file path="CleanArchitecture.Comprehensive.Domain/Services/DefaultDiagram/IDomainServiceWithDefault.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
   <file path="CleanArchitecture.Comprehensive.Domain/TypeName.cs" templateId="Intent.Entities.DomainEnum" />
   <file path="CleanArchitecture.Comprehensive.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="CleanArchitecture.Comprehensive.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/CleanArchitecture.Comprehensive.Infrastructure.csproj" deviationsHash="C004B1B86D237803F313CC6ABF0333D55C06B8EA289451859DE59B45E9FC6F18" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
-  <file path="CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/HttpClients/BugFixesServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

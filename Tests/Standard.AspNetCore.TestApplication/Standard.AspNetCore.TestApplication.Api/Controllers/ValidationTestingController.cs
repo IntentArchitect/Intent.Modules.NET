@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.TestApplication.Application;
-using Standard.AspNetCore.TestApplication.Application.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Validation;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
@@ -25,17 +24,14 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     {
         private readonly IValidationTestingService _appService;
         private readonly IValidationService _validationService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
         public ValidationTestingController(IValidationTestingService appService,
             IValidationService validationService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
             IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -53,17 +49,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.InboundValidationDtoAction(dto, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.InboundValidationDtoAction(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }

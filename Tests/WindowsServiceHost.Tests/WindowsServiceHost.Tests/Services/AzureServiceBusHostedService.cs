@@ -85,13 +85,7 @@ namespace WindowsServiceHost.Tests.Services
                 using var scope = _rootServiceProvider.CreateScope();
                 var scopedServiceProvider = scope.ServiceProvider;
                 var eventBus = scopedServiceProvider.GetRequiredService<IEventBus>();
-                var distributedCacheWithUnitOfWork = scopedServiceProvider.GetRequiredService<IDistributedCacheWithUnitOfWork>();
-
-                using (distributedCacheWithUnitOfWork.EnableUnitOfWork())
-                {
-                    await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);
-                    await distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
-                }
+                await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);
                 await eventBus.FlushAllAsync(cancellationToken);
                 await args.CompleteMessageAsync(args.Message, cancellationToken);
             }

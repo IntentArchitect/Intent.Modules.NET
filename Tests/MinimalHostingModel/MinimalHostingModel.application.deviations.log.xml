@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a495c092-cbe9-4d27-a059-c2d1cbdedbb5</correlationId>
+      <path>MinimalHostingModel.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:06:37.732322Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.VisualStudioSolution#f87d387a-00e9-4745-b9d1-0409e8b9ec20</correlationId>
       <path>MinimalHostingModel.slnx</path>
       <count>1</count>

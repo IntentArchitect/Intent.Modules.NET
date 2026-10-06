@@ -28,6 +28,15 @@
       <fileHash>2EE701E32BC0F793AE8DE08B83A7BB64B8E7F75B036D465770CB67F72D1681E3</fileHash>
     </file>
     <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#f9bb9350-5975-4973-b522-ef5d37f0cb9f</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:06:40.3088158Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#931f0fb9-48da-478e-a955-fcfcbe6afc93</correlationId>
       <path>Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj</path>
       <count>1</count>
