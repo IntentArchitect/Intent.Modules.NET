@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
@@ -31,18 +33,37 @@ internal class AzureServiceBusTriggerHandler : IFunctionTriggerHandler
             throw new Exception($"Please specify only one parameter for the ServiceBus triggered Azure Function [{_azureFunctionModel.Name}]");
         }
 
-        string typeName = _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference);
+        var parameter = _azureFunctionModel.Parameters.Single();
+        string typeName = _template.GetTypeName(parameter.TypeReference);
+        var isTopic = !string.IsNullOrWhiteSpace(_azureFunctionModel.SubscriptionName);
         method.AddParameter(
             type: typeName,
-            name: _azureFunctionModel.Parameters.Single().Name.ToParameterName(),
+            name: parameter.Name.ToParameterName(),
             configure: param =>
             {
                 param.AddAttribute("ServiceBusTrigger", attr =>
                 {
-                    attr.AddArgument(string.IsNullOrWhiteSpace(_azureFunctionModel.QueueName) ? $"nameof({typeName})" : $@"""{_azureFunctionModel.QueueName}""");
+                    if (TriggerAppSettings.IsEnabled(_template))
+                    {
+                        // The app setting needs a concrete default to seed, so a blank Queue Name falls back to the
+                        // message type name (what nameof(...) evaluates to when literal names are used).
+                        var queueOrTopicName = string.IsNullOrWhiteSpace(_azureFunctionModel.QueueName)
+                            ? parameter.TypeReference.Element.Name
+                            : _azureFunctionModel.QueueName;
+                        attr.AddArgument(TriggerAppSettings.GetBindingValue(_template, isTopic ? "Topic" : "Queue", queueOrTopicName));
+                    }
+                    else
+                    {
+                        attr.AddArgument(string.IsNullOrWhiteSpace(_azureFunctionModel.QueueName) ? $"nameof({typeName})" : $@"""{_azureFunctionModel.QueueName}""");
+                    }
+                    if (isTopic)
+                    {
+                        attr.AddArgument(TriggerAppSettings.GetBindingValue(_template, "Subscription", _azureFunctionModel.SubscriptionName));
+                    }
                     if (!string.IsNullOrEmpty(_azureFunctionModel.Connection))
                     {
                         attr.AddArgument($@"Connection = ""{_azureFunctionModel.Connection}""");
+                        TriggerAppSettings.SeedConnection(_template, _azureFunctionModel.Connection);
                     }
                 });
             });
