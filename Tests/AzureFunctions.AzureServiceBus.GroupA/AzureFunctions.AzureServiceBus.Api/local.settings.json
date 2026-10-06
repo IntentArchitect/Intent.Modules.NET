@@ -9,6 +9,21 @@
     "AzureServiceBus:SpecificQueue": "specific-queue",
     "AzureServiceBus:SpecificTopic": "specific-topic",
     "AzureServiceBus:SpecificTopicSubscription": "azurefunctions-azureservicebus-groupa",
-    "AzureServiceBus:ConnectionString": ""
+    "AzureServiceBus:ConnectionString": "",
+    "AzureFunctions:ServiceBusTriggers_ServiceBusTriggerService_ProcessQueueMessage:Queue": "baseline-queue",
+    "AzureFunctions:ServiceBusTriggers_ProcessTopicMessage:Topic": "baseline-command-topic",
+    "AzureFunctions:ServiceBusTriggers_ProcessQueueMessage:Queue": "baseline-command-queue",
+    "AzureFunctions:ServiceBusTriggers_ServiceBusTriggerService_ProcessTopicMessage:Topic": "baseline-topic",
+    "AzureFunctions:ServiceBusTriggers_ServiceBusTriggerService_ProcessTopicMessage:Subscription": "baseline-subscription",
+    "StorageQueueConnection": "UseDevelopmentStorage=true",
+    "RabbitMQConnection": "amqp://guest:guest@localhost:5672",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_ProcessEventHubMessage:EventHub": "orders-hub",
+    "EventHubConnection": "",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_ProcessCosmosChanges:Database": "orders-db",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_ProcessCosmosChanges:Container": "orders",
+    "CosmosConnection": "",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_ProcessStorageQueueMessage:Queue": "storage-queue",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_RunSchedule:Schedule": "0 */5 * * * *",
+    "AzureFunctions:TriggerAppSettings_TriggerAppSettingsService_ProcessRabbitMQMessage:Queue": "rabbit-queue"
   }
 }

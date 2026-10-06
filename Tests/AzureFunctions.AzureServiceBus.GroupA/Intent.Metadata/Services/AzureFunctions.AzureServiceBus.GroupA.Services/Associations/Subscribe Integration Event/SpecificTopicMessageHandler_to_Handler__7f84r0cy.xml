@@ -19,8 +19,12 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="2677796b-ca79-4800-a74b-2b26a4b34703" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>handles: SpecificTopicTwoMessage</display>
+    <name>Handler</name>
+    <display>[handles] SpecificTopicTwoMessage</display>
     <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="8f6e904a-c437-4cd4-a9c7-2b65e9a5b06c">
       <typeId>32315582-1844-44fd-9b02-4e9546de3ff0</typeId>
       <isNavigable>true</isNavigable>
