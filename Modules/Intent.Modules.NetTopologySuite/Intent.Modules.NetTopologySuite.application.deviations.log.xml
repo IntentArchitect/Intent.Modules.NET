@@ -16,8 +16,11 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-15T10:47:34.9662966Z</updatedAt>
-      <deviationsHash>5B7A853ADED6ACBC61FA9F11E714B66606BC6E05790728BA0295718B296C1325</deviationsHash>
+      <updatedAt>2026-10-05T12:06:37.3904262Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.2186268Z</approvedAt>
+      <deviationsHash>B30F1A022945D0956EA28E5730CFB96742BDA90DFEAAD1C61260E91708637D7D</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#40b2ee5e-8312-47af-a098-a65cb3d46c17</correlationId>
@@ -34,8 +37,11 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-15T10:47:34.9665819Z</updatedAt>
-      <deviationsHash>081AAA426A1F1420324966880ED274452CBB6015807EE381F3618397D6846F92</deviationsHash>
+      <updatedAt>2026-10-05T12:06:37.3928481Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.2313939Z</approvedAt>
+      <deviationsHash>340F5EA42A38E96E06C9DAF6516F47D0ECA69D25B6203D1155C39A241D6D7A60</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7a0accc-e650-4526-9a65-eb5f571c420e</correlationId>
@@ -56,4 +62,18 @@
       <deviationsHash>2F0DF28D0891552EF9218C4210B5FEEFEEA4E6FA7874D61BE098DF981D7A0142</deviationsHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Modules/Intent.Modules.NetTopologySuite/CONTEXT.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.1841471Z</approvedAt>
+    </customFile>
+    <customFile>
+      <path>Modules/Intent.Modules.NetTopologySuite/docs/README.md</path>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-10-06T15:32:54.2051835Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>

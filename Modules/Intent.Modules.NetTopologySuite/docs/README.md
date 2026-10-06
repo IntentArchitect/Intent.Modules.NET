@@ -52,6 +52,9 @@ builder.Property(x => x.CoverageArea)
 
 When `Intent.AspNetCore.Controllers` is installed, this module registers a `GeoJsonConverterFactory` so geometry properties serialize to and from standard GeoJSON over the API, and adds a Swagger schema filter that marks every geometry property with the `geojson` format and a description of the shape (instead of dumping the geometry's reflected C# properties) — with a realistic coordinate example shown specifically for `Point`.
 
+> [!NOTE]
+> In an application with several ASP.NET Core host projects, the `GeoJsonConverterFactory` is registered in every web host that configures controllers, but the Swagger schema filter and the Serilog destructuring policy are generated only into hosts that carry their output roles (`Startup` and `Distribution` respectively). A host without them still generates and builds, and the Software Factory logs a warning for it. It does get two real gaps, though. Its OpenAPI document describes geometry properties as NetTopologySuite object graphs, even though the API sends GeoJSON, so clients generated from it will expect the wrong shape. And logging a geometry there can recurse through its circular references. To opt such a host in, add a `Template Output` for `Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter` and/or `Intent.NetTopologySuite.GeoDestructureSerilogPolicy` under that host's project in the Codebase Structure designer.
+
 ## Related Modules
 
 ### [Intent.EntityFrameworkCore](../../Intent.Modules.EntityFrameworkCore/docs/README.md)
