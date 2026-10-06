@@ -79,6 +79,14 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                         clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
                     }
                     """);
+
+                    // Duende.AccessTokenManagement caches tokens in IDistributedCache but does not register one.
+                    // The Intent.AspNetCore.DistributedCaching module registers its own when installed.
+                    if (!application.InstalledModules.Any(x => x.ModuleId == "Intent.AspNetCore.DistributedCaching"))
+                    {
+                        file.Template.AddNugetDependency(NugetPackages.MicrosoftExtensionsCachingMemory(file.Template.OutputTarget));
+                        method.InsertStatement(0, "services.AddDistributedMemoryCache();");
+                    }
                 }
                 else
                 {

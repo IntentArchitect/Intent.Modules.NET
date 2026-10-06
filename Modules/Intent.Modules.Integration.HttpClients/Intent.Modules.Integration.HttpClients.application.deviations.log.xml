@@ -5,10 +5,10 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#64e99652-0ac6-4285-8209-b4dbd505e91f</correlationId>
       <path>FactoryExtensions/HttpClientHeaderConfiguratorExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:57:35.0133318Z</updatedAt>
-      <deviationsHash>A9453246C25278C1AF82A58523FD8A725EEB9062E0EFE9EC21DAEC45918FE73E</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T09:02:30.1348047Z</updatedAt>
+      <deviationsHash>74026C2BE60AD863BDBB8A84EEDF9A06039C46B9C633C250503BADE4648F740F</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#bddc22e8-8ae6-4788-b081-d4d52e7e263a</correlationId>
