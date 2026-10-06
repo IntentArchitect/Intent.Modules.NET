@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="56bf0a2e-26b5-4a12-bbc1-3cee2745f1f3">
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Guardrails.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+</managedFiles>

@@ -430,6 +430,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{CAB5CB9C-88B3-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleBuilder.AI.DotNet", "ModuleBuilder.AI.DotNet\ModuleBuilder.AI.DotNet.csproj", "{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Guardrails.Contracts", "Intent.Modules.Guardrails.Contracts\Intent.Modules.Guardrails.Contracts.csproj", "{29DFD70D-DD7F-431B-92C6-689C0EF95F0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1132,6 +1134,10 @@ Global
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DFD70D-DD7F-431B-92C6-689C0EF95F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DFD70D-DD7F-431B-92C6-689C0EF95F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DFD70D-DD7F-431B-92C6-689C0EF95F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DFD70D-DD7F-431B-92C6-689C0EF95F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
