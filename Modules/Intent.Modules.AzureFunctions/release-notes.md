@@ -1,3 +1,8 @@
+### Version 5.0.27
+
+- Improvement: Service Bus triggered Azure Functions can now consume from a topic subscription via the new optional `Subscription Name` property on the `Azure Function` stereotype.
+- Improvement: New opt-in `Trigger Names From App Settings` setting emits trigger queue, topic, subscription, event hub, Cosmos DB database/container and timer schedule values as app setting references, seeded into `local.settings.json`.
+
 ### Version 5.0.26
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.
@@ -84,7 +89,7 @@
 
 ### Version 5.0.7
 
-- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5.
 - Improvement: Updated NuGet package versions.
 
 ### Version 5.0.6

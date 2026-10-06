@@ -69,6 +69,11 @@ namespace Intent.AzureFunctions.Api
                 return _stereotype.GetProperty<bool>("Include Message Envelope");
             }
 
+            public string SubscriptionName()
+            {
+                return _stereotype.GetProperty<string>("Subscription Name");
+            }
+
             public string Route()
             {
                 return _stereotype.GetProperty<string>("Route");

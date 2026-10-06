@@ -21,6 +21,9 @@
   <targetEnd id="2f5a3b9d-da4b-41be-9502-3bc9a6f82f5b" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] CreateOrgIntegrationCommand</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="b98574a9-2ddf-4efe-9b91-7c7cc1b41480">
       <typeId>c61289e8-ea3a-4dba-bc4f-c67efb4393c0</typeId>
       <isNavigable>true</isNavigable>

@@ -38,10 +38,11 @@ internal class EventHubTriggerHandler : IFunctionTriggerHandler
             {
                 param.AddAttribute(_template.UseType("Microsoft.Azure.WebJobs.EventHubTrigger"), attr =>
                 {
-                    attr.AddArgument($@"""{_azureFunctionModel.EventHubName}""");
+                    attr.AddArgument(TriggerAppSettings.GetBindingValue(_template, "EventHub", _azureFunctionModel.EventHubName));
                     if (!string.IsNullOrEmpty(_azureFunctionModel.Connection))
                     {
                         attr.AddArgument($@"Connection = ""{_azureFunctionModel.Connection}""");
+                        TriggerAppSettings.SeedConnection(_template, _azureFunctionModel.Connection);
                     }
                 });
             });

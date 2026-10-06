@@ -8,6 +8,9 @@
   <parentFolderId>5ff9ca47-8693-4c62-9979-5205e19f177f</parentFolderId>
   <packageId>5ff9ca47-8693-4c62-9979-5205e19f177f</packageId>
   <packageName>AzureFunctions.AzureServiceBus.GroupA.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements />
