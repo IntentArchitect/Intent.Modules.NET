@@ -1,6 +1,10 @@
+### Version 1.0.6
+
+- Fixed: In an application with more than one ASP.NET Core host project, a host that configures Swagger or Serilog but has no GeoJSON schema filter or geometry destructuring policy of its own (because it lacks the `Startup` or `Distribution` output role) caused the Software Factory to throw `More than one instance of template ... was found`, or to reference another host's class and fail to compile. Such a host is now skipped for that registration, with a Software Factory warning explaining how to add it.
+
 ### Version 1.0.5
 
-- Fixed: Installing this module into an application with more than one ASP.NET Core host project (e.g. a Web API alongside a Mobile API) caused the Software Factory to throw `More than one instance of template X was found` instead of generating. All host-scoped template lookups (startup configuration, Swagger configuration, Serilog destructuring policy registration, and the GeoJSON Swagger schema filter) are now resolved per host instead of assuming a single one exists. A host that configures Swagger or Serilog but has no GeoJSON schema filter or geometry destructuring policy of its own is now skipped for that registration, with a Software Factory warning explaining how to add it, instead of failing generation or referencing another host's class.
+- Fixed: Installing this module into an application with more than one ASP.NET Core host project (e.g. a Web API alongside a Mobile API) caused the Software Factory to throw `More than one instance of template X was found` instead of generating. All host-scoped template lookups (startup configuration, Swagger configuration, Serilog destructuring policy registration, and the GeoJSON Swagger schema filter) are now resolved per host instead of assuming a single one exists.
 - Fixed: The generated Serilog destructuring policy's `TryDestructure` did not mark its `out` parameter with `[NotNullWhen(true)]`, so callers saw a nullable-reference warning when using the result under a `true` return.
 
 ### Version 1.0.4

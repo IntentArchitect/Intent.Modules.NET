@@ -4,9 +4,9 @@
   <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/GeometryExtension.cs" deviationsHash="DC11B4B6564052EF14E617C158FB54BA8ABFF3BA9B23C5DEEA9F1DEDAB6E4752" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/SerilogStartupConfigurationExtension.cs" deviationsHash="B30F1A022945D0956EA28E5730CFB96742BDA90DFEAAD1C61260E91708637D7D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SerilogStartupConfigurationExtension.cs" deviationsHash="5075A7FA8EF16CFF9C7415ECBEC9B0ABAC421979DF5BD77E53E0974916C7FA14" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="1C3D13B6AA3DCE3A907B6CA09B09461930327374778030F3F09629A4CB338CF4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="340F5EA42A38E96E06C9DAF6516F47D0ECA69D25B6203D1155C39A241D6D7A60" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="2673ECDB320DE52E6AFE883F910AC8D8EC4FABF372B705408B9B20C19DBFEFFA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.NetTopologySuite.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.NetTopologySuite.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs" deviationsHash="9BEA3FEFDF510F860FC1E9CD269625700036581F586AFB30CFCE8ED11C60B620" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
