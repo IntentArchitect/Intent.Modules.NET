@@ -5,11 +5,10 @@
 ## (a) One query instead of four read calls — `run_designer_query`
 
 ```js
-const schema = await getDesignerSchema();
 const orders = await searchElements("^Order", { specializations: ["Class"] });
 const first  = orders.matches[0];                          // searchElements can return NO matches
 return {
-    elementTypes: schema.settings.elementTypes,             // project — don't return the whole snapshot
+    elementTypes: getElementTypes(),                        // carries the designer's rules — don't drop them
     matches: orders.matches.map(m => m.path),
     order: first ? await getElementDetails(first.path) : null,
 };

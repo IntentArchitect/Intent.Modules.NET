@@ -16,7 +16,8 @@ Solution-level reads are a different tool with a disjoint API — `run_solution_
  *  Read it for a designer you are about to EDIT and are unfamiliar with — not for every designer you discover. */
 declare function getDesignerSchema(): Promise<DesignerSchemaSnapshot>;
 
-/** Just the containment block: what each element type accepts as children, and which require a type. */
+/** The containment block (what each element type accepts as children, and which require a type), headed by the
+ *  designer's module rules. Those rules are binding — e.g. which associations a Command/Query must carry. */
 declare function getElementTypes(): string;
 
 /** Just the type NAMES `setType` accepts (generics carry their `<...>` signature). */
@@ -63,7 +64,7 @@ declare function getSettings(): Promise<any>;
 return { types: getElementTypes(), stereos: await getStereotypeDefinitions() };
 ```
 
-So prefer the slices. `getSettings()` is mostly `rules` + `associationTypes` (~65% on a real Domain designer); if all you need is "what can I create where", `getElementTypes()` is the call.
+So prefer the slices. If you need "what can I create where", `getElementTypes()` is the call — and it carries the designer's rules, so read and follow them before you edit. When you will create associations, add `(await getSettings()).associationTypes` for their allowed sources and targets (not the whole `getSettings()`, which repeats the rules).
 
 Notes:
 

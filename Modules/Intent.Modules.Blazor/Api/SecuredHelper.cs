@@ -8,11 +8,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Intent.Modules.Blazor.Api;
-public static class SecuredHelper
+public static partial class SecuredHelper
 {
+    /// <summary>
+    /// Removes every "@attribute [Authorize]" directive line from Razor content, so the Secured
+    /// stereotype stays the single source of truth for it. See <see cref="AuthorizeAttributeDirectiveRegex"/>
+    /// for the forms recognised. Everything else in the content is preserved byte-for-byte.
+    /// </summary>
+    internal static string RemoveAuthorizeAttributeDirectives(string razorContent)
+    {
+        return AuthorizeAttributeDirectiveRegex().Replace(razorContent, string.Empty);
+    }
+
+    // Matches a whole "@attribute [Authorize...]" directive line, including its line break:
+    // - any whitespace (or none) around "@attribute", "[", the name and "]"
+    // - Authorize or AuthorizeAttribute, optionally namespace-qualified and/or "global::"-prefixed
+    // - optional constructor/named arguments, which may span several lines
+    // - anything trailing on the closing line (e.g. a "@* comment *@")
+    // Deliberately NOT matched: other attributes whose name merely contains "Authorize" (e.g. [MyAuthorize]),
+    // commented-out directives, and combined lists such as [Authorize, StreamRendering], since removing that
+    // line would also delete the developer's other attribute.
+    [GeneratedRegex(@"^[ \t]*@attribute[ \t]*\[\s*(?:global::)?(?:[A-Za-z_]\w*\s*\.\s*)*Authorize(?:Attribute)?\s*(?:\([^)]*\))?\s*\][^\r\n]*(?:\r\n|\n|\r)?", RegexOptions.Multiline)]
+    private static partial Regex AuthorizeAttributeDirectiveRegex();
 
     internal static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
     {
