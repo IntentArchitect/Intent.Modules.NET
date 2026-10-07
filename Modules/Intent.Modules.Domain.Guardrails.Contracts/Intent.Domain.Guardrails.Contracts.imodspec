@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Domain.Guardrails.Contracts</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <summary>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies.</summary>
+  <description>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates>
+    <template id="Intent.Domain.Guardrails.Contracts.DomainContract" externalReference="8dc3e17e-80c0-4475-ab51-661c8a5b28c2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.DataContract</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.DomainServiceContract" externalReference="c341668d-9c46-4929-b2a3-c151e3e0f157">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.DomainService</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.EntityContract" externalReference="1b6622ea-9910-42d1-ab04-2c98f65abc13">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.Entity</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.EnumContract" externalReference="869dd23d-7126-4002-bd88-fbfc3a15ca2f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.Enum</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.RepositoryContract" externalReference="e0f8d916-d89f-46e2-9621-4d4b2e21a9a9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.Repository</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill" externalReference="dd3e73a3-3aee-4b2e-bf50-b54c4639d5b8">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.ValueObjectContract" externalReference="c88b260e-5036-4790-b507-db4f8bfc8df1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Guardrails.Contracts.Domain.ValueObject</role>
+      <location></location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.11.1" />
+    <dependency id="Intent.Common.CSharp" version="3.10.5" />
+    <dependency id="Intent.Common.Types" version="4.1.3" />
+    <dependency id="Intent.Modelers.Domain" version="3.13.2" />
+    <dependency id="Intent.Modelers.Domain.Repositories" version="3.6.3" />
+    <dependency id="Intent.Modelers.Domain.Services" version="1.3.1" />
+    <dependency id="Intent.Modelers.Domain.ValueObjects" version="3.6.3" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.2-pre.0" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>guardrails brownfield contracts domain csharp dotnet</tags>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="../intent/Intent.Modules.Domain.Guardrails.Contracts/Intent.Metadata/Module Builder/Intent.Domain.Guardrails.Contracts/Intent.Domain.Guardrails.Contracts.pkg.config" externalReference="11aae230-6dfe-414e-bf5f-18280aad6ae2" />
+  </metadata>
+  <migrations />
+</package>
