@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3f54d2f8-25f1-415d-832b-b447b9a70cc9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <parentFolderId>9b64d41d-a510-4651-995d-45e97585dc5d</parentFolderId>
+  <children>
+    <element id="4657ff7f-31ba-4aa8-acd6-a433a6dc0ca7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <parentFolderId>3f54d2f8-25f1-415d-832b-b447b9a70cc9</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

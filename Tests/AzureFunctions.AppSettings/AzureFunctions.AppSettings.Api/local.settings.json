@@ -1,0 +1,22 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AzureFunctions:ProcessCosmosChanges:Database": "orders-db",
+    "AzureFunctions:ProcessCosmosChanges:Container": "orders",
+    "CosmosConnection": "",
+    "AzureFunctions:ProcessRabbitMQMessage:Queue": "rabbit-queue",
+    "RabbitMQConnection": "amqp://guest:guest@localhost:5672",
+    "AzureFunctions:ProcessServiceBusQueueMessage:Queue": "orders-queue",
+    "ServiceBusConnection": "",
+    "AzureFunctions:ProcessEventHubMessage:EventHub": "orders-hub",
+    "EventHubConnection": "",
+    "StorageQueueConnection": "UseDevelopmentStorage=true",
+    "AzureFunctions:ProcessStorageQueueMessage:Queue": "storage-queue",
+    "AzureFunctions:RunSchedule:Schedule": "0 */5 * * * *",
+    "AzureFunctions:ProcessServiceBusTopicMessage:Topic": "orders-topic",
+    "AzureFunctions:ProcessServiceBusTopicMessage:Subscription": "order-processor",
+    "CqrsSettings:LogRequestPayload": true
+  }
+}

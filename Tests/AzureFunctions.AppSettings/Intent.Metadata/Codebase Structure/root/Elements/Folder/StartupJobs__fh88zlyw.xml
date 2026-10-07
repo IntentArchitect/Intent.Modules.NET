@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f89239c3-ca5a-4df6-afdf-4121ab24e570" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>StartupJobs</name>
+  <display>StartupJobs</display>
+  <parentFolderId>fa5db1f5-7302-4a9e-bbb6-c50b9f81ed3b</parentFolderId>
+  <children>
+    <element id="104a5e20-c9f7-478f-ab94-6d5d9d10b8e4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</name>
+      <display>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</display>
+      <externalReference>Intent.AzureFunctions.EntityFrameworkCore</externalReference>
+      <parentFolderId>f89239c3-ca5a-4df6-afdf-4121ab24e570</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="8eff33fb-454b-4d01-bba1-6a3bd39a0302" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <parentFolderId>f89239c3-ca5a-4df6-afdf-4121ab24e570</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1b6a1f40-8b16-49bf-bdde-cc73f04245c4&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

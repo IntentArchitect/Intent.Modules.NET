@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="93ca2b33-0ea5-44fe-bc59-ba039e615a23" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <parentFolderId>d3593af4-e82a-473d-a0c1-785b24e27d4b</parentFolderId>
+  <packageId>d3593af4-e82a-473d-a0c1-785b24e27d4b</packageId>
+  <packageName>AzureFunctions.AppSettings.Services</packageName>
+</class>
