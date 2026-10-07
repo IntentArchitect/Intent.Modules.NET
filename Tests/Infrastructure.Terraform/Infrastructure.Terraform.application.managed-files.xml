@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="0383bf92-fdf9-4f70-99fc-3db21db75e11">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path="01-applications/azure-event-grid-resources.tf" />
-  <file path="01-applications/azure-function-queue-storage.tf" />
-  <file path="01-applications/azure-functions-azure-event-grid-group-a.tf" />
-  <file path="01-applications/azure-functions-azure-event-grid-group-b.tf" />
-  <file path="01-applications/azure-functions-azure-service-bus-group-a.tf" />
-  <file path="01-applications/azure-functions-azure-service-bus-group-b.tf" />
-  <file path="01-applications/azure-functions-mongo-db.tf" />
-  <file path="01-applications/azure-functions-net6.tf" />
-  <file path="01-applications/azure-functions-net8.tf" />
-  <file path="01-applications/azure-main.tf" />
-  <file path="01-applications/azure-service-bus-resources.tf" />
-  <file path="01-applications/graph-ql-azure-function-test-application.tf" />
-  <file path="02-subscriptions/azure-functions-azure-event-grid-group-a.tf" />
-  <file path="02-subscriptions/azure-functions-azure-event-grid-group-b.tf" />
-  <file path="02-subscriptions/azure-main.tf" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="01-applications/azure-event-grid-resources.tf" templateId="Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf" />
+  <file path="01-applications/azure-function-queue-storage.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-app-settings.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-azure-event-grid-group-a.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-azure-event-grid-group-b.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-azure-service-bus-group-a.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-azure-service-bus-group-b.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-mongo-db.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-net6.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-functions-net8.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="01-applications/azure-main.tf" templateId="Intent.IaC.Terraform.Applications.AzureMainTf" />
+  <file path="01-applications/azure-service-bus-resources.tf" templateId="Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf" />
+  <file path="01-applications/graph-ql-azure-function-test-application.tf" templateId="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" />
+  <file path="02-subscriptions/azure-functions-azure-event-grid-group-a.tf" templateId="Intent.IaC.Terraform.Subscriptions.AzureEventGridTf" />
+  <file path="02-subscriptions/azure-functions-azure-event-grid-group-b.tf" templateId="Intent.IaC.Terraform.Subscriptions.AzureEventGridTf" />
+  <file path="02-subscriptions/azure-main.tf" templateId="Intent.IaC.Terraform.Subscriptions.AzureMainTf" />
 </managedFiles>
