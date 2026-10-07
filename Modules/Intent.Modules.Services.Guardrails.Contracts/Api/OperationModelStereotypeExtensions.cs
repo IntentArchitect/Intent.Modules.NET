@@ -37,6 +37,30 @@ namespace Intent.Services.Guardrails.Contracts.Api
             return true;
         }
 
+        public static CollectionType GetCollectionType(this OperationModel model)
+        {
+            var stereotype = model.GetStereotype(CollectionType.DefinitionId);
+            return stereotype != null ? new CollectionType(stereotype) : null;
+        }
+
+
+        public static bool HasCollectionType(this OperationModel model)
+        {
+            return model.HasStereotype(CollectionType.DefinitionId);
+        }
+
+        public static bool TryGetCollectionType(this OperationModel model, out CollectionType stereotype)
+        {
+            if (!HasCollectionType(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CollectionType(model.GetStereotype(CollectionType.DefinitionId));
+            return true;
+        }
+
         public class AsyncConfiguration
         {
             private IStereotype _stereotype;
@@ -59,6 +83,130 @@ namespace Intent.Services.Guardrails.Contracts.Api
                 return _stereotype.GetProperty<bool>("Include Cancellation Token");
             }
 
+        }
+
+        public class CollectionType
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "2550e9f2-2d5c-4a98-b6a9-8348f86f06b2";
+
+            public CollectionType(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public TypeOptions Type()
+            {
+                return new TypeOptions(_stereotype.GetProperty<string>("Type"));
+            }
+
+            public string CustomFormat()
+            {
+                return _stereotype.GetProperty<string>("Custom Format");
+            }
+
+            public class TypeOptions
+            {
+                public readonly string Value;
+
+                public TypeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public TypeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "IEnumerable":
+                            return TypeOptionsEnum.IEnumerable;
+                        case "ICollection":
+                            return TypeOptionsEnum.ICollection;
+                        case "IList":
+                            return TypeOptionsEnum.IList;
+                        case "IReadOnlyCollection":
+                            return TypeOptionsEnum.IReadOnlyCollection;
+                        case "IReadOnlyList":
+                            return TypeOptionsEnum.IReadOnlyList;
+                        case "List":
+                            return TypeOptionsEnum.List;
+                        case "HashSet":
+                            return TypeOptionsEnum.HashSet;
+                        case "ISet":
+                            return TypeOptionsEnum.ISet;
+                        case "IQueryable":
+                            return TypeOptionsEnum.IQueryable;
+                        case "Array":
+                            return TypeOptionsEnum.Array;
+                        case "Custom":
+                            return TypeOptionsEnum.Custom;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsIEnumerable()
+                {
+                    return Value == "IEnumerable";
+                }
+                public bool IsICollection()
+                {
+                    return Value == "ICollection";
+                }
+                public bool IsIList()
+                {
+                    return Value == "IList";
+                }
+                public bool IsIReadOnlyCollection()
+                {
+                    return Value == "IReadOnlyCollection";
+                }
+                public bool IsIReadOnlyList()
+                {
+                    return Value == "IReadOnlyList";
+                }
+                public bool IsList()
+                {
+                    return Value == "List";
+                }
+                public bool IsHashSet()
+                {
+                    return Value == "HashSet";
+                }
+                public bool IsISet()
+                {
+                    return Value == "ISet";
+                }
+                public bool IsIQueryable()
+                {
+                    return Value == "IQueryable";
+                }
+                public bool IsArray()
+                {
+                    return Value == "Array";
+                }
+                public bool IsCustom()
+                {
+                    return Value == "Custom";
+                }
+            }
+
+            public enum TypeOptionsEnum
+            {
+                IEnumerable,
+                ICollection,
+                IList,
+                IReadOnlyCollection,
+                IReadOnlyList,
+                List,
+                HashSet,
+                ISet,
+                IQueryable,
+                Array,
+                Custom
+            }
         }
 
     }

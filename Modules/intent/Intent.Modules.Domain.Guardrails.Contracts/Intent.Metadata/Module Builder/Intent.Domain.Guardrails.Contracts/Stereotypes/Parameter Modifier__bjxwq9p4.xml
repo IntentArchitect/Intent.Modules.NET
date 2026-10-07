@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="ee2c9898-06a4-4931-847e-e6029fb1109c" version="3.1.0">
+  <comment>The C# modifier on this constructor or operation parameter, where the code has one (e.g. ref Order order, out int count, params string[] names).</comment>
+  <name>Parameter Modifier</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">Parameter</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="at" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="4da94f78-64dc-43a7-b398-2b7f3df99c8b">
+      <hint>Must match the code. For params, model the parameter as a collection and set Collection Type to Array.</hint>
+      <name>Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>ref</option>
+        <option>out</option>
+        <option>in</option>
+        <option>ref readonly</option>
+        <option>params</option>
+      </valueOptions>
+    </property>
+  </properties>
+</stereotypeDefinition>

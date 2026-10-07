@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="f58ac38b-545d-4b87-9560-c3430ef415ed" version="3.1.0">
+  <comment>Optional overrides for the file the guardrail contract is merged into. Set only what differs from the convention: Filename when the existing file's name differs from the type name or the file holds several types; Namespace when the file's namespace differs from the one derived from its folders.</comment>
+  <name>File Config</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="b16578a5-27b1-4047-a8df-f0b783d706bd">Service</type>
+    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
+    <type id="e71b0662-e29d-4db2-868b-8a12464b25d0">Query</type>
+    <type id="fee0edca-4aa0-4f77-a524-6bbd84e78734">DTO</type>
+    <type id="85fba0e9-9161-4c85-a603-a229ef312beb">Enum</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="file-code-o" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="c1ae06dd-91ed-4e44-92ca-9384a54fbc59">
+      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. Elements with the same Filename in the same folder are generated into one file.</hint>
+      <name>Filename</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. psMembersDTO</placeholder>
+    </property>
+    <property id="35b47dc5-8c32-4596-9515-0480c0558752">
+      <hint>Optional. Overrides the namespace derived from the element's folders. Every type sharing a file must have the same namespace.</hint>
+      <name>Namespace</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. Basislink.DTO</placeholder>
+    </property>
+    <property id="729b70ca-5559-433b-9cfd-0206dab6b2fd">
+      <hint>Optional. Tick when the type is declared in the global namespace (no namespace declaration in the file). Leave Namespace empty.</hint>
+      <name>No Namespace</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

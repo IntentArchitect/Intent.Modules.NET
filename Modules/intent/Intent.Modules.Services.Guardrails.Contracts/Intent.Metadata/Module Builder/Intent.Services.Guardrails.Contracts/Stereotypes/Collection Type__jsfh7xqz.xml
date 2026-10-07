@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" version="3.1.0">
+  <comment>Overrides the collection type the guardrail contract emits for this collection, where the code doesn't use the template default (List&lt;T&gt;). Ignored when the type isn't a collection.</comment>
+  <name>Collection Type</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="7baed1fd-469b-4980-8fd9-4cefb8331eb2">DTO-Field</type>
+    <type id="00208d20-469d-41cb-8501-768fd5eb796b">Parameter</type>
+    <type id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="list" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="c2d2f207-be03-4dfc-a5c1-995fcb7cce97">
+      <hint>The collection type in the code. Array emits T[]. Custom uses Custom Format.</hint>
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>IEnumerable</option>
+        <option>ICollection</option>
+        <option>IList</option>
+        <option>IReadOnlyCollection</option>
+        <option>IReadOnlyList</option>
+        <option>List</option>
+        <option>HashSet</option>
+        <option>ISet</option>
+        <option>IQueryable</option>
+        <option>Array</option>
+        <option>Custom</option>
+      </valueOptions>
+    </property>
+    <property id="7a58d9ff-2d8d-4adb-84da-c37548b02931">
+      <hint>Used only when Type is Custom. {0} is replaced by the element type. Use the fully qualified type name so the right using is added.</hint>
+      <name>Custom Format</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. System.Collections.ObjectModel.ObservableCollection&lt;{0}&gt;</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

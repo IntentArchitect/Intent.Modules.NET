@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Services.Guardrails.Contracts.Api;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,13 +25,13 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.QueryContract
         {
             this.AddContractTypeSources();
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
-                .IntentManagedMerge()
-                .AddContractType(Model.GetContractTypeKind(), Model.Name, @class =>
-                {
-                    @class.RepresentsModel(Model);
-                    @class.AddContractProperties(this, Model.Properties);
-                });
+            var fileConfig = Model.GetFileConfig();
+            CSharpFile = new CSharpFile(this.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true), this.GetFolderPath(), this)
+                .IntentManagedMerge();
+
+            ContractTypeBuilders.AddQuery(CSharpFile, this, Model);
+            CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());
+            this.RegisterContractFileGroup();
         }
 
         [IntentManaged(Mode.Fully)]

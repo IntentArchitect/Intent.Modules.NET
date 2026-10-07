@@ -101,8 +101,16 @@ Save the Codebase Structure designer (`saveOnSuccess: true` on a no-op script) o
 
 Create one designer `Folder` per code folder **below** the template output (e.g. `Customers`, `Orders`), so that `GetFolderPath()` reproduces the path. Put types whose file sits directly in the output folder at the package root. Then build it in phases (enums → value objects → classes → associations → repositories), one script per area, verifying `errors[]` each time:
 
+- **Files that don't follow the convention:** each element is written to `<ElementName>.cs` in its folder's namespace. Apply the **`File Config`** stereotype only where the code differs, and set only the property you need; both are optional.
+  - **Namespace doesn't follow the folders:** set `Namespace` to the file's exact namespace. Every type that shares a file needs the same `Namespace`.
+  - **No namespace in the file** (types declared in the global namespace): tick `No Namespace` and leave `Namespace` empty.
+  - **File named differently from its type:** set `Filename` to the file's name, with or without `.cs` (the folder stays the element's own).
+  - **File holding several types:** model every type as its own element in that file's folder, and set `Filename` to the file's name on each type the file is *not* named after. Elements that end up at the same path are generated into one file, written by the element the file is named after.
+  - **Set it before the first SF run.** If a type already had its own file generated and you then point it at another file, the SF offers to delete the old file. Treat that as a destructive change.
 - **Delete placeholders** such as a default `MyEntity` if the code doesn't have them.
 - **Attributes:** use the exact names and types (`string`, `guid`, `datetime`, `decimal`, `long`, `binary`, enums). Set `isNullable` for `T?`. Do **not** model collections of entities as attributes; use associations.
+- **Collections:** the template emits `ICollection<T>` for properties and `IEnumerable<T>` for operation parameters and return types. Wherever the code uses anything else (`List<T>`, `IList<T>`, `IReadOnlyCollection<T>`, `IQueryable<T>`, `T[]`, …), apply the **`Collection Type`** stereotype to that attribute, association end, parameter or operation (for its return type) and set `Type` to match (`Custom` + `Custom Format` with `{0}` for anything else). Otherwise Merge mode rewrites the existing signature.
+- **Parameter modifiers:** where a constructor or operation parameter is declared `ref`, `out`, `in`, `ref readonly` or `params`, apply the **`Parameter Modifier`** stereotype and set `Modifier` to match (for `params`, also set `Collection Type = Array`). Otherwise Merge mode drops the modifier from the existing signature. An extension method (`this` parameter) can't be reproduced; leave it unmodelled and report it.
 - **Value objects:** model them as `Value Object` elements, used as attribute types on the owner (e.g. `DeliveryAddress: AddressSnapshot?`).
 - **Associations:** always set both multiplicities and the target navigation name to the code's property name.
   - Composition (owned, `OwnsOne` / `OwnsMany`, or a cascade-owned 1:1): `sourceMultiplicity: "1"`.
@@ -200,7 +208,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - possibly the merge directive
    - plus one `PackageReference Intent.RoslynWeaver.Attributes` per csproj.
 2. **Diagnose anything else:**
-   - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name. Never apply it.
+   - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
    - **A changed signature on a modelled operation** (`async` added or removed, a `CancellationToken` appended or dropped, the return type wrapped in `Task<…>`) means the async rule didn't match the code. Set `Async Configuration` on that operation (§3 "Async operations"). If its shape can't be reproduced, remove the operation from the model. Never hand-edit the signature.
    - **Deleted or changed lines** mean drift. Use **resolve-destructive-changes**. Never apply destructive changes.

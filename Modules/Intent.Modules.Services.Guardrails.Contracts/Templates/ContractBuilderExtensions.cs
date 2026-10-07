@@ -57,7 +57,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         {
             foreach (var field in fields)
             {
-                @class.AddProperty(template.GetTypeName(field.TypeReference), field.Name, property =>
+                @class.AddProperty(template.GetContractTypeName(field), field.Name, property =>
                 {
                     property.RepresentsModel(field);
                 });
@@ -74,7 +74,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             {
                 var isAsync = operation.IsAsync();
                 var returnType = CSharpTypeParser.Parse(operation.TypeReference?.Element != null
-                    ? template.GetTypeName(operation.TypeReference)
+                    ? template.GetContractTypeName(operation)
                     : "void");
 
                 if (isAsync && !returnType.IsTask() && !returnType.IsValueTask())
@@ -93,9 +93,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 
                     foreach (var parameter in operation.Parameters)
                     {
-                        method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name, param =>
+                        var modifier = parameter.GetModifier();
+                        method.AddParameter(template.GetContractTypeName(parameter).WithModifierPrefix(modifier), parameter.Name, param =>
                         {
                             param.RepresentsModel(parameter);
+                            param.ApplyModifier(modifier);
                         });
                     }
 
@@ -111,7 +113,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     // to keep async/await implementations compiling.
                     if (isAsync)
                     {
-                        method.Async();
+                        // Async() with no argument converts a ValueTask return type to Task; keep a modelled ValueTask as is.
+                        method.Async(asValueTask: returnType.IsValueTask());
                     }
                 });
             }

@@ -35,23 +35,23 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 
         // Names are always passed as strings: the builder's model overloads (e.g. AddProperty(type, model)) Pascal-case
         // the name, and contracts must keep the codebase's own casing exactly as modelled in the designer.
-        public static void AddContractProperties<TModel>(this CSharpClass @class, CSharpTemplateBase<TModel> template, IEnumerable<AttributeModel> attributes)
+        public static void AddContractProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<AttributeModel> attributes)
         {
             foreach (var attribute in attributes)
             {
-                @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name, property => property.RepresentsModel(attribute));
+                @class.AddProperty(template.GetPropertyTypeName(attribute.TypeReference, attribute.GetCollectionFormat()), attribute.Name, property => property.RepresentsModel(attribute));
             }
         }
 
-        public static void AddContractNavigationProperties<TModel>(this CSharpClass @class, CSharpTemplateBase<TModel> template, IEnumerable<AssociationEndModel> associationEnds)
+        public static void AddContractNavigationProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<AssociationEndModel> associationEnds)
         {
             foreach (var associationEnd in associationEnds.Where(x => x.IsNavigable))
             {
-                @class.AddProperty(template.GetTypeName(associationEnd), associationEnd.Name, property => property.RepresentsModel(associationEnd));
+                @class.AddProperty(template.GetPropertyTypeName(associationEnd, associationEnd.GetCollectionFormat()), associationEnd.Name, property => property.RepresentsModel(associationEnd));
             }
         }
 
-        public static void AddStubbedConstructors<TModel>(this CSharpClass @class, CSharpTemplateBase<TModel> template, IEnumerable<ClassConstructorModel> constructors)
+        public static void AddStubbedConstructors(this CSharpClass @class, ICSharpTemplate template, IEnumerable<ClassConstructorModel> constructors)
         {
             foreach (var constructor in constructors)
             {
@@ -60,7 +60,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     ctor.RepresentsModel(constructor);
                     foreach (var parameter in constructor.Parameters)
                     {
-                        ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference), parameter.Name, param =>
+                        ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(parameter.GetModifier(), isConstructorParameter: true), parameter.Name, param =>
                         {
                             param.RepresentsModel(parameter);
                             if (!string.IsNullOrWhiteSpace(parameter.Value))
@@ -73,7 +73,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
         }
 
-        public static void AddStubbedMethods<TModel>(this CSharpClass @class, CSharpTemplateBase<TModel> template, IEnumerable<OperationModel> operations)
+        public static void AddStubbedMethods(this CSharpClass @class, ICSharpTemplate template, IEnumerable<OperationModel> operations)
         {
             foreach (var operation in operations)
             {
@@ -92,9 +92,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 
                     foreach (var parameter in operation.Parameters)
                     {
-                        method.AddParameter(template.GetOperationTypeName(parameter.TypeReference), parameter.Name, param =>
+                        var modifier = parameter.GetModifier();
+                        method.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(modifier, isConstructorParameter: false), parameter.Name, param =>
                         {
                             param.RepresentsModel(parameter);
+                            param.ApplyModifier(modifier);
                             if (!string.IsNullOrWhiteSpace(parameter.Value))
                             {
                                 param.WithDefaultValue(parameter.Value);
@@ -122,7 +124,15 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     // to keep async/await implementations compiling.
                     if (operation.IsAsync())
                     {
-                        method.Async();
+                        // Async() with no argument converts a ValueTask return type to Task; keep a modelled ValueTask as is.
+                        if (method.ReturnTypeInfo.IsValueTask())
+                        {
+                            method.Async(asValueTask: true);
+                        }
+                        else
+                        {
+                            method.Async();
+                        }
                     }
                 });
             }
@@ -151,12 +161,12 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             return new CommonTypesOperationModel(operation.InternalElement).GetAsyncConfiguration();
         }
 
-        private static string GetOperationReturnType<TModel>(this CSharpTemplateBase<TModel> template, OperationModel operation)
+        private static string GetOperationReturnType(this ICSharpTemplate template, OperationModel operation)
         {
             var hasReturnType = operation.TypeReference?.Element != null;
             if (!operation.IsAsync())
             {
-                return hasReturnType ? template.GetOperationTypeName(operation.TypeReference) : "void";
+                return hasReturnType ? template.GetOperationTypeName(operation.TypeReference, operation.GetCollectionFormat()) : "void";
             }
 
             if (!hasReturnType)
@@ -165,7 +175,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
 
             // A return type already modelled as Task / Task<T> / ValueTask / ValueTask<T> is not wrapped again.
-            var returnType = template.GetOperationTypeName(operation.TypeReference);
+            var returnType = template.GetOperationTypeName(operation.TypeReference, operation.GetCollectionFormat());
             return IsAwaitableType(returnType)
                 ? returnType
                 : $"{template.UseType("System.Threading.Tasks.Task")}<{returnType}>";
@@ -181,11 +191,24 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Operation parameters and return types format collections as <c>IEnumerable&lt;T&gt;</c>, mirroring Intent.Entities.
+        /// Properties format collections with the template default (<c>ICollection&lt;T&gt;</c>) unless a Collection Type
+        /// stereotype supplied <paramref name="collectionFormat"/> (see <see cref="ContractCollectionTypes"/>).
         /// </summary>
-        private static string GetOperationTypeName<TModel>(this CSharpTemplateBase<TModel> template, ITypeReference typeReference)
+        private static string GetPropertyTypeName(this ICSharpTemplate template, ITypeReference typeReference, string collectionFormat)
         {
-            return template.GetTypeName(typeReference, template.UseType(OperationCollectionFormat));
+            return collectionFormat == null
+                ? template.GetTypeName(typeReference)
+                : template.GetTypeName(typeReference, template.UseType(collectionFormat));
+        }
+
+        /// <summary>
+        /// Operation parameters and return types format collections as <c>IEnumerable&lt;T&gt;</c>, mirroring Intent.Entities,
+        /// unless a Collection Type stereotype supplied <paramref name="collectionFormat"/> (see <see cref="ContractCollectionTypes"/>).
+        /// UseType adds the format's using; a format with no namespace (e.g. <c>{0}[]</c>) passes through unchanged.
+        /// </summary>
+        private static string GetOperationTypeName(this ICSharpTemplate template, ITypeReference typeReference, string collectionFormat)
+        {
+            return template.GetTypeName(typeReference, template.UseType(collectionFormat ?? OperationCollectionFormat));
         }
     }
 }

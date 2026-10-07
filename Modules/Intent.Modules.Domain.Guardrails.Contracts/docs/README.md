@@ -34,6 +34,36 @@ Every template except EnumContract emits a `class` by default. Apply **Type Conf
 - A record can only inherit from a record, and a class cannot inherit from a record. A mismatch between an element and its base type raises an error on the element.
 - Structs are not supported, because Intent's C# file builder can't declare them.
 
+## File Config stereotype
+
+Each element is generated into `<ElementName>.cs` in its folder, with the namespace derived from its folders. Apply **File Config** to a Class, Value Object, Repository, Data Contract, Domain Service or Enum only where the code differs. Both properties are optional; set just the one you need.
+
+- **Namespace:** replaces the derived namespace, for a file whose namespace doesn't follow its folders. It is used as given, with no casing changes, and references to the type get the matching `using`.
+- **No Namespace:** tick it for a type declared in the global namespace (no `namespace` declaration in the file). Leave Namespace empty; setting both is an error. References to the type need no `using`.
+- **Filename** (with or without `.cs`; a file name only, as the folder stays the element's own):
+  - **File named differently from its type**, e.g. `orderEntity.cs` holds `Order`: set `Filename = orderEntity`.
+  - **File holding several types:** give each type that isn't the file's namesake the file's name. All contract elements that end up at the same path are generated into one file. The element whose name matches the file name writes it (otherwise the first by name), and the other elements' templates write no file of their own. References to every type in the file still resolve.
+- **Shared files and namespaces:** every type in one file must end up with the same namespace. If the file's namespace isn't the derived one, give each of its types the same Namespace.
+- **Changing it later:** if a type already had its own generated file and you then point it at another file, or change its Filename, the Software Factory offers to delete the old file. Review that before applying.
+- **Invalid values:** a Filename with a folder in it or invalid file-name characters, or a Namespace that isn't a valid C# namespace, raises an error on the element.
+
+## Collection Type stereotype
+
+By default, collection properties are generated as `ICollection<T>`, and operation parameters and return types as `IEnumerable<T>`. Where the code uses a different collection, apply **Collection Type** to the attribute, the association end (navigation property), the constructor or operation parameter, or the operation itself (its return type), and choose the **Type**:
+
+| Type | Emits |
+|---|---|
+| IEnumerable, ICollection, IList, IReadOnlyCollection, IReadOnlyList, List, HashSet, ISet | `IEnumerable<T>`, `ICollection<T>`, … (`System.Collections.Generic`) |
+| IQueryable | `IQueryable<T>` (`System.Linq`) |
+| Array | `T[]` |
+| Custom | **Custom Format**, with `{0}` for the element type, e.g. `System.Collections.ObjectModel.ObservableCollection<{0}>` |
+
+The Type must match the code. Under Merge mode, the generated signature replaces the existing one, so a wrong collection type rewrites the member. On an async operation the return type is wrapped after the collection is applied, giving `Task<IEnumerable<T>>`. The stereotype is ignored on a type that isn't a collection.
+
+## Parameter Modifier stereotype
+
+Apply **Parameter Modifier** to a constructor or operation parameter where the code declares a modifier, and set **Modifier** to `ref`, `out`, `in`, `ref readonly` or `params`. It must match the code: under Merge mode the generated signature replaces the existing one, so a missing or wrong modifier rewrites the method. For `params`, model the parameter as a collection and set Collection Type to `Array` (`params string[] tags`). `this` (extension methods) is not supported.
+
 ## Generated shape
 
 ```csharp
@@ -66,7 +96,7 @@ When merged into an existing file under `Mode.Merge`:
 ## Conventions
 
 - Every name is used exactly as it appears in the designer, with no casing changes: types, properties, navigation properties, constructors, methods, parameters, enum literals and namespaces. `OrderRepository` stays `OrderRepository` (no interface or `I` prefix is generated), and a property modelled as `orderDate` stays `orderDate`. The designer mirrors the code, so its casing is the codebase's own convention.
-- Collections are `ICollection<T>` on properties and `IEnumerable<T>` on operation parameters and return types.
+- Collections are `ICollection<T>` on properties and `IEnumerable<T>` on operation parameters and return types, unless Collection Type says otherwise.
 - An operation is async when its name ends in `Async`, unless the **Async Configuration** stereotype says otherwise. An async operation gets the `async` keyword, a `Task` or `Task<T>` return type (a modelled `Task`/`ValueTask` is not wrapped again) and a `CancellationToken cancellationToken = default` parameter. On the stereotype, **Is Async** explicitly sets async or sync, and **Include Cancellation Token** turns the extra parameter off. Abstract operations never get `async`. A new async method's empty body has no `await`, so the compiler warns (CS1998).
 - Types modelled in the Domain designer resolve through this module's roles, so the right `using`s are added across folders and projects.
 - Consumer projects need the `Intent.RoslynWeaver.Attributes` NuGet package.

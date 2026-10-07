@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Services.Guardrails.Contracts.Api;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,16 +25,13 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.EnumContract
         {
             this.AddContractTypeSources();
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
-                .IntentManagedMerge()
-                .AddEnum(Model.Name, @enum =>
-                {
-                    // No RepresentsModel here: Intent.Modules.Common.CSharp (3.10.5-3.10.11) throws for CSharpEnum and CSharpEnumLiteral.
-                    foreach (var literal in Model.Literals)
-                    {
-                        @enum.AddLiteral(literal.Name, string.IsNullOrWhiteSpace(literal.Value) ? null : literal.Value);
-                    }
-                });
+            var fileConfig = Model.GetFileConfig();
+            CSharpFile = new CSharpFile(this.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true), this.GetFolderPath(), this)
+                .IntentManagedMerge();
+
+            ContractTypeBuilders.AddEnum(CSharpFile, Model);
+            CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());
+            this.RegisterContractFileGroup();
         }
 
         [IntentManaged(Mode.Fully)]

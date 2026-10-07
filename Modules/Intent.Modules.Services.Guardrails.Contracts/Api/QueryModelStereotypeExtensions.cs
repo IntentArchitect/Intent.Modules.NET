@@ -13,6 +13,29 @@ namespace Intent.Services.Guardrails.Contracts.Api
 {
     public static class QueryModelStereotypeExtensions
     {
+        public static FileConfig GetFileConfig(this QueryModel model)
+        {
+            var stereotype = model.GetStereotype(FileConfig.DefinitionId);
+            return stereotype != null ? new FileConfig(stereotype) : null;
+        }
+
+
+        public static bool HasFileConfig(this QueryModel model)
+        {
+            return model.HasStereotype(FileConfig.DefinitionId);
+        }
+
+        public static bool TryGetFileConfig(this QueryModel model, out FileConfig stereotype)
+        {
+            if (!HasFileConfig(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new FileConfig(model.GetStereotype(FileConfig.DefinitionId));
+            return true;
+        }
         public static TypeConfiguration GetTypeConfiguration(this QueryModel model)
         {
             var stereotype = model.GetStereotype(TypeConfiguration.DefinitionId);
@@ -35,6 +58,35 @@ namespace Intent.Services.Guardrails.Contracts.Api
 
             stereotype = new TypeConfiguration(model.GetStereotype(TypeConfiguration.DefinitionId));
             return true;
+        }
+
+        public class FileConfig
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "f58ac38b-545d-4b87-9560-c3430ef415ed";
+
+            public FileConfig(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string Filename()
+            {
+                return _stereotype.GetProperty<string>("Filename");
+            }
+
+            public string Namespace()
+            {
+                return _stereotype.GetProperty<string>("Namespace");
+            }
+
+            public bool NoNamespace()
+            {
+                return _stereotype.GetProperty<bool>("No Namespace");
+            }
+
         }
 
         public class TypeConfiguration

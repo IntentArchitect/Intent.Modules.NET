@@ -90,8 +90,17 @@ Move the Services Guardrails Template Outputs (CommandContract, QueryContract, D
    - **If one or more exist,** use the existing package and don't create another. If several exist, ask which one to use.
    - **References:** add package references for the Domain package, `Intent.Common.Types` (primitive types), and `Intent.Modelers.Services.Pagination` (`PagedResult<TData>`) when the code pages.
 2. **Folders mirror the code exactly.** The Guardrails templates do **not** add a per-use-case sub-folder. If the code is `Customers/AddAddress/AddAddressCommand.cs`, model folder `Customers/AddAddress` and put the command inside. DTOs that sit in `Customers/` go in the `Customers` folder.
+   - **Files that don't follow the convention:** each element is written to `<ElementName>.cs` in its folder's namespace. Apply the **`File Config`** stereotype only where the code differs, and set only the property you need; both are optional.
+     - **Namespace doesn't follow the folders:** set `Namespace` to the file's exact namespace. Every type that shares a file needs the same `Namespace`.
+     - **No namespace in the file** (types declared in the global namespace): tick `No Namespace` and leave `Namespace` empty.
+     - **File name differs, or the file holds several types:** set `Filename` (the file name only, with or without `.cs`; the folder stays the element's own), as below.
+     - **File named differently from its type** (e.g. `psMembersDTO.cs` holds `PsMembersDTO`): apply `File Config` with `Filename = psMembersDTO`.
+     - **File holding several types:** model every type as its own element in that file's folder, and apply `File Config` with the file's name to each type the file is *not* named after. Elements that end up at the same path are generated into one file, written by the element the file is named after.
+     - **Set it before the first SF run.** If a type already had its own file generated and you then point it at another file, the SF offers to delete the old file. Treat that as a destructive change: don't apply it unless the old file is a duplicate.
 3. **DTOs first** (dependency order), then commands and queries:
    - **Fields:** one `DTO-Field` per property, with exact names and types. `isNullable` for `T?`, `isCollection` for lists (never `List<…>` as a type name), and `setValue("1")` for parameter defaults.
+   - **Collections:** the template emits `List<T>`. Wherever the code uses anything else (`IEnumerable<T>`, `IList<T>`, `IQueryable<T>`, `T[]`, …), apply the **`Collection Type`** stereotype to that field, service operation parameter or service operation (for its return type) and set `Type` to match (`Custom` + `Custom Format` with `{0}` for anything else). Otherwise Merge mode rewrites the existing signature.
+   - **Parameter modifiers:** where a service operation parameter is declared `ref`, `out`, `in`, `ref readonly` or `params`, apply the **`Parameter Modifier`** stereotype and set `Modifier` to match (for `params`, also set `Collection Type = Array`). Otherwise Merge mode drops the modifier from the existing signature. An extension method (`this` parameter) can't be reproduced; leave it unmodelled and report it.
    - **Return type:**
      - Plain type: `setType("guid")` or `setType("CustomerDetailDto")`.
      - Paged: `setType("PagedResult<CustomerSummaryDto>")`.
@@ -150,7 +159,7 @@ Create a `Diagram` in the package if none exists:
 Same as **reverse-engineer-domain** §6:
 
 1. **Every change must be header-only.** Expect `using` + `IntentTemplate`, the merge directive, and the csproj package reference.
-2. **Diagnose anything else:** `create` means a path or name mismatch. Member inserts mean model drift. Deletes mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong.
+2. **Diagnose anything else:** `create` means a path or name mismatch, or a type that lives in another file without `File Config` (§3). Member inserts mean model drift. Deletes mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong.
 3. **Merge directive:** every adopted file needs `[assembly: DefaultIntentManaged(Mode.Merge)]`, plain form. Add it if the template didn't, **before** the next model change. Otherwise the SF strips `[Authorize]`, `IRequest<T>, ICommand` base types, XML docs and constructors.
 4. **Apply** the reviewed files only.
 5. **Finish with:** `dotnet build`, tests, and a final SF run proposing **zero** changes.

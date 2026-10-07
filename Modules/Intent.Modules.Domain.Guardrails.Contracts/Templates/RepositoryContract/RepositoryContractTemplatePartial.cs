@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Domain.Guardrails.Contracts.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
@@ -23,15 +24,14 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates.RepositoryContrac
         public RepositoryContractTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
             this.ConfigureContractTypeResolution();
-            var kind = Model.GetContractTypeKind();
+            var fileConfig = Model.GetFileConfig();
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .IntentManagedMerge()
-                .AddContractType(Model.InternalElement, Model.Name, kind, @class =>
-                {
-                    @class.RepresentsModel(Model);
-                    @class.AddStubbedMethods(this, Model.Operations);
-                });
+            CSharpFile = new CSharpFile(ContractFileGroups.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true, this.GetNamespace()), this.GetFolderPath(), this)
+                .IntentManagedMerge();
+
+            ContractTypeBuilders.AddRepository(CSharpFile, this, Model);
+            CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());
+            this.RegisterContractFileGroup();
         }
 
         [IntentManaged(Mode.Fully)]

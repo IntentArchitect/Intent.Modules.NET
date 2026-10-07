@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Domain.Guardrails.Contracts.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -23,34 +24,14 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates.EntityContract
         public EntityContractTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             this.ConfigureContractTypeResolution();
-            var kind = Model.GetContractTypeKind();
+            var fileConfig = Model.GetFileConfig();
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .IntentManagedMerge()
-                .AddContractType(Model.InternalElement, Model.Name, kind, @class =>
-                {
-                    @class.RepresentsModel(Model);
-                    foreach (var genericType in Model.GenericTypes)
-                    {
-                        @class.AddGenericParameter(genericType);
-                    }
+            CSharpFile = new CSharpFile(ContractFileGroups.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true, this.GetNamespace()), this.GetFolderPath(), this)
+                .IntentManagedMerge();
 
-                    if (Model.IsAbstract)
-                    {
-                        @class.Abstract();
-                    }
-
-                    if (Model.ParentClassTypeReference != null)
-                    {
-                        @class.WithBaseType(GetTypeName(Model.ParentClassTypeReference));
-                    }
-
-                    @class.AddContractProperties(this, Model.Attributes);
-                    @class.AddContractNavigationProperties(this, Model.AssociatedClasses);
-                    @class.AddStubbedConstructors(this, Model.Constructors);
-                    @class.AddStubbedMethods(this, Model.Operations);
-                },
-                baseKind: Model.ParentClass?.GetContractTypeKind());
+            ContractTypeBuilders.AddEntity(CSharpFile, this, Model);
+            CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());
+            this.RegisterContractFileGroup();
         }
 
         [IntentManaged(Mode.Fully)]
