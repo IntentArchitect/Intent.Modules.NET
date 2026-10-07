@@ -27,7 +27,6 @@
   <file path="AzureFunctions.AppSettings.Api/TriggerAppSettingsService/RunSchedule.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
   <file path="AzureFunctions.AppSettings.Api/host.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.HostJson" />
   <file path="AzureFunctions.AppSettings.Api/local.settings.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" />
-  <file path="AzureFunctions.AppSettings.Application.UnitTests/AzureFunctions.AppSettings.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AzureFunctions.AppSettings.Application/AzureFunctions.AppSettings.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AzureFunctions.AppSettings.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="AzureFunctions.AppSettings.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />

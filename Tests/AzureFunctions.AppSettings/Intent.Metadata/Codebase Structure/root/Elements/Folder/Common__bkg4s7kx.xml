@@ -2,5 +2,18 @@
 <class id="46d9d698-349e-4712-b7d2-5e21e8736db2" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
   <name>Common</name>
   <display>Common</display>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>58ec27ee-1d4b-494b-b0d7-157f72333d9c</parentFolderId>
+  <packageId>fff9853b-fb74-4809-a2ba-562cba951891</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
 </class>
