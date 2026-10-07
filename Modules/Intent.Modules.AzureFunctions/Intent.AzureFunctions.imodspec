@@ -104,7 +104,7 @@
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="20b1fcbd-0a02-4bc6-993d-4127e1e3c893" title="Trigger Names From App Settings" type="switch">
-          <hint>Emit trigger names as %AppSetting% references instead of literal values.</hint>
+          <hint>Emits trigger queue, topic, subscription, event hub, Cosmos DB database/container and timer schedule values as %AzureFunctions:{FunctionName}:{Part}% app setting references, seeded with the modelled values into local.settings.json only. That file is not deployed, so add the same keys to the Function App's configuration.</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>

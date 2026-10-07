@@ -2,6 +2,7 @@
 
 - Improvement: Service Bus triggered Azure Functions can now consume from a topic subscription via the new optional `Subscription Name` property on the `Azure Function` stereotype.
 - Improvement: New opt-in `Trigger Names From App Settings` setting emits trigger queue, topic, subscription, event hub, Cosmos DB database/container and timer schedule values as app setting references, seeded into `local.settings.json`.
+- Improvement: AI Context added to the Services designer describing how to apply the `Azure Function` stereotype (per-trigger properties, payload rules, HTTP route prefix and app-setting behaviour).
 
 ### Version 5.0.26
 

@@ -16,6 +16,8 @@ Lets Services designer elements (Operations, Commands, Queries, Azure Function e
 - **The setting was renamed before release.** It shipped in no published version as `Service Bus Trigger Names From App Settings`; the id (`20b1fcbd-…`) is unchanged, so nothing migrates.
 - **Service Bus triggers on service operations are not registered with the shared Azure Service Bus IaC registry** (`Intent.Modules.Integration.IaC.Shared.AzureServiceBus`). Only Eventing-designer subscriptions handled by `Intent.AzureFunctions.AzureServiceBus` are, so IaC templates do not provision the queues and topics modelled here.
 
+- **AI guidance for the `Azure Function` stereotype lives in the `AI Settings` stereotype on the `Azure Functions Types` Designer Settings.** `AI Settings` cannot target a stereotype definition, only designer/element/package settings and extensions, so it is attached once to the Designer Settings that extends the Services designer (the same placement Intent.Metadata.WebApi uses for `Http Settings`). Keep it in one place rather than splitting across the CQRS and Services extension Designer Settings. It restates behaviour enforced elsewhere (property `isActive`/`isRequired` functions, the extensions' On Changed handlers, the trigger strategies' parameter checks), so a change to any of those must be reflected in the rules text.
+
 ## Module Interactions
 
 - **Intent.AzureFunctions.Dispatch.Services / Dispatch.MediatR** — implement `IAzureFunctionModel` for Operations and Commands/Queries respectively; see the compatibility decision above.
