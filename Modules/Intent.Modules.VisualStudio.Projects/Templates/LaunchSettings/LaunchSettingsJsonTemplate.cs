@@ -14,6 +14,8 @@ using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
 using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -192,7 +194,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             _randomPort = new Random().Next(56600, 65535);
             _randomSslPort = new Random().Next(44300, 44399);
 
-            if (!TryGetExistingFileContent(out var content))
+            if (!TryGetExistingFileContent(out var content) || string.IsNullOrWhiteSpace(content))
             {
                 if (!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
                 {
@@ -205,24 +207,48 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 return;
             }
 
-            var launchSettingsParsed = LaunchSettings.FromJson(content);
-            
-            SetBaseUrlSteroetypeValue(launchSettingsParsed?.Profiles?.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Value.ApplicationUrl)).Value?.ApplicationUrl);
+            // Read as a JSON tree rather than the typed LaunchSettings classes, which throw on values they
+            // don't model (e.g. an unrecognized commandName).
+            var launchSettings = ParseExistingFile(content);
 
-            var iisExpress = launchSettingsParsed.IisSettings?.IisExpress;
-            if (iisExpress?.ApplicationUrl == null ||
-                !iisExpress.SslPort.HasValue)
+            var profiles = (launchSettings["profiles"] as JObject)?.PropertyValues().OfType<JObject>() ?? [];
+            SetBaseUrlSteroetypeValue(profiles
+                .Select(profile => GetString(profile, "applicationUrl"))
+                .FirstOrDefault(applicationUrl => !string.IsNullOrWhiteSpace(applicationUrl)));
+
+            var iisExpress = (launchSettings["iisSettings"] as JObject)?["iisExpress"] as JObject;
+            if (!Uri.TryCreate(GetString(iisExpress, "applicationUrl"), UriKind.Absolute, out var iisExpressApplicationUrl) ||
+                iisExpress?["sslPort"] is not JValue { Type: JTokenType.Integer } sslPort)
             {
                 return;
             }
 
-            _randomPort = iisExpress.ApplicationUrl.Scheme == Uri.UriSchemeHttps ? _randomPort : iisExpress.ApplicationUrl.Port;
-            _randomSslPort = iisExpress.SslPort.Value;
+            _randomPort = iisExpressApplicationUrl.Scheme == Uri.UriSchemeHttps ? _randomPort : iisExpressApplicationUrl.Port;
+            _randomSslPort = (int)sslPort;
 
             ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
-                applicationUrl: iisExpress.ApplicationUrl.ToString(),
+                applicationUrl: iisExpressApplicationUrl.ToString(),
                 port: _randomPort,
                 sslPort: _randomSslPort));
+        }
+
+        private JObject ParseExistingFile(string content)
+        {
+            try
+            {
+                return LaunchSettingsMerger.Parse(content);
+            }
+            catch (JsonReaderException e)
+            {
+                throw new FriendlyException(
+                    $"The existing launchSettings.json at {GetMetadata().GetFilePath()} could not be parsed: {e.Message} " +
+                    "Correct the JSON, or delete the file to have it regenerated.");
+            }
+        }
+
+        private static string GetString(JObject jObject, string propertyName)
+        {
+            return (jObject?[propertyName] as JValue)?.Value as string;
         }
 
         private void SetBaseUrlSteroetypeValue(string baseUrl)
@@ -242,7 +268,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 .Where(d => d.Id == Designers.VisualStudioId)
                 .SelectMany(d => d.GetPackages())
                 .SelectMany(p => p.GetElementsOfType(ASPNETCoreWebApplicationModel.SpecializationTypeId)
-                                  .Concat(p.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)));
+                    .Concat(p.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)));
 
             var project = projects.FirstOrDefault(p => p.Id == targetProject.Id);
 
@@ -279,95 +305,27 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public override string TransformText()
         {
-            var launchSettings = TryGetExistingFileContent(out var content)
-                ? LaunchSettings.FromJson(content)
-                : GetDefaultLaunchSettings();
-
-            foreach (var (key, profile) in Profiles)
-            {
-                launchSettings.Profiles ??= new Dictionary<string, Profile>();
-                launchSettings.Profiles.TryAdd(key, profile);
-            }
-
-            if (_launchProfileHttpPortRequired)
-            {
-                foreach (var profile in launchSettings.Profiles.Values)
-                {
-                    var split = profile.ApplicationUrl?.Split(';');
-                    if (split?.Length != 1 ||
-                        !split[0].StartsWith("https://", StringComparison.OrdinalIgnoreCase))
-                    {
-                        continue;
-                    }
-
-                    profile.ApplicationUrl = string.Join(";", split.Append($"http://localhost:{_randomPort}"));
-                }
-            }
-
-            //Ensure the API profile ends in /swagger or /scalar/v1 esp. if you swap modules.
-            // We dont have a way to know which profiles are for WebApI vs which are for the WebApp for example.
-            foreach (var kvp in launchSettings.Profiles)
-            {
-                var key = kvp.Key;
-                var profile = kvp.Value;
-                if (!key.EndsWith(".Api"))
-                {
-                    continue;
-                }
-                if (!string.IsNullOrWhiteSpace(_defaultLaunchUrlPath) && !profile.LaunchUrl.Contains(_defaultLaunchUrlPath))
-                {
-                    string newPath = _defaultLaunchUrlPath;
-                    if (!newPath.StartsWith("/"))
-                        newPath = "/" + newPath;
-
-                    var uri = new Uri(profile.LaunchUrl);
-
-                    // Build the new URL with the same scheme, host, and port
-                    var builder = new UriBuilder(uri)
-                    {
-                        Path = newPath,
-                        Query = string.Empty // clear any query params if present
-                    };
-                    profile.LaunchUrl = builder.Uri.ToString();
-                }
-            }
-
-            if (IsMicrosoftNETSdkWorker())
+            var environmentVariables = new List<EnvironmentVariableRegistrationRequest>
             {
                 // In case has not been set through an event, sets this be default.
-                _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
-                    "DOTNET_ENVIRONMENT", "Development", new[] { Project.Name }));
-            }
-            else
-            {
-                // In case has not been set through an event, sets this be default.
-                _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
-                    "ASPNETCORE_ENVIRONMENT", "Development",
-                    new[]
-                    {
-                        "IIS Express",
-                        Project.Name
-                    }));
-            }
-            foreach (var environmentVariable in _environmentVariables)
-            {
-                var keys = environmentVariable.TargetProfiles ??= launchSettings.Profiles.Keys;
-                foreach (var key in keys)
-                {
-                    if (!launchSettings.Profiles.TryGetValue(key, out var profile))
-                    {
-                        continue;
-                    }
+                IsMicrosoftNETSdkWorker()
+                ? new EnvironmentVariableRegistrationRequest("DOTNET_ENVIRONMENT", "Development", new[] { Project.Name })
+                : new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new[] { "IIS Express", Project.Name })
+            };
+            environmentVariables.AddRange(_environmentVariables);
 
-                    profile.EnvironmentVariables ??= new Dictionary<string, string>();
-                    if (!profile.EnvironmentVariables.ContainsKey(environmentVariable.Key))
-                    {
-                        profile.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value as string;
-                    }
-                }
-            }
+            var registrations = new LaunchSettingsRegistrations(
+                Profiles: Profiles,
+                EnvironmentVariables: environmentVariables,
+                HttpPortRequired: _launchProfileHttpPortRequired,
+                HttpPort: _randomPort,
+                DefaultLaunchUrlPath: _defaultLaunchUrlPath);
 
-            return launchSettings.ToJson();
+            // An existing file is only ever added to, never rewritten - see LaunchSettingsMerger
+            return LaunchSettingsMerger.Merge(
+                existingContent: TryGetExistingFileContent(out var content) ? content : null,
+                createDefaultLaunchSettings: GetDefaultLaunchSettings,
+                registrations: registrations);
         }
 
         private bool IsMicrosoftNETSdkWorker()
@@ -378,9 +336,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private bool IsMicrosoftNETSdkWithLaunchSettingGeneration()
         {
             return _model is not null && 
-                   _model.HasNETSettings() && 
-                   _model.GetNETSettings().SDK().IsMicrosoftNETSdk() &&
-                   _model.GetNETSettings().GenerateLaunchSettingsFile();
+                _model.HasNETSettings() && 
+                _model.GetNETSettings().SDK().IsMicrosoftNETSdk() &&
+                _model.GetNETSettings().GenerateLaunchSettingsFile();
         }
 
         private LaunchSettings GetDefaultLaunchSettings()
@@ -405,12 +363,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 Profiles = new Dictionary<string, Profile>
                 {
                     [Project.Name] = Profiles.ContainsKey(Project.Name) ?
-                        ReplacePorts(Profiles[Project.Name])
-                        : new()
-                        {
-                            CommandName = CommandName.Project,
-                            DotnetRunMessages = true
-                        }
+                    ReplacePorts(Profiles[Project.Name])
+                    : new()
+                    {
+                        CommandName = CommandName.Project,
+                        DotnetRunMessages = true
+                    }
                 }
             };
         }
@@ -426,8 +384,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     IisExpress = new IisExpressClass
                     {
                         ApplicationUrl = string.IsNullOrEmpty(_defaultApplicationUrl) ? 
-                            new Uri($"http://localhost:{_randomPort}/") :
-                            new Uri(_defaultApplicationUrl),
+                        new Uri($"http://localhost:{_randomPort}/") :
+                        new Uri(_defaultApplicationUrl),
                         SslPort = _randomSslPort
                     }
                 },
@@ -435,28 +393,28 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 {
 
                     [Project.Name] = Profiles.ContainsKey(Project.Name) ?
-                        ReplacePorts(Profiles[Project.Name])
-                        : new()
-                        {
-                            CommandName = CommandName.Project,
-                            LaunchBrowser = true,
-                            ApplicationUrl = string.IsNullOrEmpty(_defaultApplicationUrl) ? 
-                                $"https://localhost:{_randomSslPort}/" :
-                                _defaultApplicationUrl,
-                            LaunchUrl = _defaultLaunchUrlPath == null
-                                ? null
-                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
-                        },
+                    ReplacePorts(Profiles[Project.Name])
+                    : new()
+                    {
+                        CommandName = CommandName.Project,
+                        LaunchBrowser = true,
+                        ApplicationUrl = string.IsNullOrEmpty(_defaultApplicationUrl) ? 
+                        $"https://localhost:{_randomSslPort}/" :
+                        _defaultApplicationUrl,
+                        LaunchUrl = _defaultLaunchUrlPath == null
+                        ? null
+                        : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
+                    },
                     ["IIS Express"] = Profiles.ContainsKey("IIS Express") ?
-                        ReplacePorts(Profiles["IIS Express"])
-                        : new()
-                        {
-                            CommandName = CommandName.IisExpress,
-                            LaunchBrowser = true,
-                            LaunchUrl = _defaultLaunchUrlPath == null
-                                ? null
-                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
-                        }
+                    ReplacePorts(Profiles["IIS Express"])
+                    : new()
+                    {
+                        CommandName = CommandName.IisExpress,
+                        LaunchBrowser = true,
+                        LaunchUrl = _defaultLaunchUrlPath == null
+                        ? null
+                        : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
+                    }
                 }
             };
         }

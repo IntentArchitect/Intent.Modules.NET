@@ -1,4 +1,5 @@
 using System;
+using Intent.Domain.Guardrails.Contracts.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
@@ -30,7 +31,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
             else if (element.IsEnumModel())
             {
-                AddEnum(file, element.AsEnumModel());
+                AddEnum(file, template, element.AsEnumModel());
             }
             else if (element.IsValueObjectModel())
             {
@@ -47,6 +48,10 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             else if (element.IsDomainServiceModel())
             {
                 AddDomainService(file, template, element.AsDomainServiceModel());
+            }
+            else if (element.IsDomainEvent())
+            {
+                AddDomainEvent(file, template, element);
             }
             else
             {
@@ -79,11 +84,12 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     @class.AddContractNavigationProperties(template, model.AssociatedClasses);
                     @class.AddStubbedConstructors(template, model.Constructors);
                     @class.AddStubbedMethods(template, model.Operations);
+                    @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyClass(model));
                 },
                 baseKind: model.ParentClass?.GetContractTypeKind());
         }
 
-        public static void AddEnum(CSharpFile file, EnumModel model)
+        public static void AddEnum(CSharpFile file, ICSharpTemplate template, EnumModel model)
         {
             file.AddEnum(model.Name, @enum =>
             {
@@ -92,6 +98,8 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 {
                     @enum.AddLiteral(literal.Name, string.IsNullOrWhiteSpace(literal.Value) ? null : literal.Value);
                 }
+
+                @enum.ApplyContractAccessModifier(template, model.InternalElement, model.GetEnumConfiguration()?.AccessModifier().Value);
             });
         }
 
@@ -101,6 +109,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddContractProperties(template, model.Attributes);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
@@ -110,6 +119,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddStubbedMethods(template, model.Operations);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
@@ -130,8 +140,40 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     }
 
                     @class.AddContractProperties(template, model.Attributes);
+                    @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDataContract(model));
                 },
                 baseKind: model.BaseDataContract?.GetContractTypeKind());
+        }
+
+        /// <summary>
+        /// A Domain Event, read from raw metadata (see <see cref="DomainEventsMetadata"/>). Events have no operations;
+        /// Domain Event Origin associations (which operations raise an event) generate nothing.
+        /// </summary>
+        public static void AddDomainEvent(CSharpFile file, ICSharpTemplate template, IElement model)
+        {
+            var baseEvent = model.GetBaseDomainEvent();
+            file.AddContractType(model, model.Name, model.GetDomainEventContractTypeKind(), @class =>
+                {
+                    @class.RepresentsModel(model);
+                    foreach (var genericType in model.GenericTypes)
+                    {
+                        @class.AddGenericParameter(genericType.Name);
+                    }
+
+                    if (model.IsAbstract)
+                    {
+                        @class.Abstract();
+                    }
+
+                    if (baseEvent != null)
+                    {
+                        @class.WithBaseType(template.GetTypeName(GuardrailsContractsDomainRoles.DomainEvent, baseEvent));
+                    }
+
+                    @class.AddDomainEventProperties(template, model.GetDomainEventProperties());
+                    @class.ApplyContractModifiers(template, model, model.GetDomainEventModifiers(), template.IsInheritedByAnyDomainEvent(model));
+                },
+                baseKind: baseEvent?.GetDomainEventContractTypeKind());
         }
 
         public static void AddDomainService(CSharpFile file, ICSharpTemplate template, DomainServiceModel model)
@@ -140,6 +182,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddStubbedMethods(template, model.Operations);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
     }

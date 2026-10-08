@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="41304368-35ef-4063-ae8a-017587f7c8ac" version="3.1.0">
+  <comment>Overrides how the Domain Event contract is declared: Type sets class or record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
+  <name>Type Configuration</name>
+  <targetMode>filter-function</targetMode>
+  <targetFilterFunction>return element.specializationId == "0814e459-fb9b-47db-b7eb-32ce30397e8a";</targetFilterFunction>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="fa-code" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>e1000a88-d8cd-4f0a-9d5a-b45b4c9ec666</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="b0470223-735b-4e2b-96c4-0b0f37031c0d">
+      <hint>class or record. Empty means class.</hint>
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>class</option>
+        <option>record</option>
+      </valueOptions>
+    </property>
+    <property id="77b57734-5d54-4178-85e0-24dd0fc99410">
+      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial. Is Abstract on the element still adds abstract.</hint>
+      <name>Modifiers</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. internal sealed</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

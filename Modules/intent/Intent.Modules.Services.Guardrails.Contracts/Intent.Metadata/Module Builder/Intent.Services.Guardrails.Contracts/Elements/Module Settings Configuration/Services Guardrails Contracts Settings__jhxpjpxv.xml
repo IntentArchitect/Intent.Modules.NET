@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c686f0ee-a3a9-4933-b7bc-9ba35b6530f3" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Services Guardrails Contracts Settings</name>
+  <display>Services Guardrails Contracts Settings</display>
+  <sort-children>manually</sort-children>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="15b3e709-aeb8-410a-9172-1273eb7b0864" name="Configuration">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="ce4eefa2-657c-42b0-a8cf-bbe35ef1d8a9" display="Settings Type" value="Application Settings" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="d0c9c937-5c8f-4adb-be14-b9bdd3748741" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Default Type Modifiers</name>
+      <display>Default Type Modifiers</display>
+      <sort-children>manually</sort-children>
+      <parentFolderId>c686f0ee-a3a9-4933-b7bc-9ba35b6530f3</parentFolderId>
+      <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+      <packageName>Intent.Services.Guardrails.Contracts</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The modifiers every class and record contract is declared with, unless its Type Configuration sets Modifiers. sealed is left off abstract types and types another modelled type inherits from. Enums take only the access modifier, unless their Enum Configuration sets one." />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="public" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="3be2f908-841b-4f24-ac0e-7fac8c85063c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>public</name>
+          <display>public = public</display>
+          <value>public</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="7b3395c6-7415-451d-939f-1c719b4b2bfd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>internal</name>
+          <display>internal = internal</display>
+          <value>internal</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="f3247e20-68e0-447b-9ebd-58f829256001" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>public sealed</name>
+          <display>public sealed = public sealed</display>
+          <value>public sealed</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="d22c4c9d-fbc7-47a2-b498-848e3542eedb" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>internal sealed</name>
+          <display>internal sealed = internal sealed</display>
+          <value>internal sealed</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="210dcbc8-4afe-4902-8f09-564327cf1ac9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>public partial</name>
+          <display>public partial = public partial</display>
+          <value>public partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="7e606037-cb3a-4406-8f39-7fe4be5554a3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>internal partial</name>
+          <display>internal partial = internal partial</display>
+          <value>internal partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="3d15c203-4ffd-44f8-88d7-a44e4a4ebc70" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>public sealed partial</name>
+          <display>public sealed partial = public sealed partial</display>
+          <value>public sealed partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="31e45b70-cefc-4f5d-96e6-a0fa39d65e72" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>internal sealed partial</name>
+          <display>internal sealed partial = internal sealed partial</display>
+          <value>internal sealed partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

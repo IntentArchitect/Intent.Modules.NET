@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="395ff369-19ec-4616-84cb-9be1670dac4a" version="3.1.0">
-  <comment>Overrides the C# type kind the guardrail contract emits for this element. Leave Type empty to use the element's default (class).</comment>
+  <comment>Overrides how the guardrail contract declares this element: Type sets class or record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
   <name>Type Configuration</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -34,6 +34,14 @@
         <option>class</option>
         <option>record</option>
       </valueOptions>
+    </property>
+    <property id="202f4b32-ffec-4d9c-a696-07d26242d8ee">
+      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial. Is Abstract on the element still adds abstract.</hint>
+      <name>Modifiers</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. internal sealed</placeholder>
     </property>
   </properties>
 </stereotypeDefinition>

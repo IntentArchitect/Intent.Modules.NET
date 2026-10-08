@@ -14,6 +14,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public const string Repository = "Guardrails.Contracts.Domain.Repository";
         public const string DataContract = "Guardrails.Contracts.Domain.DataContract";
         public const string DomainService = "Guardrails.Contracts.Domain.DomainService";
+        public const string DomainEvent = "Guardrails.Contracts.Domain.DomainEvent";
 
         public static IReadOnlyList<string> All { get; } = new[]
         {
@@ -22,7 +23,8 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             ValueObject,
             Repository,
             DataContract,
-            DomainService
+            DomainService,
+            DomainEvent
         };
     }
 }

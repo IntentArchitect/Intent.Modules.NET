@@ -120,6 +120,21 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         }
 
         /// <summary>
+        /// A Domain Event's Property. There is no typed accessor (see <see cref="DomainEventsMetadata"/>), so the
+        /// stereotype is read by definition id, then mapped through the same <see cref="FormatFor"/>.
+        /// </summary>
+        public static string GetDomainEventPropertyCollectionFormat(this IElement property)
+        {
+            if (property.TypeReference?.IsCollection != true)
+            {
+                return null;
+            }
+
+            var setting = property.GetCollectionTypeSetting();
+            return setting == null ? null : FormatFor(property, setting.Value.CustomFormat, setting.Value.Option);
+        }
+
+        /// <summary>
         /// The single mapping from a Collection Type option to a collection format; <c>{0}</c> is the element type.
         /// Returns null for no option (an empty Type), which keeps the template default.
         /// </summary>

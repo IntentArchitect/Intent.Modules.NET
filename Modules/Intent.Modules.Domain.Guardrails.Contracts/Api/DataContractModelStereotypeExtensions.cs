@@ -106,6 +106,11 @@ namespace Intent.Domain.Guardrails.Contracts.Api
                 return new TypeOptions(_stereotype.GetProperty<string>("Type"));
             }
 
+            public string Modifiers()
+            {
+                return _stereotype.GetProperty<string>("Modifiers");
+            }
+
             public class TypeOptions
             {
                 public readonly string Value;

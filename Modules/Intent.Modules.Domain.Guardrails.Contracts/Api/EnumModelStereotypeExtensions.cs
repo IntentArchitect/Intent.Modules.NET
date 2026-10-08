@@ -13,6 +13,29 @@ namespace Intent.Domain.Guardrails.Contracts.Api
 {
     public static class EnumModelStereotypeExtensions
     {
+        public static EnumConfiguration GetEnumConfiguration(this EnumModel model)
+        {
+            var stereotype = model.GetStereotype(EnumConfiguration.DefinitionId);
+            return stereotype != null ? new EnumConfiguration(stereotype) : null;
+        }
+
+
+        public static bool HasEnumConfiguration(this EnumModel model)
+        {
+            return model.HasStereotype(EnumConfiguration.DefinitionId);
+        }
+
+        public static bool TryGetEnumConfiguration(this EnumModel model, out EnumConfiguration stereotype)
+        {
+            if (!HasEnumConfiguration(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new EnumConfiguration(model.GetStereotype(EnumConfiguration.DefinitionId));
+            return true;
+        }
         public static FileConfig GetFileConfig(this EnumModel model)
         {
             var stereotype = model.GetStereotype(FileConfig.DefinitionId);
@@ -35,6 +58,62 @@ namespace Intent.Domain.Guardrails.Contracts.Api
 
             stereotype = new FileConfig(model.GetStereotype(FileConfig.DefinitionId));
             return true;
+        }
+
+        public class EnumConfiguration
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "5f9ff631-18cd-4320-b33c-7024de5b7914";
+
+            public EnumConfiguration(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public AccessModifierOptions AccessModifier()
+            {
+                return new AccessModifierOptions(_stereotype.GetProperty<string>("Access Modifier"));
+            }
+
+            public class AccessModifierOptions
+            {
+                public readonly string Value;
+
+                public AccessModifierOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public AccessModifierOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "public":
+                            return AccessModifierOptionsEnum.Public;
+                        case "internal":
+                            return AccessModifierOptionsEnum.Internal;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsPublic()
+                {
+                    return Value == "public";
+                }
+                public bool IsInternal()
+                {
+                    return Value == "internal";
+                }
+            }
+
+            public enum AccessModifierOptionsEnum
+            {
+                Public,
+                Internal
+            }
         }
 
         public class FileConfig

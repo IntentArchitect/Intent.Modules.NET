@@ -27,7 +27,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates.RepositoryContrac
             var fileConfig = Model.GetFileConfig();
 
             CSharpFile = new CSharpFile(ContractFileGroups.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true, this.GetNamespace()), this.GetFolderPath(), this)
-                .IntentManagedMerge();
+                .IntentManagedContractMerge();
 
             ContractTypeBuilders.AddRepository(CSharpFile, this, Model);
             CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());

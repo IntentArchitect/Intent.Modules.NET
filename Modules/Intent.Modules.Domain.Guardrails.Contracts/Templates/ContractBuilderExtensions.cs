@@ -33,6 +33,23 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
         }
 
+        /// <summary>
+        /// The merge directives every contract file carries (user decision): the file-wide
+        /// <c>[assembly: DefaultIntentManaged(Mode.Merge)]</c>, plus a default for constructors and methods,
+        /// <c>[assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]</c>.
+        /// Same as the Services module's; keep the two in step.
+        /// </summary>
+        public static CSharpFile IntentManagedContractMerge(this CSharpFile file)
+        {
+            return file
+                .IntentManagedMerge()
+                .AddAssemblyAttribute(CSharpDefaultIntentManagedAttribute.Merge()
+                    .WithSignatureFully()
+                    .AddArgument("Attributes = Mode.Merge")
+                    .AddArgument("Comments = Mode.Merge")
+                    .AddArgument("Targets = Targets.Constructors | Targets.Methods"));
+        }
+
         // Names are always passed as strings: the builder's model overloads (e.g. AddProperty(type, model)) Pascal-case
         // the name, and contracts must keep the codebase's own casing exactly as modelled in the designer.
         public static void AddContractProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<AttributeModel> attributes)
@@ -40,6 +57,17 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             foreach (var attribute in attributes)
             {
                 @class.AddProperty(template.GetPropertyTypeName(attribute.TypeReference, attribute.GetCollectionFormat()), attribute.Name, property => property.RepresentsModel(attribute));
+            }
+        }
+
+        /// <summary>
+        /// A Domain Event's Properties (raw elements, see <see cref="DomainEventsMetadata"/>), formatted like attribute properties.
+        /// </summary>
+        public static void AddDomainEventProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<IElement> properties)
+        {
+            foreach (var property in properties)
+            {
+                @class.AddProperty(template.GetPropertyTypeName(property.TypeReference, property.GetDomainEventPropertyCollectionFormat()), property.Name, p => p.RepresentsModel(property));
             }
         }
 

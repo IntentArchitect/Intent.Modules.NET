@@ -51,6 +51,7 @@ Run **reverse-engineer-domain** first when the code has a domain layer. Commands
    | Handlers that load, create, update or delete Domain entities via repositories or a DbContext, and a Domain designer exists | `Intent.Modelers.Services.DomainInteractions` |
    | Pagination types (`PagedResult<T>`, `PagedList`) | none; reference the `Intent.Modelers.Services.Pagination` package (§3) |
    | Integration events / messaging (MassTransit, Azure Service Bus, `IEventBus`) | `Intent.Modelers.Eventing` + `Intent.Modelers.Services.EventInteractions` |
+   | Domain event handlers: `INotificationHandler<…DomainEvent…>`, `IDomainEventHandler<T>`, `DomainEventNotification<T>` | `Intent.Modelers.Domain.Events` (run **reverse-engineer-domain** first, so the Domain Events exist to link to) |
 
    - Get the exact current version with `searchAvailableModules(id)`, then call `install_or_update_modules` and state in one line what you installed and why.
    - After installing, a designer tab may open a dialog that blocks tools. Ask the user to close it, then continue.
@@ -59,19 +60,22 @@ Run **reverse-engineer-domain** first when the code has a domain layer. Commands
 3. Decompile the installed template (see **reverse-engineer-domain** §0) to confirm:
    - **Path:** `GetFolderPath()` → path = Template Output + designer folders.
    - **Name:** the class name is `Model.Name` verbatim.
-   - **Type kind:** the DTO kind. Older builds always emit `class`. Newer builds honour the **`Type Configuration`** stereotype (`Type`: `record` | `class`).
+   - **Type kind:** the DTO kind. Older builds always emit `class`. Newer builds honour the **`Type Configuration`** stereotype (`Type`: `record` | `class`), and its `Modifiers` together with the `Default Type Modifiers` module setting (§3).
 
 ## 1. Extract the code (read-only, in parallel)
 
 Dispatch `Explore` sub-agents in one message, one per feature folder group (e.g. Customers+Products, Orders+Payments+Wishlists). Each slice also reads its controllers. Ask for:
 
 - **Each command / query:**
-  - Path, namespace, name and kind (`class` or `record`).
+  - Path, namespace, name, kind (`class` or `record`) and declaration modifiers (`public`, `internal` or none, plus `sealed`, `abstract`, `static`, `partial`).
   - Every property: exact type, nullability, collection-ness and default value.
   - Return type (`Guid`, a DTO, a list of DTOs, `PagedResult<…>`, or nothing).
   - `[Authorize(Roles/Policy)]` / `[AllowAnonymous]`.
   - Brief validator rules.
-- **Each DTO:** path, namespace, `class` or `record`, and every property.
+- **Each DTO:** path, namespace, `class` or `record`, declaration modifiers, and every property.
+- **Each service:** path, namespace, class name and declaration modifiers.
+- **Each enum:** path, namespace, access modifier (`public`, `internal` or none), and literals with explicit values.
+- **Each domain event handler:** path, namespace, class name, declaration modifiers, and the domain event(s) it handles.
 - **Each controller action:**
   - HTTP verb, **absolute route**, and success status code.
   - Which properties bind from the route, query or body.
@@ -80,7 +84,16 @@ Dispatch `Explore` sub-agents in one message, one per feature folder group (e.g.
 
 ## 2. Align the Codebase Structure
 
-Move the Services Guardrails Template Outputs (CommandContract, QueryContract, DtoContract, EnumContract, ServiceContract) to the **Application project folder that contains the feature folders**, usually the project root. They often start in the Api project. Save the designer.
+Move the Services Guardrails Template Outputs (CommandContract, QueryContract, DtoContract, EnumContract, ServiceContract) to the **Application project folder that contains the feature folders**, usually the project root. They often start in the Api project.
+
+- **One template, several locations.** A template is not limited to one Template Output. When a template's existing files live in more than one project or root folder (e.g. enums in both the DTO and Business projects), **duplicate the Template Output**, one copy per location. Give each copy a **Registration Filter** (on its `Template Output Settings` stereotype) that selects which model instances generate there.
+  - The filter is a Dynamic LINQ expression over the template's model (e.g. `EnumModel`, `DTOModel`, `ServiceModel`, `ClassModel`) and must return `bool`. `Folder.Name` is usually the simplest discriminator. Use `np(...)` for anything that can be null. Example: `np(Folder.Name) == "BusinessObject"` on the Business copy and `np(Folder.Name) != "BusinessObject"` on the DTO copy.
+  - **Filters must be mutually exclusive.** An instance matching two outputs fails the SF. An empty filter matches everything, so when you add a filtered copy, also give the original the complementary filter.
+  - Script it: `project.addChild("Template Output", "<TemplateId>")`, then `ensureStereotype("Template Output Settings").setProperty("Registration Filter", "<expr>")`.
+  - Model those elements in a designer folder that the filter selects on, and combine with `File Config` (`Filename` / `Namespace`) to land each type in its exact existing file.
+  - `File Config` can't move a file to another project; a filtered Template Output can. Use Type-Definition placeholders only for types that can't be elements at all (nested types, `dynamic`, framework types).
+
+Save the Codebase Structure designer (`saveOnSuccess: true` on a no-op script) once it is right.
 
 ## 3. Model the services
 
@@ -108,6 +121,13 @@ Move the Services Guardrails Template Outputs (CommandContract, QueryContract, D
      - Nothing: leave it unset (void).
    - **Domain enums:** use them directly as field types.
    - **`Type Configuration`** (newer module only). Apply it **only when required**: set `Type = record` on a DTO or request that is a `record` in code. Leave the default for classes. If the stereotype doesn't exist, the code has records, and the template emits `class`, **ask the user**: convert the records to classes, or wait for the module. Merging a `class` into a `record` file adds a duplicate type.
+   - **Type modifiers:** Merge mode replaces each class, record or enum declaration's modifiers with the generated ones, so they must match the code.
+     - **Set the convention once, before the first SF run.** If most of the code's declarations aren't plain `public` (e.g. `internal sealed`), set the application setting `Default Type Modifiers` (group `Services Guardrails Contracts Settings`) to the dominant combination. Its options are `public` or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. Read it with `getApplicationSettings({ search: "Default Type Modifiers" })` (via `run_solution_query`), change it with `update_application_settings`, and state in one line what you set and why. The Domain module has its own setting of the same name. A type declared without an access modifier is `internal`.
+     - **The setting's `sealed` is left off automatically** for an abstract DTO and for a DTO another DTO inherits from.
+     - **Exceptions:** wherever a type differs from the setting, apply `Type Configuration` and set `Modifiers` to the code's keywords, e.g. `public` or `internal static`: one of `public` / `internal`, plus any of `sealed`, `abstract`, `static`, `partial`, in any order. `Is Abstract` on a DTO still adds `abstract`. An invalid or conflicting value (e.g. `sealed` on an abstract DTO) is an error on the element.
+     - **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply `Enum Configuration` and set `Access Modifier` to `public` or `internal`.
+     - **Can't be reproduced:** `file`-scoped and `unsafe` types. Leave them unmodelled and report them.
+   - **Domain event handlers** (when `Intent.Modelers.Domain.Events` is installed): one `Domain Event Handler` element per handler class, in the folder that matches its code folder, named verbatim, with an association to each Domain Event it handles. The contract is class-only: it guards the class, its file and its namespace. Merge mode keeps the `Handle` methods and handler interfaces. `File Config` applies to handlers too. Handlers have their own `Type Configuration` with only `Modifiers` (handlers are often `internal sealed`).
 4. **Validate** (`getDesignerValidationErrors`), then save the designer (`saveOnSuccess: true`). A script-created package is invisible to the SF until saved.
 
 ## 4. Endpoint surface and security (HTTP solution; WebApi/Security metadata installed in §0)
@@ -158,9 +178,16 @@ Create a `Diagram` in the package if none exists:
 
 Same as **reverse-engineer-domain** §6:
 
-1. **Every change must be header-only.** Expect `using` + `IntentTemplate`, the merge directive, and the csproj package reference.
-2. **Diagnose anything else:** `create` means a path or name mismatch, or a type that lives in another file without `File Config` (§3). Member inserts mean model drift. Deletes mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong.
-3. **Merge directive:** every adopted file needs `[assembly: DefaultIntentManaged(Mode.Merge)]`, plain form. Add it if the template didn't, **before** the next model change. Otherwise the SF strips `[Authorize]`, `IRequest<T>, ICommand` base types, XML docs and constructors.
+1. **Every change must be header-only.** Expect `using` + `IntentTemplate`, the two merge directives, and the csproj package reference.
+2. **Diagnose anything else:** `create` means a path or name mismatch, or a type that lives in another file without `File Config` (§3). Member inserts mean model drift. Deletes mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong. A changed type declaration (e.g. `internal sealed class` rewritten to `public class`) means the modifiers are wrong: fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3).
+3. **Merge directives:** every adopted file needs both of these lines, in this order:
+
+   ```csharp
+   [assembly: DefaultIntentManaged(Mode.Merge)]
+   [assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]
+   ```
+
+   The current templates write both. Add them if the template didn't, **before** the next model change. Without the first, the SF strips `[Authorize]`, `IRequest<T>, ICommand` base types, XML docs and constructors. The second fully manages constructor and method signatures, and merges their attributes and comments.
 4. **Apply** the reviewed files only.
 5. **Finish with:** `dotnet build`, tests, and a final SF run proposing **zero** changes.
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="42c50d5f-97a1-47b2-b76a-f7bb5936650f" version="3.1.0">
+  <comment>Optional overrides for the file the Domain Event contract is merged into. Set only what differs from the convention.</comment>
+  <name>File Config</name>
+  <targetMode>filter-function</targetMode>
+  <targetFilterFunction>return element.specializationId == "0814e459-fb9b-47db-b7eb-32ce30397e8a";</targetFilterFunction>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="fa-file-code-o" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>e1000a88-d8cd-4f0a-9d5a-b45b4c9ec666</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="5f63aaa1-52b4-4d58-8d7e-ae603eb859cb">
+      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. Elements with the same Filename in the same folder are generated into one file.</hint>
+      <name>Filename</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. OrderEvents</placeholder>
+    </property>
+    <property id="7c7215ab-c007-428c-8522-e902e97dc022">
+      <hint>Optional. Overrides the namespace derived from the element's folders. Every type sharing a file must have the same namespace.</hint>
+      <name>Namespace</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. Basislink.Domain.Events</placeholder>
+    </property>
+    <property id="4e9b0fd3-b81c-4726-ab42-bc1f6813bdd9">
+      <hint>Optional. Tick when the type is declared in the global namespace (no namespace declaration in the file). Leave Namespace empty.</hint>
+      <name>No Namespace</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

@@ -27,7 +27,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.QueryContract
 
             var fileConfig = Model.GetFileConfig();
             CSharpFile = new CSharpFile(this.GetContractNamespace(Model.InternalElement, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true), this.GetFolderPath(), this)
-                .IntentManagedMerge();
+                .IntentManagedContractMerge();
 
             ContractTypeBuilders.AddQuery(CSharpFile, this, Model);
             CSharpFile.WithContractFileName(Model.InternalElement, fileConfig?.Filename());

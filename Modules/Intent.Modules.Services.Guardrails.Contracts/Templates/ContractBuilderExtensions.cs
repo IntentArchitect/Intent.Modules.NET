@@ -37,6 +37,23 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
+        /// The merge directives every contract file carries (user decision): the file-wide
+        /// <c>[assembly: DefaultIntentManaged(Mode.Merge)]</c>, plus a default for constructors and methods,
+        /// <c>[assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]</c>.
+        /// Same as the Domain module's; keep the two in step.
+        /// </summary>
+        public static CSharpFile IntentManagedContractMerge(this CSharpFile file)
+        {
+            return file
+                .IntentManagedMerge()
+                .AddAssemblyAttribute(CSharpDefaultIntentManagedAttribute.Merge()
+                    .WithSignatureFully()
+                    .AddArgument("Attributes = Mode.Merge")
+                    .AddArgument("Comments = Mode.Merge")
+                    .AddArgument("Targets = Targets.Constructors | Targets.Methods"));
+        }
+
+        /// <summary>
         /// Registers every Services and Domain guardrail contract role as a type source, with
         /// collections formatted as <c>List&lt;T&gt;</c>.
         /// </summary>

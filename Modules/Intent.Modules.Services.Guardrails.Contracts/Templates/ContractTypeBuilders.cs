@@ -5,6 +5,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Services.Guardrails.Contracts.Api;
 
 namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 {
@@ -21,7 +22,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// </summary>
         public static void AddContract(CSharpFile file, ICSharpTemplate template, IElement element)
         {
-            if (element.IsServiceModel())
+            if (element.IsDomainEventHandler())
+            {
+                AddDomainEventHandler(file, template, element);
+            }
+            else if (element.IsServiceModel())
             {
                 AddService(file, template, element.AsServiceModel());
             }
@@ -39,7 +44,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             }
             else if (element.IsEnumModel())
             {
-                AddEnum(file, element.AsEnumModel());
+                AddEnum(file, template, element.AsEnumModel());
             }
             else
             {
@@ -54,6 +59,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddStubbedOperations(template, model.Operations);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
@@ -63,6 +69,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddContractProperties(template, model.Properties);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
@@ -72,6 +79,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             {
                 @class.RepresentsModel(model);
                 @class.AddContractProperties(template, model.Properties);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
@@ -97,10 +105,25 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 }
 
                 @class.AddContractProperties(template, model.Fields);
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDto(model));
             });
         }
 
-        public static void AddEnum(CSharpFile file, EnumModel model)
+        /// <summary>
+        /// A Domain Event Handler (raw element, see <see cref="DomainEventsMetadata"/>) is guarded as a class only:
+        /// its Handle method signatures and base interfaces are framework-specific, and Merge keeps the existing ones.
+        /// Its modifiers come from its own Type Configuration stereotype (Modifiers only) or the module setting.
+        /// </summary>
+        public static void AddDomainEventHandler(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            file.AddClass(element.Name, @class =>
+            {
+                @class.RepresentsModel(element);
+                @class.ApplyContractModifiers(template, element, element.GetDomainEventHandlerModifiers(), isInherited: false);
+            });
+        }
+
+        public static void AddEnum(CSharpFile file, ICSharpTemplate template, EnumModel model)
         {
             file.AddEnum(model.Name, @enum =>
             {
@@ -109,6 +132,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 {
                     @enum.AddLiteral(literal.Name, string.IsNullOrWhiteSpace(literal.Value) ? null : literal.Value);
                 }
+
+                @enum.ApplyContractAccessModifier(template, model.InternalElement, model.GetEnumConfiguration()?.AccessModifier().Value);
             });
         }
     }

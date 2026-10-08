@@ -51,6 +51,7 @@ Load **scripting-the-model**, **exploring-the-model** and **changing-the-model**
    | Neither (no persistence)                                                                                                                                                                                                                                                   | None                                                                              |
 
    - Always also make sure `Intent.Modelers.Domain.Repositories`, `.ValueObjects` and `.Services` are installed when the code has custom repositories, value objects or domain services.
+   - **Domain events:** install `Intent.Modelers.Domain.Events` when the code has domain events. Signs: classes deriving from a `DomainEvent` base or implementing `IDomainEvent` (or a MediatR `INotification` used as a domain event), a `DomainEvents` collection on entities, or calls like `AddDomainEvent(...)` / `RaiseDomainEvent(...)`. The guardrail modules deliberately don't depend on it: without it, Domain Events can't be modelled and nothing is generated for them.
    - Get the exact current version with `searchAvailableModules(id)`, then call `install_or_update_modules` and state in one line what you installed and why.
    - After installing, a designer tab may open a dialog that blocks tools. Ask the user to close it, then continue.
    - Ask only when the evidence is ambiguous (e.g. a custom data layer you can't classify).
@@ -59,7 +60,7 @@ Load **scripting-the-model**, **exploring-the-model** and **changing-the-model**
    - **Class name:** whether it is `Model.Name` verbatim (no `I`, no suffix).
    - **Repository output:** whether repositories generate the **interface** (older pre-release: name the element `ICustomerRepository`, output in the Domain project) or the **implementation class** (newer: name it `CustomerRepository`, output in the Infrastructure `Repositories` folder).
    - **Async operations:** read `IsAsync()`, `IncludeCancellationToken()` and `GetOperationReturnType()` in `ContractBuilderExtensions`, then model to what you find (see §3 "Async operations"). In the current module an operation is async when its name ends in `Async` (ordinal, so case-sensitive), unless its `Async Configuration` stereotype says otherwise. The older `Asynchronous` stereotype is no longer read.
-   - **Merge directive:** whether the template output carries `[assembly: DefaultIntentManaged(...)]` (see §6).
+   - **Merge directives:** whether the template output carries both `[assembly: DefaultIntentManaged(...)]` lines (see §6).
 
 ## 1. Extract the code (read-only, in parallel)
 
@@ -67,10 +68,12 @@ Dispatch read-only `Explore` sub-agents in **one** message, with non-overlapping
 
 - **Domain project, every `.cs` file plus the EF `IEntityTypeConfiguration`s and the `DbContext`.** For each type, report:
   - Path, namespace and kind (aggregate root / owned entity / value object / enum / repository interface / helper).
+  - Declaration modifiers exactly as written: `public`, `internal` or none, plus `sealed`, `abstract`, `static`, `partial`.
   - Every property: exact type, nullability, collection-ness and setter.
   - Constructors and public methods (signatures only).
   - Enum literals with explicit values.
   - Repository interfaces: their base interface and every extra method signature.
+  - Domain events: path, namespace, kind (`class` / `record`), declaration modifiers, every property, the base type, and which entity methods or constructors raise each event.
 - **From the EF configuration, per property and relationship:**
   - `OwnsOne` / `OwnsMany` / `HasOne` / `HasMany`.
   - FK properties and shared primary keys (`HasForeignKey<T>(x => x.Id)`).
@@ -87,6 +90,13 @@ Template Outputs from a fresh install land under whatever anchor was available, 
 | EntityContract                                                           | the folder that holds entity sub-folders (e.g. `Domain/Entities`)                               |
 | EnumContract, ValueObjectContract, DomainContract, DomainServiceContract | wherever their files' parent folders hang (often the Domain project root)                       |
 | RepositoryContract                                                       | interface variant: `Domain/Repositories`. Implementation variant: `Infrastructure/Repositories` |
+
+- **One template, several locations.** A template is not limited to one Template Output. When a template's existing files live in more than one project or root folder (e.g. enums in both the DTO and Business projects), **duplicate the Template Output**, one copy per location. Give each copy a **Registration Filter** (on its `Template Output Settings` stereotype) that selects which model instances generate there.
+  - The filter is a Dynamic LINQ expression over the template's model (e.g. `EnumModel`, `DTOModel`, `ServiceModel`, `ClassModel`) and must return `bool`. `Folder.Name` is usually the simplest discriminator. Use `np(...)` for anything that can be null. Example: `np(Folder.Name) == "BusinessObject"` on the Business copy and `np(Folder.Name) != "BusinessObject"` on the DTO copy.
+  - **Filters must be mutually exclusive.** An instance matching two outputs fails the SF. An empty filter matches everything, so when you add a filtered copy, also give the original the complementary filter.
+  - Script it: `project.addChild("Template Output", "<TemplateId>")`, then `ensureStereotype("Template Output Settings").setProperty("Registration Filter", "<expr>")`.
+  - Model those elements in a designer folder that the filter selects on, and combine with `File Config` (`Filename` / `Namespace`) to land each type in its exact existing file.
+  - `File Config` can't move a file to another project; a filtered Template Output can. Use Type-Definition placeholders only for types that can't be elements at all (nested types, `dynamic`, framework types).
 
 Save the Codebase Structure designer (`saveOnSuccess: true` on a no-op script) once it is right.
 
@@ -107,6 +117,12 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - **File named differently from its type:** set `Filename` to the file's name, with or without `.cs` (the folder stays the element's own).
   - **File holding several types:** model every type as its own element in that file's folder, and set `Filename` to the file's name on each type the file is *not* named after. Elements that end up at the same path are generated into one file, written by the element the file is named after.
   - **Set it before the first SF run.** If a type already had its own file generated and you then point it at another file, the SF offers to delete the old file. Treat that as a destructive change.
+- **Type modifiers:** Merge mode replaces each class, record or enum declaration's modifiers with the generated ones, so they must match the code.
+  - **Set the convention once, before the first SF run.** If most of the code's declarations aren't plain `public` (e.g. `internal sealed`), set the application setting `Default Type Modifiers` (group `Domain Guardrails Contracts Settings`) to the dominant combination. Its options are `public` or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. Read it with `getApplicationSettings({ search: "Default Type Modifiers" })` (via `run_solution_query`), change it with `update_application_settings`, and state in one line what you set and why. A type declared without an access modifier is `internal`.
+  - **The setting's `sealed` is left off automatically** for an abstract type (`Is Abstract`, or an abstract operation) and for a type another modelled type inherits from.
+  - **Exceptions:** wherever a type differs from the setting, apply `Type Configuration` and set `Modifiers` to the code's keywords, e.g. `public`, `internal static` or `public abstract partial`: one of `public` / `internal`, plus any of `sealed`, `abstract`, `static`, `partial`, in any order. `Is Abstract` on the element still adds `abstract`. An invalid or conflicting value (e.g. `sealed` on an abstract type) is an error on the element.
+  - **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply `Enum Configuration` and set `Access Modifier` to `public` or `internal`.
+  - **Can't be reproduced:** `file`-scoped and `unsafe` types. Leave them unmodelled and report them.
 - **Delete placeholders** such as a default `MyEntity` if the code doesn't have them.
 - **Attributes:** use the exact names and types (`string`, `guid`, `datetime`, `decimal`, `long`, `binary`, enums). Set `isNullable` for `T?`. Do **not** model collections of entities as attributes; use associations.
 - **Collections:** the template emits `ICollection<T>` for properties and `IEnumerable<T>` for operation parameters and return types. Wherever the code uses anything else (`List<T>`, `IList<T>`, `IReadOnlyCollection<T>`, `IQueryable<T>`, `T[]`, …), apply the **`Collection Type`** stereotype to that attribute, association end, parameter or operation (for its return type) and set `Type` to match (`Custom` + `Custom Format` with `{0}` for anything else). Otherwise Merge mode rewrites the existing signature.
@@ -118,6 +134,10 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - Unidirectional unless the code navigates both ways.
 - **Primary / foreign keys:** do **not** add `Id` / `XxxId` attributes unless RDBMS is installed (§4). Merge mode keeps them in code either way.
 - **Repositories:** add one only where the code has a custom repository. Set its type to the entity, and model **only the extra methods** beyond the generic base, named exactly as in code (`ExistsWithEmailAsync`, …). Set their return types and async settings by "Async operations" below; for a conventional `…Async` method that is `T`, without `Task`. Put the repository in the same designer folder as its entity's code folder.
+- **Domain events** (when `Intent.Modelers.Domain.Events` is installed): one `Domain Event` element per event class, in the designer folder that matches its code folder, named verbatim, with one `Property` per property (exact names and types).
+  - Model a base event as a Domain Event Generalization only when the base is itself a modelled domain event. A framework base or interface (`DomainEvent`, `IDomainEvent`, `INotification`) stays in the code under Merge mode.
+  - Linking the raising operation or constructor to the event (the Domain Event Origin association) is optional. It documents intent and generates nothing.
+  - Domain Events take the same `File Config` and `Type Configuration` stereotypes (record events are common), and their properties take `Collection Type`.
 - **Comments:** copy XML-doc summaries into element comments where they help.
 - **Constructors and methods:** model only behaviour you need. Unmodelled members survive in Merge mode.
 
@@ -205,15 +225,23 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
 1. **Run the SF.** Every change must be an `overwrite` of an existing file, consisting of:
    - `using Intent.RoslynWeaver.Attributes;`
    - `[assembly: IntentTemplate(...)]`
-   - possibly the merge directive
+   - possibly the two merge directives
    - plus one `PackageReference Intent.RoslynWeaver.Attributes` per csproj.
 2. **Diagnose anything else:**
    - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
    - **A changed signature on a modelled operation** (`async` added or removed, a `CancellationToken` appended or dropped, the return type wrapped in `Task<…>`) means the async rule didn't match the code. Set `Async Configuration` on that operation (§3 "Async operations"). If its shape can't be reproduced, remove the operation from the model. Never hand-edit the signature.
+   - **A changed type declaration** (e.g. `internal sealed class` rewritten to `public class`, or `partial` dropped) means the modifiers don't match the code. Fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3 "Type modifiers"). Never hand-edit the declaration.
    - **Deleted or changed lines** mean drift. Use **resolve-destructive-changes**. Never apply destructive changes.
    - **A template exception** ("The parent has not been set for this type …") is a module bug. Report it to the user. Only as a last resort, and only _before_ that template has ever been applied, disable that Template Output (`Template Output Settings.Is Enabled = false`). Disabling it after an apply makes the SF propose deleting every file it previously owned.
-3. **Merge directive (critical).** Every adopted file must carry `[assembly: DefaultIntentManaged(Mode.Merge)]`. If the template didn't write it, add exactly that line above the `IntentTemplate` attribute in each adopted file **before any further model change**. Without it the next SF run treats the file as fully managed and strips constructors, XML docs, attributes, base types, `virtual` and initialisers. Use plain `Mode.Merge`: a `Targets = Methods | Constructors | Properties`-scoped variant leaves the class declaration itself fully managed.
+3. **Merge directives (critical).** Every adopted file must carry both of these lines, in this order:
+
+   ```csharp
+   [assembly: DefaultIntentManaged(Mode.Merge)]
+   [assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]
+   ```
+
+   The current templates write both. If the template didn't, add exactly these lines above the `IntentTemplate` attribute in each adopted file **before any further model change**. Without the first, the next SF run treats the file as fully managed and strips constructors, XML docs, attributes, base types, `virtual` and initialisers. The first must stay untargeted: with only a targeted directive, the class declaration itself is fully managed. The second fully manages constructor and method signatures, and merges their attributes and comments.
 4. **Apply** only the header-only files you reviewed (`apply_staged_file_changes` with explicit paths).
 5. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes.
 
@@ -222,7 +250,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
 - **Saving.** A package created by script (`createPackage`) is not seen by the SF until the designer is saved. Save it explicitly with `saveOnSuccess: true`.
 - **Blocking dialogs.** After a module install, a designer tab may show a dialog that blocks every tool ("A dialog is currently showing…"). Ask the user to resolve it, then retry.
 - **Concurrent edits.** The user may be editing the model while you work. Elements you didn't create (new classes, attributes, changed multiplicities) are theirs. Don't modify them and don't apply their generated output. Report them instead.
-- **No hand edits.** Beyond the merge directive, never hand-edit adopted files to make the diff clean. Fix the model.
+- **No hand edits.** Beyond the merge directives, never hand-edit adopted files to make the diff clean. Fix the model.
 """);
         }
 

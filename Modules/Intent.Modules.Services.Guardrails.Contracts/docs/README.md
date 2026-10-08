@@ -2,7 +2,7 @@
 
 Guards the Services designer's model in existing C# code. Each modelled element is merged into its existing file, so every modelled type and member keeps existing. Methods are always generated with empty bodies, so merging never adds code to an implementation.
 
-Install it into an application whose existing code has been modelled in the Services designer, by hand, with Intent's C# importer, or with the AI skill below. Apply the Type Configuration and Async Configuration stereotypes wherever the code differs from the defaults described below.
+Install it into an application whose existing code has been modelled in the Services designer, by hand, with Intent's C# importer, or with the AI skill below. Set the Default Type Modifiers module setting to the code's convention, and apply the Type Configuration and Async Configuration stereotypes wherever the code differs from the defaults described below.
 
 ## AI skill: reverse-engineer-services
 
@@ -24,6 +24,7 @@ Run it after `reverse-engineer-domain` (from Intent.Domain.Guardrails.Contracts)
 | QueryContract   | Query   | Type with its fields as properties; no `IRequest` or other interfaces   | `Guardrails.Contracts.Services.Query`   |
 | DtoContract     | DTO     | Type with fields as properties and its base DTO                         | `Guardrails.Contracts.Services.Dto`     |
 | EnumContract    | Enum    | `enum` with its literals and values                                     | `Guardrails.Contracts.Services.Enum`    |
+| DomainEventHandlerContract | Domain Event Handler | Class only, no members. Handle methods and handler interfaces stay in the code. Generated only when `Intent.Modelers.Domain.Events` is installed | `Guardrails.Contracts.Services.DomainEventHandler` |
 
 Put an Output Anchor carrying these roles at the Application project's root. Designer folders then supply the rest of each file's path.
 
@@ -35,9 +36,21 @@ Every template except EnumContract emits a `class` by default. Apply **Type Conf
 - A DTO and its base DTO must have the same Type Configuration, because C# doesn't allow a record and a class to inherit from each other. A mismatch raises an error on the DTO.
 - Structs are not supported, because Intent's C# file builder can't declare them.
 
+## Type modifiers
+
+Under Merge mode the generated declaration's modifiers replace the existing ones, so they must match the code.
+
+- **Default Type Modifiers** (module setting, in Services Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. Set it to the codebase's own convention, e.g. `internal sealed`. The Domain contract module has its own setting.
+- **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `internal static` or `public sealed partial`. Use one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. A type declared without an access modifier is `internal`, so model it as `internal`.
+- **Domain Event Handlers** have their own Type Configuration with Modifiers only, because a handler is always a class.
+- **abstract:** Is Abstract on a DTO always adds `abstract`.
+- **sealed from the setting** is left off an abstract DTO, and off a DTO that another DTO inherits from.
+- **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, or a keyword the builder can't write (`file`, `unsafe`, …).
+- **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply **Enum Configuration** and set **Access Modifier** to `public` or `internal`. An enum declared without an access modifier is `internal`.
+
 ## File Config stereotype
 
-Each element is generated into `<ElementName>.cs` in its folder, with the namespace derived from its folders. Apply **File Config** to a Service, Command, Query, DTO or Enum only where the code differs. Both properties are optional; set just the one you need.
+Each element is generated into `<ElementName>.cs` in its folder, with the namespace derived from its folders. Apply **File Config** to a Service, Command, Query, DTO, Enum or Domain Event Handler only where the code differs. Both properties are optional; set just the one you need.
 
 - **Namespace:** replaces the derived namespace, for a file whose namespace doesn't follow its folders (e.g. `Basislink.DTO` in a sub-folder). It is used as given, with no casing changes, and references to the type get the matching `using`.
 - **No Namespace:** tick it for a type declared in the global namespace (no `namespace` declaration in the file). Leave Namespace empty; setting both is an error. References to the type need no `using`.
@@ -70,6 +83,7 @@ Apply **Parameter Modifier** to a service operation parameter where the code dec
 
 ```csharp
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]
 
 namespace Acme.Application.Orders
 {
@@ -81,7 +95,7 @@ namespace Acme.Application.Orders
 }
 ```
 
-When merged into an existing file under `Mode.Merge`:
+Every file carries both directives: plain `Mode.Merge` for the file, plus a default for constructors and methods that fully manages their signatures and merges their attributes and comments. When merged into an existing file:
 
 - A modelled member that is **missing** is added with the generated signature and an empty body. A new method that returns a value won't compile until its body is written.
 - A modelled member that **already exists** is merged too: its signature (modifiers, return type, parameters) is brought in line with the model, and its body is merged with the empty generated body, so the existing statements stay as they are. Review the Software Factory diff before applying.

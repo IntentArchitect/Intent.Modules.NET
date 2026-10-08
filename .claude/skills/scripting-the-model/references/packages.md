@@ -8,9 +8,8 @@ declare function getPackages(): IPackageApi[];
 declare function lookupPackage(nameOrId: string): IPackageApi | null;
 
 /**
- * Creates a package, as the designer's "New Package" does: placed beside the existing ones (written on save), with
- * the package type's default references loaded. `packageType` is a package specialization name or id (default: the
- * designer's first). The name is trimmed. THROWS on a duplicate, an invalid file name or an unknown type. AWAIT it.
+ * Creates a package as "New Package" does (written on save), with the type's default references loaded. `packageType`
+ * (name or id) may be omitted only if the designer has one type or its packages share one. THROWS on a bad name or type. AWAIT it.
  */
 declare function createPackage(name: string, packageType?: string): Promise<IPackageApi>;
 ```
@@ -18,7 +17,7 @@ declare function createPackage(name: string, packageType?: string): Promise<IPac
 An empty designer needs a package before anything can be created in it — create it yourself; don't ask the user to:
 
 ```js
-const pkg = lookupPackage("<package type>") ?? await createPackage("<package type>"); // Use correct package type
+const pkg = lookupPackage("<package name>") ?? await createPackage("<package name>", "<package type>"); // type from getDesignerSchema()
 return pkg.getName();
 ```
 

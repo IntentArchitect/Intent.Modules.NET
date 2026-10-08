@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -13,7 +14,7 @@ using CSharpKeywords = Intent.Modules.Common.Templates.CSharp;
 namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 {
     /// <summary>
-    /// Implemented by the five Services contract templates so that templates writing to the same
+    /// Implemented by the Services contract templates so that templates writing to the same
     /// output file can find each other. Declared on a hand-written partial of each template, because
     /// the base list of the designer-generated partial is Signature-Fully managed.
     /// </summary>
@@ -94,6 +95,52 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static string GetContractNamespace<TModel>(this CSharpTemplateBase<TModel> template, IElement element, string namespaceOverride, bool noNamespace)
             where TModel : IHasFolder
         {
+            return ResolveContractNamespace(() => template.GetNamespace(), element, namespaceOverride, noNamespace);
+        }
+
+        /// <summary>
+        /// The same rules for a template whose model is a raw <see cref="IElement"/> (Domain Event Handlers).
+        /// The built-in <c>GetNamespace()</c> only follows folders for <see cref="IHasFolder"/> models and would
+        /// return just the project namespace for an <see cref="IElement"/>, so the folder-derived default is
+        /// computed here with the same rule (folders that are namespace providers).
+        /// </summary>
+        public static string GetContractNamespace(this CSharpTemplateBase<IElement> template, IElement element, string namespaceOverride, bool noNamespace)
+        {
+            return ResolveContractNamespace(
+                () => string.Join(".", new[] { template.OutputTarget.GetNamespace() }
+                    .Concat(GetParentFolders(element)
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Name) && (!x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider()))
+                        .Select(x => x.Name))),
+                element, namespaceOverride, noNamespace);
+        }
+
+        /// <summary>
+        /// Folder path for a raw <see cref="IElement"/> model, matching <c>GetFolderPath()</c> for
+        /// <see cref="IHasFolder"/> models (which returns an empty path for an <see cref="IElement"/>).
+        /// </summary>
+        public static string GetElementFolderPath(this IElement element)
+        {
+            return string.Join("/", GetParentFolders(element).Select(x => x.Name).Where(x => !string.IsNullOrWhiteSpace(x)));
+        }
+
+        private static IList<FolderModel> GetParentFolders(IElement element)
+        {
+            var parent = element.ParentElement;
+            return new ElementFolder(parent != null && parent.IsFolderModel() ? parent.AsFolderModel() : null).GetParentFolders();
+        }
+
+        private sealed class ElementFolder : IHasFolder
+        {
+            public ElementFolder(FolderModel folder)
+            {
+                Folder = folder;
+            }
+
+            public FolderModel Folder { get; }
+        }
+
+        private static string ResolveContractNamespace(Func<string> derivedNamespace, IElement element, string namespaceOverride, bool noNamespace)
+        {
             if (noNamespace)
             {
                 if (!string.IsNullOrWhiteSpace(namespaceOverride))
@@ -108,7 +155,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 
             if (string.IsNullOrWhiteSpace(namespaceOverride))
             {
-                return template.GetNamespace();
+                return derivedNamespace();
             }
 
             var value = namespaceOverride.Trim();

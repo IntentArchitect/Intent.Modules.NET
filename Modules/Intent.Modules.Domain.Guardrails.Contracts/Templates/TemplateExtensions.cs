@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modelers.Domain.Services.Api;
@@ -6,6 +7,7 @@ using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.DomainContract;
+using Intent.Modules.Domain.Guardrails.Contracts.Templates.DomainEventContract;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.DomainServiceContract;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.EntityContract;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.EnumContract;
@@ -29,6 +31,16 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public static string GetDomainContractName(this IIntentTemplate template, DataContractModel model)
         {
             return template.GetTypeName(DomainContractTemplate.TemplateId, model);
+        }
+
+        public static string GetDomainEventContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(DomainEventContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDomainEventContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(DomainEventContractTemplate.TemplateId, model);
         }
 
         public static string GetDomainServiceContractName<T>(this IIntentTemplate<T> template) where T : DomainServiceModel

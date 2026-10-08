@@ -157,6 +157,19 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 > [!NOTE]
 > In applications which have the `Intent.ModuleBuilder` module installed, its _Dependency version overwrite behavior_ setting also applies to NuGet packages, allowing the default upgrade behaviour described above (_If newer_) to be changed to _Always_ or _Never_.
 
+## Launch Settings
+
+For web, Blazor WebAssembly and worker projects (and `Microsoft.NET.Sdk` projects with _Generate LaunchSettings File_ enabled on the _.NET Settings_ stereotype), this module generates `Properties/launchSettings.json`, including launch profiles and environment variables which other modules register (e.g. a `Docker` profile).
+
+Once the file exists, it is only ever added to:
+
+- A registered profile is appended when no profile with that name exists. A profile which already exists is never changed.
+- A registered environment variable is added to a profile which does not have it. Existing values are never changed.
+- When an HTTP endpoint is required (e.g. _Enable HTTPS Redirect_ is disabled), `http://localhost:{port}` is added to an `applicationUrl` which only has `https://` entries.
+- On `*.Api` profiles, a `launchUrl` pointing at `swagger` or `scalar/v1` is updated when you switch between Swashbuckle and Scalar. Any other `launchUrl` is left as you set it.
+
+Everything else in the file is preserved as written, including `$schema`, property order, unrecognized properties and `commandName` values, indentation, line endings, and the trailing newline. When nothing needs adding, the file is left untouched.
+
 ## Stereotype details
 
 ### The _.NET Settings_ stereotype
