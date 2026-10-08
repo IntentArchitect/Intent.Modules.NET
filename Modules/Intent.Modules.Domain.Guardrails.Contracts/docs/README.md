@@ -76,6 +76,18 @@ The Type must match the code. Under Merge mode, the generated signature replaces
 
 Apply **Parameter Modifier** to a constructor or operation parameter where the code declares a modifier, and set **Modifier** to `ref`, `out`, `in`, `ref readonly` or `params`. It must match the code: under Merge mode the generated signature replaces the existing one, so a missing or wrong modifier rewrites the method. For `params`, model the parameter as a collection and set Collection Type to `Array` (`params string[] tags`). `this` (extension methods) is not supported.
 
+## Default values
+
+Set the Value of a constructor or operation parameter to give it a default (`string area = "Basislink"`), and the Value of an attribute or Domain Event property to give it an initializer (`public string Area { get; set; } = "Basislink";`). The Value is formatted the way Intent's DTO templates format it:
+
+- **Strings** are quoted, unless the value is already quoted, is `null` or `default`, or looks like an expression (contains `.` or `(`, or starts with `_`). `Basislink` and `"Basislink"` both give `"Basislink"`.
+- **Enums:** a literal name gets its enum type (`Info` gives `EventTypeEnum.Info`).
+- **Dates:** a bare `DateTime`, `Date` or `DateTimeOffset` member gets its type (`Now` gives `DateTime.Now`).
+- **`@`** passes the rest through verbatim (`@DefaultArea` gives `DefaultArea`).
+- Anything else (`null`, `false`, `0`, `string.Empty`) is used as written.
+
+The default must match the code: under Merge mode the generated signature replaces the existing one, so a missing Value drops the default. A `ref`, `out` or `params` parameter can't have a default, and giving one a Value raises an error on the parameter.
+
 ## Generated shape
 
 ```csharp

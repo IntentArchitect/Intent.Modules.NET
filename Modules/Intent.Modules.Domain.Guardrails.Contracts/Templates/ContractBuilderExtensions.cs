@@ -56,7 +56,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         {
             foreach (var attribute in attributes)
             {
-                @class.AddProperty(template.GetPropertyTypeName(attribute.TypeReference, attribute.GetCollectionFormat()), attribute.Name, property => property.RepresentsModel(attribute));
+                @class.AddProperty(template.GetPropertyTypeName(attribute.TypeReference, attribute.GetCollectionFormat()), attribute.Name, property =>
+                {
+                    property.RepresentsModel(attribute);
+                    property.WithContractInitialValue(template, attribute.Value, attribute.TypeReference);
+                });
             }
         }
 
@@ -67,7 +71,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         {
             foreach (var property in properties)
             {
-                @class.AddProperty(template.GetPropertyTypeName(property.TypeReference, property.GetDomainEventPropertyCollectionFormat()), property.Name, p => p.RepresentsModel(property));
+                @class.AddProperty(template.GetPropertyTypeName(property.TypeReference, property.GetDomainEventPropertyCollectionFormat()), property.Name, p =>
+                {
+                    p.RepresentsModel(property);
+                    p.WithContractInitialValue(template, property.Value, property.TypeReference);
+                });
             }
         }
 
@@ -88,13 +96,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     ctor.RepresentsModel(constructor);
                     foreach (var parameter in constructor.Parameters)
                     {
-                        ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(parameter.GetModifier(), isConstructorParameter: true), parameter.Name, param =>
+                        var modifier = parameter.GetModifier();
+                        ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(modifier, isConstructorParameter: true), parameter.Name, param =>
                         {
                             param.RepresentsModel(parameter);
-                            if (!string.IsNullOrWhiteSpace(parameter.Value))
-                            {
-                                param.WithDefaultValue(parameter.Value);
-                            }
+                            param.WithContractDefaultValue(template, parameter.InternalElement, parameter.Value, parameter.TypeReference, modifier);
                         });
                     }
                 });
@@ -125,10 +131,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                         {
                             param.RepresentsModel(parameter);
                             param.ApplyModifier(modifier);
-                            if (!string.IsNullOrWhiteSpace(parameter.Value))
-                            {
-                                param.WithDefaultValue(parameter.Value);
-                            }
+                            param.WithContractDefaultValue(template, parameter.InternalElement, parameter.Value, parameter.TypeReference, modifier);
                         });
                     }
 

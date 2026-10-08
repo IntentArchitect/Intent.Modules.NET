@@ -67,7 +67,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Adds a <c>{ get; set; }</c> property (no initializer) for each field, name used verbatim.
+        /// Adds a <c>{ get; set; }</c> property for each field, name used verbatim, with an initializer when the field has
+        /// a Value (see <see cref="ContractDefaultValues"/>).
         /// Must be called from within a builder callback so types resolve at build time.
         /// </summary>
         public static void AddContractProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<DTOFieldModel> fields)
@@ -77,6 +78,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.AddProperty(template.GetContractTypeName(field), field.Name, property =>
                 {
                     property.RepresentsModel(field);
+                    property.WithContractInitialValue(template, field.Value, field.TypeReference);
                 });
             }
         }
@@ -115,6 +117,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                         {
                             param.RepresentsModel(parameter);
                             param.ApplyModifier(modifier);
+                            param.WithContractDefaultValue(template, parameter.InternalElement, parameter.Value, parameter.TypeReference, modifier);
                         });
                     }
 
