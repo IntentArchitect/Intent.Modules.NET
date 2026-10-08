@@ -109,7 +109,7 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
 ## Conventions
 
 - Every name is used exactly as it appears in the designer, with no casing changes: types, properties, navigation properties, constructors, methods, parameters, enum literals and namespaces. `OrderRepository` stays `OrderRepository` (no interface or `I` prefix is generated), and a property modelled as `orderDate` stays `orderDate`. The designer mirrors the code, so its casing is the codebase's own convention.
-- Collections are `ICollection<T>` on properties and `IEnumerable<T>` on operation parameters and return types, unless Collection Type says otherwise.
+- Collections are `ICollection<T>` on properties and `IEnumerable<T>` on operation parameters and return types, unless Collection Type says otherwise. They are written by their short name with a `using` (`IEnumerable<T>`, not `System.Collections.Generic.IEnumerable<T>`), even in a file that also imports `System.Collections`.
 - An operation is async when its name ends in `Async`, unless the **Async Configuration** stereotype says otherwise. An async operation gets the `async` keyword, a `Task` or `Task<T>` return type (a modelled `Task`/`ValueTask` is not wrapped again) and a `CancellationToken cancellationToken = default` parameter. On the stereotype, **Is Async** explicitly sets async or sync, and **Include Cancellation Token** turns the extra parameter off. Abstract operations never get `async`. A new async method's empty body has no `await`, so the compiler warns (CS1998).
 - Types modelled in the Domain designer resolve through this module's roles, so the right `using`s are added across folders and projects.
 - Consumer projects need the `Intent.RoslynWeaver.Attributes` NuGet package.
