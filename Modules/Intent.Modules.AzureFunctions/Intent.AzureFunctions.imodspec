@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions</id>
-  <version>5.0.27-pre.0</version>
+  <version>5.0.27-pre.1</version>
   <supportedClientVersions>[4.5.15-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides support to describe Azure Functions in the Services designer</summary>
   <description>Provides support to describe Azure Functions in the Services designer</description>
@@ -104,7 +104,7 @@
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="20b1fcbd-0a02-4bc6-993d-4127e1e3c893" title="Trigger Names From App Settings" type="switch">
-          <hint>Emits trigger queue, topic, subscription, event hub, Cosmos DB database/container and timer schedule values as %AzureFunctions:{FunctionName}:{Part}% app setting references, seeded with the modelled values into local.settings.json only. That file is not deployed, so add the same keys to the Function App's configuration.</hint>
+          <hint>Read trigger names and schedules from app settings instead of hardcoding them.</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>
